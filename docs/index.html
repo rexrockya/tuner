@@ -39,23 +39,24 @@
     <div class="controls"><button id="toggle">开启麦克风</button><p class="privacy">音频仅在本机处理，不会录制或上传</p><p class="error" id="error"></p></div>
   </main>
   <section id="lesson-page" data-view="lesson">
-    <div class="lesson-kicker">BEBOP PATH / CONFIRMATION</div>
+    <div class="lesson-kicker">OPEN SCORE PATH / PUBLIC DOMAIN</div>
     <div class="course-progress"><span>课程进度</span><div class="progress-rail"><div class="progress-fill" id="course-progress"></div></div><strong id="progress-label">0%</strong></div>
     <div class="course-map" id="course-map" aria-label="学习路线"></div>
     <h1 class="lesson-title" id="lesson-title"></h1>
     <div class="lesson-meta" id="lesson-meta"></div>
     <h2 class="track-title" id="lesson-track"></h2>
     <div class="harmony" id="lesson-harmony"></div>
-    <div class="score-source"><strong>关于原谱</strong><p>已移除错误的自动生成五线谱。《Confirmation》主题及 Parker 独奏的准确逐音谱请使用有授权的 Charlie Parker Omnibook；本站只展示和声结构与学习分析。</p></div>
-    <div class="lesson-actions"><button id="preview">▶ 在线试听</button><button class="secondary" id="choose-audio">选择本地完整录音</button><button class="secondary" id="choose-score">选择本地原谱</button><button class="secondary" id="open-score">取得正版原谱 ↗</button><button class="secondary" id="open-track">打开原曲 ↗</button></div>
+    <div class="score-source"><strong>公版谱与同源演奏</strong><p>本关使用 Mutopia Project 的公版排版，不再使用受版权限制的经典录音或自动生成谱。下方 MIDI 与 PDF 来自同一个版本，适合逐段定位练习。</p></div>
+    <div class="lesson-actions"><button class="secondary" id="choose-audio">选择自己的录音</button><button class="secondary" id="choose-score">选择自己的 PDF</button><button class="secondary" id="open-score">打开公版 PDF ↗</button><button class="secondary" id="open-track">查看来源与许可 ↗</button></div>
     <input id="audio-file" type="file" accept="audio/*" hidden><input id="score-file" type="file" accept="application/pdf,image/*" hidden>
-    <div class="player-panel"><div class="player-row"><span id="current-time">0:00</span><input id="preview-progress" type="range" min="0" max="0" step="0.1" value="0" aria-label="录音进度"><span id="duration">0:00</span></div><div class="sync-tools"><label>BPM <input id="sync-bpm" type="number" min="40" max="400" value="200"></label><button id="set-anchor">把当前时间设为所选小节起点</button><button id="set-loop-a">设为 A 点</button><button id="set-loop-b">设为 B 点</button><button id="toggle-loop">AB 循环：关</button></div><p class="source-hint" id="preview-status">选择本地完整录音后，先播放到第 1 小节并设置时间锚点；文件不会上传</p></div>
-    <div class="score-view" id="score-view"></div>
-    <div class="form-title"><h3>32 小节和声地图</h3><span>点击任一小节查看功能</span></div>
+    <div class="player-panel"><midi-player id="midi-player" src="assets/midi/original-rags.mid" sound-font visualizer="#midi-staff"></midi-player><midi-visualizer type="staff" id="midi-staff"></midi-visualizer><div class="sync-tools"><button id="set-loop-a">设当前段为 A 点</button><button id="set-loop-b">设当前段为 B 点</button><button id="toggle-loop">AB 循环：关</button></div><p class="source-hint" id="preview-status">点击下方段落会跳到对应位置；播放时当前段落与音阶会自动高亮</p></div>
+    <div class="score-view" id="score-view" style="display:block"><iframe src="assets/scores/original-rags.pdf#view=FitH" title="Original Rags 公版五线谱"></iframe></div>
+    <div class="form-title"><h3>曲式与和声地图</h3><span>点击段落定位播放</span></div>
     <div class="harmony-map" id="harmony-map"></div><div class="bar-detail" id="bar-detail"></div>
     <div class="lesson-grid"><article class="lesson-card"><h3>和声与旋律</h3><ul id="lesson-analysis"></ul></article><article class="lesson-card"><h3>本关怎么练</h3><ol id="lesson-practice"></ol></article></div>
     <div class="lesson-foot"><button class="done" id="complete-lesson">完成本关并继续 →</button></div>
   </section>
+  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/html-midi-player@1.6.0"></script>
   <script src="lessons.js"></script>
   <script>
     const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
