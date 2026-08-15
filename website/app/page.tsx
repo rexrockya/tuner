@@ -29,10 +29,21 @@ export default function Home() {
   const [pitch, setPitch] = useState(-1);
   const [error, setError] = useState("");
   const stopRef = useRef<(() => void) | null>(null);
-  useEffect(() => () => stopRef.current?.(), []);
+  useEffect(() => () => {
+    const stop = stopRef.current;
+    stopRef.current = null;
+    stop?.();
+  }, []);
 
   async function toggleTuner() {
-    if (active) { stopRef.current?.(); setActive(false); setPitch(-1); return; }
+    if (active) {
+      const stop = stopRef.current;
+      stopRef.current = null;
+      stop?.();
+      setActive(false);
+      setPitch(-1);
+      return;
+    }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const context = new AudioContext();
@@ -41,7 +52,11 @@ export default function Home() {
       const samples = new Float32Array(analyser.fftSize); let frame = 0;
       const update = () => { analyser.getFloatTimeDomainData(samples); const found = detectPitch(samples, context.sampleRate); if (found > 0) setPitch(found); frame = requestAnimationFrame(update); };
       update(); setActive(true); setError("");
-      stopRef.current = () => { cancelAnimationFrame(frame); stream.getTracks().forEach((track) => track.stop()); void context.close(); };
+      stopRef.current = () => {
+        cancelAnimationFrame(frame);
+        stream.getTracks().forEach((track) => track.stop());
+        if (context.state !== "closed") void context.close();
+      };
     } catch { setError("无法使用麦克风，请检查浏览器权限。音频不会离开你的设备。"); }
   }
 
