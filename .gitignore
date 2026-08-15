@@ -1,0 +1,14 @@
+.gradle/
+.tools/
+.idea/
+local.properties
+**/build/
+website/node_modules/
+website/.next/
+website/dist/
+website/.wrangler/
+website/.vinext/
+website/.git-site-backup/
+website/.env*
+*.jks
+*.keystore

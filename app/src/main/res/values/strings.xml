@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">弦音</string>
+    <string name="microphone_permission">弦音需要麦克风权限来识别乐器音高。声音只在手机本地处理，不会录制或上传。</string>
+</resources>
+
