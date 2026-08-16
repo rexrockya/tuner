@@ -33,14 +33,36 @@ const LICKS = SOURCE.map(([id, group, chord, degree, bars, kind]) => {
   };
 });
 
+const THEORY = {
+  blues: {
+    tags: ["蓝调音：C / C♯（♭3→3）", "落点：G（A7 的 ♭7）", "律动：弱拍起，八分音符推进"],
+    context: "衍生：把结尾移到 D7 · 语境：《Now’s the Time》类 blues（非原句出处）"
+  },
+  minor: {
+    tags: ["骨架音：C（♭3）、G（♭7）", "色彩：留意 F / F♯ 的小调差异", "律动：vamp 上保持连续句型"],
+    context: "衍生：结尾落 A / C / E / G · 语境：《So What》类 vamp（非原句出处）"
+  },
+  major: {
+    tags: ["声部：A→G♯（ii7→V7）", "解决：D→C♯（V7→Imaj7）", "律动：换和弦处落三音或七音"],
+    context: "衍生：移调练 12 个 ii–V–I · 语境：《Tune Up》类进行（非原句出处）"
+  }
+};
+
+const THEORY_OVERRIDES = {
+  fzJaVIxn: {
+    tags: ["特征音：G♮（A7 的 ♭7）", "经过音：G♯→A 半音导向", "换和弦：F♯ 是 D7 的三音", "律动：弱拍起，连续八分音符"],
+    context: "衍生：末两拍顺移到 D7 · 语境：《Now’s the Time》类 blues（非原句出处）"
+  }
+};
+
 const $ = id => document.getElementById(id);
 const audio = document.createElement("audio");
 audio.preload = "metadata";
 let current = 0;
-let slow = false;
 let looping = true;
-let listFilter = "all";
 let scoreZoom = 1;
+let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
+const SOURCE_BPM = 120;
 
 function readSet(key) {
   try {
@@ -114,7 +136,7 @@ function enableDrag(container, axis = "x") {
   let moved = false;
 
   container.addEventListener("pointerdown", event => {
-    if (event.button !== 0) return;
+    if (event.button !== 0 || event.pointerType === "touch") return;
     pointerId = event.pointerId;
     startX = event.clientX;
     startY = event.clientY;
@@ -129,6 +151,7 @@ function enableDrag(container, axis = "x") {
     const dx = event.clientX - startX;
     const dy = event.clientY - startY;
     if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+    if (moved) event.preventDefault();
     if (axis === "x" || axis === "both") container.scrollLeft = startLeft - dx;
     if (axis === "both") container.scrollTop = startTop - dy;
   });
@@ -155,21 +178,30 @@ function updateScoreZoom() {
 
 function renderList() {
   const saved = favorites();
-  const visible = listFilter === "favorites"
-    ? LICKS.map((lick, index) => ({ lick, index })).filter(item => saved.has(item.lick.id))
-    : LICKS.map((lick, index) => ({ lick, index }));
-
-  $("show-all").classList.toggle("active", listFilter === "all");
-  $("show-favorites").classList.toggle("active", listFilter === "favorites");
-  $("show-all").textContent = `全部 ${LICKS.length}`;
-  $("show-favorites").textContent = `★ ${saved.size}`;
+  const visible = LICKS.map((lick, index) => ({ lick, index })).filter(item => saved.has(item.lick.id));
+  $("favorite-count").textContent = `★ ${saved.size}`;
   $("harmony-map").innerHTML = visible.length ? visible.map(({ lick, index }) => `
     <a class="bar ${index === current ? "active" : ""}"
        href="${lickHref(index)}" data-lick-index="${index}">
-      <span class="num">${saved.has(lick.id) ? "★" : "#"}${index + 1}</span>
+      <span class="num">★${index + 1}</span>
       <strong>${lick.chord}</strong><small>${lick.degree}</small>
     </a>`).join("") : '<p class="empty-list">还没有收藏</p>';
   bindLickLinks($("harmony-map"));
+}
+
+function updatePracticeBpm(next, syncMetronome = true) {
+  practiceBpm = Math.max(40, Math.min(180, Math.round(Number(next) / 5) * 5));
+  localStorage.setItem("tuner-bpm-v1", String(practiceBpm));
+  audio.playbackRate = practiceBpm / SOURCE_BPM;
+  audio.preservesPitch = true;
+  audio.webkitPreservesPitch = true;
+  $("lesson-bpm").textContent = `${practiceBpm} BPM`;
+  if (syncMetronome) window.metronome?.setBpm(practiceBpm);
+}
+
+function updateMetronomeButton(running) {
+  $("lesson-metro").classList.toggle("on", Boolean(running));
+  $("lesson-metro").textContent = `节拍：${running ? "开" : "关"}`;
 }
 
 function render() {
@@ -192,15 +224,8 @@ function render() {
   $("lesson-meta").textContent = `公开授权 · ${lick.bars} 小节`;
   $("lesson-track").textContent = lick.chord;
   $("lesson-harmony").innerHTML = `<strong>${lick.degree}</strong>`;
-  $("bar-detail").innerHTML = '<strong>怎么练</strong><span class="scale-line">听一句，模仿一句。</span>';
-  if (lick.kind === "blues") {
-    $("lesson-analysis").innerHTML = "<li>A Blues。</li><li>I7 / IV7。</li>";
-  } else if (lick.kind === "minor") {
-    $("lesson-analysis").innerHTML = "<li>Am7 vamp。</li><li>听清落点。</li>";
-  } else {
-    $("lesson-analysis").innerHTML = "<li>A 大调。</li><li>跟随 ii–V–I。</li>";
-  }
-  $("lesson-practice").innerHTML = "<li>慢速循环。</li><li>移到其他调。</li>";
+  const theory = THEORY_OVERRIDES[lick.id] || THEORY[lick.kind];
+  $("bar-detail").innerHTML = `<strong>这条 Lick</strong><div class="theory-tags">${theory.tags.map(item => `<span>${item}</span>`).join("")}</div><small class="theory-context">${theory.context}</small>`;
   $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
   $("preview-status").innerHTML = '谱面与音频：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
   $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
@@ -215,8 +240,9 @@ function render() {
     $("play-lick").textContent = "▶";
   }
   audio.loop = false;
-  audio.playbackRate = slow ? 0.7 : 1;
+  updatePracticeBpm(practiceBpm, false);
   $("toggle-loop").textContent = `循环：${looping ? "开" : "关"}`;
+  updateMetronomeButton(window.metronome?.isRunning?.() || false);
   updateScoreZoom();
   $("lick-staff").scrollTo({ left: 0, top: 0 });
 }
@@ -270,11 +296,12 @@ $("play-lick").addEventListener("click", async () => {
 $("lick-progress").addEventListener("input", event => {
   audio.currentTime = Number(event.target.value);
 });
-$("slow").addEventListener("click", () => {
-  slow = !slow;
-  audio.playbackRate = slow ? 0.7 : 1;
-  $("slow").classList.toggle("on", slow);
-  $("slow").textContent = slow ? "原速" : "慢速 70%";
+$("lesson-bpm-minus").addEventListener("click", () => updatePracticeBpm(practiceBpm - 5));
+$("lesson-bpm-plus").addEventListener("click", () => updatePracticeBpm(practiceBpm + 5));
+$("lesson-metro").addEventListener("click", () => {
+  if (!window.metronome) return;
+  window.metronome.toggle();
+  updateMetronomeButton(window.metronome.isRunning());
 });
 $("toggle-loop").addEventListener("click", () => {
   looping = !looping;
@@ -294,14 +321,6 @@ $("favorite-lick").addEventListener("click", () => {
   items.has(id) ? items.delete(id) : items.add(id);
   saveSet("lick-favorites-v1", items);
   render();
-});
-$("show-all").addEventListener("click", () => {
-  listFilter = "all";
-  renderList();
-});
-$("show-favorites").addEventListener("click", () => {
-  listFilter = "favorites";
-  renderList();
 });
 $("score-minus").addEventListener("click", () => {
   scoreZoom = Math.max(1, scoreZoom - 0.25);
@@ -330,6 +349,10 @@ window.addEventListener("hashchange", () => {
   const index = indexFromHash();
   if (index >= 0) selectLick(index);
 });
+window.addEventListener("tuner:metro-change", event => {
+  if (event.detail?.bpm) updatePracticeBpm(event.detail.bpm, false);
+  updateMetronomeButton(event.detail?.running);
+});
 
 enableDrag($("course-map"), "x");
 enableDrag($("harmony-map"), "x");
@@ -337,6 +360,6 @@ enableDrag($("lick-staff"), "both");
 const initialFromHash = indexFromHash();
 const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
-window.lessonPlayer = { stop: () => stopLick(true), select: selectLick };
+window.lessonPlayer = { stop: () => stopLick(true), select: selectLick, setBpm: updatePracticeBpm };
 render();
 })();
