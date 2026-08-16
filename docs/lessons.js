@@ -1,18 +1,196 @@
-const LICKS=[
- {id:"minor-call",name:"Minor blues call",chord:"A7 / I7",degree:"1–♭3–4–♭5–5",scale:"A blues",use:"放在一段开头，像一句提问。",p:[[69,0,.5],[72,.5,1],[74,1,1.5],[75,1.5,1.75],[76,1.75,2],[74,2,2.5],[72,2.5,3],[69,3,4]]},
- {id:"major-answer",name:"Major blues answer",chord:"A7 / I7",degree:"♭3–3–5–6–1",scale:"A major blues",use:"接在 minor lick 后，形成明暗回答。",p:[[72,0,.5],[73,.5,1],[76,1,1.5],[78,1.5,2],[81,2,2.75],[78,2.75,3.25],[76,3.25,4]]},
- {id:"four-change",name:"IV change lick",chord:"D7 / IV7",degree:"1–♭3–3–5–♭7",scale:"D blues / D Mixolydian",use:"12-bar blues 第 5 小节切到 IV7 时用。",p:[[62,0,.5],[65,.5,1],[66,1,1.5],[69,1.5,2],[72,2,2.5],[69,2.5,3],[66,3,3.5],[62,3.5,4]]},
- {id:"turnaround",name:"V–IV–I turnaround",chord:"E7 → D7 → A7",degree:"V–IV–I",scale:"和弦音 + 半音趋近",use:"放在 12-bar blues 最后两小节。",p:[[64,0,.5],[67,.5,1],[68,1,1.5],[71,1.5,2],[62,2,2.5],[66,2.5,3],[68,3,3.5],[69,3.5,4]]},
- {id:"double-stop",name:"Double-stop response",chord:"A7 / I7",degree:"♭3+5 → 3+6",scale:"A major/minor blues",use:"一句主旋律之后，用双音作回答。",p:[[72,0,1],[76,0,1],[73,1,2],[78,1,2],[72,2,2.5],[76,2,2.5],[69,2.5,4]]},
- {id:"chromatic",name:"Chromatic enclosure",chord:"A7 / I7",degree:"上邻音–下邻音–3",scale:"目标音优先",use:"在强拍落到 C♯，制造 bebop 式解决。",p:[[76,0,.5],[75,.5,1],[73,1,2],[76,2,2.5],[79,2.5,3],[78,3,3.5],[76,3.5,4]]}
-];
-const $=id=>document.getElementById(id);let current=Math.min(Number(localStorage.getItem("lick-current")||0),LICKS.length-1),slow=false,looping=true,playing=false,ctx=null,startAt=0,offset=0,frame=0,voices=[];
-function done(){return new Set(JSON.parse(localStorage.getItem("lick-done")||"[]"))}function save(s){localStorage.setItem("lick-done",JSON.stringify([...s]))}function rate(){return slow?1.43:1}function duration(){return 4*rate()}
-function stopSound(reset=false){voices.forEach(v=>{try{v.stop()}catch{}});voices=[];cancelAnimationFrame(frame);playing=false;$("play-lick").textContent="▶";if(reset){offset=0;$("lick-progress").value=0}document.querySelectorAll(".staff-note").forEach(n=>n.classList.remove("on"))}
-function renderStaff(lick){const notes=lick.p.map(([pitch,start],i)=>{const x=132+start*106,y=82-(pitch-69)*3.5,sharp=[1,3,6,8,10].includes(pitch%12);return`${sharp?`<text x="${x-19}" y="${y+6}" class="acc">♯</text>`:""}<g class="staff-note" data-index="${i}"><ellipse cx="${x}" cy="${y}" rx="9" ry="6"/><line x1="${x+8}" y1="${y}" x2="${x+8}" y2="${y-34}"/></g>`}).join("");const lines=[45,57,69,81,93].map(y=>`<line x1="68" y1="${y}" x2="600" y2="${y}"/>`).join("");$("lick-staff").innerHTML=`<svg viewBox="0 0 620 140" role="img" aria-label="${lick.name} 五线谱"><style>line{stroke:#252a25;stroke-width:2}.staff-note{fill:#111;stroke:#111;stroke-width:2}.staff-note.on{fill:#e14668;stroke:#e14668}.clef{font:54px serif;fill:#111}.meter,.acc{font:700 22px serif;fill:#111}</style>${lines}<text x="72" y="92" class="clef">𝄞</text><text x="105" y="63" class="meter">4</text><text x="105" y="88" class="meter">4</text>${notes}</svg>`}
-function render(){const finished=done(),l=LICKS[current],pct=Math.round(finished.size/LICKS.length*100);$("course-progress").style.width=`${pct}%`;$("progress-label").textContent=`${finished.size}/${LICKS.length}`;$("course-map").innerHTML=LICKS.map((x,i)=>`<button class="level ${finished.has(x.id)?"done":""} ${i===current?"current":""}" data-lick="${i}"><small>Lick ${i+1}</small><strong>${x.name}</strong></button>`).join("");$("harmony-map").innerHTML=LICKS.map((x,i)=>`<button class="bar ${i===current?"active":""}" data-lick="${i}"><span class="num">#${i+1}</span><strong>${x.chord}</strong><small>${x.degree}</small></button>`).join("");$("lesson-title").textContent=l.name;$("lesson-meta").textContent=`A Blues · Lick ${current+1}`;$("lesson-track").textContent=`适用：${l.chord}`;$("lesson-harmony").innerHTML=`<strong>${l.degree}</strong> · ${l.scale}`;$("bar-detail").innerHTML=`<strong>怎么用</strong><span class="scale-line">${l.use}</span>`;$("lesson-analysis").innerHTML="<li>先唱，再弹。</li><li>换到 3 个把位。</li>";$("lesson-practice").innerHTML="<li>原速听 3 遍。</li><li>循环弹 5 遍。</li>";$("master-lick").textContent=finished.has(l.id)?"✓ 已掌握":"标记已掌握";$("complete-lesson").textContent=current===LICKS.length-1?"回到第一条 ↻":"下一条 →";$("prev-lesson").disabled=current===0;$("lick-progress").max=duration();$("lick-time").textContent=`0:0${Math.ceil(duration())}`;renderStaff(l)}
-function selectLick(i){stopSound(true);current=Math.max(0,Math.min(LICKS.length-1,Number(i)));localStorage.setItem("lick-current",current);render()}
-function highlight(t){const r=rate();document.querySelectorAll(".staff-note").forEach((n,i)=>{const a=LICKS[current].p[i];n.classList.toggle("on",t>=a[1]*r&&t<a[2]*r)})}
-function animate(){const t=offset+(ctx.currentTime-startAt);$("lick-progress").value=Math.min(t,duration());highlight(t);if(t>=duration()){if(looping){stopSound();offset=0;play()}else stopSound(true);return}frame=requestAnimationFrame(animate)}
-function play(){if(playing)return;ctx=ctx||new AudioContext();if(ctx.state==="suspended")ctx.resume();playing=true;$("play-lick").textContent="■";startAt=ctx.currentTime;const r=rate();LICKS[current].p.forEach(([pitch,s,e])=>{const from=s*r,to=e*r;if(to<=offset)return;const osc=ctx.createOscillator(),gain=ctx.createGain(),when=ctx.currentTime+Math.max(0,from-offset),end=ctx.currentTime+Math.max(.04,to-offset);osc.type="triangle";osc.frequency.value=440*2**((pitch-69)/12);gain.gain.setValueAtTime(.0001,when);gain.gain.exponentialRampToValueAtTime(.16,when+.015);gain.gain.exponentialRampToValueAtTime(.0001,end);osc.connect(gain).connect(ctx.destination);osc.start(when);osc.stop(end+.02);voices.push(osc)});animate()}
-document.addEventListener("click",e=>{const b=e.target.closest("[data-lick]");if(b)selectLick(b.dataset.lick)});$("play-lick").onclick=()=>playing?stopSound():play();$("lick-progress").oninput=e=>{const was=playing;stopSound();offset=Number(e.target.value);highlight(offset);if(was)play()};$("slow").onclick=()=>{slow=!slow;stopSound(true);$("slow").classList.toggle("on",slow);$("slow").textContent=slow?"恢复原速":"慢速 70%";render()};$("toggle-loop").onclick=()=>{looping=!looping;$("toggle-loop").textContent=`循环：${looping?"开":"关"}`};$("master-lick").onclick=()=>{const s=done(),id=LICKS[current].id;s.has(id)?s.delete(id):s.add(id);save(s);render()};$("prev-lesson").onclick=()=>selectLick(current-1);$("complete-lesson").onclick=()=>selectLick((current+1)%LICKS.length);window.lessonPlayer={stop:()=>stopSound(true)};render();
+(function () {
+const LICKS = [
+  { id: "eLDBSVZa", bars: 3 },
+  { id: "yKz58nSf", bars: 3 },
+  { id: "fzJaVIxn", bars: 3 },
+  { id: "QOSPR0a1", bars: 4 },
+  { id: "UfowT5v3", bars: 4 },
+  { id: "t8TkFr4v", bars: 4 }
+].map((lick, index) => ({
+  ...lick,
+  name: `A Blues Lick ${index + 1}`,
+  chord: lick.bars === 3 ? "A7 → D7 → A7" : "A7 → D7 → A7 → A7",
+  degree: lick.bars === 3 ? "I7 → IV7 → I7" : "I7 → IV7 → I7 → I7",
+  score: `https://bopland.org/data/${lick.id}.png`,
+  audio: `https://bopland.org/data/${lick.id}.mp3`
+}));
+
+const $ = id => document.getElementById(id);
+const audio = document.createElement("audio");
+audio.preload = "metadata";
+let current = 0;
+let slow = false;
+let looping = true;
+
+function completed() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem("lick-done-v2") || "[]"));
+  } catch (_) {
+    return new Set();
+  }
+}
+
+function saveCompleted(items) {
+  localStorage.setItem("lick-done-v2", JSON.stringify([...items]));
+}
+
+function formatTime(value) {
+  if (!Number.isFinite(value)) return "0:00";
+  const seconds = Math.max(0, Math.floor(value));
+  return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+}
+
+function lickHref(index) {
+  return `#lick/${LICKS[index].id}`;
+}
+
+function indexFromHash() {
+  const match = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/);
+  if (!match) return -1;
+  return LICKS.findIndex(lick => lick.id === match[1]);
+}
+
+function stopLick(reset = false) {
+  audio.pause();
+  $("play-lick").textContent = "▶";
+  if (reset) {
+    audio.currentTime = 0;
+    $("lick-progress").value = 0;
+  }
+}
+
+function bindLickLinks(container) {
+  container.querySelectorAll("a[data-lick-index]").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      goToLick(Number(link.dataset.lickIndex));
+    });
+  });
+}
+
+function goToLick(index) {
+  const next = Math.max(0, Math.min(LICKS.length - 1, Number(index)));
+  selectLick(next);
+  const hash = lickHref(next);
+  if (location.hash !== hash) location.hash = hash;
+}
+
+function render() {
+  const finished = completed();
+  const lick = LICKS[current];
+  const percent = Math.round((finished.size / LICKS.length) * 100);
+
+  $("course-progress").style.width = `${percent}%`;
+  $("progress-label").textContent = `${finished.size}/${LICKS.length}`;
+  $("course-map").innerHTML = LICKS.map((item, index) => `
+    <a class="level ${finished.has(item.id) ? "done" : ""} ${index === current ? "current" : ""}"
+       href="${lickHref(index)}" data-lick-index="${index}">
+      <small>Lick ${index + 1}</small><strong>A Blues</strong>
+    </a>`).join("");
+  $("harmony-map").innerHTML = LICKS.map((item, index) => `
+    <a class="bar ${index === current ? "active" : ""}"
+       href="${lickHref(index)}" data-lick-index="${index}">
+      <span class="num">#${index + 1}</span><strong>${item.chord}</strong><small>${item.degree}</small>
+    </a>`).join("");
+  bindLickLinks($("course-map"));
+  bindLickLinks($("harmony-map"));
+
+  $("lesson-title").textContent = lick.name;
+  $("lesson-meta").textContent = `公开授权 · ${lick.bars} 小节`;
+  $("lesson-track").textContent = lick.chord;
+  $("lesson-harmony").innerHTML = `<strong>${lick.degree}</strong>`;
+  $("bar-detail").innerHTML = '<strong>怎么练</strong><span class="scale-line">听一句，模仿一句。</span>';
+  $("lesson-analysis").innerHTML = "<li>A Blues。</li><li>跟着和弦换句。</li>";
+  $("lesson-practice").innerHTML = "<li>慢速循环。</li><li>移到其他调。</li>";
+  $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
+  $("preview-status").innerHTML = '谱面与音频：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
+
+  $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
+  $("prev-lesson").href = lickHref(Math.max(0, current - 1));
+  $("prev-lesson").classList.toggle("disabled", current === 0);
+  $("prev-lesson").setAttribute("aria-disabled", String(current === 0));
+  $("complete-lesson").href = lickHref((current + 1) % LICKS.length);
+  $("complete-lesson").textContent = current === LICKS.length - 1 ? "回到第一条 ↻" : "下一条 →";
+
+  audio.src = lick.audio;
+  audio.loop = looping;
+  audio.playbackRate = slow ? 0.7 : 1;
+  $("lick-progress").value = 0;
+  $("lick-progress").max = 1;
+  $("lick-time").textContent = "0:00";
+  $("play-lick").textContent = "▶";
+}
+
+function selectLick(index) {
+  const next = Math.max(0, Math.min(LICKS.length - 1, Number(index)));
+  if (next === current && audio.src) return;
+  stopLick(true);
+  current = next;
+  localStorage.setItem("lick-current-v2", String(current));
+  render();
+}
+
+audio.addEventListener("loadedmetadata", () => {
+  $("lick-progress").max = audio.duration || 1;
+  $("lick-time").textContent = formatTime(audio.duration);
+});
+audio.addEventListener("timeupdate", () => {
+  $("lick-progress").value = audio.currentTime;
+});
+audio.addEventListener("play", () => { $("play-lick").textContent = "■"; });
+audio.addEventListener("pause", () => { $("play-lick").textContent = "▶"; });
+audio.addEventListener("error", () => {
+  $("preview-status").textContent = "音频加载失败，请检查网络后重试。";
+});
+
+$("play-lick").addEventListener("click", async () => {
+  if (!audio.paused) {
+    audio.pause();
+    return;
+  }
+  try {
+    await audio.play();
+  } catch (_) {
+    $("preview-status").textContent = "浏览器阻止了播放，请再点一次。";
+  }
+});
+$("lick-progress").addEventListener("input", event => {
+  audio.currentTime = Number(event.target.value);
+});
+$("slow").addEventListener("click", () => {
+  slow = !slow;
+  audio.playbackRate = slow ? 0.7 : 1;
+  $("slow").classList.toggle("on", slow);
+  $("slow").textContent = slow ? "原速" : "慢速 70%";
+});
+$("toggle-loop").addEventListener("click", () => {
+  looping = !looping;
+  audio.loop = looping;
+  $("toggle-loop").textContent = `循环：${looping ? "开" : "关"}`;
+});
+$("master-lick").addEventListener("click", () => {
+  const items = completed();
+  const id = LICKS[current].id;
+  items.has(id) ? items.delete(id) : items.add(id);
+  saveCompleted(items);
+  render();
+});
+$("prev-lesson").addEventListener("click", event => {
+  event.preventDefault();
+  if (current > 0) goToLick(current - 1);
+});
+$("complete-lesson").addEventListener("click", event => {
+  event.preventDefault();
+  goToLick((current + 1) % LICKS.length);
+});
+window.addEventListener("hashchange", () => {
+  const index = indexFromHash();
+  if (index >= 0) selectLick(index);
+});
+
+const initialFromHash = indexFromHash();
+const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
+current = initialFromHash >= 0 ? initialFromHash : savedIndex;
+window.lessonPlayer = { stop: () => stopLick(true), select: selectLick };
+render();
+})();
