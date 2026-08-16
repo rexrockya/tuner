@@ -4,6 +4,7 @@ const dom=new JSDOM(html,{url:"https://example.test/",runScripts:"dangerously"})
 dom.window.scrollTo=()=>{};
 dom.window.cancelAnimationFrame=()=>{};dom.window.requestAnimationFrame=()=>1;
 dom.window.HTMLMediaElement.prototype.pause=()=>{};
+dom.window.HTMLElement.prototype.scrollTo=()=>{};
 dom.window.eval(fs.readFileSync("docs/lessons.js","utf8"));
 const q=s=>dom.window.document.querySelector(s),click=s=>q(s).dispatchEvent(new dom.window.MouseEvent("click",{bubbles:true}));
 if(q("#lesson-title").textContent!=="A Blues Lick 1")throw Error("initial lick failed");
@@ -11,7 +12,9 @@ click('[data-lick-index="1"]');if(q("#lesson-title").textContent!=="A Blues Lick
 click('#harmony-map [data-lick-index="2"]');if(q("#lesson-title").textContent!=="A Blues Lick 3")throw Error("map navigation failed");
 if(!q("#lick-staff img")?.src.includes("fzJaVIxn.png"))throw Error("licensed score failed");
 if(!q("#preview-status").textContent.includes("CC BY-SA 4.0"))throw Error("source credit failed");
-if(q("#complete-lesson").textContent!=="下一条 →")throw Error("next label failed");
-click("#complete-lesson");if(q("#lesson-title").textContent!=="A Blues Lick 4")throw Error("next navigation failed");
-click("#prev-lesson");if(q("#lesson-title").textContent!=="A Blues Lick 3")throw Error("previous navigation failed");
+if(dom.window.document.querySelectorAll("#course-map [data-lick-index]").length!==20)throw Error("expanded library failed");
+click("#score-plus");if(q("#score-zoom").textContent!=="125%")throw Error("score zoom failed");
+click("#favorite-lick");if(!q("#favorite-lick").textContent.includes("已收藏"))throw Error("favorite toggle failed");
+click("#show-favorites");if(dom.window.document.querySelectorAll("#harmony-map [data-lick-index]").length!==1)throw Error("favorite filter failed");
+dom.window.lessonPlayer.select(14);if(q("#lesson-title").textContent!=="A ii–V–I Lick 1")throw Error("category navigation failed");
 console.log("lesson smoke test passed");
