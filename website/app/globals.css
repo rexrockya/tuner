@@ -130,6 +130,35 @@ button:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
 .controls p { margin: 16px 0 0; color: #5f675c; font-size: 10px; }
 .controls small { display: block; max-width: 360px; margin: 10px auto 0; color: #d49e92; font-size: 11px; }
 
+.remote-screen {
+  min-height: 100svh;
+  padding: clamp(64px, 10vw, 130px) clamp(20px, 8vw, 120px);
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 520px);
+  align-items: center;
+  gap: clamp(50px, 9vw, 140px);
+  border-top: 1px solid #293026;
+  background: #10140f;
+}
+.remote-copy span { color: var(--lime); font: 10px/1 monospace; letter-spacing: 2px; }
+.remote-copy h1 { margin: 20px 0; font-size: clamp(48px, 7vw, 100px); line-height: .95; letter-spacing: -.07em; }
+.remote-copy p { max-width: 480px; color: #8b9385; font-size: 15px; line-height: 1.8; }
+.remote-card { padding: clamp(24px, 5vw, 48px); border: 1px solid #30382d; border-radius: 14px; background: #171d16; }
+.remote-card label { display: block; margin-bottom: 10px; color: #7e8679; font: 10px/1 monospace; letter-spacing: 1.5px; }
+.remote-card > input:first-of-type {
+  width: 100%; padding: 17px 18px; border: 1px solid #3a4336; border-radius: 7px; outline: none;
+  background: #0e120d; color: var(--cream); text-align: center; font: 600 26px/1 monospace; letter-spacing: .35em;
+}
+.remote-card > input:first-of-type:focus { border-color: var(--lime); }
+.bpm-readout { margin: 38px 0 22px; text-align: center; }
+.bpm-readout strong { display: block; font-size: clamp(88px, 14vw, 150px); line-height: .8; letter-spacing: -.08em; }
+.bpm-readout span { display: block; margin-top: 24px; color: #71796c; font: 11px/1 monospace; letter-spacing: 2px; }
+.bpm-slider { width: 100%; accent-color: var(--lime); }
+.tempo-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 12px; }
+.tempo-buttons button { min-width: 0; background: #252c22; color: var(--cream); }
+.remote-toggle { width: 100%; }
+.remote-status { min-height: 16px; margin: 16px 0 0; color: #788173; text-align: center; font-size: 11px; }
+
 @media (max-width: 600px) {
   nav { height: 64px; }
   nav div { gap: 18px; }
@@ -144,4 +173,8 @@ button:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
   .meter { height: 34px; }
   .meter::after, .meter > span { height: 34px; }
   .controls { margin-top: 24px; }
+  .remote-screen { grid-template-columns: 1fr; gap: 32px; padding: 64px 20px; }
+  .remote-copy h1 { font-size: 54px; }
+  .remote-card { padding: 24px; }
+  .bpm-readout strong { font-size: 112px; }
 }

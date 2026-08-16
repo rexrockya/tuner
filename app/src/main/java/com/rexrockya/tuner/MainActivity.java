@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
     private Thread audioThread;
     private volatile boolean listening;
     private TeachingView teachingView;
+    private MetronomeView metronomeView;
     private MediaPlayer previewPlayer;
     private String previewLessonTerm, previewSourceUrl;
     private int page;
@@ -37,14 +38,19 @@ public class MainActivity extends Activity {
             @Override public void onPreview(Lesson lesson) { togglePreview(lesson); }
             @Override public void onOpenSource() { openPreviewSource(); }
         });
+        metronomeView = new MetronomeView(this);
         FrameLayout content = new FrameLayout(this);
         content.addView(tunerView, new FrameLayout.LayoutParams(-1,-1));
         content.addView(teachingView, new FrameLayout.LayoutParams(-1,-1));
+        content.addView(metronomeView, new FrameLayout.LayoutParams(-1,-1));
         teachingView.setVisibility(View.GONE);
+        metronomeView.setVisibility(View.GONE);
         BottomNavView navigation = new BottomNavView(this, selected -> {
             page = selected;
             tunerView.setVisibility(selected == 0 ? View.VISIBLE : View.GONE);
             teachingView.setVisibility(selected == 1 ? View.VISIBLE : View.GONE);
+            metronomeView.setVisibility(selected == 2 ? View.VISIBLE : View.GONE);
+            metronomeView.setPageVisible(selected == 2);
             if (selected == 0) {
                 stopPreview();
                 if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) startListening();
@@ -153,10 +159,11 @@ public class MainActivity extends Activity {
         audioThread.start();
     }
 
-    @Override protected void onPause() { super.onPause(); stopListening(); }
+    @Override protected void onPause() { super.onPause(); stopListening(); if (metronomeView != null) metronomeView.setPageVisible(false); }
     @Override protected void onResume() {
         super.onResume();
         if (page == 0 && tunerView != null && checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) startListening();
+        if (page == 2 && metronomeView != null) metronomeView.setPageVisible(true);
     }
     private void stopListening() {
         listening = false;
@@ -167,5 +174,5 @@ public class MainActivity extends Activity {
         }
     }
 
-    @Override protected void onDestroy() { stopPreview(); stopListening(); super.onDestroy(); }
+    @Override protected void onDestroy() { stopPreview(); stopListening(); metronomeView.release(); super.onDestroy(); }
 }

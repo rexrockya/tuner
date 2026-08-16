@@ -22,10 +22,10 @@ final class BottomNavView extends View {
     @Override protected void onDraw(Canvas canvas) {
         float d = getResources().getDisplayMetrics().density, w = getWidth(), h = getHeight();
         paint.setColor(0xff2b3028); paint.setStrokeWidth(d); canvas.drawLine(0, 0, w, 0, paint);
-        String[] labels = {"调音", "教学"};
-        String[] icons = {"音准", "DAILY"};
-        for (int i = 0; i < 2; i++) {
-            float cx = w * (i * 2 + 1) / 4f;
+        String[] labels = {"调音", "教学", "节拍"};
+        String[] icons = {"音准", "DAILY", "BPM"};
+        for (int i = 0; i < 3; i++) {
+            float cx = w * (i * 2 + 1) / 6f;
             if (i == selected) {
                 paint.setColor(0xffc8f56a); paint.setStyle(Paint.Style.FILL);
                 canvas.drawRoundRect(new RectF(cx-34*d, 6*d, cx+34*d, 9*d), 2*d, 2*d, paint);
@@ -40,7 +40,7 @@ final class BottomNavView extends View {
 
     @Override public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_UP) {
-            selected = event.getX() < getWidth()/2f ? 0 : 1;
+            selected = Math.min(2, (int)(event.getX() / (getWidth()/3f)));
             invalidate(); listener.onPageSelected(selected);
         }
         return true;

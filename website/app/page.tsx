@@ -28,6 +28,10 @@ export default function Home() {
   const [active, setActive] = useState(false);
   const [pitch, setPitch] = useState(-1);
   const [error, setError] = useState("");
+  const [roomCode, setRoomCode] = useState("");
+  const [remoteBpm, setRemoteBpm] = useState(80);
+  const [remoteRunning, setRemoteRunning] = useState(false);
+  const [remoteStatus, setRemoteStatus] = useState("输入孩子手机上显示的 6 位控制码");
   const stopRef = useRef<(() => void) | null>(null);
   useEffect(() => () => {
     const stop = stopRef.current;
@@ -60,6 +64,23 @@ export default function Home() {
     } catch { setError("无法使用麦克风，请检查浏览器权限。音频不会离开你的设备。"); }
   }
 
+  async function sendRemote(nextBpm = remoteBpm, nextRunning = remoteRunning) {
+    if (!/^\d{6}$/.test(roomCode)) { setRemoteStatus("请输入 6 位控制码"); return; }
+    setRemoteStatus("正在同步…");
+    try {
+      const response = await fetch(`/api/metronome/${roomCode}`, {
+        method: "PUT", headers: { "content-type": "application/json" },
+        body: JSON.stringify({ bpm: nextBpm, running: nextRunning }),
+      });
+      if (!response.ok) throw new Error();
+      setRemoteBpm(nextBpm); setRemoteRunning(nextRunning); setRemoteStatus("已同步到孩子手机");
+    } catch { setRemoteStatus("同步失败，请检查网络后重试"); }
+  }
+
+  function changeBpm(value: number) {
+    const next = Math.max(30, Math.min(240, value)); setRemoteBpm(next); void sendRemote(next, remoteRunning);
+  }
+
   const midi = pitch > 0 ? Math.round(69 + 12 * Math.log2(pitch / 440)) : 0;
   const note = pitch > 0 ? NOTES[((midi % 12) + 12) % 12] : "—";
   const cents = pitch > 0 ? 1200 * Math.log2(pitch / (440 * 2 ** ((midi - 69) / 12))) : 0;
@@ -68,7 +89,7 @@ export default function Home() {
   return <main>
     <nav>
       <a className="brand" href="#top">弦音<span>TUNER</span></a>
-      <div><a href="https://github.com/rexrockya/tuner/releases/latest/download/tuner.apk">下载 APK</a><a href="https://github.com/rexrockya/tuner">GitHub ↗</a></div>
+      <div><a href="#remote">远程节拍</a><a href="https://github.com/rexrockya/tuner/releases/latest/download/tuner.apk">下载 APK</a><a href="https://github.com/rexrockya/tuner">GitHub ↗</a></div>
     </nav>
     <section className={`tuner-screen ${tuned ? "is-tuned" : ""}`} id="top">
       <div className="status"><i />{active ? "正在聆听" : "准备就绪"}</div>
@@ -85,6 +106,18 @@ export default function Home() {
         <button onClick={toggleTuner}>{active ? "停止" : "开启麦克风"}</button>
         <p>音频仅在本机处理，不会录制或上传</p>
         {error && <small>{error}</small>}
+      </div>
+    </section>
+    <section className="remote-screen" id="remote">
+      <div className="remote-copy"><span>REMOTE METRONOME</span><h1>远程节拍器</h1><p>输入孩子手机“节拍”栏底部的控制码，即可在另一台手机上直接改变拍速和启停。</p></div>
+      <div className="remote-card">
+        <label htmlFor="room-code">控制码</label>
+        <input id="room-code" inputMode="numeric" maxLength={6} placeholder="000000" value={roomCode} onChange={(event) => setRoomCode(event.target.value.replace(/\D/g, "").slice(0, 6))} />
+        <div className="bpm-readout"><strong>{remoteBpm}</strong><span>BPM</span></div>
+        <input className="bpm-slider" aria-label="拍速" type="range" min="30" max="240" value={remoteBpm} onChange={(event) => setRemoteBpm(Number(event.target.value))} onPointerUp={() => void sendRemote()} onKeyUp={() => void sendRemote()} />
+        <div className="tempo-buttons"><button onClick={() => changeBpm(remoteBpm - 5)}>− 5</button><button onClick={() => changeBpm(remoteBpm + 5)}>+ 5</button></div>
+        <button className="remote-toggle" onClick={() => void sendRemote(remoteBpm, !remoteRunning)}>{remoteRunning ? "停止节拍" : "开始节拍"}</button>
+        <p className="remote-status" aria-live="polite">{remoteStatus}</p>
       </div>
     </section>
   </main>;
