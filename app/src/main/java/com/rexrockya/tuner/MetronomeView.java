@@ -97,7 +97,8 @@ final class MetronomeView extends View {
         paint.setTextAlign(Paint.Align.CENTER); paint.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
         paint.setColor(0xff858d80); paint.setTextSize(12*d); canvas.drawText("节 拍 器", w/2, 46*d, paint);
         float cy = Math.min(h*.33f, 250*d);
-        paint.setColor(flash ? 0xffc8f56a : 0xff2b3327); canvas.drawCircle(w/2, cy-48*d, flash ? 24*d : 18*d, paint);
+        paint.setColor(flash ? 0x33c8f56a : 0xff1d241b); canvas.drawCircle(w/2, cy-115*d, flash ? 82*d : 66*d, paint);
+        paint.setColor(flash ? 0xffc8f56a : 0xff354030); canvas.drawCircle(w/2, cy-115*d, flash ? 58*d : 46*d, paint);
         paint.setColor(0xfff2f0e6); paint.setTextSize(Math.min(128*d, w*.34f)); canvas.drawText(String.valueOf(bpm), w/2, cy+72*d, paint);
         paint.setColor(0xff737b6f); paint.setTextSize(14*d); canvas.drawText("BPM", w/2, cy+105*d, paint);
 
