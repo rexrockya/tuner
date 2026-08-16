@@ -1,0 +1,15 @@
+const fs=require("fs"),{JSDOM}=require("jsdom");
+const html=fs.readFileSync("docs/index.html","utf8").replace(/<script[\s\S]*?<\/script>/g,"");
+const dom=new JSDOM(html,{url:"https://example.test/",runScripts:"dangerously"});
+dom.window.scrollTo=()=>{};
+dom.window.cancelAnimationFrame=()=>{};dom.window.requestAnimationFrame=()=>1;
+dom.window.eval(fs.readFileSync("docs/lessons.js","utf8"));
+const q=s=>dom.window.document.querySelector(s),click=s=>q(s).dispatchEvent(new dom.window.MouseEvent("click",{bubbles:true}));
+if(q("#lesson-title").textContent!=="Minor blues call")throw Error("initial lick failed");
+click('[data-lick="1"]');if(q("#lesson-title").textContent!=="Major blues answer")throw Error("top navigation failed");
+click('#harmony-map [data-lick="2"]');if(q("#lesson-title").textContent!=="IV change lick")throw Error("map navigation failed");
+if(q("#lick-staff").querySelectorAll(".staff-note").length!==8)throw Error("staff failed");
+if(q("#complete-lesson").textContent!=="下一条 →")throw Error("next label failed");
+click("#complete-lesson");if(q("#lesson-title").textContent!=="V–IV–I turnaround")throw Error("next navigation failed");
+click("#prev-lesson");if(q("#lesson-title").textContent!=="IV change lick")throw Error("previous navigation failed");
+console.log("lesson smoke test passed");
