@@ -158,6 +158,11 @@ button:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
 .tempo-buttons button { min-width: 0; background: #252c22; color: var(--cream); }
 .remote-toggle { width: 100%; }
 .remote-status { min-height: 16px; margin: 16px 0 0; color: #788173; text-align: center; font-size: 11px; }
+.child-mode nav, .child-mode .tuner-screen, .child-mode .remote-copy { display: none; }
+.child-mode .remote-screen { min-height: 100svh; grid-template-columns: minmax(300px, 620px); justify-content: center; padding: 24px; }
+.child-mode .remote-card { width: 100%; }
+.child-beat { width: 110px; height: 110px; margin: 34px auto 42px; border: 5px solid #3b4636; border-radius: 50%; background: #20271e; box-shadow: 0 0 0 16px #1a2018; transition: .07s; }
+.child-beat.flash { transform: scale(1.2); border-color: #e5ffae; background: var(--lime); box-shadow: 0 0 0 20px #bdf45d22, 0 0 80px 32px #bdf45daa; }
 
 @media (max-width: 600px) {
   nav { height: 64px; }

@@ -32,12 +32,45 @@ export default function Home() {
   const [remoteBpm, setRemoteBpm] = useState(80);
   const [remoteRunning, setRemoteRunning] = useState(false);
   const [remoteStatus, setRemoteStatus] = useState("输入孩子手机上显示的 6 位控制码");
+  const [childMode, setChildMode] = useState(false);
+  const [beatFlash, setBeatFlash] = useState(false);
+  const beatTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const audioRef = useRef<AudioContext | null>(null);
   const stopRef = useRef<(() => void) | null>(null);
   useEffect(() => () => {
     const stop = stopRef.current;
     stopRef.current = null;
     stop?.();
   }, []);
+
+  useEffect(() => {
+    const child = new URLSearchParams(window.location.search).get("mode") === "child";
+    if (!child) return;
+    setChildMode(true);
+    let code = localStorage.getItem("metronome-room") ?? "";
+    if (!/^\d{6}$/.test(code)) { code = String(Math.floor(100000 + Math.random() * 900000)); localStorage.setItem("metronome-room", code); }
+    setRoomCode(code); setRemoteStatus("等待家长连接");
+    let lastUpdate = 0;
+    const poll = window.setInterval(async () => {
+      try {
+        const response = await fetch(`/api/metronome/${code}`); const data = await response.json();
+        if (data.updatedAt > lastUpdate) { lastUpdate = data.updatedAt; setRemoteBpm(data.bpm); setRemoteRunning(data.running); setRemoteStatus("已连接 · 正在接收远程控制"); }
+      } catch { setRemoteStatus("网络连接中断，正在重连…"); }
+    }, 1200);
+    return () => window.clearInterval(poll);
+  }, []);
+
+  useEffect(() => {
+    if (beatTimerRef.current) clearTimeout(beatTimerRef.current);
+    if (!childMode || !remoteRunning) { setBeatFlash(false); return; }
+    const beat = () => {
+      setBeatFlash(true); window.setTimeout(() => setBeatFlash(false), 120);
+      audioRef.current ??= new AudioContext(); const context = audioRef.current, oscillator = context.createOscillator(), gain = context.createGain();
+      oscillator.frequency.value = 1100; gain.gain.setValueAtTime(.18, context.currentTime); gain.gain.exponentialRampToValueAtTime(.001, context.currentTime + .05); oscillator.connect(gain).connect(context.destination); oscillator.start(); oscillator.stop(context.currentTime + .05);
+      beatTimerRef.current = setTimeout(beat, 60000 / remoteBpm);
+    };
+    beat(); return () => { if (beatTimerRef.current) clearTimeout(beatTimerRef.current); };
+  }, [childMode, remoteBpm, remoteRunning]);
 
   async function toggleTuner() {
     if (active) {
@@ -86,7 +119,7 @@ export default function Home() {
   const cents = pitch > 0 ? 1200 * Math.log2(pitch / (440 * 2 ** ((midi - 69) / 12))) : 0;
   const tuned = pitch > 0 && Math.abs(cents) < 5;
 
-  return <main>
+  return <main className={childMode ? "child-mode" : ""}>
     <nav>
       <a className="brand" href="#top">弦音<span>TUNER</span></a>
       <div><a href="#remote">远程节拍</a><a href="https://github.com/rexrockya/tuner/releases/latest/download/tuner.apk">下载 APK</a><a href="https://github.com/rexrockya/tuner">GitHub ↗</a></div>
@@ -109,14 +142,13 @@ export default function Home() {
       </div>
     </section>
     <section className="remote-screen" id="remote">
-      <div className="remote-copy"><span>REMOTE METRONOME</span><h1>远程节拍器</h1><p>输入孩子手机“节拍”栏底部的控制码，即可在另一台手机上直接改变拍速和启停。</p></div>
+      <div className="remote-copy"><span>REMOTE METRONOME</span><h1>{childMode ? "孩子端节拍器" : "远程节拍器"}</h1><p>{childMode ? "保持此页面打开，家长可在另一台手机上远程改变拍速。" : "输入孩子手机“节拍”栏底部的控制码，即可在另一台手机上直接改变拍速和启停。"}</p></div>
       <div className="remote-card">
-        <label htmlFor="room-code">控制码</label>
-        <input id="room-code" inputMode="numeric" maxLength={6} placeholder="000000" value={roomCode} onChange={(event) => setRoomCode(event.target.value.replace(/\D/g, "").slice(0, 6))} />
+        <label htmlFor="room-code">{childMode ? "把此控制码告诉家长" : "控制码"}</label>
+        <input id="room-code" inputMode="numeric" maxLength={6} placeholder="000000" readOnly={childMode} value={roomCode} onChange={(event) => setRoomCode(event.target.value.replace(/\D/g, "").slice(0, 6))} />
+        {childMode && <div className={`child-beat ${beatFlash ? "flash" : ""}`} />}
         <div className="bpm-readout"><strong>{remoteBpm}</strong><span>BPM</span></div>
-        <input className="bpm-slider" aria-label="拍速" type="range" min="30" max="240" value={remoteBpm} onChange={(event) => setRemoteBpm(Number(event.target.value))} onPointerUp={() => void sendRemote()} onKeyUp={() => void sendRemote()} />
-        <div className="tempo-buttons"><button onClick={() => changeBpm(remoteBpm - 5)}>− 5</button><button onClick={() => changeBpm(remoteBpm + 5)}>+ 5</button></div>
-        <button className="remote-toggle" onClick={() => void sendRemote(remoteBpm, !remoteRunning)}>{remoteRunning ? "停止节拍" : "开始节拍"}</button>
+        {!childMode && <><input className="bpm-slider" aria-label="拍速" type="range" min="30" max="240" value={remoteBpm} onChange={(event) => setRemoteBpm(Number(event.target.value))} onPointerUp={() => void sendRemote()} onKeyUp={() => void sendRemote()} /><div className="tempo-buttons"><button onClick={() => changeBpm(remoteBpm - 5)}>− 5</button><button onClick={() => changeBpm(remoteBpm + 5)}>+ 5</button></div><button className="remote-toggle" onClick={() => void sendRemote(remoteBpm, !remoteRunning)}>{remoteRunning ? "停止节拍" : "开始节拍"}</button></>}
         <p className="remote-status" aria-live="polite">{remoteStatus}</p>
       </div>
     </section>
