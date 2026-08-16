@@ -49,15 +49,14 @@
     <div class="lesson-meta" id="lesson-meta"></div>
     <h2 class="track-title" id="lesson-track"></h2>
     <div class="harmony" id="lesson-harmony"></div>
-    <div class="player-panel"><midi-player id="midi-player" sound-font></midi-player><div class="mini-player"><button id="play-lick" aria-label="播放 Lick">▶</button><input id="lick-progress" type="range" min="0" max="4" step="0.01" value="0" aria-label="Lick 进度"><span id="lick-time">0:04</span></div><div class="lick-staff" id="lick-staff" aria-label="Lick 五线谱"></div><div class="sync-tools"><button id="slow">慢速 70%</button><button id="toggle-loop">循环：开</button><button id="master-lick">标记已掌握</button></div><p class="source-hint" id="preview-status">播放 → 听熟 → 在当前和弦上使用</p></div>
+    <div class="player-panel"><div class="mini-player"><button id="play-lick" aria-label="播放 Lick">▶</button><input id="lick-progress" type="range" min="0" max="4" step="0.01" value="0" aria-label="Lick 进度"><span id="lick-time">0:04</span></div><div class="lick-staff" id="lick-staff" aria-label="Lick 五线谱"></div><div class="sync-tools"><button id="slow">慢速 70%</button><button id="toggle-loop">循环：开</button><button id="master-lick">标记已掌握</button></div><p class="source-hint" id="preview-status">播放 → 听熟 → 在当前和弦上使用</p></div>
     <div class="form-title"><h3>Lick 收藏</h3><span>一关一条</span></div>
     <div class="harmony-map" id="harmony-map"></div><div class="bar-detail" id="bar-detail"></div>
     <div class="lesson-grid"><article class="lesson-card"><h3>和声与旋律</h3><ul id="lesson-analysis"></ul></article><article class="lesson-card"><h3>本关怎么练</h3><ol id="lesson-practice"></ol></article></div>
     <div class="lesson-foot"><button class="secondary" id="prev-lesson">← 上一条</button><button class="done" id="complete-lesson">下一条 →</button></div>
   </section>
   <section id="metro-page" data-view="metro"><div class="role-switch"><button id="choose-parent">我是家长</button><button id="choose-child">我是孩子</button></div><div class="lesson-kicker">请选择使用身份</div><div class="metro-dot" id="metro-dot"></div><div class="metro-bpm" id="metro-bpm">80</div><p class="metro-unit">BPM</p><div class="metro-controls"><button class="secondary" id="metro-minus">− 5</button><button class="secondary" id="metro-plus">+ 5</button></div><button class="metro-start" id="metro-start">开始</button><div class="tempo-presets" aria-label="拍速预设"><button data-bpm="80">80</button><button data-bpm="72">72</button><button data-bpm="100">100</button><button data-bpm="60">60</button></div><div class="remote-box" id="remote-box"><strong id="remote-title">请选择家长端或孩子端</strong><p class="metro-hint" id="remote-hint">以后只需点击上方按钮，无需修改网址</p><input id="room-code" inputmode="numeric" maxlength="6" placeholder="000000"><button id="remote-send">同步当前拍速</button><p class="metro-hint" id="remote-status"></p></div></section>
-  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/html-midi-player@1.6.0"></script>
-  <script src="lessons.js?v=20260817-2"></script>
+  <script src="lessons.js?v=20260817-3"></script>
   <script>
     const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
     const ui={main:document.querySelector("main"),status:document.querySelector("#status"),note:document.querySelector("#note"),octave:document.querySelector("#octave"),frequency:document.querySelector("#frequency"),needle:document.querySelector("#needle"),state:document.querySelector("#tune-state"),toggle:document.querySelector("#toggle"),error:document.querySelector("#error")};
