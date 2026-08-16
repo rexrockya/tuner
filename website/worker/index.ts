@@ -30,6 +30,8 @@ const worker = {
     const url = new URL(request.url);
 
     if (url.pathname.startsWith("/api/metronome/")) {
+      const cors = { "access-control-allow-origin": "https://rexrockya.github.io", "access-control-allow-methods": "GET, PUT, OPTIONS", "access-control-allow-headers": "content-type" };
+      if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
       const code = url.pathname.split("/").pop() ?? "";
       if (!/^\d{6}$/.test(code)) return Response.json({ error: "房间码应为 6 位数字" }, { status: 400 });
       await env.DB.prepare("CREATE TABLE IF NOT EXISTS metronome_rooms (code TEXT PRIMARY KEY, bpm INTEGER NOT NULL DEFAULT 80, running INTEGER NOT NULL DEFAULT 0, updated_at INTEGER NOT NULL)").run();
@@ -39,10 +41,10 @@ const worker = {
         const running = body.running ? 1 : 0, updatedAt = Date.now();
         await env.DB.prepare("INSERT INTO metronome_rooms (code, bpm, running, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT(code) DO UPDATE SET bpm=excluded.bpm, running=excluded.running, updated_at=excluded.updated_at")
           .bind(code, bpm, running, updatedAt).run();
-        return Response.json({ code, bpm, running: Boolean(running), updatedAt });
+        return Response.json({ code, bpm, running: Boolean(running), updatedAt }, { headers: cors });
       }
       const row = await env.DB.prepare("SELECT bpm, running, updated_at AS updatedAt FROM metronome_rooms WHERE code = ?").bind(code).first<{ bpm: number; running: number; updatedAt: number }>();
-      return Response.json(row ? { ...row, running: Boolean(row.running) } : { bpm: 80, running: false, updatedAt: 0 });
+      return Response.json(row ? { ...row, running: Boolean(row.running) } : { bpm: 80, running: false, updatedAt: 0 }, { headers: cors });
     }
 
     if (url.pathname === "/_vinext/image") {
