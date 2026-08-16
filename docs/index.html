@@ -42,19 +42,15 @@
     <div class="controls"><button id="toggle">开启麦克风</button><p class="privacy">音频仅在本机处理，不会录制或上传</p><p class="error" id="error"></p></div>
   </main>
   <section id="lesson-page" data-view="lesson">
-    <div class="lesson-kicker">OPEN SCORE PATH / PUBLIC DOMAIN</div>
+    <div class="lesson-kicker">GUITAR LICK LIBRARY</div>
     <div class="course-progress"><span>课程进度</span><div class="progress-rail"><div class="progress-fill" id="course-progress"></div></div><strong id="progress-label">0%</strong></div>
     <div class="course-map" id="course-map" aria-label="学习路线"></div>
     <h1 class="lesson-title" id="lesson-title"></h1>
     <div class="lesson-meta" id="lesson-meta"></div>
     <h2 class="track-title" id="lesson-track"></h2>
     <div class="harmony" id="lesson-harmony"></div>
-    <div class="score-source"><strong>公版谱与同源演奏</strong><p>本关使用 Mutopia Project 的公版排版，不再使用受版权限制的经典录音或自动生成谱。下方 MIDI 与 PDF 来自同一个版本，适合逐段定位练习。</p></div>
-    <div class="lesson-actions"><button class="secondary" id="choose-audio">选择自己的录音</button><button class="secondary" id="choose-score">选择自己的 PDF</button><button class="secondary" id="open-score">打开公版 PDF ↗</button><button class="secondary" id="open-track">查看来源与许可 ↗</button></div>
-    <input id="audio-file" type="file" accept="audio/*" hidden><input id="score-file" type="file" accept="application/pdf,image/*" hidden>
-    <div class="player-panel"><midi-player id="midi-player" src="assets/midi/original-rags.mid" sound-font visualizer="#midi-staff"></midi-player><midi-visualizer type="staff" id="midi-staff"></midi-visualizer><div class="sync-tools"><button id="set-loop-a">设当前段为 A 点</button><button id="set-loop-b">设当前段为 B 点</button><button id="toggle-loop">AB 循环：关</button></div><p class="source-hint" id="preview-status">点击下方段落会跳到对应位置；播放时当前段落与音阶会自动高亮</p></div>
-    <div class="score-view" id="score-view" style="display:block"><iframe src="assets/scores/original-rags.pdf#view=FitH" title="Original Rags 公版五线谱"></iframe></div>
-    <div class="form-title"><h3>曲式与和声地图</h3><span>点击段落定位播放</span></div>
+    <div class="player-panel"><midi-player id="midi-player" sound-font visualizer="#midi-staff"></midi-player><midi-visualizer type="staff" id="midi-staff"></midi-visualizer><div class="sync-tools"><button id="slow">慢速 70%</button><button id="toggle-loop">循环：开</button></div><p class="source-hint" id="preview-status">播放 → 听熟 → 在当前和弦上使用</p></div>
+    <div class="form-title"><h3>Lick 收藏</h3><span>一关一条</span></div>
     <div class="harmony-map" id="harmony-map"></div><div class="bar-detail" id="bar-detail"></div>
     <div class="lesson-grid"><article class="lesson-card"><h3>和声与旋律</h3><ul id="lesson-analysis"></ul></article><article class="lesson-card"><h3>本关怎么练</h3><ol id="lesson-practice"></ol></article></div>
     <div class="lesson-foot"><button class="done" id="complete-lesson">完成本关并继续 →</button></div>
