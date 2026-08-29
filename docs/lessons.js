@@ -55,6 +55,38 @@ const THEORY_OVERRIDES = {
   }
 };
 
+const CHORD_GUIDES = {
+  A7: { tones: "A（根音）· C♯（3）· E（5）· G（♭7）", scale: "A Mixolydian：A B C♯ D E F♯ G", color: "C 是蓝调 ♭3；E♭ 是 ♭5；B♭/G♯ 多半应按趋向解决理解。" },
+  D7: { tones: "D（根音）· F♯（3）· A（5）· C（♭7）", scale: "D Mixolydian：D E F♯ G A B C", color: "F 可作 ♯9/蓝调色彩，E♭ 是 ♭9，通常半音解决到 D。" },
+  Am7: { tones: "A（根音）· C（♭3）· E（5）· G（♭7）", scale: "先比较 A Dorian（F♯）与 A Aeolian（F）", color: "F♯ 是明亮的 6；F 是小调 ♭6。不要把两者混成同一种功能。" },
+  Bm7: { tones: "B（根音）· D（♭3）· F♯（5）· A（♭7）", scale: "B Dorian：B C♯ D E F♯ G♯ A", color: "D、A 定义 ii7；它们常分别半音解决到 E7 的 C♯/G♯ 或 Amaj 的 C♯/G♯。" },
+  E7: { tones: "E（根音）· G♯（3）· B（5）· D（♭7）", scale: "E Mixolydian；出现 F/G/C 时再考虑 altered 或半音趋近", color: "G♯ 与 D 是导向 Amaj 的核心：G♯ 留作大七度，D 下行到 C♯。" },
+  Amaj: { tones: "A（根音）· C♯（3）· E（5）· G♯（大7）", scale: "A Ionian：A B C♯ D E F♯ G♯", color: "C♯、G♯ 是落地感最强的音；D（11）通常经过到 C♯。" }
+};
+
+const DETAILED_ANALYSIS = {
+  yKz58nSf: [
+    {
+      chord: "第 1 小节 · A7",
+      scale: "骨架是 A7；不是一条音阶从头跑到底，而是和弦音加趋近音。",
+      why: "G、C♯、E 是 A7 的 ♭7、3、5；G♯ 从下方半音导向根音 A。B♭ 是短暂的 ♭9 张力，不要把它误认成稳定音。",
+      notes: [["G","♭7","chord"],["B♭","♭9","color"],["G","♭7","chord"],["G♯","→A","chromatic"],["A","1","chord"],["C♯","3","chord"],["E","5","chord"],["G","♭7","chord"]]
+    },
+    {
+      chord: "第 2 小节 · D7",
+      scale: "以 D Mixolydian 为底，但中间故意加入 ♯9/♭9 的属和弦摩擦。",
+      why: "F♯、A 是 3、5；F♮ 夹在 F♯ 与 E 之间，既可听成 ♯9，也承担半音经过；结尾 E♭ 是 ♭9，强烈趋向下一小节的 D。",
+      notes: [["F♯","3","chord"],["A","5","chord"],["F♯","3","chord"],["F","♯9/经过","chromatic"],["E","9","color"],["G","11","color"],["E","9","color"],["E♭","♭9→D","chromatic"]]
+    },
+    {
+      chord: "第 3 小节 · A7",
+      scale: "A blues 与 A Mixolydian 的结合。",
+      why: "D 是 11；C→C♯ 是最典型的蓝调 ♭3 推向大三度；随后 E、G、A 用 5、♭7、根音收束。",
+      notes: [["D","11","color"],["C","♭3 蓝调","color"],["C♯","3","chord"],["E","5","chord"],["G","♭7","chord"],["A","1","chord"]]
+    }
+  ]
+};
+
 const $ = id => document.getElementById(id);
 const audio = document.createElement("audio");
 audio.preload = "metadata";
@@ -62,9 +94,91 @@ let current = 0;
 let looping = true;
 let loopA = 0;
 let loopB = 1;
+let backingEnabled = false;
+let backingContext = null;
+let backingFrame = null;
+let lastBackingBeat = -1;
 let scoreZoom = 1;
 let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
+
+function chordProgression(lick = LICKS[current]) {
+  if (lick.chord.includes("×")) {
+    const [name, count] = lick.chord.split("×").map(item => item.trim());
+    return Array.from({ length: Number(count) || lick.bars }, () => name);
+  }
+  return lick.chord.split("→").map(item => item.trim());
+}
+
+function chordShape(name) {
+  const match = name.match(/^([A-G])([♯#♭b]?)(.*)$/);
+  if (!match) return { root: 45, intervals: [0, 4, 7, 10] };
+  const semitones = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+  let pitch = semitones[match[1]] + (/[♯#]/.test(match[2]) ? 1 : /[♭b]/.test(match[2]) ? -1 : 0);
+  while (pitch < 0) pitch += 12;
+  const quality = match[3].toLowerCase();
+  const intervals = quality.includes("m7") ? [0, 3, 7, 10] : quality.includes("maj") ? [0, 4, 7, 11] : quality.includes("7") ? [0, 4, 7, 10] : [0, 4, 7];
+  return { root: 36 + pitch, intervals };
+}
+
+function midiFrequency(midi) {
+  return 440 * 2 ** ((midi - 69) / 12);
+}
+
+function playBackingTone(frequency, duration, volume, type = "triangle") {
+  if (!backingContext) return;
+  const now = backingContext.currentTime;
+  const oscillator = backingContext.createOscillator();
+  const gain = backingContext.createGain();
+  oscillator.type = type;
+  oscillator.frequency.value = frequency;
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(volume, now + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  oscillator.connect(gain).connect(backingContext.destination);
+  oscillator.start(now);
+  oscillator.stop(now + duration + 0.02);
+}
+
+async function ensureBackingContext() {
+  backingContext ??= new AudioContext();
+  if (backingContext.state === "suspended") await backingContext.resume();
+}
+
+function triggerBackingBeat(beat) {
+  const progression = chordProgression();
+  const bar = Math.floor(beat / 4) % progression.length;
+  const beatInBar = ((beat % 4) + 4) % 4;
+  const shape = chordShape(progression[bar]);
+  const beatSeconds = 60 / practiceBpm;
+  playBackingTone(midiFrequency(shape.root - 12), beatSeconds * 0.72, 0.055, "triangle");
+  playBackingTone(beatInBar % 2 ? 1320 : 1760, 0.035, 0.012, "square");
+  if (beatInBar === 0 || beatInBar === 2) {
+    shape.intervals.forEach(interval => playBackingTone(midiFrequency(shape.root + 12 + interval), beatSeconds * 1.45, 0.012, "sine"));
+  }
+}
+
+function stopBackingClock() {
+  if (backingFrame) cancelAnimationFrame(backingFrame);
+  backingFrame = null;
+  lastBackingBeat = -1;
+}
+
+async function startBackingClock() {
+  if (!backingEnabled) return;
+  await ensureBackingContext();
+  stopBackingClock();
+  const tick = () => {
+    if (audio.paused || !backingEnabled) return stopBackingClock();
+    const beat = Math.floor(audio.currentTime * SOURCE_BPM / 60 + 0.06);
+    if (beat !== lastBackingBeat) {
+      lastBackingBeat = beat;
+      triggerBackingBeat(beat);
+    }
+    backingFrame = requestAnimationFrame(tick);
+  };
+  tick();
+}
 
 function readSet(key) {
   try {
@@ -268,12 +382,45 @@ function updatePracticeBpm(next, syncMetronome = true) {
   audio.preservesPitch = true;
   audio.webkitPreservesPitch = true;
   $("lesson-bpm").textContent = `${practiceBpm} BPM`;
+  $("lesson-original-speed").classList.toggle("on", practiceBpm === SOURCE_BPM);
   if (syncMetronome) window.metronome?.setBpm(practiceBpm);
 }
 
 function updateMetronomeButton(running) {
   $("lesson-metro").classList.toggle("on", Boolean(running));
   $("lesson-metro").textContent = `节拍：${running ? "开" : "关"}`;
+}
+
+function genericBarAnalysis(lick) {
+  return chordProgression(lick).map((chord, index) => {
+    const guide = CHORD_GUIDES[chord] || { tones: "先找根音、3、5、7", scale: "先用和弦音判断，再选择音阶", color: "非和弦音要看它如何解决到前后音。" };
+    return {
+      chord: `第 ${index + 1} 小节 · ${chord}`,
+      scale: guide.scale,
+      why: `${guide.tones}。${guide.color}`,
+      notes: []
+    };
+  });
+}
+
+function renderAnalysis(lick, theory) {
+  const bars = DETAILED_ANALYSIS[lick.id] || genericBarAnalysis(lick);
+  $("bar-detail").innerHTML = `
+    <div class="analysis-title"><strong>为什么这样走</strong><small>${DETAILED_ANALYSIS[lick.id] ? "按谱面逐音分析" : "按当前和弦分析"}</small></div>
+    <div class="theory-tags">${theory.tags.map(item => `<span>${item}</span>`).join("")}</div>
+    <small class="theory-context">${theory.context}</small>
+    <div class="bar-analysis">${bars.map(bar => `
+      <article class="analysis-bar">
+        <h4>${bar.chord}</h4>
+        ${bar.notes.length ? `<div class="note-flow">${bar.notes.map(([note, role, type]) => `<span class="note-chip ${type}">${note}<small>${role}</small></span>`).join("<b>›</b>")}</div>` : ""}
+        <p class="scale-choice"><strong>音阶视角：</strong>${bar.scale}</p>
+        <p>${bar.why}</p>
+      </article>`).join("")}</div>
+    <details class="theory-help"><summary>怎么看“半减七音阶”和经过音？</summary>
+      <p><strong>先和弦、后音阶：</strong>先圈出每个和弦的 1、3、5、7；稳定停留的非和弦音才当张力。夹在两个目标音之间并立刻解决的音，优先理解为经过音或趋近音，不必硬塞进同一条音阶。</p>
+      <p><strong>m7♭5（半减七）：</strong>和弦骨架是 1–♭3–♭5–♭7。大调语境常用 Locrian；小调 ii–V–i 中常用 Locrian ♮2（旋律小调第六模式）。是否真是“半减七音阶”，要由当时的和弦和解决方向决定。</p>
+      <div class="legend"><span class="chord-key">和弦音</span><span class="color-key">音阶色彩/张力</span><span class="chromatic-key">半音经过/趋近</span></div>
+    </details>`;
 }
 
 function render() {
@@ -297,9 +444,9 @@ function render() {
   $("lesson-track").textContent = lick.chord;
   $("lesson-harmony").innerHTML = `<strong>${lick.degree}</strong>`;
   const theory = THEORY_OVERRIDES[lick.id] || THEORY[lick.kind];
-  $("bar-detail").innerHTML = `<strong>这条 Lick</strong><div class="theory-tags">${theory.tags.map(item => `<span>${item}</span>`).join("")}</div><small class="theory-context">${theory.context}</small>`;
+  renderAnalysis(lick, theory);
   $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
-  $("preview-status").innerHTML = '谱面与音频：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
+  $("preview-status").innerHTML = '谱面与示范音频：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a> · 伴奏为本站按和弦实时生成';
   $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
   $("favorite-lick").textContent = saved.has(lick.id) ? "★ 已收藏" : "☆ 收藏这条 Lick";
 
@@ -341,8 +488,8 @@ audio.addEventListener("timeupdate", () => {
   if (looping && !audio.paused && audio.currentTime >= loopB) audio.currentTime = loopA;
   $("lick-progress").value = audio.currentTime;
 });
-audio.addEventListener("play", () => { $("play-lick").textContent = "■"; });
-audio.addEventListener("pause", () => { $("play-lick").textContent = "▶"; });
+audio.addEventListener("play", () => { $("play-lick").textContent = "■"; startBackingClock(); });
+audio.addEventListener("pause", () => { $("play-lick").textContent = "▶"; stopBackingClock(); });
 audio.addEventListener("ended", async () => {
   if (!looping) {
     $("play-lick").textContent = "▶";
@@ -388,6 +535,24 @@ $("reset-loop-points").addEventListener("click", () => {
 });
 $("lesson-bpm-minus").addEventListener("click", () => updatePracticeBpm(practiceBpm - 5));
 $("lesson-bpm-plus").addEventListener("click", () => updatePracticeBpm(practiceBpm + 5));
+$("lesson-original-speed").addEventListener("click", () => updatePracticeBpm(SOURCE_BPM));
+$("toggle-backing").addEventListener("click", async () => {
+  backingEnabled = !backingEnabled;
+  $("toggle-backing").classList.toggle("on", backingEnabled);
+  $("toggle-backing").setAttribute("aria-pressed", String(backingEnabled));
+  $("toggle-backing").textContent = `伴奏：${backingEnabled ? "开" : "关"}`;
+  if (backingEnabled) {
+    await ensureBackingContext();
+    if (!audio.paused) startBackingClock();
+  } else stopBackingClock();
+});
+$("toggle-demo").addEventListener("click", () => {
+  audio.muted = !audio.muted;
+  const enabled = !audio.muted;
+  $("toggle-demo").classList.toggle("on", enabled);
+  $("toggle-demo").setAttribute("aria-pressed", String(enabled));
+  $("toggle-demo").textContent = `示范音：${enabled ? "开" : "关"}`;
+});
 $("lesson-metro").addEventListener("click", () => {
   if (!window.metronome) return;
   window.metronome.toggle();

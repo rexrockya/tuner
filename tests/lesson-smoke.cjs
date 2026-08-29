@@ -24,6 +24,9 @@ if(dom.window.document.querySelectorAll("#harmony-map [data-lick-index]").length
 if(q("#favorite-count").textContent!=="★ 1")throw Error("favorite count failed");
 click('#harmony-map [data-lick-index="2"]');if(q("#lesson-title").textContent!=="A Blues Lick 3")throw Error("favorite navigation failed");
 click("#lesson-bpm-plus");if(q("#lesson-bpm").textContent!=="85 BPM")throw Error("linked bpm failed");
+click("#lesson-original-speed");if(q("#lesson-bpm").textContent!=="120 BPM")throw Error("original speed reset failed");
+if(!q("#toggle-backing")||!q("#preview-status").textContent.includes("实时生成"))throw Error("generated backing controls failed");
+click("#toggle-demo");if(q("#toggle-demo").textContent!=="示范音：关")throw Error("backing-only mode failed");
 if(!q("#bar-detail").textContent.includes("半音导向"))throw Error("lick theory failed");
 dom.window.lessonPlayer.select(14);if(q("#lesson-title").textContent!=="A ii–V–I Lick 1")throw Error("category navigation failed");
 console.log("lesson smoke test passed");
