@@ -60,6 +60,8 @@ const audio = document.createElement("audio");
 audio.preload = "metadata";
 let current = 0;
 let looping = true;
+let loopA = 0;
+let loopB = 1;
 let scoreZoom = 1;
 let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
@@ -88,6 +90,68 @@ function formatTime(value) {
   if (!Number.isFinite(value)) return "0:00";
   const seconds = Math.max(0, Math.floor(value));
   return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+}
+
+function mediaDuration() {
+  return Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : Number($("lick-progress").max) || 1;
+}
+
+function storedLoopPoints() {
+  try {
+    return JSON.parse(localStorage.getItem("lick-loops-v1") || "{}");
+  } catch (_) {
+    return {};
+  }
+}
+
+function saveLoopPoints() {
+  const points = storedLoopPoints();
+  points[LICKS[current].id] = [Number(loopA.toFixed(2)), Number(loopB.toFixed(2))];
+  localStorage.setItem("lick-loops-v1", JSON.stringify(points));
+}
+
+function renderLoopPoints() {
+  const duration = mediaDuration();
+  const aPercent = Math.max(0, Math.min(100, loopA / duration * 100));
+  const bPercent = Math.max(0, Math.min(100, loopB / duration * 100));
+  const aMarker = $("loop-a-marker");
+  const bMarker = $("loop-b-marker");
+  aMarker.style.left = `${aPercent}%`;
+  bMarker.style.left = `${bPercent}%`;
+  aMarker.classList.toggle("marker-edge-start", aPercent < 2);
+  aMarker.classList.toggle("marker-edge-end", aPercent > 98);
+  bMarker.classList.toggle("marker-edge-start", bPercent < 2);
+  bMarker.classList.toggle("marker-edge-end", bPercent > 98);
+  $("loop-region").style.left = `${aPercent}%`;
+  $("loop-region").style.width = `${Math.max(0, bPercent - aPercent)}%`;
+  $("loop-a-time").max = Math.max(0, loopB - 0.02).toFixed(2);
+  $("loop-b-time").max = duration.toFixed(2);
+  $("loop-a-time").value = loopA.toFixed(2);
+  $("loop-b-time").value = loopB.toFixed(2);
+  $("loop-a-marker").setAttribute("aria-valuetext", `A 点 ${loopA.toFixed(2)} 秒`);
+  $("loop-b-marker").setAttribute("aria-valuetext", `B 点 ${loopB.toFixed(2)} 秒`);
+}
+
+function setLoopPoint(point, next, options = {}) {
+  const duration = mediaDuration();
+  if (next === "") return;
+  const value = Number(next);
+  if (!Number.isFinite(value)) return;
+  if (point === "a") loopA = Math.max(0, Math.min(value, loopB - 0.02));
+  else loopB = Math.max(loopA + 0.02, Math.min(value, duration));
+  renderLoopPoints();
+  if (options.seek) audio.currentTime = point === "a" ? loopA : loopB;
+  if (options.persist !== false) saveLoopPoints();
+}
+
+function loadLoopPoints() {
+  const duration = mediaDuration();
+  const saved = storedLoopPoints()[LICKS[current].id];
+  const savedA = Number(saved?.[0]);
+  const savedB = Number(saved?.[1]);
+  loopA = Number.isFinite(savedA) ? Math.max(0, Math.min(savedA, duration - 0.02)) : 0;
+  loopB = Number.isFinite(savedB) ? Math.max(loopA + 0.02, Math.min(savedB, duration)) : duration;
+  renderLoopPoints();
 }
 
 function lickHref(index) {
@@ -134,6 +198,7 @@ function enableDrag(container, axis = "x") {
   let startLeft = 0;
   let startTop = 0;
   let moved = false;
+  let suppressClick = false;
 
   container.addEventListener("pointerdown", event => {
     if (event.button !== 0 || event.pointerType === "touch") return;
@@ -143,31 +208,38 @@ function enableDrag(container, axis = "x") {
     startLeft = container.scrollLeft;
     startTop = container.scrollTop;
     moved = false;
-    container.setPointerCapture(pointerId);
-    container.classList.add("dragging");
+    suppressClick = false;
   });
   container.addEventListener("pointermove", event => {
     if (event.pointerId !== pointerId) return;
     const dx = event.clientX - startX;
     const dy = event.clientY - startY;
-    if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+    if (!moved && Math.abs(dx) + Math.abs(dy) > 6) {
+      moved = true;
+      suppressClick = true;
+      container.setPointerCapture(pointerId);
+      container.classList.add("dragging");
+    }
     if (moved) event.preventDefault();
     if (axis === "x" || axis === "both") container.scrollLeft = startLeft - dx;
     if (axis === "both") container.scrollTop = startTop - dy;
   });
   const end = event => {
     if (event.pointerId !== pointerId) return;
+    if (container.hasPointerCapture?.(pointerId)) container.releasePointerCapture(pointerId);
     pointerId = null;
     container.classList.remove("dragging");
-    setTimeout(() => { moved = false; }, 0);
+    moved = false;
   };
   container.addEventListener("pointerup", end);
   container.addEventListener("pointercancel", end);
   container.addEventListener("click", event => {
-    if (!moved) return;
+    if (!suppressClick) return;
     event.preventDefault();
     event.stopImmediatePropagation();
+    suppressClick = false;
   }, true);
+  container.addEventListener("dragstart", event => event.preventDefault());
 }
 
 function updateScoreZoom() {
@@ -238,10 +310,13 @@ function render() {
     $("lick-progress").max = 1;
     $("lick-time").textContent = "0:00";
     $("play-lick").textContent = "▶";
+    loopA = 0;
+    loopB = 1;
+    renderLoopPoints();
   }
   audio.loop = false;
   updatePracticeBpm(practiceBpm, false);
-  $("toggle-loop").textContent = `循环：${looping ? "开" : "关"}`;
+  $("toggle-loop").textContent = `A/B 循环：${looping ? "开" : "关"}`;
   updateMetronomeButton(window.metronome?.isRunning?.() || false);
   updateScoreZoom();
   $("lick-staff").scrollTo({ left: 0, top: 0 });
@@ -260,8 +335,10 @@ function selectLick(index) {
 audio.addEventListener("loadedmetadata", () => {
   $("lick-progress").max = audio.duration || 1;
   $("lick-time").textContent = formatTime(audio.duration);
+  loadLoopPoints();
 });
 audio.addEventListener("timeupdate", () => {
+  if (looping && !audio.paused && audio.currentTime >= loopB) audio.currentTime = loopA;
   $("lick-progress").value = audio.currentTime;
 });
 audio.addEventListener("play", () => { $("play-lick").textContent = "■"; });
@@ -271,7 +348,7 @@ audio.addEventListener("ended", async () => {
     $("play-lick").textContent = "▶";
     return;
   }
-  audio.currentTime = 0;
+  audio.currentTime = loopA;
   try {
     await audio.play();
   } catch (_) {
@@ -282,19 +359,32 @@ audio.addEventListener("error", () => {
   $("preview-status").textContent = "音频加载失败，请检查网络后重试。";
 });
 
-$("play-lick").addEventListener("click", async () => {
+async function togglePlayback() {
   if (!audio.paused) {
     audio.pause();
     return;
   }
+  if (looping && audio.currentTime >= loopB) audio.currentTime = loopA;
   try {
     await audio.play();
   } catch (_) {
     $("preview-status").textContent = "浏览器阻止了播放，请再点一次。";
   }
-});
+}
+
+$("play-lick").addEventListener("click", togglePlayback);
 $("lick-progress").addEventListener("input", event => {
   audio.currentTime = Number(event.target.value);
+});
+$("loop-a-time").addEventListener("input", event => setLoopPoint("a", event.target.value, { seek: true }));
+$("loop-b-time").addEventListener("input", event => setLoopPoint("b", event.target.value, { seek: true }));
+$("set-loop-a").addEventListener("click", () => setLoopPoint("a", audio.currentTime));
+$("set-loop-b").addEventListener("click", () => setLoopPoint("b", audio.currentTime));
+$("reset-loop-points").addEventListener("click", () => {
+  loopA = 0;
+  loopB = mediaDuration();
+  renderLoopPoints();
+  saveLoopPoints();
 });
 $("lesson-bpm-minus").addEventListener("click", () => updatePracticeBpm(practiceBpm - 5));
 $("lesson-bpm-plus").addEventListener("click", () => updatePracticeBpm(practiceBpm + 5));
@@ -306,7 +396,7 @@ $("lesson-metro").addEventListener("click", () => {
 $("toggle-loop").addEventListener("click", () => {
   looping = !looping;
   $("toggle-loop").classList.toggle("on", looping);
-  $("toggle-loop").textContent = `循环：${looping ? "开" : "关"}`;
+  $("toggle-loop").textContent = `A/B 循环：${looping ? "开" : "关"}`;
 });
 $("master-lick").addEventListener("click", () => {
   const items = completed();
@@ -354,12 +444,57 @@ window.addEventListener("tuner:metro-change", event => {
   updateMetronomeButton(event.detail?.running);
 });
 
+function bindLoopMarker(id, point) {
+  const marker = $(id);
+  let activePointer = null;
+  const updateFromPointer = (event, persist) => {
+    const bounds = $("lick-timeline").getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+    setLoopPoint(point, ratio * mediaDuration(), { seek: true, persist });
+  };
+  marker.addEventListener("pointerdown", event => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    activePointer = event.pointerId;
+    marker.setPointerCapture(activePointer);
+    updateFromPointer(event, false);
+  });
+  marker.addEventListener("pointermove", event => {
+    if (event.pointerId === activePointer) updateFromPointer(event, false);
+  });
+  const finish = event => {
+    if (event.pointerId !== activePointer) return;
+    updateFromPointer(event, true);
+    activePointer = null;
+  };
+  marker.addEventListener("pointerup", finish);
+  marker.addEventListener("pointercancel", finish);
+  marker.addEventListener("keydown", event => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    const amount = event.shiftKey ? 0.01 : 0.05;
+    const currentPoint = point === "a" ? loopA : loopB;
+    setLoopPoint(point, currentPoint + (event.key === "ArrowRight" ? amount : -amount), { seek: true });
+  });
+}
+
+document.addEventListener("keydown", event => {
+  if (event.code !== "Space" || event.repeat) return;
+  const target = event.target;
+  if (target?.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(target?.tagName || "")) return;
+  if (getComputedStyle($("lesson-page")).display === "none") return;
+  event.preventDefault();
+  togglePlayback();
+});
+
 enableDrag($("course-map"), "x");
 enableDrag($("harmony-map"), "x");
 enableDrag($("lick-staff"), "both");
+bindLoopMarker("loop-a-marker", "a");
+bindLoopMarker("loop-b-marker", "b");
 const initialFromHash = indexFromHash();
 const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
-window.lessonPlayer = { stop: () => stopLick(true), select: selectLick, setBpm: updatePracticeBpm };
+window.lessonPlayer = { stop: () => stopLick(true), select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
 })();

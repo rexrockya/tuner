@@ -10,6 +10,9 @@ const q=s=>dom.window.document.querySelector(s),click=s=>q(s).dispatchEvent(new 
 if(!html.includes("-webkit-overflow-scrolling:touch"))throw Error("iOS momentum scrolling failed");
 if(q("#slow"))throw Error("legacy speed button still present");
 if(q("#lesson-title").textContent!=="A Blues Lick 1")throw Error("initial lick failed");
+if(!q("#loop-a-marker")||!q("#loop-b-marker"))throw Error("A/B markers missing");
+dom.window.lessonPlayer.setLoopPoint("a",.25);dom.window.lessonPlayer.setLoopPoint("b",.75);
+if(dom.window.lessonPlayer.getLoopPoints().join(",")!=="0.25,0.75")throw Error("precise A/B loop failed");
 click('[data-lick-index="1"]');if(q("#lesson-title").textContent!=="A Blues Lick 2")throw Error("top navigation failed");
 click('#course-map [data-lick-index="2"]');if(q("#lesson-title").textContent!=="A Blues Lick 3")throw Error("route navigation failed");
 if(!q("#lick-staff img")?.src.includes("fzJaVIxn.png"))throw Error("licensed score failed");
