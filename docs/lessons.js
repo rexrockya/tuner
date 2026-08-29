@@ -87,6 +87,39 @@ const DETAILED_ANALYSIS = {
   ]
 };
 
+const SCALE_LIBRARY = [
+  { id: "ionian", group: "七种调式", name: "Ionian（自然大调）", steps: [0,2,4,5,7,9,11], degrees: ["1","2","3","4","5","6","7"], use: "大调主和弦与明亮、稳定的调性中心。" },
+  { id: "dorian", group: "七种调式", name: "Dorian（多利亚）", steps: [0,2,3,5,7,9,10], degrees: ["1","2","♭3","4","5","6","♭7"], use: "m7 上最常用；自然 6 是区别于自然小调的关键。" },
+  { id: "phrygian", group: "七种调式", name: "Phrygian（弗里几亚）", steps: [0,1,3,5,7,8,10], degrees: ["1","♭2","♭3","4","5","♭6","♭7"], use: "小和弦上的强烈 ♭2 色彩，常用于西班牙/金属语汇。" },
+  { id: "lydian", group: "七种调式", name: "Lydian（利底亚）", steps: [0,2,4,6,7,9,11], degrees: ["1","2","3","♯4","5","6","7"], use: "maj7 上的漂浮感；♯4 是必须听清的特征音。" },
+  { id: "mixolydian", group: "七种调式", name: "Mixolydian（混合利底亚）", steps: [0,2,4,5,7,9,10], degrees: ["1","2","3","4","5","6","♭7"], use: "属七和弦的基础音阶；3 与 ♭7 决定它的功能。" },
+  { id: "aeolian", group: "七种调式", name: "Aeolian（自然小调）", steps: [0,2,3,5,7,8,10], degrees: ["1","2","♭3","4","5","♭6","♭7"], use: "自然小调；♭6 带来比 Dorian 更暗的声音。" },
+  { id: "locrian", group: "七种调式", name: "Locrian（洛克里亚）", steps: [0,1,3,5,6,8,10], degrees: ["1","♭2","♭3","4","♭5","♭6","♭7"], use: "m7♭5 的基础选择；♭5 与 ♭2 是核心色彩。" },
+  { id: "majorPent", group: "五声与蓝调", name: "大调五声音阶", steps: [0,2,4,7,9], degrees: ["1","2","3","5","6"], use: "大调、乡村、流行；没有 4 与 7，落音较安全。" },
+  { id: "minorPent", group: "五声与蓝调", name: "小调五声音阶", steps: [0,3,5,7,10], degrees: ["1","♭3","4","5","♭7"], use: "摇滚与蓝调骨架；在属七和弦上会产生大小三度摩擦。" },
+  { id: "minorBlues", group: "五声与蓝调", name: "小调布鲁斯音阶", steps: [0,3,5,6,7,10], degrees: ["1","♭3","4","♭5","5","♭7"], use: "小调五声加入 ♭5 蓝调音，练习 ♭5→5 的解决。" },
+  { id: "majorBlues", group: "五声与蓝调", name: "大调布鲁斯音阶", steps: [0,2,3,4,7,9], degrees: ["1","2","♭3","3","5","6"], use: "大调五声加入 ♭3，关键动作是 ♭3→3。" },
+  { id: "mixedBlues", group: "五声与蓝调", name: "混合布鲁斯音阶", steps: [0,3,4,5,6,7,9,10], degrees: ["1","♭3","3","4","♭5","5","6","♭7"], use: "合并大小调蓝调语汇；把 ♭3→3、♭5→5 当作动作练，而非静态音阶。" },
+  { id: "harmonicMinor", group: "小调与旋律小调", name: "和声小调", steps: [0,2,3,5,7,8,11], degrees: ["1","2","♭3","4","5","♭6","7"], use: "小调 V7→i；自然 7 是导向根音的核心。" },
+  { id: "melodicMinor", group: "小调与旋律小调", name: "旋律小调（爵士）", steps: [0,2,3,5,7,9,11], degrees: ["1","2","♭3","4","5","6","7"], use: "mMaj7 与现代爵士小调色彩，也是多个属和弦音阶的母体。" },
+  { id: "dorianB2", group: "小调与旋律小调", name: "Dorian ♭2", steps: [0,1,3,5,7,9,10], degrees: ["1","♭2","♭3","4","5","6","♭7"], use: "旋律小调第二模式；sus♭9 或特殊小和弦色彩。" },
+  { id: "lydianAug", group: "小调与旋律小调", name: "Lydian Augmented", steps: [0,2,4,6,8,9,11], degrees: ["1","2","3","♯4","♯5","6","7"], use: "maj7♯5；同时听见 ♯4 与 ♯5。" },
+  { id: "lydianDominant", group: "小调与旋律小调", name: "Lydian Dominant", steps: [0,2,4,6,7,9,10], degrees: ["1","2","3","♯4","5","6","♭7"], use: "7♯11；属七骨架上加入利底亚 ♯4。" },
+  { id: "mixolydianB6", group: "小调与旋律小调", name: "Mixolydian ♭6", steps: [0,2,4,5,7,8,10], degrees: ["1","2","3","4","5","♭6","♭7"], use: "属七和弦带 ♭13，常向小调主和弦解决。" },
+  { id: "locrianN2", group: "小调与旋律小调", name: "Locrian ♮2", steps: [0,2,3,5,6,8,10], degrees: ["1","2","♭3","4","♭5","♭6","♭7"], use: "小调 ii–V–i 的 m7♭5；自然 2 比普通 Locrian 更平滑。" },
+  { id: "altered", group: "属和弦与对称音阶", name: "Altered（变化音阶）", steps: [0,1,3,4,6,8,10], degrees: ["1","♭9","♯9","3","♭5","♭13","♭7"], use: "7alt；保留 3、♭7，同时使用所有变化张力。" },
+  { id: "bebopDominant", group: "属和弦与对称音阶", name: "Bebop Dominant", steps: [0,2,4,5,7,9,10,11], degrees: ["1","2","3","4","5","6","♭7","7"], use: "Mixolydian 加自然 7；八分音符下让和弦音落在强拍。" },
+  { id: "bebopMajor", group: "属和弦与对称音阶", name: "Bebop Major", steps: [0,2,4,5,7,8,9,11], degrees: ["1","2","3","4","5","♯5","6","7"], use: "大调音阶加入 ♯5/♭6 经过音，保持八音对称落点。" },
+  { id: "halfWhole", group: "属和弦与对称音阶", name: "半–全减音阶", steps: [0,1,3,4,6,7,9,10], degrees: ["1","♭9","♯9","3","♭5","5","6","♭7"], use: "7♭9/13；半音与全音交替，包含完整属七骨架。" },
+  { id: "wholeHalf", group: "属和弦与对称音阶", name: "全–半减音阶", steps: [0,2,3,5,6,8,9,11], degrees: ["1","2","♭3","4","♭5","♭6","6","7"], use: "dim7；全音与半音交替，适合减七和弦移动。" },
+  { id: "wholeTone", group: "属和弦与对称音阶", name: "全音阶", steps: [0,2,4,6,8,10], degrees: ["1","2","3","♯4","♯5","♭7"], use: "7♯5；没有半音，声音悬浮且方向模糊。" },
+  { id: "chromatic", group: "属和弦与对称音阶", name: "半音阶", steps: [0,1,2,3,4,5,6,7,8,9,10,11], degrees: ["1","♭2","2","♭3","3","4","♭5","5","♭6","6","♭7","7"], use: "用于连接目标音；练习重点是解决方向，不是把十二个音平均对待。" }
+];
+
+const SCALE_ROOTS = ["C","C♯","D","E♭","E","F","F♯","G","A♭","A","B♭","B"];
+const NATURAL_PITCHES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+const NOTE_LETTERS = ["C","D","E","F","G","A","B"];
+
 const $ = id => document.getElementById(id);
 const audio = document.createElement("audio");
 audio.preload = "metadata";
@@ -98,6 +131,8 @@ let backingEnabled = false;
 let backingContext = null;
 let backingFrame = null;
 let lastBackingBeat = -1;
+let scaleVoices = [];
+let scaleExerciseTimer = null;
 let scoreZoom = 1;
 let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
@@ -178,6 +213,101 @@ async function startBackingClock() {
     backingFrame = requestAnimationFrame(tick);
   };
   tick();
+}
+
+function selectedScale() {
+  return SCALE_LIBRARY.find(scale => scale.id === $("scale-type").value) || SCALE_LIBRARY[4];
+}
+
+function spellScaleNote(root, step, degree) {
+  const rootName = SCALE_ROOTS[root];
+  const rootLetter = rootName[0];
+  const degreeNumber = Number(degree.match(/\d+/)?.[0] || 1);
+  const letter = NOTE_LETTERS[(NOTE_LETTERS.indexOf(rootLetter) + degreeNumber - 1) % 7];
+  const targetPitch = (root + step) % 12;
+  let accidental = (targetPitch - NATURAL_PITCHES[letter] + 12) % 12;
+  if (accidental > 6) accidental -= 12;
+  return letter + (accidental > 0 ? "♯".repeat(accidental) : "♭".repeat(-accidental));
+}
+
+function renderScaleTrainer() {
+  const root = Number($("scale-root").value || 0);
+  const scale = selectedScale();
+  const notes = [...scale.steps, 12];
+  const degrees = [...scale.degrees, "8"];
+  $("scale-name").textContent = `${SCALE_ROOTS[root]} ${scale.name}`;
+  $("scale-formula").textContent = scale.degrees.join(" · ");
+  $("scale-use").textContent = scale.use;
+  $("scale-notes").innerHTML = notes.map((step, index) => `<span class="scale-note">${spellScaleNote(root, step, degrees[index])}<small>${degrees[index]}</small></span>`).join("");
+}
+
+function stopScaleExercise(message = "已停止") {
+  scaleVoices.forEach(oscillator => {
+    try { oscillator.stop(); } catch (_) {}
+  });
+  scaleVoices = [];
+  clearTimeout(scaleExerciseTimer);
+  scaleExerciseTimer = null;
+  if ($("scale-status")) $("scale-status").textContent = message;
+}
+
+function scalePattern(mode, scale) {
+  const ascending = [...scale.steps, 12];
+  if (mode === "updown") return [...ascending, ...ascending.slice(0, -1).reverse()];
+  const extended = [...scale.steps, ...scale.steps.map(step => step + 12), 24];
+  if (mode === "thirds") {
+    const result = [];
+    for (let index = 0; index < scale.steps.length; index++) result.push(extended[index], extended[index + 2]);
+    return result;
+  }
+  if (mode === "four") {
+    const result = [];
+    for (let index = 0; index <= scale.steps.length; index++) result.push(...extended.slice(index, index + 4));
+    return result;
+  }
+  return ascending;
+}
+
+async function playScaleExercise(mode) {
+  const labels = { up: "上行", updown: "上下行", thirds: "三度进行", four: "四音序列" };
+  stopScaleExercise("");
+  stopLick(false);
+  await ensureBackingContext();
+  const scale = selectedScale();
+  const root = Number($("scale-root").value || 0);
+  const sequence = scalePattern(mode, scale);
+  const noteLength = 30 / practiceBpm;
+  const start = backingContext.currentTime + 0.06;
+  sequence.forEach((step, index) => {
+    const oscillator = backingContext.createOscillator();
+    const gain = backingContext.createGain();
+    const at = start + index * noteLength;
+    oscillator.type = "triangle";
+    oscillator.frequency.value = midiFrequency(48 + root + step);
+    gain.gain.setValueAtTime(0.0001, at);
+    gain.gain.exponentialRampToValueAtTime(0.085, at + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, at + noteLength * 0.82);
+    oscillator.connect(gain).connect(backingContext.destination);
+    oscillator.start(at);
+    oscillator.stop(at + noteLength * 0.86);
+    scaleVoices.push(oscillator);
+  });
+  $("scale-status").textContent = `正在播放：${SCALE_ROOTS[root]} ${scale.name} · ${labels[mode]} · ${practiceBpm} BPM`;
+  scaleExerciseTimer = setTimeout(() => {
+    scaleVoices = [];
+    $("scale-status").textContent = "完成一轮；现在不看音名，自己弹一遍。";
+  }, (sequence.length * noteLength + 0.2) * 1000);
+}
+
+function initScaleTrainer() {
+  $("scale-root").innerHTML = SCALE_ROOTS.map((name, index) => `<option value="${index}" ${index === 9 ? "selected" : ""}>${name}</option>`).join("");
+  const groups = [...new Set(SCALE_LIBRARY.map(scale => scale.group))];
+  $("scale-type").innerHTML = groups.map(group => `<optgroup label="${group}">${SCALE_LIBRARY.filter(scale => scale.group === group).map(scale => `<option value="${scale.id}" ${scale.id === "mixolydian" ? "selected" : ""}>${scale.name}</option>`).join("")}</optgroup>`).join("");
+  $("scale-root").addEventListener("change", renderScaleTrainer);
+  $("scale-type").addEventListener("change", renderScaleTrainer);
+  document.querySelectorAll("[data-scale-pattern]").forEach(button => button.addEventListener("click", () => playScaleExercise(button.dataset.scalePattern)));
+  $("scale-stop").addEventListener("click", () => stopScaleExercise());
+  renderScaleTrainer();
 }
 
 function readSet(key) {
@@ -657,9 +787,10 @@ enableDrag($("harmony-map"), "x");
 enableDrag($("lick-staff"), "both");
 bindLoopMarker("loop-a-marker", "a");
 bindLoopMarker("loop-b-marker", "b");
+initScaleTrainer();
 const initialFromHash = indexFromHash();
 const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
-window.lessonPlayer = { stop: () => stopLick(true), select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
+window.lessonPlayer = { stop: () => { stopLick(true); stopScaleExercise(""); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
 })();

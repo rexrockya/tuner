@@ -11,6 +11,11 @@ if(!html.includes("-webkit-overflow-scrolling:touch"))throw Error("iOS momentum 
 if(q("#slow"))throw Error("legacy speed button still present");
 if(q("#lesson-title").textContent!=="A Blues Lick 1")throw Error("initial lick failed");
 if(!q("#loop-a-marker")||!q("#loop-b-marker"))throw Error("A/B markers missing");
+if(q("#scale-type").options.length<20)throw Error("scale library incomplete");
+if(q("#scale-name").textContent!=="A Mixolydian（混合利底亚）")throw Error("default scale trainer failed");
+if(q("#scale-notes").textContent.replace(/\s/g,"")!=="A1B2C♯3D4E5F♯6G♭7A8")throw Error("scale note rendering failed");
+q("#scale-root").value="6";q("#scale-root").dispatchEvent(new dom.window.Event("change"));q("#scale-type").value="ionian";q("#scale-type").dispatchEvent(new dom.window.Event("change"));
+if(!q("#scale-notes").textContent.includes("E♯"))throw Error("enharmonic scale spelling failed");
 dom.window.lessonPlayer.setLoopPoint("a",.25);dom.window.lessonPlayer.setLoopPoint("b",.75);
 if(dom.window.lessonPlayer.getLoopPoints().join(",")!=="0.25,0.75")throw Error("precise A/B loop failed");
 click('[data-lick-index="1"]');if(q("#lesson-title").textContent!=="A Blues Lick 2")throw Error("top navigation failed");
