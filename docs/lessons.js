@@ -161,6 +161,7 @@ let backingFrame = null;
 let lastBackingBeat = -1;
 let scaleVoices = [];
 let scaleExerciseTimer = null;
+let scaleSynthCache = { context: null, guitarWave: null, pickBuffer: null };
 let scoreZoom = 1;
 let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
@@ -325,11 +326,76 @@ function scalePattern(mode, scale) {
   return ascending;
 }
 
+function scaleSynthAssets() {
+  if (scaleSynthCache.context !== backingContext) {
+    const guitarHarmonics = new Float32Array([0, 1, .62, .34, .2, .12, .075, .045]);
+    const pickBuffer = backingContext.createBuffer(1, Math.ceil(backingContext.sampleRate * .018), backingContext.sampleRate);
+    const pick = pickBuffer.getChannelData(0);
+    for (let index = 0; index < pick.length; index++) pick[index] = (Math.random() * 2 - 1) * Math.pow(1 - index / pick.length, 2);
+    scaleSynthCache = { context: backingContext, guitarWave: backingContext.createPeriodicWave(new Float32Array(guitarHarmonics.length), guitarHarmonics), pickBuffer };
+  }
+  return scaleSynthCache;
+}
+
+function scheduleScaleNote(midi, at, noteLength, instrument) {
+  const frequency = midiFrequency(midi);
+  const filter = backingContext.createBiquadFilter();
+  const envelope = backingContext.createGain();
+  filter.type = "lowpass";
+  filter.Q.value = instrument === "guitar" ? 1.15 : .55;
+  filter.frequency.setValueAtTime(instrument === "guitar" ? 4600 : 6200, at);
+  filter.frequency.exponentialRampToValueAtTime(instrument === "guitar" ? 1050 : 2100, at + Math.max(.35, noteLength * 1.8));
+  envelope.gain.setValueAtTime(.0001, at);
+  envelope.gain.exponentialRampToValueAtTime(instrument === "guitar" ? .105 : .075, at + (instrument === "guitar" ? .006 : .012));
+  const tail = instrument === "guitar" ? Math.max(.58, noteLength * 2.4) : Math.max(.82, noteLength * 3.1);
+  envelope.gain.exponentialRampToValueAtTime(.0001, at + tail);
+  filter.connect(envelope).connect(backingContext.destination);
+
+  if (instrument === "guitar") {
+    const assets = scaleSynthAssets();
+    const string = backingContext.createOscillator();
+    string.setPeriodicWave(assets.guitarWave);
+    string.frequency.value = frequency;
+    string.detune.value = -2;
+    string.connect(filter);
+    string.start(at);
+    string.stop(at + tail + .03);
+    scaleVoices.push(string);
+
+    const pick = backingContext.createBufferSource();
+    const pickFilter = backingContext.createBiquadFilter();
+    const pickGain = backingContext.createGain();
+    pick.buffer = assets.pickBuffer;
+    pickFilter.type = "bandpass";
+    pickFilter.frequency.value = Math.min(5200, Math.max(900, frequency * 3.5));
+    pickFilter.Q.value = .7;
+    pickGain.gain.value = .035;
+    pick.connect(pickFilter).connect(pickGain).connect(backingContext.destination);
+    pick.start(at);
+    scaleVoices.push(pick);
+  } else {
+    [[1,0],[2,-4],[3,3],[4,-7]].forEach(([harmonic, detune], index) => {
+      const partial = backingContext.createOscillator();
+      const partialGain = backingContext.createGain();
+      partial.type = "sine";
+      partial.frequency.value = frequency * harmonic;
+      partial.detune.value = detune;
+      partialGain.gain.value = [1,.34,.16,.07][index];
+      partial.connect(partialGain).connect(filter);
+      partial.start(at);
+      partial.stop(at + tail + .03);
+      scaleVoices.push(partial);
+    });
+  }
+}
+
 async function playScaleSequence(sequence, label, options = {}) {
   stopScaleExercise("");
   stopLick(false);
   await ensureBackingContext();
   const root = Number($("scale-root").value || 0);
+  const instrument = $("scale-instrument").value || "guitar";
+  const instrumentLabel = instrument === "piano" ? "钢琴" : "木吉他";
   const noteLength = (options.slow ? 42 : 30) / practiceBpm;
   const start = backingContext.currentTime + 0.06;
   const duration = sequence.length * noteLength;
@@ -337,11 +403,11 @@ async function playScaleSequence(sequence, label, options = {}) {
     [36 + root, 48 + root].forEach((midi, index) => {
       const oscillator = backingContext.createOscillator();
       const gain = backingContext.createGain();
-      oscillator.type = index ? "sine" : "triangle";
+      oscillator.type = "sine";
       oscillator.frequency.value = midiFrequency(midi);
       gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(index ? 0.025 : 0.035, start + 0.08);
-      gain.gain.setValueAtTime(index ? 0.025 : 0.035, start + duration);
+      gain.gain.exponentialRampToValueAtTime(index ? 0.018 : 0.026, start + 0.08);
+      gain.gain.setValueAtTime(index ? 0.018 : 0.026, start + duration);
       gain.gain.exponentialRampToValueAtTime(0.0001, start + duration + 0.18);
       oscillator.connect(gain).connect(backingContext.destination);
       oscillator.start(start);
@@ -350,22 +416,11 @@ async function playScaleSequence(sequence, label, options = {}) {
     });
   }
   sequence.forEach((step, index) => {
-    const oscillator = backingContext.createOscillator();
-    const gain = backingContext.createGain();
     const at = start + index * noteLength;
-    oscillator.type = "triangle";
-    oscillator.frequency.value = midiFrequency(48 + root + step);
-    gain.gain.setValueAtTime(0.0001, at);
-    gain.gain.exponentialRampToValueAtTime(0.085, at + 0.012);
-    gain.gain.exponentialRampToValueAtTime(0.0001, at + noteLength * 0.82);
-    oscillator.connect(gain).connect(backingContext.destination);
-    oscillator.start(at);
-    oscillator.stop(at + noteLength * 0.86);
-    scaleVoices.push(oscillator);
+    scheduleScaleNote(48 + root + step, at, noteLength, instrument);
   });
-  $("scale-status").textContent = `正在播放：${label} · ${practiceBpm} BPM${options.drone ? " · 持续根音" : ""}`;
+  $("scale-status").textContent = `正在播放：${label} · ${instrumentLabel} · ${practiceBpm} BPM${options.drone ? " · 持续根音" : ""}`;
   scaleExerciseTimer = setTimeout(() => {
-    scaleVoices = [];
     $("scale-status").textContent = options.finish || "完成一轮；现在不看提示，自己弹一遍。";
   }, (duration + 0.25) * 1000);
 }
