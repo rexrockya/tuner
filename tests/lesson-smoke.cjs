@@ -14,6 +14,9 @@ if(!q("#loop-a-marker")||!q("#loop-b-marker"))throw Error("A/B markers missing")
 if(q("#scale-type").options.length<20)throw Error("scale library incomplete");
 if(q("#scale-name").textContent!=="A Mixolydian（混合利底亚）")throw Error("default scale trainer failed");
 if(q("#scale-notes").textContent.replace(/\s/g,"")!=="A1B2C♯3D4E5F♯6G♭7A8")throw Error("scale note rendering failed");
+if(!q("#scale-feel")||dom.window.document.querySelectorAll("[data-scale-lick]").length!==2)throw Error("scale feel or lick controls missing");
+if(!q("#scale-character").textContent.includes("♭7"))throw Error("scale listening cue missing");
+if(!q("#scale-lick-list").textContent.includes("级数（↑ 高八度）"))throw Error("scale lick degrees missing");
 q("#scale-root").value="6";q("#scale-root").dispatchEvent(new dom.window.Event("change"));q("#scale-type").value="ionian";q("#scale-type").dispatchEvent(new dom.window.Event("change"));
 if(!q("#scale-notes").textContent.includes("E♯"))throw Error("enharmonic scale spelling failed");
 dom.window.lessonPlayer.setLoopPoint("a",.25);dom.window.lessonPlayer.setLoopPoint("b",.75);

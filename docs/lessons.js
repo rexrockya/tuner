@@ -119,6 +119,34 @@ const SCALE_LIBRARY = [
 const SCALE_ROOTS = ["C","C♯","D","E♭","E","F","F♯","G","A♭","A","B♭","B"];
 const NATURAL_PITCHES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
 const NOTE_LETTERS = ["C","D","E","F","G","A","B"];
+const SCALE_FOCUS = {
+  ionian: { indexes: [6], cue: "听 7→1 的导向：明亮、完整、稳定。" },
+  dorian: { indexes: [5], cue: "在小三度背景里听自然 6：小调但不阴暗。" },
+  phrygian: { indexes: [1], cue: "听 ♭2→1 的挤压感：黑暗、紧张、带西班牙色彩。" },
+  lydian: { indexes: [3], cue: "听 ♯4 悬在 5 下方：明亮、漂浮、没有普通大调的落地感。" },
+  mixolydian: { indexes: [6], cue: "把 3 与 ♭7 一起听：开放、带属功能与蓝调气质。" },
+  aeolian: { indexes: [5], cue: "听 ♭6→5：自然小调最明显的阴影。" },
+  locrian: { indexes: [4], cue: "听 ♭5 对根音造成的不稳定，适合 m7♭5。" },
+  majorPent: { indexes: [2,4], cue: "3 与 6 让声音明亮、开阔，几乎没有冲突音。" },
+  minorPent: { indexes: [1,4], cue: "♭3 与 ♭7 带来粗粝、直接的摇滚/蓝调听感。" },
+  minorBlues: { indexes: [3,4], cue: "重点听 ♭5→5，它是蓝调张力向稳定音的动作。" },
+  majorBlues: { indexes: [2,3], cue: "重点听 ♭3→3：蓝调味来自滑向大三度。" },
+  mixedBlues: { indexes: [1,2,4,5], cue: "听 ♭3→3 与 ♭5→5 两组摩擦和解决。" },
+  harmonicMinor: { indexes: [5,6], cue: "♭6 与自然 7 拉开增二度，7→1 有强烈小调解决。" },
+  melodicMinor: { indexes: [5,6], cue: "小三度上叠自然 6、7：顺滑、现代、略带悬浮感。" },
+  dorianB2: { indexes: [1,5], cue: "♭2 的暗色与自然 6 的亮色并存。" },
+  lydianAug: { indexes: [3,4], cue: "♯4 与 ♯5 同时上扬，梦幻但不稳定。" },
+  lydianDominant: { indexes: [3,6], cue: "♯4 的明亮悬浮加 ♭7 的属和弦张力。" },
+  mixolydianB6: { indexes: [5,6], cue: "♭6→5 带苦甜色彩，♭7 保留属功能。" },
+  locrianN2: { indexes: [1,4], cue: "自然 2 缓和普通 Locrian 的 ♭2，♭5 仍保持半减不稳。" },
+  altered: { indexes: [1,2,5], cue: "把 ♭9、♯9、♭13 当成要解决到和弦音的张力。" },
+  bebopDominant: { indexes: [6,7], cue: "自然 7 是 ♭7 与根音之间的经过音，连续八分音符最明显。" },
+  bebopMajor: { indexes: [5,6], cue: "♯5 是 5 与 6 之间的经过音，让强拍更容易落到和弦音。" },
+  halfWhole: { indexes: [1,2,3], cue: "♭9、♯9 围绕 3，产生对称而强烈的变化属和弦声音。" },
+  wholeHalf: { indexes: [2,4,6], cue: "减七和弦每隔小三度重复，听感持续悬而未决。" },
+  wholeTone: { indexes: [3,4], cue: "没有半音与明确导音，♯4、♯5 让方向感消失。" },
+  chromatic: { indexes: [1], cue: "半音本身不是终点；听它如何从上下方逼近目标音。" }
+};
 
 const $ = id => document.getElementById(id);
 const audio = document.createElement("audio");
@@ -230,6 +258,30 @@ function spellScaleNote(root, step, degree) {
   return letter + (accidental > 0 ? "♯".repeat(accidental) : "♭".repeat(-accidental));
 }
 
+function scaleToneAt(scale, index, root = Number($("scale-root").value || 0)) {
+  const length = scale.steps.length;
+  const octave = Math.floor(index / length);
+  const position = ((index % length) + length) % length;
+  const degree = scale.degrees[position];
+  const step = scale.steps[position] + octave * 12;
+  const octaveMark = octave > 0 ? "↑".repeat(octave) : "";
+  return { step, degree: `${degree}${octaveMark}`, note: `${spellScaleNote(root, step, degree)}${octaveMark}` };
+}
+
+function scaleLicks(scale) {
+  const length = scale.steps.length;
+  const focus = SCALE_FOCUS[scale.id]?.indexes || [Math.min(3, length - 1)];
+  const first = Math.max(0, Math.min(...focus) - 1);
+  const focusPath = [...new Set([first, ...focus.flatMap(index => [index, Math.min(index + 1, length)])])];
+  const rawCharacteristic = [...focusPath, ...focusPath.slice(0, -1).reverse()].map(index => index + length).concat([length + 2, length + 1, length]);
+  const characteristic = rawCharacteristic.filter((index, position) => position === 0 || index !== rawCharacteristic[position - 1]);
+  const descending = [4,3,2,1,3,2,1,0,2,1,0].map(index => index + length);
+  return [
+    { id: "character", name: "特征音句", hint: "围绕特征音制造并解决张力", indexes: characteristic },
+    { id: "resolve", name: "下行收束句", hint: "练习级进、回绕与落回根音", indexes: descending }
+  ];
+}
+
 function renderScaleTrainer() {
   const root = Number($("scale-root").value || 0);
   const scale = selectedScale();
@@ -238,7 +290,12 @@ function renderScaleTrainer() {
   $("scale-name").textContent = `${SCALE_ROOTS[root]} ${scale.name}`;
   $("scale-formula").textContent = scale.degrees.join(" · ");
   $("scale-use").textContent = scale.use;
+  $("scale-character").textContent = `听感重点：${SCALE_FOCUS[scale.id].cue}`;
   $("scale-notes").innerHTML = notes.map((step, index) => `<span class="scale-note">${spellScaleNote(root, step, degrees[index])}<small>${degrees[index]}</small></span>`).join("");
+  $("scale-lick-list").innerHTML = scaleLicks(scale).map(lick => {
+    const tones = lick.indexes.map(index => scaleToneAt(scale, index, root));
+    return `<article class="scale-lick"><div class="scale-lick-head"><strong>${lick.name}</strong><button data-scale-lick="${lick.id}">▶ 播放</button></div><p>${lick.hint}</p><p>级数（↑ 高八度）：${tones.map(tone => tone.degree).join(" – ")}</p><p class="lick-notes">音名：${tones.map(tone => tone.note).join(" – ")}</p></article>`;
+  }).join("");
 }
 
 function stopScaleExercise(message = "已停止") {
@@ -268,16 +325,30 @@ function scalePattern(mode, scale) {
   return ascending;
 }
 
-async function playScaleExercise(mode) {
-  const labels = { up: "上行", updown: "上下行", thirds: "三度进行", four: "四音序列" };
+async function playScaleSequence(sequence, label, options = {}) {
   stopScaleExercise("");
   stopLick(false);
   await ensureBackingContext();
-  const scale = selectedScale();
   const root = Number($("scale-root").value || 0);
-  const sequence = scalePattern(mode, scale);
-  const noteLength = 30 / practiceBpm;
+  const noteLength = (options.slow ? 42 : 30) / practiceBpm;
   const start = backingContext.currentTime + 0.06;
+  const duration = sequence.length * noteLength;
+  if (options.drone) {
+    [36 + root, 48 + root].forEach((midi, index) => {
+      const oscillator = backingContext.createOscillator();
+      const gain = backingContext.createGain();
+      oscillator.type = index ? "sine" : "triangle";
+      oscillator.frequency.value = midiFrequency(midi);
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(index ? 0.025 : 0.035, start + 0.08);
+      gain.gain.setValueAtTime(index ? 0.025 : 0.035, start + duration);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration + 0.18);
+      oscillator.connect(gain).connect(backingContext.destination);
+      oscillator.start(start);
+      oscillator.stop(start + duration + 0.2);
+      scaleVoices.push(oscillator);
+    });
+  }
   sequence.forEach((step, index) => {
     const oscillator = backingContext.createOscillator();
     const gain = backingContext.createGain();
@@ -292,11 +363,34 @@ async function playScaleExercise(mode) {
     oscillator.stop(at + noteLength * 0.86);
     scaleVoices.push(oscillator);
   });
-  $("scale-status").textContent = `正在播放：${SCALE_ROOTS[root]} ${scale.name} · ${labels[mode]} · ${practiceBpm} BPM`;
+  $("scale-status").textContent = `正在播放：${label} · ${practiceBpm} BPM${options.drone ? " · 持续根音" : ""}`;
   scaleExerciseTimer = setTimeout(() => {
     scaleVoices = [];
-    $("scale-status").textContent = "完成一轮；现在不看音名，自己弹一遍。";
-  }, (sequence.length * noteLength + 0.2) * 1000);
+    $("scale-status").textContent = options.finish || "完成一轮；现在不看提示，自己弹一遍。";
+  }, (duration + 0.25) * 1000);
+}
+
+function playScaleFeel() {
+  const scale = selectedScale();
+  const root = Number($("scale-root").value || 0);
+  const lick = scaleLicks(scale)[0];
+  const sequence = [0, 12, ...lick.indexes.map(index => scaleToneAt(scale, index, root).step)];
+  playScaleSequence(sequence, `${SCALE_ROOTS[root]} ${scale.name} · 听感示范`, { drone: true, slow: true, finish: `再听一次，并跟唱：${SCALE_FOCUS[scale.id].cue}` });
+}
+
+function playScaleLick(id) {
+  const scale = selectedScale();
+  const root = Number($("scale-root").value || 0);
+  const lick = scaleLicks(scale).find(item => item.id === id) || scaleLicks(scale)[0];
+  playScaleSequence(lick.indexes.map(index => scaleToneAt(scale, index, root).step), `${SCALE_ROOTS[root]} ${scale.name} · ${lick.name}`, { finish: "轮到你：保持节拍，照着级数弹，再改最后两个音。" });
+}
+
+async function playScaleExercise(mode) {
+  const labels = { up: "上行", updown: "上下行", thirds: "三度进行", four: "四音序列" };
+  const scale = selectedScale();
+  const root = Number($("scale-root").value || 0);
+  const sequence = scalePattern(mode, scale);
+  playScaleSequence(sequence, `${SCALE_ROOTS[root]} ${scale.name} · ${labels[mode]}`);
 }
 
 function initScaleTrainer() {
@@ -305,6 +399,11 @@ function initScaleTrainer() {
   $("scale-type").innerHTML = groups.map(group => `<optgroup label="${group}">${SCALE_LIBRARY.filter(scale => scale.group === group).map(scale => `<option value="${scale.id}" ${scale.id === "mixolydian" ? "selected" : ""}>${scale.name}</option>`).join("")}</optgroup>`).join("");
   $("scale-root").addEventListener("change", renderScaleTrainer);
   $("scale-type").addEventListener("change", renderScaleTrainer);
+  $("scale-feel").addEventListener("click", playScaleFeel);
+  $("scale-lick-list").addEventListener("click", event => {
+    const button = event.target.closest("[data-scale-lick]");
+    if (button) playScaleLick(button.dataset.scaleLick);
+  });
   document.querySelectorAll("[data-scale-pattern]").forEach(button => button.addEventListener("click", () => playScaleExercise(button.dataset.scalePattern)));
   $("scale-stop").addEventListener("click", () => stopScaleExercise());
   renderScaleTrainer();
