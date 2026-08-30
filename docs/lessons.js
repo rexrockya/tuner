@@ -163,6 +163,17 @@ let scaleVoices = [];
 let scaleExerciseTimer = null;
 let scaleSynthCache = { context: null, guitarWave: null, pickBuffer: null };
 let scoreZoom = 1;
+let waveformDuration = 1;
+let waveformLoadToken = 0;
+const waveformCache = new Map();
+const fallbackWaveform = Array.from({ length: 560 }, (_, index) => {
+  const position = index / 559;
+  const envelope = .16 + .72 * Math.sin(Math.PI * position) ** .65;
+  const texture = .24 + .36 * Math.abs(Math.sin(index * .37)) + .4 * Math.abs(Math.sin(index * .071 + .8));
+  const peak = Math.min(1, envelope * texture);
+  return [-peak, peak];
+});
+let waveformPeaks = fallbackWaveform;
 let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
 
@@ -491,7 +502,106 @@ function formatTime(value) {
 }
 
 function mediaDuration() {
-  return Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : Number($("lick-progress").max) || 1;
+  return Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : waveformDuration || 1;
+}
+
+function updateWaveformAria() {
+  const duration = mediaDuration();
+  const currentTime = Math.max(0, Math.min(duration, Number(audio.currentTime) || 0));
+  const waveform = $("lick-waveform");
+  waveform.setAttribute("aria-valuemax", duration.toFixed(2));
+  waveform.setAttribute("aria-valuenow", currentTime.toFixed(2));
+  waveform.setAttribute("aria-valuetext", `${formatTime(currentTime)} / ${formatTime(duration)}`);
+  $("waveform-playhead").style.left = `${duration ? currentTime / duration * 100 : 0}%`;
+}
+
+function drawWaveform() {
+  updateWaveformAria();
+  if (/jsdom/i.test(navigator.userAgent)) return;
+  const canvas = $("lick-waveform-canvas");
+  const waveform = $("lick-waveform");
+  const width = Math.max(1, Math.round(waveform.clientWidth));
+  const height = Math.max(1, Math.round(waveform.clientHeight));
+  if (width <= 1 || height <= 1) return;
+  const ratio = Math.min(2, window.devicePixelRatio || 1);
+  canvas.width = Math.round(width * ratio);
+  canvas.height = Math.round(height * ratio);
+  const context = canvas.getContext("2d");
+  if (!context) return;
+  context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  context.clearRect(0, 0, width, height);
+  context.strokeStyle = "#283026";
+  context.lineWidth = 1;
+  context.beginPath();
+  context.moveTo(0, height / 2 + .5);
+  context.lineTo(width, height / 2 + .5);
+  context.stroke();
+  const columns = Math.max(1, Math.min(waveformPeaks.length, Math.floor(width / 2)));
+  const duration = mediaDuration();
+  const progress = duration ? Math.max(0, Math.min(1, (Number(audio.currentTime) || 0) / duration)) : 0;
+  context.lineWidth = Math.max(1, width / columns * .72);
+  context.lineCap = "round";
+  for (let column = 0; column < columns; column++) {
+    const peak = waveformPeaks[Math.floor(column / columns * waveformPeaks.length)] || [-.1, .1];
+    const x = (column + .5) / columns * width;
+    context.strokeStyle = x / width <= progress ? "#f2ff83" : "#626b5e";
+    context.beginPath();
+    context.moveTo(x, height / 2 + peak[0] * height * .46);
+    context.lineTo(x, height / 2 + peak[1] * height * .46);
+    context.stroke();
+  }
+}
+
+async function decodeWaveform(source) {
+  if (waveformCache.has(source)) return waveformCache.get(source);
+  if (typeof fetch !== "function" || !(window.OfflineAudioContext || window.webkitOfflineAudioContext)) throw new Error("waveform decoding unavailable");
+  const response = await fetch(source, { mode: "cors" });
+  if (!response.ok) throw new Error(`waveform fetch ${response.status}`);
+  const bytes = await response.arrayBuffer();
+  const OfflineContext = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  const decoder = new OfflineContext(1, 1, 44100);
+  const buffer = await decoder.decodeAudioData(bytes.slice(0));
+  const bins = 720;
+  const peaks = [];
+  let absoluteMax = .0001;
+  for (let bin = 0; bin < bins; bin++) {
+    const start = Math.floor(bin / bins * buffer.length);
+    const end = Math.max(start + 1, Math.floor((bin + 1) / bins * buffer.length));
+    const stride = Math.max(1, Math.floor((end - start) / 90));
+    let minimum = 0;
+    let maximum = 0;
+    for (let channel = 0; channel < buffer.numberOfChannels; channel++) {
+      const samples = buffer.getChannelData(channel);
+      for (let index = start; index < end; index += stride) {
+        minimum = Math.min(minimum, samples[index]);
+        maximum = Math.max(maximum, samples[index]);
+      }
+    }
+    absoluteMax = Math.max(absoluteMax, -minimum, maximum);
+    peaks.push([minimum, maximum]);
+  }
+  const result = { duration: buffer.duration, peaks: peaks.map(([minimum, maximum]) => [minimum / absoluteMax, maximum / absoluteMax]) };
+  waveformCache.set(source, result);
+  return result;
+}
+
+async function loadWaveform(source) {
+  const token = ++waveformLoadToken;
+  waveformPeaks = fallbackWaveform;
+  $("lick-waveform").dataset.state = "loading";
+  drawWaveform();
+  try {
+    const decoded = await decodeWaveform(source);
+    if (token !== waveformLoadToken) return;
+    waveformPeaks = decoded.peaks;
+    waveformDuration = decoded.duration || waveformDuration;
+    $("lick-waveform").dataset.state = "ready";
+  } catch (_) {
+    if (token !== waveformLoadToken) return;
+    $("lick-waveform").dataset.state = "fallback";
+  }
+  drawWaveform();
+  renderLoopPoints();
 }
 
 function storedLoopPoints() {
@@ -567,7 +677,7 @@ function stopLick(reset = false) {
   $("play-lick").textContent = "▶";
   if (reset) {
     audio.currentTime = 0;
-    $("lick-progress").value = 0;
+    drawWaveform();
   }
 }
 
@@ -737,19 +847,21 @@ function render() {
   const nextSource = new URL(lick.audio, location.href).href;
   if (audio.src !== nextSource) {
     audio.src = lick.audio;
-    $("lick-progress").value = 0;
-    $("lick-progress").max = 1;
+    waveformDuration = 1;
+    waveformPeaks = fallbackWaveform;
     $("lick-time").textContent = "0:00";
     $("play-lick").textContent = "▶";
     loopA = 0;
     loopB = 1;
     renderLoopPoints();
+    loadWaveform(nextSource);
   }
   audio.loop = false;
   updatePracticeBpm(practiceBpm, false);
   $("toggle-loop").textContent = `A/B 循环：${looping ? "开" : "关"}`;
   updateMetronomeButton(window.metronome?.isRunning?.() || false);
   updateScoreZoom();
+  drawWaveform();
   $("lick-staff").scrollTo({ left: 0, top: 0 });
 }
 
@@ -764,13 +876,14 @@ function selectLick(index) {
 }
 
 audio.addEventListener("loadedmetadata", () => {
-  $("lick-progress").max = audio.duration || 1;
+  waveformDuration = audio.duration || waveformDuration;
   $("lick-time").textContent = formatTime(audio.duration);
   loadLoopPoints();
+  drawWaveform();
 });
 audio.addEventListener("timeupdate", () => {
   if (looping && !audio.paused && audio.currentTime >= loopB) audio.currentTime = loopA;
-  $("lick-progress").value = audio.currentTime;
+  drawWaveform();
 });
 audio.addEventListener("play", () => { $("play-lick").textContent = "■"; startBackingClock(); });
 audio.addEventListener("pause", () => { $("play-lick").textContent = "▶"; stopBackingClock(); });
@@ -804,9 +917,6 @@ async function togglePlayback() {
 }
 
 $("play-lick").addEventListener("click", togglePlayback);
-$("lick-progress").addEventListener("input", event => {
-  audio.currentTime = Number(event.target.value);
-});
 $("loop-a-time").addEventListener("input", event => setLoopPoint("a", event.target.value, { seek: true }));
 $("loop-b-time").addEventListener("input", event => setLoopPoint("b", event.target.value, { seek: true }));
 $("set-loop-a").addEventListener("click", () => setLoopPoint("a", audio.currentTime));
@@ -893,6 +1003,53 @@ window.addEventListener("tuner:metro-change", event => {
   updateMetronomeButton(event.detail?.running);
 });
 
+function bindWaveformScrub() {
+  const waveform = $("lick-waveform");
+  let activePointer = null;
+  const seek = event => {
+    const bounds = waveform.getBoundingClientRect();
+    const ratio = Math.max(0, Math.min(1, (event.clientX - bounds.left) / Math.max(1, bounds.width)));
+    audio.currentTime = ratio * mediaDuration();
+    drawWaveform();
+  };
+  waveform.addEventListener("pointerdown", event => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    activePointer = event.pointerId;
+    waveform.setPointerCapture(activePointer);
+    seek(event);
+  });
+  waveform.addEventListener("pointermove", event => {
+    if (event.pointerId === activePointer) seek(event);
+  });
+  const finish = event => {
+    if (event.pointerId !== activePointer) return;
+    seek(event);
+    activePointer = null;
+  };
+  waveform.addEventListener("pointerup", finish);
+  waveform.addEventListener("pointercancel", event => {
+    if (event.pointerId === activePointer) activePointer = null;
+  });
+  waveform.addEventListener("keydown", event => {
+    const duration = mediaDuration();
+    let next = Number(audio.currentTime) || 0;
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      const amount = event.shiftKey ? .01 : .05;
+      next += event.key === "ArrowRight" ? amount : -amount;
+    } else if (event.key === "PageUp" || event.key === "PageDown") {
+      next += event.key === "PageUp" ? 1 : -1;
+    } else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = duration;
+    else return;
+    event.preventDefault();
+    audio.currentTime = Math.max(0, Math.min(duration, next));
+    drawWaveform();
+  });
+  if (window.ResizeObserver) new ResizeObserver(drawWaveform).observe(waveform);
+  else window.addEventListener("resize", drawWaveform);
+}
+
 function bindLoopMarker(id, point) {
   const marker = $(id);
   let activePointer = null;
@@ -939,6 +1096,7 @@ document.addEventListener("keydown", event => {
 enableDrag($("course-map"), "x");
 enableDrag($("harmony-map"), "x");
 enableDrag($("lick-staff"), "both");
+bindWaveformScrub();
 bindLoopMarker("loop-a-marker", "a");
 bindLoopMarker("loop-b-marker", "b");
 initScaleTrainer();

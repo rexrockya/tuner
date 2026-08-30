@@ -11,6 +11,7 @@ if(!html.includes("-webkit-overflow-scrolling:touch"))throw Error("iOS momentum 
 if(q("#slow"))throw Error("legacy speed button still present");
 if(q("#lesson-title").textContent!=="A Blues Lick 1")throw Error("initial lick failed");
 if(!q("#loop-a-marker")||!q("#loop-b-marker"))throw Error("A/B markers missing");
+if(!q("#lick-waveform-canvas")||q("#lick-progress"))throw Error("waveform timeline missing or legacy range remains");
 if(q("#scale-type").options.length<20)throw Error("scale library incomplete");
 if(q("#scale-name").textContent!=="A Mixolydian（混合利底亚）")throw Error("default scale trainer failed");
 if(q("#scale-notes").textContent.replace(/\s/g,"")!=="A1B2C♯3D4E5F♯6G♭7A8")throw Error("scale note rendering failed");
