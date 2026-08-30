@@ -23,7 +23,7 @@ const SOURCE = [
 ];
 
 const groupNumbers = {};
-const LICKS = SOURCE.map(([id, group, chord, degree, bars, kind]) => {
+let LICKS = SOURCE.map(([id, group, chord, degree, bars, kind]) => {
   groupNumbers[group] = (groupNumbers[group] || 0) + 1;
   return {
     id, group, chord, degree, bars, kind,
@@ -32,6 +32,17 @@ const LICKS = SOURCE.map(([id, group, chord, degree, bars, kind]) => {
     audio: `https://bopland.org/data/${id}.mp3`
   };
 });
+
+const BOPLAND_DATABASE_URL = "https://bopland.org/data/guitar-licks.js?t=1335";
+const BOPLAND_CATEGORIES = [
+  "Major 2-5-1", "Minor 2-5-1", "Turnaround", "All The Things You Are", "Autumn Leaves", "Blues",
+  "The Days Of Wine And Roses", "How High The Moon / Ornithology", "Invitation", "It Don't Mean A Thing",
+  "Lullaby Of Birdland", "My Funny Valentine", "On The Sunny Side Of The Street", "Rhythm Changes",
+  "Satin Doll", "Someday My Prince Will Come", "Stella By Starlight", "Take Five", "Take The A Train",
+  "Andalusian Cadence", "Major 2-5-1-6", "Major 3-6-2-5-1", "Circle of Dominant 7th Chords",
+  "Giant Steps", "Nardis", "Major 5-1", "Minor 5-1"
+];
+const libraryState = { query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6, loaded: false };
 
 const THEORY = {
   blues: {
@@ -475,6 +486,104 @@ function initScaleTrainer() {
   renderScaleTrainer();
 }
 
+function normalizedProgression(value) {
+  return String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
+}
+
+function progressionKind(category) {
+  if (/blues/i.test(category)) return "blues";
+  if (/minor|nardis|invitation|funny valentine|andalusian/i.test(category)) return "minor";
+  return "major";
+}
+
+function buildBoplandLibrary(database) {
+  const patterns = [];
+  database.index.forEach((category, categoryIndex) => {
+    category.keys.forEach(([keyCode, keyName, chords]) => patterns.push({
+      category: BOPLAND_CATEGORIES[categoryIndex] || "其他进行",
+      keyCode,
+      keyName,
+      meter: category.time,
+      progression: normalizedProgression(chords)
+    }));
+  });
+  const items = new Map();
+  const counters = {};
+  Object.entries(database.data.chords).forEach(([meter, progressions]) => {
+    Object.entries(progressions).forEach(([rawProgression, ids]) => {
+      const progression = normalizedProgression(rawProgression);
+      const candidates = patterns
+        .filter(pattern => pattern.meter === meter && progression.includes(pattern.progression))
+        .sort((left, right) => right.progression.length - left.progression.length);
+      const match = candidates[0];
+      const category = match?.category || (meter === "3/4" ? "Waltz / 3/4" : meter === "5/4" ? "Take Five / 5/4" : "其他进行");
+      const keyName = match?.keyName || "其他调性";
+      const bars = rawProgression.split("|").map(item => item.trim()).filter(Boolean);
+      ids.forEach(id => {
+        if (items.has(id) || !/^[A-Za-z0-9]+$/.test(id)) return;
+        counters[category] = (counters[category] || 0) + 1;
+        const chord = bars.join(" → ");
+        items.set(id, {
+          id,
+          group: category,
+          chord,
+          degree: category,
+          bars: Math.max(1, bars.length),
+          kind: progressionKind(category),
+          key: keyName,
+          keyCode: match?.keyCode || "other",
+          meter,
+          name: `${category} · ${keyName} · ${counters[category]}`,
+          score: `https://bopland.org/data/${id}.png`,
+          audio: `https://bopland.org/data/${id}.mp3`,
+          searchText: `${category} ${keyName} ${meter} ${chord} ${id}`.toLowerCase()
+        });
+      });
+    });
+  });
+  return [...items.values()];
+}
+
+function populateLibraryFilters() {
+  const categoryOrder = [...BOPLAND_CATEGORIES, "Waltz / 3/4", "Take Five / 5/4", "其他进行"];
+  const categories = new Set(LICKS.map(lick => lick.group));
+  $("lick-category").innerHTML = '<option value="all">全部分类</option>' + categoryOrder.filter(category => categories.has(category)).map(category => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
+  const keys = [...new Set(LICKS.map(lick => lick.key).filter(Boolean))].sort((left, right) => left.localeCompare(right, "en"));
+  $("lick-key").innerHTML = '<option value="all">全部调性</option>' + keys.map(key => `<option value="${escapeHtml(key)}">${escapeHtml(key)}</option>`).join("");
+  const meters = [...new Set(LICKS.map(lick => lick.meter).filter(Boolean))].sort();
+  $("lick-meter").innerHTML = '<option value="all">全部拍号</option>' + meters.map(meter => `<option value="${escapeHtml(meter)}">${escapeHtml(meter)}</option>`).join("");
+  $("lick-category").value = categories.has(libraryState.category) ? libraryState.category : "all";
+  $("lick-key").value = keys.includes(libraryState.key) ? libraryState.key : "all";
+  $("lick-meter").value = meters.includes(libraryState.meter) ? libraryState.meter : "all";
+}
+
+function ingestBoplandLibrary(database) {
+  if (database?.name !== "guitar-licks") return;
+  const selectedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1] || localStorage.getItem("lick-current-id-v1") || LICKS[current]?.id;
+  const expanded = buildBoplandLibrary(database);
+  if (expanded.length < 2000) return;
+  LICKS = expanded;
+  current = Math.max(0, LICKS.findIndex(lick => lick.id === selectedId));
+  libraryState.loaded = true;
+  populateLibraryFilters();
+  render();
+}
+
+function loadBoplandLibrary() {
+  window.bopland = { db: { register: ingestBoplandLibrary } };
+  const script = document.createElement("script");
+  script.src = BOPLAND_DATABASE_URL;
+  script.async = true;
+  script.onerror = () => {
+    $("library-count").textContent = `${LICKS.length} 条 · BopLand 暂时无法连接`;
+  };
+  document.head.appendChild(script);
+}
+
 function readSet(key) {
   try {
     return new Set(JSON.parse(localStorage.getItem(key) || "[]"));
@@ -756,17 +865,38 @@ function updateScoreZoom() {
   $("score-zoom").textContent = `${Math.round(scoreZoom * 100)}%`;
 }
 
-function renderList() {
+function filteredLibrary() {
   const saved = favorites();
-  const visible = LICKS.map((lick, index) => ({ lick, index })).filter(item => saved.has(item.lick.id));
-  $("favorite-count").textContent = `★ ${saved.size}`;
-  $("harmony-map").innerHTML = visible.length ? visible.map(({ lick, index }) => `
-    <a class="bar ${index === current ? "active" : ""}"
-       href="${lickHref(index)}" data-lick-index="${index}">
-      <span class="num">★${index + 1}</span>
-      <strong>${lick.chord}</strong><small>${lick.degree}</small>
-    </a>`).join("") : '<p class="empty-list">还没有收藏</p>';
-  bindLickLinks($("harmony-map"));
+  const query = libraryState.query.trim().toLowerCase();
+  return LICKS.map((lick, index) => ({ lick, index })).filter(({ lick }) => {
+    if (libraryState.category !== "all" && lick.group !== libraryState.category) return false;
+    if (libraryState.key !== "all" && lick.key !== libraryState.key) return false;
+    if (libraryState.meter !== "all" && lick.meter !== libraryState.meter) return false;
+    if (libraryState.favoritesOnly && !saved.has(lick.id)) return false;
+    const searchable = lick.searchText || `${lick.name} ${lick.group} ${lick.chord} ${lick.id}`.toLowerCase();
+    return !query || searchable.includes(query);
+  });
+}
+
+function renderLibrary() {
+  const visible = filteredLibrary();
+  const shown = visible.slice(0, libraryState.limit);
+  const finished = completed();
+  const percent = LICKS.length ? Math.round(finished.size / LICKS.length * 100) : 0;
+  $("course-progress").style.width = `${percent}%`;
+  $("progress-label").textContent = `${finished.size}/${LICKS.length}`;
+  $("library-count").textContent = `${visible.length} / ${LICKS.length} 条${libraryState.loaded ? "" : " · 正在载入完整库"}`;
+  $("favorites-filter").classList.toggle("on", libraryState.favoritesOnly);
+  $("favorites-filter").setAttribute("aria-pressed", String(libraryState.favoritesOnly));
+  $("favorites-filter").textContent = `${libraryState.favoritesOnly ? "★" : "☆"} 收藏`;
+  $("course-map").innerHTML = shown.length ? shown.map(({ lick, index }) => `
+    <a class="level ${finished.has(lick.id) ? "done" : ""} ${index === current ? "current" : ""}"
+       href="${lickHref(index)}" data-lick-index="${index}" title="${escapeHtml(lick.chord)}">
+      <span><small>${escapeHtml(lick.group)} · ${escapeHtml(lick.key || lick.meter || "")}</small><strong>${escapeHtml(lick.chord)}</strong></span><em>${index === current ? "播放中" : "▶"}</em>
+    </a>`).join("") : '<p class="empty-results">没有符合条件的 Lick</p>';
+  bindLickLinks($("course-map"));
+  $("load-more").hidden = shown.length >= visible.length;
+  $("load-more").textContent = `显示更多（剩余 ${Math.max(0, visible.length - shown.length)}）`;
 }
 
 function updatePracticeBpm(next, syncMetronome = true) {
@@ -821,26 +951,16 @@ function render() {
   const finished = completed();
   const saved = favorites();
   const lick = LICKS[current];
-  const percent = Math.round((finished.size / LICKS.length) * 100);
-
-  $("course-progress").style.width = `${percent}%`;
-  $("progress-label").textContent = `${finished.size}/${LICKS.length}`;
-  $("course-map").innerHTML = LICKS.map((item, index) => `
-    <a class="level ${finished.has(item.id) ? "done" : ""} ${index === current ? "current" : ""}"
-       href="${lickHref(index)}" data-lick-index="${index}">
-      <small>Lick ${index + 1}</small><strong>${item.group}</strong>
-    </a>`).join("");
-  bindLickLinks($("course-map"));
-  renderList();
+  renderLibrary();
 
   $("lesson-title").textContent = lick.name;
-  $("lesson-meta").textContent = `公开授权 · ${lick.bars} 小节`;
-  $("lesson-track").textContent = lick.chord;
-  $("lesson-harmony").innerHTML = `<strong>${lick.degree}</strong>`;
+  $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}`;
+  $("lesson-track").textContent = lick.key || lick.group;
+  $("lesson-harmony").textContent = lick.chord;
   const theory = THEORY_OVERRIDES[lick.id] || THEORY[lick.kind];
   renderAnalysis(lick, theory);
   $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
-  $("preview-status").innerHTML = '谱面与示范音频：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a> · 伴奏为本站按和弦实时生成';
+  $("preview-status").innerHTML = '2,525 条吉他 Lick 来源：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand.org</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
   $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
   $("favorite-lick").textContent = saved.has(lick.id) ? "★ 已收藏" : "☆ 收藏这条 Lick";
 
@@ -858,7 +978,7 @@ function render() {
   }
   audio.loop = false;
   updatePracticeBpm(practiceBpm, false);
-  $("toggle-loop").textContent = `A/B 循环：${looping ? "开" : "关"}`;
+  $("toggle-loop").textContent = `A/B：${looping ? "开" : "关"}`;
   updateMetronomeButton(window.metronome?.isRunning?.() || false);
   updateScoreZoom();
   drawWaveform();
@@ -872,6 +992,7 @@ function selectLick(index) {
   current = next;
   scoreZoom = 1;
   localStorage.setItem("lick-current-v2", String(current));
+  localStorage.setItem("lick-current-id-v1", LICKS[current].id);
   render();
 }
 
@@ -955,7 +1076,7 @@ $("lesson-metro").addEventListener("click", () => {
 $("toggle-loop").addEventListener("click", () => {
   looping = !looping;
   $("toggle-loop").classList.toggle("on", looping);
-  $("toggle-loop").textContent = `A/B 循环：${looping ? "开" : "关"}`;
+  $("toggle-loop").textContent = `A/B：${looping ? "开" : "关"}`;
 });
 $("master-lick").addEventListener("click", () => {
   const items = completed();
@@ -970,6 +1091,40 @@ $("favorite-lick").addEventListener("click", () => {
   items.has(id) ? items.delete(id) : items.add(id);
   saveSet("lick-favorites-v1", items);
   render();
+});
+$("lick-search").addEventListener("input", event => {
+  libraryState.query = event.target.value;
+  libraryState.limit = 6;
+  renderLibrary();
+});
+[["lick-category", "category"], ["lick-key", "key"], ["lick-meter", "meter"]].forEach(([id, field]) => {
+  $(id).addEventListener("change", event => {
+    libraryState[field] = event.target.value;
+    libraryState.limit = 6;
+    renderLibrary();
+  });
+});
+$("favorites-filter").addEventListener("click", () => {
+  libraryState.favoritesOnly = !libraryState.favoritesOnly;
+  libraryState.limit = 6;
+  renderLibrary();
+});
+$("clear-filters").addEventListener("click", () => {
+  Object.assign(libraryState, { query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6 });
+  $("lick-search").value = "";
+  $("lick-category").value = "all";
+  $("lick-key").value = "all";
+  $("lick-meter").value = "all";
+  renderLibrary();
+});
+$("load-more").addEventListener("click", () => {
+  libraryState.limit += 12;
+  renderLibrary();
+});
+$("random-lick").addEventListener("click", () => {
+  const available = filteredLibrary();
+  if (!available.length) return;
+  goToLick(available[Math.floor(Math.random() * available.length)].index);
 });
 $("score-minus").addEventListener("click", () => {
   scoreZoom = Math.max(1, scoreZoom - 0.25);
@@ -1093,16 +1248,16 @@ document.addEventListener("keydown", event => {
   togglePlayback();
 });
 
-enableDrag($("course-map"), "x");
-enableDrag($("harmony-map"), "x");
 enableDrag($("lick-staff"), "both");
 bindWaveformScrub();
 bindLoopMarker("loop-a-marker", "a");
 bindLoopMarker("loop-b-marker", "b");
 initScaleTrainer();
+populateLibraryFilters();
 const initialFromHash = indexFromHash();
 const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
 window.lessonPlayer = { stop: () => { stopLick(true); stopScaleExercise(""); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
+loadBoplandLibrary();
 })();
