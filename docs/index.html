@@ -330,7 +330,7 @@
             });
             effect=new Tone.Chorus(1.2,3.2,.35).start();instrument.connect(effect);effect.connect(channel);
           }
-          return {id:patchId,instrument,effect,channel};
+          return {id:patchId,instrument,effect,channel,mono:patchId==="warmBass"||patchId==="deepSub"};
         };
         const jamMidiName=midi=>{
           const names=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
@@ -339,7 +339,8 @@
         const jamTrigger=(voice,note,duration,time,velocity=.7)=>{
           if(!voice)return;
           try{
-            const value=Array.isArray(note)?note.map(jamMidiName):jamMidiName(note);
+            const playable=voice.mono&&Array.isArray(note)?note[0]:note;
+            const value=Array.isArray(playable)?playable.map(jamMidiName):jamMidiName(playable);
             voice.instrument.triggerAttackRelease(value,duration,time,velocity);
           }catch(e){}
         };
@@ -444,10 +445,12 @@
           const percent=Math.min(100,step/Math.max(1,total)*100);
           document.querySelectorAll(".jam-room").forEach(card=>card.classList.toggle("is-playing",card.dataset.roomId===room.id&&jamSound.roomId===room.id));
           document.querySelectorAll(".jam-section").forEach(el=>el.classList.remove("jam-section-live"));
-          const bar=Math.floor(step/16);
-          const section=jamSectionAt(bar);
-          document.querySelectorAll(`.jam-section[data-section="${section.start}"]`).forEach(el=>el.classList.add("jam-section-live"));
-          document.querySelectorAll(".jam-play-progress span").forEach(el=>el.style.setProperty("--play-progress",`${percent}%`));
+          if(jamSound.roomId===room.id){
+            const bar=Math.floor(step/16);
+            const section=jamSectionAt(bar);
+            document.querySelectorAll(`.jam-section[data-section="${section.start}"]`).forEach(el=>el.classList.add("jam-section-live"));
+          }
+          document.querySelectorAll(".jam-play-progress span").forEach(el=>el.style.setProperty("--play-progress",jamSound.roomId===room.id?`${percent}%`:"0%"));
         };
         const jamStopPreview=(refresh=true)=>{
           clearInterval(jamCountTimer);jamCountTimer=null;
@@ -664,7 +667,9 @@
             room.draft.events=[];jamSave();jamRenderRoom(room);return;
           }
           if(action==="record"){
-            if(jamRecording)jamFinishRecording(false);else jamAudioReady().then(ok=>{if(ok)jamStartRecording(room)});
+            if(jamRecording)jamFinishRecording(false);
+            else if(jamCountTimer){clearInterval(jamCountTimer);jamCountTimer=null;jamRenderRoom(room)}
+            else jamAudioReady().then(ok=>{if(ok)jamStartRecording(room)});
             return;
           }
           if(action==="play-take"){jamStartSequence(room,"take");return}
@@ -692,6 +697,7 @@
               stage:"building",parent:room.id,branchCount:0,producer:null,draft:null,
               seats:room.seats.map(seat=>roles.includes(seat.role)?{...seat}:{...seat,status:"open",musician:null,patch:null,takeEvents:null})
             };
+            if(jamAllDone(fork))fork.stage="mixReady";
             jamRooms.unshift(fork);jamSave();jamRender();jamOpen(fork.id);jamToast("平行房间已创建");return;
           }
         });
