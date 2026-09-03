@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm --prefix website ci && npm --prefix website run build",
+    "lint": "npm --prefix website run lint",
+    "start": "npm --prefix website run start"
+  }
+}
