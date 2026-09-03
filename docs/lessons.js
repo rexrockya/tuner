@@ -596,13 +596,61 @@ function saveSet(key, items) {
   localStorage.setItem(key, JSON.stringify([...items]));
 }
 
+const localCompleted = readSet("lick-done-v2");
+const localFavorites = readSet("lick-favorites-v1");
+let progressAccountId = "";
+let cloudCompleted = new Set();
+let cloudFavorites = new Set();
+let progressSyncVersion = 0;
+let progressWriteChain = Promise.resolve();
+
 function completed() {
-  return readSet("lick-done-v2");
+  return progressAccountId ? cloudCompleted : localCompleted;
 }
 
 function favorites() {
-  return readSet("lick-favorites-v1");
+  return progressAccountId ? cloudFavorites : localFavorites;
 }
+
+function showProgressSyncError() {
+  $("preview-status").textContent = "云端同步失败，请检查网络后重试";
+}
+
+async function loadAccountProgress(user) {
+  const version = ++progressSyncVersion;
+  progressAccountId = user?.id || "";
+  cloudCompleted = new Set();
+  cloudFavorites = new Set();
+  render();
+  if (!user) return;
+  try {
+    const items = await window.accountCloud.getLickProgress();
+    if (version !== progressSyncVersion || progressAccountId !== user.id) return;
+    cloudCompleted = new Set(items.filter(item => item.mastered).map(item => item.lickId));
+    cloudFavorites = new Set(items.filter(item => item.favorite).map(item => item.lickId));
+    render();
+  } catch (_) {
+    if (version === progressSyncVersion) showProgressSyncError();
+  }
+}
+
+function saveActiveProgress(lickId) {
+  if (!progressAccountId) {
+    saveSet("lick-done-v2", localCompleted);
+    saveSet("lick-favorites-v1", localFavorites);
+    return;
+  }
+  const accountId = progressAccountId;
+  const item = { lickId, favorite: cloudFavorites.has(lickId), mastered: cloudCompleted.has(lickId) };
+  progressWriteChain = progressWriteChain.then(async () => {
+    if (progressAccountId !== accountId) return;
+    await window.accountCloud.saveLickProgress(item);
+  }).catch(() => {
+    if (progressAccountId === accountId) showProgressSyncError();
+  });
+}
+
+window.addEventListener("tuner:account-change", event => loadAccountProgress(event.detail.user));
 
 function formatTime(value) {
   if (!Number.isFinite(value)) return "0:00";
@@ -1082,14 +1130,14 @@ $("master-lick").addEventListener("click", () => {
   const items = completed();
   const id = LICKS[current].id;
   items.has(id) ? items.delete(id) : items.add(id);
-  saveSet("lick-done-v2", items);
+  saveActiveProgress(id);
   render();
 });
 $("favorite-lick").addEventListener("click", () => {
   const items = favorites();
   const id = LICKS[current].id;
   items.has(id) ? items.delete(id) : items.add(id);
-  saveSet("lick-favorites-v1", items);
+  saveActiveProgress(id);
   render();
 });
 $("lick-search").addEventListener("input", event => {

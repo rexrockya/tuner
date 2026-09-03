@@ -106,7 +106,7 @@ final class MetronomeView extends View {
         drawButton(canvas, new RectF(24*d, buttonY, w/2-8*d, buttonY+58*d), "− 5", false, d);
         drawButton(canvas, new RectF(w/2+8*d, buttonY, w-24*d, buttonY+58*d), "+ 5", false, d);
         drawButton(canvas, new RectF(24*d, buttonY+74*d, w-24*d, buttonY+136*d), running ? "停止" : "开始", true, d);
-        paint.setColor(0xff687062); paint.setTextSize(11*d); canvas.drawText("远程控制码", w/2, h-54*d, paint);
+        paint.setColor(0xff687062); paint.setTextSize(11*d); canvas.drawText("房间码", w/2, h-54*d, paint);
         paint.setColor(0xffc8f56a); paint.setTextSize(24*d); paint.setLetterSpacing(.16f); canvas.drawText(roomCode, w/2, h-23*d, paint); paint.setLetterSpacing(0);
     }
 
