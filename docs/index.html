@@ -122,54 +122,635 @@
     document.querySelector("#remote-send").onclick=async()=>{const code=document.querySelector("#room-code").value,status=document.querySelector("#remote-status");if(!/^\d{6}$/.test(code)){status.textContent="请输入 6 位控制码";return}status.textContent="正在同步…";try{const r=await fetch(`https://xianyin-tuner.cobainrexzhang.chatgpt.site/api/metronome/${code}`,{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify({bpm:metroBpm,running:metroRunning})});if(!r.ok)throw 0;status.textContent="已同步到孩子手机"}catch(e){status.textContent="同步失败，请稍后重试"}};
     document.querySelector("#choose-parent").onclick=()=>location.href="?mode=parent";document.querySelector("#choose-child").onclick=()=>location.href="?mode=child";
 
-    const JAM_KEY="tuner-jam-prototype-v1";
-    const JAM_ROLE={drums:{label:"节奏",short:"DR"},harmony:{label:"和声",short:"HM"},bass:{label:"低频",short:"BS"},lead:{label:"主旋律",short:"LD"},vocal:{label:"人声",short:"VO"},texture:{label:"纹理",short:"FX"}};
-    const jamSeed=()=>[
-      {id:"night-lamp",title:"凌晨四点的路灯",style:"Neo Soul",bpm:92,key:"A minor",accent:"#bdf45d",stage:"building",branchable:true,parent:null,branchCount:0,structure:["Intro","Verse","Pre","Chorus","Bridge","Outro"],seats:[{role:"drums",required:true,status:"done",musician:"Lin",take:"Pocket Drums"},{role:"harmony",required:true,status:"done",musician:"Mori",take:"Rhodes Chords"},{role:"bass",required:true,status:"open",musician:null,take:null},{role:"lead",required:false,status:"open",musician:null,take:null}],producer:null,mix:{}},
-      {id:"paper-plane",title:"纸飞机没有返航",style:"Indie Pop",bpm:118,key:"D major",accent:"#63d9ff",stage:"mixReady",branchable:true,parent:null,branchCount:1,structure:["Intro","Verse","Chorus","Verse","Bridge","Chorus"],seats:[{role:"drums",required:true,status:"done",musician:"Aki",take:"Dry Kit"},{role:"bass",required:true,status:"done",musician:"June",take:"Picked Bass"},{role:"harmony",required:true,status:"done",musician:"Yao",take:"Clean Guitar"}],producer:null,mix:{}},
-      {id:"after-rain",title:"雨停之前",style:"Ambient R&B",bpm:76,key:"E minor",accent:"#ff8fa3",stage:"complete",branchable:true,parent:null,branchCount:2,structure:["Intro","Verse","Chorus","Bridge","Chorus","Outro"],seats:[{role:"drums",required:true,status:"done",musician:"Nico",take:"Soft Drums"},{role:"bass",required:true,status:"done",musician:"K",take:"Sub Bass"},{role:"harmony",required:true,status:"done",musician:"Hana",take:"Cloud Keys"},{role:"vocal",required:false,status:"done",musician:"Sora",take:"Lead Vocal"}],producer:"Aster",mix:{drums:72,bass:78,harmony:66,vocal:82}}
-    ];
-    let jamRooms;try{jamRooms=JSON.parse(localStorage.getItem(JAM_KEY))||jamSeed()}catch(e){jamRooms=jamSeed()}
-    let jamFilter="all",jamCurrent=null,jamSelectedFile=null,jamFileUrl="",jamToastTimer=null;
-    const jamGrid=document.querySelector("#jam-grid"),jamPage=document.querySelector("#jam-page"),jamRoomDialog=document.querySelector("#jam-room-dialog"),jamRoomContent=document.querySelector("#jam-room-content"),jamCreateDialog=document.querySelector("#jam-create-dialog");
-    const jamEsc=value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
-    const jamRequired=room=>room.seats.filter(seat=>seat.required);
-    const jamAllDone=room=>jamRequired(room).every(seat=>seat.status==="done");
-    function jamProgress(room){const required=jamRequired(room),done=required.filter(seat=>seat.status==="done").length;let value=10+Math.round(60*done/Math.max(1,required.length));if(done===required.length)value+=10;if(room.stage==="mixing"||room.stage==="complete")value+=10;if(room.stage==="complete")value+=10;return Math.min(100,value)}
-    function jamStage(room){return room.stage==="building"?"正在构筑":room.stage==="mixReady"?"等待制作人":room.stage==="mixing"?"混音中":"已经完成"}
-    function jamSave(){localStorage.setItem(JAM_KEY,JSON.stringify(jamRooms))}
-    function jamToast(message){const toast=document.querySelector("#jam-toast");toast.textContent=message;toast.classList.add("show");clearTimeout(jamToastTimer);jamToastTimer=setTimeout(()=>toast.classList.remove("show"),2200)}
-    function jamWave(count=18){const heights=[16,35,24,44,19,38,48,28,41,18,32,46,22,37,29,43,17,34];return heights.slice(0,count).map((h,i)=>'<span style="--h:'+h+'px;--d:'+(i*.035)+'s"></span>').join("")}
-    function jamNext(room){if(room.stage==="mixReady")return{label:"接手混音",hint:"三位演奏者已经到齐"};if(room.stage==="mixing")return{label:"继续混音",hint:"房间已经封盘"};if(room.stage==="complete")return{label:"续写版本",hint:room.branchable?"可以保留喜欢的声部":"这个房间未开放复刻"};const mine=room.seats.find(seat=>seat.musician==="你"&&seat.status==="claimed"),open=room.seats.find(seat=>seat.status==="open");if(mine)return{label:"提交 "+JAM_ROLE[mine.role].label,hint:"你的草稿只有自己能听见"};if(open)return{label:"认领 "+JAM_ROLE[open.role].label,hint:"当前最需要这个声部"};return{label:"查看房间",hint:"等待其他玩家提交"}}
-    function jamCard(room){const next=jamNext(room),people=room.seats.filter(seat=>seat.status==="done"),branches=(room.branchCount||0)+jamRooms.filter(item=>item.parent===room.id).length;return '<article class="jam-room'+(jamSound.roomId===room.id?" is-playing":"")+'" style="--accent:'+room.accent+'" data-room="'+room.id+'"><div class="jam-room-cover" data-jam-open="'+room.id+'"><div class="jam-room-top"><span class="jam-state">'+jamStage(room)+'</span><span class="jam-branch-count">'+(branches?branches+" 个平行版本":"原始房间")+'</span></div><div class="jam-bars">'+jamWave()+'</div></div><div class="jam-room-body"><div class="jam-room-title"><h2>'+jamEsc(room.title)+'</h2><span class="jam-progress-number">'+jamProgress(room)+'%</span></div><div class="jam-meta">'+room.bpm+' BPM · '+jamEsc(room.key)+' · '+jamEsc(room.style)+'</div><div class="jam-role-line">'+people.slice(0,4).map(seat=>'<span class="jam-role-dot" title="'+jamEsc(seat.musician)+' · '+JAM_ROLE[seat.role].label+'">'+JAM_ROLE[seat.role].short+'</span>').join("")+(people.length<4?'<span class="jam-role-dot open">＋</span>':"")+'<span class="jam-role-copy"><strong>'+jamEsc(next.label)+'</strong><span>'+jamEsc(next.hint)+'</span></span></div><div class="jam-card-actions"><button class="jam-preview" data-jam-preview="'+room.id+'" aria-label="试听 '+jamEsc(room.title)+'">'+(jamSound.roomId===room.id?"■":"▶")+'</button><button class="jam-primary" data-jam-action="'+room.id+'">'+jamEsc(next.label)+'</button></div></div></article>'}
-    function renderJam(){const visible=jamRooms.filter(room=>jamFilter==="all"||room.stage===jamFilter||(jamFilter==="building"&&room.stage==="building"));jamGrid.innerHTML=visible.length?visible.map(jamCard).join(""):'<div class="jam-empty"><strong>这里暂时没有房间</strong>换个状态看看，或者发起一个新的蓝图。</div>';document.querySelectorAll("[data-jam-filter]").forEach(button=>button.classList.toggle("active",button.dataset.jamFilter===jamFilter))}
-    const jamSound={context:null,timer:null,roomId:null,step:0};
-    function jamGain(room,role,base){return base*((room.mix&&room.mix[role]!==undefined?room.mix[role]:75)/100)}
-    function jamTone(freq,duration,volume,type="sine",slide=0){const context=jamSound.context,now=context.currentTime,osc=context.createOscillator(),gain=context.createGain();osc.type=type;osc.frequency.setValueAtTime(freq,now);if(slide)osc.frequency.exponentialRampToValueAtTime(slide,now+duration);gain.gain.setValueAtTime(Math.max(.0001,volume),now);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);osc.connect(gain).connect(context.destination);osc.start(now);osc.stop(now+duration)}
-    function jamNoise(duration,volume){const context=jamSound.context,buffer=context.createBuffer(1,Math.ceil(context.sampleRate*duration),context.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;const source=context.createBufferSource(),filter=context.createBiquadFilter(),gain=context.createGain();source.buffer=buffer;filter.type="highpass";filter.frequency.value=1200;gain.gain.setValueAtTime(volume,context.currentTime);gain.gain.exponentialRampToValueAtTime(.0001,context.currentTime+duration);source.connect(filter).connect(gain).connect(context.destination);source.start();source.stop(context.currentTime+duration)}
-    function jamTick(room){const step=jamSound.step%8,done=new Set(room.seats.filter(seat=>seat.status==="done").map(seat=>seat.role));if(done.has("drums")){jamNoise(.035,jamGain(room,"drums",.025));if(step===0||step===4)jamTone(120,.16,jamGain(room,"drums",.15),"sine",42);if(step===2||step===6)jamNoise(.11,jamGain(room,"drums",.085))}if(done.has("bass")&&step%2===0){const notes=[55,55,65.4,49];jamTone(notes[(step/2)%4],.3,jamGain(room,"bass",.07),"triangle")}if(done.has("harmony")&&(step===0||step===4)){const root=step===0?220:174.6;[1,1.2,1.5].forEach(ratio=>jamTone(root*ratio,.65,jamGain(room,"harmony",.018),"sine"))}if(done.has("lead")&&step%2===1){const notes=[440,523.3,659.3,523.3];jamTone(notes[((step-1)/2)%4],.22,jamGain(room,"lead",.025),"triangle")}if(done.has("vocal")&&(step===1||step===5))jamTone(step===1?329.6:392,.55,jamGain(room,"vocal",.025),"sine");jamSound.step++}
-    function jamStopPreview(){clearInterval(jamSound.timer);jamSound.timer=null;jamSound.roomId=null;document.querySelectorAll(".jam-room,.jam-detail").forEach(el=>el.classList.remove("is-playing"));document.querySelectorAll("[data-jam-preview],[data-detail-preview]").forEach(button=>button.textContent="▶")}
-    async function jamTogglePreview(room){if(jamSound.roomId===room.id){jamStopPreview();renderJam();return}jamStopPreview();jamSound.context??=new AudioContext();await jamSound.context.resume();jamSound.roomId=room.id;jamSound.step=0;jamTick(room);jamSound.timer=setInterval(()=>jamTick(room),60000/room.bpm/2);renderJam();if(jamCurrent===room.id)renderJamDetail(room)}
-    function jamSeatRows(room){const own=room.seats.some(seat=>seat.musician==="你"&&(seat.status==="claimed"||seat.status==="done"));return room.seats.map(seat=>{const role=JAM_ROLE[seat.role],state=seat.status==="done"?(seat.inherited?"继承自原版本 · ":"已提交 · ")+jamEsc(seat.musician):seat.status==="claimed"?"正在创作 · "+jamEsc(seat.musician):(seat.required?"等待认领 · 必需声部":"等待认领 · 可选声部");const control=seat.status==="open"&&room.stage==="building"&&!own?'<button data-detail-action="claim" data-role="'+seat.role+'">认领</button>':seat.status==="claimed"&&seat.musician==="你"?'<span class="locked">你的席位</span>':'<span class="locked">'+(seat.status==="done"?"已锁定":"开放")+'</span>';return '<div class="jam-seat"><span class="jam-seat-icon">'+role.short+'</span><div><strong>'+role.label+'</strong><small>'+state+'</small></div>'+control+'</div>'}).join("")}
-    function jamActionZone(room){const mine=room.seats.find(seat=>seat.status==="claimed"&&seat.musician==="你");if(room.stage==="building"&&mine)return '<div class="jam-callout"><h3>提交 '+JAM_ROLE[mine.role].label+'</h3><p>在自己的软件里完成录音后，在这里选择文件。原型不会上传文件，只会记住这次提交。</p><div class="jam-upload"><span id="jam-file-name">'+(jamSelectedFile?jamEsc(jamSelectedFile.name):"还没有选择音频")+'</span><button class="jam-secondary" data-detail-action="pick-file">选择本地音频</button><input id="jam-file" type="file" accept="audio/*" hidden><audio id="jam-local-audio" controls '+(jamFileUrl?"src=\""+jamEsc(jamFileUrl)+"\"":"hidden")+'></audio></div><div class="jam-callout-actions"><button class="jam-secondary" data-detail-action="demo-take">使用示范 Take</button><button data-detail-action="submit-take">正式提交并锁定</button></div></div>';if(room.stage==="building"){const open=room.seats.find(seat=>seat.status==="open");return '<div class="jam-callout"><h3>'+(open?"下一步需要 "+JAM_ROLE[open.role].label:"等待提交")+'</h3><p>每个人在一个房间只负责一个声部。草稿不会被其他人听见，正式提交后才进入歌曲。</p></div>'}if(room.stage==="mixReady")return '<div class="jam-callout"><h3>等待第四位制作人</h3><p>所有必需声部已经完成。单人原型会把你临时切换为一位新的制作人身份，用来测试最后的交接。</p><div class="jam-callout-actions"><button data-detail-action="take-producer">以制作人身份接手</button></div></div>';if(room.stage==="mixing")return '<div class="jam-callout"><h3>房间已经封盘</h3><p>调整各个声部的关系。这里使用合成预览模拟混音，任何已提交声部都不会被删除。</p><div class="jam-mixer">'+room.seats.filter(seat=>seat.status==="done").map(seat=>'<div class="jam-channel"><label>'+JAM_ROLE[seat.role].label+'</label><input type="range" min="0" max="100" value="'+(room.mix[seat.role]??75)+'" data-mix-role="'+seat.role+'" aria-label="'+JAM_ROLE[seat.role].label+'音量"><output>'+(room.mix[seat.role]??75)+'</output></div>').join("")+'</div><div class="jam-callout-actions"><button class="jam-secondary" data-detail-preview="'+room.id+'">'+(jamSound.roomId===room.id?"■ 停止试听":"▶ 试听混音")+'</button><button data-detail-action="finish-mix">完成并发布</button></div></div>';return '<div class="jam-callout"><h3>这首歌已经构筑完成</h3><p>每个贡献都留在当前版本里。你可以保留喜欢的声部，让另一个版本从这里继续生长。</p><div class="jam-callout-actions">'+(room.branchable?'<button data-detail-action="show-fork">续写平行版本</button>':'<button class="jam-secondary" disabled>未开放复刻</button>')+'</div></div>'}
-    function renderJamDetail(room){jamCurrent=room.id;const parent=room.parent?jamRooms.find(item=>item.id===room.parent):null;jamRoomContent.innerHTML='<div class="jam-dialog-head"><div><span class="lesson-kicker">'+jamStage(room).toUpperCase()+'</span><h2 id="jam-room-title">'+jamEsc(room.title)+'</h2></div><button class="jam-close" data-close-dialog="jam-room-dialog" aria-label="关闭">×</button></div><div class="jam-detail '+(jamSound.roomId===room.id?"is-playing":"")+'" style="--room-accent:'+room.accent+'"><div class="jam-detail-summary"><div class="jam-now"><div class="jam-now-top"><div><h3>当前房间混音</h3><p>'+room.seats.filter(seat=>seat.status==="done").length+' 个声部 · '+jamProgress(room)+'% 完成</p></div><button data-detail-preview="'+room.id+'" aria-label="试听当前混音">'+(jamSound.roomId===room.id?"■":"▶")+'</button></div><div class="jam-mini-wave">'+jamWave(16)+'</div></div><div class="jam-blueprint"><div><span>BPM</span><strong>'+room.bpm+'</strong></div><div><span>KEY</span><strong>'+jamEsc(room.key)+'</strong></div><div><span>STYLE</span><strong>'+jamEsc(room.style)+'</strong></div><div><span>ROOM</span><strong>'+(room.branchable?"可续写":"固定阵容")+'</strong></div></div></div><div class="jam-structure">'+room.structure.map(section=>'<span class="jam-section">'+jamEsc(section)+'</span>').join("")+'</div><div class="jam-seats">'+jamSeatRows(room)+'</div><div id="jam-action-zone">'+jamActionZone(room)+'</div>'+(parent?'<div class="jam-lineage">源自 <strong>'+jamEsc(parent.title)+'</strong> · 继承的声部始终保留原作者署名</div>':'<div class="jam-lineage"><strong>原始房间</strong> · '+((room.branchCount||0)+jamRooms.filter(item=>item.parent===room.id).length)+' 个平行版本</div>')+'</div>'}
-    function jamOpen(room){renderJamDetail(room);if(!jamRoomDialog.open)jamRoomDialog.showModal()}
-    function jamClaim(room,role){if(room.stage!=="building")return;const existing=room.seats.find(seat=>seat.musician==="你"&&(seat.status==="claimed"||seat.status==="done"));if(existing){jamToast("一个房间只能认领一个声部");return}const seat=room.seats.find(item=>item.role===role&&item.status==="open");if(!seat)return;seat.status="claimed";seat.musician="你";jamSelectedFile=null;jamFileUrl="";jamSave();renderJam();renderJamDetail(room);jamToast("已经认领 "+JAM_ROLE[role].label)}
-    function jamSubmit(room){const seat=room.seats.find(item=>item.status==="claimed"&&item.musician==="你");if(!seat)return;if(!jamSelectedFile){jamToast("先选择音频，或者使用示范 Take");return}seat.status="done";seat.take=jamSelectedFile.name;room.stage=jamAllDone(room)?"mixReady":"building";jamSelectedFile=null;if(jamFileUrl)URL.revokeObjectURL(jamFileUrl);jamFileUrl="";jamSave();renderJam();renderJamDetail(room);jamToast(room.stage==="mixReady"?"三位演奏者到齐，等待制作人":"Take 已经进入房间")}
-    function jamTakeProducer(room){room.stage="mixing";room.producer="你 · 制作人试玩";room.mix=Object.fromEntries(room.seats.filter(seat=>seat.status==="done").map(seat=>[seat.role,75]));jamSave();renderJam();renderJamDetail(room);jamToast("制作人已接手，房间封盘")}
-    function jamFinish(room){jamStopPreview();room.stage="complete";jamSave();renderJam();renderJamDetail(room);jamToast("完成：这首歌现在可以被续写")}
-    function jamForkForm(room){const done=room.seats.filter(seat=>seat.status==="done");document.querySelector("#jam-action-zone").innerHTML='<div class="jam-callout"><h3>保留哪些声部？</h3><p>未保留的声部会在新房间重新开放。原版本不会发生任何变化。</p><div class="jam-checks">'+done.map((seat,index)=>'<label class="jam-check"><input type="checkbox" name="jam-keep" value="'+seat.role+'" '+(index<2?"checked":"")+'>'+JAM_ROLE[seat.role].label+' · '+jamEsc(seat.musician)+'</label>').join("")+'</div><div class="jam-upload"><span>新版本名称</span><input id="jam-fork-title" maxlength="40" value="'+jamEsc(room.title)+' / 平行版本"></div><div class="jam-callout-actions"><button class="jam-secondary" data-detail-action="cancel-fork">返回</button><button data-detail-action="create-fork">创建新房间</button></div></div>'}
-    function jamCreateFork(room){const keep=[...jamRoomContent.querySelectorAll('input[name="jam-keep"]:checked')].map(input=>input.value),done=room.seats.filter(seat=>seat.status==="done");if(!keep.length){jamToast("至少保留一个声部");return}if(keep.length===done.length){jamToast("至少重新开放一个声部");return}const title=document.querySelector("#jam-fork-title").value.trim()||room.title+" / 平行版本",colors=["#f6c85f","#8dd7bf","#c6a0ff","#ff8fa3"],child={...room,id:"fork-"+Date.now(),title,accent:colors[jamRooms.length%colors.length],stage:"building",parent:room.id,branchCount:0,producer:null,mix:{},seats:room.seats.map(seat=>keep.includes(seat.role)?{...seat,inherited:true}:{...seat,status:"open",musician:null,take:null,inherited:false})};jamRooms.unshift(child);jamSave();renderJam();jamOpen(child);jamToast("平行版本已经建立")}
-    jamGrid.addEventListener("click",event=>{const preview=event.target.closest("[data-jam-preview]"),open=event.target.closest("[data-jam-open]"),action=event.target.closest("[data-jam-action]");if(preview){jamTogglePreview(jamRooms.find(room=>room.id===preview.dataset.jamPreview));return}if(open){jamOpen(jamRooms.find(room=>room.id===open.dataset.jamOpen));return}if(action){const room=jamRooms.find(item=>item.id===action.dataset.jamAction),next=jamNext(room);if(room.stage==="building"){const mine=room.seats.find(seat=>seat.status==="claimed"&&seat.musician==="你");if(mine)jamOpen(room);else{const openSeat=room.seats.find(seat=>seat.status==="open");if(openSeat){jamClaim(room,openSeat.role);jamOpen(room)}else jamOpen(room)}}else{jamOpen(room);if(room.stage==="complete"&&room.branchable)jamForkForm(room)}}});
-    document.querySelectorAll("[data-jam-filter]").forEach(button=>button.addEventListener("click",()=>{jamFilter=button.dataset.jamFilter;renderJam()}));
-    jamRoomDialog.addEventListener("click",event=>{const close=event.target.closest('[data-close-dialog="jam-room-dialog"]'),action=event.target.closest("[data-detail-action]"),preview=event.target.closest("[data-detail-preview]");if(close){jamRoomDialog.close();return}if(preview){jamTogglePreview(jamRooms.find(room=>room.id===preview.dataset.detailPreview));return}if(!action)return;const room=jamRooms.find(item=>item.id===jamCurrent),type=action.dataset.detailAction;if(type==="claim")jamClaim(room,action.dataset.role);if(type==="pick-file")document.querySelector("#jam-file").click();if(type==="demo-take"){jamSelectedFile={name:"Tuner Demo "+JAM_ROLE[room.seats.find(seat=>seat.status==="claimed"&&seat.musician==="你").role].label+".wav"};document.querySelector("#jam-file-name").textContent=jamSelectedFile.name;jamToast("示范 Take 已准备好")}if(type==="submit-take")jamSubmit(room);if(type==="take-producer")jamTakeProducer(room);if(type==="finish-mix")jamFinish(room);if(type==="show-fork")jamForkForm(room);if(type==="cancel-fork")renderJamDetail(room);if(type==="create-fork")jamCreateFork(room)});
-    jamRoomDialog.addEventListener("change",event=>{if(event.target.id==="jam-file"&&event.target.files[0]){jamSelectedFile=event.target.files[0];if(jamFileUrl)URL.revokeObjectURL(jamFileUrl);jamFileUrl=URL.createObjectURL(jamSelectedFile);document.querySelector("#jam-file-name").textContent=jamSelectedFile.name;const audio=document.querySelector("#jam-local-audio");audio.src=jamFileUrl;audio.hidden=false}});
-    jamRoomDialog.addEventListener("input",event=>{if(event.target.dataset.mixRole){const room=jamRooms.find(item=>item.id===jamCurrent);room.mix[event.target.dataset.mixRole]=Number(event.target.value);event.target.nextElementSibling.value=event.target.value;jamSave()}});
-    document.querySelector("#jam-create").addEventListener("click",()=>jamCreateDialog.showModal());
-    document.querySelectorAll("[data-close-dialog]").forEach(button=>button.addEventListener("click",()=>document.querySelector("#"+button.dataset.closeDialog).close()));
-    document.querySelector("#jam-create-form").addEventListener("submit",event=>{event.preventDefault();const data=new FormData(event.currentTarget),roles=data.getAll("roles");if(roles.length<3){jamToast("至少选择三个必需声部");return}const colors=["#f6c85f","#8dd7bf","#c6a0ff","#ff8fa3"],room={id:"room-"+Date.now(),title:data.get("title").trim(),style:data.get("style").trim()||"Open Style",bpm:Number(data.get("bpm")),key:data.get("key"),accent:colors[jamRooms.length%colors.length],stage:"building",branchable:data.has("branchable"),parent:null,branchCount:0,structure:["Intro","Verse","Pre","Chorus","Bridge","Outro"],seats:roles.map(role=>({role,required:true,status:"open",musician:null,take:null})),producer:null,mix:{}};jamRooms.unshift(room);jamSave();jamFilter="all";renderJam();jamCreateDialog.close();event.currentTarget.reset();jamOpen(room);jamToast("蓝图已经发布")});
-    document.querySelector("#jam-reset").addEventListener("click",()=>{if(!confirm("重置所有 Jam 试玩进度？"))return;jamStopPreview();jamRooms=jamSeed();jamSave();jamFilter="all";renderJam();jamToast("试玩已经重置")});
-    renderJam();
+
+        const JAM_KEY="tuner-jam-keyboard-v2";
+        const JAM_ROLE={
+          harmony:{label:"和弦",short:"CH"},
+          bass:{label:"低频",short:"BS"},
+          lead:{label:"主旋律",short:"LD"},
+          texture:{label:"点缀",short:"FX"}
+        };
+        const JAM_PACKS={
+          pop:{
+            label:"流行",name:"Pop Glow",accent:"#bdf45d",
+            defaults:{harmony:"dreamKeys",bass:"warmBass",lead:"glassPluck",texture:"airPad"},
+            patches:[
+              {id:"dreamKeys",label:"Dream Keys"},
+              {id:"glassPluck",label:"Glass Pluck"},
+              {id:"warmBass",label:"Warm Bass"},
+              {id:"airPad",label:"Air Pad"}
+            ]
+          },
+          electronic:{
+            label:"电音",name:"Neon Pulse",accent:"#63d9ff",
+            defaults:{harmony:"airPad",bass:"deepSub",lead:"supersaw",texture:"neonPluck"},
+            patches:[
+              {id:"airPad",label:"Air Pad"},
+              {id:"deepSub",label:"Deep Sub"},
+              {id:"supersaw",label:"Super Saw"},
+              {id:"neonPluck",label:"Neon Pluck"}
+            ]
+          }
+        };
+        const JAM_SECTIONS=[
+          {name:"Intro",start:0,end:2},
+          {name:"Verse",start:2,end:6},
+          {name:"Pre",start:6,end:8},
+          {name:"Chorus",start:8,end:12},
+          {name:"Bridge",start:12,end:14},
+          {name:"Chorus",start:14,end:18},
+          {name:"Outro",start:18,end:20}
+        ];
+        const jamSeat=(role,required,status="open",musician=null,patch=null)=>({role,required,status,musician,patch,takeEvents:null});
+        const jamSeed=()=>[
+          {
+            id:"night-lamp",title:"凌晨四点的路灯",pack:"pop",style:"流行 / City Pop",bpm:104,key:"C major",
+            accent:"#bdf45d",stage:"building",branchable:true,parent:null,branchCount:0,structure:JAM_SECTIONS.map(x=>x.name),
+            seats:[
+              {...jamSeat("harmony",true,"done","Mori","dreamKeys")},
+              {...jamSeat("bass",true,"done","Lin","warmBass")},
+              jamSeat("lead",true),
+              jamSeat("texture",false)
+            ],producer:null,mix:{harmony:72,bass:76,lead:70,texture:58}
+          },
+          {
+            id:"neon-weightless",title:"霓虹失重",pack:"electronic",style:"电音 / Electro Pop",bpm:124,key:"F minor",
+            accent:"#63d9ff",stage:"mixReady",branchable:true,parent:null,branchCount:1,structure:JAM_SECTIONS.map(x=>x.name),
+            seats:[
+              {...jamSeat("harmony",true,"done","Aki","airPad")},
+              {...jamSeat("bass",true,"done","June","deepSub")},
+              {...jamSeat("lead",true,"done","Yao","supersaw")},
+              {...jamSeat("texture",false,"done","Nami","neonPluck")}
+            ],producer:null,mix:{harmony:64,bass:78,lead:67,texture:52}
+          },
+          {
+            id:"after-rain",title:"雨停之前",pack:"pop",style:"流行 / Synth Pop",bpm:110,key:"E minor",
+            accent:"#ff8fa3",stage:"complete",branchable:true,parent:null,branchCount:2,structure:JAM_SECTIONS.map(x=>x.name),
+            seats:[
+              {...jamSeat("harmony",true,"done","Hana","dreamKeys")},
+              {...jamSeat("bass",true,"done","K","warmBass")},
+              {...jamSeat("lead",true,"done","Sora","glassPluck")},
+              {...jamSeat("texture",false,"done","Nico","airPad")}
+            ],producer:"Aster",mix:{harmony:70,bass:78,lead:74,texture:56}
+          }
+        ];
+        let jamRooms;
+        try{jamRooms=JSON.parse(localStorage.getItem(JAM_KEY))||jamSeed()}catch(e){jamRooms=jamSeed()}
+        let jamFilter="all",jamCurrent=null,jamToastTimer=null,jamCountTimer=null,jamRecordTimer=null;
+        let jamRecording=null;
+        const jamHeld=new Map();
+        const jamGrid=document.querySelector("#jam-grid");
+        const jamPage=document.querySelector("#jam-page");
+        const jamRoomDialog=document.querySelector("#jam-room-dialog");
+        const jamRoomContent=document.querySelector("#jam-room-content");
+        const jamCreateDialog=document.querySelector("#jam-create-dialog");
+        window.jamPage=jamPage;
+        const jamEsc=value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+        const jamRoom=id=>jamRooms.find(room=>room.id===id);
+        const jamPack=room=>JAM_PACKS[room.pack]||JAM_PACKS.pop;
+        const jamRequired=room=>room.seats.filter(seat=>seat.required);
+        const jamAllDone=room=>jamRequired(room).every(seat=>seat.status==="done");
+        const jamProgress=room=>{
+          if(room.stage==="complete")return 100;
+          if(room.stage==="mixReady")return 82;
+          const required=jamRequired(room);
+          const done=required.filter(seat=>seat.status==="done").length;
+          const optional=room.seats.filter(seat=>!seat.required&&seat.status==="done").length;
+          return Math.min(80,20+Math.round(done/Math.max(1,required.length)*58)+optional*4);
+        };
+        const jamStage=room=>room.stage==="complete"?"已完成":room.stage==="mixReady"?"待混音":"构筑中";
+        const jamSave=()=>localStorage.setItem(JAM_KEY,JSON.stringify(jamRooms));
+        const jamToast=message=>{
+          let el=document.querySelector("#jam-toast");
+          if(!el){el=document.createElement("div");el.id="jam-toast";el.className="jam-toast";document.body.appendChild(el)}
+          el.textContent=message;el.classList.add("show");clearTimeout(jamToastTimer);
+          jamToastTimer=setTimeout(()=>el.classList.remove("show"),2300);
+        };
+        const jamBarArt=seed=>Array.from({length:18},(_,i)=>{
+          const h=18+((i*19+seed*13)%31);
+          return `<span style="--h:${h}px;--d:${(i%7)*-.07}s"></span>`;
+        }).join("");
+        const jamRoomRoles=room=>room.seats.map(seat=>`<span class="jam-role-dot ${seat.status==="open"?"open":""}" title="${jamEsc(JAM_ROLE[seat.role]?.label)}">${JAM_ROLE[seat.role]?.short||"?"}</span>`).join("");
+        const jamRender=()=>{
+          const shown=jamRooms.filter(room=>jamFilter==="all"||room.stage===jamFilter);
+          jamGrid.innerHTML=shown.length?shown.map((room,index)=>{
+            const open=room.seats.find(seat=>seat.status==="open"&&seat.required);
+            const action=room.stage==="complete"?"打开成品":room.stage==="mixReady"?"进入后期":open?`演奏${JAM_ROLE[open.role].label}`:"查看房间";
+            const pack=jamPack(room);
+            return `<article class="jam-room ${jamSound.roomId===room.id?"is-playing":""}" data-room-id="${room.id}" style="--accent:${room.accent||pack.accent}">
+              <div class="jam-room-cover" data-open-room="${room.id}">
+                <div class="jam-room-top"><span class="jam-state">${jamStage(room)}</span><span class="jam-branch-count">${room.branchCount||0} 个平行版本</span></div>
+                <div class="jam-bars">${jamBarArt(index+1)}</div>
+              </div>
+              <div class="jam-room-body">
+                <div class="jam-room-title"><h2>${jamEsc(room.title)}</h2><span class="jam-progress-number">${jamProgress(room)}%</span></div>
+                <p class="jam-meta">${jamEsc(pack.label)} · ${room.bpm} BPM · ${jamEsc(room.key)}</p>
+                <div class="jam-role-line">${jamRoomRoles(room)}<div class="jam-role-copy"><strong>${room.seats.filter(x=>x.status==="done").length} 个声部</strong><span>系统鼓组已就位</span></div></div>
+                <div class="jam-card-actions"><button class="jam-preview" data-preview="${room.id}" title="试听完整编排" aria-label="试听完整编排">${jamSound.roomId===room.id?"■":"▶"}</button><button class="jam-primary" data-open-room="${room.id}">${action}</button></div>
+              </div>
+            </article>`;
+          }).join(""):`<div class="jam-empty"><strong>这一栏暂时是空的</strong>切到“全部”继续试玩。</div>`;
+        };
+        window.renderJam=jamRender;
+
+        const jamAudio={ready:false,master:null,drums:null,kick:null,noise:null,voices:{},live:null};
+        const jamSound={roomId:null,mode:null,step:0,steps:0,scheduleId:null,finishing:false};
+        const JAM_DRUM_URLS={
+          kick:"https://smpldsnds.github.io/drum-machines/808-mini/kick.mp3",
+          snare:"https://smpldsnds.github.io/drum-machines/808-mini/snare-2.mp3",
+          hat:"https://smpldsnds.github.io/drum-machines/808-mini/hhclosed-1.mp3",
+          openHat:"https://smpldsnds.github.io/drum-machines/808-mini/hhopen-1.mp3",
+          crash:"https://smpldsnds.github.io/drum-machines/808-mini/crash.mp3"
+        };
+        const jamAudioReady=async()=>{
+          if(!window.Tone){jamToast("音色引擎还没加载好，请稍后再试");return false}
+          await Tone.start();
+          if(jamAudio.ready)return true;
+          const limiter=new Tone.Limiter(-2).toDestination();
+          jamAudio.master=new Tone.Compressor(-18,3).connect(limiter);
+          jamAudio.drums=new Tone.Players(JAM_DRUM_URLS).connect(jamAudio.master);
+          jamAudio.drums.volume.value=-5;
+          jamAudio.kick=new Tone.MembraneSynth({pitchDecay:.025,octaves:5,oscillator:{type:"sine"},envelope:{attack:.001,decay:.25,sustain:0,release:.1}}).connect(jamAudio.master);
+          jamAudio.noise=new Tone.NoiseSynth({noise:{type:"white"},envelope:{attack:.001,decay:.09,sustain:0,release:.04}}).connect(jamAudio.master);
+          jamAudio.ready=true;
+          return true;
+        };
+        const jamDisposeVoice=voice=>{
+          if(!voice)return;
+          try{voice.instrument.releaseAll?.()}catch(e){}
+          try{voice.instrument.dispose()}catch(e){}
+          try{voice.effect?.dispose()}catch(e){}
+          try{voice.channel.dispose()}catch(e){}
+        };
+        const jamMakeVoice=(patchId,level=1)=>{
+          const channel=new Tone.Channel(Tone.gainToDb(Math.max(.04,level))).connect(jamAudio.master);
+          let instrument,effect=null;
+          if(patchId==="dreamKeys"){
+            instrument=new Tone.PolySynth(Tone.FMSynth).set({
+              harmonicity:2.4,modulationIndex:5,
+              oscillator:{type:"sine"},modulation:{type:"triangle"},
+              envelope:{attack:.012,decay:.7,sustain:.28,release:1.5},
+              modulationEnvelope:{attack:.04,decay:.35,sustain:.12,release:.8}
+            });
+            effect=new Tone.Chorus(2.6,2.2,.22).start();instrument.connect(effect);effect.connect(channel);
+          }else if(patchId==="glassPluck"){
+            instrument=new Tone.PolySynth(Tone.Synth).set({
+              oscillator:{type:"triangle8"},envelope:{attack:.003,decay:.18,sustain:.04,release:.55}
+            });
+            effect=new Tone.FeedbackDelay("8n",.2);instrument.connect(effect);effect.connect(channel);
+          }else if(patchId==="warmBass"){
+            instrument=new Tone.MonoSynth({
+              oscillator:{type:"square"},filter:{Q:2,type:"lowpass",rolloff:-24},
+              envelope:{attack:.008,decay:.24,sustain:.45,release:.28},
+              filterEnvelope:{attack:.01,decay:.18,sustain:.25,release:.3,baseFrequency:90,octaves:2.7}
+            }).connect(channel);
+          }else if(patchId==="deepSub"){
+            instrument=new Tone.MonoSynth({
+              oscillator:{type:"sine"},filter:{type:"lowpass",rolloff:-24,Q:1},
+              envelope:{attack:.01,decay:.18,sustain:.7,release:.22},
+              filterEnvelope:{attack:.01,decay:.1,sustain:.4,release:.2,baseFrequency:55,octaves:1.8}
+            });
+            effect=new Tone.Distortion(.08);instrument.connect(effect);effect.connect(channel);
+          }else if(patchId==="supersaw"){
+            instrument=new Tone.PolySynth(Tone.Synth).set({
+              oscillator:{type:"fatsawtooth",count:3,spread:22},
+              envelope:{attack:.018,decay:.18,sustain:.38,release:.7}
+            });
+            effect=new Tone.Chorus(4,2.5,.3).start();instrument.connect(effect);effect.connect(channel);
+          }else if(patchId==="neonPluck"){
+            instrument=new Tone.PolySynth(Tone.Synth).set({
+              oscillator:{type:"square8"},envelope:{attack:.002,decay:.11,sustain:.02,release:.32}
+            });
+            effect=new Tone.FeedbackDelay("16n",.28);instrument.connect(effect);effect.connect(channel);
+          }else{
+            instrument=new Tone.PolySynth(Tone.AMSynth).set({
+              harmonicity:1.5,oscillator:{type:"sine"},modulation:{type:"sine"},
+              envelope:{attack:.45,decay:.7,sustain:.55,release:2.4},
+              modulationEnvelope:{attack:.8,decay:.5,sustain:.5,release:1.8}
+            });
+            effect=new Tone.Chorus(1.2,3.2,.35).start();instrument.connect(effect);effect.connect(channel);
+          }
+          return {id:patchId,instrument,effect,channel};
+        };
+        const jamMidiName=midi=>{
+          const names=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+          return names[(midi%12+12)%12]+(Math.floor(midi/12)-1);
+        };
+        const jamTrigger=(voice,note,duration,time,velocity=.7)=>{
+          if(!voice)return;
+          try{
+            const value=Array.isArray(note)?note.map(jamMidiName):jamMidiName(note);
+            voice.instrument.triggerAttackRelease(value,duration,time,velocity);
+          }catch(e){}
+        };
+        const jamHit=(name,time)=>{
+          try{
+            const player=jamAudio.drums?.player(name);
+            if(player?.loaded){player.start(time);return}
+          }catch(e){}
+          if(name==="kick")jamAudio.kick?.triggerAttackRelease("C1","8n",time,.8);
+          else jamAudio.noise?.triggerAttackRelease(name==="snare"?"8n":"32n",time,name==="snare"?.45:.18);
+        };
+        const jamRoot=room=>{
+          const roots={C:0,"C#":1,Db:1,D:2,"D#":3,Eb:3,E:4,F:5,"F#":6,Gb:6,G:7,"G#":8,Ab:8,A:9,"A#":10,Bb:10,B:11};
+          return roots[room.key.split(" ")[0]]??0;
+        };
+        const jamMinor=room=>/minor/i.test(room.key);
+        const jamScale=room=>jamMinor(room)?[0,2,3,5,7,8,10]:[0,2,4,5,7,9,11];
+        const jamSnap=(room,midi)=>{
+          const allowed=jamScale(room).map(n=>(n+jamRoot(room))%12);
+          if(allowed.includes((midi%12+12)%12))return midi;
+          for(let d=1;d<7;d++){
+            if(allowed.includes(((midi-d)%12+12)%12))return midi-d;
+            if(allowed.includes((midi+d)%12))return midi+d;
+          }
+          return midi;
+        };
+        const jamChord=(room,bar)=>{
+          const scale=jamScale(room);
+          const progression=room.pack==="electronic"?[0,5,2,6]:jamMinor(room)?[0,5,3,6]:[0,5,3,4];
+          const degree=progression[Math.floor(bar/2)%4];
+          let base=60+jamRoot(room)+scale[degree];
+          while(base>66)base-=12;
+          const third=scale[(degree+2)%7]+(degree+2>=7?12:0);
+          const fifth=scale[(degree+4)%7]+(degree+4>=7?12:0);
+          return [base,base+(third-scale[degree]),base+(fifth-scale[degree])];
+        };
+        const jamSectionAt=bar=>JAM_SECTIONS.find(section=>bar>=section.start&&bar<section.end)||JAM_SECTIONS[JAM_SECTIONS.length-1];
+        const jamRoleActive=(role,section)=>{
+          if(role==="harmony")return true;
+          if(role==="bass")return !["Intro","Outro"].includes(section);
+          if(role==="lead")return ["Pre","Chorus","Bridge"].includes(section);
+          if(role==="texture")return ["Intro","Pre","Bridge","Outro"].includes(section);
+          return true;
+        };
+        const jamMixLevel=(room,role)=>(room.mix?.[role]??70)/100;
+        const jamGenerated=(room,role,bar,sub,time,voice)=>{
+          const section=jamSectionAt(bar).name;
+          if(!jamRoleActive(role,section))return;
+          const chord=jamChord(room,bar);
+          const beat=60/room.bpm;
+          if(role==="harmony"&&(sub===0||sub===8)){
+            jamTrigger(voice,chord,beat*1.85,time,section==="Chorus"?.68:.5);
+          }else if(role==="bass"){
+            const pattern=room.pack==="electronic"?[0,4,8,12]:[0,6,8,14];
+            if(pattern.includes(sub))jamTrigger(voice,chord[0]-24,beat*(room.pack==="electronic"?.42:.7),time,.72);
+          }else if(role==="lead"){
+            const scale=jamScale(room);
+            const chorus=[4,2,1,2,4,5,4,2],pre=[1,2,3,4,3,2,1,0],bridge=[5,4,2,1,3,2,0,1];
+            const phrase=section==="Chorus"?chorus:section==="Bridge"?bridge:pre;
+            if(sub%2===0){
+              const i=(sub/2+bar*2)%phrase.length;
+              const octave=section==="Chorus"&&i>4?12:0;
+              jamTrigger(voice,60+jamRoot(room)+scale[phrase[i]]+octave,.18+beat*.27,time,section==="Chorus"?.67:.46);
+            }
+          }else if(role==="texture"&&(sub===0||sub===12)){
+            jamTrigger(voice,[chord[0]+12,chord[2]+12],beat*2.8,time,.27);
+          }
+        };
+        const jamCustom=(room,seat,bar,sub,time,voice)=>{
+          const local=bar%4*16+sub;
+          const beat=60/room.bpm;
+          (seat.takeEvents||[]).filter(event=>event.s*2===local).forEach(event=>{
+            jamTrigger(voice,event.n,event.d*beat/2,time,event.v||.7);
+          });
+        };
+        const jamDrumStep=(room,bar,sub,time)=>{
+          const section=jamSectionAt(bar).name;
+          if(section==="Intro"&&bar===0){
+            if(sub%4===0)jamHit("hat",time);
+            return;
+          }
+          const electronic=room.pack==="electronic";
+          if(electronic){
+            if([0,4,8,12].includes(sub))jamHit("kick",time);
+            if([4,12].includes(sub))jamHit("snare",time);
+            if(sub%2===0)jamHit(sub===14?"openHat":"hat",time);
+          }else{
+            if(sub===0||sub===8||(section==="Chorus"&&sub===10))jamHit("kick",time);
+            if(sub===4||sub===12)jamHit("snare",time);
+            if(sub%2===0)jamHit(sub===14&&section==="Chorus"?"openHat":"hat",time);
+          }
+          if(sub===0&&["Chorus","Bridge"].includes(section)&&JAM_SECTIONS.some(x=>x.start===bar))jamHit("crash",time);
+        };
+        const jamEnsureSequenceVoices=room=>{
+          Object.values(jamAudio.voices).forEach(jamDisposeVoice);jamAudio.voices={};
+          room.seats.filter(seat=>seat.status==="done"||(room.draft&&seat.role===room.draft.role)).forEach(seat=>{
+            const patch=seat.status==="done"?(seat.patch||jamPack(room).defaults[seat.role]):room.draft.patch;
+            jamAudio.voices[seat.role]=jamMakeVoice(patch,jamMixLevel(room,seat.role));
+          });
+        };
+        const jamPlaybackUi=(room,step,total)=>{
+          const percent=Math.min(100,step/Math.max(1,total)*100);
+          document.querySelectorAll(".jam-room").forEach(card=>card.classList.toggle("is-playing",card.dataset.roomId===room.id&&jamSound.roomId===room.id));
+          document.querySelectorAll(".jam-section").forEach(el=>el.classList.remove("jam-section-live"));
+          const bar=Math.floor(step/16);
+          const section=jamSectionAt(bar);
+          document.querySelectorAll(`.jam-section[data-section="${section.start}"]`).forEach(el=>el.classList.add("jam-section-live"));
+          document.querySelectorAll(".jam-play-progress span").forEach(el=>el.style.setProperty("--play-progress",`${percent}%`));
+        };
+        const jamStopPreview=(refresh=true)=>{
+          clearInterval(jamCountTimer);jamCountTimer=null;
+          if(jamRecordTimer){clearTimeout(jamRecordTimer);jamRecordTimer=null}
+          if(jamRecording)jamFinishRecording(true);
+          try{
+            if(jamSound.scheduleId!==null)Tone.Transport.clear(jamSound.scheduleId);
+            Tone.Transport.stop();Tone.Transport.position=0;
+          }catch(e){}
+          jamSound.roomId=null;jamSound.mode=null;jamSound.step=0;jamSound.steps=0;jamSound.scheduleId=null;jamSound.finishing=false;
+          Object.values(jamAudio.voices).forEach(jamDisposeVoice);jamAudio.voices={};
+          if(refresh){jamRender();if(jamRoomDialog.open&&jamCurrent)jamRenderRoom(jamRoom(jamCurrent))}
+        };
+        window.jamStopPreview=jamStopPreview;
+        const jamStartSequence=async(room,mode="song")=>{
+          if(jamSound.roomId===room.id&&jamSound.mode===mode){jamStopPreview();return}
+          if(!await jamAudioReady())return;
+          jamStopPreview(false);
+          Tone.Transport.bpm.value=room.bpm;
+          jamEnsureSequenceVoices(room);
+          jamSound.roomId=room.id;jamSound.mode=mode;jamSound.step=0;jamSound.steps=mode==="take"?64:320;jamSound.finishing=false;
+          jamSound.scheduleId=Tone.Transport.scheduleRepeat(time=>{
+            const step=jamSound.step++;
+            if(step>=jamSound.steps){
+              if(!jamSound.finishing){
+                jamSound.finishing=true;
+                setTimeout(()=>jamStopPreview(),80);
+              }
+              return;
+            }
+            const bar=Math.floor(step/16),sub=step%16;
+            jamDrumStep(room,bar,sub,time);
+            room.seats.forEach(seat=>{
+              const voice=jamAudio.voices[seat.role];
+              if(!voice)return;
+              const section=jamSectionAt(bar).name;
+              if(mode==="take"&&room.draft&&seat.role===room.draft.role){
+                jamCustom(room,{takeEvents:room.draft.events},bar,sub,time,voice);
+              }else if(seat.status==="done"&&jamRoleActive(seat.role,section)){
+                if(seat.takeEvents?.length)jamCustom(room,seat,bar,sub,time,voice);
+                else jamGenerated(room,seat.role,bar,sub,time,voice);
+              }
+            });
+            Tone.Draw.schedule(()=>jamPlaybackUi(room,step,jamSound.steps),time);
+          },"16n");
+          Tone.Transport.start("+0.05");
+          jamRender();if(jamRoomDialog.open&&jamCurrent)jamRenderRoom(room);
+        };
+
+        const jamPatchLabel=(room,id)=>jamPack(room).patches.find(p=>p.id===id)?.label||id;
+        const jamKeyboardMap={a:48,w:49,s:50,e:51,d:52,f:53,t:54,g:55,y:56,h:57,u:58,j:59,k:60,o:61,l:62,p:63,";":64,"'":65};
+        const jamKeyLabels=Object.fromEntries(Object.entries(jamKeyboardMap).map(([key,note])=>[note,key.toUpperCase()]));
+        const jamWhite=[48,50,52,53,55,57,59,60,62,64,65,67,69,71,72];
+        const jamBlack=[
+          {n:49,p:100/15},{n:51,p:200/15},{n:54,p:400/15},{n:56,p:500/15},{n:58,p:600/15},
+          {n:61,p:800/15},{n:63,p:900/15},{n:66,p:1100/15},{n:68,p:1200/15},{n:70,p:1300/15}
+        ];
+        const jamKeyboardHtml=room=>{
+          const lock=room.draft?.scaleLock!==false;
+          const allowed=note=>!lock||jamSnap(room,note)===note;
+          const key=(note,black=false,pos=0)=>`<button type="button" class="jam-key ${black?"black":""} ${allowed(note)?"":"out"}" data-note="${note}" aria-label="${jamMidiName(note)}" ${black?`style="left:${pos}%"`:""}><span>${jamMidiName(note)}<small>${jamKeyLabels[note]||""}</small></span></button>`;
+          return `<div class="jam-keyboard-wrap"><div class="jam-keyboard"><div class="jam-white-keys">${jamWhite.map(n=>key(n)).join("")}</div>${jamBlack.map(x=>key(x.n,true,x.p)).join("")}</div></div>`;
+        };
+        const jamTakeHtml=events=>{
+          const notes=events||[];
+          return `<div class="jam-take-strip"><div class="jam-take-grid">${Array.from({length:16},()=>"<i></i>").join("")}</div>${notes.length?notes.map(event=>{
+            const top=6+(72-Math.max(48,Math.min(72,event.n)))/24*66;
+            return `<span class="jam-take-note" style="left:${event.s/32*100}%;width:${Math.max(2,event.d/32*100)}%;top:${top}px"></span>`;
+          }).join(""):`<span class="jam-take-empty">录一段，或者先生成示范 Take</span>`}</div>`;
+        };
+        const jamStudioHtml=room=>{
+          const draft=room.draft,role=JAM_ROLE[draft.role],pack=jamPack(room);
+          return `<section class="jam-studio">
+            <div class="jam-studio-bar"><div><h4>${role.label} · 4 小节 Take</h4><p>单人试玩会依次模拟不同参与者；正式版每人只认领一个声部。</p></div>
+              <select class="jam-patch-select" id="jam-patch" aria-label="选择音色">${pack.patches.map(p=>`<option value="${p.id}" ${p.id===draft.patch?"selected":""}>${p.label}</option>`).join("")}</select>
+            </div>
+            <div class="jam-studio-controls">
+              <label class="jam-scale-lock"><input id="jam-scale-lock" type="checkbox" ${draft.scaleLock!==false?"checked":""}> 调内保护</label>
+              <span class="jam-count" id="jam-count">${jamRecording?"录制中":"4 小节"}</span>
+              <button class="jam-secondary" data-action="demo-take">生成示范</button>
+              <button class="jam-record ${jamRecording?"recording":""}" data-action="record">${jamRecording?"■ 停止":"● 录制"}</button>
+            </div>
+            ${jamKeyboardHtml(room)}
+            ${jamTakeHtml(draft.events)}
+            <div class="jam-take-actions">
+              <button class="jam-secondary" data-action="clear-take">清空</button>
+              <button class="jam-secondary" data-action="play-take">${jamSound.roomId===room.id&&jamSound.mode==="take"?"■ 停止试听":"▶ 带伴奏试听"}</button>
+              <button data-action="submit-take" ${draft.events?.length?"":"disabled"}>提交并锁定 ${role.label}</button>
+            </div>
+            <div class="jam-song-note"><span><span class="jam-pack-tag">${pack.name}</span> · 鼓组 + 7 种浏览器合成音色</span><a href="https://github.com/smpldsnds/drum-machines" target="_blank" rel="noreferrer">808 采样来源</a></div>
+          </section>`;
+        };
+        const jamSeatHtml=room=>room.seats.map(seat=>{
+          const role=JAM_ROLE[seat.role],done=seat.status==="done";
+          const subtitle=done?`${jamEsc(seat.musician)} · ${jamEsc(jamPatchLabel(room,seat.patch||jamPack(room).defaults[seat.role]))}`:seat.required?"等待一位玩家":"可选声部";
+          return `<div class="jam-seat"><span class="jam-seat-icon">${role.short}</span><div><strong>${role.label}${seat.required?"":" · 可选"}</strong><small>${subtitle}</small></div>${done?`<span class="locked">已锁定</span>`:room.stage==="building"?`<button data-action="claim" data-role="${seat.role}">${room.draft?.role===seat.role?"已认领":"认领"}</button>`:""}</div>`;
+        }).join("");
+        const jamForkHtml=room=>room.branchable&&room.seats.some(x=>x.status==="done")?`<div class="jam-callout"><h3>用喜欢的声部开一个平行版本</h3><p>原房间不会被替换。选中的声部会作为新房间的起点，其余位置重新开放。</p><div class="jam-checks">${room.seats.filter(x=>x.status==="done").map((seat,i)=>`<label class="jam-check"><input class="jam-fork-role" type="checkbox" value="${seat.role}" ${i<2?"checked":""}>${JAM_ROLE[seat.role].label}</label>`).join("")}</div><div class="jam-callout-actions"><button class="jam-secondary" data-action="fork">复刻所选声部</button></div></div>`:"";
+        const jamMixerHtml=room=>{
+          if(!room.producer)return `<div class="jam-callout"><h3>需要最后一位后期制作人</h3><p>调整各声部音量，完成最后整合后房间将锁定。单人原型允许你模拟这个身份。</p><button data-action="be-producer">进入后期台</button></div>`;
+          return `<div class="jam-callout"><h3>${room.stage==="complete"?"母带已完成":"后期台"} · ${jamEsc(room.producer)}</h3><p>先试听完整编排，再平衡每个声部。</p><div class="jam-mixer">${room.seats.filter(x=>x.status==="done").map(seat=>`<div class="jam-channel"><label>${JAM_ROLE[seat.role].label}</label><input type="range" min="0" max="100" value="${room.mix?.[seat.role]??70}" data-mix="${seat.role}" ${room.stage==="complete"?"disabled":""}><output>${room.mix?.[seat.role]??70}</output></div>`).join("")}</div>${room.stage==="complete"?"":`<div class="jam-callout-actions"><button data-action="finalize">完成混音并锁定</button></div>`}</div>`;
+        };
+        const jamRenderRoom=room=>{
+          if(!room)return;
+          const pack=jamPack(room);
+          const parent=room.parent?jamRoom(room.parent):null;
+          jamRoomContent.innerHTML=`<div class="jam-dialog-head"><div><span class="lesson-kicker">${jamStage(room)} · ${jamProgress(room)}%</span><h2 id="jam-room-title">${jamEsc(room.title)}</h2></div><button class="jam-close" data-action="close" aria-label="关闭">×</button></div>
+            <div class="jam-detail ${jamSound.roomId===room.id?"is-playing":""}" style="--room-accent:${room.accent||pack.accent}">
+              <div class="jam-detail-summary">
+                <div class="jam-now"><div class="jam-now-top"><div><h3>${room.stage==="complete"?"完整编排":"当前构筑版本"}</h3><p>${jamSound.roomId===room.id?"正在播放":"20 小节 · 带动态段落变化"}</p></div><button data-action="play-song" aria-label="试听完整编排">${jamSound.roomId===room.id&&jamSound.mode==="song"?"■":"▶"}</button></div><div class="jam-mini-wave">${jamBarArt(7)}</div><div class="jam-play-progress"><span style="--play-progress:0%"></span></div></div>
+                <div class="jam-blueprint"><div><span>STYLE PACK</span><strong>${pack.label} · ${pack.name}</strong></div><div><span>TEMPO</span><strong>${room.bpm} BPM</strong></div><div><span>KEY</span><strong>${jamEsc(room.key)}</strong></div><div><span>FOUNDATION</span><strong>系统鼓组</strong></div></div>
+              </div>
+              <div class="jam-structure">${JAM_SECTIONS.map(section=>`<span class="jam-section" data-section="${section.start}">${section.name}<br>${section.end-section.start} bars</span>`).join("")}</div>
+              <div class="jam-seats">${jamSeatHtml(room)}</div>
+              ${room.stage==="building"&&room.draft?jamStudioHtml(room):""}
+              ${room.stage==="mixReady"||room.stage==="complete"?jamMixerHtml(room):""}
+              ${jamForkHtml(room)}
+              ${parent?`<div class="jam-lineage">复刻自 <strong>${jamEsc(parent.title)}</strong></div>`:""}
+            </div>`;
+          jamPlaybackUi(room,jamSound.step,jamSound.steps||320);
+        };
+        const jamOpen=id=>{
+          const room=jamRoom(id);if(!room)return;
+          jamCurrent=id;jamRenderRoom(room);jamRoomDialog.showModal();
+        };
+
+        const jamDemoEvents=(room,role)=>{
+          const scale=jamScale(room),root=60+jamRoot(room);
+          if(role==="harmony"){
+            const out=[];
+            for(let bar=0;bar<4;bar++)jamChord(room,bar).forEach(n=>out.push({n,s:bar*8,d:7,v:.62}));
+            return out;
+          }
+          if(role==="bass")return Array.from({length:8},(_,i)=>({n:root-24+(i%4===3?scale[4]:0),s:i*4,d:3,v:.76}));
+          if(role==="texture")return [{n:root+12,s:0,d:8,v:.42},{n:root+scale[4]+12,s:12,d:8,v:.4},{n:root+scale[2]+12,s:24,d:7,v:.42}];
+          const degrees=room.pack==="electronic"?[0,2,4,2,5,4,2,1,0,2,4,6,5,4,2,1]:[0,1,2,4,2,1,0,1,2,4,5,4,2,1,0,2];
+          return degrees.map((degree,i)=>({n:root+scale[degree],s:i*2,d:1,v:i%4===0?.78:.62}));
+        };
+        const jamLiveVoice=async room=>{
+          if(!await jamAudioReady())return null;
+          const patch=room.draft?.patch;
+          if(!jamAudio.live||jamAudio.live.id!==patch){
+            jamDisposeVoice(jamAudio.live);jamAudio.live=jamMakeVoice(patch,.72);
+          }
+          return jamAudio.live;
+        };
+        const jamPress=async(id,rawNote)=>{
+          const room=jamRoom(jamCurrent);
+          if(!room?.draft||jamHeld.has(id))return;
+          const note=room.draft.scaleLock===false?rawNote:jamSnap(room,rawNote);
+          const voice=await jamLiveVoice(room);if(!voice)return;
+          try{voice.instrument.triggerAttack(jamMidiName(note),undefined,.72)}catch(e){}
+          jamHeld.set(id,{note,start:performance.now()});
+          jamRoomContent.querySelectorAll(`[data-note="${note}"]`).forEach(el=>el.classList.add("active"));
+        };
+        const jamRelease=id=>{
+          const held=jamHeld.get(id);if(!held)return;
+          const room=jamRoom(jamCurrent);
+          try{jamAudio.live?.instrument.triggerRelease(jamMidiName(held.note))}catch(e){}
+          jamHeld.delete(id);
+          jamRoomContent.querySelectorAll(`[data-note="${held.note}"]`).forEach(el=>el.classList.remove("active"));
+          if(jamRecording&&room?.draft){
+            const unit=30000/room.bpm;
+            const s=Math.max(0,Math.min(31,Math.round((held.start-jamRecording.start)/unit)));
+            const d=Math.max(1,Math.min(32-s,Math.round((performance.now()-held.start)/unit)));
+            if(held.start>=jamRecording.start&&s<32)room.draft.events.push({n:held.note,s,d,v:.72});
+          }
+        };
+        const jamReleaseAll=()=>[...jamHeld.keys()].forEach(jamRelease);
+        const jamFinishRecording=silent=>{
+          if(!jamRecording)return;
+          jamReleaseAll();jamRecording=null;clearTimeout(jamRecordTimer);jamRecordTimer=null;
+          const room=jamRoom(jamCurrent);if(room){jamSave();jamRenderRoom(room)}
+          if(!silent)jamToast("Take 已量化到八分音符");
+        };
+        const jamStartRecording=room=>{
+          jamStopPreview(false);jamReleaseAll();
+          room.draft.events=[];
+          let count=4;
+          const paint=()=>{const el=document.querySelector("#jam-count");if(el)el.textContent=count>0?`预备 ${count}`:"录制中"};
+          paint();
+          jamCountTimer=setInterval(()=>{
+            count--;
+            if(count>0){paint();jamHit("hat",Tone.now());return}
+            clearInterval(jamCountTimer);jamCountTimer=null;
+            jamRecording={start:performance.now()};
+            paint();jamRenderRoom(room);
+            jamRecordTimer=setTimeout(()=>jamFinishRecording(false),60000/room.bpm*16);
+          },60000/room.bpm);
+        };
+
+        jamGrid.addEventListener("click",event=>{
+          const preview=event.target.closest("[data-preview]");
+          const open=event.target.closest("[data-open-room]");
+          if(preview){jamStartSequence(jamRoom(preview.dataset.preview),"song");return}
+          if(open)jamOpen(open.dataset.openRoom);
+        });
+        jamRoomContent.addEventListener("click",event=>{
+          const button=event.target.closest("[data-action]");
+          if(!button)return;
+          const room=jamRoom(jamCurrent);if(!room)return;
+          const action=button.dataset.action;
+          if(action==="close"){jamStopPreview();jamRoomDialog.close();return}
+          if(action==="play-song"){jamStartSequence(room,"song");return}
+          if(action==="claim"){
+            if(room.stage!=="building")return;
+            room.draft={role:button.dataset.role,patch:jamPack(room).defaults[button.dataset.role],scaleLock:true,events:[]};
+            jamSave();jamRenderRoom(room);return;
+          }
+          if(action==="demo-take"){
+            room.draft.events=jamDemoEvents(room,room.draft.role);jamSave();jamRenderRoom(room);jamToast("示范 Take 已生成，可以直接改录");return;
+          }
+          if(action==="clear-take"){
+            room.draft.events=[];jamSave();jamRenderRoom(room);return;
+          }
+          if(action==="record"){
+            if(jamRecording)jamFinishRecording(false);else jamAudioReady().then(ok=>{if(ok)jamStartRecording(room)});
+            return;
+          }
+          if(action==="play-take"){jamStartSequence(room,"take");return}
+          if(action==="submit-take"){
+            if(!room.draft?.events?.length){jamToast("先录制或生成一条 Take");return}
+            const seat=room.seats.find(x=>x.role===room.draft.role);
+            Object.assign(seat,{status:"done",musician:"YOU · SOLO",patch:room.draft.patch,takeEvents:room.draft.events});
+            delete room.draft;
+            if(jamAllDone(room))room.stage="mixReady";
+            jamSave();jamRender();jamRenderRoom(room);jamToast("声部已提交并锁定");return;
+          }
+          if(action==="be-producer"){
+            room.producer="YOU · SOLO";jamSave();jamRenderRoom(room);return;
+          }
+          if(action==="finalize"){
+            room.stage="complete";jamSave();jamRender();jamRenderRoom(room);jamToast("这首歌完成了");return;
+          }
+          if(action==="fork"){
+            const roles=[...jamRoomContent.querySelectorAll(".jam-fork-role:checked")].map(x=>x.value);
+            if(!roles.length){jamToast("至少选择一个想保留的声部");return}
+            room.branchCount=(room.branchCount||0)+1;
+            const fork={
+              ...JSON.parse(JSON.stringify(room)),
+              id:`fork-${Date.now()}`,title:`${room.title} · 平行 ${room.branchCount}`,
+              stage:"building",parent:room.id,branchCount:0,producer:null,draft:null,
+              seats:room.seats.map(seat=>roles.includes(seat.role)?{...seat}:{...seat,status:"open",musician:null,patch:null,takeEvents:null})
+            };
+            jamRooms.unshift(fork);jamSave();jamRender();jamOpen(fork.id);jamToast("平行房间已创建");return;
+          }
+        });
+        jamRoomContent.addEventListener("change",event=>{
+          const room=jamRoom(jamCurrent);if(!room)return;
+          if(event.target.id==="jam-patch"&&room.draft){
+            room.draft.patch=event.target.value;jamDisposeVoice(jamAudio.live);jamAudio.live=null;jamSave();
+          }else if(event.target.id==="jam-scale-lock"&&room.draft){
+            room.draft.scaleLock=event.target.checked;jamSave();jamRenderRoom(room);
+          }else if(event.target.matches("[data-mix]")){
+            room.mix=room.mix||{};room.mix[event.target.dataset.mix]=Number(event.target.value);
+            event.target.nextElementSibling.value=event.target.value;jamSave();
+            const voice=jamAudio.voices[event.target.dataset.mix];
+            if(voice)voice.channel.volume.rampTo(Tone.gainToDb(Math.max(.04,Number(event.target.value)/100)),.08);
+          }
+        });
+        jamRoomContent.addEventListener("pointerdown",event=>{
+          const key=event.target.closest("[data-note]");if(!key)return;
+          event.preventDefault();key.setPointerCapture?.(event.pointerId);jamPress(`pointer-${event.pointerId}`,Number(key.dataset.note));
+        });
+        ["pointerup","pointercancel"].forEach(type=>jamRoomContent.addEventListener(type,event=>jamRelease(`pointer-${event.pointerId}`)));
+        document.addEventListener("keydown",event=>{
+          if(event.repeat||/INPUT|SELECT|TEXTAREA/.test(event.target.tagName)||!jamRoomDialog.open)return;
+          const note=jamKeyboardMap[event.key.toLowerCase()];if(note===undefined)return;
+          event.preventDefault();jamPress(`key-${event.code}`,note);
+        });
+        document.addEventListener("keyup",event=>jamRelease(`key-${event.code}`));
+        jamRoomDialog.addEventListener("cancel",()=>jamStopPreview());
+        jamRoomDialog.addEventListener("close",()=>{jamReleaseAll();jamRecording=null});
+
+        document.querySelectorAll("[data-jam-filter]").forEach(button=>button.addEventListener("click",()=>{
+          jamFilter=button.dataset.jamFilter;
+          document.querySelectorAll("[data-jam-filter]").forEach(x=>x.classList.toggle("active",x===button));
+          jamRender();
+        }));
+        document.querySelector("#jam-create").addEventListener("click",()=>jamCreateDialog.showModal());
+        document.querySelectorAll("[data-close-dialog]").forEach(button=>button.addEventListener("click",()=>document.querySelector(`#${button.dataset.closeDialog}`).close()));
+        document.querySelector("#jam-create-form").addEventListener("submit",event=>{
+          event.preventDefault();
+          const data=new FormData(event.currentTarget);
+          const roles=data.getAll("roles");
+          if(roles.length<3){jamToast("至少选择三个必需声部");return}
+          const pack=JAM_PACKS[data.get("pack")]||JAM_PACKS.pop;
+          const room={
+            id:`room-${Date.now()}`,title:String(data.get("title")).trim(),pack:data.get("pack"),style:pack.label,
+            bpm:Number(data.get("bpm")),key:data.get("key"),accent:pack.accent,stage:"building",
+            branchable:data.get("branchable")==="on",parent:null,branchCount:0,structure:JAM_SECTIONS.map(x=>x.name),
+            seats:["harmony","bass","lead","texture"].map(role=>jamSeat(role,roles.includes(role))),
+            producer:null,mix:{harmony:70,bass:76,lead:68,texture:55}
+          };
+          jamRooms.unshift(room);jamSave();jamRender();jamCreateDialog.close();event.currentTarget.reset();jamOpen(room.id);
+        });
+        document.querySelector("#jam-reset").addEventListener("click",()=>{
+          jamStopPreview(false);jamRooms=jamSeed();jamSave();jamFilter="all";
+          document.querySelectorAll("[data-jam-filter]").forEach(x=>x.classList.toggle("active",x.dataset.jamFilter==="all"));
+          jamRender();jamToast("试玩房间已重置");
+        });
+        jamRender();
+
 
     document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(item=>item.classList.toggle("active",item===tab));const page=tab.dataset.page;document.querySelector('main[data-view="tuner"]').style.display=page==="tuner"?"grid":"none";document.querySelector('#lesson-page').style.display=page==="lesson"?"block":"none";metroPage.style.display=page==="metro"?"block":"none";jamPage.style.display=page==="jam"?"block":"none";if(page!=="tuner")stop?.();if(page!=="lesson")window.lessonPlayer?.stop();if(page!=="jam")jamStopPreview();if(page==="jam")history.replaceState(null,"","#jam");else if(location.hash==="#jam")history.replaceState(null,"",location.pathname+location.search)}));
     if(location.hash.startsWith("#lick/"))document.querySelector('.tab[data-page="lesson"]').click();else if(location.hash==="#jam")document.querySelector('.tab[data-page="jam"]').click();
