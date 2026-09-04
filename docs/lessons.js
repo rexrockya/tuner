@@ -948,6 +948,7 @@ function renderLibrary() {
   const visible = filteredLibrary();
   const shown = visible.slice(0, libraryState.limit);
   const finished = completed();
+  const saved = favorites();
   const percent = LICKS.length ? Math.round(finished.size / LICKS.length * 100) : 0;
   $("course-progress").style.width = `${percent}%`;
   $("progress-label").textContent = `${finished.size}/${LICKS.length}`;
