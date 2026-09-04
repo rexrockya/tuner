@@ -17,6 +17,10 @@ Required behavior:
 
 - Clicking any rendered measure seeks to that measure and starts playback.
 - The current measure is highlighted and followed while playback advances.
+- Measure hit areas and highlights must union every staff in the matching OSMD
+  `MeasureList` entry. Convert OSMD layout units to SVG viewBox units with the
+  fixed 10:1 ratio; never multiply those coordinates by `osmd.Zoom`, because
+  the SVG viewBox has already applied that zoom.
 - Playback supports tempo changes, transposition, seeking, and a one-measure
   practice loop.
 - Keyboard access and mobile scrolling must remain usable.
@@ -28,6 +32,18 @@ failure fallback, not as the normal listening experience.
 
 `catalog.json` is the Library index. Favorites are kept in browser storage and
 the UI pins those pieces above the rest of the catalog.
+
+Library search also queries the CC0 OpenScore Lieder and String Quartets TSV
+indexes. Choosing an online result downloads its MXL from the official GitHub
+repository, extracts MusicXML in the browser, derives playback timing, and saves
+the item in browser storage. Keep this path client-side: users should never need
+a code or catalogue deployment just to start using another OpenScore score.
+
+Users can also connect a Flat Personal Access Token with the
+`account.public_profile` and `scores` scopes. The token stays in that browser;
+search reads the account's `allScores`, `collaborations`, and `likes` virtual
+collections, and selected scores are exported from Flat as MusicXML through the
+official API before entering the same local parsing and playback pipeline.
 
 `scripts/build-interactive-score.py` creates each MusicXML and manifest pair:
 
