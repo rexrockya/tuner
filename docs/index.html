@@ -118,7 +118,7 @@
 
 <script src="https://unpkg.com/tone@14.9.17/build/Tone.js"></script>
   <section id="metro-page" data-view="metro"><div class="role-switch"><button id="create-room">创建房间</button><button id="join-room">加入房间</button></div><div class="lesson-kicker">单机节拍器 · 可创建或加入房间</div><div class="metro-dot" id="metro-dot"></div><div class="metro-bpm" id="metro-bpm">80</div><p class="metro-unit">BPM</p><div class="metro-controls"><button class="secondary" id="metro-minus">− 5</button><button class="secondary" id="metro-plus">+ 5</button></div><button class="metro-start" id="metro-start">开始</button><div class="tempo-presets" aria-label="拍速预设"><button data-bpm="80">80</button><button data-bpm="72">72</button><button data-bpm="100">100</button><button data-bpm="60">60</button></div><div class="remote-box" id="remote-box"><strong id="remote-title">房间节拍器</strong><p class="metro-hint" id="remote-hint">创建房间后，把 6 位房间码告诉其他成员</p><input id="room-code" inputmode="numeric" maxlength="6" placeholder="000000" aria-label="六位房间码"><button id="remote-send">加入房间</button><p class="metro-hint" id="remote-status"></p></div></section>
-<script src="lessons.js?v=20260904-2"></script>
+<script src="lessons.js?v=20260904-3"></script>
   <script>
     const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
     const ui={main:document.querySelector("main"),status:document.querySelector("#status"),note:document.querySelector("#note"),octave:document.querySelector("#octave"),frequency:document.querySelector("#frequency"),needle:document.querySelector("#needle"),state:document.querySelector("#tune-state"),toggle:document.querySelector("#toggle"),error:document.querySelector("#error")};
