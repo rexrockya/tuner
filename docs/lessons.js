@@ -936,7 +936,7 @@ function renderLibrary() {
   $("library-count").textContent = `${visible.length} / ${LICKS.length} 条${libraryState.loaded ? "" : " · 正在载入完整库"}`;
   $("favorites-filter").classList.toggle("on", libraryState.favoritesOnly);
   $("favorites-filter").setAttribute("aria-pressed", String(libraryState.favoritesOnly));
-  $("favorites-filter").textContent = `${libraryState.favoritesOnly ? "★" : "☆"} 收藏`;
+  $("favorites-filter").textContent = `${libraryState.favoritesOnly ? "★" : "☆"} 收藏 ${saved.size}`;
   $("course-map").innerHTML = shown.length ? shown.map(({ lick, index }) => `
     <a class="level ${finished.has(lick.id) ? "done" : ""} ${index === current ? "current" : ""}"
        href="${lickHref(index)}" data-lick-index="${index}" title="${escapeHtml(lick.chord)}">
@@ -945,6 +945,21 @@ function renderLibrary() {
   bindLickLinks($("course-map"));
   $("load-more").hidden = shown.length >= visible.length;
   $("load-more").textContent = `显示更多（剩余 ${Math.max(0, visible.length - shown.length)}）`;
+}
+
+function renderFavoritesDialog() {
+  const saved = favorites();
+  const entries = LICKS.map((lick, index) => ({ lick, index })).filter(({ lick }) => saved.has(lick.id));
+  $("favorites-open-count").textContent = String(saved.size);
+  $("favorites-summary").textContent = `${saved.size} 条 Lick`;
+  $("favorites-list").innerHTML = entries.length ? entries.map(({ lick, index }) => `
+    <div class="favorite-row" data-favorite-id="${escapeHtml(lick.id)}">
+      <a href="${lickHref(index)}" data-favorite-open="${index}">
+        <strong>${escapeHtml(lick.name || lick.chord)}</strong>
+        <small>${escapeHtml(lick.group)} · ${escapeHtml(lick.key || lick.meter || "")} · ${escapeHtml(lick.chord)}</small>
+      </a>
+      <button type="button" data-favorite-remove="${escapeHtml(lick.id)}" aria-label="取消收藏 ${escapeHtml(lick.name || lick.chord)}">移除</button>
+    </div>`).join("") : '<div class="favorite-empty"><strong>还没有收藏</strong>遇到想反复练习的 Lick，就把它留在这里。</div>';
 }
 
 function updatePracticeBpm(next, syncMetronome = true) {
@@ -1005,12 +1020,11 @@ function render() {
   $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}`;
   $("lesson-track").textContent = lick.key || lick.group;
   $("lesson-harmony").textContent = lick.chord;
-  const theory = THEORY_OVERRIDES[lick.id] || THEORY[lick.kind];
-  renderAnalysis(lick, theory);
   $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
   $("preview-status").innerHTML = '2,525 条吉他 Lick 来源：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand.org</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
   $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
   $("favorite-lick").textContent = saved.has(lick.id) ? "★ 已收藏" : "☆ 收藏这条 Lick";
+  renderFavoritesDialog();
 
   const nextSource = new URL(lick.audio, location.href).href;
   if (audio.src !== nextSource) {
@@ -1139,6 +1153,28 @@ $("favorite-lick").addEventListener("click", () => {
   items.has(id) ? items.delete(id) : items.add(id);
   saveActiveProgress(id);
   render();
+});
+$("favorites-open").addEventListener("click", () => {
+  renderFavoritesDialog();
+  $("favorites-dialog").showModal();
+});
+$("favorites-close").addEventListener("click", () => $("favorites-dialog").close());
+$("favorites-list").addEventListener("click", event => {
+  const open = event.target.closest("[data-favorite-open]");
+  const remove = event.target.closest("[data-favorite-remove]");
+  if (open) {
+    event.preventDefault();
+    $("favorites-dialog").close();
+    goToLick(Number(open.dataset.favoriteOpen));
+    return;
+  }
+  if (remove) {
+    const id = remove.dataset.favoriteRemove;
+    const items = favorites();
+    items.delete(id);
+    saveActiveProgress(id);
+    render();
+  }
 });
 $("lick-search").addEventListener("input", event => {
   libraryState.query = event.target.value;
