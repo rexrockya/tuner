@@ -907,10 +907,28 @@ function enableDrag(container, axis = "x") {
   container.addEventListener("dragstart", event => event.preventDefault());
 }
 
+function fitScoreHeight() {
+  const stage = $("score-stage");
+  const staff = $("lick-staff");
+  const image = staff.querySelector("img");
+  if (document.fullscreenElement === stage || stage.classList.contains("expanded")) {
+    staff.style.removeProperty("height");
+    return;
+  }
+  if (!image?.naturalWidth || !staff.clientWidth) {
+    staff.style.height = "140px";
+    return;
+  }
+  const renderedWidth = staff.clientWidth * scoreZoom;
+  const renderedHeight = image.naturalHeight * renderedWidth / image.naturalWidth;
+  staff.style.height = `${Math.max(110, Math.min(window.innerHeight * 0.55, Math.ceil(renderedHeight)))}px`;
+}
+
 function updateScoreZoom() {
   const image = $("lick-staff").querySelector("img");
   if (image) image.style.width = `${scoreZoom * 100}%`;
   $("score-zoom").textContent = `${Math.round(scoreZoom * 100)}%`;
+  requestAnimationFrame(fitScoreHeight);
 }
 
 function filteredLibrary() {
@@ -1021,9 +1039,15 @@ function render() {
   $("lesson-track").textContent = lick.key || lick.group;
   $("lesson-harmony").textContent = lick.chord;
   $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
+  const scoreImage = $("lick-staff").querySelector("img");
+  scoreImage.addEventListener("load", fitScoreHeight, { once: true });
+  requestAnimationFrame(fitScoreHeight);
   $("preview-status").innerHTML = '2,525 条吉他 Lick 来源：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand.org</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
   $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
   $("favorite-lick").textContent = saved.has(lick.id) ? "★ 已收藏" : "☆ 收藏这条 Lick";
+  $("current-lick-label").textContent = `${current + 1}. ${lick.name}`;
+  $("previous-lick").disabled = current <= 0;
+  $("next-lick").disabled = current >= LICKS.length - 1;
   renderFavoritesDialog();
 
   const nextSource = new URL(lick.audio, location.href).href;
@@ -1210,6 +1234,12 @@ $("random-lick").addEventListener("click", () => {
   if (!available.length) return;
   goToLick(available[Math.floor(Math.random() * available.length)].index);
 });
+$("previous-lick").addEventListener("click", () => goToLick(current - 1));
+$("next-lick").addEventListener("click", () => goToLick(current + 1));
+$("browse-licks").addEventListener("click", () => {
+  $("lick-library").scrollIntoView({ behavior: "smooth", block: "start" });
+  setTimeout(() => $("lick-search").focus({ preventScroll: true }), 350);
+});
 $("score-minus").addEventListener("click", () => {
   scoreZoom = Math.max(1, scoreZoom - 0.25);
   updateScoreZoom();
@@ -1232,7 +1262,10 @@ $("score-expand").addEventListener("click", async () => {
   } else {
     stage.classList.toggle("expanded");
   }
+  requestAnimationFrame(fitScoreHeight);
 });
+document.addEventListener("fullscreenchange", () => requestAnimationFrame(fitScoreHeight));
+window.addEventListener("resize", fitScoreHeight);
 window.addEventListener("hashchange", () => {
   const index = indexFromHash();
   if (index >= 0) selectLick(index);
