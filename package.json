@@ -4,6 +4,7 @@
   "scripts": {
     "build": "npm --prefix website ci && npm --prefix website run build && node scripts/copy-website-dist.mjs",
     "lint": "npm --prefix website run lint",
-    "start": "npm --prefix website run start"
+    "start": "npm --prefix website run start",
+    "test:score": "node tests/interactive-score-smoke.cjs"
   }
 }

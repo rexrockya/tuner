@@ -1,0 +1,34 @@
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+
+const html = fs.readFileSync("docs/index.html", "utf8");
+const player = fs.readFileSync("docs/scores.js", "utf8");
+const catalog = JSON.parse(fs.readFileSync("docs/assets/scores/catalog.json", "utf8"));
+const manifest = JSON.parse(fs.readFileSync("docs/assets/scores/original-rags.json", "utf8"));
+const musicXml = fs.readFileSync("docs/assets/scores/original-rags.musicxml", "utf8");
+
+assert.match(html, /data-page="sheet"/);
+assert.match(html, /id="sheet-page"/);
+assert.match(html, /opensheetmusicdisplay@2\.1\.2/);
+assert.match(html, /scores\.js\?v=/);
+assert.match(player, /sheet-measure-target/);
+assert.match(player, /manifest\.measureStarts\[index\]/);
+assert.match(player, /tuner-score-favorites-v1/);
+assert.match(player, /smplr@1\.0\.0\/dist\/index\.mjs/);
+assert.match(player, /SplendidGrandPiano/);
+assert.match(player, /acoustic_guitar_nylon/);
+assert.match(html, /id="sheet-instrument"/);
+assert.equal(catalog.length, 10);
+for (const score of catalog) {
+  const scoreManifest = JSON.parse(fs.readFileSync(`docs/assets/scores/${score.id}.json`, "utf8"));
+  assert.equal(scoreManifest.id, score.id);
+  assert.ok(scoreManifest.measureStarts.length > 0);
+  assert.ok(scoreManifest.notes.length > 0);
+  assert.ok(fs.existsSync(`docs/assets/scores/${score.id}.musicxml`));
+}
+assert.equal(manifest.measureStarts.length, 109);
+assert.equal(manifest.notes.length, 1735);
+assert.equal(manifest.duration, 217.5);
+assert.equal((musicXml.match(/<measure number=/g) || []).length, manifest.measureStarts.length);
+assert.equal((musicXml.match(/<part id="P1">/g) || []).length, 1);
+console.log("interactive score smoke test passed");
