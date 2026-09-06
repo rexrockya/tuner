@@ -59,6 +59,6 @@
       mode(false);
       player.querySelector('.sheet-source-details').open = false;
     },
-    close() { settingsOpen(false); originalMode = false; original.hidden = true; canvas.hidden = false; }
+    close() { settingsOpen(false); originalMode = false; original.hidden = true; canvas.hidden = false; label(); }
   };
 })();

@@ -587,6 +587,7 @@
   }
 
   function resetPlayer() {
+    window.scoreReader?.close();
     pause();
     window.metronome?.releaseScore();
     manifest = null;
