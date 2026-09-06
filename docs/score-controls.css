@@ -4,6 +4,22 @@
 .score-upload-batch>summary{font-size:14px;color:#c4cebd}
 .score-folder summary:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
 .score-folder .score-grid{margin-top:8px}
+.sheet-mobile-only{display:none}
+.sheet-reader-head{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid #343c31;background:#151b12;color:#dce4d7}
+.sheet-reader-head button{min-height:44px;min-width:44px;padding:8px 12px;font-size:14px}
+#sheet-reader-label{flex:1;min-width:0;font-size:14px;overflow-wrap:anywhere}
+.sheet-reader-titles{flex:1;min-width:0}
+.sheet-reader-titles span{display:block}
+#sheet-reader-status{font-size:12px;color:#c2ceba;line-height:1.4;overflow-wrap:anywhere}
+.sheet-transport>.sheet-mixer{flex-basis:100%;width:100%;box-sizing:border-box}
+.sheet-source-details{padding:0 12px;background:#151b12;color:#ccd5c5;font-size:14px}
+.sheet-source-details summary{cursor:pointer;min-height:40px;display:list-item;padding:10px 0;box-sizing:border-box}
+.sheet-source-details .source-hint{line-height:1.6;overflow-wrap:anywhere}
+#sheet-original-view{background:white;color:#333;padding:8px}
+#sheet-original-view p{font-size:14px;line-height:1.5;margin:6px 4px}
+#sheet-original-image{display:block;width:100%;height:auto;max-width:none}
+.sheet-player:fullscreen{display:flex;flex-direction:column;background:#10170e;overflow:hidden}
+.sheet-player:fullscreen .sheet-score-scroll{flex:1;min-height:0;height:auto}
 .sheet-transport{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px}
 .sheet-transport>*{flex:0 0 auto;min-width:0;max-width:100%}
 .sheet-transport button,.sheet-transport select{min-height:44px;font-size:14px;touch-action:manipulation}
@@ -73,4 +89,26 @@
   .sheet-mixer{gap:4px;padding:8px 10px}
   .volume-control{flex-basis:100%;gap:8px}
   .sheet-score-scroll{height:58svh;min-height:240px}
+}
+/* Phone practice surface: only the score scrolls; transport stays reachable. */
+@media(max-width:760px), (max-height:500px) and (pointer:coarse){
+  #sheet-player:not([hidden]){position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0;background:#11180e;overflow:hidden}
+  .sheet-mobile-only{display:block}
+  .sheet-reader-head{flex:none;padding:4px max(8px,env(safe-area-inset-right)) 4px max(8px,env(safe-area-inset-left));padding-top:max(4px,env(safe-area-inset-top))}
+  #sheet-reader-label{font-size:13px}
+  #sheet-player .sheet-score-scroll{flex:1 1 auto;min-height:0;height:auto;max-height:none;overflow:auto;overscroll-behavior:contain;padding-bottom:4px}
+  #sheet-player .sheet-transport{order:3;flex:none;position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px max(10px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:#20281a;border-top:1px solid #4a5840;max-height:70vh;max-height:70dvh;overflow-y:auto;overscroll-behavior:contain}
+  #sheet-player:not(.sheet-settings-open) .sheet-advanced{display:none}
+  #sheet-player .sheet-progress-wrap{order:0;flex:1 1 0;min-width:0;grid-template-columns:minmax(0,1fr);gap:0;margin:0}
+  #sheet-player .sheet-progress-wrap input{height:28px}
+  #sheet-player .sheet-progress-wrap span{grid-row:2;font-size:12px;line-height:16px;text-align:center;min-width:0}
+  #sheet-play{order:-1}
+  #sheet-settings-toggle{order:0;flex:none;width:56px;min-height:44px;padding:6px;font-size:14px}
+  #sheet-player .sheet-advanced{order:1}
+  #sheet-player .sheet-mixer{padding:0;border:0}
+  #sheet-player .volume-control{flex-basis:100%;min-height:44px}
+  #sheet-player .sheet-stepper>span,#sheet-player .sheet-timbre>span{display:block}
+  #sheet-player .sheet-beat-control{flex:1 1 100%;min-width:0}
+  #sheet-player .sheet-timbre{min-width:0;flex-basis:100%}
+  #sheet-player .sheet-transport .sheet-stepper{max-width:100%}
 }

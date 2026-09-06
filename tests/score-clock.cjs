@@ -27,7 +27,7 @@ w.fetch=()=>Promise.reject(new Error('No network expected'));
 Object.defineProperty(doc,'currentScript',{value:{src:'https://rexrockya.github.io/tuner/scores.js'}});
 doc.head.append=script=>{const filename=new URL(script.src).pathname.split('/').pop();
   queueMicrotask(()=>{w.eval(fs.readFileSync(path.join(root,'docs/assets/scores',filename),'utf8'));script.onload();});};
-for(const file of ['score-audio.js','score-beats.js','metronome.js','scores.js']) {
+for(const file of ['score-audio.js','score-beats.js','metronome.js','scores.js','score-reader.js']) {
   w.eval(fs.readFileSync(path.join(root,'docs',file),'utf8').replace('import(LOCAL_SMPLR_URL)','Promise.resolve(window.sampleTestLibrary)'));
 }
 function tick(time){clock=time;for(const fn of [...timers.values()])fn();for(const [id,item] of [...flashes]){if(item.time<=clock){flashes.delete(id);item.fn();}}}

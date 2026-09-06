@@ -61,7 +61,7 @@
     @media(max-width:900px){.sheet-stepper>span,.sheet-timbre>span{display:none}.sheet-option{padding-inline:6px}.sheet-timbre select{width:106px}.score-grid{grid-template-columns:1fr}}
     @media(max-width:760px){#sheet-page{padding:7px 10px 24px}.sheet-head{height:34px;margin-bottom:5px}.sheet-kind,.sheet-composer{display:none}.sheet-head h1{font-size:15px}.score-flat-open{margin-left:auto;padding-inline:7px}.score-search{width:min(168px,43vw)}.sheet-live{display:none}.score-library{padding-top:5px}.score-card{min-height:78px}.sheet-transport{flex-wrap:wrap}.sheet-progress-wrap{order:3;flex-basis:100%}.sheet-score-scroll{height:calc(100svh - 200px);min-height:360px}.sheet-score-scroll #sheet-canvas{min-width:620px}.tabs{overflow-x:auto;justify-content:flex-start}.tab{min-width:54px}}
   </style>
-  <link rel="stylesheet" href="score-controls.css?v=20260906-7">
+  <link rel="stylesheet" href="score-controls.css?v=20260907-1">
 </head>
 <body>
   <nav>
@@ -109,9 +109,15 @@
       <p class="score-empty" id="score-empty" hidden>没有找到相符的乐谱</p>
     </div>
     <div class="sheet-player" id="sheet-player" hidden>
-      <div class="sheet-transport" aria-label="乐谱播放控制">
+      <div class="sheet-reader-head">
+        <button id="sheet-reader-back" type="button" class="sheet-mobile-only" aria-label="返回乐谱列表">‹ 返回</button>
+        <div class="sheet-reader-titles"><span id="sheet-reader-label">可播放谱</span><span id="sheet-reader-status" role="status"></span></div>
+        <button id="sheet-original-toggle" type="button" aria-pressed="false" hidden>完整原图</button>
+      </div>
+      <div class="sheet-transport" id="sheet-transport" aria-label="乐谱播放控制">
         <button id="sheet-rewind" class="sheet-round" aria-label="回到开头">↤</button>
         <button id="sheet-play" class="sheet-round sheet-primary" aria-label="播放乐谱">▶</button>
+        <button id="sheet-settings-toggle" type="button" class="sheet-mobile-only" aria-expanded="false" aria-controls="sheet-transport">设置</button>
         <label class="sheet-progress-wrap"><input id="sheet-progress" type="range" min="0" max="1" step="0.01" value="0" aria-label="乐谱播放进度"><span id="sheet-time">0:00 / 0:00</span></label>
         <div class="sheet-stepper"><span>♩ BPM</span><button id="sheet-bpm-minus" aria-label="降低速度">−</button><output id="sheet-bpm">60 BPM</output><button id="sheet-bpm-plus" aria-label="提高速度">＋</button></div>
         <div class="sheet-beat-control"><button id="sheet-metronome" class="sheet-option on" aria-pressed="true">节拍器：开</button><output id="sheet-meter" aria-label="当前拍号">4/4</output><div id="sheet-beats" class="beat-lights" aria-label="当前小节拍点"></div></div>
@@ -125,9 +131,14 @@
         <label class="volume-control">节拍器<input id="sheet-click-volume" type="range" min="0" max="100" value="100" aria-label="乐谱节拍器音量"><output id="sheet-click-volume-value">100%</output></label>
         <label class="volume-control">乐器<input id="sheet-instrument-volume" type="range" min="0" max="100" value="100" aria-label="乐谱乐器音量"><output id="sheet-instrument-volume-value">100%</output></label>
       </div>
-      <div class="sheet-score-scroll" id="sheet-score-scroll"><div id="sheet-canvas" aria-label="可交互乐谱"></div></div>
-      <p class="source-hint" id="sheet-source"></p>
-      <p class="source-hint" id="sheet-timing-warning" role="status" hidden></p>
+      <div class="sheet-score-scroll" id="sheet-score-scroll">
+        <details class="sheet-source-details"><summary>乐谱来源与校对说明</summary>
+          <p class="source-hint" id="sheet-source"></p>
+          <p class="source-hint" id="sheet-timing-warning" role="status" hidden></p>
+        </details>
+        <div id="sheet-original-view" hidden><p>完整原图，仅供对照；试听仍为已转录部分，不会跟随原图逐音定位。</p><img id="sheet-original-image" alt="上传的完整乐谱原图"><p id="sheet-original-error" role="status" hidden>原图加载失败，请使用“乐谱来源”里的原图链接重试。</p></div>
+        <div id="sheet-canvas" aria-label="可交互乐谱"></div>
+      </div>
     </div>
   </section>
   <dialog class="score-flat-dialog" id="score-flat-dialog" aria-labelledby="score-flat-title"><div class="score-flat-shell"><div class="score-flat-head"><div><h2 id="score-flat-title">连接 Flat</h2><p>搜索你在 Flat 中拥有、协作或收藏的中文流行乐谱。</p></div><button class="score-flat-close" id="score-flat-close" type="button" aria-label="关闭">×</button></div><form class="score-flat-form" id="score-flat-form"><label>Personal Access Token<input id="score-flat-token" type="password" autocomplete="off" spellcheck="false" placeholder="粘贴 Flat Personal Token" required></label><p class="score-flat-help">在 <a href="https://flat.io/developers/apps" target="_blank" rel="noopener">Flat Developer</a> 创建 Personal Token，并授予 <strong>account.public_profile</strong> 和 <strong>scores</strong> 权限。令牌只保存在这个浏览器。</p><p class="score-flat-status" id="score-flat-status" role="status"></p><div class="score-flat-actions"><button class="score-flat-disconnect" id="score-flat-disconnect" type="button" hidden>断开</button><button id="score-flat-connect" type="submit">连接</button></div></form></div></dialog>
@@ -184,7 +195,8 @@
 <script src="score-audio.js?v=20260906-3"></script>
 <script src="score-beats.js?v=20260906-5"></script>
 <script src="metronome.js?v=20260906-6"></script>
-<script src="scores.js?v=20260906-7"></script>
+<script src="scores.js?v=20260907-1"></script>
+<script src="score-reader.js?v=20260907-1"></script>
 <script src="score-entry.js?v=20260906-6"></script>
   <script>
     const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];

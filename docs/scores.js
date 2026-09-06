@@ -571,6 +571,7 @@
   }
 
   function showLibrary(updateHash = true) {
+    window.scoreReader?.close();
     pause();
     window.metronome?.releaseScore();
     ui.library.hidden = false;
@@ -649,7 +650,7 @@
   function setActiveMeasure(index, follow) {
     activeMeasure = index;
     measureRects.forEach((rect, rectIndex) => rect.classList.toggle("is-active", rectIndex === index));
-    if (follow && measureRects[index]) {
+    if (follow && !ui.canvas.hidden && measureRects[index]) {
       const scrollBox = ui.scroll.getBoundingClientRect();
       const measureBox = measureRects[index].getBoundingClientRect();
       const targetTop = ui.scroll.scrollTop + measureBox.top - scrollBox.top - ui.scroll.clientHeight * .42;
@@ -1201,6 +1202,7 @@
       ui.progress.max = String(manifest.duration);
       updateClock(0);
       await renderScore();
+      window.scoreReader?.bind(manifest);
       if (manifest.initialPosition) setPosition(manifest.initialPosition);
       const config = INSTRUMENTS[ui.instrument.value] || INSTRUMENTS["splendid-grand"];
       ui.status.textContent = `点击小节播放 · ${config.label}`;
@@ -1310,7 +1312,7 @@
     ui.zoom.textContent = `${Math.round(zoom * 100)}%`;
   });
   $("sheet-fullscreen").addEventListener("click", () => {
-    if (!document.fullscreenElement) ui.scroll.requestFullscreen?.();
+    if (!document.fullscreenElement) ui.player.requestFullscreen?.();
     else document.exitFullscreen?.();
   });
   window.addEventListener("resize", () => {
