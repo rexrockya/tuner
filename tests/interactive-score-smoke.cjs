@@ -12,6 +12,8 @@ assert.match(html, /data-page="sheet"/);
 assert.match(html, /id="sheet-page"/);
 assert.match(html, /opensheetmusicdisplay@2\.1\.2/);
 assert.match(html, /scores\.js\?v=/);
+assert.ok(html.indexOf('src="score-audio.js?') >= 0);
+assert.ok(html.indexOf('src="score-audio.js?') < html.indexOf('src="scores.js?'));
 assert.match(player, /sheet-measure-target/);
 assert.match(player, /manifest\.measureStarts\[index\]/);
 assert.match(player, /const osmdUnitToSvg = 10/);

@@ -104,6 +104,8 @@
   let fallbackSynths = null;
   let timer = null;
   let playing = false;
+  let playPromise = null;
+  let playGeneration = 0;
   let startedAt = 0;
   let startedFrom = 0;
   let position = 0;
@@ -689,7 +691,11 @@
           ...common,
           instrument: config.instrument,
           kit: "MusyngKite",
-          loadLoopData: ["violin", "cello", "string_ensemble_1"].includes(config.instrument)
+          loadLoopData: ["cello", "string_ensemble_1"].includes(config.instrument),
+          ...(config.instrument === "violin" ? {
+            loader: window.scoreAudio.createViolinLoader(library.SampleLoader(audioContext,
+              sampleStorage ? { storage: sampleStorage } : {}))
+          } : {})
         });
       }
       await nextInstrument.ready;
@@ -735,6 +741,8 @@
     const playbackRate = rate();
     const horizon = now + .14 * playbackRate;
     while (nextNote < manifest.notes.length && manifest.notes[nextNote].time <= horizon) {
+      // Do not queue notes from the next measure across a practice-loop boundary.
+      if (bounds && manifest.notes[nextNote].time >= bounds[1]) break;
       const note = manifest.notes[nextNote++];
       if (note.time < now - .03) continue;
       const delay = Math.max(0, (note.time - now) / playbackRate);
@@ -757,23 +765,35 @@
     updateClock(now);
   }
 
-  async function play() {
-    await ensureLoaded();
-    if (playing || !manifest) return;
-    await ensureInstrument();
-    if (audioContext?.state === "suspended") await audioContext.resume();
-    if (position >= manifest.duration) setPosition(0);
-    playing = true;
-    startedFrom = position;
-    startedAt = performance.now();
-    nextNote = noteIndexAt(position - .02);
-    ui.play.textContent = "Ⅱ";
-    ui.play.setAttribute("aria-label", "暂停乐谱");
-    timer = window.setInterval(tick, 25);
-    tick();
+  function play() {
+    if (playing) return Promise.resolve();
+    if (playPromise) return playPromise;
+    const generation = ++playGeneration;
+    const task = (async () => {
+      await ensureLoaded();
+      if (generation !== playGeneration || !manifest) return;
+      await ensureInstrument();
+      if (audioContext?.state === "suspended") await audioContext.resume();
+      if (generation !== playGeneration || playing) return;
+      if (position >= manifest.duration) setPosition(0);
+      playing = true;
+      startedFrom = position;
+      startedAt = performance.now();
+      nextNote = noteIndexAt(position - .02);
+      ui.play.textContent = "Ⅱ";
+      ui.play.setAttribute("aria-label", "暂停乐谱");
+      timer = window.setInterval(tick, 25);
+      tick();
+    })();
+    playPromise = task;
+    const clearPending = () => { if (playPromise === task) playPromise = null; };
+    task.then(clearPending, clearPending);
+    return task;
   }
 
   function pause() {
+    playGeneration += 1;
+    playPromise = null;
     if (!playing) return;
     position = currentTime();
     playing = false;

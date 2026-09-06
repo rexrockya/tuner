@@ -37,6 +37,13 @@ Catalog entries may set `collection` (`piano`, `violin`, or another collection)
 and `defaultInstrument`. Violin scores open with the MusyngKite violin sample;
 users may still switch to any other available playback voice.
 
+Violin sustain is prepared from the decoded recordings by `docs/score-audio.js`.
+Do not enable the experimental Soundfont `loadLoopData` path for violin: those
+raw SF2 offsets loop through the rendered recording's bow attack. Keep the
+attack unchanged, crossfade only the settled sustain, and derive all frame
+offsets from the decoded buffer's sample rate. Concurrent play requests must
+share one pending start and be cancelled when pausing during loading.
+
 After editing a catalog entry, manifest, or MusicXML source, run
 `npm run build:scores`. It embeds the catalog in `docs/index.html` and generates
 one versioned `.bundle.js` per score containing both notation and playback data.
