@@ -14,6 +14,8 @@
   const FLAT_TOKEN_KEY = "tuner-flat-token-v1";
   const FLAT_API = "https://api.flat.io/v2";
   const SMPLR_URL = "https://unpkg.com/smplr@1.0.0/dist/index.mjs";
+  const LOCAL_SMPLR_URL = new URL("assets/audio/smplr-1.0.0.mjs", scoreAssetBase).href;
+  const VIOLIN_SAMPLE_URL = new URL("assets/audio/violin-mp3.js", scoreAssetBase).href;
   const ONLINE_SOURCES = [
     {
       id: "openscore-lieder",
@@ -476,14 +478,37 @@
   function renderLibrary() {
     const query = searchable(ui.search.value.trim());
     const terms = query.split(/\s+/).filter(Boolean);
-    const matches = score => !terms.length || terms.every(term => searchable(`${score.title} ${score.composer} ${score.genre}`).includes(term));
+    const matches = score => !terms.length || terms.every(term => searchable(`${score.title} ${score.composer} ${score.genre} ${score.folder || ''} ${score.uploadDate || ''}`).includes(term));
     const favoriteScores = catalog.filter(score => favorites.has(score.id) && matches(score));
     const otherScores = catalog.filter(score => !favorites.has(score.id) && matches(score));
-    const violinScores = otherScores.filter(score => score.collection === "violin");
+    const violinScores = catalog.filter(score => score.collection === "violin" && matches(score));
     const pianoScores = otherScores.filter(score => score.collection === "piano");
     const uncategorizedScores = otherScores.filter(score => !["violin", "piano"].includes(score.collection));
     ui.favoriteGrid.replaceChildren(...favoriteScores.map(makeScoreCard));
-    ui.violinGrid.replaceChildren(...violinScores.map(makeScoreCard));
+    const violinItems = violinScores.filter(score => !score.folder).map(makeScoreCard);
+    for (const folder of [...new Set(violinScores.map(score => score.folder).filter(Boolean))]) {
+      const scores = violinScores.filter(score => score.folder === folder);
+      const group = document.createElement('details');
+      group.className = 'score-folder';
+      group.open = Boolean(query);
+      const heading = document.createElement('summary');
+      heading.textContent = `${folder} · ${scores.length} 份谱`;
+      group.append(heading);
+      for (const date of [...new Set(scores.map(score => score.uploadDate))].sort().reverse()) {
+        const batch = document.createElement('details');
+        batch.className = 'score-upload-batch';
+        batch.open = true;
+        const label = document.createElement('summary');
+        label.textContent = `${date} 上传 · 待校对`;
+        const grid = document.createElement('div');
+        grid.className = 'score-grid';
+        grid.append(...scores.filter(score => score.uploadDate === date).map(makeScoreCard));
+        batch.append(label, grid);
+        group.append(batch);
+      }
+      violinItems.push(group);
+    }
+    ui.violinGrid.replaceChildren(...violinItems);
     ui.pianoGrid.replaceChildren(...pianoScores.map(makeScoreCard));
     ui.allGrid.replaceChildren(...uncategorizedScores.map(makeScoreCard));
     ui.favoriteSection.hidden = favoriteScores.length === 0;
@@ -672,16 +697,23 @@
     if (!manifest) return;
     const config = INSTRUMENTS[ui.instrument.value] || INSTRUMENTS["splendid-grand"];
     $("sheet-source").innerHTML = `<a href="${manifest.source.url}" target="_blank" rel="noopener">${manifest.source.label}</a> · 音色：<a href="https://github.com/danigb/smplr" target="_blank" rel="noopener">${config.label} / smplr</a>`;
+    if (ui.instrument.value === 'violin') {
+      const credits = document.createElement('a');
+      credits.href = new URL('assets/audio/credits.html', scoreAssetBase).href;
+      credits.textContent = 'Musyng Kite · 音源署名';
+      credits.target = '_blank'; credits.rel = 'noopener';
+      $("sheet-source").append(' · ', credits);
+    }
     const issues = manifest.beatTimeline?.issues || [];
-    $("sheet-timing-warning").hidden = !issues.length;
-    $("sheet-timing-warning").textContent = issues.length
-      ? `节奏待校对：检测到 ${issues.length} 个小节时值与拍号不符。节拍器保持固定 BPM；谱面小节线可能不与强拍对齐，暂不支持这份谱的单小节循环。` : "";
+    $("sheet-timing-warning").hidden = !issues.length && !manifest.reviewNotice;
+    $("sheet-timing-warning").textContent = [manifest.reviewNotice, issues.length
+      ? `节奏待校对：检测到 ${issues.length} 个小节时值与拍号不符。节拍器保持固定 BPM；谱面小节线可能不与强拍对齐，暂不支持这份谱的单小节循环。` : ""].filter(Boolean).join(' ');
     ui.loop.disabled = Boolean(issues.length);
   }
 
   async function ensureSampleLibrary() {
     if (!sampleLibraryPromise) {
-      sampleLibraryPromise = import(SMPLR_URL).catch(error => {
+      sampleLibraryPromise = import(LOCAL_SMPLR_URL).catch(() => import(SMPLR_URL)).catch(error => {
         sampleLibraryPromise = null;
         throw error;
       });
@@ -720,6 +752,13 @@
           if (ui.instrument.value === requestedId) ui.status.textContent = `加载 ${config.label} · ${loaded}/${total}`;
         }
       };
+      // Violin is served with the site, so a third-party soundfont host cannot
+      // silently prevent a family practice session from producing sound.
+      const violinStorage = {fetch: async () => {
+        const response = await fetch(VIOLIN_SAMPLE_URL);
+        if (!response.ok) throw new Error('小提琴音色下载失败，请重试');
+        return response;
+      }};
       let nextInstrument;
       if (config.kind === "grand") {
         nextInstrument = library.SplendidGrandPiano(audioContext, { ...common, decayTime: 1.25 });
@@ -732,8 +771,9 @@
           kit: "MusyngKite",
           loadLoopData: ["cello", "string_ensemble_1"].includes(config.instrument),
           ...(config.instrument === "violin" ? {
+            storage: violinStorage,
             loader: window.scoreAudio.createViolinLoader(library.SampleLoader(audioContext,
-              sampleStorage ? { storage: sampleStorage } : {}))
+              { storage: violinStorage }))
           } : {})
         });
       }
@@ -837,7 +877,13 @@
     if (playing) return Promise.resolve();
     if (playPromise) return playPromise;
     const generation = ++playGeneration;
+    // Unlock during the actual click, before any library/network await. Mobile
+    // browsers may discard user activation once asynchronous loading finishes.
+    const Context = window.AudioContext || window.webkitAudioContext;
+    audioContext ||= Context ? new Context() : null;
+    const unlocked = audioContext?.resume();
     const task = (async () => {
+      await unlocked;
       await ensureLoaded();
       if (generation !== playGeneration || !manifest) return;
       await ensureInstrument();
@@ -854,7 +900,11 @@
       timer = window.setInterval(tick, 25);
       window.metronome?.startScore(position, rate(), playbackContext());
       tick();
-    })();
+    })().catch(error => {
+      ui.status.textContent = `播放失败：${error.message || '无法启动声音'}。请再次点击播放。`;
+      ui.play.disabled = false;
+      ui.play.textContent = '▶';
+    });
     playPromise = task;
     const clearPending = () => { if (playPromise === task) playPromise = null; };
     task.then(clearPending, clearPending);
@@ -1151,6 +1201,7 @@
       ui.progress.max = String(manifest.duration);
       updateClock(0);
       await renderScore();
+      if (manifest.initialPosition) setPosition(manifest.initialPosition);
       const config = INSTRUMENTS[ui.instrument.value] || INSTRUMENTS["splendid-grand"];
       ui.status.textContent = `点击小节播放 · ${config.label}`;
       renderSourceHint();

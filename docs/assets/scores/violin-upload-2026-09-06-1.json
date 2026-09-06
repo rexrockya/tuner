@@ -1,0 +1,306 @@
+{
+  "id": "violin-upload-2026-09-06-1",
+  "title": "2026-09-06 · 谱页 01（开头节选）",
+  "composer": "曲名／作曲者待确认",
+  "genre": "来图转录 · 待校对",
+  "level": "识别草稿",
+  "duration": 24.444444444444446,
+  "measures": 11,
+  "collection": "violin",
+  "defaultInstrument": "violin",
+  "folder": "小提琴四级到六级",
+  "uploadDate": "2026-09-06",
+  "musicXml": "violin-upload-2026-09-06-1.musicxml",
+  "sourceBpm": 108,
+  "timeSignature": [
+    4,
+    4
+  ],
+  "measureStarts": [
+    0,
+    2.2222222222222223,
+    4.444444444444445,
+    6.666666666666667,
+    8.88888888888889,
+    11.11111111111111,
+    13.333333333333334,
+    15.555555555555557,
+    17.77777777777778,
+    20,
+    22.22222222222222
+  ],
+  "notes": [
+    {
+      "track": 0,
+      "pitch": 81,
+      "velocity": 88,
+      "time": 13.333333333333334,
+      "duration": 0.8333333333333334
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 14.166666666666668,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 74,
+      "velocity": 88,
+      "time": 14.305555555555555,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 86,
+      "velocity": 88,
+      "time": 14.444444444444445,
+      "duration": 0.5555555555555556
+    },
+    {
+      "track": 0,
+      "pitch": 85,
+      "velocity": 88,
+      "time": 15,
+      "duration": 0.4166666666666667
+    },
+    {
+      "track": 0,
+      "pitch": 83,
+      "velocity": 88,
+      "time": 15.416666666666668,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 81,
+      "velocity": 88,
+      "time": 15.555555555555557,
+      "duration": 0.2777777777777778
+    },
+    {
+      "track": 0,
+      "pitch": 81,
+      "velocity": 88,
+      "time": 15.833333333333334,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 15.972222222222223,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 74,
+      "velocity": 88,
+      "time": 16.11111111111111,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 69,
+      "velocity": 88,
+      "time": 16.25,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 66,
+      "velocity": 88,
+      "time": 16.38888888888889,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 62,
+      "velocity": 88,
+      "time": 16.52777777777778,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 57,
+      "velocity": 88,
+      "time": 16.666666666666668,
+      "duration": 0.2777777777777778
+    },
+    {
+      "track": 0,
+      "pitch": 62,
+      "velocity": 88,
+      "time": 17.083333333333336,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 57,
+      "velocity": 88,
+      "time": 17.22222222222222,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 62,
+      "velocity": 88,
+      "time": 17.36111111111111,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 66,
+      "velocity": 88,
+      "time": 17.5,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 69,
+      "velocity": 88,
+      "time": 17.63888888888889,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 74,
+      "velocity": 88,
+      "time": 17.77777777777778,
+      "duration": 0.2777777777777778
+    },
+    {
+      "track": 0,
+      "pitch": 69,
+      "velocity": 88,
+      "time": 18.194444444444446,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 66,
+      "velocity": 88,
+      "time": 18.333333333333336,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 69,
+      "velocity": 88,
+      "time": 18.47222222222222,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 74,
+      "velocity": 88,
+      "time": 18.61111111111111,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 18.75,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 81,
+      "velocity": 88,
+      "time": 18.88888888888889,
+      "duration": 0.2777777777777778
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 19.305555555555557,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 74,
+      "velocity": 88,
+      "time": 19.444444444444446,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 19.583333333333336,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 81,
+      "velocity": 88,
+      "time": 19.72222222222222,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 86,
+      "velocity": 88,
+      "time": 19.86111111111111,
+      "duration": 0.1388888888888889
+    },
+    {
+      "track": 0,
+      "pitch": 81,
+      "velocity": 88,
+      "time": 20,
+      "duration": 0.8333333333333334
+    },
+    {
+      "track": 0,
+      "pitch": 79,
+      "velocity": 88,
+      "time": 20.833333333333336,
+      "duration": 0.2777777777777778
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 21.11111111111111,
+      "duration": 0.5555555555555556
+    },
+    {
+      "track": 0,
+      "pitch": 78,
+      "velocity": 88,
+      "time": 21.944444444444446,
+      "duration": 0.2777777777777778
+    },
+    {
+      "track": 0,
+      "pitch": 76,
+      "velocity": 88,
+      "time": 22.22222222222222,
+      "duration": 0.5555555555555556
+    },
+    {
+      "track": 0,
+      "pitch": 71,
+      "velocity": 88,
+      "time": 22.77777777777778,
+      "duration": 1.1111111111111112
+    },
+    {
+      "track": 0,
+      "pitch": 73,
+      "velocity": 88,
+      "time": 23.88888888888889,
+      "duration": 0.5555555555555556
+    }
+  ],
+  "initialPosition": 13.333333333333334,
+  "reviewNotice": "待校对：只转录开头6小节休止与其后5个可辨小节；不是整张图的完整转录。 图中后续小节编号与可见小节线存在疑点，华彩段和多声部尚未逐音可靠转录。 本节选未完整转录指法、弓法、力度、渐强渐弱、颤音与装饰音演奏。第11小节颤音保留文字提示，不合成颤音。",
+  "source": {
+    "label": "查看上传原图 · 2026-09-06",
+    "url": "assets/scores/uploads/2026-09-06/page-1.png"
+  }
+}

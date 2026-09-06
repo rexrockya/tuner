@@ -1,4 +1,9 @@
 /* Controls wrap as whole groups: never shrink/crop the +/- touch targets. */
+.score-folder{grid-column:1/-1;min-width:0;border:1px solid #46533b;border-radius:8px;padding:12px;background:#151c12}
+.score-folder>summary,.score-upload-batch>summary{cursor:pointer;min-height:44px;padding:12px 8px;box-sizing:border-box;font-size:16px;color:var(--lime);overflow-wrap:anywhere;touch-action:manipulation}
+.score-upload-batch>summary{font-size:14px;color:#c4cebd}
+.score-folder summary:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+.score-folder .score-grid{margin-top:8px}
 .sheet-transport{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px}
 .sheet-transport>*{flex:0 0 auto;min-width:0;max-width:100%}
 .sheet-transport button,.sheet-transport select{min-height:44px;font-size:14px;touch-action:manipulation}

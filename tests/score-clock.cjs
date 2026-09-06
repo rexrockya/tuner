@@ -28,13 +28,37 @@ Object.defineProperty(doc,'currentScript',{value:{src:'https://rexrockya.github.
 doc.head.append=script=>{const filename=new URL(script.src).pathname.split('/').pop();
   queueMicrotask(()=>{w.eval(fs.readFileSync(path.join(root,'docs/assets/scores',filename),'utf8'));script.onload();});};
 for(const file of ['score-audio.js','score-beats.js','metronome.js','scores.js']) {
-  w.eval(fs.readFileSync(path.join(root,'docs',file),'utf8').replace('import(SMPLR_URL)','Promise.resolve(window.sampleTestLibrary)'));
+  w.eval(fs.readFileSync(path.join(root,'docs',file),'utf8').replace('import(LOCAL_SMPLR_URL)','Promise.resolve(window.sampleTestLibrary)'));
 }
 function tick(time){clock=time;for(const fn of [...timers.values()])fn();for(const [id,item] of [...flashes]){if(item.time<=clock){flashes.delete(id);item.fn();}}}
 function advance(seconds){const end=clock+seconds;while(clock<end){tick(Math.min(end,clock+.017));}}
 function close(actual,expected,tolerance=1e-7){assert.ok(Math.abs(actual-expected)<tolerance,`${actual} != ${expected}`);}
 function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].time-events[i-1].time,period);}
 (async()=>{
+  await w.scorePlayer.showLibrary();
+  await Promise.resolve();await Promise.resolve();
+  const folder=doc.querySelector('#score-violin-grid .score-folder');
+  assert.ok(folder);assert.equal(folder.open,false);
+  assert.match(folder.querySelector('summary').textContent,/小提琴四级到六级/);
+  assert.equal(folder.querySelectorAll('.score-card').length,3);
+  assert.match(folder.querySelector('.score-upload-batch summary').textContent,/2026-09-06/);
+  for(let page=1;page<=3;page++){
+    const id=`violin-upload-2026-09-06-${page}`;
+    await w.scorePlayer.open(id);
+    assert.equal(doc.querySelector('#sheet-instrument').value,'violin');
+    assert.match(doc.querySelector('#sheet-timing-warning').textContent,/待校对/);
+    assert.equal(doc.querySelector('#sheet-loop').disabled,false);
+    const start=w.scorePlayer.getPosition();
+    if(page===1)close(start,24*60/108);
+    clicks.length=0;notes.length=0;
+    await w.scorePlayer.play();advance(5);
+    assert.ok(notes.length>0,'uploaded score produces note events');
+    spacing(clicks,60/[108,96,60][page-1]);
+    clicks.forEach((event,i)=>assert.equal(event.frequency,i%(page===3?3:4)===0?1600:page!==3&&i%4===2?1200:850));
+    w.scorePlayer.pause();
+  }
+  clicks.length=0;notes.length=0;
+  console.log('PASS: date folder, three uploaded scores, draft notices, violin events, correct 3/4 and 4/4 beat clocks, opening rests skipped');
   for(const score of JSON.parse(fs.readFileSync(path.join(root,'docs/assets/scores/catalog.json'),'utf8'))){
     await w.scorePlayer.open(score.id);
     assert.equal(doc.querySelector('#sheet-loop').disabled,score.id.startsWith('seitz'));
@@ -45,7 +69,7 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   await w.scorePlayer.play();
   assert.equal(timers.size,1);
   const sampleBus=instrumentOptions.at(-1).destination;
-  const masterBuses=gains.filter(node=>node.destination && node.destination!==sampleBus);
+  const masterBuses=gains.filter(node=>node!==sampleBus && node.destination===sampleBus.destination);
   const metroBus=masterBuses.at(-1);
   const beforeVolume=notes.length,positionBeforeVolume=w.scorePlayer.getPosition();
   w.scorePlayer.setVolume(40);close(sampleBus.gain.value,.16);
