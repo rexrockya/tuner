@@ -24,6 +24,21 @@
 
 ## 网站
 
+正式网页：https://rexrockya.github.io/tuner/
+
+`docs/` 是 GitHub Pages 的完整静态前端（调音、教学、分类乐谱、节拍器、Jam）。`website/` 是可选 Worker 实现，不要用其构建结果覆盖 `docs/`。
+
+乐谱维护及前端测试：
+
+```powershell
+npm run build:scores
+npm test
+```
+
+产品范围见 [PRD.md](PRD.md)，维护与发布见 [HANDOFF.md](HANDOFF.md)。目前无网页图片上传/自动识谱服务；家人可直接提交谱图附件进行异步转录。
+
+可选 Worker 本地开发：
+
 ```powershell
 cd website
 npm install

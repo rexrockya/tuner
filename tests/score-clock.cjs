@@ -42,6 +42,22 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   assert.match(folder.querySelector('summary').textContent,/小提琴四级到六级/);
   assert.equal(folder.querySelectorAll('.score-card').length,3);
   assert.match(folder.querySelector('.score-upload-batch summary').textContent,/2026-09-06/);
+  const pianoFolders=doc.querySelectorAll('#score-piano-grid > .score-folder');
+  assert.equal(pianoFolders.length,2);
+  assert.match(pianoFolders[0].querySelector('summary').textContent,/古典 · 7 首/);
+  assert.match(pianoFolders[1].querySelector('summary').textContent,/拉格泰姆 · 3 首/);
+  pianoFolders[0].querySelector('.score-favorite').click();
+  assert.equal(doc.querySelectorAll('#score-piano-grid .score-card').length,10,'favorites stay in their genre folder');
+  assert.equal(doc.querySelectorAll('#score-favorite-grid .score-card').length,1);
+  doc.querySelector('#score-favorite-grid .score-favorite').click();
+  const search=doc.querySelector('#score-search');search.value='古典';search.dispatchEvent(new w.Event('input'));
+  assert.equal(doc.querySelectorAll('#score-piano-grid .score-card').length,7,'broad classical search includes romantic and impressionist works');
+  assert.equal(doc.querySelector('#score-piano-grid details').open,true);
+  search.value='';search.dispatchEvent(new w.Event('input'));
+  await w.scorePlayer.open('seitz-student-concerto-1-mvt1');
+  assert.equal(doc.querySelector('#sheet-player').hidden,true);
+  assert.match(doc.querySelector('#sheet-status').textContent,/已移除或不存在/);
+  assert.equal(w.location.hash,'#scores');
   for(let page=1;page<=3;page++){
     const id=`violin-upload-2026-09-06-${page}`;
     await w.scorePlayer.open(id);
@@ -67,11 +83,11 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   console.log('PASS: date folder, three uploaded scores, draft notices, violin events, correct 3/4 and 4/4 beat clocks, opening rests skipped');
   for(const score of JSON.parse(fs.readFileSync(path.join(root,'docs/assets/scores/catalog.json'),'utf8'))){
     await w.scorePlayer.open(score.id);
-    assert.equal(doc.querySelector('#sheet-loop').disabled,score.id.startsWith('seitz'));
+    assert.equal(doc.querySelector('#sheet-loop').disabled,false);
   }
-  await w.scorePlayer.open('seitz-student-concerto-1-mvt1');
-  assert.equal(doc.querySelector('#sheet-timing-warning').hidden,false);
-  assert.equal(w.metronome.getBpm(),90);
+  await w.scorePlayer.open('original-rags');
+  assert.equal(doc.querySelector('#sheet-instrument').value,'splendid-grand');
+  assert.equal(w.metronome.getBpm(),60);
   await w.scorePlayer.play();
   assert.equal(timers.size,1);
   const sampleBus=instrumentOptions.at(-1).destination;
@@ -89,15 +105,15 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   w.scorePlayer.setVolume(100);w.metronome.setVolume(100);
   const anchor=clicks[0].time;
   advance(180);
-  assert.ok(clicks.length>=270);
-  spacing(clicks,2/3);
-  clicks.forEach((event,i)=>assert.equal(event.frequency,i%4===0?1600:i%4===2?1200:850));
-  const source=JSON.parse(fs.readFileSync(path.join(root,'docs/assets/scores/seitz-student-concerto-1-mvt1.json'),'utf8'));
+  assert.ok(clicks.length>=180);
+  spacing(clicks,1);
+  clicks.forEach((event,i)=>assert.equal(event.frequency,i%2===0?1600:850));
+  const source=JSON.parse(fs.readFileSync(path.join(root,'docs/assets/scores/original-rags.json'),'utf8'));
   notes.forEach((note,i)=>{close(note.time,anchor+source.notes[i].time);close(note.duration,source.notes[i].duration);});
-  console.log('PASS: 3 minutes of Seitz: exact 90 BPM, repeating 4-beat accents, notes on the same clock');
+  console.log('PASS: 3 minutes of Original Rags: exact 60 BPM, repeating 2-beat accents, notes on the same clock');
   // A long main-thread stall skips old clicks instead of catching up in a burst.
   tick(clock+2.17);const afterStall=clicks.length;advance(2);
-  for(const event of clicks.slice(afterStall))close((event.time-anchor)/(2/3),Math.round((event.time-anchor)/(2/3)));
+  for(const event of clicks.slice(afterStall))close(event.time-anchor,Math.round(event.time-anchor));
   w.scorePlayer.pause();assert.equal(timers.size,0);
   await w.scorePlayer.open('fur-elise');
   w.scorePlayer.seekMeasure(2);doc.querySelector('#sheet-loop').click();
@@ -133,5 +149,15 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   doc.querySelector('.tab[data-page="metro"]').click();assert.equal(w.metronome.isRunning(),true);
   doc.querySelector('.tab[data-page="sheet"]').click();await Promise.resolve();await Promise.resolve();assert.equal(w.metronome.isRunning(),true);
   doc.querySelector('.tab[data-page="tuner"]').click();assert.equal(w.metronome.isRunning(),false);
+  for(const section of ['lesson','jam','metro','sheet']){
+    doc.querySelector(`.tab[data-page="${section}"]`).click();
+    assert.equal(doc.querySelector(`#${section==='sheet'?'sheet':section}-page`).style.display,'block');
+    assert.equal(doc.querySelectorAll('.tab.active').length,1);
+  }
+  w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
+  w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+  doc.querySelector('#account-open').click();assert.equal(doc.querySelector('#account-dialog').open,true);
+  doc.querySelector('#account-close').click();assert.equal(doc.querySelector('#account-dialog').open,false);
+  assert.ok(doc.querySelectorAll('#jam-page button').length>0,'Jam controls render without live writes');
   console.log('PASS: BPM control from metronome, mute, pause/resume, 6/8 standalone, navigation');
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(()=>dom.window.close());

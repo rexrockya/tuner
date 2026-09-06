@@ -37,6 +37,7 @@ click("#lesson-bpm-plus");if(q("#lesson-bpm").textContent!=="85 BPM")throw Error
 click("#lesson-original-speed");if(q("#lesson-bpm").textContent!=="120 BPM")throw Error("original speed reset failed");
 if(!q("#toggle-backing")||!q("#toggle-backing").title.includes("实时生成"))throw Error("generated backing controls failed");
 click("#toggle-demo");if(q("#toggle-demo").textContent!=="示范音：关")throw Error("backing-only mode failed");
-if(!q("#bar-detail").textContent.includes("半音导向"))throw Error("lick theory failed");
+if(!q("#lesson-harmony").textContent.trim()||!q("#scale-character").textContent.trim())throw Error("harmony and scale listening cues missing");
 dom.window.lessonPlayer.select(14);if(q("#lesson-title").textContent!=="A ii–V–I Lick 1")throw Error("category navigation failed");
 console.log("lesson smoke test passed");
+setImmediate(()=>dom.window.close());

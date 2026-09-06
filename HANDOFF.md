@@ -1,49 +1,49 @@
-# 弦音项目 Handoff
+# 弦音项目交接
 
-更新时间：2026-09-04
+更新时间：2026-09-07。需求与边界见 [PRD.md](PRD.md)。
 
-## 对外入口
+## 部署事实
 
-- 唯一公开地址：https://rexrockya.github.io/tuner/
-- 网页静态产物位于 `docs/`，推送到 `main` 后由 GitHub Pages 发布。
+- 唯一公开入口：https://rexrockya.github.io/tuner/
+- GitHub Pages 发布 `main` 分支的 `docs/`。`docs/` 是现行完整前端，不能用 `website/dist` 覆盖它。
+- `website/` 是可选 Worker/账号与房间相关实现。根 `npm run build` 构建它并复制到根 `dist/`，**不是**生成 Pages 的 `docs/`。
+- 存在 `.openai/hosting.json` 不代表允许切换公开域名或重新托管。不要向用户交付其他公开入口。
 
-## 本轮完成
+## 本版交付
 
-- 乐谱页默认进入极简 Library，收藏曲目置顶，并保留 10 首内置经典乐谱。
-- 交互谱面支持点击任意小节播放、播放进度跟随、速度、移调、缩放、单小节循环和全屏。
-- 播放控制与标题区域已压缩，减少谱面上方占用空间。
-- MIDI 播放增加采样音色，包括大钢琴和原声吉他等；采样加载失败时才回退到合成音色。
-- 修复谱面后段小节红框逐渐错位的问题：OSMD 坐标固定按 10:1 映射到 SVG，不再重复乘缩放值。
-- 小节点击区和高亮框会合并同一小节的全部谱表范围，同时覆盖高音谱表和低音谱表。
-- Library 搜索会同时匹配本机曲库与 OpenScore 的 CC0 在线目录；选中在线乐谱后，在浏览器中下载、解析并保存，后续无需重新开发或发布目录。
-- 增加 Flat 可选连接：用户可用 Personal Access Token 读取本人拥有、协作或收藏的乐谱，再导出 MusicXML 进入现有交互播放流程。
+1. 删除独立旧谱 `seitz-student-concerto-1-mvt1` 的目录记录、MusicXML、JSON 和 bundle；保留 3 张用户上传的不同谱页。旧链接进入曲库并显示移除提示。
+2. 小提琴保持考级文件夹/日期分组。钢琴采用“古典 7 首 / 拉格泰姆 3 首”；原 genre 元数据不变。收藏在分类中仍可找到，搜索展开匹配的分组。
+3. 撤下录入区、弹窗、脚本及样式。没有清空任何浏览器原稿数据库；需要恢复旧草稿时，可从 Git 历史恢复旧工具，仅在原浏览器/原站点来源下读取，禁止误称已经云端保存。
+4. 保留手机适宽、双指缩放/拖动、精简横屏控制、当前小节双轴跟随。修复跨小提琴/钢琴换谱时默认音色串用；同曲切换节拍器标签不会重置用户音色。
+5. 全站测试入口 `npm test`；修正旧的教学测试断言和仅验证模板骨架的 Worker 测试，使之检查真实产品而非已删除模板。
 
-## Flat 的定位与限制
+## 关键代码与不可破坏的约束
 
-- Flat 适合在线写谱、编辑、协作、收藏和管理个人乐谱。
-- 当前官方 API 可读取已授权账号的自有、协作和收藏曲目，但不提供整个 Flat 社区的全局搜索，因此不能直接实现“在弦音里搜索 Flat 所有中文流行歌”。
-- Flat Token 仅保存在用户当前浏览器，不应写入仓库、日志或共享设备。
-- 连接 Token 的步骤对普通用户仍偏繁琐，产品上应把 Flat 保持为“高级/可选来源”，不应作为 Library 的主入口。
-- 中文流行歌的一搜即用仍需要覆盖中文内容的合法授权曲库或合作方；OpenScore 主要解决公版古典乐谱，不等同于流行歌曲库。
+- `docs/index.html`：五大标签页、内嵌目录。更新外部脚本/样式时同步更新查询版本，避免旧缓存。
+- `docs/scores.js`：分类、收藏、搜索、音符调度、OSMD 渲染。视口缩放只修改 SVG 显示尺寸，不在每次手指移动时重新排版，不触碰播放时钟。小节坐标固定 OSMD 单位 ×10，不再乘 Zoom。
+- `docs/score-reader.js`、`docs/score-controls.css`：手机触控/控制。不要全页禁用用户缩放；手势仅接管可播放谱面。隐式 pointer capture 转移不是手势结束。
+- `docs/metronome.js`、`docs/score-beats.js`：音符与节拍共用 AudioContext；节拍均匀，不追随错误小节长度赶拍。不新建第二个墙钟节拍计时器。
+- `docs/score-audio.js`、`docs/assets/audio/`：小提琴循环必须避开弓头起音；不要恢复实验性原始 SF2 循环偏移。
+- `notes/transcriptions/violin-upload-2026-09-06-1.json` 是第一张谱的人工校对源。`scripts/build-uploaded-violin.mjs` 生成完整 35 小节可播放版，不要退回开头节选。疑点仍须明示。
+- `scripts/build-score-bundles.mjs` 生成懒加载 bundle 和 HTML 内嵌目录。`catalog.json` 是曲库索引。
+- `docs/lessons.js` 是独立 PNG/MP3 吉他教学，不要迁移成全谱播放器。
 
-## 关键文件
+## 校验和发布步骤
 
-- `docs/index.html`：Library、播放器和 Flat 连接界面。
-- `docs/scores.js`：曲库、收藏、在线搜索、MusicXML 解析、Flat 接口、播放和小节框逻辑。
-- `docs/assets/scores/catalog.json`：10 首内置乐谱目录。
-- `docs/assets/scores/README.md`：交互乐谱数据与坐标约束说明。
-- `tests/interactive-score-smoke.cjs`：乐谱关键能力的静态冒烟测试。
+1. `git status --short`，保留不属于本次任务的修改。当前未跟踪的 `node_modules/` 和 `website/site.tar.gz` 不要提交。
+2. `npm run build:scores` 后运行 `npm test`。真实 OSMD 验证可用 `OSMD_TEST_BUNDLE` 指定渲染器路径；本机缓存为 `C:/codex-tmp-seitz/opensheetmusicdisplay.min.js`，不存在时测试会明确 SKIP，不能把 SKIP 当通过。
+3. `npm --prefix website run lint`、`npm --prefix website test`（含 Worker 构建和真实页面响应测试）。不需要重新安装已有依赖。
+4. 检查差异，精准暂存/提交。优先正常推送；若 Git 网络不可用而 `gh api` 可用，可运行 `node scripts/publish-pages.cjs`，它验证远端父提交和完整树，再做非强制更新，支持本轮文件删除。
+5. 等待 Pages 构建成功，并读取唯一公开站点核验最新版本脚本、13 首目录、分类逻辑和已撤下入口。记录在 `notes/validation-2026-09-07.md`。
 
-## 发布前检查
+## 验证限制和下次优先级
 
-- 运行 `npm run test:score`。
-- 运行 `npm run build`，确认 `website` 构建和 `docs/` 复制过程成功。
-- 浏览器人工检查 Library、收藏、至少一首内置谱和一首 OpenScore 在线谱。
-- Flat 连接需要用户自己的 Token，发布测试不得使用或提交任何真实 Token。
+本轮浏览器接口两次选择已有标签页均超时；不能声称完成真实浏览器全流程或实体手机测试。自动测试覆盖模拟导航、账号弹窗、Jam 控件、教学、全曲时钟、强弱拍、双音量、点击目标及 375/844 像素渲染尺寸。
 
-## 后续优先级
+下一次优先用实际手机验证横竖屏、双指缩放和长段跟随；用用户听感校验琴音。麦克风拒权/设备兼容、真实账号登录、真实 Flat 授权和远程多人房间未在本轮做在线写入测试。
 
-1. 寻找可合法接入、覆盖中文流行歌的曲谱供应方，并确认搜索、试听、缓存与展示授权。
-2. 将 Flat 入口降级到“更多来源/高级导入”，避免干扰主搜索流程。
-3. 为在线 MusicXML 增加更多复杂谱例测试，重点覆盖反复记号、多声部、弱起小节、速度变化和跨谱表记谱。
-4. 增加端到端浏览器测试，验证不同缩放比例下小节框、自动滚动和移动端触控。
+## 上传工作流与安全
+
+本轮不建立服务器或云盘同步。家人直接将谱图作为任务附件交付，再按日期归档/转录/验证/发布。助手不会凭网页本机草稿自动收到文件或自动后台识谱。
+
+Flat 仅限可选授权来源，不能搜索全社区或假定覆盖中文流行歌。Token 保存在当前浏览器，不写仓库/日志。GitHub 仓库与谱图公开可访问，不上传私人照片和凭据。删除的旧谱及入口可通过 Git 历史恢复，无需删除历史。

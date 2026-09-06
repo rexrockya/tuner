@@ -477,14 +477,20 @@
     onlineSearchTimer = window.setTimeout(() => void searchOnline(query), 260);
   }
 
+  const folderStates = new Map();
+  const pianoStyle = score => ['古典', '浪漫派', '印象派'].includes(score.genre) ? '古典' : score.genre || '其他';
+  function rememberFolder(group, key, searching) {
+    group.open = searching || folderStates.get(key) || false;
+    group.addEventListener('toggle', () => { if (!searching) folderStates.set(key, group.open); });
+  }
   function renderLibrary() {
     const query = searchable(ui.search.value.trim());
     const terms = query.split(/\s+/).filter(Boolean);
-    const matches = score => !terms.length || terms.every(term => searchable(`${score.title} ${score.composer} ${score.genre} ${score.folder || ''} ${score.uploadDate || ''}`).includes(term));
+    const matches = score => !terms.length || terms.every(term => searchable(`${score.title} ${score.composer} ${score.genre} ${score.collection === 'piano' ? pianoStyle(score) : ''} ${score.folder || ''} ${score.uploadDate || ''}`).includes(term));
     const favoriteScores = catalog.filter(score => favorites.has(score.id) && matches(score));
     const otherScores = catalog.filter(score => !favorites.has(score.id) && matches(score));
     const violinScores = catalog.filter(score => score.collection === "violin" && matches(score));
-    const pianoScores = otherScores.filter(score => score.collection === "piano");
+    const pianoScores = catalog.filter(score => score.collection === "piano" && matches(score));
     const uncategorizedScores = otherScores.filter(score => !["violin", "piano"].includes(score.collection));
     ui.favoriteGrid.replaceChildren(...favoriteScores.map(makeScoreCard));
     const violinItems = violinScores.filter(score => !score.folder).map(makeScoreCard);
@@ -492,7 +498,7 @@
       const scores = violinScores.filter(score => score.folder === folder);
       const group = document.createElement('details');
       group.className = 'score-folder';
-      group.open = Boolean(query);
+      rememberFolder(group, `violin:${folder}`, Boolean(query));
       const heading = document.createElement('summary');
       heading.textContent = `${folder} · ${scores.length} 份谱`;
       group.append(heading);
@@ -511,7 +517,20 @@
       violinItems.push(group);
     }
     ui.violinGrid.replaceChildren(...violinItems);
-    ui.pianoGrid.replaceChildren(...pianoScores.map(makeScoreCard));
+    const pianoItems = [...new Set(pianoScores.map(pianoStyle))].sort((a,b) => a === '古典' ? -1 : b === '古典' ? 1 : a.localeCompare(b,'zh-CN')).map(style => {
+      const scores = pianoScores.filter(score => pianoStyle(score) === style);
+      const group = document.createElement('details');
+      group.className = 'score-folder';
+      rememberFolder(group, `piano:${style}`, Boolean(query));
+      const heading = document.createElement('summary');
+      heading.textContent = `${style} · ${scores.length} 首`;
+      const grid = document.createElement('div');
+      grid.className = 'score-grid';
+      grid.append(...scores.map(makeScoreCard));
+      group.append(heading, grid);
+      return group;
+    });
+    ui.pianoGrid.replaceChildren(...pianoItems);
     ui.allGrid.replaceChildren(...uncategorizedScores.map(makeScoreCard));
     ui.favoriteSection.hidden = favoriteScores.length === 0;
     ui.violinSection.hidden = violinScores.length === 0;
@@ -619,12 +638,18 @@
 
   async function openScore(id, updateHash = true) {
     await ensureCatalog();
-    const score = catalog.find(item => item.id === id) || catalog[0];
-    if (!score) return;
-    if (currentScore?.id !== score.id) resetPlayer();
+    const score = catalog.find(item => item.id === id);
+    if (!score) {
+      showLibrary();
+      ui.status.textContent = '这份乐谱已移除或不存在，请从曲库重新选择';
+      return;
+    }
+    const changingScore = currentScore?.id !== score.id;
+    if (changingScore) resetPlayer();
     currentScore = score;
-    if (score.defaultInstrument && INSTRUMENTS[score.defaultInstrument]) {
-      ui.instrument.value = score.defaultInstrument;
+    const defaultInstrument = score.defaultInstrument || (score.collection === 'piano' ? 'splendid-grand' : null);
+    if (changingScore && defaultInstrument && INSTRUMENTS[defaultInstrument]) {
+      ui.instrument.value = defaultInstrument;
     }
     ui.library.hidden = true;
     ui.libraryIdentity.hidden = true;

@@ -1,17 +1,5 @@
 [
   {
-    "id": "seitz-student-concerto-1-mvt1",
-    "title": "第一学生协奏曲 · 第一乐章",
-    "composer": "Friedrich Seitz（塞茨）",
-    "year": "1891",
-    "genre": "浪漫派 · 小提琴协奏曲",
-    "level": "上音考级 4—6 级曲集",
-    "duration": 314.5,
-    "measures": 94,
-    "collection": "violin",
-    "defaultInstrument": "violin"
-  },
-  {
     "id": "original-rags",
     "title": "Original Rags",
     "composer": "Scott Joplin",
