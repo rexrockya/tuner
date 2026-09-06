@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
+const vm = require("node:vm");
 
 const html = fs.readFileSync("docs/index.html", "utf8");
 const player = fs.readFileSync("docs/scores.js", "utf8");
@@ -20,6 +21,8 @@ assert.match(player, /tuner-score-favorites-v1/);
 assert.match(player, /smplr@1\.0\.0\/dist\/index\.mjs/);
 assert.match(player, /SplendidGrandPiano/);
 assert.match(player, /acoustic_guitar_nylon/);
+assert.match(player, /"violin"/);
+assert.match(html, /id="score-violin-grid"/);
 assert.match(html, /id="score-online"/);
 assert.match(html, /fflate@0\.8\.2/);
 assert.match(player, /OpenScore\/Lieder/);
@@ -37,14 +40,30 @@ assert.match(player, /readFlatCollection\("collaborations"\)/);
 assert.match(player, /readFlatCollection\("likes"\)/);
 assert.match(player, /revisions\/last\/xml/);
 assert.match(html, /id="sheet-instrument"/);
-assert.equal(catalog.length, 10);
+assert.ok(catalog.length >= 11);
+const embedded = JSON.parse(html.match(/<script id="score-catalog" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+assert.deepEqual(embedded.map(({ assetScript, ...score }) => score), catalog);
+const seitz = catalog.find(score => score.id === "seitz-student-concerto-1-mvt1");
+assert.ok(seitz, "Seitz violin concerto is in the catalog");
+assert.equal(seitz.collection, "violin");
+assert.equal(seitz.defaultInstrument, "violin");
 for (const score of catalog) {
   const scoreManifest = JSON.parse(fs.readFileSync(`docs/assets/scores/${score.id}.json`, "utf8"));
   assert.equal(scoreManifest.id, score.id);
   assert.ok(scoreManifest.measureStarts.length > 0);
   assert.ok(scoreManifest.notes.length > 0);
   assert.ok(fs.existsSync(`docs/assets/scores/${score.id}.musicxml`));
+  const bundled = { window: {} };
+  const asset = embedded.find(item => item.id === score.id).assetScript.split("?")[0];
+  vm.runInNewContext(fs.readFileSync(`docs/${asset}`, "utf8"), bundled);
+  const { musicXmlText, ...bundleManifest } = JSON.parse(JSON.stringify(bundled.window.__tunerBuiltInScores[score.id]));
+  assert.deepEqual(bundleManifest, scoreManifest, `${score.id}: rebuild score bundles after editing the manifest`);
+  assert.equal(musicXmlText, fs.readFileSync(`docs/assets/scores/${score.id}.musicxml`, "utf8").replaceAll("\r\n", "\n"));
 }
+const seitzManifest = JSON.parse(fs.readFileSync("docs/assets/scores/seitz-student-concerto-1-mvt1.json", "utf8"));
+assert.equal(seitzManifest.measureStarts.length, 94);
+assert.equal(seitzManifest.notes.length, 849);
+assert.match(seitzManifest.source.url, /^https:\/\/archive\.org\//);
 assert.equal(manifest.measureStarts.length, 109);
 assert.equal(manifest.notes.length, 1735);
 assert.equal(manifest.duration, 217.5);

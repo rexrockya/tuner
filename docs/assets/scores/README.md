@@ -33,6 +33,18 @@ failure fallback, not as the normal listening experience.
 `catalog.json` is the Library index. Favorites are kept in browser storage and
 the UI pins those pieces above the rest of the catalog.
 
+Catalog entries may set `collection` (`piano`, `violin`, or another collection)
+and `defaultInstrument`. Violin scores open with the MusyngKite violin sample;
+users may still switch to any other available playback voice.
+
+After editing a catalog entry, manifest, or MusicXML source, run
+`npm run build:scores`. It embeds the catalog in `docs/index.html` and generates
+one versioned `.bundle.js` per score containing both notation and playback data.
+The player loads only the selected score through a classic script, so opening
+`docs/index.html` directly also works without the `file://` JSON/XHR restriction.
+Commit these generated assets with their sources. `npm run test:score` checks
+that the embedded catalog and all bundles match the editable source files.
+
 Library search also queries the CC0 OpenScore Lieder and String Quartets TSV
 indexes. Choosing an online result downloads its MXL from the official GitHub
 repository, extracts MusicXML in the browser, derives playback timing, and saves

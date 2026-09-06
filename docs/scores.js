@@ -3,6 +3,10 @@
   const page = $("sheet-page");
   if (!page) return;
 
+  // Resolve assets relative to this script, including file:// previews and /tuner/.
+  const scoreAssetBase = new URL(".", document.currentScript.src);
+  const bundledScoreLoads = new Map();
+
   const FAVORITES_KEY = "tuner-score-favorites-v1";
   const INSTRUMENT_KEY = "tuner-score-instrument-v1";
   const IMPORTED_KEY = "tuner-score-imports-v1";
@@ -28,6 +32,7 @@
   ];
   const INSTRUMENTS = {
     "splendid-grand": { label: "Steinway 大钢琴", kind: "grand", volume: 104 },
+    "violin": { label: "小提琴", kind: "soundfont", instrument: "violin", volume: 108 },
     "nylon-guitar": { label: "尼龙弦吉他", kind: "soundfont", instrument: "acoustic_guitar_nylon", volume: 112 },
     "steel-guitar": { label: "钢弦原声吉他", kind: "soundfont", instrument: "acoustic_guitar_steel", volume: 108 },
     "wurlitzer": { label: "Wurlitzer 电钢", kind: "electric", instrument: "WurlitzerEP200", volume: 102 },
@@ -50,8 +55,15 @@
     favoriteSection: $("score-favorites"),
     favoriteGrid: $("score-favorite-grid"),
     favoriteCount: $("score-favorite-count"),
+    violinSection: $("score-violin"),
+    violinGrid: $("score-violin-grid"),
+    violinCount: $("score-violin-count"),
+    pianoSection: $("score-piano"),
+    pianoGrid: $("score-piano-grid"),
+    pianoCount: $("score-piano-count"),
+    otherSection: $("score-other"),
+    otherCount: $("score-other-count"),
     allGrid: $("score-all-grid"),
-    allTitle: $("score-all-title"),
     onlineSection: $("score-online"),
     onlineGrid: $("score-online-grid"),
     onlineStatus: $("score-online-status"),
@@ -311,7 +323,7 @@
     const arrow = document.createElement("span");
     arrow.className = "score-card-arrow";
     arrow.textContent = "↗";
-    const open = () => void openScore(score.id);
+    const open = () => void openScore(score.id).catch(() => {});
     card.addEventListener("click", open);
     card.addEventListener("keydown", event => {
       if (event.target !== card) return;
@@ -416,7 +428,7 @@
       ui.onlineStatus.textContent = flatError
         ? `${matches.length} 个结果 · Flat 读取失败`
         : matches.length ? `${matches.length} 个在线结果${flatProfile ? " · 含 Flat" : ""}` : "在线曲库没有结果";
-      const localMatches = ui.favoriteGrid.childElementCount + ui.allGrid.childElementCount;
+      const localMatches = ui.favoriteGrid.childElementCount + ui.violinGrid.childElementCount + ui.pianoGrid.childElementCount + ui.allGrid.childElementCount;
       ui.empty.hidden = localMatches + matches.length > 0;
       if (!ui.player.hidden) return;
       ui.status.textContent = `${localMatches + matches.length} 个结果`;
@@ -446,11 +458,21 @@
     const matches = score => !terms.length || terms.every(term => searchable(`${score.title} ${score.composer} ${score.genre}`).includes(term));
     const favoriteScores = catalog.filter(score => favorites.has(score.id) && matches(score));
     const otherScores = catalog.filter(score => !favorites.has(score.id) && matches(score));
+    const violinScores = otherScores.filter(score => score.collection === "violin");
+    const pianoScores = otherScores.filter(score => score.collection === "piano");
+    const uncategorizedScores = otherScores.filter(score => !["violin", "piano"].includes(score.collection));
     ui.favoriteGrid.replaceChildren(...favoriteScores.map(makeScoreCard));
-    ui.allGrid.replaceChildren(...otherScores.map(makeScoreCard));
+    ui.violinGrid.replaceChildren(...violinScores.map(makeScoreCard));
+    ui.pianoGrid.replaceChildren(...pianoScores.map(makeScoreCard));
+    ui.allGrid.replaceChildren(...uncategorizedScores.map(makeScoreCard));
     ui.favoriteSection.hidden = favoriteScores.length === 0;
+    ui.violinSection.hidden = violinScores.length === 0;
+    ui.pianoSection.hidden = pianoScores.length === 0;
+    ui.otherSection.hidden = uncategorizedScores.length === 0;
     ui.favoriteCount.textContent = `${favoriteScores.length} 首`;
-    ui.allTitle.textContent = favorites.size ? "其他乐谱" : "已加入乐谱";
+    ui.violinCount.textContent = `${violinScores.length} 首 · 小提琴采样音色`;
+    ui.pianoCount.textContent = `${pianoScores.length} 首`;
+    ui.otherCount.textContent = `${uncategorizedScores.length} 首`;
     ui.empty.hidden = favoriteScores.length + otherScores.length > 0;
     $("sheet-library-count").textContent = `${catalog.length} 首 · 可在线搜索`;
     if (!ui.player.hidden) return;
@@ -459,14 +481,47 @@
 
   async function ensureCatalog() {
     if (catalog.length) return catalog;
-    const response = await fetch("assets/scores/catalog.json");
-    if (!response.ok) throw new Error("乐谱目录读取失败");
-    const builtIn = await response.json();
+    // Keep the built-in library usable without a JSON fetch (blocked by file://).
+    const builtIn = JSON.parse($("score-catalog").textContent);
+    if (!Array.isArray(builtIn) || !builtIn.length) throw new Error("乐谱目录为空，请重新加载页面");
     const imported = readImportedScores();
     catalog = [...imported, ...builtIn.filter(score => !imported.some(item => item.id === score.id))];
     favorites = readFavorites();
     renderLibrary();
     return catalog;
+  }
+
+  function loadBuiltInScore(score) {
+    const cached = window.__tunerBuiltInScores?.[score.id];
+    if (cached) return Promise.resolve(cached);
+    if (bundledScoreLoads.has(score.id)) return bundledScoreLoads.get(score.id);
+    const task = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      const timeout = window.setTimeout(() => finish(new Error("乐谱加载超时，请点击曲目重试")), 20000);
+      function finish(error) {
+        window.clearTimeout(timeout);
+        script.remove();
+        const data = window.__tunerBuiltInScores?.[score.id];
+        if (error || !data?.musicXmlText || !data?.notes?.length) {
+          reject(error || new Error("乐谱数据不完整"));
+        } else {
+          resolve(data);
+        }
+      }
+      script.src = new URL(score.assetScript, scoreAssetBase).href;
+      script.onload = () => finish();
+      script.onerror = () => finish(new Error("乐谱文件读取失败，请返回曲库重试"));
+      document.head.append(script);
+    });
+    bundledScoreLoads.set(score.id, task);
+    task.catch(() => bundledScoreLoads.delete(score.id));
+    return task;
+  }
+
+  function updateScoreHash(hash) {
+    // Some local-file viewers reject History API changes. Navigation must still work.
+    try { history.replaceState(null, "", hash); }
+    catch (error) { if (error.name !== "SecurityError") throw error; }
   }
 
   function showLibrary(updateHash = true) {
@@ -477,9 +532,9 @@
     ui.player.hidden = true;
     ui.flatOpen.hidden = false;
     ui.searchWrap.hidden = false;
-    ui.status.textContent = `${catalog.length || 10} 首已加入 · 可在线搜索`;
+    ui.status.textContent = catalog.length ? `${catalog.length} 首已加入 · 可在线搜索` : "正在准备曲库…";
     document.title = "乐谱 Library｜弦音";
-    if (updateHash) history.replaceState(null, "", "#scores");
+    if (updateHash) updateScoreHash("#scores");
     void ensureCatalog().catch(error => { ui.status.textContent = error.message; });
   }
 
@@ -514,6 +569,9 @@
     if (!score) return;
     if (currentScore?.id !== score.id) resetPlayer();
     currentScore = score;
+    if (score.defaultInstrument && INSTRUMENTS[score.defaultInstrument]) {
+      ui.instrument.value = score.defaultInstrument;
+    }
     ui.library.hidden = true;
     ui.libraryIdentity.hidden = true;
     ui.playerIdentity.hidden = false;
@@ -524,7 +582,7 @@
     ui.composer.textContent = score.composer;
     ui.canvas.setAttribute("aria-label", `${score.title} 可交互乐谱`);
     document.title = `${score.title}｜弦音乐谱`;
-    if (updateHash) history.replaceState(null, "", `#score/${score.id}`);
+    if (updateHash) updateScoreHash(`#score/${score.id}`);
     await ensureLoaded();
   }
 
@@ -631,7 +689,7 @@
           ...common,
           instrument: config.instrument,
           kit: "MusyngKite",
-          loadLoopData: config.instrument === "cello" || config.instrument === "string_ensemble_1"
+          loadLoopData: ["violin", "cello", "string_ensemble_1"].includes(config.instrument)
         });
       }
       await nextInstrument.ready;
@@ -964,7 +1022,7 @@
       pageFormat: "Endless",
       drawingParameters: "compact"
     });
-    await osmd.load(manifest.musicXmlText || `assets/scores/${manifest.musicXml}`);
+    await osmd.load(manifest.musicXmlText);
     osmd.Zoom = zoom;
     osmd.render();
     createMeasureTargets();
@@ -987,9 +1045,9 @@
         currentScore.measures = manifest.measureStarts.length;
         saveImportedScores();
       } else {
-        const response = await fetch(`assets/scores/${scoreId}.json`);
-        if (!response.ok) throw new Error("乐谱数据读取失败");
-        manifest = await response.json();
+        const loaded = await loadBuiltInScore(currentScore);
+        if (currentScore?.id !== scoreId) return;
+        manifest = loaded;
       }
       if (currentScore?.id !== scoreId) return;
       bpm = manifest.sourceBpm;

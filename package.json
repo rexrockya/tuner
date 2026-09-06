@@ -2,6 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:scores": "node scripts/build-score-bundles.mjs",
     "build": "npm --prefix website ci && npm --prefix website run build && node scripts/copy-website-dist.mjs",
     "lint": "npm --prefix website run lint",
     "start": "npm --prefix website run start",
