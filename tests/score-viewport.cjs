@@ -1,0 +1,51 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');
+const {JSDOM,VirtualConsole}=require('jsdom');
+const html=fs.readFileSync('docs/index.html','utf8').replace(/<script\b(?![^>]*id="score-catalog")[^>]*>[\s\S]*?<\/script>/g,'');
+const dom=new JSDOM(html,{url:'https://rexrockya.github.io/tuner/',runScripts:'outside-only',virtualConsole:new VirtualConsole()});
+const w=dom.window,d=w.document;
+let viewport=375,scrollCalls=[];
+Object.defineProperty(w.HTMLElement.prototype,'clientWidth',{get(){return this.id==='sheet-canvas'?parseFloat(this.style.width)||viewport:viewport;}});
+Object.defineProperty(w.HTMLElement.prototype,'offsetWidth',{get(){return this.clientWidth;}});
+Object.defineProperty(w.HTMLElement.prototype,'clientHeight',{get:()=>400});
+w.HTMLElement.prototype.scrollTo=function(options){scrollCalls.push(options);this.scrollTop=options.top;this.scrollLeft=options.left;};
+w.HTMLCanvasElement.prototype.getContext=()=>({measureText:text=>({width:String(text).length*7,actualBoundingBoxAscent:10,actualBoundingBoxDescent:3})});
+w.fetch=()=>Promise.reject(Error('offline'));
+Object.defineProperty(d,'currentScript',{value:{src:'https://rexrockya.github.io/tuner/scores.js'}});
+d.head.append=script=>queueMicrotask(()=>{w.eval(fs.readFileSync('docs/assets/scores/'+new URL(script.src).pathname.split('/').pop(),'utf8'));script.onload();});
+const renderer=process.env.OSMD_TEST_BUNDLE||'C:/codex-tmp-seitz/opensheetmusicdisplay.min.js';
+if(!fs.existsSync(renderer)){console.log('SKIP actual viewport renderer: set OSMD_TEST_BUNDLE');dom.window.close();process.exit(0);}
+w.eval(fs.readFileSync(renderer,'utf8'));
+for(const file of ['score-beats.js','scores.js','score-reader.js'])w.eval(fs.readFileSync('docs/'+file,'utf8'));
+(async()=>{
+ await w.scorePlayer.open('violin-upload-2026-09-06-1');
+ const canvas=d.getElementById('sheet-canvas');
+ const svg=canvas.querySelector('svg');
+ assert.ok(svg.getAttribute('viewBox'),'responsive resizing preserves notation coordinates');
+ assert.equal(canvas.querySelectorAll('.sheet-measure-target').length,35);
+ assert.equal(parseFloat(canvas.style.width),375);
+ assert.ok(parseFloat(svg.style.width)<=375);
+ const initialHeight=parseFloat(svg.style.height),position=w.scorePlayer.getPosition();
+ w.scorePlayer.setZoom(2);
+ assert.equal(parseFloat(canvas.style.width),750);
+ assert.equal(parseFloat(svg.style.height),initialHeight*2);
+ assert.equal(w.scorePlayer.getPosition(),position,'zoom does not change playback position');
+ w.scorePlayer.setZoom(99);assert.equal(w.scorePlayer.getZoom(),4);
+ w.scorePlayer.setZoom(.01);assert.equal(w.scorePlayer.getZoom(),.5);
+ w.scorePlayer.fitWidth();assert.equal(parseFloat(canvas.style.width),375);
+ viewport=844;w.dispatchEvent(new w.Event('resize'));await new Promise(r=>setTimeout(r,250));
+ assert.equal(parseFloat(canvas.style.width),844);
+ assert.ok(parseFloat(canvas.querySelector('svg').style.width)<=844);
+ const active=canvas.querySelector('.sheet-measure-target.is-active');
+ active.getBoundingClientRect=()=>({left:900,right:1000,top:700,bottom:760});
+ scrollCalls=[];w.dispatchEvent(new w.Event('resize'));
+ // Use no re-layout to test the production follow method at the current index.
+ const source=fs.readFileSync('docs/scores.js','utf8');
+ const body=source.slice(source.indexOf('  function setActiveMeasure('),source.indexOf('  function releaseVoices('));
+ const follow=new Function('ui','measureRects','window',`let activeMeasure;${body};return setActiveMeasure;`)(
+  {canvas,scroll:d.getElementById('sheet-score-scroll'),status:d.getElementById('sheet-status')},[active],w);
+ follow(0,true);assert.equal(scrollCalls.length,1);assert.ok(scrollCalls[0].left>0&&scrollCalls[0].top>0);
+ active.getBoundingClientRect=()=>({left:20,right:100,top:30,bottom:100});
+ follow(0,true);assert.equal(scrollCalls.length,1,'no scrolling while measure is already visible');
+ console.log('PASS actual OSMD: portrait width 375, landscape width 844, all 35 targets, 0.5–4x SVG zoom, stable playback position, horizontal/vertical follow');
+ dom.window.close();
+})().catch(error=>{console.error(error);dom.window.close();process.exitCode=1;});

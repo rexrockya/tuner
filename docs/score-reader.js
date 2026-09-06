@@ -6,6 +6,64 @@
   const settings = $('sheet-settings-toggle'), originalToggle = $('sheet-original-toggle');
   const image = $('sheet-original-image'), original = $('sheet-original-view'), canvas = $('sheet-canvas');
   let current = null, originalMode = false;
+  const scroll = $('sheet-score-scroll');
+  const pointers = new Map();
+  let gesture = null, suppressClickUntil = 0, followAfter = 0, resumeTimer;
+  function holdFollow() {
+    followAfter = Date.now() + 1800;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      if (!pointers.size && !player.hidden) window.scorePlayer.followCurrent?.();
+    }, 1850);
+  }
+  function geometry() {
+    const points = [...pointers.values()].slice(0, 2);
+    const a = points[0], b = points[1] || a;
+    return {x:(a.x+b.x)/2, y:(a.y+b.y)/2, distance:Math.hypot(a.x-b.x,a.y-b.y)};
+  }
+  canvas.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse' || (event.button !== undefined && event.button !== 0)) return;
+    if (pointers.size >= 2) return;
+    pointers.set(event.pointerId, {x:event.clientX,y:event.clientY});
+    gesture = geometry();
+    holdFollow();
+    if (pointers.size > 1) suppressClickUntil = Date.now() + 700;
+  });
+  canvas.addEventListener('pointermove', event => {
+    if (!pointers.has(event.pointerId)) return;
+    const previous = gesture;
+    pointers.set(event.pointerId, {x:event.clientX,y:event.clientY});
+    const next = geometry();
+    if (pointers.size === 1 && Math.hypot(next.x-previous.x,next.y-previous.y) < 4) return;
+    event.preventDefault();
+    canvas.setPointerCapture?.(event.pointerId);
+    holdFollow();
+    suppressClickUntil = Date.now() + 700;
+    if (pointers.size > 1 && previous.distance > 0) {
+      window.scorePlayer.setZoom(window.scorePlayer.getZoom() * next.distance / previous.distance, previous);
+    }
+    scroll.scrollLeft += previous.x - next.x;
+    scroll.scrollTop += previous.y - next.y;
+    gesture = next;
+  });
+  function endPointer(event) {
+    if (!pointers.delete(event.pointerId)) return;
+    if (suppressClickUntil > Date.now()) suppressClickUntil = Date.now() + 700;
+    gesture = pointers.size ? geometry() : null;
+    holdFollow();
+  }
+  for (const name of ['pointerup','pointercancel','lostpointercapture']) window.addEventListener(name,endPointer);
+  canvas.addEventListener('click', event => {
+    if (Date.now() < suppressClickUntil) { event.preventDefault(); event.stopImmediatePropagation(); }
+  }, true);
+  $('sheet-fit-width').addEventListener('click', () => window.scorePlayer.fitWidth());
+  let lastWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth !== lastWidth) {
+      settingsOpen(false);
+      lastWidth = window.innerWidth;
+    }
+  });
   const syncStatus = () => { $('sheet-reader-status').textContent = $('sheet-status').textContent; };
   new MutationObserver(syncStatus).observe($('sheet-status'), {childList:true,subtree:true,characterData:true});
   syncStatus();
@@ -50,6 +108,7 @@
   image.addEventListener('error', () => { $('sheet-original-error').hidden = false; });
   image.addEventListener('load', () => { $('sheet-original-error').hidden = true; });
   window.scoreReader = {
+    isInteracting: () => pointers.size > 0 || Date.now() < followAfter,
     bind(manifest) {
       current = manifest;
       original.querySelector('p').textContent = manifest.coverage === 'full-page-playable-review'
@@ -62,6 +121,9 @@
       mode(false);
       player.querySelector('.sheet-source-details').open = false;
     },
-    close() { settingsOpen(false); originalMode = false; original.hidden = true; canvas.hidden = false; label(); }
+    close() {
+      clearTimeout(resumeTimer); pointers.clear(); gesture = null; followAfter = 0; suppressClickUntil = 0;
+      settingsOpen(false); originalMode = false; original.hidden = true; canvas.hidden = false; label();
+    }
   };
 })();

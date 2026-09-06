@@ -61,7 +61,7 @@
     @media(max-width:900px){.sheet-stepper>span,.sheet-timbre>span{display:none}.sheet-option{padding-inline:6px}.sheet-timbre select{width:106px}.score-grid{grid-template-columns:1fr}}
     @media(max-width:760px){#sheet-page{padding:7px 10px 24px}.sheet-head{height:34px;margin-bottom:5px}.sheet-kind,.sheet-composer{display:none}.sheet-head h1{font-size:15px}.score-flat-open{margin-left:auto;padding-inline:7px}.score-search{width:min(168px,43vw)}.sheet-live{display:none}.score-library{padding-top:5px}.score-card{min-height:78px}.sheet-transport{flex-wrap:wrap}.sheet-progress-wrap{order:3;flex-basis:100%}.sheet-score-scroll{height:calc(100svh - 200px);min-height:360px}.sheet-score-scroll #sheet-canvas{min-width:620px}.tabs{overflow-x:auto;justify-content:flex-start}.tab{min-width:54px}}
   </style>
-  <link rel="stylesheet" href="score-controls.css?v=20260907-1">
+  <link rel="stylesheet" href="score-controls.css?v=20260907-4">
 </head>
 <body>
   <nav>
@@ -124,7 +124,7 @@
         <button id="sheet-loop" class="sheet-option" aria-pressed="false">循环：关</button>
         <label class="sheet-timbre"><span>音色</span><select id="sheet-instrument" aria-label="选择乐谱播放音色"><option value="splendid-grand">Steinway 大钢琴</option><option value="violin">小提琴</option><option value="nylon-guitar">尼龙弦吉他</option><option value="steel-guitar">钢弦原声吉他</option><option value="wurlitzer">Wurlitzer 电钢</option><option value="cello">大提琴</option><option value="string-ensemble">弦乐合奏</option></select></label>
         <div class="sheet-stepper"><span>移调</span><button id="sheet-transpose-minus" aria-label="降低半音">−</button><output id="sheet-transpose">0</output><button id="sheet-transpose-plus" aria-label="升高半音">＋</button></div>
-        <div class="sheet-stepper"><span>缩放</span><button id="sheet-zoom-minus" aria-label="缩小乐谱">−</button><output id="sheet-zoom">82%</output><button id="sheet-zoom-plus" aria-label="放大乐谱">＋</button></div>
+        <div class="sheet-stepper"><span>缩放</span><button id="sheet-zoom-minus" aria-label="缩小乐谱">−</button><output id="sheet-zoom">100%</output><button id="sheet-zoom-plus" aria-label="放大乐谱">＋</button><button id="sheet-fit-width" aria-label="乐谱恢复适合屏幕宽度" style="width:auto;padding:0 10px">适宽</button></div>
         <button id="sheet-fullscreen" class="sheet-option sheet-fullscreen" aria-label="全屏乐谱" title="全屏乐谱">⛶</button>
       </div>
       <div class="sheet-mixer" aria-label="播放音量">
@@ -195,8 +195,8 @@
 <script src="score-audio.js?v=20260906-3"></script>
 <script src="score-beats.js?v=20260906-5"></script>
 <script src="metronome.js?v=20260906-6"></script>
-<script src="scores.js?v=20260907-2"></script>
-<script src="score-reader.js?v=20260907-3"></script>
+<script src="scores.js?v=20260907-4"></script>
+<script src="score-reader.js?v=20260907-4"></script>
 <script src="score-entry.js?v=20260906-6"></script>
   <script>
     const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];

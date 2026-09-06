@@ -131,7 +131,9 @@
   let nextNote = 0;
   let bpm = 60;
   let transpose = 0;
-  let zoom = .82;
+  let zoom = 1;
+  let scoreSurfaces = [];
+  let layoutWidth = 0;
   let loopMeasure = null;
   let activeMeasure = -1;
   let measureRects = [];
@@ -600,7 +602,9 @@
     measureRects = [];
     loopMeasure = null;
     transpose = 0;
-    zoom = .82;
+    zoom = 1;
+    scoreSurfaces = [];
+    layoutWidth = 0;
     ui.canvas.replaceChildren();
     ui.progress.value = "0";
     ui.progress.max = "1";
@@ -609,7 +613,7 @@
     ui.loop.textContent = "循环：关";
     ui.loop.setAttribute("aria-pressed", "false");
     ui.transpose.textContent = "0";
-    ui.zoom.textContent = "82%";
+    ui.zoom.textContent = "100%";
     ui.play.textContent = "▶";
   }
 
@@ -651,11 +655,17 @@
   function setActiveMeasure(index, follow) {
     activeMeasure = index;
     measureRects.forEach((rect, rectIndex) => rect.classList.toggle("is-active", rectIndex === index));
-    if (follow && !ui.canvas.hidden && measureRects[index]) {
+    if (follow && !ui.canvas.hidden && measureRects[index] && !window.scoreReader?.isInteracting()) {
       const scrollBox = ui.scroll.getBoundingClientRect();
       const measureBox = measureRects[index].getBoundingClientRect();
-      const targetTop = ui.scroll.scrollTop + measureBox.top - scrollBox.top - ui.scroll.clientHeight * .42;
-      ui.scroll.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
+      const margin = 12;
+      const outsideY = measureBox.top < scrollBox.top + margin || measureBox.bottom > scrollBox.top + ui.scroll.clientHeight - margin;
+      const outsideX = measureBox.left < scrollBox.left + margin || measureBox.right > scrollBox.left + ui.scroll.clientWidth - margin;
+      if (outsideX || outsideY) ui.scroll.scrollTo({
+        top: outsideY ? Math.max(0, ui.scroll.scrollTop + measureBox.top - scrollBox.top - margin) : ui.scroll.scrollTop,
+        left: outsideX ? Math.max(0, ui.scroll.scrollLeft + measureBox.left - scrollBox.left - margin) : ui.scroll.scrollLeft,
+        behavior: "smooth"
+      });
     }
     ui.status.textContent = `第 ${index + 1} 小节`;
   }
@@ -1155,6 +1165,43 @@
     };
   }
 
+  // Keep engraving stable during a gesture. Scale SVG viewports, not the page
+  // or the audio timeline; hit targets remain in the same SVG coordinate space.
+  function setDisplayZoom(value, anchor) {
+    if (!scoreSurfaces.length) return;
+    const before = ui.canvas.getBoundingClientRect();
+    const oldZoom = zoom;
+    zoom = clamp(Number(value) || 1, .5, 4);
+    const width = Math.max(1, ui.scroll.clientWidth || layoutWidth);
+    const baseWidth = Math.max(...scoreSurfaces.map(surface => surface.width));
+    const scale = width / baseWidth * zoom;
+    ui.canvas.style.width = `${width * zoom}px`;
+    for (const surface of scoreSurfaces) {
+      surface.svg.style.width = `${surface.width * scale}px`;
+      surface.svg.style.height = `${surface.height * scale}px`;
+    }
+    if (anchor) {
+      const after = ui.canvas.getBoundingClientRect();
+      ui.scroll.scrollLeft += after.left + (anchor.x - before.left) * zoom / oldZoom - anchor.x;
+      ui.scroll.scrollTop += after.top + (anchor.y - before.top) * zoom / oldZoom - anchor.y;
+    }
+    ui.zoom.textContent = `${Math.round(zoom * 100)}%`;
+  }
+
+  function layoutScore() {
+    if (!osmd || ui.canvas.hidden) return;
+    layoutWidth = Math.max(680, ui.scroll.clientWidth || 680);
+    ui.canvas.style.width = `${layoutWidth}px`;
+    osmd.Zoom = .82;
+    osmd.render();
+    scoreSurfaces = Array.from(ui.canvas.querySelectorAll('svg')).map(svg => ({
+      svg, width: parseFloat(svg.getAttribute('width')) || layoutWidth,
+      height: parseFloat(svg.getAttribute('height')) || svg.getBoundingClientRect().height || 1
+    }));
+    setDisplayZoom(zoom);
+    createMeasureTargets();
+  }
+
   async function renderScore() {
     if (!window.opensheetmusicdisplay) throw new Error("乐谱渲染器加载失败");
     const { OpenSheetMusicDisplay } = window.opensheetmusicdisplay;
@@ -1169,9 +1216,7 @@
       drawingParameters: "compact"
     });
     await osmd.load(manifest.musicXmlText);
-    osmd.Zoom = zoom;
-    osmd.render();
-    createMeasureTargets();
+    layoutScore();
   }
 
   async function ensureLoaded() {
@@ -1297,20 +1342,10 @@
     ui.transpose.textContent = `${transpose > 0 ? "+" : ""}${transpose}`;
   });
   $("sheet-zoom-minus").addEventListener("click", () => {
-    if (!osmd) return;
-    zoom = clamp(zoom - .1, .5, 1.5);
-    osmd.Zoom = zoom;
-    osmd.render();
-    createMeasureTargets();
-    ui.zoom.textContent = `${Math.round(zoom * 100)}%`;
+    setDisplayZoom(zoom - .1);
   });
   $("sheet-zoom-plus").addEventListener("click", () => {
-    if (!osmd) return;
-    zoom = clamp(zoom + .1, .5, 1.5);
-    osmd.Zoom = zoom;
-    osmd.render();
-    createMeasureTargets();
-    ui.zoom.textContent = `${Math.round(zoom * 100)}%`;
+    setDisplayZoom(zoom + .1);
   });
   $("sheet-fullscreen").addEventListener("click", () => {
     if (!document.fullscreenElement) ui.player.requestFullscreen?.();
@@ -1320,12 +1355,16 @@
     if (!osmd || ui.player.hidden) return;
     window.clearTimeout(window.__sheetResizeTimer);
     window.__sheetResizeTimer = window.setTimeout(() => {
-      osmd.render();
-      createMeasureTargets();
+      layoutScore();
+      setActiveMeasure(activeMeasure, true);
     }, 180);
   });
 
   window.scorePlayer = {
+    getZoom: () => zoom,
+    setZoom: setDisplayZoom,
+    fitWidth() { setDisplayZoom(1); ui.scroll.scrollLeft = 0; },
+    followCurrent() { if (playing) setActiveMeasure(activeMeasure, true); },
     setVolume: setInstrumentVolume,
     getVolume: () => instrumentVolume,
     ensureCatalog,

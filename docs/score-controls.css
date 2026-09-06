@@ -46,6 +46,11 @@
 .volume-control output{font:13px monospace;text-align:right}
 #metro-page>.volume-control{width:min(480px,100%);margin:18px auto}
 .sheet-score-scroll{height:65svh;min-height:280px}
+.sheet-score-scroll #sheet-canvas{min-width:0;padding:0;touch-action:none;user-select:none}
+/* OSMD's wrapper must not retain its pre-fit engraving width/height. */
+#sheet-canvas>div{width:100%!important;height:auto!important}
+#sheet-canvas svg{max-width:none}
+#sheet-score-scroll{scroll-behavior:auto;overflow-anchor:none}
 .sheet-player>.source-hint{font-size:12px;line-height:1.6;padding:8px 12px;overflow-wrap:anywhere}
 #sheet-timing-warning{color:#ffca86}
 .sheet-head{height:auto;min-height:44px;flex-wrap:wrap}
@@ -91,7 +96,7 @@
   .sheet-score-scroll{height:58svh;min-height:240px}
 }
 /* Phone practice surface: only the score scrolls; transport stays reachable. */
-@media(max-width:760px), (max-height:500px) and (pointer:coarse){
+@media(max-width:760px), (max-height:600px) and (max-width:1200px){
   #sheet-player:not([hidden]){position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0;background:#11180e;overflow:hidden}
   .sheet-mobile-only{display:block}
   .sheet-reader-head{flex:none;padding:4px max(8px,env(safe-area-inset-right)) 4px max(8px,env(safe-area-inset-left));padding-top:max(4px,env(safe-area-inset-top))}
@@ -111,4 +116,13 @@
   #sheet-player .sheet-beat-control{flex:1 1 100%;min-width:0}
   #sheet-player .sheet-timbre{min-width:0;flex-basis:100%}
   #sheet-player .sheet-transport .sheet-stepper{max-width:100%}
+}
+@media(max-height:600px) and (max-width:1200px) and (orientation:landscape){
+  .sheet-reader-head{padding-block:0}
+  .sheet-reader-titles{display:flex;align-items:center;gap:12px}
+  #sheet-reader-status{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #sheet-player:not(.sheet-settings-open) .sheet-transport{padding-top:2px;padding-bottom:max(2px,env(safe-area-inset-bottom));gap:8px}
+  #sheet-player .sheet-progress-wrap{grid-template-columns:minmax(0,1fr) auto;gap:10px}
+  #sheet-player .sheet-progress-wrap span{grid-row:1;grid-column:2}
+  .sheet-source-details summary{min-height:28px;padding:4px 0}
 }
