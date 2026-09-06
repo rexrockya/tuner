@@ -41,6 +41,9 @@ const pointer=(type,id,x,y)=>{
 pointer('pointerdown',1,100,100);pointer('pointerdown',2,200,100);
 assert.equal(w.scoreReader.isInteracting(),true);
 pointer('pointermove',2,300,100);assert.equal(zoom,2);assert.equal(anchor.x,150);
+const note=d.createElement('span');canvas.append(note);
+const transfer=new w.Event('lostpointercapture',{bubbles:true});Object.assign(transfer,{pointerId:2});note.dispatchEvent(transfer);
+pointer('pointermove',2,400,100);assert.equal(zoom,3,'capture transfer from a measure does not end pinch');
 canvas.click();assert.equal(clicked,0,'pinching never seeks a measure');
 pointer('pointerup',2,300,100);
 const top=scroll.scrollTop;pointer('pointermove',1,80,70);assert.equal(scroll.scrollTop,top+30);

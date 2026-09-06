@@ -47,6 +47,9 @@
     gesture = next;
   });
   function endPointer(event) {
+    // Touch starts with implicit capture on the note/measure. Moving capture
+    // to the canvas is not the end of that finger's gesture.
+    if (event.type === 'lostpointercapture' && event.target !== canvas) return;
     if (!pointers.delete(event.pointerId)) return;
     if (suppressClickUntil > Date.now()) suppressClickUntil = Date.now() + 700;
     gesture = pointers.size ? geometry() : null;
