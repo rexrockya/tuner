@@ -25,6 +25,19 @@ Required behavior:
   practice loop.
 - Keyboard access and mobile scrolling must remain usable.
 
+The shared metronome (`docs/metronome.js`) follows the open score. Both notes
+and clicks use the score's AudioContext clock and lookahead scheduler. Do not
+start a second wall-clock beat timer in score mode. Cancel queued clicks on
+pause, seek, speed changes, and loop wrap. Returning to the library restores
+the standalone tempo and meter; switching between score and metronome tabs
+preserves playback. The score metronome switch is a saved, device-local mute.
+
+`docs/score-beats.js` reads inherited and changing MusicXML time signatures,
+handles pickup measures, and uses `tempoMap` (quarter positions and quarter-note
+BPM) for imported tempo changes. BPM controls are always quarter-note BPM;
+click spacing follows the denominator. Compound meters retain subdivision
+clicks and secondary group accents. Downbeats have a distinct timbre and color.
+
 Playback uses the pinned `smplr` sample engine. The default grand piano is the
 four-velocity-layer Splendid Grand Piano; additional General MIDI voices use
 the heavier MusyngKite kit. Keep the lightweight Tone synth only as a network

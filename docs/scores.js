@@ -288,8 +288,10 @@
     return clamp(low - 1, 0, Math.max(0, starts.length - 1));
   };
   const rate = () => bpm / (manifest?.sourceBpm || bpm || 60);
+  const playbackContext = () => audioContext || window.Tone?.getContext?.().rawContext;
+  const playbackClock = () => playbackContext()?.currentTime ?? performance.now() / 1000;
   const currentTime = () => playing
-    ? clamp(startedFrom + (performance.now() - startedAt) / 1000 * rate(), 0, manifest.duration)
+    ? clamp(startedFrom + (playbackClock() - startedAt) * rate(), 0, manifest.duration)
     : position;
 
   function makeScoreCard(score) {
@@ -528,6 +530,7 @@
 
   function showLibrary(updateHash = true) {
     pause();
+    window.metronome?.releaseScore();
     ui.library.hidden = false;
     ui.libraryIdentity.hidden = false;
     ui.playerIdentity.hidden = true;
@@ -542,6 +545,7 @@
 
   function resetPlayer() {
     pause();
+    window.metronome?.releaseScore();
     manifest = null;
     osmd = null;
     loadPromise = null;
@@ -586,6 +590,9 @@
     document.title = `${score.title}｜弦音乐谱`;
     if (updateHash) updateScoreHash(`#score/${score.id}`);
     await ensureLoaded();
+    if (manifest && window.metronome?.getScoreId() !== score.id) {
+      window.metronome?.bindScore(score, manifest, position, rate());
+    }
   }
 
   function updateClock(seconds = currentTime()) {
@@ -620,9 +627,10 @@
     if (!manifest) return;
     position = clamp(seconds, 0, manifest.duration);
     startedFrom = position;
-    startedAt = performance.now();
+    startedAt = playbackClock();
     nextNote = noteIndexAt(position - .02);
     releaseVoices();
+    window.metronome?.seekScore(position, rate());
     updateClock(position);
   }
 
@@ -740,6 +748,8 @@
     }
     const playbackRate = rate();
     const horizon = now + .14 * playbackRate;
+    const clickContext = playbackContext();
+    if (clickContext) window.metronome?.scheduleScore(now, horizon, clickContext, bounds?.[1] ?? manifest.duration);
     while (nextNote < manifest.notes.length && manifest.notes[nextNote].time <= horizon) {
       // Do not queue notes from the next measure across a practice-loop boundary.
       if (bounds && manifest.notes[nextNote].time >= bounds[1]) break;
@@ -778,11 +788,12 @@
       if (position >= manifest.duration) setPosition(0);
       playing = true;
       startedFrom = position;
-      startedAt = performance.now();
+      startedAt = playbackClock();
       nextNote = noteIndexAt(position - .02);
       ui.play.textContent = "Ⅱ";
       ui.play.setAttribute("aria-label", "暂停乐谱");
       timer = window.setInterval(tick, 25);
+      window.metronome?.startScore(position, rate(), playbackContext());
       tick();
     })();
     playPromise = task;
@@ -794,6 +805,7 @@
   function pause() {
     playGeneration += 1;
     playPromise = null;
+    window.metronome?.pauseScore();
     if (!playing) return;
     position = currentTime();
     playing = false;
@@ -934,7 +946,9 @@
           }
           if (node.localName === "direction" && partIndex === 0) {
             const soundTempo = Number(xmlNodes(node, "sound")[0]?.getAttribute("tempo"));
-            const markedTempo = xmlNumber(node, "per-minute");
+            const beatUnit = xmlText(node, "beat-unit") || "quarter";
+            const unitQuarters = {whole:4, half:2, quarter:1, eighth:.5, "16th":.25}[beatUnit] || 1;
+            const markedTempo = xmlNumber(node, "per-minute") * unitQuarters * (xmlNodes(node, "beat-unit-dot").length ? 1.5 : 1);
             const tempo = soundTempo || markedTempo;
             if (tempo > 10 && tempo < 500) tempoEvents.push({ quarter: Math.max(0, cursor), bpm: tempo });
             return;
@@ -1019,6 +1033,7 @@
       musicXmlText: sourceXml,
       sourceBpm,
       timeSignature,
+      tempoMap: tempos,
       duration,
       measureStarts: measureStarts.map(quarterToSeconds),
       notes,
@@ -1135,20 +1150,14 @@
   });
   ui.rewind.addEventListener("click", () => setPosition(0));
   ui.progress.addEventListener("input", () => setPosition(Number(ui.progress.value)));
-  $("sheet-bpm-minus").addEventListener("click", () => {
-    const wasPlaying = playing;
-    if (wasPlaying) position = currentTime();
-    bpm = clamp(bpm - 5, 30, 180);
+  function setScoreBpm(value) {
+    const savedPosition = currentTime();
+    bpm = clamp(value, 30, 240);
     ui.bpm.textContent = `${Math.round(bpm)} BPM`;
-    if (wasPlaying) { startedFrom = position; startedAt = performance.now(); nextNote = noteIndexAt(position); releaseVoices(); }
-  });
-  $("sheet-bpm-plus").addEventListener("click", () => {
-    const wasPlaying = playing;
-    if (wasPlaying) position = currentTime();
-    bpm = clamp(bpm + 5, 30, 180);
-    ui.bpm.textContent = `${Math.round(bpm)} BPM`;
-    if (wasPlaying) { startedFrom = position; startedAt = performance.now(); nextNote = noteIndexAt(position); releaseVoices(); }
-  });
+    setPosition(savedPosition);
+  }
+  $("sheet-bpm-minus").addEventListener("click", () => setScoreBpm(bpm - 5));
+  $("sheet-bpm-plus").addEventListener("click", () => setScoreBpm(bpm + 5));
   ui.loop.addEventListener("click", () => {
     if (ui.loop.classList.toggle("on")) {
       loopMeasure = activeMeasure < 0 ? 0 : activeMeasure;
@@ -1209,6 +1218,8 @@
     play,
     pause,
     stop: pause,
+    getPosition: currentTime,
+    setBpm: setScoreBpm,
     getAudioState() {
       return {
         instrumentId: activeInstrumentId,
