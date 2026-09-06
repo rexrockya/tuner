@@ -12,7 +12,7 @@ assert.equal(d.querySelectorAll('.sheet-transport > :not(.sheet-advanced)').leng
 for(const id of ['sheet-instrument-volume','sheet-click-volume','sheet-bpm-plus','sheet-zoom-plus','sheet-rewind','sheet-metronome'])assert.ok(d.getElementById(id).closest('.sheet-advanced'));
 const upload=JSON.parse(fs.readFileSync('docs/assets/scores/violin-upload-2026-09-06-1.json','utf8'));
 w.scoreReader.bind(upload);
-assert.match(d.getElementById('sheet-reader-label').textContent,/11 小节.*待校对/);
+assert.match(d.getElementById('sheet-reader-label').textContent,/35 小节.*待校对/);
 assert.equal(d.getElementById('sheet-original-toggle').hidden,false);
 assert.equal(d.getElementById('sheet-original-image').hasAttribute('src'),false,'source image is lazy');
 settings.click();assert.equal(settings.getAttribute('aria-expanded'),'true');
@@ -23,7 +23,7 @@ d.getElementById('sheet-original-toggle').click();
 assert.equal(pauses,1);assert.equal(d.getElementById('sheet-canvas').hidden,true);
 assert.equal(d.getElementById('sheet-original-view').hidden,false);
 assert.match(d.getElementById('sheet-original-image').src,/tuner\/assets\/scores\/uploads\/2026-09-06\/page-1.png$/);
-assert.match(d.getElementById('sheet-original-view').textContent,/试听仍为已转录部分/);
+assert.match(d.getElementById('sheet-original-view').textContent,/整页可播放校对版/);
 d.getElementById('sheet-original-toggle').click();assert.equal(d.getElementById('sheet-canvas').hidden,false);
 settings.click();d.getElementById('sheet-reader-back').click();assert.equal(backs,1);assert.equal(settings.getAttribute('aria-expanded'),'false');
 w.scoreReader.bind({...upload,id:'fur-elise',reviewNotice:undefined});assert.equal(d.getElementById('sheet-original-toggle').hidden,true);

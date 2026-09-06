@@ -51,8 +51,14 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
     const start=w.scorePlayer.getPosition();
     if(page===1)close(start,24*60/108);
     clicks.length=0;notes.length=0;
-    await w.scorePlayer.play();advance(5);
+    await w.scorePlayer.play();advance(page===1?66:5);
     assert.ok(notes.length>0,'uploaded score produces note events');
+    if(page===1){
+      const full=JSON.parse(fs.readFileSync(path.join(root,`docs/assets/scores/${id}.json`),'utf8'));
+      assert.equal(notes.length,full.notes.length,'all notes through the final source line are scheduled');
+      close(w.scorePlayer.getPosition(),full.duration);
+      assert.equal(timers.size,0,'full-page playback ends cleanly');
+    }
     spacing(clicks,60/[108,96,60][page-1]);
     clicks.forEach((event,i)=>assert.equal(event.frequency,i%(page===3?3:4)===0?1600:page!==3&&i%4===2?1200:850));
     w.scorePlayer.pause();

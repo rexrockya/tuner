@@ -52,6 +52,9 @@
   window.scoreReader = {
     bind(manifest) {
       current = manifest;
+      original.querySelector('p').textContent = manifest.coverage === 'full-page-playable-review'
+        ? '完整原图，仅供对照；本谱已有整页可播放校对版。原图不会跟随播放逐音定位。'
+        : '完整原图，仅供对照；试听仍为已转录部分，不会跟随原图逐音定位。';
       originalToggle.hidden = !manifest.id.startsWith('violin-upload-');
       image.removeAttribute('src');
       $('sheet-original-error').hidden = true;
