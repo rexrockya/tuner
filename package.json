@@ -6,6 +6,9 @@
     "build": "npm --prefix website ci && npm --prefix website run build && node scripts/copy-website-dist.mjs",
     "lint": "npm --prefix website run lint",
     "start": "npm --prefix website run start",
-    "test:score": "node tests/interactive-score-smoke.cjs && node tests/score-audio.cjs && node tests/score-beats.cjs"
+    "test:score": "node tests/interactive-score-smoke.cjs && node tests/score-audio.cjs && node tests/score-beats.cjs && node tests/score-clock.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "29.1.1"
   }
 }

@@ -107,6 +107,7 @@
   let playPromise = null;
   let playGeneration = 0;
   let startedAt = 0;
+  let scheduledLoopCycle = 0;
   let startedFrom = 0;
   let position = 0;
   let nextNote = 0;
@@ -628,10 +629,12 @@
     position = clamp(seconds, 0, manifest.duration);
     startedFrom = position;
     startedAt = playbackClock();
-    nextNote = noteIndexAt(position - .02);
+    nextNote = noteIndexAt(position);
+    scheduledLoopCycle = 0;
     releaseVoices();
     window.metronome?.seekScore(position, rate());
     updateClock(position);
+    if (playing) tick();
   }
 
   function ensureFallbackSynths() {
@@ -652,6 +655,11 @@
     if (!manifest) return;
     const config = INSTRUMENTS[ui.instrument.value] || INSTRUMENTS["splendid-grand"];
     $("sheet-source").innerHTML = `<a href="${manifest.source.url}" target="_blank" rel="noopener">${manifest.source.label}</a> · 音色：<a href="https://github.com/danigb/smplr" target="_blank" rel="noopener">${config.label} / smplr</a>`;
+    const issues = manifest.beatTimeline?.issues || [];
+    $("sheet-timing-warning").hidden = !issues.length;
+    $("sheet-timing-warning").textContent = issues.length
+      ? `节奏待校对：检测到 ${issues.length} 个小节时值与拍号不符。节拍器保持固定 BPM；谱面小节线可能不与强拍对齐，暂不支持这份谱的单小节循环。` : "";
+    ui.loop.disabled = Boolean(issues.length);
   }
 
   async function ensureSampleLibrary() {
@@ -731,37 +739,65 @@
 
   function loopBounds() {
     if (loopMeasure === null || !manifest) return null;
-    return [manifest.measureStarts[loopMeasure], manifest.measureStarts[loopMeasure + 1] ?? manifest.duration];
+    const snap = time => {
+      const grid = manifest.beatTimeline.beats;
+      const index = window.scoreBeats.lowerBound(grid, time - .001);
+      return grid[index] && Math.abs(grid[index].time - time) < .001 ? grid[index].time : time;
+    };
+    return [snap(manifest.measureStarts[loopMeasure]), snap(manifest.measureStarts[loopMeasure + 1] ?? manifest.duration)];
   }
 
   function tick() {
     if (!playing || !manifest) return;
-    let now = currentTime();
+    const playbackRate = rate();
+    let now = startedFrom + (playbackClock() - startedAt) * playbackRate;
     const bounds = loopBounds();
     if (bounds && now >= bounds[1]) {
-      setPosition(bounds[0]);
-      now = bounds[0];
+      const cycles = Math.floor((now - bounds[0]) / (bounds[1] - bounds[0]));
+      // Move the transport by exact cycle lengths, never by the timer's wake-up
+      // time. Notes/clicks for the next cycle were already queued ahead of time.
+      startedAt += cycles * (bounds[1] - bounds[0]) / playbackRate;
+      now -= cycles * (bounds[1] - bounds[0]);
+      scheduledLoopCycle -= cycles;
     } else if (now >= manifest.duration) {
       pause();
       setPosition(manifest.duration);
       return;
     }
-    const playbackRate = rate();
     const horizon = now + .14 * playbackRate;
     const clickContext = playbackContext();
-    if (clickContext) window.metronome?.scheduleScore(now, horizon, clickContext, bounds?.[1] ?? manifest.duration);
+    const length = bounds ? bounds[1] - bounds[0] : 0;
+    const finalCycle = bounds ? Math.max(0, Math.floor((horizon - bounds[0]) / length)) : 0;
+    for (let cycle = Math.max(0, scheduledLoopCycle); cycle <= finalCycle; cycle++) {
+      if (cycle !== scheduledLoopCycle) {
+        nextNote = noteIndexAt(bounds[0] - .0001);
+        window.metronome?.rewindScore(bounds[0]);
+        scheduledLoopCycle = cycle;
+      }
+      const audioTimeAt = time => startedAt + (time + cycle * length - startedFrom) / playbackRate;
+      scheduleWindow(now - cycle * length, horizon - cycle * length, bounds, clickContext, audioTimeAt);
+    }
+    updateClock(Math.max(0, now));
+  }
+
+  function scheduleWindow(now, horizon, bounds, clickContext, audioTimeAt) {
+    const playbackRate = rate();
+    if (clickContext) window.metronome?.scheduleScore(now, horizon, clickContext,
+      bounds?.[1] ?? manifest.duration, audioTimeAt);
     while (nextNote < manifest.notes.length && manifest.notes[nextNote].time <= horizon) {
       // Do not queue notes from the next measure across a practice-loop boundary.
-      if (bounds && manifest.notes[nextNote].time >= bounds[1]) break;
+      if (bounds && manifest.notes[nextNote].time >= bounds[1] - .0001) break;
       const note = manifest.notes[nextNote++];
-      if (note.time < now - .03) continue;
-      const delay = Math.max(0, (note.time - now) / playbackRate);
-      const duration = Math.max(.025, note.duration / playbackRate);
+      const at = audioTimeAt(note.time);
+      // A stalled tab must skip overdue events, not fire a catch-up burst.
+      if (at < playbackClock() - .005) continue;
+      const delay = Math.max(0, at - playbackClock());
+      const duration = Math.max(.025, Math.min(note.duration, bounds ? bounds[1] - note.time : Infinity) / playbackRate);
       const pitch = note.pitch + transpose;
       if (activeInstrument && audioContext) {
         activeInstrument.start({
           note: pitch,
-          time: audioContext.currentTime + delay,
+          time: Math.max(audioContext.currentTime, at),
           duration,
           velocity: clamp(Math.round(note.velocity * .92), 12, 127)
         });
@@ -772,7 +808,6 @@
         );
       }
     }
-    updateClock(now);
   }
 
   function play() {
@@ -788,8 +823,9 @@
       if (position >= manifest.duration) setPosition(0);
       playing = true;
       startedFrom = position;
-      startedAt = playbackClock();
-      nextNote = noteIndexAt(position - .02);
+      startedAt = playbackClock() + .04;
+      nextNote = noteIndexAt(position);
+      scheduledLoopCycle = 0;
       ui.play.textContent = "Ⅱ";
       ui.play.setAttribute("aria-label", "暂停乐谱");
       timer = window.setInterval(tick, 25);
@@ -1085,6 +1121,8 @@
         manifest = loaded;
       }
       if (currentScore?.id !== scoreId) return;
+      manifest = window.scoreBeats.fixedTempoManifest(manifest);
+      manifest = {...manifest, beatTimeline: window.scoreBeats.fromManifest(manifest)};
       bpm = manifest.sourceBpm;
       ui.bpm.textContent = `${Math.round(bpm)} BPM`;
       ui.progress.max = String(manifest.duration);
@@ -1159,14 +1197,18 @@
   $("sheet-bpm-minus").addEventListener("click", () => setScoreBpm(bpm - 5));
   $("sheet-bpm-plus").addEventListener("click", () => setScoreBpm(bpm + 5));
   ui.loop.addEventListener("click", () => {
+    if (manifest?.beatTimeline?.issues.length) return;
     if (ui.loop.classList.toggle("on")) {
       loopMeasure = activeMeasure < 0 ? 0 : activeMeasure;
       ui.loop.textContent = `循环：${loopMeasure + 1}`;
       ui.loop.setAttribute("aria-pressed", "true");
+      setPosition(manifest.measureStarts[loopMeasure]);
     } else {
+      const savedPosition = currentTime();
       loopMeasure = null;
       ui.loop.textContent = "循环：关";
       ui.loop.setAttribute("aria-pressed", "false");
+      setPosition(savedPosition);
     }
   });
   $("sheet-transpose-minus").addEventListener("click", () => {

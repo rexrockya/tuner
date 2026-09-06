@@ -43,44 +43,68 @@
     });
   }
 
-  function buildBeats(measures, manifest) {
-    const tempos = manifest.tempoMap?.length ? manifest.tempoMap : [{ quarter: 0, bpm: manifest.sourceBpm }];
-    const tempoAt = quarter => {
-      let bpm = manifest.sourceBpm;
-      for (const tempo of tempos) { if (tempo.quarter > quarter + 1e-8) break; bpm = tempo.bpm; }
-      return bpm;
-    };
-    const secondsAt = quarter => {
-      let seconds = 0, previous = 0, bpm = manifest.sourceBpm;
+  // Imported playback seconds can contain tempo changes. Convert BOTH notes and
+  // bar positions back to musical time before applying the user's fixed BPM.
+  // Never squeeze a malformed measure into its nominal length: that would alter
+  // the written note values and conceal a transcription error.
+  function fixedTempoManifest(manifest) {
+    if (!manifest.tempoMap?.length) return manifest;
+    const tempos = [...manifest.tempoMap].sort((a, b) => a.quarter - b.quarter);
+    const fixedTime = time => {
+      let seconds = 0, quarter = 0, bpm = manifest.sourceBpm;
       for (const tempo of tempos) {
-        if (tempo.quarter > quarter) break;
-        seconds += (tempo.quarter - previous) * 60 / bpm;
-        previous = tempo.quarter;
-        bpm = tempo.bpm;
+        const end = seconds + (tempo.quarter - quarter) * 60 / bpm;
+        if (time < end) break;
+        seconds = end; quarter = tempo.quarter; bpm = tempo.bpm;
       }
-      return seconds + (quarter - previous) * 60 / bpm;
+      return (quarter + (time - seconds) * bpm / 60) * 60 / manifest.sourceBpm;
     };
-    let quarter = 0;
-    const beats = [], bars = [];
-    for (let index = 0; index < manifest.measureStarts.length; index++) {
-      const measure = measures[index] || {signature: manifest.timeSignature || [4, 4]};
-      const signature = measure.signature;
-      const unit = 4 / signature[1], nominal = signature[0] * unit;
-      const quarters = measure.quarters || nominal;
-      const start = manifest.measureStarts[index], end = manifest.measureStarts[index + 1] ?? manifest.duration;
-      const pickup = (index === 0 || measure.implicit) && quarters < nominal - 1e-6;
-      const phase = pickup ? nominal - quarters : 0;
-      bars.push({time: start, signature, bpm: tempoAt(quarter)});
-      for (let offset = 0; offset < quarters - 1e-6; offset += unit) {
-        const time = start + secondsAt(quarter + offset) - secondsAt(quarter);
-        if (time >= end - 1e-6) break;
-        const beat = Math.floor((phase + offset) / unit + 1e-6) % signature[0];
-        beats.push({time, measure: index, beat, signature, bpm: tempoAt(quarter + offset),
-          accent: offset === 0 && !pickup ? "strong" : (beat === 0 ? "weak" : accent(beat, signature))});
+    return {...manifest, tempoMap: undefined,
+      duration: fixedTime(manifest.duration),
+      measureStarts: manifest.measureStarts.map(fixedTime),
+      notes: manifest.notes?.map(note => ({...note, time: fixedTime(note.time),
+        duration: fixedTime(note.time + note.duration) - fixedTime(note.time)}))};
+  }
+
+  function buildBeats(measures, source) {
+    const manifest = fixedTempoManifest(source);
+    const bpm = manifest.sourceBpm, secondsPerQuarter = 60 / bpm;
+    const bars = manifest.measureStarts.map((time, index) => ({time, bpm,
+      signature: measures[index]?.signature || manifest.timeSignature || [4, 4]}));
+    const issues = [], beats = [];
+    if (!bars.length) return {beats, bars, issues};
+    const lengthAt = index => ((bars[index + 1]?.time ?? manifest.duration) - bars[index].time) / secondsPerQuarter;
+    // Only an explicitly marked first pickup may shift the initial phase.
+    const first = bars[0].signature, firstNominal = first[0] * 4 / first[1];
+    const pickup = measures[0]?.implicit && lengthAt(0) < firstNominal - .002;
+    let signature = first, unit = 4 / first[1], origin = bars[0].time;
+    let phase = pickup ? firstNominal - lengthAt(0) : 0;
+    let tick = Math.ceil(phase / unit - .0001) - phase / unit, barIndex = 0;
+    for (let index = 0; index < bars.length; index++) {
+      const nominal = bars[index].signature[0] * 4 / bars[index].signature[1];
+      const length = lengthAt(index);
+      if (Math.abs(length - nominal) > .002 && !(index === 0 && pickup)
+        && !(index === bars.length - 1 && length < nominal) && !measures[index]?.implicit) {
+        issues.push({measure: index, quarters: length, expected: nominal});
       }
-      quarter += quarters;
     }
-    return {beats, bars};
+    // Continuous integer-indexed grid. Bar lines annotate it; they NEVER restart
+    // its clock or accents. Only an actual time-signature change starts a segment.
+    while (true) {
+      const time = origin + tick * unit * secondsPerQuarter;
+      if (time >= manifest.duration - .0001) break;
+      while (barIndex + 1 < bars.length && bars[barIndex + 1].time <= time + .0001) {
+        barIndex++;
+        const next = bars[barIndex].signature;
+        if (next.join('/') !== signature.join('/')) {
+          signature = next; unit = 4 / next[1]; origin = time; tick = 0; phase = 0;
+        }
+      }
+      const beat = Math.floor((phase / unit + tick) + .0001) % signature[0];
+      beats.push({time, measure: barIndex, beat, signature, bpm, accent: accent(beat, signature)});
+      tick++;
+    }
+    return {beats, bars, issues};
   }
 
   function lowerBound(events, time) {
@@ -89,6 +113,6 @@
     return lo;
   }
 
-  window.scoreBeats = { accent, readMeasures, buildBeats, lowerBound,
+  window.scoreBeats = { accent, readMeasures, buildBeats, lowerBound, fixedTempoManifest,
     fromManifest: manifest => buildBeats(readMeasures(manifest.musicXmlText, manifest.timeSignature), manifest) };
 })();
