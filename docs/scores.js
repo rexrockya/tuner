@@ -96,6 +96,22 @@
   let osmd = null;
   let loadPromise = null;
   let audioContext = null;
+  let instrumentBus = null;
+  let instrumentVolume = Math.max(0, Math.min(100, Number(localStorage.getItem("tuner-instrument-volume-v1") ?? 100)));
+  if (!Number.isFinite(instrumentVolume)) instrumentVolume = 100;
+  function setInstrumentVolume(value) {
+    instrumentVolume = Math.max(0, Math.min(100, Number(value) || 0));
+    localStorage.setItem("tuner-instrument-volume-v1", String(instrumentVolume));
+    if (instrumentBus) {
+      const gain = (instrumentVolume / 100) ** 2;
+      if (instrumentBus.gain.setTargetAtTime) instrumentBus.gain.setTargetAtTime(gain, audioContext.currentTime, .015);
+      else instrumentBus.gain.value = gain;
+    }
+    fallbackSynths?.forEach((synth, index) => { synth.volume.value = (index ? -13 : -11)
+      + (instrumentVolume ? 40 * Math.log10(instrumentVolume / 100) : -Infinity); });
+    $("sheet-instrument-volume").value = String(instrumentVolume);
+    $("sheet-instrument-volume-value").textContent = `${instrumentVolume}%`;
+  }
   let sampleLibraryPromise = null;
   let sampleStorage = null;
   let activeInstrument = null;
@@ -649,6 +665,7 @@
       synth.volume.value = index ? -13 : -11;
       return synth.toDestination();
     });
+    setInstrumentVolume(instrumentVolume);
   }
 
   function renderSourceHint() {
@@ -686,12 +703,18 @@
       const library = await ensureSampleLibrary();
       const Context = window.AudioContext || window.webkitAudioContext;
       audioContext ||= new Context();
+      if (!instrumentBus) {
+        instrumentBus = audioContext.createGain();
+        instrumentBus.gain.value = (instrumentVolume / 100) ** 2;
+        instrumentBus.connect(audioContext.destination);
+      }
       await audioContext.resume();
       if (!sampleStorage && window.isSecureContext && "caches" in window) {
         try { sampleStorage = library.CacheStorage(); } catch (error) {}
       }
       const common = {
         volume: config.volume,
+        destination: instrumentBus,
         ...(sampleStorage ? { storage: sampleStorage } : {}),
         onLoadProgress: ({ loaded, total }) => {
           if (ui.instrument.value === requestedId) ui.status.textContent = `加载 ${config.label} · ${loaded}/${total}`;
@@ -1249,6 +1272,8 @@
   });
 
   window.scorePlayer = {
+    setVolume: setInstrumentVolume,
+    getVolume: () => instrumentVolume,
     ensureCatalog,
     loadOnlineIndex,
     loadFlatScores,
@@ -1276,5 +1301,7 @@
     }
   };
 
+  $("sheet-instrument-volume").addEventListener("input", event => setInstrumentVolume(event.target.value));
+  setInstrumentVolume(instrumentVolume);
   void Promise.all([ensureCatalog(), refreshFlatConnection()]).catch(error => { ui.status.textContent = error.message; });
 })();

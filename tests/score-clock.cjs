@@ -5,13 +5,14 @@ const original=fs.readFileSync(path.join(root,'docs/index.html'),'utf8');
 const html=original.replace(/<script\b(?![^>]*id="score-catalog")[^>]*>[\s\S]*?<\/script>/g,'');
 const dom=new JSDOM(html,{url:'https://rexrockya.github.io/tuner/',runScripts:'outside-only'});
 const w=dom.window,doc=w.document,timers=new Map(),clicks=[],notes=[],flashes=new Map();
+const instrumentOptions=[],gains=[];
 let clock=0,seq=0;
 const param=()=>({value:0,setValueAtTime(){},exponentialRampToValueAtTime(){}});
 w.AudioContext=class {
   state='running'; get currentTime(){return clock;} destination={}; async resume(){}
   createOscillator(){return {frequency:param(),type:'sine',connect(gain){return gain;},disconnect(){},
     start(time){clicks.push({time,frequency:this.frequency.value,node:this});},stop(time){if(time===undefined)this.cancelled=true;}};}
-  createGain(){return {gain:param(),connect(){},disconnect(){}};}
+  createGain(){const node={gain:param(),connect(destination){this.destination=destination;return destination;},disconnect(){}};gains.push(node);return node;}
 };
 w.setInterval=fn=>{const id=++seq;timers.set(id,fn);return id;};
 w.clearInterval=id=>timers.delete(id);
@@ -19,8 +20,8 @@ w.setTimeout=(fn,delay)=>{const id=++seq;flashes.set(id,{fn,time:clock+delay/100
 w.clearTimeout=id=>flashes.delete(id);
 w.HTMLElement.prototype.scrollTo=()=>{};
 w.sampleTestLibrary={SampleLoader:()=>({load:async()=>new Map()}),
-  Soundfont:()=>({ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}}),
-  SplendidGrandPiano:()=>({ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}})};
+  Soundfont:(_ctx,options)=>(instrumentOptions.push(options),{ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}}),
+  SplendidGrandPiano:(_ctx,options)=>(instrumentOptions.push(options),{ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}})};
 w.opensheetmusicdisplay={OpenSheetMusicDisplay:class {async load(){}render(){}}};
 w.fetch=()=>Promise.reject(new Error('No network expected'));
 Object.defineProperty(doc,'currentScript',{value:{src:'https://rexrockya.github.io/tuner/scores.js'}});
@@ -43,6 +44,19 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   assert.equal(w.metronome.getBpm(),90);
   await w.scorePlayer.play();
   assert.equal(timers.size,1);
+  const sampleBus=instrumentOptions.at(-1).destination;
+  const masterBuses=gains.filter(node=>node.destination && node.destination!==sampleBus);
+  const metroBus=masterBuses.at(-1);
+  const beforeVolume=notes.length,positionBeforeVolume=w.scorePlayer.getPosition();
+  w.scorePlayer.setVolume(40);close(sampleBus.gain.value,.16);
+  w.metronome.setVolume(25);close(metroBus.gain.value,.0625);
+  assert.equal(doc.querySelector('#sheet-click-volume').value,'25');
+  assert.equal(doc.querySelector('#metro-volume').value,'25');
+  close(w.scorePlayer.getPosition(),positionBeforeVolume);
+  assert.equal(notes.length,beforeVolume,'volume changes do not retrigger notes');
+  w.scorePlayer.setVolume(0);assert.equal(sampleBus.gain.value,0);
+  assert.equal(w.metronome.getVolume(),25,'instrument mute leaves metronome volume alone');
+  w.scorePlayer.setVolume(100);w.metronome.setVolume(100);
   const anchor=clicks[0].time;
   advance(180);
   assert.ok(clicks.length>=270);

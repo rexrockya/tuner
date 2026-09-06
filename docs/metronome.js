@@ -11,6 +11,30 @@
   let context = null, timer = null, nextAudio = 0, pulseIndex = 0, nextBeat = 0, countIn = false;
   const sounds = new Set(), flashes = new Set();
   let pendingPulses = [];
+  const volumeBuses = new Map();
+  let volume = Math.max(0, Math.min(100, Number(localStorage.getItem("tuner-click-volume-v1") ?? 100)));
+  if (!Number.isFinite(volume)) volume = 100;
+  function volumeBus(ctx) {
+    if (!volumeBuses.has(ctx)) {
+      const bus = ctx.createGain();
+      bus.gain.value = (volume / 100) ** 2;
+      bus.connect(ctx.destination);
+      volumeBuses.set(ctx, bus);
+    }
+    return volumeBuses.get(ctx);
+  }
+  function setVolume(value) {
+    volume = Math.max(0, Math.min(100, Number(value) || 0));
+    localStorage.setItem("tuner-click-volume-v1", String(volume));
+    for (const [ctx, bus] of volumeBuses) {
+      if (bus.gain.setTargetAtTime) bus.gain.setTargetAtTime((volume / 100) ** 2, ctx.currentTime, .015);
+      else bus.gain.value = (volume / 100) ** 2;
+    }
+    for (const id of ["sheet-click-volume", "metro-volume"]) {
+      if ($(id)) $(id).value = String(volume);
+      if ($(`${id}-value`)) $(`${id}-value`).textContent = `${volume}%`;
+    }
+  }
 
   function notify() {
     window.dispatchEvent(new CustomEvent("tuner:metro-change", {detail: {bpm, running,
@@ -63,7 +87,7 @@
     oscillator.frequency.value = strong ? 1600 : secondary ? 1200 : 850;
     gain.gain.setValueAtTime(strong ? .12 : secondary ? .13 : .085, at);
     gain.gain.exponentialRampToValueAtTime(.001, at + .045);
-    oscillator.connect(gain).connect(ctx.destination);
+    oscillator.connect(gain).connect(volumeBus(ctx));
     sounds.add(oscillator);
     oscillator.onended = () => { sounds.delete(oscillator); oscillator.disconnect(); gain.disconnect(); };
     oscillator.start(at);
@@ -194,7 +218,10 @@
   });
   $("metro-meter").addEventListener("change", event => setTimeSignature(event.target.value.split("/").map(Number)));
   window.metronome = {getBpm: () => bpm, getTimeSignature: () => [...signature], isRunning: () => running,
+    getVolume: () => volume, setVolume,
     getScoreId: () => binding?.id, setBpm, setTimeSignature, start, stop, toggle: () => running ? stop() : start(),
     bindScore, releaseScore, seekScore, startScore, pauseScore, scheduleScore, rewindScore};
   render();
+  for (const id of ["sheet-click-volume", "metro-volume"]) $(id)?.addEventListener("input", event => setVolume(event.target.value));
+  setVolume(volume);
 })();
