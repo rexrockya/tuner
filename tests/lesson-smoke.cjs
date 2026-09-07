@@ -5,6 +5,7 @@ dom.window.scrollTo=()=>{};
 dom.window.cancelAnimationFrame=()=>{};dom.window.requestAnimationFrame=()=>1;
 dom.window.HTMLMediaElement.prototype.pause=()=>{};
 dom.window.HTMLElement.prototype.scrollTo=()=>{};
+dom.window.eval(fs.readFileSync("docs/storage.js","utf8"));
 dom.window.eval(fs.readFileSync("docs/harmony.js","utf8"));
 dom.window.eval(fs.readFileSync("docs/lessons.js","utf8"));
 const q=s=>dom.window.document.querySelector(s),click=s=>q(s).dispatchEvent(new dom.window.MouseEvent("click",{bubbles:true}));

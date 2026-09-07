@@ -6,7 +6,7 @@ const html=fs.readFileSync(path.join(docs,'index.html'),'utf8').replace(/<script
 const dom=new JSDOM(html,{url:'https://rexrockya.github.io/tuner/',runScripts:'outside-only'}),w=dom.window,d=w.document;
 w.fetch=()=>Promise.reject(new Error('no network in DOM benchmark'));w.requestAnimationFrame=()=>1;w.cancelAnimationFrame=()=>{};
 w.setTimeout=()=>1;w.clearTimeout=()=>{};
-for(const file of ['harmony.js','practice-audio.js','practice.js'])w.eval(fs.readFileSync(path.join(docs,file),'utf8'));
+for(const file of ['storage.js','harmony.js','practice-audio.js','practice.js'])w.eval(fs.readFileSync(path.join(docs,file),'utf8'));
 const S=w.practiceStudio;S.setMode('create');d.getElementById('practice-progression').value=Array(16).fill('I7').join(' | ');S.generate(1);
 let operations={getElementById:0,querySelectorAll:0,classToggle:0,textContent:0,attribute:0};
 const get=d.getElementById.bind(d);d.getElementById=(...a)=>(operations.getElementById++,get(...a));

@@ -90,6 +90,7 @@
   let onlineIndexPromise = null;
   let flatScoresPromise = null;
   let flatProfile = null;
+  let flatStorageMessage = '';
   let onlineSearchTimer = null;
   let onlineSearchToken = 0;
   let favorites = new Set();
@@ -99,11 +100,11 @@
   let loadPromise = null;
   let audioContext = null;
   let instrumentBus = null;
-  let instrumentVolume = Math.max(0, Math.min(100, Number(localStorage.getItem("tuner-instrument-volume-v1") ?? 100)));
+  let instrumentVolume = Math.max(0, Math.min(100, Number(window.siteStorage.getItem("tuner-instrument-volume-v1") ?? 100)));
   if (!Number.isFinite(instrumentVolume)) instrumentVolume = 100;
   function setInstrumentVolume(value) {
     instrumentVolume = Math.max(0, Math.min(100, Number(value) || 0));
-    localStorage.setItem("tuner-instrument-volume-v1", String(instrumentVolume));
+    window.siteStorage.setItem("tuner-instrument-volume-v1", String(instrumentVolume));
     if (instrumentBus) {
       const gain = (instrumentVolume / 100) ** 2;
       if (instrumentBus.gain.setTargetAtTime) instrumentBus.gain.setTargetAtTime(gain, audioContext.currentTime, .015);
@@ -138,7 +139,7 @@
   let loopMeasure = null;
   let activeMeasure = -1;
   let measureRects = [];
-  const savedInstrument = localStorage.getItem(INSTRUMENT_KEY);
+  const savedInstrument = window.siteStorage.getItem(INSTRUMENT_KEY);
   if (INSTRUMENTS[savedInstrument]) ui.instrument.value = savedInstrument;
 
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -147,17 +148,17 @@
     return `${Math.floor(value / 60)}:${String(Math.floor(value % 60)).padStart(2, "0")}`;
   };
   const readFavorites = () => {
-    try { return new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]")); }
+    try { return new Set(JSON.parse(window.siteStorage.getItem(FAVORITES_KEY) || "[]")); }
     catch (error) { return new Set(); }
   };
-  const saveFavorites = () => localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+  const saveFavorites = () => window.siteStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
   const readImportedScores = () => {
     try {
-      const items = JSON.parse(localStorage.getItem(IMPORTED_KEY) || "[]");
+      const items = JSON.parse(window.siteStorage.getItem(IMPORTED_KEY) || "[]");
       return Array.isArray(items) ? items.filter(item => item?.id && (item?.musicXmlUrl || item?.flatScoreId)) : [];
     } catch (error) { return []; }
   };
-  const saveImportedScores = () => localStorage.setItem(
+  const saveImportedScores = () => window.siteStorage.setItem(
     IMPORTED_KEY,
     JSON.stringify(catalog.filter(score => score.online))
   );
@@ -176,7 +177,7 @@
 
   async function flatRequest(path, options = {}) {
     const { token: explicitToken, ...requestOptions } = options;
-    const token = explicitToken || localStorage.getItem(FLAT_TOKEN_KEY);
+    const token = explicitToken || window.siteStorage.getItem(FLAT_TOKEN_KEY);
     if (!token) throw new Error("请先连接 Flat");
     const url = path.startsWith("https://") ? path : `${FLAT_API}${path}`;
     const response = await fetch(url, {
@@ -198,10 +199,10 @@
     ui.flatOpen.classList.toggle("on", connected);
     ui.flatOpen.textContent = connected ? "Flat ✓" : "连接 Flat";
     ui.flatDisconnect.hidden = !connected;
-    ui.flatStatus.classList.remove("error");
-    ui.flatStatus.textContent = connected
+    ui.flatStatus.classList.toggle("error", Boolean(flatStorageMessage));
+    ui.flatStatus.textContent = flatStorageMessage || (connected
       ? `已连接 ${flatProfile.printableName || flatProfile.username || flatProfile.id}`
-      : "连接后，搜索结果会包含你的 Flat 乐谱与收藏。";
+      : "连接后，搜索结果会包含你的 Flat 乐谱与收藏。");
   }
 
   async function connectFlat(token) {
@@ -209,7 +210,8 @@
     if (!value) throw new Error("请粘贴 Flat Personal Token");
     const response = await flatRequest("/me", { token: value });
     flatProfile = await response.json();
-    localStorage.setItem(FLAT_TOKEN_KEY, value);
+    const persisted = window.siteStorage.setItem(FLAT_TOKEN_KEY, value);
+    flatStorageMessage = persisted ? '' : '已连接，仅本次页面有效；刷新后需重新授权。';
     flatScoresPromise = null;
     updateFlatUi();
     scheduleSearch();
@@ -217,23 +219,27 @@
   }
 
   function disconnectFlat() {
-    localStorage.removeItem(FLAT_TOKEN_KEY);
+    const removed = window.siteStorage.removeItem(FLAT_TOKEN_KEY);
     flatProfile = null;
     flatScoresPromise = null;
     ui.flatToken.value = "";
+    flatStorageMessage = removed ? '' : '已断开本次连接；未能清除本机授权，请在浏览器设置中清除此网站的数据。';
     updateFlatUi();
     scheduleSearch();
+    return removed;
   }
 
   async function refreshFlatConnection() {
-    if (!localStorage.getItem(FLAT_TOKEN_KEY)) {
+    if (!window.siteStorage.getItem(FLAT_TOKEN_KEY)) {
       updateFlatUi();
       return null;
     }
     try {
       flatProfile = await (await flatRequest("/me")).json();
     } catch (error) {
-      if (error.status === 401) localStorage.removeItem(FLAT_TOKEN_KEY);
+      if (error.status === 401 && !window.siteStorage.removeItem(FLAT_TOKEN_KEY)) {
+        flatStorageMessage = '授权已失效；未能清除本机授权，请在浏览器设置中清除此网站的数据。';
+      }
       flatProfile = null;
     }
     updateFlatUi();
@@ -1333,7 +1339,7 @@
       await connectFlat(ui.flatToken.value);
       ui.flatToken.value = "";
       submit.textContent = "已连接";
-      window.setTimeout(() => ui.flatDialog.close(), 500);
+      if (!flatStorageMessage) window.setTimeout(() => { if (!flatStorageMessage) ui.flatDialog.close(); }, 500);
     } catch (error) {
       ui.flatStatus.classList.add("error");
       ui.flatStatus.textContent = error.message || "Flat 连接失败";
@@ -1343,15 +1349,14 @@
     }
   });
   ui.flatDisconnect.addEventListener("click", () => {
-    disconnectFlat();
-    ui.flatDialog.close();
+    if (disconnectFlat()) ui.flatDialog.close();
   });
   ui.search.addEventListener("input", scheduleSearch);
   $("sheet-back").addEventListener("click", () => showLibrary());
   ui.play.addEventListener("click", () => playing ? pause() : void play());
   ui.instrument.addEventListener("change", () => {
     pause();
-    localStorage.setItem(INSTRUMENT_KEY, ui.instrument.value);
+    window.siteStorage.setItem(INSTRUMENT_KEY, ui.instrument.value);
     const previousInstrument = activeInstrument;
     activeInstrument = null;
     activeInstrumentId = "";

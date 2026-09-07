@@ -175,7 +175,7 @@
   }
   const storageKey = 'tuner-original-licks-v1';
   function saved() {
-    try { const items = JSON.parse(localStorage.getItem(storageKey) || '[]'); return Array.isArray(items) ? items.filter(x => x.version === 1 && typeof x.text === 'string' && x.text.length <= 256 && H.names.includes(x.key) && A.feels[x.feel] && Number.isInteger(x.seed) && x.seed >= 0 && Number.isFinite(x.bpm)).slice(0, 50) : []; } catch { return []; }
+    try { const items = JSON.parse(window.siteStorage.getItem(storageKey) || '[]'); return Array.isArray(items) ? items.filter(x => x.version === 1 && typeof x.text === 'string' && x.text.length <= 256 && H.names.includes(x.key) && A.feels[x.feel] && Number.isInteger(x.seed) && x.seed >= 0 && Number.isFinite(x.bpm)).slice(0, 50) : []; } catch { return []; }
   }
   function renderSaved() { $('practice-saved').innerHTML = '<option value="">选择乐句</option>' + saved().map((item, i) => `<option value="${i}">${escape(item.key + ' · ' + item.text)} · ${i + 1}</option>`).join(''); }
   function dirty() { transport.pause(); $('practice-play').disabled = true; $('practice-status').textContent = '和声已修改，点击生成'; }
@@ -198,7 +198,10 @@
     if (!phrase || $('practice-play').disabled) return;
     const items = saved(), item = { version: 1, text: $('practice-progression').value, key: $('practice-key').value, feel: $('practice-feel').value, seed: currentSeed, bpm: transport.bpm };
     if (!items.some(x => x.seed === item.seed && x.text === item.text && x.key === item.key && x.feel === item.feel)) items.unshift(item);
-    try { localStorage.setItem(storageKey, JSON.stringify(items.slice(0, 50))); $('practice-save').textContent = '已收藏'; renderSaved(); } catch { error('本机存储已满，请先导出 MIDI'); }
+    const persisted = window.siteStorage.setItem(storageKey, JSON.stringify(items.slice(0, 50)));
+    $('practice-save').textContent = persisted ? '已收藏' : '本次暂存';
+    error(persisted ? '' : '未能保存到本机，请在离开前导出 MIDI');
+    renderSaved();
   });
   $('practice-saved').addEventListener('change', () => {
     if ($('practice-saved').value === '') return;

@@ -26,6 +26,7 @@ function setup(options={}){
  w.lessonPlayer={stop:()=>calls.push({lessonStop:true})};w.scorePlayer={pause:()=>calls.push({scorePause:true}),open:id=>calls.push({scoreOpen:id}),showLibrary:()=>calls.push({scoreLibrary:true})};
  for(const[k,v]of Object.entries(options.storage||{}))w.localStorage.setItem(k,v);
  if(options.blockStorage)Object.defineProperty(w,'localStorage',{get(){throw new w.DOMException('Blocked','SecurityError')}});
+ if(!options.skipApp)w.eval(fs.readFileSync(ROOT+'/docs/storage.js','utf8'));
  if(!options.skipApp&&fs.existsSync(ROOT+'/docs/tuner-pitch.js'))w.eval(fs.readFileSync(ROOT+'/docs/tuner-pitch.js','utf8'));
  let initError;try{if(!options.skipApp)w.eval(inline+`\nwindow.qa={detectPitch,render,renderAccount,accountRequest,setAccountMode,refreshAccount,pushRoomState,jamOpen,jamStartSequence,jamStartRecording,jamPress,jamRelease,jamStopPreview,jamAudioReady,jamSave,jamRender,rooms:()=>jamRooms,current:()=>jamRoom(jamCurrent),getSound:()=>jamSound,getAudio:()=>jamAudio,getRecording:()=>jamRecording,getHeld:()=>jamHeld,sections:JAM_SECTIONS,getRunning:()=>running};`)}catch(e){initError=e.message}
  return{dom,w,d,errors,calls,raf,intervals,timeouts,initError,response,createStream,streams,mic:()=>({stopped,closed}),q:s=>d.querySelector(s),click(s){const node=d.querySelector(s);assert.ok(node,'missing '+s);node.click()},close:()=>{setImmediate(()=>dom.window.close())}};

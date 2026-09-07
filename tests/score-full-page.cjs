@@ -50,8 +50,9 @@ const vlq=()=>{let v=0,b;do{b=midi[offset++];v=(v<<7)|(b&127);}while(b&128);retu
 while(offset<midi.length){tick+=vlq();const status=midi[offset++];if(status===255){const type=midi[offset++],len=vlq();if(type===47)assert.equal(tick,140*480);offset+=len;}else if(status===192)offset++;else{if(status===144)noteOns++;if(status===128)noteOffs++;offset+=2;}}
 assert.equal(noteOns,manifest.notes.length);assert.equal(noteOffs,noteOns);
 (async()=>{
- const rendererPath=process.env.OSMD_TEST_BUNDLE||'C:/codex-tmp-seitz/opensheetmusicdisplay.min.js';
- if(fs.existsSync(rendererPath)){
+ const rendererPath=process.env.OSMD_TEST_BUNDLE||'docs/assets/vendor/opensheetmusicdisplay-2.1.2.min.js';
+ assert.ok(fs.existsSync(rendererPath),'Required OSMD renderer is missing: '+rendererPath);
+ {
   Object.defineProperty(w.HTMLElement.prototype,'offsetWidth',{get:()=>1100});
   Object.defineProperty(w.HTMLElement.prototype,'clientWidth',{get:()=>1100});
   w.HTMLCanvasElement.prototype.getContext=()=>({measureText:text=>({width:String(text).length*7,actualBoundingBoxAscent:10,actualBoundingBoxDescent:3})});

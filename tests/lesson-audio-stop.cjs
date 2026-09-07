@@ -21,7 +21,7 @@ w.HTMLElement.prototype.scrollTo = () => {};
 Object.defineProperty(w.HTMLMediaElement.prototype, 'paused', { get: () => paused });
 w.HTMLMediaElement.prototype.play = function () { paused = false; this.dispatchEvent(new w.Event('play')); return Promise.resolve(); };
 w.HTMLMediaElement.prototype.pause = function () { if (!paused) { paused = true; this.dispatchEvent(new w.Event('pause')); } };
-for (const file of ['harmony.js', 'lessons.js']) w.eval(fs.readFileSync(path.join(root, 'docs', file), 'utf8'));
+for (const file of ['storage.js', 'harmony.js', 'lessons.js']) w.eval(fs.readFileSync(path.join(root, 'docs', file), 'utf8'));
 const click = id => d.getElementById(id).click(), flush = () => new Promise(resolve => setImmediate(resolve));
 function releaseEnded() { for (const node of nodes) if (!node.ended && node.stopAt <= now) { node.ended = true; node.onended?.(); } }
 (async () => {

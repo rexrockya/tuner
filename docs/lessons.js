@@ -123,7 +123,7 @@ const fallbackWaveform = Array.from({ length: 560 }, (_, index) => {
   return [-peak, peak];
 });
 let waveformPeaks = fallbackWaveform;
-let practiceBpm = Math.max(40, Math.min(180, Number(localStorage.getItem("tuner-bpm-v1") || 80)));
+let practiceBpm = Math.max(40, Math.min(180, Number(window.siteStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
 
 function chordProgression(lick = LICKS[current]) {
@@ -282,7 +282,7 @@ function populateLibraryFilters() {
 
 function ingestBoplandLibrary(database) {
   if (database?.name !== "guitar-licks") return;
-  const selectedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1] || localStorage.getItem("lick-current-id-v1") || LICKS[current]?.id;
+  const selectedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1] || window.siteStorage.getItem("lick-current-id-v1") || LICKS[current]?.id;
   const expanded = buildBoplandLibrary(database);
   if (expanded.length < 2000) return;
   LICKS = expanded;
@@ -308,14 +308,14 @@ function loadBoplandLibrary() {
 
 function readSet(key) {
   try {
-    return new Set(JSON.parse(localStorage.getItem(key) || "[]"));
+    return new Set(JSON.parse(window.siteStorage.getItem(key) || "[]"));
   } catch (_) {
     return new Set();
   }
 }
 
 function saveSet(key, items) {
-  localStorage.setItem(key, JSON.stringify([...items]));
+  window.siteStorage.setItem(key, JSON.stringify([...items]));
 }
 
 const localCompleted = readSet("lick-done-v2");
@@ -485,7 +485,7 @@ async function loadWaveform(source) {
 
 function storedLoopPoints() {
   try {
-    return JSON.parse(localStorage.getItem("lick-loops-v1") || "{}");
+    return JSON.parse(window.siteStorage.getItem("lick-loops-v1") || "{}");
   } catch (_) {
     return {};
   }
@@ -494,7 +494,7 @@ function storedLoopPoints() {
 function saveLoopPoints() {
   const points = storedLoopPoints();
   points[LICKS[current].id] = [Number(loopA.toFixed(2)), Number(loopB.toFixed(2))];
-  localStorage.setItem("lick-loops-v1", JSON.stringify(points));
+  window.siteStorage.setItem("lick-loops-v1", JSON.stringify(points));
 }
 
 function renderLoopPoints() {
@@ -715,7 +715,7 @@ function renderFavoritesDialog() {
 
 function updatePracticeBpm(next, syncMetronome = true) {
   practiceBpm = Math.max(40, Math.min(180, Math.round(Number(next) / 5) * 5));
-  localStorage.setItem("tuner-bpm-v1", String(practiceBpm));
+  window.siteStorage.setItem("tuner-bpm-v1", String(practiceBpm));
   audio.playbackRate = practiceBpm / SOURCE_BPM;
   audio.preservesPitch = true;
   audio.webkitPreservesPitch = true;
@@ -817,8 +817,8 @@ function selectLick(index) {
   stopLick(true);
   current = next;
   scoreZoom = 1;
-  localStorage.setItem("lick-current-v2", String(current));
-  localStorage.setItem("lick-current-id-v1", LICKS[current].id);
+  window.siteStorage.setItem("lick-current-v2", String(current));
+  window.siteStorage.setItem("lick-current-id-v1", LICKS[current].id);
   render();
 }
 
@@ -1120,7 +1120,7 @@ bindLoopMarker("loop-b-marker", "b");
 
 populateLibraryFilters();
 const initialFromHash = indexFromHash();
-const storedIndex = Number(localStorage.getItem("lick-current-v2") || 0);
+const storedIndex = Number(window.siteStorage.getItem("lick-current-v2") || 0);
 const savedIndex = Number.isFinite(storedIndex) ? Math.max(0, Math.min(LICKS.length - 1, Math.floor(storedIndex))) : 0;
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
 function activate() {

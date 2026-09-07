@@ -1,0 +1,93 @@
+{
+  "method": "Default tuner HTML + initial JS/CSS, normalized to committed LF and independently compressed with gzip level 6. Excludes favicon symmetrically with prior inventory; deferred feature resources and media are checked by boot.cjs. This is a resource budget, not network time.",
+  "resourceCount": 17,
+  "gzip6Bytes": 105565,
+  "budgetBytes": 120000,
+  "rows": [
+    {
+      "file": "index.html",
+      "rawBytes": 83321,
+      "gzip6Bytes": 20216
+    },
+    {
+      "file": "metronome.css?v=20260906-4",
+      "rawBytes": 1416,
+      "gzip6Bytes": 588
+    },
+    {
+      "file": "score-controls.css?v=20260907-6",
+      "rawBytes": 7751,
+      "gzip6Bytes": 2188
+    },
+    {
+      "file": "practice.css?v=20260908-2",
+      "rawBytes": 10805,
+      "gzip6Bytes": 2887
+    },
+    {
+      "file": "storage.js?v=20260908-3",
+      "rawBytes": 1261,
+      "gzip6Bytes": 452
+    },
+    {
+      "file": "asset-loader.js?v=20260908-2",
+      "rawBytes": 1729,
+      "gzip6Bytes": 777
+    },
+    {
+      "file": "tuner-pitch.js?v=20260908-2",
+      "rawBytes": 1926,
+      "gzip6Bytes": 873
+    },
+    {
+      "file": "harmony.js?v=20260908-2",
+      "rawBytes": 10793,
+      "gzip6Bytes": 4106
+    },
+    {
+      "file": "lessons.js?v=20260908-3",
+      "rawBytes": 50309,
+      "gzip6Bytes": 14892
+    },
+    {
+      "file": "score-audio.js?v=20260908-2",
+      "rawBytes": 2897,
+      "gzip6Bytes": 1214
+    },
+    {
+      "file": "score-beats.js?v=20260906-5",
+      "rawBytes": 5972,
+      "gzip6Bytes": 2227
+    },
+    {
+      "file": "metronome.js?v=20260908-3",
+      "rawBytes": 11131,
+      "gzip6Bytes": 3386
+    },
+    {
+      "file": "scores.js?v=20260908-3",
+      "rawBytes": 63721,
+      "gzip6Bytes": 17731
+    },
+    {
+      "file": "score-reader.js?v=20260907-5",
+      "rawBytes": 6507,
+      "gzip6Bytes": 2297
+    },
+    {
+      "file": "practice-audio.js?v=20260908-2",
+      "rawBytes": 14784,
+      "gzip6Bytes": 4744
+    },
+    {
+      "file": "practice.js?v=20260908-3",
+      "rawBytes": 22414,
+      "gzip6Bytes": 7462
+    },
+    {
+      "file": "app.js?v=20260908-3",
+      "rawBytes": 68847,
+      "gzip6Bytes": 19525
+    }
+  ]
+}

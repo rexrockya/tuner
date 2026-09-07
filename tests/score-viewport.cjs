@@ -12,10 +12,10 @@ w.HTMLCanvasElement.prototype.getContext=()=>({measureText:text=>({width:String(
 w.fetch=()=>Promise.reject(Error('offline'));
 Object.defineProperty(d,'currentScript',{value:{src:'https://rexrockya.github.io/tuner/scores.js'}});
 d.head.append=script=>queueMicrotask(()=>{w.eval(fs.readFileSync('docs/assets/scores/'+new URL(script.src).pathname.split('/').pop(),'utf8'));script.onload();});
-const renderer=process.env.OSMD_TEST_BUNDLE||'C:/codex-tmp-seitz/opensheetmusicdisplay.min.js';
-if(!fs.existsSync(renderer)){console.log('SKIP actual viewport renderer: set OSMD_TEST_BUNDLE');dom.window.close();process.exit(0);}
+const renderer=process.env.OSMD_TEST_BUNDLE||'docs/assets/vendor/opensheetmusicdisplay-2.1.2.min.js';
+assert.ok(fs.existsSync(renderer),'Required OSMD renderer is missing: '+renderer);
 w.eval(fs.readFileSync(renderer,'utf8'));
-for(const file of ['score-beats.js','scores.js','score-reader.js'])w.eval(fs.readFileSync('docs/'+file,'utf8'));
+for(const file of ['storage.js','score-beats.js','scores.js','score-reader.js'])w.eval(fs.readFileSync('docs/'+file,'utf8'));
 (async()=>{
  await w.scorePlayer.open('violin-upload-2026-09-06-1');
  const canvas=d.getElementById('sheet-canvas');

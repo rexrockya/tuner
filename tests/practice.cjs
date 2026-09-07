@@ -31,7 +31,7 @@ w.fetch = async url => {
   const file = path.resolve('docs', url); assert.ok(file.startsWith(path.resolve('docs/assets/audio/blues')), 'all new playback assets must be self-hosted');
   return { ok: fs.existsSync(file), json: async () => JSON.parse(fs.readFileSync(file, 'utf8')), arrayBuffer: async () => { const b = fs.readFileSync(file); return b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength); } };
 };
-for (const file of ['harmony.js', 'lessons.js', 'practice-audio.js', 'practice.js']) w.eval(fs.readFileSync('docs/' + file, 'utf8'));
+for (const file of ['storage.js', 'harmony.js', 'lessons.js', 'practice-audio.js', 'practice.js']) w.eval(fs.readFileSync('docs/' + file, 'utf8'));
 const studio = w.practiceStudio, flush = () => new Promise(resolve => setImmediate(resolve));
 function advance(seconds) { const end = now + seconds; while (now < end) { now = Math.min(end, now + .017); for (const timer of timers.values()) timer(); } }
 function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Event('change')); }

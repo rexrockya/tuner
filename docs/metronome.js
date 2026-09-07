@@ -2,17 +2,17 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const clampBpm = value => Math.max(30, Math.min(240, Number(value) || 80));
-  let manualBpm = clampBpm(localStorage.getItem("tuner-bpm-v1"));
+  let manualBpm = clampBpm(window.siteStorage.getItem("tuner-bpm-v1"));
   let manualSignature;
-  try { manualSignature = JSON.parse(localStorage.getItem("tuner-meter-v1")); } catch {}
+  try { manualSignature = JSON.parse(window.siteStorage.getItem("tuner-meter-v1")); } catch {}
   if (!Array.isArray(manualSignature) || !manualSignature[0] || !manualSignature[1]) manualSignature = [4, 4];
   let bpm = manualBpm, signature = manualSignature, running = false, binding = null;
-  let enabled = localStorage.getItem("tuner-score-metronome-v1") !== "off";
+  let enabled = window.siteStorage.getItem("tuner-score-metronome-v1") !== "off";
   let context = null, timer = null, nextAudio = 0, pulseIndex = 0, nextBeat = 0, countIn = false;
   const sounds = new Set(), flashes = new Set();
   let pendingPulses = [];
   const volumeBuses = new Map();
-  let volume = Math.max(0, Math.min(100, Number(localStorage.getItem("tuner-click-volume-v1") ?? 100)));
+  let volume = Math.max(0, Math.min(100, Number(window.siteStorage.getItem("tuner-click-volume-v1") ?? 100)));
   if (!Number.isFinite(volume)) volume = 100;
   function volumeBus(ctx) {
     if (!volumeBuses.has(ctx)) {
@@ -25,7 +25,7 @@
   }
   function setVolume(value) {
     volume = Math.max(0, Math.min(100, Number(value) || 0));
-    localStorage.setItem("tuner-click-volume-v1", String(volume));
+    window.siteStorage.setItem("tuner-click-volume-v1", String(volume));
     for (const [ctx, bus] of volumeBuses) {
       if (bus.gain.setTargetAtTime) bus.gain.setTargetAtTime((volume / 100) ** 2, ctx.currentTime, .015);
       else bus.gain.value = (volume / 100) ** 2;
@@ -153,14 +153,14 @@
   function setBpm(value) {
     if (binding) return window.scorePlayer?.setBpm(clampBpm(value));
     bpm = manualBpm = clampBpm(value);
-    localStorage.setItem("tuner-bpm-v1", String(bpm));
+    window.siteStorage.setItem("tuner-bpm-v1", String(bpm));
     if (running) { clearPulses(); pulseIndex = 0; nextAudio = context.currentTime + .025; }
     render(); notify();
   }
   function setTimeSignature(value) {
     if (binding || !Array.isArray(value) || value[0] < 1 || value[0] > 32 || ![2,4,8,16].includes(value[1])) return;
     signature = manualSignature = [...value];
-    localStorage.setItem("tuner-meter-v1", JSON.stringify(signature));
+    window.siteStorage.setItem("tuner-meter-v1", JSON.stringify(signature));
     if (running) { clearPulses(); pulseIndex = 0; nextAudio = context.currentTime + .025; }
     render(); notify();
   }
@@ -206,7 +206,7 @@
   }
   $("sheet-metronome").addEventListener("click", () => {
     enabled = !enabled;
-    localStorage.setItem("tuner-score-metronome-v1", enabled ? "on" : "off");
+    window.siteStorage.setItem("tuner-score-metronome-v1", enabled ? "on" : "off");
     if (binding) {
       // Muting is an audio switch, not a transport seek. Keep already scheduled
       // visual beats and loop cursors; unmute pending clicks at their exact times.

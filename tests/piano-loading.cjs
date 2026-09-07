@@ -59,7 +59,7 @@ function fixture(library) {
       script.onload();
     });
   };
-  for (const file of ['score-audio.js', 'score-beats.js', 'metronome.js', 'scores.js', 'score-reader.js']) {
+  for (const file of ['storage.js', 'score-audio.js', 'score-beats.js', 'metronome.js', 'scores.js', 'score-reader.js']) {
     const source = fs.readFileSync(path.join(root, 'docs', file), 'utf8');
     // Replace only the external module boundary; all application lifecycle code is real.
     w.eval(source.replace('import(LOCAL_SMPLR_URL)', 'Promise.resolve(window.sampleTestLibrary)'));
