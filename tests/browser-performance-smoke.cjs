@@ -6,7 +6,7 @@ const dom = new JSDOM(html, { url: 'http://127.0.0.1:8765/tests/browser-performa
 const w = dom.window, frame = w.document.querySelector('iframe'), fw = frame.contentWindow;
 if (!fw.document.documentElement) fw.document.appendChild(fw.document.createElement('html'));
 if (!fw.document.body) fw.document.documentElement.appendChild(fw.document.createElement('body'));
-fw.document.body.innerHTML = '<button id="qa-target">Not recorded private label</button><input id="qa-input" value="not-recorded-secret"><button id="practice-play" aria-label="播放">▶</button><button id="sheet-play" aria-label="播放乐谱">▶</button><button data-page="tuner">调音</button>';
+fw.document.body.innerHTML = '<button id="qa-target">Not recorded private label</button><input id="qa-input" value="not-recorded-secret"><section id="lesson-page" data-lesson-mode="create"><div class="lesson-modes"><button data-lesson-mode="backing">伴奏</button></div><button id="practice-play" aria-label="播放">▶</button></section><button id="sheet-play" aria-label="播放乐谱">▶</button><button class="tab" data-page="tuner">调音</button>';
 const callbacks = [], raf = []; let now = 100;
 const navigation = { type: 'navigate', requestStart: 2, responseStart: 42, responseEnd: 54, domInteractive: 95, domContentLoadedEventEnd: 103, loadEventEnd: 120, transferSize: 5000, encodedBodySize: 4700, decodedBodySize: 15000 };
 Object.defineProperty(fw, 'performance', { value: { now: () => now, getEntriesByType: type => type === 'navigation' ? [navigation] : [] } });
@@ -50,10 +50,16 @@ function report() { w.document.querySelector('#refresh-report').click(); return 
   practice.setAttribute('aria-label', '取消载入'); await Promise.resolve();
   now = 650; practice.setAttribute('aria-label', '暂停'); await Promise.resolve();
   data = report(); assert.equal(data.recentUiReady[0].clickToUiReadyMs, 350); assert.equal(data.recentUiReady[0].control, '#practice-play');
+  assert.equal(practice.closest('[data-lesson-mode]').id, 'lesson-page', 'fixture preserves the real mode-marked ancestor');
   practice.dispatchEvent(new fw.MouseEvent('click', { bubbles: true })); practice.setAttribute('aria-label', '播放'); await Promise.resolve();
   now = 700; practice.dispatchEvent(new fw.MouseEvent('click', { bubbles: true })); practice.setAttribute('aria-label', '取消载入'); await Promise.resolve();
   practice.dispatchEvent(new fw.MouseEvent('click', { bubbles: true })); practice.setAttribute('aria-label', '暂停'); await Promise.resolve();
   assert.equal(report().recentUiReady.length, 1, 'cancel click removes the pending measurement');
+  practice.setAttribute('aria-label', '播放'); await Promise.resolve();
+  now = 750; practice.dispatchEvent(new fw.MouseEvent('click', { bubbles: true })); practice.setAttribute('aria-label', '取消载入'); await Promise.resolve();
+  fw.document.querySelector('.lesson-modes button').dispatchEvent(new fw.MouseEvent('click', { bubbles: true }));
+  practice.setAttribute('aria-label', '暂停'); await Promise.resolve();
+  assert.equal(report().recentUiReady.length, 1, 'actual lesson navigation button cancels the pending measurement');
   now = 800; sheet.dispatchEvent(new fw.MouseEvent('click', { bubbles: true })); sheet.disabled = true; await Promise.resolve();
   sheet.disabled = false; await Promise.resolve(); // realistic finally gap before the play continuation
   now = 900; sheet.setAttribute('aria-label', '暂停乐谱'); await Promise.resolve();

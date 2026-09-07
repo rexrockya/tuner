@@ -70,7 +70,7 @@
   }
   function trackUiIntent(event) {
     const element = event.target?.nodeType === 1 ? event.target : event.target?.parentElement;
-    if (element?.closest('[data-page], [data-lesson-mode], .score-card')) { pendingReady.clear(); return; }
+    if (element?.closest('.tab[data-page], .lesson-modes button[data-lesson-mode], .score-card')) { pendingReady.clear(); return; }
     const control = element?.closest('#practice-play, #sheet-play');
     if (!control) return;
     const label = control.getAttribute('aria-label') || '';
