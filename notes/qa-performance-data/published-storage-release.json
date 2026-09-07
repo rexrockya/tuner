@@ -1,0 +1,58 @@
+{
+  "commit": "aca7badc968f3041f9ab3b1b9cb6abfe5559a0b6",
+  "checkedAt": "2026-09-07T17:55:29.739Z",
+  "method": "4 concurrent complete HTTP GETs with cache-busting verification query, compare exact decoded SHA256 to git commit; not a browser waterfall",
+  "passed": 7,
+  "total": 7,
+  "results": [
+    {
+      "file": "docs/app.js",
+      "matches": true,
+      "bytes": 68847,
+      "http": "200 0.360622 19669",
+      "error": null
+    },
+    {
+      "file": "docs/index.html",
+      "matches": true,
+      "bytes": 83321,
+      "http": "200 0.352820 20519",
+      "error": null
+    },
+    {
+      "file": "docs/metronome.js",
+      "matches": true,
+      "bytes": 11131,
+      "http": "200 0.301591 3408",
+      "error": null
+    },
+    {
+      "file": "docs/lessons.js",
+      "matches": true,
+      "bytes": 50309,
+      "http": "200 0.524383 14808",
+      "error": null
+    },
+    {
+      "file": "docs/scores.js",
+      "matches": true,
+      "bytes": 63721,
+      "http": "200 0.388626 17856",
+      "error": null
+    },
+    {
+      "file": "docs/practice.js",
+      "matches": true,
+      "bytes": 22414,
+      "http": "200 0.824953 7391",
+      "error": null
+    },
+    {
+      "file": "docs/storage.js",
+      "matches": true,
+      "bytes": 1261,
+      "http": "200 0.741654 458",
+      "error": null
+    }
+  ]
+}

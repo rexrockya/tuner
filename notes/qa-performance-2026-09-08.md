@@ -123,3 +123,7 @@ node tests/qa/resource-budget.cjs
 `63f9659260087f08ae829cb7e25e53ed9f7d45b7` 已正常推送至 main，Pages 构建状态为 built，发布错误为空。34 份变更的公开文件全部通过完整 HTTP GET 和提交内容 SHA-256 一致性检查，含 HTML、按需三库、FLAC、脚本与诊断页。未提交 node_modules 或 site.tar.gz，也未部署可选 Worker。原始记录：[published-assets.json](qa-performance-data/published-assets.json)。
 
 被动诊断页修正与正式站测量记录在 `c542b15a74de65f16575fd0c0c3d7c64330ea599` 发布，Pages built；只影响维护观察器，不进入产品导航。后续提交仅补充本报告及测量结果。
+
+报告复核后的修复、PRD 与 HANDOFF 在 `aca7badc968f3041f9ab3b1b9cb6abfe5559a0b6` 一起提交并推送。普通 Git 推送遇到 DNS 错误，使用项目已有 Git 数据 API 工具逐项验证 blob、完整 tree、提交 SHA 与父提交，再非强制更新 main。GitHub Pages 已确认该提交 **built、error=null**。本轮变更的 **7/7 份公开文件**（HTML、存储适配器及五个业务脚本）通过完整 HTTP GET 与提交 SHA-256 一致性核验：[发布证据](qa-performance-data/published-storage-release.json)。
+
+本次发布后浏览器复核连续遇到两次工具超时，因此没有把最后这次正式站浏览器操作记为通过；发布前真实 Chromium 的收藏、播放与刷新检查，以及发布后的完整 HTTP 内容核验均已完成。此工具限制不冒充产品缺陷，也不改变已有的实体设备验证边界。后续提交仅归档发布证据，不修改已核验的产品文件。
