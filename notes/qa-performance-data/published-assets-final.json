@@ -1,0 +1,247 @@
+{
+  "commit": "c542b15a74de65f16575fd0c0c3d7c64330ea599",
+  "checkedAt": "2026-09-07T17:31:36.757Z",
+  "method": "4 concurrent complete HTTP GETs with cache-busting verification query, compare exact decoded SHA256 to git commit; not a browser waterfall",
+  "passed": 34,
+  "total": 34,
+  "results": [
+    {
+      "file": "docs/app.js",
+      "matches": true,
+      "bytes": 68821,
+      "http": "200 0.607390 19665",
+      "error": null
+    },
+    {
+      "file": "docs/asset-loader.js",
+      "matches": true,
+      "bytes": 1729,
+      "http": "200 0.554880 781",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/bass-29.flac",
+      "matches": true,
+      "bytes": 89915,
+      "http": "200 0.518606 89915",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/CREDITS.md",
+      "matches": true,
+      "bytes": 4806,
+      "http": "200 0.908209 1526",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/bass-47.flac",
+      "matches": true,
+      "bytes": 88604,
+      "http": "200 0.432321 88604",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/hat-1.flac",
+      "matches": true,
+      "bytes": 38114,
+      "http": "200 0.429594 38114",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/bass-35.flac",
+      "matches": true,
+      "bytes": 90179,
+      "http": "200 1.050012 90179",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/bass-41.flac",
+      "matches": true,
+      "bytes": 89966,
+      "http": "200 1.185990 89966",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/kick-1.flac",
+      "matches": true,
+      "bytes": 24109,
+      "http": "200 0.396226 24109",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/kick-2.flac",
+      "matches": true,
+      "bytes": 24266,
+      "http": "200 0.479294 24266",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/hat-2.flac",
+      "matches": true,
+      "bytes": 37853,
+      "http": "200 1.200132 37853",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/manifest.json",
+      "matches": true,
+      "bytes": 979,
+      "http": "200 1.281972 222",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/snare-1.flac",
+      "matches": true,
+      "bytes": 65811,
+      "http": "200 0.602405 65811",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/fflate-0.8.2-LICENSE",
+      "matches": true,
+      "bytes": 1069,
+      "http": "200 0.704611 648",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/fflate-0.8.2.min.js",
+      "matches": true,
+      "bytes": 32665,
+      "http": "200 0.372920 12546",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/snare-2.flac",
+      "matches": true,
+      "bytes": 66236,
+      "http": "200 1.394409 66236",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/opensheetmusicdisplay-2.1.2-LICENSE",
+      "matches": true,
+      "bytes": 1456,
+      "http": "200 0.711423 763",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/opensheetmusicdisplay-2.1.2.min.js",
+      "matches": true,
+      "bytes": 1321869,
+      "http": "200 1.056834 339207",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/provenance.json",
+      "matches": true,
+      "bytes": 1513,
+      "http": "200 0.347500 689",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/tone-14.9.17.js",
+      "matches": true,
+      "bytes": 350479,
+      "http": "200 0.546189 81799",
+      "error": null
+    },
+    {
+      "file": "docs/assets/vendor/tone-14.9.17-LICENSE.md",
+      "matches": true,
+      "bytes": 1072,
+      "http": "200 0.843998 652",
+      "error": null
+    },
+    {
+      "file": "docs/index.html",
+      "matches": true,
+      "bytes": 83015,
+      "http": "200 0.363718 20416",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/open-hat.flac",
+      "matches": true,
+      "bytes": 176192,
+      "http": "200 5.427510 176192",
+      "error": null
+    },
+    {
+      "file": "docs/metronome.js",
+      "matches": true,
+      "bytes": 11083,
+      "http": "200 0.367025 3410",
+      "error": null
+    },
+    {
+      "file": "docs/harmony.js",
+      "matches": true,
+      "bytes": 10793,
+      "http": "200 1.320497 4059",
+      "error": null
+    },
+    {
+      "file": "docs/lessons.js",
+      "matches": true,
+      "bytes": 50249,
+      "http": "200 0.872062 14808",
+      "error": null
+    },
+    {
+      "file": "docs/performance-check.html",
+      "matches": true,
+      "bytes": 20463,
+      "http": "200 0.422300 7519",
+      "error": null
+    },
+    {
+      "file": "docs/practice-audio.js",
+      "matches": true,
+      "bytes": 14784,
+      "http": "200 0.360810 4759",
+      "error": null
+    },
+    {
+      "file": "docs/practice.css",
+      "matches": true,
+      "bytes": 10805,
+      "http": "200 0.502755 2910",
+      "error": null
+    },
+    {
+      "file": "docs/practice.js",
+      "matches": true,
+      "bytes": 22332,
+      "http": "200 0.331944 7358",
+      "error": null
+    },
+    {
+      "file": "docs/score-audio.js",
+      "matches": true,
+      "bytes": 2897,
+      "http": "200 0.374305 1214",
+      "error": null
+    },
+    {
+      "file": "docs/tuner-pitch.js",
+      "matches": true,
+      "bytes": 1926,
+      "http": "200 0.310700 870",
+      "error": null
+    },
+    {
+      "file": "docs/scores.js",
+      "matches": true,
+      "bytes": 63053,
+      "http": "200 1.061335 17647",
+      "error": null
+    },
+    {
+      "file": "docs/assets/audio/blues/ride.flac",
+      "matches": true,
+      "bytes": 239900,
+      "http": "200 8.533615 239900",
+      "error": null
+    }
+  ]
+}

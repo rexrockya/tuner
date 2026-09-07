@@ -72,6 +72,8 @@
 
 正式站发布后同源 Chromium 诊断框架，首次这次导航的 TTFB 376.2 ms、DOMContentLoaded 1,107.9 ms、load 1,109.2 ms、FCP/观察到的 LCP 964 ms。15 个同源初始资源传输 89,298 B，加文档 20,716 B，合计约 110 KB（含响应头）；未加载三大库或乐句媒体。教学/筛选/创作/播放会话中，最大观察交互时长 64 ms、capture→rAF 最大 30.8 ms，无 ≥50 ms 长任务。12 个 FLAC 全部成功，单资源观测下载时长约 0.73–2.64 秒；预热可在编辑和声期间完成，首次网络下载仍存在。浏览器缓存没有强制清除，不能称为严格冷缓存；以上是当前网络的一次真实观察，不能直接和本地计时比较。
 
+缓存后再次导航：DOMContentLoaded 24.9 ms、load 29.9 ms、观察 LCP 76 ms。同一音频上下文再次播放时，按钮从点击到显示暂停为 **2.4 ms**；该次页面重载后预热播放为 39.7 ms。此项仅表示播放器 UI 已就绪，后面仍有 25 ms 调度提前量和设备输出延迟。修正诊断页的祖先选择器后复测通过，完整摘要：[browser-production.json](qa-performance-data/browser-production.json)。
+
 正式站 HTTP 基线为 35 个资源 × 3 次请求。105 次中有 6 次失败或未完成下载，其中 4 次虽返回 HTTP 200 但下载超时，已单列，不当作成功。三次首页完整请求分别约 6,698 / 431 / 1,000 ms，说明网络波动很大，不能用单次快慢声称优化收益。可复用的被动诊断页只采集性能条目、元素 tag/id，不采输入值，不自动点击，不上传数据。
 
 ## 验证边界与剩余限制
@@ -97,3 +99,5 @@ node tests/qa/position-benchmark.cjs
 ## 发布
 
 `63f9659260087f08ae829cb7e25e53ed9f7d45b7` 已正常推送至 main，Pages 构建状态为 built，发布错误为空。34 份变更的公开文件全部通过完整 HTTP GET 和提交内容 SHA-256 一致性检查，含 HTML、按需三库、FLAC、脚本与诊断页。未提交 node_modules 或 site.tar.gz，也未部署可选 Worker。原始记录：[published-assets.json](qa-performance-data/published-assets.json)。
+
+被动诊断页修正与正式站测量记录在 `c542b15a74de65f16575fd0c0c3d7c64330ea599` 发布，Pages built；只影响维护观察器，不进入产品导航。后续提交仅补充本报告及测量结果。

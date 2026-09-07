@@ -1,0 +1,128 @@
+{
+  "commit": "63f9659260087f08ae829cb7e25e53ed9f7d45b7",
+  "environment": "Actual Codex in-app Chromium browser on Windows. Production GitHub Pages, same-origin passive iframe, viewport 873x598 CSS px, DPR2. Browser HTTP cache was not forcibly cleared; no CrUX or acoustic measurement.",
+  "navigationMs": {
+    "ttfb": 376.2,
+    "requestWait": 373.2,
+    "responseEnd": 479.1,
+    "domInteractive": 489.5,
+    "domContentLoaded": 1107.9,
+    "loadEnd": 1109.2,
+    "fcp": 964,
+    "observedLcp": 964
+  },
+  "initialSameOriginResources": {
+    "countExcludingDocument": 15,
+    "encodedBodyBytes": 84798,
+    "decodedBodyBytes": 280118,
+    "transferBytes": 89298,
+    "documentEncodedBodyBytes": 20416,
+    "documentTransferBytes": 20716,
+    "observedLongTasks": 0
+  },
+  "firstInteractionSession": {
+    "clicks": 3,
+    "inputs": 1,
+    "maxObservedInteractionMs": 64,
+    "maxCaptureToRafMs": 30.8,
+    "observedLongTasks": 0,
+    "actions": [
+      {
+        "action": "lesson navigation",
+        "captureToRafMs": 30.8
+      },
+      {
+        "action": "harmony input",
+        "captureToRafMs": 14.1
+      },
+      {
+        "action": "create navigation",
+        "captureToRafMs": 18.1
+      },
+      {
+        "action": "play click",
+        "captureToRafMs": 15.2
+      }
+    ]
+  },
+  "flacResources": [
+    {
+      "name": "bass-29",
+      "durationMs": 734.7
+    },
+    {
+      "name": "bass-35",
+      "durationMs": 992.6
+    },
+    {
+      "name": "bass-41",
+      "durationMs": 1201.7
+    },
+    {
+      "name": "bass-47",
+      "durationMs": 1418.6
+    },
+    {
+      "name": "hat-1",
+      "durationMs": 1497
+    },
+    {
+      "name": "hat-2",
+      "durationMs": 1497.6
+    },
+    {
+      "name": "kick-1",
+      "durationMs": 1541.5
+    },
+    {
+      "name": "kick-2",
+      "durationMs": 1651.4
+    },
+    {
+      "name": "open-hat",
+      "durationMs": 1964.1
+    },
+    {
+      "name": "ride",
+      "durationMs": 2462.3
+    },
+    {
+      "name": "snare-1",
+      "durationMs": 2576.4
+    },
+    {
+      "name": "snare-2",
+      "durationMs": 2638
+    }
+  ],
+  "checks": [
+    "Generated TAB visible and playback position advancing",
+    "Pause/restart/pause successful",
+    "Metronome countdown unit is 预备 and restores BPM after stop",
+    "Browser error/warning log empty for inspected page"
+  ],
+  "caveats": [
+    "Durations include network queueing; concurrent resource durations must not be added as total load time.",
+    "Event Timing is thresholded/quantized and one sampled session is not a field INP metric.",
+    "Initial UI-ready observer had a selector bug; no first-play readiness time is inferred from its zero count. A targeted observer fix follows separately."
+  ],
+  "observerFollowup": {
+    "commit": "c542b15a74de65f16575fd0c0c3d7c64330ea599",
+    "cache": "document transferSize=0, 29 same-origin resource entries transferSize=0; cached navigation and assets",
+    "navigationMs": {
+      "ttfb": 5.3,
+      "domContentLoaded": 24.9,
+      "loadEnd": 29.9,
+      "fcp": 76,
+      "observedLcp": 76
+    },
+    "clickToUiReadyMs": [
+      39.7,
+      2.4
+    ],
+    "definition": "practice-play aria-label becomes paused. First run after reload/prewarm, then pause/play reusing decoded assets; not acoustic first sound.",
+    "maxObservedInteractionMs": 32,
+    "maxCaptureToRafMs": 14.7,
+    "observedLongTasks": 0
+  }
+}
