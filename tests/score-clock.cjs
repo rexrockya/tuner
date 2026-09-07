@@ -21,7 +21,8 @@ w.clearTimeout=id=>flashes.delete(id);
 w.HTMLElement.prototype.scrollTo=()=>{};
 w.sampleTestLibrary={SampleLoader:()=>({load:async()=>new Map()}),
   Soundfont:(_ctx,options)=>(instrumentOptions.push(options),{ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}}),
-  SplendidGrandPiano:(_ctx,options)=>(instrumentOptions.push(options),{ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}})};
+  pianoToPreset:()=>({groups:[{velRange:[1,127],regions:[{keyRange:[0,127],pitch:60,sample:'piano'}]}]}),
+  Instrument:factory=>(_ctx,options)=>{factory(_ctx,options,{loadInstrument:preset=>assert.ok(preset.groups.length)});instrumentOptions.push(options);return {ready:Promise.resolve(),start:event=>notes.push(event),stop(){},dispose(){}}}};
 w.opensheetmusicdisplay={OpenSheetMusicDisplay:class {async load(){}render(){}}};
 w.fetch=()=>Promise.reject(new Error('No network expected'));
 Object.defineProperty(doc,'currentScript',{value:{src:'https://rexrockya.github.io/tuner/scores.js'}});
@@ -144,7 +145,7 @@ function spacing(events,period){for(let i=1;i<events.length;i++)close(events[i].
   clicks.forEach((event,i)=>assert.equal(event.frequency,i%6===0?1600:i%6===3?1200:850));
   w.metronome.stop();assert.equal(timers.size,0);
   w.requestAnimationFrame=()=>1;w.cancelAnimationFrame=()=>{};
-  const main=[...original.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)].find(match=>!match[1].includes('src=')&&!match[1].includes('application/json'))[2];
+  const main=fs.readFileSync(path.join(root,'docs/app.js'),'utf8');
   w.eval(main);await w.scorePlayer.open('fur-elise');await w.scorePlayer.play();
   doc.querySelector('.tab[data-page="metro"]').click();assert.equal(w.metronome.isRunning(),true);
   doc.querySelector('.tab[data-page="sheet"]').click();await Promise.resolve();await Promise.resolve();assert.equal(w.metronome.isRunning(),true);

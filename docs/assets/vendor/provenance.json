@@ -1,0 +1,35 @@
+[
+  {
+    "name": "tone",
+    "version": "14.9.17",
+    "metadataSource": "https://registry.npmjs.org/tone/14.9.17",
+    "tarballSource": "https://registry.npmjs.org/tone/-/tone-14.9.17.tgz",
+    "npmLicense": "MIT",
+    "integrity": "sha512-+Qb7M4NMua+tb5Z52+MEVmjye0fjJuIFBePx423pqr9E6/lHDqZAG+fUAvo+Ujm48q0s9bVLRAyT1ETJJglNtg==",
+    "sha256": "76fde2e44a0f10d1e20536543a0ac7289a8df8565e7107ad6cfa8cdc1eb3fda1",
+    "bundleBytes": 350479,
+    "cdnIdenticalToPackage": true
+  },
+  {
+    "name": "opensheetmusicdisplay",
+    "version": "2.1.2",
+    "metadataSource": "https://registry.npmjs.org/opensheetmusicdisplay/2.1.2",
+    "tarballSource": "https://registry.npmjs.org/opensheetmusicdisplay/-/opensheetmusicdisplay-2.1.2.tgz",
+    "npmLicense": "BSD-3-Clause",
+    "integrity": "sha512-FHkGvfrYRN3C4lRfpzsCxEQc26yObDs0VXpWy53DFXk037+0d/vtI3b9+ZuSQ3HuP6zYc+1K6jLAxwwcvU6PCw==",
+    "sha256": "888b744196665ab10dba7ee311784deea9e1c545cf60b6089d455afec6b50a3f",
+    "bundleBytes": 1321869,
+    "cdnIdenticalToPackage": true
+  },
+  {
+    "name": "fflate",
+    "version": "0.8.2",
+    "metadataSource": "https://registry.npmjs.org/fflate/0.8.2",
+    "tarballSource": "https://registry.npmjs.org/fflate/-/fflate-0.8.2.tgz",
+    "npmLicense": "MIT",
+    "integrity": "sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==",
+    "sha256": "c3b34f2e9f5e74d4d7d64e01cac7a0c01954c6c406414d42185c7b53d6875ddf",
+    "bundleBytes": 32665,
+    "cdnIdenticalToPackage": true
+  }
+]

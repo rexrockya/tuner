@@ -1,0 +1,568 @@
+{
+  "method": "Enumerates every unique (pitch,velocity) pair in all 13 local catalog scores at all 25 transpositions -12..12. Compares full original smplr pianoToPreset region selection with reduced preset, including exact region pitch/sample/keyRange and group velRange/filter. Byte totals from official GitHub tree. No sound generation or live browser timings.",
+  "baseline": {
+    "samples": 226,
+    "groups": [
+      [
+        1,
+        40
+      ],
+      [
+        41,
+        67
+      ],
+      [
+        68,
+        84
+      ],
+      [
+        85,
+        100
+      ],
+      [
+        101,
+        127
+      ]
+    ],
+    "oggBytes": 19888425,
+    "m4aBytes": 23824778
+  },
+  "comparisons": 19100,
+  "results": [
+    {
+      "id": "original-rags",
+      "noteCount": 1735,
+      "uniquePitchVelocityPairs": 167,
+      "pitchRange": [
+        31,
+        95
+      ],
+      "effectiveVelocities": [
+        61,
+        63,
+        67,
+        68,
+        72,
+        73,
+        74,
+        75,
+        77,
+        78,
+        81,
+        83,
+        84,
+        86,
+        87,
+        90,
+        93,
+        94,
+        100,
+        103,
+        107,
+        113,
+        117
+      ],
+      "all25Transpositions": {
+        "samples": 171,
+        "groups": [
+          [
+            41,
+            67
+          ],
+          [
+            68,
+            84
+          ],
+          [
+            85,
+            100
+          ],
+          [
+            101,
+            127
+          ]
+        ],
+        "oggBytes": 13722559,
+        "m4aBytes": 15845466
+      },
+      "untransposedOnly": {
+        "samples": 82,
+        "groups": [
+          [
+            41,
+            67
+          ],
+          [
+            68,
+            84
+          ],
+          [
+            85,
+            100
+          ],
+          [
+            101,
+            127
+          ]
+        ],
+        "oggBytes": 7268198,
+        "m4aBytes": 8185938
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "fur-elise",
+      "noteCount": 905,
+      "uniquePitchVelocityPairs": 56,
+      "pitchRange": [
+        33,
+        100
+      ],
+      "effectiveVelocities": [
+        57
+      ],
+      "all25Transpositions": {
+        "samples": 61,
+        "groups": [
+          [
+            41,
+            67
+          ]
+        ],
+        "oggBytes": 3982128,
+        "m4aBytes": 4920817
+      },
+      "untransposedOnly": {
+        "samples": 44,
+        "groups": [
+          [
+            41,
+            67
+          ]
+        ],
+        "oggBytes": 2859808,
+        "m4aBytes": 3324683
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "rondo-alla-turca",
+      "noteCount": 1614,
+      "uniquePitchVelocityPairs": 44,
+      "pitchRange": [
+        38,
+        88
+      ],
+      "effectiveVelocities": [
+        83
+      ],
+      "all25Transpositions": {
+        "samples": 53,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 4951062,
+        "m4aBytes": 5886551
+      },
+      "untransposedOnly": {
+        "samples": 33,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 3561114,
+        "m4aBytes": 4010058
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "gymnopedie-no-1",
+      "noteCount": 282,
+      "uniquePitchVelocityPairs": 89,
+      "pitchRange": [
+        33,
+        81
+      ],
+      "effectiveVelocities": [
+        57,
+        60,
+        61,
+        63,
+        64,
+        65,
+        66,
+        68,
+        70,
+        72,
+        73,
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        83,
+        87
+      ],
+      "all25Transpositions": {
+        "samples": 110,
+        "groups": [
+          [
+            41,
+            67
+          ],
+          [
+            68,
+            84
+          ],
+          [
+            85,
+            100
+          ]
+        ],
+        "oggBytes": 10654302,
+        "m4aBytes": 12313355
+      },
+      "untransposedOnly": {
+        "samples": 52,
+        "groups": [
+          [
+            41,
+            67
+          ],
+          [
+            68,
+            84
+          ],
+          [
+            85,
+            100
+          ]
+        ],
+        "oggBytes": 5361524,
+        "m4aBytes": 6053902
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "the-entertainer",
+      "noteCount": 2621,
+      "uniquePitchVelocityPairs": 55,
+      "pitchRange": [
+        29,
+        90
+      ],
+      "effectiveVelocities": [
+        83
+      ],
+      "all25Transpositions": {
+        "samples": 56,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 5128544,
+        "m4aBytes": 6157089
+      },
+      "untransposedOnly": {
+        "samples": 40,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 4345989,
+        "m4aBytes": 5056770
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "maple-leaf-rag",
+      "noteCount": 2566,
+      "uniquePitchVelocityPairs": 55,
+      "pitchRange": [
+        32,
+        92
+      ],
+      "effectiveVelocities": [
+        83
+      ],
+      "all25Transpositions": {
+        "samples": 58,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 5187679,
+        "m4aBytes": 6247670
+      },
+      "untransposedOnly": {
+        "samples": 39,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 4281720,
+        "m4aBytes": 4948155
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "prelude-op28-no4",
+      "noteCount": 600,
+      "uniquePitchVelocityPairs": 38,
+      "pitchRange": [
+        28,
+        84
+      ],
+      "effectiveVelocities": [
+        83
+      ],
+      "all25Transpositions": {
+        "samples": 50,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 4971376,
+        "m4aBytes": 5933105
+      },
+      "untransposedOnly": {
+        "samples": 29,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 3410004,
+        "m4aBytes": 3894898
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "clair-de-lune",
+      "noteCount": 1468,
+      "uniquePitchVelocityPairs": 55,
+      "pitchRange": [
+        27,
+        97
+      ],
+      "effectiveVelocities": [
+        83
+      ],
+      "all25Transpositions": {
+        "samples": 62,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 5285125,
+        "m4aBytes": 6400029
+      },
+      "untransposedOnly": {
+        "samples": 41,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 4110509,
+        "m4aBytes": 4818212
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "arabesque-no-1",
+      "noteCount": 1448,
+      "uniquePitchVelocityPairs": 55,
+      "pitchRange": [
+        28,
+        92
+      ],
+      "effectiveVelocities": [
+        83
+      ],
+      "all25Transpositions": {
+        "samples": 58,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 5187679,
+        "m4aBytes": 6247670
+      },
+      "untransposedOnly": {
+        "samples": 40,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 4409352,
+        "m4aBytes": 5204231
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "moonlight-sonata-1",
+      "noteCount": 1142,
+      "uniquePitchVelocityPairs": 55,
+      "pitchRange": [
+        29,
+        87
+      ],
+      "effectiveVelocities": [
+        117
+      ],
+      "all25Transpositions": {
+        "samples": 49,
+        "groups": [
+          [
+            101,
+            127
+          ]
+        ],
+        "oggBytes": 5091053,
+        "m4aBytes": 5919992
+      },
+      "untransposedOnly": {
+        "samples": 37,
+        "groups": [
+          [
+            101,
+            127
+          ]
+        ],
+        "oggBytes": 4476285,
+        "m4aBytes": 5088042
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "violin-upload-2026-09-06-1",
+      "noteCount": 276,
+      "uniquePitchVelocityPairs": 32,
+      "pitchRange": [
+        55,
+        93
+      ],
+      "effectiveVelocities": [
+        81
+      ],
+      "all25Transpositions": {
+        "samples": 49,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 3712244,
+        "m4aBytes": 4286335
+      },
+      "untransposedOnly": {
+        "samples": 24,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 2092282,
+        "m4aBytes": 2343562
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "violin-upload-2026-09-06-2",
+      "noteCount": 214,
+      "uniquePitchVelocityPairs": 31,
+      "pitchRange": [
+        55,
+        89
+      ],
+      "effectiveVelocities": [
+        81
+      ],
+      "all25Transpositions": {
+        "samples": 45,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 3600043,
+        "m4aBytes": 4116384
+      },
+      "untransposedOnly": {
+        "samples": 24,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 2211955,
+        "m4aBytes": 2477607
+      },
+      "originalMappingPreserved": true
+    },
+    {
+      "id": "violin-upload-2026-09-06-3",
+      "noteCount": 187,
+      "uniquePitchVelocityPairs": 32,
+      "pitchRange": [
+        56,
+        93
+      ],
+      "effectiveVelocities": [
+        81
+      ],
+      "all25Transpositions": {
+        "samples": 49,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 3712244,
+        "m4aBytes": 4286335
+      },
+      "untransposedOnly": {
+        "samples": 26,
+        "groups": [
+          [
+            68,
+            84
+          ]
+        ],
+        "oggBytes": 2054296,
+        "m4aBytes": 2323533
+      },
+      "originalMappingPreserved": true
+    }
+  ]
+}

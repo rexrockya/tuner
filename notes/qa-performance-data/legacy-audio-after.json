@@ -1,0 +1,17 @@
+{
+  "environment": "Node/jsdom and simulated AudioContext, no real browser audio",
+  "checks": [
+    "8 manual meters maintain exact simulated beat spacing at 120 BPM and stop all timers/flashes",
+    "metronome stop cancels a pending start",
+    "metronome 120 s background stall skips overdue beats without burst",
+    "library backing Off fades/stops live voices within 30 ms",
+    "library playback Stop fades/stops live voices within 30 ms"
+  ],
+  "bugs": [],
+  "offTailSeconds": 0.030000000000001137,
+  "stopTailSeconds": 0.030000000000001137,
+  "remainingAnimationFrames": [
+    "function fitScoreHeight() {\r\n  const stage = $(\"score-stage\");\r\n  const staff = ",
+    "function fitScoreHeight() {\r\n  const stage = $(\"score-stage\");\r\n  const staff = "
+  ]
+}

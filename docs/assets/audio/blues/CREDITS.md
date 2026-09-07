@@ -38,3 +38,7 @@ Every file is resampled to 44.1 kHz PCM 16-bit WAV. The kick and bass files are 
 | bass-47.wav | 47 | B2 |
 
 MIDI roots come from the original fashionbass_clean.sfz pitch_keycenter values. Play the closest sample with playbackRate = 2 ** ((midi - root) / 12). All four samples use the mf dynamic and first round-robin take. Preserve the plucked onset and use a short release envelope when cutting a note.
+
+## Lossless delivery (2026-09-08)
+
+The manifest now prefers FLAC encodings of these exact 16-bit PCM samples, with the original WAV files as decode/network fallbacks. All 12 decoded PCM checksums match: WAV 3,070,296 bytes → FLAC 1,031,145 bytes (66.42% smaller). No additional equalization, resampling or lossy compression was applied.

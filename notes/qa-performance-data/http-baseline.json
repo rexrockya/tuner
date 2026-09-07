@@ -1,0 +1,3834 @@
+{
+  "recordedAt": "2026-09-07T16:44:53.499Z",
+  "method": "curl.exe 8.21.0, --compressed; independent process per sample; 3 per URL; max 4 URLs concurrent; uncached client; CDN may be cached; network diagnosis, not browser LCP or INP. curl supports gzip/deflate, not Brotli. Archived fields retain measurement/status/cache evidence; TLS certificate dumps, client IP/ports and unrelated transport metadata omitted.",
+  "scriptSources": [
+    "https://unpkg.com/tone@14.9.17/build/Tone.js",
+    "https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@2.1.2/build/opensheetmusicdisplay.min.js",
+    "https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js",
+    "harmony.js?v=20260908-1",
+    "lessons.js?v=20260908-1",
+    "score-audio.js?v=20260906-3",
+    "score-beats.js?v=20260906-5",
+    "metronome.js?v=20260908-1",
+    "scores.js?v=20260908-1",
+    "score-reader.js?v=20260907-5",
+    "practice-audio.js?v=20260908-1",
+    "practice.js?v=20260908-1"
+  ],
+  "styles": [
+    "metronome.css?v=20260906-4",
+    "score-controls.css?v=20260907-6",
+    "practice.css?v=20260908-1"
+  ],
+  "results": [
+    {
+      "label": "https://unpkg.com/tone@14.9.17/build/Tone.js",
+      "url": "https://unpkg.com/tone@14.9.17/build/Tone.js",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 350479,
+          "metrics": {
+            "content_type": "text/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 80001,
+            "size_header": 890,
+            "speed_download": 87074,
+            "time_appconnect": 0.488527,
+            "time_connect": 0.196518,
+            "time_namelookup": 0.008027,
+            "time_pretransfer": 0.488601,
+            "time_starttransfer": 0.716856,
+            "time_total": 0.918801,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "text/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "age": "192609",
+            "cache-control": "public, max-age=31536000",
+            "last-modified": "Thu, 03 Sep 2026 15:31:30 GMT",
+            "vary": "accept-encoding",
+            "content-encoding": "gzip"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 350479,
+          "metrics": {
+            "content_type": "text/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 80045,
+            "size_header": 890,
+            "speed_download": 65412,
+            "time_appconnect": 0.477675,
+            "time_connect": 0.237781,
+            "time_namelookup": 0.017648,
+            "time_pretransfer": 0.477842,
+            "time_starttransfer": 0.734716,
+            "time_total": 1.223708,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "text/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "age": "192610",
+            "cache-control": "public, max-age=31536000",
+            "last-modified": "Thu, 03 Sep 2026 15:31:30 GMT",
+            "vary": "accept-encoding",
+            "content-encoding": "gzip"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 350479,
+          "metrics": {
+            "content_type": "text/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 80001,
+            "size_header": 890,
+            "speed_download": 65728,
+            "time_appconnect": 0.434943,
+            "time_connect": 0.207792,
+            "time_namelookup": 0.015305,
+            "time_pretransfer": 0.435238,
+            "time_starttransfer": 0.674871,
+            "time_total": 1.217187,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "text/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "age": "192611",
+            "cache-control": "public, max-age=31536000",
+            "last-modified": "Thu, 03 Sep 2026 15:31:30 GMT",
+            "vary": "accept-encoding",
+            "content-encoding": "gzip"
+          }
+        }
+      ]
+    },
+    {
+      "label": "document",
+      "url": "https://rexrockya.github.io/tuner/",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 150513,
+          "metrics": {
+            "content_type": "text/html; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 39293,
+            "size_header": 758,
+            "speed_download": 5866,
+            "time_appconnect": 6.344569,
+            "time_connect": 0.064667,
+            "time_namelookup": 0.013511,
+            "time_pretransfer": 6.344774,
+            "time_starttransfer": 6.578173,
+            "time_total": 6.698001,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "39293",
+            "content-type": "text/html; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-24bf1\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 150513,
+          "metrics": {
+            "content_type": "text/html; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 39293,
+            "size_header": 755,
+            "speed_download": 91231,
+            "time_appconnect": 0.25749,
+            "time_connect": 0.096195,
+            "time_namelookup": 0.017459,
+            "time_pretransfer": 0.257725,
+            "time_starttransfer": 0.319155,
+            "time_total": 0.430744,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "39293",
+            "content-type": "text/html; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-24bf1\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 150513,
+          "metrics": {
+            "content_type": "text/html; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 39293,
+            "size_header": 755,
+            "speed_download": 39306,
+            "time_appconnect": 0.255971,
+            "time_connect": 0.125969,
+            "time_namelookup": 0.018102,
+            "time_pretransfer": 0.256116,
+            "time_starttransfer": 0.362887,
+            "time_total": 0.999671,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "39293",
+            "content-type": "text/html; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-24bf1\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "lessons.js?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/lessons.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 49339,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 14524,
+            "size_header": 772,
+            "speed_download": 35300,
+            "time_appconnect": 0.171292,
+            "time_connect": 0.081683,
+            "time_namelookup": 0.004653,
+            "time_pretransfer": 0.171545,
+            "time_starttransfer": 0.403365,
+            "time_total": 0.411495,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "14524",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-c0bb\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 49339,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 14524,
+            "size_header": 769,
+            "speed_download": 14144,
+            "time_appconnect": 0.797218,
+            "time_connect": 0.128476,
+            "time_namelookup": 0.012847,
+            "time_pretransfer": 0.797291,
+            "time_starttransfer": 0.917354,
+            "time_total": 1.02687,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "14524",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-c0bb\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 49339,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 14524,
+            "size_header": 769,
+            "speed_download": 23045,
+            "time_appconnect": 0.515554,
+            "time_connect": 0.453275,
+            "time_namelookup": 0.013159,
+            "time_pretransfer": 0.515619,
+            "time_starttransfer": 0.595982,
+            "time_total": 0.630251,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "14524",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-c0bb\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "score-audio.js?v=20260906-3",
+      "url": "https://rexrockya.github.io/tuner/score-audio.js?v=20260906-3",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1618,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 674,
+            "size_header": 768,
+            "speed_download": 1152,
+            "time_appconnect": 0.286198,
+            "time_connect": 0.139758,
+            "time_namelookup": 0.014425,
+            "time_pretransfer": 0.28646,
+            "time_starttransfer": 0.577733,
+            "time_total": 0.584987,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "674",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-652\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1618,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 674,
+            "size_header": 765,
+            "speed_download": 4173,
+            "time_appconnect": 0.123762,
+            "time_connect": 0.068157,
+            "time_namelookup": 0.021,
+            "time_pretransfer": 0.123945,
+            "time_starttransfer": 0.160352,
+            "time_total": 0.161511,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "674",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-652\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1618,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 674,
+            "size_header": 765,
+            "speed_download": 470,
+            "time_appconnect": 1.305604,
+            "time_connect": 0.338528,
+            "time_namelookup": 0.007778,
+            "time_pretransfer": 1.305886,
+            "time_starttransfer": 1.43047,
+            "time_total": 1.433868,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "674",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-652\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "harmony.js?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/harmony.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10787,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 4053,
+            "size_header": 770,
+            "speed_download": 1934,
+            "time_appconnect": 1.770267,
+            "time_connect": 0.36532,
+            "time_namelookup": 0.013027,
+            "time_pretransfer": 1.770366,
+            "time_starttransfer": 2.090581,
+            "time_total": 2.09496,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "4053",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2a23\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10787,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 4053,
+            "size_header": 767,
+            "speed_download": 598,
+            "time_appconnect": 6.257263,
+            "time_connect": 0.127437,
+            "time_namelookup": 0.006789,
+            "time_pretransfer": 6.257444,
+            "time_starttransfer": 6.766623,
+            "time_total": 6.775492,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "4053",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2a23\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "7",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10787,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 4053,
+            "size_header": 767,
+            "speed_download": 5797,
+            "time_appconnect": 0.54224,
+            "time_connect": 0.369227,
+            "time_namelookup": 0.010618,
+            "time_pretransfer": 0.542378,
+            "time_starttransfer": 0.697745,
+            "time_total": 0.699089,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "4053",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2a23\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "8",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "metronome.js?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/metronome.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10954,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 3366,
+            "size_header": 769,
+            "speed_download": 8068,
+            "time_appconnect": 0.181645,
+            "time_connect": 0.090735,
+            "time_namelookup": 0.013069,
+            "time_pretransfer": 0.181855,
+            "time_starttransfer": 0.413615,
+            "time_total": 0.417203,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "3366",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2aca\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10954,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 3366,
+            "size_header": 766,
+            "speed_download": 4169,
+            "time_appconnect": 0.67764,
+            "time_connect": 0.136907,
+            "time_namelookup": 0.01582,
+            "time_pretransfer": 0.677828,
+            "time_starttransfer": 0.802553,
+            "time_total": 0.807392,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "3366",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2aca\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10954,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 3366,
+            "size_header": 766,
+            "speed_download": 22016,
+            "time_appconnect": 0.110017,
+            "time_connect": 0.050722,
+            "time_namelookup": 0.013417,
+            "time_pretransfer": 0.11008,
+            "time_starttransfer": 0.148774,
+            "time_total": 0.152896,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "3366",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2aca\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "score-beats.js?v=20260906-5",
+      "url": "https://rexrockya.github.io/tuner/score-beats.js?v=20260906-5",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 5972,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2238,
+            "size_header": 771,
+            "speed_download": 3995,
+            "time_appconnect": 0.336003,
+            "time_connect": 0.289856,
+            "time_namelookup": 0.17779,
+            "time_pretransfer": 0.336072,
+            "time_starttransfer": 0.558163,
+            "time_total": 0.560174,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2238",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-1754\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 5972,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2238,
+            "size_header": 768,
+            "speed_download": 3900,
+            "time_appconnect": 0.460677,
+            "time_connect": 0.330791,
+            "time_namelookup": 0.008272,
+            "time_pretransfer": 0.460914,
+            "time_starttransfer": 0.5692,
+            "time_total": 0.573796,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2238",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-1754\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 5972,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2238,
+            "size_header": 768,
+            "speed_download": 1594,
+            "time_appconnect": 0.23883,
+            "time_connect": 0.109007,
+            "time_namelookup": 0.010189,
+            "time_pretransfer": 0.238972,
+            "time_starttransfer": 1.395876,
+            "time_total": 1.403212,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2238",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-1754\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "score-reader.js?v=20260907-5",
+      "url": "https://rexrockya.github.io/tuner/score-reader.js?v=20260907-5",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 6507,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2300,
+            "size_header": 792,
+            "speed_download": 6187,
+            "time_appconnect": 0.140558,
+            "time_connect": 0.065477,
+            "time_namelookup": 0.013114,
+            "time_pretransfer": 0.140679,
+            "time_starttransfer": 0.363632,
+            "time_total": 0.371747,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2300",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-196b\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 6507,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2300,
+            "size_header": 789,
+            "speed_download": 6660,
+            "time_appconnect": 0.23603,
+            "time_connect": 0.117116,
+            "time_namelookup": 0.012622,
+            "time_pretransfer": 0.236107,
+            "time_starttransfer": 0.343106,
+            "time_total": 0.345339,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2300",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-196b\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 6507,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2300,
+            "size_header": 789,
+            "speed_download": 5960,
+            "time_appconnect": 0.274022,
+            "time_connect": 0.139146,
+            "time_namelookup": 0.01464,
+            "time_pretransfer": 0.274087,
+            "time_starttransfer": 0.380101,
+            "time_total": 0.385921,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2300",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-196b\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js",
+      "url": "https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 28,
+          "stderr": "curl: (28) Operation timed out after 16225 milliseconds with 0 bytes received\r\n",
+          "decodedBodyBytes": 0,
+          "metrics": {
+            "content_type": null,
+            "http_code": 0,
+            "http_version": "0",
+            "response_code": 0,
+            "size_download": 0,
+            "size_header": 0,
+            "speed_download": 0,
+            "time_appconnect": 16.224668,
+            "time_connect": 0.189002,
+            "time_namelookup": 0.019751,
+            "time_pretransfer": 16.224827,
+            "time_starttransfer": 16.224828,
+            "time_total": 16.22483,
+            "exitcode": 28,
+            "errormsg": "Operation timed out after 16225 milliseconds with 0 bytes received",
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {}
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 32665,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 12467,
+            "size_header": 1126,
+            "speed_download": 13726,
+            "time_appconnect": 0.354261,
+            "time_connect": 0.171369,
+            "time_namelookup": 0.119279,
+            "time_pretransfer": 0.354336,
+            "time_starttransfer": 0.745799,
+            "time_total": 0.908253,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "application/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+            "etag": "W/\"7f99-MOlgoO5bpsAquEOfTGlp4DglOmo\"",
+            "age": "2143518",
+            "vary": "Accept-Encoding",
+            "content-encoding": "gzip"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 32665,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 12467,
+            "size_header": 1126,
+            "speed_download": 12701,
+            "time_appconnect": 0.587654,
+            "time_connect": 0.194496,
+            "time_namelookup": 0.007404,
+            "time_pretransfer": 0.587716,
+            "time_starttransfer": 0.790381,
+            "time_total": 0.981574,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "application/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+            "etag": "W/\"7f99-MOlgoO5bpsAquEOfTGlp4DglOmo\"",
+            "age": "2143519",
+            "vary": "Accept-Encoding",
+            "content-encoding": "gzip"
+          }
+        }
+      ]
+    },
+    {
+      "label": "practice-audio.js?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/practice-audio.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 13985,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 4488,
+            "size_header": 792,
+            "speed_download": 12394,
+            "time_appconnect": 0.111117,
+            "time_connect": 0.049056,
+            "time_namelookup": 0.013853,
+            "time_pretransfer": 0.111356,
+            "time_starttransfer": 0.313998,
+            "time_total": 0.362143,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "4488",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-36a1\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 13985,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 4488,
+            "size_header": 789,
+            "speed_download": 4376,
+            "time_appconnect": 0.910574,
+            "time_connect": 0.460565,
+            "time_namelookup": 0.018755,
+            "time_pretransfer": 0.910826,
+            "time_starttransfer": 0.94507,
+            "time_total": 1.025474,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "4488",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-36a1\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 13985,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 4488,
+            "size_header": 789,
+            "speed_download": 12394,
+            "time_appconnect": 0.223372,
+            "time_connect": 0.069056,
+            "time_namelookup": 0.009749,
+            "time_pretransfer": 0.223562,
+            "time_starttransfer": 0.283936,
+            "time_total": 0.362089,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "4488",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-36a1\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "scores.js?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/scores.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 61360,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 17291,
+            "size_header": 793,
+            "speed_download": 37530,
+            "time_appconnect": 0.179948,
+            "time_connect": 0.057152,
+            "time_namelookup": 0.013914,
+            "time_pretransfer": 0.180096,
+            "time_starttransfer": 0.393179,
+            "time_total": 0.460779,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "17291",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-efb0\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 61360,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 17291,
+            "size_header": 790,
+            "speed_download": 4691,
+            "time_appconnect": 3.407924,
+            "time_connect": 0.145897,
+            "time_namelookup": 0.018504,
+            "time_pretransfer": 3.408191,
+            "time_starttransfer": 3.671619,
+            "time_total": 3.686002,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "17291",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-efb0\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "4",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 61360,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 17291,
+            "size_header": 790,
+            "speed_download": 58771,
+            "time_appconnect": 0.147328,
+            "time_connect": 0.073777,
+            "time_namelookup": 0.012917,
+            "time_pretransfer": 0.147433,
+            "time_starttransfer": 0.212347,
+            "time_total": 0.294218,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "17291",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-efb0\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "4",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@2.1.2/build/opensheetmusicdisplay.min.js",
+      "url": "https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@2.1.2/build/opensheetmusicdisplay.min.js",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 28,
+          "stderr": "curl: (28) Operation timed out after 16593 milliseconds with 0 bytes received\r\n",
+          "decodedBodyBytes": 0,
+          "metrics": {
+            "content_type": null,
+            "http_code": 0,
+            "http_version": "0",
+            "response_code": 0,
+            "size_download": 0,
+            "size_header": 0,
+            "speed_download": 0,
+            "time_appconnect": 16.592422,
+            "time_connect": 0.438834,
+            "time_namelookup": 0.123295,
+            "time_pretransfer": 16.592527,
+            "time_starttransfer": 16.592527,
+            "time_total": 16.592529,
+            "exitcode": 28,
+            "errormsg": "Operation timed out after 16593 milliseconds with 0 bytes received",
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {}
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1321869,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 333352,
+            "size_header": 1128,
+            "speed_download": 142220,
+            "time_appconnect": 0.412912,
+            "time_connect": 0.19866,
+            "time_namelookup": 0.011135,
+            "time_pretransfer": 0.413058,
+            "time_starttransfer": 0.74683,
+            "time_total": 2.343913,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "application/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+            "etag": "W/\"142b8d-CL3w8+qEpjGg9LYs84H4v01w9zA\"",
+            "age": "26066",
+            "vary": "Accept-Encoding",
+            "content-encoding": "gzip"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1321869,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 333352,
+            "size_header": 1124,
+            "speed_download": 186625,
+            "time_appconnect": 0.371996,
+            "time_connect": 0.183145,
+            "time_namelookup": 0.010547,
+            "time_pretransfer": 0.372057,
+            "time_starttransfer": 0.675121,
+            "time_total": 1.786253,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-type": "application/javascript; charset=utf-8",
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=31536000, s-maxage=31536000, immutable",
+            "etag": "W/\"142b8d-CL3w8+qEpjGg9LYs84H4v01w9zA\"",
+            "age": "26068",
+            "vary": "Accept-Encoding",
+            "content-encoding": "gzip"
+          }
+        }
+      ]
+    },
+    {
+      "label": "practice.js?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/practice.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 20497,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 6783,
+            "size_header": 769,
+            "speed_download": 3803,
+            "time_appconnect": 0.657298,
+            "time_connect": 0.426937,
+            "time_namelookup": 0.006992,
+            "time_pretransfer": 0.65738,
+            "time_starttransfer": 1.782669,
+            "time_total": 1.783502,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "6783",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-5011\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 20497,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 6783,
+            "size_header": 766,
+            "speed_download": 34699,
+            "time_appconnect": 0.105814,
+            "time_connect": 0.047744,
+            "time_namelookup": 0.011693,
+            "time_pretransfer": 0.106021,
+            "time_starttransfer": 0.191467,
+            "time_total": 0.195518,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "6783",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-5011\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 20497,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 6783,
+            "size_header": 766,
+            "speed_download": 7591,
+            "time_appconnect": 0.709957,
+            "time_connect": 0.145668,
+            "time_namelookup": 0.01432,
+            "time_pretransfer": 0.710101,
+            "time_starttransfer": 0.846037,
+            "time_total": 0.893534,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "6783",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-5011\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "practice.css?v=20260908-1",
+      "url": "https://rexrockya.github.io/tuner/practice.css?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10695,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2873,
+            "size_header": 756,
+            "speed_download": 8650,
+            "time_appconnect": 0.111534,
+            "time_connect": 0.054331,
+            "time_namelookup": 0.018455,
+            "time_pretransfer": 0.111659,
+            "time_starttransfer": 0.315063,
+            "time_total": 0.332151,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2873",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-29c7\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10695,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2873,
+            "size_header": 753,
+            "speed_download": 13586,
+            "time_appconnect": 0.151839,
+            "time_connect": 0.080776,
+            "time_namelookup": 0.026894,
+            "time_pretransfer": 0.151978,
+            "time_starttransfer": 0.207177,
+            "time_total": 0.211506,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2873",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-29c7\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 10695,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2873,
+            "size_header": 753,
+            "speed_download": 1377,
+            "time_appconnect": 1.782481,
+            "time_connect": 0.14351,
+            "time_namelookup": 0.015264,
+            "time_pretransfer": 1.782735,
+            "time_starttransfer": 2.083898,
+            "time_total": 2.086072,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2873",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-29c7\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "lick-index",
+      "url": "https://rexrockya.github.io/tuner/assets/licks/guitar-index.js?v=20260908-1",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 176025,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 73621,
+            "size_header": 792,
+            "speed_download": 38088,
+            "time_appconnect": 0.486531,
+            "time_connect": 0.333972,
+            "time_namelookup": 0.005993,
+            "time_pretransfer": 0.486711,
+            "time_starttransfer": 0.784789,
+            "time_total": 1.932971,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "73621",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2af99\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 176025,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 73621,
+            "size_header": 789,
+            "speed_download": 68205,
+            "time_appconnect": 0.326789,
+            "time_connect": 0.183458,
+            "time_namelookup": 0.121959,
+            "time_pretransfer": 0.326853,
+            "time_starttransfer": 0.451288,
+            "time_total": 1.079419,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "73621",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2af99\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 176025,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 73621,
+            "size_header": 789,
+            "speed_download": 97024,
+            "time_appconnect": 0.237073,
+            "time_connect": 0.07177,
+            "time_namelookup": 0.013385,
+            "time_pretransfer": 0.237284,
+            "time_starttransfer": 0.300482,
+            "time_total": 0.758842,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "73621",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2af99\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "metronome.css?v=20260906-4",
+      "url": "https://rexrockya.github.io/tuner/metronome.css?v=20260906-4",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1416,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 585,
+            "size_header": 776,
+            "speed_download": 593,
+            "time_appconnect": 0.505569,
+            "time_connect": 0.347936,
+            "time_namelookup": 0.015649,
+            "time_pretransfer": 0.505701,
+            "time_starttransfer": 0.819267,
+            "time_total": 0.986362,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "585",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-588\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1416,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 585,
+            "size_header": 773,
+            "speed_download": 450,
+            "time_appconnect": 0.462825,
+            "time_connect": 0.325905,
+            "time_namelookup": 0.016118,
+            "time_pretransfer": 0.462966,
+            "time_starttransfer": 1.183708,
+            "time_total": 1.298731,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "585",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-588\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 1416,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 585,
+            "size_header": 773,
+            "speed_download": 129,
+            "time_appconnect": 2.328584,
+            "time_connect": 0.235918,
+            "time_namelookup": 0.178995,
+            "time_pretransfer": 2.328641,
+            "time_starttransfer": 4.495092,
+            "time_total": 4.501511,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "585",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-588\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "4",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "score-controls.css?v=20260907-6",
+      "url": "https://rexrockya.github.io/tuner/score-controls.css?v=20260907-6",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 7751,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2194,
+            "size_header": 757,
+            "speed_download": 715,
+            "time_appconnect": 1.544719,
+            "time_connect": 0.551385,
+            "time_namelookup": 0.018444,
+            "time_pretransfer": 1.544828,
+            "time_starttransfer": 3.060443,
+            "time_total": 3.064598,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2194",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-1e47\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 7751,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2194,
+            "size_header": 754,
+            "speed_download": 3817,
+            "time_appconnect": 0.431913,
+            "time_connect": 0.086729,
+            "time_namelookup": 0.010306,
+            "time_pretransfer": 0.432114,
+            "time_starttransfer": 0.493426,
+            "time_total": 0.574796,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2194",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-1e47\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 7751,
+          "metrics": {
+            "content_type": "text/css; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 2194,
+            "size_header": 754,
+            "speed_download": 632,
+            "time_appconnect": 0.667447,
+            "time_connect": 0.534787,
+            "time_namelookup": 0.013237,
+            "time_pretransfer": 0.667543,
+            "time_starttransfer": 3.4606,
+            "time_total": 3.470888,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "2194",
+            "content-type": "text/css; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-1e47\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "4",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "bass-47.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/bass-47.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 741,
+            "speed_download": 167990,
+            "time_appconnect": 0.123822,
+            "time_connect": 0.05402,
+            "time_namelookup": 0.010581,
+            "time_pretransfer": 0.123989,
+            "time_starttransfer": 0.348197,
+            "time_total": 1.680575,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 738,
+            "speed_download": 196276,
+            "time_appconnect": 0.156754,
+            "time_connect": 0.075807,
+            "time_namelookup": 0.015573,
+            "time_pretransfer": 0.15682,
+            "time_starttransfer": 0.220178,
+            "time_total": 1.438382,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 738,
+            "speed_download": 165527,
+            "time_appconnect": 0.304035,
+            "time_connect": 0.155445,
+            "time_namelookup": 0.017086,
+            "time_pretransfer": 0.304271,
+            "time_starttransfer": 0.435511,
+            "time_total": 1.705574,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "bass-29.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/bass-29.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 739,
+            "speed_download": 35561,
+            "time_appconnect": 0.575486,
+            "time_connect": 0.391027,
+            "time_namelookup": 0.018988,
+            "time_pretransfer": 0.575577,
+            "time_starttransfer": 1.085051,
+            "time_total": 7.9388,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 736,
+            "speed_download": 166883,
+            "time_appconnect": 0.281732,
+            "time_connect": 0.137937,
+            "time_namelookup": 0.006963,
+            "time_pretransfer": 0.281923,
+            "time_starttransfer": 0.573549,
+            "time_total": 1.691709,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "8",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 736,
+            "speed_download": 805853,
+            "time_appconnect": 0.108376,
+            "time_connect": 0.049204,
+            "time_namelookup": 0.013554,
+            "time_pretransfer": 0.108455,
+            "time_starttransfer": 0.145439,
+            "time_total": 0.350345,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "9",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "hat-1.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/hat-1.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 79458,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 79458,
+            "size_header": 740,
+            "speed_download": 34271,
+            "time_appconnect": 0.728396,
+            "time_connect": 0.137863,
+            "time_namelookup": 0.013299,
+            "time_pretransfer": 0.728457,
+            "time_starttransfer": 1.01957,
+            "time_total": 2.318498,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "79458",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-13662\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 79458,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 79458,
+            "size_header": 737,
+            "speed_download": 303169,
+            "time_appconnect": 0.11017,
+            "time_connect": 0.05194,
+            "time_namelookup": 0.011587,
+            "time_pretransfer": 0.110233,
+            "time_starttransfer": 0.152042,
+            "time_total": 0.262101,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "79458",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-13662\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 79458,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 79458,
+            "size_header": 737,
+            "speed_download": 245470,
+            "time_appconnect": 0.131308,
+            "time_connect": 0.059203,
+            "time_namelookup": 0.005019,
+            "time_pretransfer": 0.131404,
+            "time_starttransfer": 0.187781,
+            "time_total": 0.323727,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "79458",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-13662\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "bass-41.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/bass-41.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 720,
+            "speed_download": 306422,
+            "time_appconnect": 0.119012,
+            "time_connect": 0.054886,
+            "time_namelookup": 0.011327,
+            "time_pretransfer": 0.119157,
+            "time_starttransfer": 0.350414,
+            "time_total": 0.921347,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 717,
+            "speed_download": 43432,
+            "time_appconnect": 0.284272,
+            "time_connect": 0.138374,
+            "time_namelookup": 0.011772,
+            "time_pretransfer": 0.284403,
+            "time_starttransfer": 0.913063,
+            "time_total": 6.500237,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 717,
+            "speed_download": 140855,
+            "time_appconnect": 0.299211,
+            "time_connect": 0.152121,
+            "time_namelookup": 0.011559,
+            "time_pretransfer": 0.299372,
+            "time_starttransfer": 0.591614,
+            "time_total": 2.004329,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "8",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "hat-2.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/hat-2.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 79458,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 79458,
+            "size_header": 740,
+            "speed_download": 138393,
+            "time_appconnect": 0.151582,
+            "time_connect": 0.08193,
+            "time_namelookup": 0.019583,
+            "time_pretransfer": 0.151713,
+            "time_starttransfer": 0.379703,
+            "time_total": 0.574155,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "79458",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-13662\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 79458,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 79458,
+            "size_header": 737,
+            "speed_download": 69386,
+            "time_appconnect": 0.453337,
+            "time_connect": 0.323511,
+            "time_namelookup": 0.016037,
+            "time_pretransfer": 0.45353,
+            "time_starttransfer": 0.558616,
+            "time_total": 1.145153,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "79458",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-13662\"",
+            "cache-control": "max-age=600",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 79458,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 79458,
+            "size_header": 737,
+            "speed_download": 292624,
+            "time_appconnect": 0.113196,
+            "time_connect": 0.057763,
+            "time_namelookup": 0.013863,
+            "time_pretransfer": 0.113255,
+            "time_starttransfer": 0.160995,
+            "time_total": 0.271548,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "79458",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-13662\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "kick-1.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/kick-1.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 105918,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 105918,
+            "size_header": 739,
+            "speed_download": 172153,
+            "time_appconnect": 0.122722,
+            "time_connect": 0.05894,
+            "time_namelookup": 0.008256,
+            "time_pretransfer": 0.122861,
+            "time_starttransfer": 0.350942,
+            "time_total": 0.615262,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "105918",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-19dbe\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 105918,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 105918,
+            "size_header": 736,
+            "speed_download": 92607,
+            "time_appconnect": 0.530213,
+            "time_connect": 0.366256,
+            "time_namelookup": 0.015754,
+            "time_pretransfer": 0.53032,
+            "time_starttransfer": 0.677781,
+            "time_total": 1.143735,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "105918",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-19dbe\"",
+            "cache-control": "max-age=600",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 105918,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 105918,
+            "size_header": 736,
+            "speed_download": 440874,
+            "time_appconnect": 0.088563,
+            "time_connect": 0.041135,
+            "time_namelookup": 0.006453,
+            "time_pretransfer": 0.088623,
+            "time_starttransfer": 0.123234,
+            "time_total": 0.240255,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "105918",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-19dbe\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "kick-2.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/kick-2.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 105918,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 105918,
+            "size_header": 719,
+            "speed_download": 27655,
+            "time_appconnect": 0.671868,
+            "time_connect": 0.139096,
+            "time_namelookup": 0.00896,
+            "time_pretransfer": 0.672009,
+            "time_starttransfer": 1.827292,
+            "time_total": 3.829906,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "105918",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-19dbe\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 105918,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 105918,
+            "size_header": 716,
+            "speed_download": 26832,
+            "time_appconnect": 0.534171,
+            "time_connect": 0.058551,
+            "time_namelookup": 0.007361,
+            "time_pretransfer": 0.534428,
+            "time_starttransfer": 0.656466,
+            "time_total": 3.94734,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "105918",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-19dbe\"",
+            "cache-control": "max-age=600",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 105918,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 105918,
+            "size_header": 716,
+            "speed_download": 41338,
+            "time_appconnect": 0.42491,
+            "time_connect": 0.22519,
+            "time_namelookup": 0.18297,
+            "time_pretransfer": 0.425233,
+            "time_starttransfer": 0.592193,
+            "time_total": 2.562243,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "105918",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-19dbe\"",
+            "cache-control": "max-age=600",
+            "age": "7",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "snare-1.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/snare-1.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 247038,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 247038,
+            "size_header": 720,
+            "speed_download": 81600,
+            "time_appconnect": 0.170464,
+            "time_connect": 0.080513,
+            "time_namelookup": 0.019047,
+            "time_pretransfer": 0.170611,
+            "time_starttransfer": 0.413715,
+            "time_total": 3.027412,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "247038",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-3c4fe\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 247038,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 247038,
+            "size_header": 717,
+            "speed_download": 39046,
+            "time_appconnect": 0.267643,
+            "time_connect": 0.126486,
+            "time_namelookup": 0.006177,
+            "time_pretransfer": 0.267813,
+            "time_starttransfer": 0.391434,
+            "time_total": 6.326718,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "247038",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-3c4fe\"",
+            "cache-control": "max-age=600",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 247038,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 247038,
+            "size_header": 718,
+            "speed_download": 22637,
+            "time_appconnect": 0.77442,
+            "time_connect": 0.116824,
+            "time_namelookup": 0.009876,
+            "time_pretransfer": 0.774637,
+            "time_starttransfer": 1.36574,
+            "time_total": 10.912581,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "247038",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-3c4fe\"",
+            "cache-control": "max-age=600",
+            "age": "10",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "snare-2.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/snare-2.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 247038,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 247038,
+            "size_header": 720,
+            "speed_download": 19468,
+            "time_appconnect": 0.539303,
+            "time_connect": 0.375839,
+            "time_namelookup": 0.016996,
+            "time_pretransfer": 0.539376,
+            "time_starttransfer": 0.881224,
+            "time_total": 12.689121,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "247038",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-3c4fe\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 247038,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 247038,
+            "size_header": 718,
+            "speed_download": 130203,
+            "time_appconnect": 0.135745,
+            "time_connect": 0.071226,
+            "time_namelookup": 0.00868,
+            "time_pretransfer": 0.136001,
+            "time_starttransfer": 0.238567,
+            "time_total": 1.897326,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "247038",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-3c4fe\"",
+            "cache-control": "max-age=600",
+            "age": "12",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 247038,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 247038,
+            "size_header": 718,
+            "speed_download": 185524,
+            "time_appconnect": 0.110533,
+            "time_connect": 0.054272,
+            "time_namelookup": 0.011229,
+            "time_pretransfer": 0.110591,
+            "time_starttransfer": 0.209849,
+            "time_total": 1.331574,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "247038",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-3c4fe\"",
+            "cache-control": "max-age=600",
+            "age": "14",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "blues-manifest",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/manifest.json",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 603,
+          "metrics": {
+            "content_type": "application/json; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 175,
+            "size_header": 763,
+            "speed_download": 193,
+            "time_appconnect": 0.668534,
+            "time_connect": 0.074602,
+            "time_namelookup": 0.019072,
+            "time_pretransfer": 0.668614,
+            "time_starttransfer": 0.89959,
+            "time_total": 0.902967,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "175",
+            "content-type": "application/json; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-25b\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 603,
+          "metrics": {
+            "content_type": "application/json; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 175,
+            "size_header": 760,
+            "speed_download": 262,
+            "time_appconnect": 0.248176,
+            "time_connect": 0.113585,
+            "time_namelookup": 0.013441,
+            "time_pretransfer": 0.248451,
+            "time_starttransfer": 0.662805,
+            "time_total": 0.667655,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "175",
+            "content-type": "application/json; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-25b\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 603,
+          "metrics": {
+            "content_type": "application/json; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 175,
+            "size_header": 760,
+            "speed_download": 322,
+            "time_appconnect": 0.433813,
+            "time_connect": 0.31672,
+            "time_namelookup": 0.007246,
+            "time_pretransfer": 0.433871,
+            "time_starttransfer": 0.542203,
+            "time_total": 0.543343,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "175",
+            "content-type": "application/json; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-25b\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "smplr",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/smplr-1.0.0.mjs",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 145842,
+          "metrics": {
+            "content_type": "text/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 37031,
+            "size_header": 764,
+            "speed_download": 32930,
+            "time_appconnect": 0.097674,
+            "time_connect": 0.046157,
+            "time_namelookup": 0.010061,
+            "time_pretransfer": 0.097735,
+            "time_starttransfer": 0.316685,
+            "time_total": 1.124529,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "37031",
+            "content-type": "text/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-239b2\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 145842,
+          "metrics": {
+            "content_type": "text/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 37031,
+            "size_header": 761,
+            "speed_download": 58855,
+            "time_appconnect": 0.491348,
+            "time_connect": 0.448023,
+            "time_namelookup": 0.009335,
+            "time_pretransfer": 0.491411,
+            "time_starttransfer": 0.526194,
+            "time_total": 0.629204,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "37031",
+            "content-type": "text/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-239b2\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 145842,
+          "metrics": {
+            "content_type": "text/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 37031,
+            "size_header": 761,
+            "speed_download": 23893,
+            "time_appconnect": 1.026147,
+            "time_connect": 0.354089,
+            "time_namelookup": 0.006391,
+            "time_pretransfer": 1.026414,
+            "time_starttransfer": 1.542335,
+            "time_total": 1.549902,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "37031",
+            "content-type": "text/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-239b2\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "bass-35.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/bass-35.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 741,
+            "speed_download": 41475,
+            "time_appconnect": 0.683432,
+            "time_connect": 0.137798,
+            "time_namelookup": 0.013048,
+            "time_pretransfer": 0.68353,
+            "time_starttransfer": 1.687767,
+            "time_total": 6.806833,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 282318,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 282318,
+            "size_header": 738,
+            "speed_download": 229477,
+            "time_appconnect": 0.570349,
+            "time_connect": 0.487177,
+            "time_namelookup": 0.020229,
+            "time_pretransfer": 0.570569,
+            "time_starttransfer": 0.632169,
+            "time_total": 1.230275,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "6",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 28,
+          "stderr": "curl: (28) Operation timed out after 60013 milliseconds with 245760 out of 282318 bytes received\r\n",
+          "decodedBodyBytes": 245760,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 245760,
+            "size_header": 738,
+            "speed_download": 4095,
+            "time_appconnect": 1.792126,
+            "time_connect": 0.129162,
+            "time_namelookup": 0.010691,
+            "time_pretransfer": 1.792248,
+            "time_starttransfer": 2.2988,
+            "time_total": 60.01374,
+            "exitcode": 28,
+            "errormsg": "Operation timed out after 60013 milliseconds with 245760 out of 282318 bytes received",
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "282318",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-44ece\"",
+            "cache-control": "max-age=600",
+            "age": "9",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "default-score",
+      "url": "https://rexrockya.github.io/tuner/assets/scores/original-rags.bundle.js?v=460379a9a69a",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 650835,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 22485,
+            "size_header": 794,
+            "speed_download": 23769,
+            "time_appconnect": 0.569132,
+            "time_connect": 0.37842,
+            "time_namelookup": 0.00965,
+            "time_pretransfer": 0.569295,
+            "time_starttransfer": 0.916114,
+            "time_total": 0.945988,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "22485",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-9ee53\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 650835,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 22485,
+            "size_header": 791,
+            "speed_download": 60708,
+            "time_appconnect": 0.161944,
+            "time_connect": 0.075006,
+            "time_namelookup": 0.013718,
+            "time_pretransfer": 0.162186,
+            "time_starttransfer": 0.224851,
+            "time_total": 0.37039,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "22485",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-9ee53\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 650835,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 22485,
+            "size_header": 791,
+            "speed_download": 20173,
+            "time_appconnect": 0.296598,
+            "time_connect": 0.140089,
+            "time_namelookup": 0.018525,
+            "time_pretransfer": 0.296738,
+            "time_starttransfer": 0.804275,
+            "time_total": 1.114591,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "22485",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-9ee53\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "open-hat.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/open-hat.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 28,
+          "stderr": "curl: (28) Operation timed out after 60012 milliseconds with 425984 out of 441078 bytes received\r\n",
+          "decodedBodyBytes": 425984,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 425984,
+            "size_header": 741,
+            "speed_download": 7098,
+            "time_appconnect": 0.692484,
+            "time_connect": 0.144397,
+            "time_namelookup": 0.01972,
+            "time_pretransfer": 0.692624,
+            "time_starttransfer": 2.565544,
+            "time_total": 60.012743,
+            "exitcode": 28,
+            "errormsg": "Operation timed out after 60012 milliseconds with 425984 out of 441078 bytes received",
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "441078",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-6baf6\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 441078,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 441078,
+            "size_header": 740,
+            "speed_download": 72424,
+            "time_appconnect": 0.547538,
+            "time_connect": 0.367876,
+            "time_namelookup": 0.013051,
+            "time_pretransfer": 0.547717,
+            "time_starttransfer": 1.038341,
+            "time_total": 6.090222,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "441078",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-6baf6\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 441078,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 441078,
+            "size_header": 738,
+            "speed_download": 372096,
+            "time_appconnect": 0.124226,
+            "time_connect": 0.065202,
+            "time_namelookup": 0.014442,
+            "time_pretransfer": 0.124284,
+            "time_starttransfer": 0.175909,
+            "time_total": 1.185397,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "441078",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-6baf6\"",
+            "cache-control": "max-age=600",
+            "age": "6",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "default-lick-score",
+      "url": "https://bopland.org/data/eLDBSVZa.png",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 20798,
+          "metrics": {
+            "content_type": "image/png",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 20798,
+            "size_header": 671,
+            "speed_download": 23543,
+            "time_appconnect": 0.531146,
+            "time_connect": 0.365294,
+            "time_namelookup": 0.014784,
+            "time_pretransfer": 0.531262,
+            "time_starttransfer": 0.857529,
+            "time_total": 0.883379,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "20798",
+            "content-type": "image/png",
+            "last-modified": "Thu, 12 Jun 2025 20:15:27 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"684b355f-513e\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 20798,
+          "metrics": {
+            "content_type": "image/png",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 20798,
+            "size_header": 668,
+            "speed_download": 30710,
+            "time_appconnect": 0.515392,
+            "time_connect": 0.353465,
+            "time_namelookup": 0.011554,
+            "time_pretransfer": 0.51548,
+            "time_starttransfer": 0.653485,
+            "time_total": 0.677241,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "20798",
+            "content-type": "image/png",
+            "last-modified": "Thu, 12 Jun 2025 20:15:27 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"684b355f-513e\"",
+            "cache-control": "max-age=600",
+            "age": "1",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 20798,
+          "metrics": {
+            "content_type": "image/png",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 20798,
+            "size_header": 668,
+            "speed_download": 18026,
+            "time_appconnect": 0.78986,
+            "time_connect": 0.607067,
+            "time_namelookup": 0.017774,
+            "time_pretransfer": 0.790026,
+            "time_starttransfer": 0.934965,
+            "time_total": 1.153727,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "20798",
+            "content-type": "image/png",
+            "last-modified": "Thu, 12 Jun 2025 20:15:27 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"684b355f-513e\"",
+            "cache-control": "max-age=600",
+            "age": "2",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "default-lick-audio",
+      "url": "https://bopland.org/data/eLDBSVZa.mp3",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 69190,
+          "metrics": {
+            "content_type": "audio/mp3",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 69190,
+            "size_header": 674,
+            "speed_download": 8989,
+            "time_appconnect": 6.835126,
+            "time_connect": 1.066504,
+            "time_namelookup": 0.917277,
+            "time_pretransfer": 6.835221,
+            "time_starttransfer": 7.195667,
+            "time_total": 7.696955,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "69190",
+            "content-type": "audio/mp3",
+            "last-modified": "Thu, 12 Jun 2025 20:15:27 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"684b355f-10e46\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 69190,
+          "metrics": {
+            "content_type": "audio/mp3",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 69190,
+            "size_header": 671,
+            "speed_download": 13864,
+            "time_appconnect": 2.162689,
+            "time_connect": 0.340783,
+            "time_namelookup": 0.016477,
+            "time_pretransfer": 2.162752,
+            "time_starttransfer": 2.286974,
+            "time_total": 4.990305,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "69190",
+            "content-type": "audio/mp3",
+            "last-modified": "Thu, 12 Jun 2025 20:15:27 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"684b355f-10e46\"",
+            "cache-control": "max-age=600",
+            "age": "3",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 69190,
+          "metrics": {
+            "content_type": "audio/mp3",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 69190,
+            "size_header": 671,
+            "speed_download": 57056,
+            "time_appconnect": 0.671402,
+            "time_connect": 0.426959,
+            "time_namelookup": 0.00595,
+            "time_pretransfer": 0.671611,
+            "time_starttransfer": 0.895497,
+            "time_total": 1.212662,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "69190",
+            "content-type": "audio/mp3",
+            "last-modified": "Thu, 12 Jun 2025 20:15:27 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"684b355f-10e46\"",
+            "cache-control": "max-age=600",
+            "age": "6",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "ride.wav",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/blues/ride.wav",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 635118,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 635118,
+            "size_header": 718,
+            "speed_download": 39858,
+            "time_appconnect": 0.20087,
+            "time_connect": 0.053856,
+            "time_namelookup": 0.01328,
+            "time_pretransfer": 0.200928,
+            "time_starttransfer": 0.429288,
+            "time_total": 15.934341,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "635118",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-9b0ee\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 635118,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 635118,
+            "size_header": 716,
+            "speed_download": 34766,
+            "time_appconnect": 0.713897,
+            "time_connect": 0.076472,
+            "time_namelookup": 0.014165,
+            "time_pretransfer": 0.714147,
+            "time_starttransfer": 0.760695,
+            "time_total": 18.268153,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "635118",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-9b0ee\"",
+            "cache-control": "max-age=600",
+            "age": "16",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 28,
+          "stderr": "curl: (28) Operation timed out after 60011 milliseconds with 589824 out of 635118 bytes received\r\n",
+          "decodedBodyBytes": 589824,
+          "metrics": {
+            "content_type": "audio/wav",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 589824,
+            "size_header": 717,
+            "speed_download": 9828,
+            "time_appconnect": 0.260194,
+            "time_connect": 0.130897,
+            "time_namelookup": 0.007708,
+            "time_pretransfer": 0.260252,
+            "time_starttransfer": 0.994705,
+            "time_total": 60.011661,
+            "exitcode": 28,
+            "errormsg": "Operation timed out after 60011 milliseconds with 589824 out of 635118 bytes received",
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "635118",
+            "content-type": "audio/wav",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "\"6a9ee7c2-9b0ee\"",
+            "cache-control": "max-age=600",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    },
+    {
+      "label": "violin-soundfont",
+      "url": "https://rexrockya.github.io/tuner/assets/audio/violin-mp3.js",
+      "samples": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 2828288,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 1963880,
+            "size_header": 797,
+            "speed_download": 98107,
+            "time_appconnect": 0.154144,
+            "time_connect": 0.069585,
+            "time_namelookup": 0.008682,
+            "time_pretransfer": 0.154315,
+            "time_starttransfer": 0.515474,
+            "time_total": 20.017571,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "1963880",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2b2800\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 2,
+          "exitCode": 28,
+          "stderr": "curl: (28) Operation timed out after 60010 milliseconds with 1662144 out of 1963880 bytes received\r\n",
+          "decodedBodyBytes": 2375555,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 1662144,
+            "size_header": 795,
+            "speed_download": 27697,
+            "time_appconnect": 0.294847,
+            "time_connect": 0.152584,
+            "time_namelookup": 0.016198,
+            "time_pretransfer": 0.294976,
+            "time_starttransfer": 0.42787,
+            "time_total": 60.010904,
+            "exitcode": 28,
+            "errormsg": "Operation timed out after 60010 milliseconds with 1662144 out of 1963880 bytes received",
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "1963880",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2b2800\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "20",
+            "vary": "Accept-Encoding"
+          }
+        },
+        {
+          "run": 3,
+          "exitCode": 0,
+          "stderr": "",
+          "decodedBodyBytes": 2828288,
+          "metrics": {
+            "content_type": "application/javascript; charset=utf-8",
+            "http_code": 200,
+            "http_version": "1.1",
+            "response_code": 200,
+            "size_download": 1963880,
+            "size_header": 796,
+            "speed_download": 330156,
+            "time_appconnect": 0.526883,
+            "time_connect": 0.463736,
+            "time_namelookup": 0.023393,
+            "time_pretransfer": 0.527045,
+            "time_starttransfer": 0.741048,
+            "time_total": 5.948375,
+            "exitcode": 0,
+            "errormsg": null,
+            "curl_version": "libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP"
+          },
+          "headers": {
+            "content-length": "1963880",
+            "content-type": "application/javascript; charset=utf-8",
+            "last-modified": "Mon, 07 Sep 2026 16:35:14 GMT",
+            "access-control-allow-origin": "*",
+            "etag": "W/\"6a9ee7c2-2b2800\"",
+            "cache-control": "max-age=600",
+            "content-encoding": "gzip",
+            "age": "0",
+            "vary": "Accept-Encoding"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -121,6 +121,7 @@ main:before{display:none}
 .jam-head p,.jam-filter{font-size:14px}
 .jam-prototype{font-size:12px}
 @media(max-width:600px){
+  .tabs{gap:8px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
   #lesson-page{padding:14px 16px 100px}
   .lesson-modes{margin-bottom:20px}
   .course-map{grid-template-columns:1fr;max-height:225px}
@@ -132,7 +133,7 @@ main:before{display:none}
   .practice-form>label:not(.practice-changes){flex:1;display:flex;align-items:center}
   .practice-form>label:not(.practice-changes) select{flex:1}.practice-form button{min-width:100px}
   .practice-transport{gap:8px;padding:14px 0}.practice-position{font-size:12px}
-  .practice-transport button{padding:8px 10px}.practice-transport select{flex:1;max-width:128px!important}
+  .practice-transport button{padding:8px 10px}.practice-transport select{flex:0 0 118px;min-width:118px!important;max-width:128px!important}
   .practice-chart button{min-height:80px;padding:12px 8px}.practice-chart button strong{font-size:16px}
   .practice-tab{grid-template-columns:1fr;gap:16px}
   .practice-mixer>div{grid-template-columns:1fr}

@@ -44,6 +44,25 @@
   let mode = 'library', parsed = null, phrase = null, currentSeed = 1, selectedBar = 0;
   const drafts = { create: { text: 'ii7 | V7 | Imaj7', key: 'C', feel: 'shuffle', bpm: 96 }, backing: { text: presets.blues, key: 'A', feel: 'shuffle', bpm: 96, preset: 'blues' } };
   const transport = new A.Transport(renderPosition);
+  const positionUI = {
+    play: $('practice-play'), status: $('practice-status'), position: $('practice-position'),
+    bpm: $('practice-bpm'), loop: $('practice-loop'), barLoop: $('practice-bar-loop'),
+    chart: $('practice-chart'), tab: $('practice-tab'), chord: $('practice-current-chord'),
+    feel: $('practice-feel'), beats: [...pane.querySelectorAll('.practice-beats i')]
+  };
+  let chartButtons = [], noteButtons = new Map();
+  let activeBarButton = null, activeBeatLight = null, activeNoteButton = null;
+  function refreshPositionNodes() {
+    chartButtons = [...positionUI.chart.children];
+    noteButtons = new Map(phrase ? [...positionUI.tab.querySelectorAll('[data-note-beat]')].map(button => [Number(button.dataset.noteBeat), button]) : []);
+    // Generated chart/TAB nodes replace the previous ones, even when their beat is unchanged.
+    activeBarButton = null; activeNoteButton = null;
+  }
+  function setPositionText(node, value) { if (node.textContent !== value) node.textContent = value; }
+  function setPositionPressed(node, on) {
+    if (node.classList.contains('on') === on) return;
+    node.classList.toggle('on', on); node.setAttribute('aria-pressed', String(on));
+  }
   function error(message = '') { $('practice-error').textContent = message; $('practice-error').hidden = !message; }
   function safe(promise) { Promise.resolve(promise).catch(e => error(e.message || '播放失败，请重试')); }
   function nextSeed() { const bytes = new Uint32Array(1); if (window.crypto?.getRandomValues) window.crypto.getRandomValues(bytes); else bytes[0] = Date.now() ^ Math.floor(Math.random() * 1e9); return bytes[0]; }
@@ -76,6 +95,10 @@
     $('practice-saved-wrap').hidden = mode !== 'create';
     $('practice-tab').hidden = mode !== 'create';
     renderSaved(); generate(text ? nextSeed() : draft.seed ?? nextSeed());
+    if (!navigator.connection?.saveData) {
+      const warm = () => { if (mode !== 'library') { try { A.preload().catch(() => {}); } catch {} } };
+      if (window.requestIdleCallback) window.requestIdleCallback(warm, { timeout: 800 }); else setTimeout(warm, 0);
+    }
   }
   function songForPhrase() {
     const song = A.arrangement(parsed, $('practice-feel').value, currentSeed, 1);
@@ -100,6 +123,7 @@
     transport.load(phrase ? songForPhrase() : A.arrangement(parsed, $('practice-feel').value, currentSeed));
     $('practice-chart').innerHTML = parsed.bars.map((bar, i) => `<button type="button" data-practice-bar="${i}" aria-label="第 ${i + 1} 小节，${escape(bar.map(c => c.name).join('、'))}"><small>${String(i + 1).padStart(2, '0')}</small><strong>${bar.map(c => escape(c.name)).join(' <span>·</span> ')}</strong></button>`).join('');
     if (phrase) renderTab();
+    refreshPositionNodes();
     $('practice-origin').textContent = phrase ? '浏览器按和弦音、趋近音与问答节奏写成的原创练习句，可试听、点选和收藏。不是经典曲目的转录。' : '真实爵士鼓、电贝斯采样与合成风琴。Shuffle 使用三连音律动；四轮编配包含力度变化、轻击与过门。';
     $('practice-tip').textContent = phrase ? '标准调弦 E A D G B E。六线谱从上到下对应细弦到粗弦；点击音符可定位，悬停查看落点。' : '先跟 Bass 找落点，再用少量音符呼应军鼓。点选小节开始，单节按钮可反复练这一处。';
     $('practice-save').textContent = '收藏乐句'; renderPosition();
@@ -112,29 +136,41 @@
     }).join('') : '';
   }
   function renderPosition() {
-    if (!$('practice-play')) return;
     const position = transport.current(), barCount = parsed?.bars.length || 1;
     const atEnd = !transport.playing && !transport.loop && position > 0 && position >= transport.bounds()[1];
     const chartPosition = transport.song.chartBeats ? (position - (atEnd ? .000001 : 0)) % transport.song.chartBeats : 0;
     const bar = Math.min(barCount - 1, Math.floor(chartPosition / 4));
     if (transport.playing) selectedBar = bar;
-    $('practice-play').textContent = transport.loading ? '…' : transport.playing ? 'Ⅱ' : '▶';
-    $('practice-play').setAttribute('aria-label', transport.loading ? '取消载入' : transport.playing ? '暂停' : '播放');
-    $('practice-status').textContent = transport.loading ? '正在准备音源…' : '';
-    $('practice-position').textContent = `${bar + 1} / ${barCount}`;
-    $('practice-bpm').value = transport.bpm;
-    for (const [id, on] of [['practice-loop', transport.loop], ['practice-bar-loop', transport.loopBar !== null]]) { $(id).classList.toggle('on', on); $(id).setAttribute('aria-pressed', String(on)); }
-    $('practice-chart').querySelectorAll('button').forEach(button => {
-      const active = Number(button.dataset.practiceBar) === bar; button.classList.toggle('active', active);
-      if (active) button.setAttribute('aria-current', 'true'); else button.removeAttribute('aria-current');
-    });
-    pane.querySelectorAll('.practice-beats i').forEach((light, i) => light.classList.toggle('active', transport.playing && i === Math.floor(chartPosition % 4)));
+    const playText = transport.loading ? '…' : transport.playing ? 'Ⅱ' : '▶';
+    if (positionUI.play.textContent !== playText) {
+      positionUI.play.textContent = playText;
+      positionUI.play.setAttribute('aria-label', transport.loading ? '取消载入' : transport.playing ? '暂停' : '播放');
+    }
+    setPositionText(positionUI.status, transport.loading ? '正在准备音源…' : '');
+    setPositionText(positionUI.position, `${bar + 1} / ${barCount}`);
+    if (document.activeElement !== positionUI.bpm && positionUI.bpm.value !== String(transport.bpm)) positionUI.bpm.value = transport.bpm;
+    setPositionPressed(positionUI.loop, transport.loop);
+    setPositionPressed(positionUI.barLoop, transport.loopBar !== null);
+    const barButton = chartButtons[bar] || null;
+    if (barButton !== activeBarButton) {
+      activeBarButton?.classList.remove('active'); activeBarButton?.removeAttribute('aria-current');
+      barButton?.classList.add('active'); barButton?.setAttribute('aria-current', 'true');
+      activeBarButton = barButton;
+    }
+    const beatLight = transport.playing ? positionUI.beats[Math.floor(chartPosition % 4)] : null;
+    if (beatLight !== activeBeatLight) {
+      activeBeatLight?.classList.remove('active'); beatLight?.classList.add('active'); activeBeatLight = beatLight;
+    }
     const chord = parsed?.chords.find(c => chartPosition >= c.beat && chartPosition < c.beat + c.beats);
-    $('practice-current-chord').textContent = chord?.name || '';
-    if (phrase) {
-      const swing = A.feels[$('practice-feel').value].swing;
+    setPositionText(positionUI.chord, chord?.name || '');
+    let noteButton = null;
+    if (phrase && transport.playing) {
+      const swing = A.feels[positionUI.feel.value].swing;
       const active = phrase.notes.findLast(note => A.swingBeat(note.beat, swing) <= chartPosition + .02);
-      $('practice-tab').querySelectorAll('[data-note-beat]').forEach(button => button.classList.toggle('active', transport.playing && Number(button.dataset.noteBeat) === active?.beat));
+      noteButton = noteButtons.get(active?.beat) || null;
+    }
+    if (noteButton !== activeNoteButton) {
+      activeNoteButton?.classList.remove('active'); noteButton?.classList.add('active'); activeNoteButton = noteButton;
     }
   }
   const storageKey = 'tuner-original-licks-v1';
@@ -152,6 +188,7 @@
   $('practice-play').addEventListener('click', () => { error(); if (transport.playing || transport.loading) transport.pause(); else { stopOtherPlayers(); safe(transport.play().then(() => { for (const slider of pane.querySelectorAll('[data-practice-volume]')) A.volume(slider.dataset.practiceVolume, Number(slider.value) / 100); })); } });
   $('practice-rewind').addEventListener('click', () => { selectedBar = 0; transport.loopBar = null; transport.stopBounds = [0, transport.song.chartBeats || transport.song.beats]; safe(transport.seek(0)); });
   $('practice-bpm').addEventListener('change', event => safe(transport.tempo(event.target.value)));
+  $('practice-bpm').addEventListener('blur', renderPosition);
   $('practice-loop').addEventListener('click', () => safe(transport.setLoop(!transport.loop)));
   $('practice-bar-loop').addEventListener('click', () => safe(transport.setLoopBar(transport.loopBar === null ? selectedBar : null)));
   $('practice-chart').addEventListener('click', event => { const button = event.target.closest('[data-practice-bar]'); if (button && !$('practice-play').disabled) playAt(+button.dataset.practiceBar * 4, +button.dataset.practiceBar); });

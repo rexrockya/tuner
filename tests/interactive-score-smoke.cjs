@@ -10,7 +10,7 @@ const musicXml = fs.readFileSync("docs/assets/scores/original-rags.musicxml", "u
 
 assert.match(html, /data-page="sheet"/);
 assert.match(html, /id="sheet-page"/);
-assert.match(html, /opensheetmusicdisplay@2\.1\.2/);
+assert.match(fs.readFileSync('docs/asset-loader.js','utf8'), /opensheetmusicdisplay-2\.1\.2/);
 assert.match(html, /scores\.js\?v=/);
 assert.ok(html.indexOf('src="score-audio.js?') >= 0);
 assert.ok(html.indexOf('src="score-audio.js?') < html.indexOf('src="scores.js?'));
@@ -21,12 +21,12 @@ assert.doesNotMatch(player, /const scale = 10 \* osmd\.Zoom/);
 assert.match(player, /measureRects\[index\]\.getBoundingClientRect\(\)/);
 assert.match(player, /tuner-score-favorites-v1/);
 assert.match(player, /smplr@1\.0\.0\/dist\/index\.mjs/);
-assert.match(player, /SplendidGrandPiano/);
+assert.match(player, /pianoPresetForScore/);
 assert.match(player, /acoustic_guitar_nylon/);
 assert.match(player, /"violin"/);
 assert.match(html, /id="score-violin-grid"/);
 assert.match(html, /id="score-online"/);
-assert.match(html, /fflate@0\.8\.2/);
+assert.match(fs.readFileSync('docs/asset-loader.js','utf8'), /fflate-0\.8\.2/);
 assert.match(player, /OpenScore\/Lieder/);
 assert.match(player, /OpenScore\/StringQuartets/);
 assert.match(player, /function unpackMxl/);

@@ -12,8 +12,8 @@
   }
   function quality(raw, implied = 'major') {
     let text = raw.replace(/♭/g, 'b').replace(/♯/g, '#').replace(/Δ/g, 'maj').replace(/−|–/g, '-');
-    const minorMajor = /^m(?:\+|maj|M)7/.test(text);
-    text = text.replace(/^m(?:\+|maj|M)7/, 'm7').replace(/7-5/g, '7b5').replace(/^M(?=\d|$)/, 'maj').replace(/^min/i, 'm').replace(/^maj/i, 'maj').replace(/^-(?=\d|$)/, 'm').replace(/^ø7?/, 'm7b5').replace(/^[o°](?=7|$)/, 'dim');
+    const minorMajor = /^m(?:\+|[mM]aj|M)7/.test(text);
+    text = text.replace(/^m(?:\+|[mM]aj|M)7/, 'm7').replace(/7-5/g, '7b5').replace(/^M(?=\d|$)/, 'maj').replace(/^min/i, 'm').replace(/^maj/i, 'maj').replace(/^-(?=\d|$)/, 'm').replace(/^ø7?/, 'm7b5').replace(/^[o°](?=7|$)/, 'dim');
     if (!/^(?:maj|m|dim|aug|\+|sus[24]?)?(?:6\/9|13|11|9|7|6|5)?(?:sus[24]?)?(?:add(?:2|4|9|11|13))?(?:(?:b|#)(?:5|9|11|13))*$/i.test(text)) throw Error(`暂不支持和弦后缀「${raw}」`);
     let type = /^maj/.test(text) ? 'major' : /^m/.test(text) ? 'minor' : /^dim/i.test(text) ? 'dim' : /^(aug|\+)/i.test(text) ? 'aug' : /sus/i.test(text) ? 'sus' : implied;
     if (/m7b5/.test(text)) type = 'half-dim';

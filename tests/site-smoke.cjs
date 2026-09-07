@@ -5,7 +5,7 @@ const ids=[...d.querySelectorAll('[id]')].map(n=>n.id);
 assert.equal(new Set(ids).size,ids.length,'duplicate HTML IDs');
 for(const element of d.querySelectorAll('[aria-controls],[aria-labelledby],label[for]')){
  const refs=element.getAttribute('aria-controls')||element.getAttribute('aria-labelledby')||element.htmlFor;
- for(const id of refs.split(/\s+/))assert.ok(d.getElementById(id)||(id==='jam-room-title'&&html.includes('id="jam-room-title"')),`missing accessibility target ${id}`);
+ for(const id of refs.split(/\s+/))assert.ok(d.getElementById(id)||(id==='jam-room-title'&&fs.readFileSync('docs/app.js','utf8').includes('id="jam-room-title"')),`missing accessibility target ${id}`);
 }
 for(const element of d.querySelectorAll('script[src],link[rel="stylesheet"][href]')){
  const url=element.getAttribute('src')||element.getAttribute('href');

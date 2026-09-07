@@ -1,0 +1,17 @@
+{
+  "environment": "Node v24.14.0 / jsdom (not browser rendering)",
+  "docs": "C:\\codex-tmp-tuner-qa\\audio\\baseline\\docs",
+  "notes": 90,
+  "mutationsPerUnchangedTick": 7,
+  "operationsPerUnchangedTick": {
+    "getElementById": 14,
+    "querySelectorAll": 3,
+    "classToggle": 112,
+    "textContent": 4,
+    "attribute": 4
+  },
+  "iterations": 1000,
+  "median_ms": 0.49710000000004584,
+  "p95_ms": 0.6359999999999673,
+  "max_ms": 2.220899999999915
+}

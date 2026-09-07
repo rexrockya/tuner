@@ -47,12 +47,13 @@
     return { events: events.sort((a, b) => a.beat - b.beat), beats: chartBeats * choruses, chartBeats };
   }
   let context, master, room, compressor, ready, assets = {}, voices = new Set(), buses = {};
-  const plucks = new Map();
+  const plucks = new Map(), decodedAssets = new Map();
+  let organWave, bassAssets = [];
   function getContext() {
     if (context) return context;
     const Context = window.AudioContext || window.webkitAudioContext;
     if (!Context) throw Error('这个浏览器暂不支持音频播放');
-    context = new Context();
+    context = new Context({ latencyHint: 'interactive' });
     master = context.createGain(); master.gain.value = .65;
     compressor = context.createDynamicsCompressor();
     compressor.threshold.value = -14; compressor.knee.value = 18; compressor.ratio.value = 3; compressor.attack.value = .008; compressor.release.value = .18;
@@ -68,22 +69,40 @@
     buses.keys.connect(room);
     return context;
   }
-  async function ensure() {
+  async function fetchAsset(url, method = 'arrayBuffer') {
+    const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const response = await fetch(url, { signal: controller.signal });
+      if (!response.ok) throw Error('音源载入失败，请重试');
+      // Keep the timeout active while the body streams too.
+      return await response[method]();
+    } finally { clearTimeout(timeout); }
+  }
+  function preload() {
     const ctx = getContext();
-    // Unlock synchronously from the click before any network await (Safari).
-    await ctx.resume();
     if (!ready) ready = (async () => {
-      const manifestResponse = await fetch('assets/audio/blues/manifest.json');
-      if (!manifestResponse.ok) throw Error('音源载入失败，请重试');
-      const manifest = await manifestResponse.json();
+      const manifest = await fetchAsset('assets/audio/blues/manifest.json', 'json');
       const loaded = await Promise.all(Object.entries(manifest).map(async ([name, entry]) => {
-        const response = await fetch(`assets/audio/blues/${entry.file}`);
-        if (!response.ok) throw Error('音源载入失败，请重试');
-        return [name, { buffer: await ctx.decodeAudioData(await response.arrayBuffer()), midi: entry.midi }];
+        if (decodedAssets.has(name)) return [name, decodedAssets.get(name)];
+        let buffer;
+        try { buffer = await ctx.decodeAudioData(await fetchAsset(`assets/audio/blues/${entry.file}`)); }
+        catch (error) {
+          if (!entry.fallback) throw error;
+          buffer = await ctx.decodeAudioData(await fetchAsset(`assets/audio/blues/${entry.fallback}`));
+        }
+        const asset = { buffer, midi: entry.midi }; decodedAssets.set(name, asset);
+        return [name, asset];
       }));
       assets = Object.fromEntries(loaded);
+      bassAssets = loaded.filter(([name]) => name.startsWith('bass-')).map(([, asset]) => asset);
     })().catch(error => { ready = null; throw error; });
-    await ready;
+    return ready;
+  }
+  async function ensure() {
+    const ctx = getContext();
+    // Resume inside the user gesture; preloading never starts playback.
+    const unlocked = ctx.resume();
+    await Promise.all([unlocked, preload()]);
     return ctx;
   }
   function trackVoice(source, gain, extra = []) {
@@ -117,16 +136,15 @@
     gain.gain.setTargetAtTime(event.velocity * .11, at + .05, .15);
     gain.gain.setTargetAtTime(.0001, at + seconds * .75, .06);
     gain.connect(filter).connect(buses.keys);
-    const real = new Float32Array(9), imag = new Float32Array([0, 1, .48, .23, .13, 0, .08, 0, .04]);
-    const oscillator = context.createOscillator(); oscillator.setPeriodicWave(context.createPeriodicWave(real, imag));
+    organWave ??= context.createPeriodicWave(new Float32Array(9), new Float32Array([0, 1, .48, .23, .13, 0, .08, 0, .04]));
+    const oscillator = context.createOscillator(); oscillator.setPeriodicWave(organWave);
     oscillator.frequency.value = 440 * 2 ** ((event.midi - 69) / 12);
     oscillator.connect(gain); trackVoice(oscillator, gain, [filter]); oscillator.start(at); oscillator.stop(at + seconds + .25);
   }
   function sound(event, at, beatSeconds) {
     if (event.track === 'drums') sample(assets[event.sample], at, 0, event.velocity * .62, 'drums');
     else if (event.track === 'bass') {
-      const available = Object.entries(assets).filter(([name]) => name.startsWith('bass-')).map(([, value]) => value);
-      const closest = available.sort((a, b) => Math.abs(a.midi - event.midi) - Math.abs(b.midi - event.midi))[0];
+      const closest = bassAssets.reduce((best, asset) => !best || Math.abs(asset.midi - event.midi) < Math.abs(best.midi - event.midi) ? asset : best, null);
       sample(closest, at, event.duration * beatSeconds, event.velocity * .66, 'bass', event.midi);
     } else if (event.track === 'lead') sample(pluck(event.midi), at, event.duration * beatSeconds, event.velocity * .9, 'lead', event.midi);
     else organ(event, at, event.duration * beatSeconds);
@@ -158,7 +176,7 @@
         this.loading = false;
         const [start, end] = this.bounds();
         if (this.position >= end || this.position < start) this.position = start;
-        this.startBeat = this.position; this.started = context.currentTime + .04; this.cycle = 0;
+        this.startBeat = this.position; this.started = context.currentTime + .025; this.cycle = 0;
         this.next = this.song.events.findIndex(e => e.beat >= this.position - 1e-8);
         if (this.next < 0) this.next = this.song.events.length;
         this.playing = true;
@@ -206,5 +224,5 @@
     }
     setLoopBar(bar) { const playing = this.playing; this.pause(); this.loopBar = bar; if (bar !== null) { this.loop = true; this.position = bar * 4; } this.update(); return playing ? this.play() : Promise.resolve(); }
   }
-  window.practiceAudio = { arrangement, swingBeat, feels, Transport, volume, ensure, silence, getContext };
+  window.practiceAudio = { arrangement, swingBeat, feels, Transport, volume, ensure, preload, silence, getContext };
 })();

@@ -42,6 +42,7 @@
   }
   function render() {
     $("metro-bpm").textContent = String(Math.round(bpm));
+    document.querySelector('.metro-unit').textContent = 'BPM';
     $("metro-start").textContent = running ? "停止" : "开始";
     $("metro-follow").textContent = binding ? `固定拍速 · ${binding.title}` : "独立节拍器";
     const value = signature.join("/");
@@ -101,7 +102,7 @@
       if (event.signature) signature = event.signature;
       if (event.bpm) bpm = event.bpm;
       render();
-      if (event.countIn) $("metro-bpm").textContent = String(event.countIn);
+      if (event.countIn) { $("metro-bpm").textContent = String(event.countIn); document.querySelector('.metro-unit').textContent = '预备'; }
       $("metro-dot").classList.remove("strong", "secondary", "weak");
       $("metro-dot").classList.add("flash", event.accent);
       for (const id of ["metro-beats", "sheet-beats"]) {

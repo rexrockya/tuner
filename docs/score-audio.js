@@ -38,5 +38,29 @@
     };
   }
 
-  window.scoreAudio = { prepareViolinSustain, createViolinLoader };
+// Uses smplr 1.0.0's original regions unchanged. No notesToLoad remapping.
+const pianoBaseUrl = 'https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples';
+const scoreVelocity = note => Math.max(12, Math.min(127, Math.round(note.velocity * .92)));
+function pianoPresetForScore(library, notes, transposeMin = -12, transposeMax = 12) {
+  const full = library.pianoToPreset({ baseUrl: pianoBaseUrl, detune: 0, decayTime: 1.25 });
+  const valid = notes.filter(note => Number.isFinite(note.pitch) && Number.isFinite(note.velocity));
+  // An unknown/empty score should preserve the library's default behavior.
+  if (!valid.length) return full;
+  const groups = full.groups.map(group => {
+    const pitches = new Set();
+    for (const note of valid) {
+      const velocity = scoreVelocity(note);
+      if (velocity < group.velRange[0] || velocity > group.velRange[1]) continue;
+      for (let shift = transposeMin; shift <= transposeMax; shift++) pitches.add(note.pitch + shift);
+    }
+    return {
+      ...group,
+      regions: group.regions.filter(region => [...pitches].some(pitch => pitch >= region.keyRange[0] && pitch <= region.keyRange[1]))
+    };
+  }).filter(group => group.regions.length);
+  return { ...full, groups };
+}
+
+
+  window.scoreAudio = { prepareViolinSustain, createViolinLoader, pianoPresetForScore, scoreVelocity };
 })();

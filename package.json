@@ -7,8 +7,9 @@
     "lint": "npm --prefix website run lint",
     "start": "npm --prefix website run start",
     "test:score": "node tests/interactive-score-smoke.cjs && node tests/score-audio.cjs && node tests/score-beats.cjs && node tests/score-clock.cjs && node tests/score-reader.cjs && node tests/score-full-page.cjs && node tests/score-viewport.cjs",
-    "test": "node tests/site-smoke.cjs && node tests/lesson-smoke.cjs && npm run test:practice && npm run test:score",
-    "test:practice": "node tests/harmony.cjs && node tests/practice.cjs && node tests/practice-clock.cjs"
+    "test": "node tests/site-smoke.cjs && node tests/lesson-smoke.cjs && npm run test:practice && npm run test:score && npm run test:qa",
+    "test:practice": "node tests/harmony.cjs && node tests/practice.cjs && node tests/practice-clock.cjs",
+    "test:qa": "node tests/qa/run.cjs && node tests/practice-loading.cjs && node tests/lesson-audio-stop.cjs && node tests/piano-coverage.cjs && node tests/piano-loading.cjs && node tests/browser-performance-smoke.cjs"
   },
   "devDependencies": {
     "fake-indexeddb": "6.2.5",

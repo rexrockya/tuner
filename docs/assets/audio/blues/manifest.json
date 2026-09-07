@@ -1,42 +1,54 @@
 {
   "bass-29": {
-    "file": "bass-29.wav",
-    "midi": 29
+    "file": "bass-29.flac",
+    "midi": 29,
+    "fallback": "bass-29.wav"
   },
   "bass-35": {
-    "file": "bass-35.wav",
-    "midi": 35
+    "file": "bass-35.flac",
+    "midi": 35,
+    "fallback": "bass-35.wav"
   },
   "bass-41": {
-    "file": "bass-41.wav",
-    "midi": 41
+    "file": "bass-41.flac",
+    "midi": 41,
+    "fallback": "bass-41.wav"
   },
   "bass-47": {
-    "file": "bass-47.wav",
-    "midi": 47
+    "file": "bass-47.flac",
+    "midi": 47,
+    "fallback": "bass-47.wav"
   },
   "hat-1": {
-    "file": "hat-1.wav"
+    "file": "hat-1.flac",
+    "fallback": "hat-1.wav"
   },
   "hat-2": {
-    "file": "hat-2.wav"
+    "file": "hat-2.flac",
+    "fallback": "hat-2.wav"
   },
   "kick-1": {
-    "file": "kick-1.wav"
+    "file": "kick-1.flac",
+    "fallback": "kick-1.wav"
   },
   "kick-2": {
-    "file": "kick-2.wav"
+    "file": "kick-2.flac",
+    "fallback": "kick-2.wav"
   },
   "open-hat": {
-    "file": "open-hat.wav"
+    "file": "open-hat.flac",
+    "fallback": "open-hat.wav"
   },
   "ride": {
-    "file": "ride.wav"
+    "file": "ride.flac",
+    "fallback": "ride.wav"
   },
   "snare-1": {
-    "file": "snare-1.wav"
+    "file": "snare-1.flac",
+    "fallback": "snare-1.wav"
   },
   "snare-2": {
-    "file": "snare-2.wav"
+    "file": "snare-2.flac",
+    "fallback": "snare-2.wav"
   }
 }

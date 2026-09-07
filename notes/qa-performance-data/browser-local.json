@@ -1,0 +1,54 @@
+{
+  "environment": "Actual Codex in-app Chromium browser; Windows; local HTTP server without gzip; same-origin diagnostic iframe; browser HTTP cache not forcibly cleared. Not WAN, CrUX, Safari or acoustic latency.",
+  "viewport": {
+    "width": 873,
+    "height": 598,
+    "dpr": 2
+  },
+  "navigationMs": {
+    "ttfb": 0.6,
+    "responseEnd": 3.1,
+    "domInteractive": 45.6,
+    "domContentLoaded": 76.5,
+    "loadEnd": 83.3,
+    "fcp": 76,
+    "observedLcp": 76
+  },
+  "initialResourceCountExcludingDocument": 16,
+  "initialResourceDecodedBytesExcludingDocument": 282989,
+  "initialLongTasks": 0,
+  "interactions": {
+    "clicks": 4,
+    "inputs": 1,
+    "maxObservedInteractionMs": 72,
+    "maxCaptureToRafMs": 36.6,
+    "longTasks": 0,
+    "actions": [
+      {
+        "name": "open lesson",
+        "captureToRafMs": 36.6
+      },
+      {
+        "name": "type harmony",
+        "captureToRafMs": 12.5
+      },
+      {
+        "name": "open create",
+        "captureToRafMs": 20.8
+      },
+      {
+        "name": "generate lick",
+        "captureToRafMs": 14.2
+      },
+      {
+        "name": "start playback",
+        "captureToRafMs": 13.1
+      }
+    ]
+  },
+  "limits": [
+    "Event Timing duration threshold 16ms, quantized by browser.",
+    "capture→rAF ends before paint and is not pure handler time.",
+    "UI playback was advancing with no console errors; speaker output was not measured."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "environment": "Node v24.14.0 / jsdom; fake Web Audio and clock (not real device latency)",
+  "root": "C:/Users/雁鸣/Documents/Codex/TUner",
+  "checks": [
+    "manifest failure reports error and returns to stopped state",
+    "retry after manifest failure reloads all assets and plays",
+    "pause clears interval",
+    "play immediately followed by stop cancels pending play",
+    "mode switch cancels pending play",
+    "7 blank/malformed/too-long progressions disable playback and show input error",
+    "favorite save deduplicates and restores identical generated notes",
+    "malformed saved data does not crash the studio",
+    "regeneration replaces and highlights new nodes; play/pause and mode switches retain correct active bar/beat/note",
+    "MIDI header and track byte length valid",
+    "nonloop playback stops at current chorus end and clears interval",
+    "single-bar looping, seek and tempo preserve bounded position",
+    "mute preserves transport position",
+    "12 keys x 10 qualities x 100 seeds: finite, bounded, playable guitar notes"
+  ],
+  "bugs": [],
+  "metrics": {
+    "warm_schedule_offset_ms": 25,
+    "parse_16_bars": {
+      "iterations": 500,
+      "median_ms": 0.029899999999997817,
+      "p95_ms": 0.03779999999994743,
+      "max_ms": 0.2840999999999667
+    },
+    "generate_3_bars": {
+      "iterations": 300,
+      "median_ms": 0.025300000000015643,
+      "p95_ms": 0.027800000000070213,
+      "max_ms": 0.029999999999972715
+    },
+    "generate_16_bars": {
+      "iterations": 300,
+      "median_ms": 0.12930000000005748,
+      "p95_ms": 0.13710000000014588,
+      "max_ms": 0.37439999999992324
+    },
+    "arrangement_16_bars_4_choruses": {
+      "iterations": 200,
+      "median_ms": 0.3371999999999389,
+      "p95_ms": 0.3987000000001899,
+      "max_ms": 0.8351999999999862
+    },
+    "render_generate_16_bars_jsdom": {
+      "iterations": 60,
+      "median_ms": 7.000700000000052,
+      "p95_ms": 10.692000000000007,
+      "max_ms": 11.211399999999912
+    },
+    "unchanged_position_mutations": 0,
+    "unchanged_position_update_16_bars_jsdom": {
+      "iterations": 300,
+      "median_ms": 0.0020999999999276042,
+      "p95_ms": 0.0022999999998774,
+      "max_ms": 0.019199999999955253
+    }
+  },
+  "fetches": 15
+}

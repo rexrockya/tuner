@@ -21,8 +21,8 @@ w.AudioContext = class {
   createPeriodicWave() { return {}; }
   createBuffer(channels, length, rate) { return { duration: length / rate, getChannelData: () => new Float32Array(length) }; }
   async decodeAudioData(bytes) {
-    const buffer = Buffer.from(bytes); assert.equal(buffer.toString('ascii', 0, 4), 'RIFF'); assert.equal(buffer.toString('ascii', 8, 12), 'WAVE');
-    assert.ok(buffer.length > 50000); decoded++; return { duration: 3.2 };
+    const buffer = Buffer.from(bytes); assert.ok(['fLaC', 'RIFF'].includes(buffer.toString('ascii', 0, 4))); if (buffer.toString('ascii', 0, 4) === 'RIFF') assert.equal(buffer.toString('ascii', 8, 12), 'WAVE');
+    assert.ok(buffer.length > 1000); decoded++; return { duration: 3.2 };
   }
 };
 w.setInterval = fn => { const id = ++sequence; timers.set(id, fn); return id; }; w.clearInterval = id => timers.delete(id);
@@ -54,7 +54,7 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   d.querySelector('[data-practice-bar="8"]').click(); await flush(); await flush();
   assert.equal(studio.transport.playing, true, 'clicking a bar starts playback');
   assert.equal(studio.transport.position, 32); assert.equal($('practice-current-chord').textContent, 'E7');
-  assert.equal(decoded, 12, 'all real bundled WAV assets are decoded');
+  assert.equal(decoded, 12, 'all 12 real bundled assets reach the decoder');
   assert.ok(scheduled.some(node => node.type === 'sample') && scheduled.some(node => node.type === 'organ'));
   const before = studio.transport.current(); change('practice-bpm', '80'); await flush(); assert.ok(Math.abs(studio.transport.current() - before) < .1);
   $('practice-bar-loop').click(); await flush(); assert.equal(studio.transport.loopBar, 8);
@@ -81,6 +81,6 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   const ids = [...d.querySelectorAll('[id]')].map(node => node.id); assert.equal(new Set(ids).size, ids.length);
   assert.deepEqual(problems, []);
   for (const button of d.querySelectorAll('#practice-pane button')) assert.ok(button.textContent.trim() || button.getAttribute('aria-label'));
-  console.log('PASS practice: generated TAB, draft retention, local favorites, MIDI, minor blues, 12 WAVs, click/play, tempo, looping, mute routing, cancellation and unique accessible controls');
+  console.log('PASS practice: generated TAB, draft retention, local favorites, MIDI, minor blues, 12 audio assets, click/play, tempo, looping, mute routing, cancellation and unique accessible controls');
   studio.stop(); dom.window.close();
 })().catch(error => { console.error(error); dom.window.close(); process.exitCode = 1; });

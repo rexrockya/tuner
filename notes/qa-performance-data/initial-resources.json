@@ -1,0 +1,205 @@
+{
+  "method": "Static initial-resource inventory for default tuner route. Includes document, all script src, all CSS. Before includes boot-triggered lick index/default image/audio; after lazy image and preload=none media are excluded based on code, subject to browser verification. Favicon excluded symmetrically. rawBytes are complete decoded payloads. localGzip6Bytes recompresses both versions with same Node gzip level 6, media kept unchanged; estimates response body size, not measured production Content-Length. JS bytes include external scripts+inline JS, exclude JSON script payload; parsed index JS contributes separately to full initial resource count.",
+  "timestamp": "2026-09-07T17:01:27.852Z",
+  "before": {
+    "resourceCount": 19,
+    "rawBytes": 2322420,
+    "localGzip6Bytes": 691080,
+    "executedJsBytes": 1953469,
+    "parserBlockingExternalScripts": 12,
+    "rows": [
+      {
+        "label": "document",
+        "rawBytes": 150513,
+        "localGzip6Bytes": 38810
+      },
+      {
+        "label": "https://unpkg.com/tone@14.9.17/build/Tone.js",
+        "rawBytes": 350479,
+        "localGzip6Bytes": 80489
+      },
+      {
+        "label": "https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@2.1.2/build/opensheetmusicdisplay.min.js",
+        "rawBytes": 1321869,
+        "localGzip6Bytes": 335535
+      },
+      {
+        "label": "https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js",
+        "rawBytes": 32665,
+        "localGzip6Bytes": 12562
+      },
+      {
+        "label": "harmony.js?v=20260908-1",
+        "rawBytes": 10787,
+        "localGzip6Bytes": 4101
+      },
+      {
+        "label": "lessons.js?v=20260908-1",
+        "rawBytes": 49339,
+        "localGzip6Bytes": 14607
+      },
+      {
+        "label": "score-audio.js?v=20260906-3",
+        "rawBytes": 1618,
+        "localGzip6Bytes": 670
+      },
+      {
+        "label": "score-beats.js?v=20260906-5",
+        "rawBytes": 5972,
+        "localGzip6Bytes": 2227
+      },
+      {
+        "label": "metronome.js?v=20260908-1",
+        "rawBytes": 10954,
+        "localGzip6Bytes": 3345
+      },
+      {
+        "label": "scores.js?v=20260908-1",
+        "rawBytes": 61360,
+        "localGzip6Bytes": 17157
+      },
+      {
+        "label": "score-reader.js?v=20260907-5",
+        "rawBytes": 6507,
+        "localGzip6Bytes": 2297
+      },
+      {
+        "label": "practice-audio.js?v=20260908-1",
+        "rawBytes": 13985,
+        "localGzip6Bytes": 4477
+      },
+      {
+        "label": "practice.js?v=20260908-1",
+        "rawBytes": 20497,
+        "localGzip6Bytes": 6860
+      },
+      {
+        "label": "metronome.css?v=20260906-4",
+        "rawBytes": 1416,
+        "localGzip6Bytes": 588
+      },
+      {
+        "label": "score-controls.css?v=20260907-6",
+        "rawBytes": 7751,
+        "localGzip6Bytes": 2188
+      },
+      {
+        "label": "practice.css?v=20260908-1",
+        "rawBytes": 10695,
+        "localGzip6Bytes": 2851
+      },
+      {
+        "label": "lick-index",
+        "rawBytes": 176025,
+        "localGzip6Bytes": 72328
+      },
+      {
+        "label": "default-lick-audio",
+        "rawBytes": 69190,
+        "localGzip6Bytes": 69190
+      },
+      {
+        "label": "default-lick-score",
+        "rawBytes": 20798,
+        "localGzip6Bytes": 20798
+      }
+    ]
+  },
+  "after": {
+    "resourceCount": 16,
+    "rawBytes": 366034,
+    "localGzip6Bytes": 105070,
+    "executedJsBytes": 263017,
+    "parserBlockingExternalScripts": 0,
+    "deferredExternalScripts": 12,
+    "rows": [
+      {
+        "label": "document",
+        "rawBytes": 83155,
+        "localGzip6Bytes": 20161
+      },
+      {
+        "label": "asset-loader.js?v=20260908-2",
+        "rawBytes": 1729,
+        "localGzip6Bytes": 777
+      },
+      {
+        "label": "tuner-pitch.js?v=20260908-2",
+        "rawBytes": 1926,
+        "localGzip6Bytes": 873
+      },
+      {
+        "label": "harmony.js?v=20260908-1",
+        "rawBytes": 10793,
+        "localGzip6Bytes": 4106
+      },
+      {
+        "label": "lessons.js?v=20260908-1",
+        "rawBytes": 51381,
+        "localGzip6Bytes": 14943
+      },
+      {
+        "label": "score-audio.js?v=20260906-3",
+        "rawBytes": 2963,
+        "localGzip6Bytes": 1218
+      },
+      {
+        "label": "score-beats.js?v=20260906-5",
+        "rawBytes": 5972,
+        "localGzip6Bytes": 2227
+      },
+      {
+        "label": "metronome.js?v=20260908-1",
+        "rawBytes": 10954,
+        "localGzip6Bytes": 3345
+      },
+      {
+        "label": "scores.js?v=20260908-1",
+        "rawBytes": 64023,
+        "localGzip6Bytes": 17767
+      },
+      {
+        "label": "score-reader.js?v=20260907-5",
+        "rawBytes": 6507,
+        "localGzip6Bytes": 2297
+      },
+      {
+        "label": "practice-audio.js?v=20260908-1",
+        "rawBytes": 14784,
+        "localGzip6Bytes": 4744
+      },
+      {
+        "label": "practice.js?v=20260908-1",
+        "rawBytes": 22332,
+        "localGzip6Bytes": 7424
+      },
+      {
+        "label": "app.js?v=20260908-2",
+        "rawBytes": 69653,
+        "localGzip6Bytes": 19561
+      },
+      {
+        "label": "metronome.css?v=20260906-4",
+        "rawBytes": 1416,
+        "localGzip6Bytes": 588
+      },
+      {
+        "label": "score-controls.css?v=20260907-6",
+        "rawBytes": 7751,
+        "localGzip6Bytes": 2188
+      },
+      {
+        "label": "practice.css?v=20260908-1",
+        "rawBytes": 10695,
+        "localGzip6Bytes": 2851
+      }
+    ]
+  },
+  "savings": {
+    "rawBytes": 1956386,
+    "localGzip6Bytes": 586010,
+    "localGzip6Percent": 84.79626092492909,
+    "executedJsBytes": 1690452,
+    "executedJsPercent": 86.53590100482782
+  }
+}

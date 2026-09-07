@@ -5,7 +5,7 @@ class Param {value=0; setValueAtTime(v,t){this.value=v;return this;} setTargetAt
 class Node {constructor(type){this.type=type;this.connections=[];this.gain=new Param();this.frequency=new Param();this.playbackRate=new Param();this.threshold=new Param();this.knee=new Param();this.ratio=new Param();this.attack=new Param();this.release=new Param();nodes.push(this)} connect(n){this.connections.push(n);return n;} disconnect(){} start(t){this.startTime=t;scheduled.push(this)} stop(t){this.stopTime=t} setPeriodicWave(){} }
 class Ctx {state='running'; sampleRate=44100;destination=new Node('destination');get currentTime(){return now;}async resume(){}createGain(){return new Node('gain')}createDynamicsCompressor(){return new Node('compressor')}createConvolver(){return new Node('convolver')}createBiquadFilter(){return new Node('filter')}createOscillator(){return new Node('oscillator')}createBufferSource(){return new Node('source')}createPeriodicWave(){return {}}createBuffer(ch,n,rate){return {duration:n/rate,getChannelData:()=>new Float32Array(n)}}async decodeAudioData(){return {duration:1}}}
 const w={AudioContext:Ctx,setInterval(fn){const i=++id;timers.set(i,fn);return i;},clearInterval(i){timers.delete(i)}};
-const sandbox={window:w,fetch:async url=>({ok:true,json:async()=>({'kick-1':{file:'kick-1.wav'}}),arrayBuffer:async()=>new ArrayBuffer(1)}),Float32Array,Map,Set,console};
+const sandbox={AbortController,setTimeout,clearTimeout,window:w,fetch:async url=>({ok:true,json:async()=>({'kick-1':{file:'kick-1.wav'}}),arrayBuffer:async()=>new ArrayBuffer(1)}),Float32Array,Map,Set,console};
 vm.createContext(sandbox);
 const root=require('node:path').resolve(__dirname,'../docs')+'/';
 vm.runInContext(fs.readFileSync(root+'harmony.js','utf8'),sandbox);

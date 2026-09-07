@@ -100,7 +100,8 @@ const DETAILED_ANALYSIS = {
 
 const $ = id => document.getElementById(id);
 const audio = document.createElement("audio");
-audio.preload = "metadata";
+audio.preload = "none";
+let mediaActive = false, libraryRequested = false;
 let current = 0;
 let looping = true;
 let loopA = 0;
@@ -108,6 +109,7 @@ let loopB = 1;
 let backingEnabled = false;
 let backingContext = null;
 let backingFrame = null;
+const backingVoices = new Set();
 let lastBackingBeat = -1;
 let scoreZoom = 1;
 let waveformDuration = 1;
@@ -152,6 +154,8 @@ function playBackingTone(frequency, duration, volume, type = "triangle") {
   gain.gain.exponentialRampToValueAtTime(volume, now + 0.012);
   gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
   oscillator.connect(gain).connect(backingContext.destination);
+  const voice = { oscillator, gain }; backingVoices.add(voice);
+  oscillator.onended = () => { backingVoices.delete(voice); oscillator.disconnect(); gain.disconnect(); };
   oscillator.start(now);
   oscillator.stop(now + duration + 0.02);
 }
@@ -178,6 +182,11 @@ function stopBackingClock() {
   if (backingFrame) cancelAnimationFrame(backingFrame);
   backingFrame = null;
   lastBackingBeat = -1;
+  if (backingContext) for (const { oscillator, gain } of backingVoices) {
+    gain.gain.cancelScheduledValues(backingContext.currentTime);
+    gain.gain.setTargetAtTime(.0001, backingContext.currentTime, .006);
+    try { oscillator.stop(backingContext.currentTime + .03); } catch {}
+  }
 }
 
 async function startBackingClock() {
@@ -283,12 +292,15 @@ function ingestBoplandLibrary(database) {
   render();
 }
 
+window.bopland = { db: { register: ingestBoplandLibrary } };
 function loadBoplandLibrary() {
-  window.bopland = { db: { register: ingestBoplandLibrary } };
+  if (libraryRequested || libraryState.loaded) return;
+  libraryRequested = true;
   const script = document.createElement("script");
   script.src = BOPLAND_DATABASE_URL;
   script.async = true;
   script.onerror = () => {
+    libraryRequested = false;
     $("library-count").textContent = `${LICKS.length} 条 · BopLand 暂时无法连接`;
   };
   document.head.appendChild(script);
@@ -760,7 +772,7 @@ function render() {
   $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}`;
   $("lesson-track").textContent = lick.key || lick.group;
   $("lesson-harmony").textContent = lick.chord;
-  $("lick-staff").innerHTML = `<img src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
+  $("lick-staff").innerHTML = `<img loading="lazy" decoding="async" src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
   const scoreImage = $("lick-staff").querySelector("img");
   scoreImage.addEventListener("load", fitScoreHeight, { once: true });
   requestAnimationFrame(fitScoreHeight);
@@ -786,7 +798,7 @@ function render() {
     loopA = 0;
     loopB = 1;
     renderLoopPoints();
-    loadWaveform(nextSource);
+    if (mediaActive) loadWaveform(nextSource);
   }
   audio.loop = false;
   updatePracticeBpm(practiceBpm, false);
@@ -1108,9 +1120,13 @@ bindLoopMarker("loop-b-marker", "b");
 
 populateLibraryFilters();
 const initialFromHash = indexFromHash();
-const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
+const storedIndex = Number(localStorage.getItem("lick-current-v2") || 0);
+const savedIndex = Number.isFinite(storedIndex) ? Math.max(0, Math.min(LICKS.length - 1, Math.floor(storedIndex))) : 0;
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
-window.lessonPlayer = { stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
+function activate() {
+  if (!mediaActive) { mediaActive = true; audio.preload = "metadata"; loadWaveform(audio.src); }
+  loadBoplandLibrary();
+}
+window.lessonPlayer = { activate, stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
-loadBoplandLibrary();
 })();

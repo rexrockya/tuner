@@ -1,0 +1,119 @@
+{
+  "method": "FFmpeg: FLAC compression_level 12 lossless and libopus 128 kbps for size comparison only; each decoded FLAC PCM MD5 must equal original WAV PCM MD5.",
+  "rows": [
+    {
+      "name": "bass-29.wav",
+      "wavBytes": 282318,
+      "flacBytes": 89915,
+      "opus128Bytes": 48999,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=8e1f46a1c9e8ac65975d3a50efeac604",
+      "sha256": "f8a4b1ba3704bd8082224a42bb39023cd28b49432cc8205a99bf734ee366f893"
+    },
+    {
+      "name": "bass-35.wav",
+      "wavBytes": 282318,
+      "flacBytes": 90179,
+      "opus128Bytes": 49628,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=e255e8779a92973916438fc7084de9f4",
+      "sha256": "ab0d67ffcb621156056a35ec33db44098097b0016f5024b6a07ff567d0eac997"
+    },
+    {
+      "name": "bass-41.wav",
+      "wavBytes": 282318,
+      "flacBytes": 89966,
+      "opus128Bytes": 53014,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=edca56b168dd4abef82b358fbcc235a4",
+      "sha256": "5a002366185be926740ba057c6f4a1cefebb3b908ea4662ef1b0f721b25ecb3b"
+    },
+    {
+      "name": "bass-47.wav",
+      "wavBytes": 282318,
+      "flacBytes": 88604,
+      "opus128Bytes": 52924,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=412dc3f70cd8b99797377df72600692c",
+      "sha256": "dd49b2ac466672871473a8a4aff7d312a05f9d5704e1e24935f3ec365c929621"
+    },
+    {
+      "name": "hat-1.wav",
+      "wavBytes": 79458,
+      "flacBytes": 38114,
+      "opus128Bytes": 6818,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=bd6ed8dd80d1ba08823022a49d9678d7",
+      "sha256": "1f5bdcf8e007ef5957a5e3a0da135498bff2d4290df8c71661f3c12be43cc488"
+    },
+    {
+      "name": "hat-2.wav",
+      "wavBytes": 79458,
+      "flacBytes": 37853,
+      "opus128Bytes": 6793,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=a6d83fa7f29afe986c164ca0991c80c6",
+      "sha256": "507aca1e1d4656e278559867ca1e7db6573c111af04c1c9e546faca57cfbe644"
+    },
+    {
+      "name": "kick-1.wav",
+      "wavBytes": 105918,
+      "flacBytes": 24109,
+      "opus128Bytes": 17718,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=0cc1062a01da93274d5dc1399abccd0c",
+      "sha256": "97d7ef72d06e963ff966b4a007e2146010fd46122eb3ca90723557e4ff6afc1d"
+    },
+    {
+      "name": "kick-2.wav",
+      "wavBytes": 105918,
+      "flacBytes": 24266,
+      "opus128Bytes": 17690,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=a2a44ee26ced14dad9db5479d6662be7",
+      "sha256": "34a1b16e332212c06fbf58ec6ca7b3fe06b9c92ae4a2828252f7ce8780e7f3d2"
+    },
+    {
+      "name": "open-hat.wav",
+      "wavBytes": 441078,
+      "flacBytes": 176192,
+      "opus128Bytes": 42382,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=68e0179e6da93f1fa0ad3473935fd4b8",
+      "sha256": "781ce24128ba34231e849c97d7bb3ca68ae3a76ccd01b6adc465fcb31f970ed3"
+    },
+    {
+      "name": "ride.wav",
+      "wavBytes": 635118,
+      "flacBytes": 239900,
+      "opus128Bytes": 51496,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=d0c88c3f40fa9ea1a7e07196fd298d4b",
+      "sha256": "fee9c057aef36dc28f9d40be2af01e9e9f5fc0a01b5445d4af1ff9537310e832"
+    },
+    {
+      "name": "snare-1.wav",
+      "wavBytes": 247038,
+      "flacBytes": 65811,
+      "opus128Bytes": 21068,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=88f6c0a7e0f95dde211262aed53f038c",
+      "sha256": "0efdbabdc77977848587da4a55eb02a6f9bade444cf9ddc1b51ad5948914f778"
+    },
+    {
+      "name": "snare-2.wav",
+      "wavBytes": 247038,
+      "flacBytes": 66236,
+      "opus128Bytes": 21021,
+      "identicalDecodedPCM": true,
+      "decodedPCM": "MD5=34407e0582925499eedf55cebf4fa910",
+      "sha256": "ccc239daf15969e1b08630a64b0c8627a8aae3cc55f1e4c756f186ac17eba09a"
+    }
+  ],
+  "totals": {
+    "wavBytes": 3070296,
+    "flacBytes": 1031145,
+    "opus128Bytes": 389551,
+    "losslessSavingPercent": 66.41545310289301
+  }
+}

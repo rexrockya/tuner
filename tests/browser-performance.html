@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>弦音 · 本地浏览器性能观察</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;background:#edf0eb;color:#19231a;font:13px/1.5 system-ui,"Microsoft YaHei",sans-serif}header{padding:12px 16px;border-bottom:1px solid #cbd3c9;background:#fff}header strong{font-size:17px}header p{margin:3px 0;color:#566253;font-size:12px}.controls{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}button,select{font:inherit;padding:7px 10px;border:1px solid #aab8a6;border-radius:5px;background:white;color:#20321c;cursor:pointer}button:focus-visible,select:focus-visible{outline:2px solid #557d40;outline-offset:2px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 370px;align-items:start}.frame-shell{padding:10px;overflow:auto}iframe{display:block;border:1px solid #96a28f;background:#101610;width:100%;height:calc(100vh - 155px);min-height:600px;margin:auto}aside{padding:12px;background:#fff;border-left:1px solid #cbd3c9;max-height:calc(100vh - 140px);overflow:auto}h2{font-size:14px;margin:13px 0 5px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:5px}.metric{padding:7px;background:#f0f4ed;border:1px solid #d7dfd2;border-radius:4px}.metric span{display:block;color:#66745f;font-size:11px}.metric b{font-variant-numeric:tabular-nums;font-size:16px}table{border-collapse:collapse;width:100%;font:11px/1.4 ui-monospace,monospace}th,td{padding:4px 3px;border-bottom:1px solid #e2e7df;text-align:left;vertical-align:top}th{color:#62705b}td.num{text-align:right;white-space:nowrap}.muted{color:#687663;font-size:11px}.state{padding:6px 8px;background:#e5eede;border-radius:4px;margin-bottom:7px;overflow-wrap:anywhere}.warn{color:#855416}.path{overflow-wrap:anywhere;max-width:170px}details{margin-top:9px}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:10px}.full{grid-column:1/-1}@media(max-width:850px){.layout{display:flex;flex-direction:column}aside{border-left:0;border-top:1px solid #cbd3c9;max-height:none;width:100%}.frame-shell{width:100%}iframe{height:720px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+<header>
+  <strong>弦音 · 本地浏览器性能观察</strong>
+  <p>被动观察同源框架；请在下方网站里手动操作。只记录性能条目及元素 tag / id，不读取输入值、正文或账号资料，不自动点击、不上传或持久保存数据。</p>
+  <p class="warn">重载不会清除浏览器 HTTP 缓存。冷缓存测试需由操作者使用新浏览器环境或禁用缓存。计时含本诊断页开销，不能作为真实用户 CrUX 数据。</p>
+  <div class="controls">
+    <button id="reset-session" type="button">清空本次操作记录</button>
+    <button id="reload-frame" type="button">清零并重载框架</button>
+    <label>框架宽度 <select id="frame-width"><option value="fill">填满可用宽度</option><option value="390">390 px</option><option value="768">768 px</option><option value="1280">1280 px</option></select></label>
+    <button id="refresh-report" type="button">刷新读数</button>
+  </div>
+</header>
+<div class="layout">
+  <main class="frame-shell"><iframe id="app-frame" title="弦音测试框架" src="../docs/" allow="microphone; autoplay; fullscreen"></iframe></main>
+  <aside aria-label="性能报告">
+    <div class="state" id="observer-state">等待框架导航完成…</div>
+    <div id="viewport" class="muted"></div>
+    <h2>本次导航（ms）</h2>
+    <div class="metrics" id="navigation-metrics"></div>
+    <p id="paint-note" class="muted"></p>
+    <h2>清零后的资源</h2>
+    <div class="metrics" id="resource-metrics"></div>
+    <p class="muted">transferSize 为浏览器报告的网络传输量，含响应头；编码体积不含响应头。跨源未给 Timing-Allow-Origin 时部分字段不可用，0 不能直接等于缓存命中。</p>
+    <h2>操作与反馈（ms）</h2>
+    <div class="metrics" id="interaction-metrics"></div>
+    <p class="muted">Event Timing 阈值 ≥16 ms，duration 有浏览器量化。本会话最大交互时长只是在此会话观察到的最大值，不能替代 INP / CrUX。capture→rAF 包含事件分发和等待下一帧，终点在绘制前；不是纯 handler 耗时，也不是已呈现时间。</p>
+    <table><thead><tr><th>最近操作</th><th>元素</th><th>capture→rAF</th></tr></thead><tbody id="feedback-rows"></tbody></table>
+    <details open><summary>播放按钮到 UI-ready（非首音）</summary><p class="muted">仅记录点击播放后按钮 aria-label 变为“暂停”的时间；不读取音频、不证明扬声器已出声。暂停、取消载入、换页会取消对应待测请求。</p><table><thead><tr><th>控件</th><th>click→UI-ready ms</th></tr></thead><tbody id="ui-ready-rows"></tbody></table></details>
+    <details open><summary>最近 Event Timing</summary><table><thead><tr><th>类型 / ID</th><th>元素</th><th>总时长</th><th>处理</th></tr></thead><tbody id="event-rows"></tbody></table></details>
+    <details open><summary>最近资源（ms / B）</summary><table><thead><tr><th>类型 / 路径</th><th>总时长</th><th>传输B</th></tr></thead><tbody id="resource-rows"></tbody></table></details>
+    <details><summary>支持情况与边界</summary><div id="support" class="muted"></div><p class="muted">最多保留最近 30 条资源、20 条事件、20 条反馈、500 个交互汇总和 2,000 个资源去重键。刷新导航清除全部观察器；“清空本次操作记录”保留导航和绘制指标，从清零时间开始统计新资源/操作。本页不测扬声器真正发声时间。</p></details>
+    <details><summary>结构化摘要（便于复制核验）</summary><pre id="json-report"></pre></details>
+  </aside>
+</div>
+<script>
+(function () {
+  'use strict';
+  const frame = document.getElementById('app-frame');
+  const appUrl = new URL(frame.getAttribute('src'), location.href).href;
+  const $ = id => document.getElementById(id);
+  let fw, fp, observers = [], removers = [], generation = 0;
+  let navigation = null, lcp = null, firstContentfulPaint = null, resetAt = 0, navigationCount = 0;
+  let resources, resourceKeys, eventRows, feedback, interactions, uiReady, pendingReady, stats, support;
+  function resetMemory() {
+    resources = []; resourceKeys = new Set(); eventRows = []; feedback = []; interactions = new Map(); uiReady = []; pendingReady = new Map();
+    stats = { resources: 0, transferBytes: 0, encodedBodyBytes: 0, decodedBodyBytes: 0, resourceDurationSumMs: 0, unexposedResources: 0, zeroTransferSameOrigin: 0, eventEntries: 0, clicks: 0, inputs: 0, maxFeedbackMs: 0, maxObservedInteractionMs: 0, longTasks: 0, longTaskTotalMs: 0, maxLongTaskMs: 0, uiReadyCount: 0, maxUiReadyMs: 0 };
+  }
+  resetMemory(); support = {};
+  function number(value) { return Number.isFinite(value) ? Math.round(value * 10) / 10 : null; }
+  function ms(value) { return Number.isFinite(value) ? number(value).toFixed(1) : '不可用'; }
+  function bytes(value) { return Number.isFinite(value) ? Math.round(value).toLocaleString('en-US') : '不可用'; }
+  function elementLabel(target) {
+    if (!target || target.nodeType !== 1) return 'unknown';
+    return target.tagName.toLowerCase() + (target.id ? '#' + target.id : '');
+  }
+  function safePath(value) {
+    try {
+      const url = new URL(value, frame.src);
+      if (url.pathname.startsWith('/api/') || /(?:^|[.-])(?:account|auth)(?:[.-]|$)/i.test(url.hostname) || url.hostname.endsWith('.chatgpt.site')) return '[account service]' + url.pathname;
+      return (url.origin === fw.location.origin ? '' : url.origin) + url.pathname;
+    }
+    catch (_) { return '(unavailable URL)'; }
+  }
+  function trackUiIntent(event) {
+    const element = event.target?.nodeType === 1 ? event.target : event.target?.parentElement;
+    if (element?.closest('[data-page], [data-lesson-mode], .score-card')) { pendingReady.clear(); return; }
+    const control = element?.closest('#practice-play, #sheet-play');
+    if (!control) return;
+    const label = control.getAttribute('aria-label') || '';
+    if (/暂停|取消/.test(label)) { pendingReady.delete(control.id); return; }
+    if (control.disabled) return;
+    pendingReady.set(control.id, { startMs: fp.now(), resetAt, generation, sawLoading: false });
+  }
+  function observeUiReady() {
+    if (!fw.MutationObserver) { support['ui-ready'] = '不支持 MutationObserver'; return; }
+    const controls = ['practice-play', 'sheet-play'].map(id => frame.contentDocument.getElementById(id)).filter(Boolean);
+    const observer = new fw.MutationObserver(() => {
+      for (const control of controls) {
+        const request = pendingReady.get(control.id);
+        if (!request || request.generation !== generation || request.resetAt !== resetAt) continue;
+        const label = control.getAttribute('aria-label') || '';
+        if (/暂停/.test(label)) {
+          const elapsed = fp.now() - request.startMs;
+          stats.uiReadyCount++; stats.maxUiReadyMs = Math.max(stats.maxUiReadyMs, elapsed);
+          retain(uiReady, { control: '#' + control.id, startMs: number(request.startMs), clickToUiReadyMs: number(elapsed), definition: 'aria-label changed to paused; not acoustic first sound' }, 20);
+          pendingReady.delete(control.id);
+        } else if (/取消/.test(label) || control.disabled) request.sawLoading = true;
+        else if (request.sawLoading && /播放/.test(label)) {
+          // ensureInstrument's finally can briefly re-enable the button before
+          // play() resumes in the next microtask. Only treat a stable idle state
+          // in the next task as cancelled/failed, never that intermediate state.
+          fw.setTimeout(() => {
+            if (pendingReady.get(control.id) === request && !control.disabled && /播放/.test(control.getAttribute('aria-label') || '')) pendingReady.delete(control.id);
+          }, 0);
+        }
+      }
+      render();
+    });
+    controls.forEach(control => observer.observe(control, { attributes: true, attributeFilter: ['aria-label', 'disabled'], childList: true }));
+    observers.push(observer); support['ui-ready'] = '已观察 ' + controls.map(control => '#' + control.id).join(' / ');
+  }
+  function retain(list, item, cap) { list.push(item); if (list.length > cap) list.shift(); }
+  function resource(entry) {
+    if (entry.startTime < resetAt) return;
+    const resourcePath = safePath(entry.name), key = resourcePath + ':' + entry.startTime + ':' + entry.duration;
+    if (resourceKeys.has(key)) return;
+    resourceKeys.add(key);
+    if (resourceKeys.size > 2000) resourceKeys.delete(resourceKeys.values().next().value);
+    let sameOrigin = false;
+    try { sameOrigin = new URL(entry.name).origin === fw.location.origin; } catch (_) {}
+    const exposed = sameOrigin || entry.responseStart > 0 || entry.transferSize > 0 || entry.encodedBodySize > 0;
+    stats.resources++; stats.transferBytes += entry.transferSize || 0; stats.encodedBodyBytes += entry.encodedBodySize || 0; stats.decodedBodyBytes += entry.decodedBodySize || 0; stats.resourceDurationSumMs += entry.duration;
+    if (!exposed) stats.unexposedResources++;
+    if (sameOrigin && entry.transferSize === 0 && entry.decodedBodySize > 0) stats.zeroTransferSameOrigin++;
+    retain(resources, { path: resourcePath, type: entry.initiatorType, startMs: number(entry.startTime), durationMs: number(entry.duration), transferBytes: exposed ? entry.transferSize : null, encodedBodyBytes: exposed ? entry.encodedBodySize : null, decodedBodyBytes: exposed ? entry.decodedBodySize : null, exposed }, 30);
+  }
+  function eventTiming(entry) {
+    if (entry.startTime < resetAt) return;
+    stats.eventEntries++;
+    if (entry.interactionId) {
+      interactions.set(entry.interactionId, Math.max(interactions.get(entry.interactionId) || 0, entry.duration));
+      if (interactions.size > 500) interactions.delete(interactions.keys().next().value);
+      stats.maxObservedInteractionMs = Math.max(stats.maxObservedInteractionMs, entry.duration);
+    }
+    retain(eventRows, { type: entry.name, interactionId: entry.interactionId || 0, element: elementLabel(entry.target), durationMs: number(entry.duration), inputDelayMs: number(entry.processingStart - entry.startTime), processingMs: number(entry.processingEnd - entry.processingStart) }, 20);
+  }
+  function observe(type, callback, options = {}) {
+    if (!fw.PerformanceObserver || !fw.PerformanceObserver.supportedEntryTypes?.includes(type)) { support[type] = '不支持'; return; }
+    try {
+      const observer = new fw.PerformanceObserver(list => list.getEntries().forEach(callback));
+      observer.observe({ type, buffered: true, ...options }); observers.push(observer); support[type] = '已启用';
+    } catch (error) { support[type] = '不可用：' + error.name; }
+  }
+  function teardown() { observers.forEach(observer => observer.disconnect()); observers = []; removers.forEach(remove => remove()); removers = []; }
+  function attach() {
+    teardown(); generation++; const thisGeneration = generation;
+    try {
+      fw = frame.contentWindow; fp = fw.performance;
+      if (!fp || !frame.contentDocument) throw Error('需要同源 HTTP 静态服务');
+      navigationCount++; resetAt = 0; lcp = null; firstContentfulPaint = null; support = {}; resetMemory();
+      observe('resource', resource);
+      if (support.resource !== '已启用') fp.getEntriesByType('resource').forEach(resource);
+      observe('largest-contentful-paint', entry => { lcp = { timeMs: number(entry.startTime), size: entry.size }; });
+      observe('paint', entry => { if (entry.name === 'first-contentful-paint') firstContentfulPaint = number(entry.startTime); });
+      observe('event', eventTiming, { durationThreshold: 16 });
+      observe('longtask', entry => {
+        if (entry.startTime < resetAt) return;
+        stats.longTasks++; stats.longTaskTotalMs += entry.duration; stats.maxLongTaskMs = Math.max(stats.maxLongTaskMs, entry.duration);
+      });
+      observeUiReady();
+      const cancelPending = () => pendingReady.clear();
+      fw.addEventListener('hashchange', cancelPending); fw.addEventListener('pagehide', cancelPending);
+      removers.push(() => { fw.removeEventListener('hashchange', cancelPending); fw.removeEventListener('pagehide', cancelPending); });
+      for (const type of ['click', 'input']) {
+        const onEvent = event => {
+          const start = fp.now(), label = elementLabel(event.target), sessionStart = resetAt;
+          if (type === 'click') trackUiIntent(event);
+          if (type === 'click') stats.clicks++; else stats.inputs++;
+          fw.requestAnimationFrame(() => {
+            if (generation !== thisGeneration || resetAt !== sessionStart) return;
+            const elapsed = fp.now() - start;
+            stats.maxFeedbackMs = Math.max(stats.maxFeedbackMs, elapsed);
+            retain(feedback, { type, element: label, captureToRafMs: number(elapsed), startMs: number(start) }, 20);
+            render();
+          });
+        };
+        frame.contentDocument.addEventListener(type, onEvent, { capture: true, passive: true });
+        removers.push(() => { try { frame.contentDocument.removeEventListener(type, onEvent, true); } catch (_) {} });
+      }
+      $('observer-state').textContent = '观察中 · 导航 #' + navigationCount + ' · 不进行自动操作';
+      render();
+    } catch (error) {
+      $('observer-state').textContent = '无法观察：' + error.message + '。请使用与 iframe 站点同源的 HTTP 静态服务访问；不要用 file://。';
+    }
+  }
+  function metric(label, value) { const div = document.createElement('div'); div.className = 'metric'; const span = document.createElement('span'); span.textContent = label; const b = document.createElement('b'); b.textContent = value; div.append(span, b); return div; }
+  function metrics(id, entries) { $(id).replaceChildren(...entries.map(([label, value]) => metric(label, value))); }
+  function rows(id, entries, fields) { $(id).replaceChildren(...entries.slice().reverse().map(entry => { const tr = document.createElement('tr'); fields.forEach(field => { const td = document.createElement('td'); td.textContent = field(entry); tr.append(td); }); return tr; })); }
+  function render() {
+    if (!fp) return;
+    const nav = fp.getEntriesByType('navigation')[0];
+    navigation = nav ? { type: nav.type, ttfbMs: number(nav.responseStart - (nav.startTime || 0)), requestWaitMs: number(nav.responseStart - nav.requestStart), responseEndMs: number(nav.responseEnd), domInteractiveMs: number(nav.domInteractive), domContentLoadedMs: number(nav.domContentLoadedEventEnd), loadEventEndMs: nav.loadEventEnd ? number(nav.loadEventEnd) : null, transferBytes: nav.transferSize, encodedBodyBytes: nav.encodedBodySize, decodedBodyBytes: nav.decodedBodySize } : null;
+    metrics('navigation-metrics', [['TTFB', ms(navigation?.ttfbMs)], ['响应完成', ms(navigation?.responseEndMs)], ['DOM Interactive', ms(navigation?.domInteractiveMs)], ['DOMContentLoaded', ms(navigation?.domContentLoadedMs)], ['load结束', ms(navigation?.loadEventEndMs)], ['FCP', ms(firstContentfulPaint)], ['LCP（观察值）', ms(lcp?.timeMs)], ['Document传输B', bytes(navigation?.transferBytes)]]);
+    $('viewport').textContent = 'iframe viewport：' + fw.innerWidth + ' × ' + fw.innerHeight + ' CSS px · DPR ' + fw.devicePixelRatio + ' · 观察窗口起点 ' + ms(resetAt) + ' ms';
+    $('paint-note').textContent = 'LCP大小 ' + (lcp ? lcp.size + ' px²' : '不可用') + '；LCP可能继续更新，首个交互/隐藏之后的规则由浏览器决定。';
+    metrics('resource-metrics', [['资源数', String(stats.resources)], ['传输总B（已暴露）', bytes(stats.transferBytes)], ['编码体积B', bytes(stats.encodedBodyBytes)], ['解码体积B', bytes(stats.decodedBodyBytes)], ['跨源时序未暴露', String(stats.unexposedResources)], ['同源零传输候选', String(stats.zeroTransferSameOrigin)]]);
+    metrics('interaction-metrics', [['click / input', stats.clicks + ' / ' + stats.inputs], ['交互ID数（最多500）', String(interactions.size)], ['会话最大交互时长', interactions.size ? ms(stats.maxObservedInteractionMs) : '暂无交互条目'], ['capture→rAF最大', feedback.length ? ms(stats.maxFeedbackMs) : '暂无操作'], ['长任务数 ≥50ms', String(stats.longTasks)], ['最长主线程任务', stats.longTasks ? ms(stats.maxLongTaskMs) : '未观察到'], ['UI-ready记录数', String(stats.uiReadyCount)], ['click→UI-ready最大', stats.uiReadyCount ? ms(stats.maxUiReadyMs) : '暂无记录']]);
+    rows('feedback-rows', feedback, [entry => entry.type, entry => entry.element, entry => ms(entry.captureToRafMs)]);
+    rows('event-rows', eventRows, [entry => entry.type + ' / ' + entry.interactionId, entry => entry.element, entry => ms(entry.durationMs), entry => ms(entry.processingMs)]);
+    rows('ui-ready-rows', uiReady, [entry => entry.control, entry => ms(entry.clickToUiReadyMs)]);
+    rows('resource-rows', resources, [entry => entry.type + ' ' + entry.path, entry => ms(entry.durationMs), entry => bytes(entry.transferBytes)]);
+    $('support').textContent = Object.entries(support).map(([key, value]) => key + '：' + value).join('；');
+    $('json-report').textContent = JSON.stringify({ navigationCount, viewport: { width: fw.innerWidth, height: fw.innerHeight, dpr: fw.devicePixelRatio }, resetAtMs: number(resetAt), navigation, fcpMs: firstContentfulPaint, observedLcp: lcp, stats, support, recentFeedback: feedback, recentEvents: eventRows, recentUiReady: uiReady, recentResources: resources }, null, 2);
+  }
+  frame.addEventListener('load', attach);
+  $('reset-session').addEventListener('click', () => { if (!fp) return; resetAt = fp.now(); resetMemory(); render(); });
+  $('reload-frame').addEventListener('click', () => { teardown(); generation++; fp = null; resetMemory(); $('observer-state').textContent = '重新导航中…（不清除 HTTP 缓存）'; frame.src = appUrl; });
+  $('frame-width').addEventListener('change', event => { frame.style.width = event.target.value === 'fill' ? '100%' : event.target.value + 'px'; render(); });
+  $('refresh-report').addEventListener('click', render);
+  setInterval(render, 1000);
+  if (frame.contentDocument?.readyState === 'complete' && frame.contentDocument.URL !== 'about:blank') attach();
+})();
+</script>
+</html>

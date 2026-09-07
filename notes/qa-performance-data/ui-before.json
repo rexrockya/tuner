@@ -1,0 +1,44 @@
+[
+  {
+    "name": "2525-lick harmony degree input",
+    "coldMs": 15.16820000000007,
+    "p50Ms": 2.490799999999922,
+    "p95Ms": 4.497499999999945,
+    "maxMs": 5.552299999999946
+  },
+  {
+    "name": "2525-lick harmony chord-name input",
+    "coldMs": 2.1300999999999704,
+    "p50Ms": 1.5641999999999143,
+    "p95Ms": 2.047900000000027,
+    "maxMs": 2.363399999999956
+  },
+  {
+    "name": "2525-lick text search input",
+    "coldMs": 1.0428000000000566,
+    "p50Ms": 0.656400000000076,
+    "p95Ms": 0.8187000000000353,
+    "maxMs": 1.046699999999987
+  },
+  {
+    "name": "lick selection (includes library rerender)",
+    "coldMs": 1.7258000000000493,
+    "p50Ms": 1.1695999999999458,
+    "p95Ms": 1.575900000000047,
+    "maxMs": 1.5839999999999463
+  },
+  {
+    "name": "section navigation lesson / metronome",
+    "coldMs": 4.755000000000109,
+    "p50Ms": 1.9605000000001382,
+    "p95Ms": 2.557299999999941,
+    "maxMs": 2.604699999999866
+  },
+  {
+    "name": "Jam open room / regenerate studio",
+    "coldMs": 12.738700000000108,
+    "p50Ms": 4.657200000000103,
+    "p95Ms": 7.951600000000099,
+    "maxMs": 7.951600000000099
+  }
+]

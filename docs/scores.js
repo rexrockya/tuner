@@ -119,6 +119,7 @@
   let activeInstrument = null;
   let activeInstrumentId = "";
   let instrumentLoadPromise = null;
+  let activeInstrumentScope = null, instrumentLoadId = '', instrumentLoadScope = null;
   let fallbackSynths = null;
   let timer = null;
   let playing = false;
@@ -762,8 +763,19 @@
   async function ensureInstrument() {
     const requestedId = ui.instrument.value;
     const config = INSTRUMENTS[requestedId] || INSTRUMENTS["splendid-grand"];
-    if (activeInstrument && activeInstrumentId === requestedId) return activeInstrument;
-    if (instrumentLoadPromise) return instrumentLoadPromise;
+    const requestedManifest = manifest, requestedScope = config.kind === 'grand' ? requestedManifest : null;
+    const requestIsCurrent = () => ui.instrument.value === requestedId && (config.kind !== 'grand' || manifest === requestedManifest);
+    if (activeInstrument && activeInstrumentId === requestedId && activeInstrumentScope === requestedScope) return activeInstrument;
+    if (instrumentLoadPromise) {
+      if (instrumentLoadId === requestedId && instrumentLoadScope === requestedScope) return instrumentLoadPromise;
+      await instrumentLoadPromise;
+      return ensureInstrument();
+    }
+    const previousInstrument = activeInstrument;
+    activeInstrument = null; activeInstrumentId = ''; activeInstrumentScope = null;
+    try { previousInstrument?.dispose(); } catch {}
+    instrumentLoadId = requestedId; instrumentLoadScope = requestedScope;
+    let nextInstrument;
 
     ui.play.disabled = true;
     ui.instrument.disabled = true;
@@ -771,8 +783,9 @@
     ui.status.textContent = `加载 ${config.label}…`;
     instrumentLoadPromise = (async () => {
       const library = await ensureSampleLibrary();
+      if (!requestIsCurrent()) return null;
       const Context = window.AudioContext || window.webkitAudioContext;
-      audioContext ||= new Context();
+      audioContext ||= new Context({ latencyHint: 'interactive' });
       if (!instrumentBus) {
         instrumentBus = audioContext.createGain();
         instrumentBus.gain.value = (instrumentVolume / 100) ** 2;
@@ -787,7 +800,7 @@
         destination: instrumentBus,
         ...(sampleStorage ? { storage: sampleStorage } : {}),
         onLoadProgress: ({ loaded, total }) => {
-          if (ui.instrument.value === requestedId) ui.status.textContent = `加载 ${config.label} · ${loaded}/${total}`;
+          if (requestIsCurrent()) ui.status.textContent = `加载 ${config.label} · ${loaded}/${total}`;
         }
       };
       // Violin is served with the site, so a third-party soundfont host cannot
@@ -797,9 +810,10 @@
         if (!response.ok) throw new Error('小提琴音色下载失败，请重试');
         return response;
       }};
-      let nextInstrument;
       if (config.kind === "grand") {
-        nextInstrument = library.SplendidGrandPiano(audioContext, { ...common, decayTime: 1.25 });
+        const preset = window.scoreAudio.pianoPresetForScore(library, requestedManifest?.notes || []);
+        const ScorePiano = library.Instrument((_ctx, _options, sampler) => sampler.loadInstrument(preset));
+        nextInstrument = ScorePiano(audioContext, common);
       } else if (config.kind === "electric") {
         nextInstrument = library.ElectricPiano(audioContext, { ...common, instrument: config.instrument });
       } else {
@@ -816,21 +830,29 @@
         });
       }
       await nextInstrument.ready;
+      if (!requestIsCurrent()) { try { nextInstrument.dispose(); } catch {} return null; }
       activeInstrument = nextInstrument;
       activeInstrumentId = requestedId;
+      activeInstrumentScope = requestedScope;
       ui.status.textContent = `点击小节播放 · ${config.label}`;
       renderSourceHint();
       return nextInstrument;
     })().catch(async error => {
+      try { nextInstrument?.dispose(); } catch {}
+      if (!requestIsCurrent()) return null;
       console.warn("Sample instrument unavailable, using synth fallback", error);
       activeInstrument = null;
       activeInstrumentId = "";
+      await window.siteAssets?.load("tone");
+      if (!requestIsCurrent()) return null;
       ensureFallbackSynths();
       await window.Tone?.start();
+      if (!requestIsCurrent()) return null;
       ui.status.textContent = "采样音色加载失败 · 已切换轻量备用音色";
       return null;
     }).finally(() => {
       instrumentLoadPromise = null;
+      instrumentLoadId = ''; instrumentLoadScope = null;
       ui.play.disabled = false;
       ui.instrument.disabled = false;
       if (!playing) ui.play.textContent = "▶";
@@ -918,7 +940,7 @@
     // Unlock during the actual click, before any library/network await. Mobile
     // browsers may discard user activation once asynchronous loading finishes.
     const Context = window.AudioContext || window.webkitAudioContext;
-    audioContext ||= Context ? new Context() : null;
+    audioContext ||= Context ? new Context({ latencyHint: 'interactive' }) : null;
     const unlocked = audioContext?.resume();
     const task = (async () => {
       await unlocked;
@@ -1051,6 +1073,7 @@
     }
     response ||= await fetch(score.musicXmlUrl);
     if (!response.ok) throw new Error("在线乐谱下载失败");
+    await window.siteAssets?.load("zip");
     return unpackMxl(await response.arrayBuffer());
   }
 
@@ -1230,6 +1253,7 @@
   }
 
   async function renderScore() {
+    await window.siteAssets?.load("score");
     if (!window.opensheetmusicdisplay) throw new Error("乐谱渲染器加载失败");
     const { OpenSheetMusicDisplay } = window.opensheetmusicdisplay;
     osmd = new OpenSheetMusicDisplay(ui.canvas, {
@@ -1331,9 +1355,10 @@
     const previousInstrument = activeInstrument;
     activeInstrument = null;
     activeInstrumentId = "";
+    activeInstrumentScope = null;
     try { previousInstrument?.dispose(); } catch (error) {}
     renderSourceHint();
-    void ensureInstrument();
+    void ensureInstrument().catch(error => { ui.status.textContent = `音色载入失败：${error.message || '请重试'}`; });
   });
   ui.rewind.addEventListener("click", () => setPosition(0));
   ui.progress.addEventListener("input", () => setPosition(Number(ui.progress.value)));
