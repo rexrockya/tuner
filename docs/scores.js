@@ -629,7 +629,8 @@
     ui.progress.max = "1";
     ui.time.textContent = "0:00 / 0:00";
     ui.loop.classList.remove("on");
-    ui.loop.textContent = "循环：关";
+    ui.loop.textContent = "循环";
+    ui.loop.title = "循环当前小节";
     ui.loop.setAttribute("aria-pressed", "false");
     ui.transpose.textContent = "0";
     ui.zoom.textContent = "100%";
@@ -991,7 +992,8 @@
       const activate = event => {
         event.preventDefault();
         loopMeasure = ui.loop.classList.contains("on") ? index : null;
-        ui.loop.textContent = loopMeasure === null ? "循环：关" : `循环：${index + 1}`;
+        ui.loop.textContent = "循环";
+        ui.loop.title = loopMeasure === null ? "循环当前小节" : `循环第 ${index + 1} 小节`;
         setPosition(manifest.measureStarts[index]);
         void play();
         if (event.type === "click") rect.blur?.();
@@ -1347,13 +1349,15 @@
     if (manifest?.beatTimeline?.issues.length) return;
     if (ui.loop.classList.toggle("on")) {
       loopMeasure = activeMeasure < 0 ? 0 : activeMeasure;
-      ui.loop.textContent = `循环：${loopMeasure + 1}`;
+      ui.loop.textContent = "循环";
+      ui.loop.title = `循环第 ${loopMeasure + 1} 小节`;
       ui.loop.setAttribute("aria-pressed", "true");
       setPosition(manifest.measureStarts[loopMeasure]);
     } else {
       const savedPosition = currentTime();
       loopMeasure = null;
-      ui.loop.textContent = "循环：关";
+      ui.loop.textContent = "循环";
+      ui.loop.title = "循环当前小节";
       ui.loop.setAttribute("aria-pressed", "false");
       setPosition(savedPosition);
     }

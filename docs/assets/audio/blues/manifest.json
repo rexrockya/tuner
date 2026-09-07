@@ -1,0 +1,42 @@
+{
+  "bass-29": {
+    "file": "bass-29.wav",
+    "midi": 29
+  },
+  "bass-35": {
+    "file": "bass-35.wav",
+    "midi": 35
+  },
+  "bass-41": {
+    "file": "bass-41.wav",
+    "midi": 41
+  },
+  "bass-47": {
+    "file": "bass-47.wav",
+    "midi": 47
+  },
+  "hat-1": {
+    "file": "hat-1.wav"
+  },
+  "hat-2": {
+    "file": "hat-2.wav"
+  },
+  "kick-1": {
+    "file": "kick-1.wav"
+  },
+  "kick-2": {
+    "file": "kick-2.wav"
+  },
+  "open-hat": {
+    "file": "open-hat.wav"
+  },
+  "ride": {
+    "file": "ride.wav"
+  },
+  "snare-1": {
+    "file": "snare-1.wav"
+  },
+  "snare-2": {
+    "file": "snare-2.wav"
+  }
+}

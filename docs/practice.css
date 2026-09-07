@@ -1,0 +1,143 @@
+/* Quiet controls, one accent, and room for the music. */
+[hidden]{display:none!important}
+:root{--muted:#a0a89a;--line:#353d32;--surface:#191f17}
+input,select,button{font:inherit}
+button:disabled{opacity:.4;cursor:default}
+input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.tabs .tab,.nav-right,.account-open{font-size:14px}
+.privacy{font-size:12px;color:#a0a89a}
+.status,.frequency,.tune-state{font-size:14px}
+.meter-labels{font-size:12px;color:#8a9483}
+main:before{display:none}
+.brand span{display:none}
+#lesson-page{max-width:1100px;padding-top:24px}
+.lesson-modes{display:flex;gap:24px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.lesson-modes button{min-width:0;padding:12px 2px;border:0;border-bottom:2px solid transparent;border-radius:0;background:none;color:var(--muted);font-size:16px}
+.lesson-modes button.active{border-bottom-color:var(--lime);color:var(--cream)}
+.library-shell{margin-top:0}
+.harmony-search{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.harmony-search input{flex:1 1 240px;min-width:0;padding:12px;border:1px solid #58634f;border-radius:4px;background:#10150e;color:var(--cream);font-size:16px}
+.harmony-search button{min-width:0;min-height:44px;padding:10px 12px;background:#282f24;color:var(--cream);font-size:14px}
+.harmony-search button.on{background:var(--lime);color:var(--ink)}
+.harmony-search label{width:100%;color:var(--muted);font-size:14px}
+.harmony-search .harmony-help{flex-basis:100%;margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.harmony-search .harmony-error{flex-basis:100%;margin:0;color:#ffb4a5;font-size:14px}
+.library-main input,.library-filters select{font-size:14px}
+.library-main input{padding:12px}
+.library-main button,.library-filters button,.library-filters select{min-height:40px;font-size:14px}
+.library-filter-details summary{width:max-content;padding:10px 0;color:var(--muted);cursor:pointer;font-size:14px}
+.library-filters{margin:6px 0 12px}
+.library-meta,.library-progress{font-size:12px;color:var(--muted)}
+.course-map{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:8px 0 0;padding:0;max-height:260px;overflow:auto;border-top:1px solid var(--line)}
+.level{min-width:0;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;background:transparent;padding:12px;gap:10px}
+.level.current{background:#252e20;box-shadow:inset 3px 0 var(--lime);border-color:var(--line)}
+.level+.level:before{display:none}
+.level strong{font-size:14px;line-height:1.55;overflow-wrap:anywhere}
+.level small{font-size:12px;color:var(--muted)}
+.level em{font-size:12px}
+.load-more{font-size:14px;min-height:40px}
+.lesson-title{font-size:clamp(21px,3vw,30px);line-height:1.3;letter-spacing:-.02em;margin:0 0 7px}
+.lesson-head{margin-top:24px;gap:18px}
+.lesson-meta,.lesson-harmonic .harmony,.lesson-harmonic .track-title{font-size:14px}
+.lesson-harmonic .track-title{margin:0 0 4px}
+.lesson-harmonic .harmony{padding:0;border:0;background:none}
+.sync-tools button,.tempo-control output,.tempo-control button{font-size:14px;min-height:40px}
+.sync-tools button.on{box-shadow:inset 0 -2px #536b2a}
+.mini-player button,.lick-switcher>button,.score-toolbar button{min-height:44px;min-width:44px}
+.lick-switcher-current>span{display:none}
+.lick-switcher-current strong{font-size:14px}
+.lesson-foot button{font-size:14px;min-height:42px}
+.lesson-foot button.on{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.source-hint,.ab-disclosure summary{font-size:12px;line-height:1.6}
+.source-hint a{text-decoration:underline;text-underline-offset:3px}
+.lesson-kicker,.account-eyebrow{display:none}
+.practice-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+.practice-heading h1{font-size:24px;letter-spacing:-.04em;margin:0;font-weight:600}
+#practice-pane select,#practice-pane input{min-width:0;background:#11160f;color:var(--cream);border:1px solid #495341;border-radius:4px;font-size:14px;min-height:44px;padding:9px 10px}
+#practice-pane select{max-width:100%}
+.practice-form{display:flex;gap:12px;align-items:end}
+.practice-form label{display:grid;gap:8px;color:var(--muted);font-size:14px}
+.practice-form .practice-changes{flex:1;min-width:0}
+#practice-progression{width:100%;font-size:16px!important}
+.practice-form button{min-width:80px;height:44px;padding:10px 16px;font-size:14px}
+.practice-help{font-size:12px;color:var(--muted);line-height:1.7;margin:10px 0 20px}
+.practice-error{font-size:14px;color:#ffb4a5;line-height:1.6;margin:8px 0 18px}
+.practice-transport{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.practice-transport button,.practice-footer button{min-width:0;padding:10px 14px;min-height:44px;background:#252d20;color:var(--cream);font-size:14px}
+.practice-transport button.on{background:var(--lime);color:var(--ink)}
+.practice-transport button.practice-round{height:44px;width:44px;padding:0;border-radius:50%;font-size:19px}
+.practice-transport button.primary{background:var(--lime);color:var(--ink)}
+.practice-tempo{display:flex;align-items:center;gap:5px}
+.practice-tempo input{width:65px;text-align:center;font-size:18px!important;font-variant-numeric:tabular-nums}
+.practice-tempo span{color:var(--muted);font-size:12px}
+.practice-position{margin-left:auto;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.practice-beat-row{display:flex;align-items:center;gap:20px;min-height:58px;font-size:14px}
+.practice-beats{display:flex;gap:8px}
+.practice-beats i{width:7px;height:7px;background:#48513f;border-radius:50%}
+.practice-beats i.active{background:var(--lime);box-shadow:0 0 0 3px #bdf45d22}
+#practice-current-chord{font-size:20px;min-width:65px;font-weight:600}
+#practice-status{color:var(--muted);font-size:12px}
+.practice-chart{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.practice-chart button{min-width:0;min-height:88px;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent;color:var(--cream);padding:14px;text-align:left}
+.practice-chart button small{display:block;font:12px/1.3 monospace;color:var(--muted);margin-bottom:8px}
+.practice-chart button strong{display:block;font-size:19px;line-height:1.4;overflow-wrap:anywhere;font-weight:500}
+.practice-chart button strong span{color:var(--muted);font-weight:400}
+.practice-chart button.active{background:#283221;box-shadow:inset 0 3px var(--lime)}
+.practice-chart button.active small{color:var(--lime)}
+.practice-tab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:26px}
+.tab-measure{min-width:0;background:#f2f0e6;color:#172012;border-radius:4px;padding:14px 8px 8px}
+.tab-measure-title{display:flex;gap:12px;margin:0 8px 22px;font-size:14px}
+.tab-measure-title>span{color:#65715c}
+.tab-strings{position:relative;height:125px}
+.tab-string{position:absolute;left:25px;right:8px;border-top:1px solid #88927f}
+.tab-string i{position:absolute;left:-18px;top:-8px;font:12px/1 monospace;color:#505b46}
+.tab-fret{position:absolute;z-index:1;min-width:24px;width:24px;min-height:22px;padding:3px 1px;background:#f2f0e6;color:#172012;font:600 14px/1 monospace;transform:translateX(-50%);border-radius:3px}
+.tab-fret.active{background:#21420e;color:#fff}
+.tab-fret:focus-visible{outline:2px solid #21420e}
+.tab-beat-labels{display:grid;grid-template-columns:repeat(4,1fr);margin-left:25px;font:12px/1 monospace;color:#616d58}
+.practice-footer{display:flex;align-items:start;gap:10px;margin-top:20px}
+.practice-mixer{flex:1}
+.practice-mixer summary,.practice-notes summary{font-size:14px;color:var(--muted);cursor:pointer;padding:12px 0;width:max-content}
+.practice-mixer>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px 8px 14px 0}
+.practice-mixer label{font-size:14px;color:var(--muted);display:flex;gap:12px;align-items:center}
+#practice-pane input[type=range]{width:100%;min-height:30px;padding:0;accent-color:var(--lime);border:0}
+.practice-notes{margin-top:14px;border-top:1px solid var(--line)}
+.practice-notes p,.practice-notes a{font-size:14px;line-height:1.8;color:var(--muted)}
+.practice-notes a{text-decoration:underline}
+.saved-picker{display:flex;gap:16px;align-items:center;font-size:14px;color:var(--muted);margin-top:16px}
+.saved-picker select{flex:1;min-width:0}
+.sheet-identity .sheet-kind{display:none}
+.sheet-head:has(#sheet-player-identity:not([hidden]))>#sheet-status{display:none}
+.score-group-head h2{font-size:17px}
+.score-card h3{font-size:16px}
+.score-card p,.score-card small,.sheet-source-details summary{font-size:12px;line-height:1.6}
+.sheet-option{font-size:14px;min-height:36px}
+.metro-unit{font-size:14px}
+.metro-room-details{margin-top:24px;border-top:1px solid var(--line);text-align:left}
+.metro-room-details>summary{cursor:pointer;color:var(--muted);font-size:14px;padding:16px 0}
+.metro-room-details .role-switch{margin-top:8px}
+.metro-hint,.metro-follow{font-size:14px;line-height:1.6}
+.jam-head h1{font-size:28px}
+.jam-head p,.jam-filter{font-size:14px}
+.jam-prototype{font-size:12px}
+@media(max-width:600px){
+  #lesson-page{padding:14px 16px 100px}
+  .lesson-modes{margin-bottom:20px}
+  .course-map{grid-template-columns:1fr;max-height:225px}
+  .lesson-head{display:block}.lesson-harmonic{margin-top:12px}
+  .lesson-harmonic .track-title{display:none}
+  .practice-heading{gap:12px;margin-bottom:18px}.practice-heading h1{font-size:22px}
+  .practice-heading select{max-width:52%!important}
+  .practice-form{flex-wrap:wrap;gap:10px}.practice-form .practice-changes{flex-basis:100%}
+  .practice-form>label:not(.practice-changes){flex:1;display:flex;align-items:center}
+  .practice-form>label:not(.practice-changes) select{flex:1}.practice-form button{min-width:100px}
+  .practice-transport{gap:8px;padding:14px 0}.practice-position{font-size:12px}
+  .practice-transport button{padding:8px 10px}.practice-transport select{flex:1;max-width:128px!important}
+  .practice-chart button{min-height:80px;padding:12px 8px}.practice-chart button strong{font-size:16px}
+  .practice-tab{grid-template-columns:1fr;gap:16px}
+  .practice-mixer>div{grid-template-columns:1fr}
+  .practice-footer{flex-wrap:wrap}.practice-mixer{min-width:90px}
+  .harmony-search input{flex-basis:100%}
+  .sync-tools{gap:6px}.sync-tools button{padding:9px 10px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}

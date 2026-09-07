@@ -33,7 +33,7 @@ let LICKS = SOURCE.map(([id, group, chord, degree, bars, kind]) => {
   };
 });
 
-const BOPLAND_DATABASE_URL = "https://bopland.org/data/guitar-licks.js?t=1335";
+const BOPLAND_DATABASE_URL = "assets/licks/guitar-index.js?v=20260908-1";
 const BOPLAND_CATEGORIES = [
   "Major 2-5-1", "Minor 2-5-1", "Turnaround", "All The Things You Are", "Autumn Leaves", "Blues",
   "The Days Of Wine And Roses", "How High The Moon / Ornithology", "Invitation", "It Don't Mean A Thing",
@@ -42,7 +42,7 @@ const BOPLAND_CATEGORIES = [
   "Andalusian Cadence", "Major 2-5-1-6", "Major 3-6-2-5-1", "Circle of Dominant 7th Chords",
   "Giant Steps", "Nardis", "Major 5-1", "Minor 5-1"
 ];
-const libraryState = { query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6, loaded: false };
+const libraryState = { harmony: "", transpose: false, query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6, loaded: false };
 
 const THEORY = {
   blues: {
@@ -98,67 +98,6 @@ const DETAILED_ANALYSIS = {
   ]
 };
 
-const SCALE_LIBRARY = [
-  { id: "ionian", group: "七种调式", name: "Ionian（自然大调）", steps: [0,2,4,5,7,9,11], degrees: ["1","2","3","4","5","6","7"], use: "大调主和弦与明亮、稳定的调性中心。" },
-  { id: "dorian", group: "七种调式", name: "Dorian（多利亚）", steps: [0,2,3,5,7,9,10], degrees: ["1","2","♭3","4","5","6","♭7"], use: "m7 上最常用；自然 6 是区别于自然小调的关键。" },
-  { id: "phrygian", group: "七种调式", name: "Phrygian（弗里几亚）", steps: [0,1,3,5,7,8,10], degrees: ["1","♭2","♭3","4","5","♭6","♭7"], use: "小和弦上的强烈 ♭2 色彩，常用于西班牙/金属语汇。" },
-  { id: "lydian", group: "七种调式", name: "Lydian（利底亚）", steps: [0,2,4,6,7,9,11], degrees: ["1","2","3","♯4","5","6","7"], use: "maj7 上的漂浮感；♯4 是必须听清的特征音。" },
-  { id: "mixolydian", group: "七种调式", name: "Mixolydian（混合利底亚）", steps: [0,2,4,5,7,9,10], degrees: ["1","2","3","4","5","6","♭7"], use: "属七和弦的基础音阶；3 与 ♭7 决定它的功能。" },
-  { id: "aeolian", group: "七种调式", name: "Aeolian（自然小调）", steps: [0,2,3,5,7,8,10], degrees: ["1","2","♭3","4","5","♭6","♭7"], use: "自然小调；♭6 带来比 Dorian 更暗的声音。" },
-  { id: "locrian", group: "七种调式", name: "Locrian（洛克里亚）", steps: [0,1,3,5,6,8,10], degrees: ["1","♭2","♭3","4","♭5","♭6","♭7"], use: "m7♭5 的基础选择；♭5 与 ♭2 是核心色彩。" },
-  { id: "majorPent", group: "五声与蓝调", name: "大调五声音阶", steps: [0,2,4,7,9], degrees: ["1","2","3","5","6"], use: "大调、乡村、流行；没有 4 与 7，落音较安全。" },
-  { id: "minorPent", group: "五声与蓝调", name: "小调五声音阶", steps: [0,3,5,7,10], degrees: ["1","♭3","4","5","♭7"], use: "摇滚与蓝调骨架；在属七和弦上会产生大小三度摩擦。" },
-  { id: "minorBlues", group: "五声与蓝调", name: "小调布鲁斯音阶", steps: [0,3,5,6,7,10], degrees: ["1","♭3","4","♭5","5","♭7"], use: "小调五声加入 ♭5 蓝调音，练习 ♭5→5 的解决。" },
-  { id: "majorBlues", group: "五声与蓝调", name: "大调布鲁斯音阶", steps: [0,2,3,4,7,9], degrees: ["1","2","♭3","3","5","6"], use: "大调五声加入 ♭3，关键动作是 ♭3→3。" },
-  { id: "mixedBlues", group: "五声与蓝调", name: "混合布鲁斯音阶", steps: [0,3,4,5,6,7,9,10], degrees: ["1","♭3","3","4","♭5","5","6","♭7"], use: "合并大小调蓝调语汇；把 ♭3→3、♭5→5 当作动作练，而非静态音阶。" },
-  { id: "harmonicMinor", group: "小调与旋律小调", name: "和声小调", steps: [0,2,3,5,7,8,11], degrees: ["1","2","♭3","4","5","♭6","7"], use: "小调 V7→i；自然 7 是导向根音的核心。" },
-  { id: "melodicMinor", group: "小调与旋律小调", name: "旋律小调（爵士）", steps: [0,2,3,5,7,9,11], degrees: ["1","2","♭3","4","5","6","7"], use: "mMaj7 与现代爵士小调色彩，也是多个属和弦音阶的母体。" },
-  { id: "dorianB2", group: "小调与旋律小调", name: "Dorian ♭2", steps: [0,1,3,5,7,9,10], degrees: ["1","♭2","♭3","4","5","6","♭7"], use: "旋律小调第二模式；sus♭9 或特殊小和弦色彩。" },
-  { id: "lydianAug", group: "小调与旋律小调", name: "Lydian Augmented", steps: [0,2,4,6,8,9,11], degrees: ["1","2","3","♯4","♯5","6","7"], use: "maj7♯5；同时听见 ♯4 与 ♯5。" },
-  { id: "lydianDominant", group: "小调与旋律小调", name: "Lydian Dominant", steps: [0,2,4,6,7,9,10], degrees: ["1","2","3","♯4","5","6","♭7"], use: "7♯11；属七骨架上加入利底亚 ♯4。" },
-  { id: "mixolydianB6", group: "小调与旋律小调", name: "Mixolydian ♭6", steps: [0,2,4,5,7,8,10], degrees: ["1","2","3","4","5","♭6","♭7"], use: "属七和弦带 ♭13，常向小调主和弦解决。" },
-  { id: "locrianN2", group: "小调与旋律小调", name: "Locrian ♮2", steps: [0,2,3,5,6,8,10], degrees: ["1","2","♭3","4","♭5","♭6","♭7"], use: "小调 ii–V–i 的 m7♭5；自然 2 比普通 Locrian 更平滑。" },
-  { id: "altered", group: "属和弦与对称音阶", name: "Altered（变化音阶）", steps: [0,1,3,4,6,8,10], degrees: ["1","♭9","♯9","3","♭5","♭13","♭7"], use: "7alt；保留 3、♭7，同时使用所有变化张力。" },
-  { id: "bebopDominant", group: "属和弦与对称音阶", name: "Bebop Dominant", steps: [0,2,4,5,7,9,10,11], degrees: ["1","2","3","4","5","6","♭7","7"], use: "Mixolydian 加自然 7；八分音符下让和弦音落在强拍。" },
-  { id: "bebopMajor", group: "属和弦与对称音阶", name: "Bebop Major", steps: [0,2,4,5,7,8,9,11], degrees: ["1","2","3","4","5","♯5","6","7"], use: "大调音阶加入 ♯5/♭6 经过音，保持八音对称落点。" },
-  { id: "halfWhole", group: "属和弦与对称音阶", name: "半–全减音阶", steps: [0,1,3,4,6,7,9,10], degrees: ["1","♭9","♯9","3","♭5","5","6","♭7"], use: "7♭9/13；半音与全音交替，包含完整属七骨架。" },
-  { id: "wholeHalf", group: "属和弦与对称音阶", name: "全–半减音阶", steps: [0,2,3,5,6,8,9,11], degrees: ["1","2","♭3","4","♭5","♭6","6","7"], use: "dim7；全音与半音交替，适合减七和弦移动。" },
-  { id: "wholeTone", group: "属和弦与对称音阶", name: "全音阶", steps: [0,2,4,6,8,10], degrees: ["1","2","3","♯4","♯5","♭7"], use: "7♯5；没有半音，声音悬浮且方向模糊。" },
-  { id: "chromatic", group: "属和弦与对称音阶", name: "半音阶", steps: [0,1,2,3,4,5,6,7,8,9,10,11], degrees: ["1","♭2","2","♭3","3","4","♭5","5","♭6","6","♭7","7"], use: "用于连接目标音；练习重点是解决方向，不是把十二个音平均对待。" }
-];
-
-const SCALE_ROOTS = ["C","C♯","D","E♭","E","F","F♯","G","A♭","A","B♭","B"];
-const NATURAL_PITCHES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
-const NOTE_LETTERS = ["C","D","E","F","G","A","B"];
-const SCALE_FOCUS = {
-  ionian: { indexes: [6], cue: "听 7→1 的导向：明亮、完整、稳定。" },
-  dorian: { indexes: [5], cue: "在小三度背景里听自然 6：小调但不阴暗。" },
-  phrygian: { indexes: [1], cue: "听 ♭2→1 的挤压感：黑暗、紧张、带西班牙色彩。" },
-  lydian: { indexes: [3], cue: "听 ♯4 悬在 5 下方：明亮、漂浮、没有普通大调的落地感。" },
-  mixolydian: { indexes: [6], cue: "把 3 与 ♭7 一起听：开放、带属功能与蓝调气质。" },
-  aeolian: { indexes: [5], cue: "听 ♭6→5：自然小调最明显的阴影。" },
-  locrian: { indexes: [4], cue: "听 ♭5 对根音造成的不稳定，适合 m7♭5。" },
-  majorPent: { indexes: [2,4], cue: "3 与 6 让声音明亮、开阔，几乎没有冲突音。" },
-  minorPent: { indexes: [1,4], cue: "♭3 与 ♭7 带来粗粝、直接的摇滚/蓝调听感。" },
-  minorBlues: { indexes: [3,4], cue: "重点听 ♭5→5，它是蓝调张力向稳定音的动作。" },
-  majorBlues: { indexes: [2,3], cue: "重点听 ♭3→3：蓝调味来自滑向大三度。" },
-  mixedBlues: { indexes: [1,2,4,5], cue: "听 ♭3→3 与 ♭5→5 两组摩擦和解决。" },
-  harmonicMinor: { indexes: [5,6], cue: "♭6 与自然 7 拉开增二度，7→1 有强烈小调解决。" },
-  melodicMinor: { indexes: [5,6], cue: "小三度上叠自然 6、7：顺滑、现代、略带悬浮感。" },
-  dorianB2: { indexes: [1,5], cue: "♭2 的暗色与自然 6 的亮色并存。" },
-  lydianAug: { indexes: [3,4], cue: "♯4 与 ♯5 同时上扬，梦幻但不稳定。" },
-  lydianDominant: { indexes: [3,6], cue: "♯4 的明亮悬浮加 ♭7 的属和弦张力。" },
-  mixolydianB6: { indexes: [5,6], cue: "♭6→5 带苦甜色彩，♭7 保留属功能。" },
-  locrianN2: { indexes: [1,4], cue: "自然 2 缓和普通 Locrian 的 ♭2，♭5 仍保持半减不稳。" },
-  altered: { indexes: [1,2,5], cue: "把 ♭9、♯9、♭13 当成要解决到和弦音的张力。" },
-  bebopDominant: { indexes: [6,7], cue: "自然 7 是 ♭7 与根音之间的经过音，连续八分音符最明显。" },
-  bebopMajor: { indexes: [5,6], cue: "♯5 是 5 与 6 之间的经过音，让强拍更容易落到和弦音。" },
-  halfWhole: { indexes: [1,2,3], cue: "♭9、♯9 围绕 3，产生对称而强烈的变化属和弦声音。" },
-  wholeHalf: { indexes: [2,4,6], cue: "减七和弦每隔小三度重复，听感持续悬而未决。" },
-  wholeTone: { indexes: [3,4], cue: "没有半音与明确导音，♯4、♯5 让方向感消失。" },
-  chromatic: { indexes: [1], cue: "半音本身不是终点；听它如何从上下方逼近目标音。" }
-};
-
 const $ = id => document.getElementById(id);
 const audio = document.createElement("audio");
 audio.preload = "metadata";
@@ -170,9 +109,6 @@ let backingEnabled = false;
 let backingContext = null;
 let backingFrame = null;
 let lastBackingBeat = -1;
-let scaleVoices = [];
-let scaleExerciseTimer = null;
-let scaleSynthCache = { context: null, guitarWave: null, pickBuffer: null };
 let scoreZoom = 1;
 let waveformDuration = 1;
 let waveformLoadToken = 0;
@@ -197,14 +133,8 @@ function chordProgression(lick = LICKS[current]) {
 }
 
 function chordShape(name) {
-  const match = name.match(/^([A-G])([♯#♭b]?)(.*)$/);
-  if (!match) return { root: 45, intervals: [0, 4, 7, 10] };
-  const semitones = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
-  let pitch = semitones[match[1]] + (/[♯#]/.test(match[2]) ? 1 : /[♭b]/.test(match[2]) ? -1 : 0);
-  while (pitch < 0) pitch += 12;
-  const quality = match[3].toLowerCase();
-  const intervals = quality.includes("m7") ? [0, 3, 7, 10] : quality.includes("maj") ? [0, 4, 7, 11] : quality.includes("7") ? [0, 4, 7, 10] : [0, 4, 7];
-  return { root: 36 + pitch, intervals };
+  try { const chord = window.tunerHarmony.chord(name.trim().split(/\s+/)[0]); return { root: 36 + chord.root, intervals: chord.intervals }; }
+  catch { return { root: 45, intervals: [0, 4, 7, 10] }; }
 }
 
 function midiFrequency(midi) {
@@ -266,226 +196,6 @@ async function startBackingClock() {
   tick();
 }
 
-function selectedScale() {
-  return SCALE_LIBRARY.find(scale => scale.id === $("scale-type").value) || SCALE_LIBRARY[4];
-}
-
-function spellScaleNote(root, step, degree) {
-  const rootName = SCALE_ROOTS[root];
-  const rootLetter = rootName[0];
-  const degreeNumber = Number(degree.match(/\d+/)?.[0] || 1);
-  const letter = NOTE_LETTERS[(NOTE_LETTERS.indexOf(rootLetter) + degreeNumber - 1) % 7];
-  const targetPitch = (root + step) % 12;
-  let accidental = (targetPitch - NATURAL_PITCHES[letter] + 12) % 12;
-  if (accidental > 6) accidental -= 12;
-  return letter + (accidental > 0 ? "♯".repeat(accidental) : "♭".repeat(-accidental));
-}
-
-function scaleToneAt(scale, index, root = Number($("scale-root").value || 0)) {
-  const length = scale.steps.length;
-  const octave = Math.floor(index / length);
-  const position = ((index % length) + length) % length;
-  const degree = scale.degrees[position];
-  const step = scale.steps[position] + octave * 12;
-  const octaveMark = octave > 0 ? "↑".repeat(octave) : "";
-  return { step, degree: `${degree}${octaveMark}`, note: `${spellScaleNote(root, step, degree)}${octaveMark}` };
-}
-
-function scaleLicks(scale) {
-  const length = scale.steps.length;
-  const focus = SCALE_FOCUS[scale.id]?.indexes || [Math.min(3, length - 1)];
-  const first = Math.max(0, Math.min(...focus) - 1);
-  const focusPath = [...new Set([first, ...focus.flatMap(index => [index, Math.min(index + 1, length)])])];
-  const rawCharacteristic = [...focusPath, ...focusPath.slice(0, -1).reverse()].map(index => index + length).concat([length + 2, length + 1, length]);
-  const characteristic = rawCharacteristic.filter((index, position) => position === 0 || index !== rawCharacteristic[position - 1]);
-  const descending = [4,3,2,1,3,2,1,0,2,1,0].map(index => index + length);
-  return [
-    { id: "character", name: "特征音句", hint: "围绕特征音制造并解决张力", indexes: characteristic },
-    { id: "resolve", name: "下行收束句", hint: "练习级进、回绕与落回根音", indexes: descending }
-  ];
-}
-
-function renderScaleTrainer() {
-  const root = Number($("scale-root").value || 0);
-  const scale = selectedScale();
-  const notes = [...scale.steps, 12];
-  const degrees = [...scale.degrees, "8"];
-  $("scale-name").textContent = `${SCALE_ROOTS[root]} ${scale.name}`;
-  $("scale-formula").textContent = scale.degrees.join(" · ");
-  $("scale-use").textContent = scale.use;
-  $("scale-character").textContent = `听感重点：${SCALE_FOCUS[scale.id].cue}`;
-  $("scale-notes").innerHTML = notes.map((step, index) => `<span class="scale-note">${spellScaleNote(root, step, degrees[index])}<small>${degrees[index]}</small></span>`).join("");
-  $("scale-lick-list").innerHTML = scaleLicks(scale).map(lick => {
-    const tones = lick.indexes.map(index => scaleToneAt(scale, index, root));
-    return `<article class="scale-lick"><div class="scale-lick-head"><strong>${lick.name}</strong><button data-scale-lick="${lick.id}">▶ 播放</button></div><p>${lick.hint}</p><p>级数（↑ 高八度）：${tones.map(tone => tone.degree).join(" – ")}</p><p class="lick-notes">音名：${tones.map(tone => tone.note).join(" – ")}</p></article>`;
-  }).join("");
-}
-
-function stopScaleExercise(message = "已停止") {
-  scaleVoices.forEach(oscillator => {
-    try { oscillator.stop(); } catch (_) {}
-  });
-  scaleVoices = [];
-  clearTimeout(scaleExerciseTimer);
-  scaleExerciseTimer = null;
-  if ($("scale-status")) $("scale-status").textContent = message;
-}
-
-function scalePattern(mode, scale) {
-  const ascending = [...scale.steps, 12];
-  if (mode === "updown") return [...ascending, ...ascending.slice(0, -1).reverse()];
-  const extended = [...scale.steps, ...scale.steps.map(step => step + 12), 24];
-  if (mode === "thirds") {
-    const result = [];
-    for (let index = 0; index < scale.steps.length; index++) result.push(extended[index], extended[index + 2]);
-    return result;
-  }
-  if (mode === "four") {
-    const result = [];
-    for (let index = 0; index <= scale.steps.length; index++) result.push(...extended.slice(index, index + 4));
-    return result;
-  }
-  return ascending;
-}
-
-function scaleSynthAssets() {
-  if (scaleSynthCache.context !== backingContext) {
-    const guitarHarmonics = new Float32Array([0, 1, .62, .34, .2, .12, .075, .045]);
-    const pickBuffer = backingContext.createBuffer(1, Math.ceil(backingContext.sampleRate * .018), backingContext.sampleRate);
-    const pick = pickBuffer.getChannelData(0);
-    for (let index = 0; index < pick.length; index++) pick[index] = (Math.random() * 2 - 1) * Math.pow(1 - index / pick.length, 2);
-    scaleSynthCache = { context: backingContext, guitarWave: backingContext.createPeriodicWave(new Float32Array(guitarHarmonics.length), guitarHarmonics), pickBuffer };
-  }
-  return scaleSynthCache;
-}
-
-function scheduleScaleNote(midi, at, noteLength, instrument) {
-  const frequency = midiFrequency(midi);
-  const filter = backingContext.createBiquadFilter();
-  const envelope = backingContext.createGain();
-  filter.type = "lowpass";
-  filter.Q.value = instrument === "guitar" ? 1.15 : .55;
-  filter.frequency.setValueAtTime(instrument === "guitar" ? 4600 : 6200, at);
-  filter.frequency.exponentialRampToValueAtTime(instrument === "guitar" ? 1050 : 2100, at + Math.max(.35, noteLength * 1.8));
-  envelope.gain.setValueAtTime(.0001, at);
-  envelope.gain.exponentialRampToValueAtTime(instrument === "guitar" ? .105 : .075, at + (instrument === "guitar" ? .006 : .012));
-  const tail = instrument === "guitar" ? Math.max(.58, noteLength * 2.4) : Math.max(.82, noteLength * 3.1);
-  envelope.gain.exponentialRampToValueAtTime(.0001, at + tail);
-  filter.connect(envelope).connect(backingContext.destination);
-
-  if (instrument === "guitar") {
-    const assets = scaleSynthAssets();
-    const string = backingContext.createOscillator();
-    string.setPeriodicWave(assets.guitarWave);
-    string.frequency.value = frequency;
-    string.detune.value = -2;
-    string.connect(filter);
-    string.start(at);
-    string.stop(at + tail + .03);
-    scaleVoices.push(string);
-
-    const pick = backingContext.createBufferSource();
-    const pickFilter = backingContext.createBiquadFilter();
-    const pickGain = backingContext.createGain();
-    pick.buffer = assets.pickBuffer;
-    pickFilter.type = "bandpass";
-    pickFilter.frequency.value = Math.min(5200, Math.max(900, frequency * 3.5));
-    pickFilter.Q.value = .7;
-    pickGain.gain.value = .035;
-    pick.connect(pickFilter).connect(pickGain).connect(backingContext.destination);
-    pick.start(at);
-    scaleVoices.push(pick);
-  } else {
-    [[1,0],[2,-4],[3,3],[4,-7]].forEach(([harmonic, detune], index) => {
-      const partial = backingContext.createOscillator();
-      const partialGain = backingContext.createGain();
-      partial.type = "sine";
-      partial.frequency.value = frequency * harmonic;
-      partial.detune.value = detune;
-      partialGain.gain.value = [1,.34,.16,.07][index];
-      partial.connect(partialGain).connect(filter);
-      partial.start(at);
-      partial.stop(at + tail + .03);
-      scaleVoices.push(partial);
-    });
-  }
-}
-
-async function playScaleSequence(sequence, label, options = {}) {
-  stopScaleExercise("");
-  stopLick(false);
-  await ensureBackingContext();
-  const root = Number($("scale-root").value || 0);
-  const instrument = $("scale-instrument").value || "guitar";
-  const instrumentLabel = instrument === "piano" ? "钢琴" : "木吉他";
-  const noteLength = (options.slow ? 42 : 30) / practiceBpm;
-  const start = backingContext.currentTime + 0.06;
-  const duration = sequence.length * noteLength;
-  if (options.drone) {
-    [36 + root, 48 + root].forEach((midi, index) => {
-      const oscillator = backingContext.createOscillator();
-      const gain = backingContext.createGain();
-      oscillator.type = "sine";
-      oscillator.frequency.value = midiFrequency(midi);
-      gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(index ? 0.018 : 0.026, start + 0.08);
-      gain.gain.setValueAtTime(index ? 0.018 : 0.026, start + duration);
-      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration + 0.18);
-      oscillator.connect(gain).connect(backingContext.destination);
-      oscillator.start(start);
-      oscillator.stop(start + duration + 0.2);
-      scaleVoices.push(oscillator);
-    });
-  }
-  sequence.forEach((step, index) => {
-    const at = start + index * noteLength;
-    scheduleScaleNote(48 + root + step, at, noteLength, instrument);
-  });
-  $("scale-status").textContent = `正在播放：${label} · ${instrumentLabel} · ${practiceBpm} BPM${options.drone ? " · 持续根音" : ""}`;
-  scaleExerciseTimer = setTimeout(() => {
-    $("scale-status").textContent = options.finish || "完成一轮；现在不看提示，自己弹一遍。";
-  }, (duration + 0.25) * 1000);
-}
-
-function playScaleFeel() {
-  const scale = selectedScale();
-  const root = Number($("scale-root").value || 0);
-  const lick = scaleLicks(scale)[0];
-  const sequence = [0, 12, ...lick.indexes.map(index => scaleToneAt(scale, index, root).step)];
-  playScaleSequence(sequence, `${SCALE_ROOTS[root]} ${scale.name} · 听感示范`, { drone: true, slow: true, finish: `再听一次，并跟唱：${SCALE_FOCUS[scale.id].cue}` });
-}
-
-function playScaleLick(id) {
-  const scale = selectedScale();
-  const root = Number($("scale-root").value || 0);
-  const lick = scaleLicks(scale).find(item => item.id === id) || scaleLicks(scale)[0];
-  playScaleSequence(lick.indexes.map(index => scaleToneAt(scale, index, root).step), `${SCALE_ROOTS[root]} ${scale.name} · ${lick.name}`, { finish: "轮到你：保持节拍，照着级数弹，再改最后两个音。" });
-}
-
-async function playScaleExercise(mode) {
-  const labels = { up: "上行", updown: "上下行", thirds: "三度进行", four: "四音序列" };
-  const scale = selectedScale();
-  const root = Number($("scale-root").value || 0);
-  const sequence = scalePattern(mode, scale);
-  playScaleSequence(sequence, `${SCALE_ROOTS[root]} ${scale.name} · ${labels[mode]}`);
-}
-
-function initScaleTrainer() {
-  $("scale-root").innerHTML = SCALE_ROOTS.map((name, index) => `<option value="${index}" ${index === 9 ? "selected" : ""}>${name}</option>`).join("");
-  const groups = [...new Set(SCALE_LIBRARY.map(scale => scale.group))];
-  $("scale-type").innerHTML = groups.map(group => `<optgroup label="${group}">${SCALE_LIBRARY.filter(scale => scale.group === group).map(scale => `<option value="${scale.id}" ${scale.id === "mixolydian" ? "selected" : ""}>${scale.name}</option>`).join("")}</optgroup>`).join("");
-  $("scale-root").addEventListener("change", renderScaleTrainer);
-  $("scale-type").addEventListener("change", renderScaleTrainer);
-  $("scale-feel").addEventListener("click", playScaleFeel);
-  $("scale-lick-list").addEventListener("click", event => {
-    const button = event.target.closest("[data-scale-lick]");
-    if (button) playScaleLick(button.dataset.scaleLick);
-  });
-  document.querySelectorAll("[data-scale-pattern]").forEach(button => button.addEventListener("click", () => playScaleExercise(button.dataset.scalePattern)));
-  $("scale-stop").addEventListener("click", () => stopScaleExercise());
-  renderScaleTrainer();
-}
-
 function normalizedProgression(value) {
   return String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
 }
@@ -517,7 +227,7 @@ function buildBoplandLibrary(database) {
     Object.entries(progressions).forEach(([rawProgression, ids]) => {
       const progression = normalizedProgression(rawProgression);
       const candidates = patterns
-        .filter(pattern => pattern.meter === meter && progression.includes(pattern.progression))
+        .filter(pattern => (!pattern.meter || pattern.meter === meter) && progression.includes(pattern.progression))
         .sort((left, right) => right.progression.length - left.progression.length);
       const match = candidates[0];
       const category = match?.category || (meter === "3/4" ? "Waltz / 3/4" : meter === "5/4" ? "Take Five / 5/4" : "其他进行");
@@ -934,11 +644,14 @@ function updateScoreZoom() {
 function filteredLibrary() {
   const saved = favorites();
   const query = libraryState.query.trim().toLowerCase();
+  const harmony = window.tunerHarmony?.parse(libraryState.harmony);
+  if (harmony?.error) return [];
   return LICKS.map((lick, index) => ({ lick, index })).filter(({ lick }) => {
     if (libraryState.category !== "all" && lick.group !== libraryState.category) return false;
     if (libraryState.key !== "all" && lick.key !== libraryState.key) return false;
     if (libraryState.meter !== "all" && lick.meter !== libraryState.meter) return false;
     if (libraryState.favoritesOnly && !saved.has(lick.id)) return false;
+    if (harmony?.chords.length && !window.tunerHarmony.matches(harmony, lick.chord, lick.key || lick.group.match(/^[A-G][#b]?/)?.[0], libraryState.transpose)) return false;
     const searchable = lick.searchText || `${lick.name} ${lick.group} ${lick.chord} ${lick.id}`.toLowerCase();
     return !query || searchable.includes(query);
   });
@@ -946,6 +659,13 @@ function filteredLibrary() {
 
 function renderLibrary() {
   const visible = filteredLibrary();
+  const harmony = window.tunerHarmony?.parse(libraryState.harmony);
+  if ($("harmony-error")) { $("harmony-error").textContent = harmony?.error || ""; $("harmony-error").hidden = !harmony?.error; $("lick-harmony").setAttribute("aria-invalid", String(Boolean(harmony?.error))); }
+  const degreeSearch = harmony?.notation === "degree";
+  $("harmony-transpose").disabled = degreeSearch;
+  $("harmony-transpose").classList.toggle("on", degreeSearch || libraryState.transpose);
+  $("harmony-transpose").setAttribute("aria-pressed", String(degreeSearch || libraryState.transpose));
+  $("harmony-transpose").title = degreeSearch ? "级数已匹配所有调；可在更多筛选中选调性" : "按相同和声关系匹配其他调";
   const shown = visible.slice(0, libraryState.limit);
   const finished = completed();
   const saved = favorites();
@@ -959,7 +679,7 @@ function renderLibrary() {
   $("course-map").innerHTML = shown.length ? shown.map(({ lick, index }) => `
     <a class="level ${finished.has(lick.id) ? "done" : ""} ${index === current ? "current" : ""}"
        href="${lickHref(index)}" data-lick-index="${index}" title="${escapeHtml(lick.chord)}">
-      <span><small>${escapeHtml(lick.group)} · ${escapeHtml(lick.key || lick.meter || "")}</small><strong>${escapeHtml(lick.chord)}</strong></span><em>${index === current ? "播放中" : "▶"}</em>
+      <span><small>${escapeHtml(lick.group)} · ${escapeHtml(lick.key || lick.meter || "")}</small><strong>${escapeHtml(lick.chord)}</strong></span><em>${index === current ? "已选" : "▶"}</em>
     </a>`).join("") : '<p class="empty-results">没有符合条件的 Lick</p>';
   bindLickLinks($("course-map"));
   $("load-more").hidden = shown.length >= visible.length;
@@ -994,7 +714,8 @@ function updatePracticeBpm(next, syncMetronome = true) {
 
 function updateMetronomeButton(running) {
   $("lesson-metro").classList.toggle("on", Boolean(running));
-  $("lesson-metro").textContent = `节拍：${running ? "开" : "关"}`;
+  $("lesson-metro").textContent = "节拍";
+  $("lesson-metro").setAttribute("aria-pressed", String(Boolean(running)));
 }
 
 function genericBarAnalysis(lick) {
@@ -1044,8 +765,12 @@ function render() {
   scoreImage.addEventListener("load", fitScoreHeight, { once: true });
   requestAnimationFrame(fitScoreHeight);
   $("preview-status").innerHTML = '2,525 条吉他 Lick 来源：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand.org</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
-  $("master-lick").textContent = finished.has(lick.id) ? "✓ 已掌握" : "标记已掌握";
-  $("favorite-lick").textContent = saved.has(lick.id) ? "★ 已收藏" : "☆ 收藏这条 Lick";
+  $("master-lick").textContent = "掌握";
+  $("master-lick").classList.toggle("on", finished.has(lick.id));
+  $("master-lick").setAttribute("aria-pressed", String(finished.has(lick.id)));
+  $("favorite-lick").textContent = saved.has(lick.id) ? "★ 收藏" : "☆ 收藏";
+  $("favorite-lick").classList.toggle("on", saved.has(lick.id));
+  $("favorite-lick").setAttribute("aria-pressed", String(saved.has(lick.id)));
   $("current-lick-label").textContent = `${current + 1}. ${lick.name}`;
   $("previous-lick").disabled = current <= 0;
   $("next-lick").disabled = current >= LICKS.length - 1;
@@ -1065,7 +790,9 @@ function render() {
   }
   audio.loop = false;
   updatePracticeBpm(practiceBpm, false);
-  $("toggle-loop").textContent = `A/B：${looping ? "开" : "关"}`;
+  $("toggle-loop").textContent = "A/B";
+  $("toggle-loop").classList.toggle("on", looping);
+  $("toggle-loop").setAttribute("aria-pressed", String(looping));
   updateMetronomeButton(window.metronome?.isRunning?.() || false);
   updateScoreZoom();
   drawWaveform();
@@ -1112,6 +839,7 @@ audio.addEventListener("error", () => {
 });
 
 async function togglePlayback() {
+  window.dispatchEvent(new CustomEvent("tuner:lesson-play"));
   if (!audio.paused) {
     audio.pause();
     return;
@@ -1142,7 +870,7 @@ $("toggle-backing").addEventListener("click", async () => {
   backingEnabled = !backingEnabled;
   $("toggle-backing").classList.toggle("on", backingEnabled);
   $("toggle-backing").setAttribute("aria-pressed", String(backingEnabled));
-  $("toggle-backing").textContent = `伴奏：${backingEnabled ? "开" : "关"}`;
+  $("toggle-backing").textContent = "伴奏";
   if (backingEnabled) {
     await ensureBackingContext();
     if (!audio.paused) startBackingClock();
@@ -1153,7 +881,7 @@ $("toggle-demo").addEventListener("click", () => {
   const enabled = !audio.muted;
   $("toggle-demo").classList.toggle("on", enabled);
   $("toggle-demo").setAttribute("aria-pressed", String(enabled));
-  $("toggle-demo").textContent = `示范音：${enabled ? "开" : "关"}`;
+  $("toggle-demo").textContent = "示范";
 });
 $("lesson-metro").addEventListener("click", () => {
   if (!window.metronome) return;
@@ -1163,7 +891,9 @@ $("lesson-metro").addEventListener("click", () => {
 $("toggle-loop").addEventListener("click", () => {
   looping = !looping;
   $("toggle-loop").classList.toggle("on", looping);
-  $("toggle-loop").textContent = `A/B：${looping ? "开" : "关"}`;
+  $("toggle-loop").textContent = "A/B";
+  $("toggle-loop").classList.toggle("on", looping);
+  $("toggle-loop").setAttribute("aria-pressed", String(looping));
 });
 $("master-lick").addEventListener("click", () => {
   const items = completed();
@@ -1201,6 +931,8 @@ $("favorites-list").addEventListener("click", event => {
     render();
   }
 });
+$("lick-harmony").addEventListener("input", event => { libraryState.harmony = event.target.value; libraryState.limit = 6; renderLibrary(); });
+$("harmony-transpose").addEventListener("click", () => { libraryState.transpose = !libraryState.transpose; $("harmony-transpose").classList.toggle("on", libraryState.transpose); $("harmony-transpose").setAttribute("aria-pressed", String(libraryState.transpose)); renderLibrary(); });
 $("lick-search").addEventListener("input", event => {
   libraryState.query = event.target.value;
   libraryState.limit = 6;
@@ -1219,7 +951,10 @@ $("favorites-filter").addEventListener("click", () => {
   renderLibrary();
 });
 $("clear-filters").addEventListener("click", () => {
-  Object.assign(libraryState, { query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6 });
+  $("lick-harmony").value = "";
+  $("harmony-transpose").classList.remove("on");
+  $("harmony-transpose").setAttribute("aria-pressed", "false");
+  Object.assign(libraryState, { harmony: "", transpose: false, query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6 });
   $("lick-search").value = "";
   $("lick-category").value = "all";
   $("lick-key").value = "all";
@@ -1269,7 +1004,7 @@ document.addEventListener("fullscreenchange", () => requestAnimationFrame(fitSco
 window.addEventListener("resize", fitScoreHeight);
 window.addEventListener("hashchange", () => {
   const index = indexFromHash();
-  if (index >= 0) selectLick(index);
+  if (index >= 0) { window.practiceStudio?.setMode("library"); selectLick(index); }
 });
 window.addEventListener("tuner:metro-change", event => {
   if (event.detail?.bpm) updatePracticeBpm(event.detail.bpm, false);
@@ -1361,7 +1096,7 @@ document.addEventListener("keydown", event => {
   if (event.code !== "Space" || event.repeat) return;
   const target = event.target;
   if (target?.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(target?.tagName || "")) return;
-  if (getComputedStyle($("lesson-page")).display === "none") return;
+  if (getComputedStyle($("lesson-page")).display === "none" || $("lesson-page").dataset.lessonMode && $("lesson-page").dataset.lessonMode !== "library") return;
   event.preventDefault();
   togglePlayback();
 });
@@ -1370,12 +1105,12 @@ enableDrag($("lick-staff"), "both");
 bindWaveformScrub();
 bindLoopMarker("loop-a-marker", "a");
 bindLoopMarker("loop-b-marker", "b");
-initScaleTrainer();
+
 populateLibraryFilters();
 const initialFromHash = indexFromHash();
 const savedIndex = Math.max(0, Math.min(LICKS.length - 1, Number(localStorage.getItem("lick-current-v2") || 0)));
 current = initialFromHash >= 0 ? initialFromHash : savedIndex;
-window.lessonPlayer = { stop: () => { stopLick(true); stopScaleExercise(""); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
+window.lessonPlayer = { stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
 loadBoplandLibrary();
 })();

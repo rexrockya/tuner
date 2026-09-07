@@ -52,7 +52,7 @@
     $("metro-minus").disabled = $("metro-plus").disabled = false;
     document.querySelectorAll(".tempo-presets button").forEach(button => { button.disabled = false; });
     $("sheet-meter").textContent = value;
-    $("sheet-metronome").textContent = `节拍器：${enabled ? "开" : "关"}`;
+    $("sheet-metronome").textContent = "节拍器";
     $("sheet-metronome").classList.toggle("on", enabled);
     $("sheet-metronome").setAttribute("aria-pressed", String(enabled));
     for (const id of ["metro-beats", "sheet-beats"]) {

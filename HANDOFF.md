@@ -1,6 +1,6 @@
 # 弦音项目交接
 
-更新时间：2026-09-07。需求与边界见 [PRD.md](PRD.md)。
+更新时间：2026-09-08。需求与边界见 [PRD.md](PRD.md)。
 
 ## 部署事实
 
@@ -9,7 +9,18 @@
 - `website/` 是可选 Worker/账号与房间相关实现。根 `npm run build` 构建它并复制到根 `dist/`，**不是**生成 Pages 的 `docs/`。
 - 存在 `.openai/hosting.json` 不代表允许切换公开域名或重新托管。不要向用户交付其他公开入口。
 
-## 本版交付
+## 2026-09-08 教学与界面迭代
+
+- 教学分为乐句 / 创作 / 伴奏。和声筛选支持数字、罗马数字、和弦名、半减七等别名及跨调。`docs/assets/licks/guitar-index.js` 是带来源说明的 BopLand CC BY-SA 4.0 索引快照；谱图与示范 MP3 仍从源站加载。
+- `docs/harmony.js` 负责解析、匹配及有种子的原创规则作曲；数字使用大调级数参照，变音显写。已有素材与原创练习句独立，不宣称算法写出的句子是经典转录。
+- `docs/practice-audio.js` 用绝对 AudioContext 时钟、25 ms 调度和 140 ms 提前量播放鼓/Bass/风琴/吉他。沿用乐谱的点选、变速、循环交互及调度方式，未更改旧乐谱时钟。关循环在当前和声轮末停止；四轮配器变化在循环中展开。
+- `docs/practice.js` 提供原创 TAB、小节选择、音量、MIDI、本机收藏。收藏键 `tuner-original-licks-v1`（最多 50 条）；不云同步。采样、元数据随 Pages 自托管，无新后台。
+- `docs/assets/audio/blues/` 有 12 个 PCM WAV（约 2.94 MiB）、根音 manifest、CC0 原文、逐文件来源与处理记录。不要移除许可或改用未明确授权音源。
+- 删除音阶训练及其 JS。精简标题、提示、开关文案；状态通过 `.on` / `aria-pressed` 保留。房间节拍器折叠为次级入口，旧全局 `.lesson-kicker` 误写已改为专用 ID。
+- 新样式 `docs/practice.css` 最后加载。更新功能时同步更新 `index.html` 中相应脚本查询版本。
+- `npm run test:practice` 检查完整库 615 种和声、原创建谱/收藏/MIDI、采样文件、音频取消与 50 轮循环；已加入 `npm test`。完整验证记录见 `notes/validation-2026-09-08.md`。
+
+## 2026-09-07 交付
 
 1. 删除独立旧谱 `seitz-student-concerto-1-mvt1` 的目录记录、MusicXML、JSON 和 bundle；保留 3 张用户上传的不同谱页。旧链接进入曲库并显示移除提示。
 2. 小提琴保持考级文件夹/日期分组。钢琴采用“古典 7 首 / 拉格泰姆 3 首”；原 genre 元数据不变。收藏在分类中仍可找到，搜索展开匹配的分组。
