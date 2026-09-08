@@ -183,3 +183,6 @@ main:before{display:none}
 .tab-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px;scrollbar-width:thin;scrollbar-color:#839277 #e2e4d8}
 .tab-paper{width:100%}
 .tab-scroll:focus-visible{outline:2px solid #466b2d;outline-offset:-2px}
+
+.practice-live-state{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0;color:var(--lime);font-size:13px;line-height:1.6}
+.practice-live-state button{min-width:0;min-height:40px;padding:8px 12px;flex-shrink:0;background:#283322;color:var(--cream);font-size:13px}

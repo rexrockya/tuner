@@ -1,6 +1,20 @@
 # 弦音项目交接
 
-## 当前交付：2026-09-08 原创乐句演奏强度
+## 当前交付：2026-09-08 连续播放与小节线切换
+
+本节覆盖下方旧版“换音色/强度暂停”和“dirty暂停”的记录；已播放版本与待切换版本必须独立。
+
+- `practice-audio.prepareTimbres(selection,events)`只预热完整音色快照及所有新音高；`commitTimbres`同步激活。Transport捕获activeTimbres，不能直接用正在编辑的全局下拉或异步setTimbre影响旧音乐。
+- `queueUpdate(song,{timbres,bpm,onCommit,onCancel})`不pause/load/重置generation。下一安全四拍边界取当前时间+140ms及已调度首音之后；双游标先排旧计划到边界前、再排新计划。保留当前轮/小节，新长度取模；非循环最后一小节不延长。BPM也只在边界改变。
+- `voiceScope`标记候选声音；撤销只停止候选源并立即补旧首拍，不能全局silence或改变旧hat尾音。越过实际AudioContext边界才提交，先补满调度窗口再调用可能耗时的谱面回调。晚取消应先承认已听到的提交，不能回滚。
+- `practice.js`的activeSettings/parsed/phrase负责当前声音与谱面，liveDraft/liveRevision负责最新完整设置。并发修改以最后选择胜出；失败继续旧音乐并有重试。准备/等边界/失败期间可暂停，保存/MIDI禁用避免混合快照。
+- 创作/伴奏音色、各轨风格、乐句/强度、生成、和声调性预设、收藏、律动与BPM共用路径；单纯伴奏/音色变化保留最新候选旋律。收藏五声部与BPM一次准备，不能逐轨中途生效。播放高亮/谱式新开使用activeFeel至提交。
+- 编辑输入继续旧版本播放，未生成时改风格只记录选择，改音色拒绝并恢复实际选项；生成成功才排队。停止状态generate统一补齐未生效音色。暂停/导航/定位/循环改变取消pending并恢复activeControls；晚加载不会再启动。
+- 新`practice-live-clock.cjs`11组实际音频调度测试与`practice-live-controls.cjs`真实UI脚本受控异步测试已纳入npm test；旧强度测试改为停止态编辑，live行为由新测试覆盖。旧practice首个140ms内风琴断言明确选择pad，避免随机反拍风格造成偶发失败。
+- 资源缓存版本`20260908-live-1`只更新index/asset-loader/practice-audio/practice/practice.css；无新依赖、采样或后台。首屏gzip6 112849/120000 B；验收与发布证据见`notes/live-switch-validation-2026-09-08.md`。
+- 继续沿用原GitHub Pages main/docs发布授权，不构建website覆盖docs，不部署其他站点；精准暂存排除node_modules并保留历史stash。
+
+## 上一版：2026-09-08 原创乐句演奏强度
 
 - `harmony.phraseIntensities`四档easy/standard/advanced/challenge，元数据label/description；`generate(...,{intensity})`仅对非standard进入派生函数。standard完整对象/notes与此前相同，legacy优先且完全不变，未知值回standard。
 - 非标准档从同seed原风格句派生，独立RNG；easy正拍少音、4–8品、相邻<=7半音/跨弦<=2，picked。easy非尾音最低MIDI58（不可退57，会在部分调连续属七尾根变三音），尾音候选54–72。advanced/challenge增密，保留动机与至少局部呼吸，同弦1–2半音才slide，长音vibrato；全句<=256、最短起音.25拍、保留notationDuration、根音收束和和弦边界。

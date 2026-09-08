@@ -18,14 +18,31 @@
   let context, master, room, compressor, ready, assets = {}, voices = new Set(), buses = {};
   let sampleBankPromise, sampleBank;
   function getTimbre(track) { return selectedTimbres[track]; }
-  async function ensureSelected(events = []) {
-    const id = selectedTimbres.lead;
+  async function ensureSelection(selection, events = []) {
+    const id = selection.lead;
     if (id !== 'piano' && id !== 'violin') return;
     if (!sampleBankPromise) sampleBankPromise = import('./practice-timbres.js?v=20260908-1').then(module => sampleBank = module.createSampleBank(getContext(), window.scoreAudio)).catch(error => { sampleBankPromise = null; throw error; });
     const bank = await sampleBankPromise;
     await bank.ensure(id, events);
   }
-  // Caller pauses transport first. Selection/load never resumes a context or schedules sound.
+  function ensureSelected(events = []) { return ensureSelection(selectedTimbres, events); }
+  function timbreSnapshot(selection = {}) {
+    const snapshot = { ...selectedTimbres, ...selection };
+    for (const [track, id] of Object.entries(snapshot)) if (!Object.hasOwn(timbres[track] || {}, id)) throw Error('未知音色');
+    return Object.freeze(snapshot);
+  }
+  // Preparing a live edit only fills caches. Neither the active sound nor the clock changes.
+  async function prepareTimbres(selection = {}, events = []) {
+    const snapshot = timbreSnapshot(selection);
+    await Promise.all([preload(), ensureSelection(snapshot, events)]);
+    return snapshot;
+  }
+  function commitTimbres(selection) {
+    const snapshot = timbreSnapshot(selection);
+    for (const track of Object.keys(timbres)) { selectedTimbres[track] = snapshot[track]; timbreRequests[track] = (timbreRequests[track] || 0) + 1; }
+    return snapshot;
+  }
+  // Kept for stopped playback and older callers. Live edits use prepare/commit above.
   async function setTimbre(track, id, events = []) {
     if (!Object.hasOwn(timbres[track] || {}, id)) throw Error('未知音色');
     const generation = (timbreRequests[track] || 0) + 1; timbreRequests[track] = generation;
@@ -96,15 +113,15 @@
     await Promise.all([unlocked, preload()]);
     return ctx;
   }
-  function trackVoice(source, gain, extra = [], choke = null) {
-    const item = { source, gain, extra, choke }; voices.add(item);
+  function trackVoice(source, gain, extra = [], choke = null, owner = null, at = 0) {
+    const item = { source, gain, extra, choke, owner, at }; voices.add(item);
     source.onended = () => { voices.delete(item); source.disconnect(); gain.disconnect(); extra.forEach(node => node.disconnect()); };
   }
-  function sample(asset, at, duration, velocity, track, midi, event = {}) {
+  function sample(asset, at, duration, velocity, track, midi, event = {}, selection = selectedTimbres, owner = null) {
     if (!asset) return;
     const source = context.createBufferSource(), gain = context.createGain(); source.buffer = asset.buffer;
     const guitar = (track === 'lead' || track === 'rhythm') && !asset.kind;
-    const patch = guitar ? patches.guitar[selectedTimbres[track]] : patches[track]?.[selectedTimbres[track]] || {};
+    const patch = guitar ? patches.guitar[selection[track]] : patches[track]?.[selection[track]] || {};
     const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi) / 12)) * (patch.rate || 1);
     source.playbackRate.value = rate;
     const length = Math.max(.035, (duration || asset.buffer.duration / rate) * (patch.length || 1));
@@ -131,10 +148,10 @@
       for (let t = .29, i = 0; t < length; t += .095, i++) source.playbackRate.linearRampToValueAtTime(rate * 2 ** ((i % 2 ? -9 : 9) / 1200), at + t);
     }
     const choke = event.sample === 'open-hat' ? 'hat' : null;
-    if (track === 'drums' && /^hat-/.test(event.sample || '')) for (const voice of voices) if (voice.choke === 'hat') {
+    if (track === 'drums' && /^hat-/.test(event.sample || '')) for (const voice of voices) if (voice.choke === 'hat' && voice.owner === owner) {
       voice.gain.gain.setTargetAtTime(.0001, at, .006); try { voice.source.stop(at + .025); } catch {}
     }
-    trackVoice(source, gain, extra, choke);
+    trackVoice(source, gain, extra, choke, owner, at);
     source.start(at); source.stop(at + (asset.loop ? length + release * 2 : Math.min(asset.buffer.duration / rate, length + release * 2)));
   }
   function guitarSample(event) {
@@ -142,8 +159,8 @@
     const candidates = guitarAssets.filter(asset => asset.layer === layer && asset.variant === variant);
     return candidates.reduce((best, asset) => !best || Math.abs(asset.midi - event.midi) < Math.abs(best.midi - event.midi) ? asset : best, null);
   }
-  function organ(event, at, seconds) {
-    const id = selectedTimbres.keys;
+  function organ(event, at, seconds, selection = selectedTimbres, owner = null) {
+    const id = selection.keys;
     const settings = { jazz: { harmonics: [0, 1, .48, .23, .13, 0, .08, 0, .04], cutoff: 2600, attack: .018, level: 1 }, gospel: { harmonics: [0, 1, .74, .53, .38, .24, .18, .13, .08], cutoff: 5500, attack: .01, level: .73 }, soft: { harmonics: [0, 1, .16, .04, .02], cutoff: 1600, attack: .045, level: 1.17 } }[id];
     const gain = context.createGain(), filter = context.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = settings.cutoff;
     gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(event.velocity * .16 * settings.level, at + settings.attack);
@@ -153,18 +170,28 @@
     if (!organWaves.has(id)) organWaves.set(id, context.createPeriodicWave(new Float32Array(settings.harmonics.length), new Float32Array(settings.harmonics)));
     const oscillator = context.createOscillator(); oscillator.setPeriodicWave(organWaves.get(id));
     oscillator.frequency.value = 440 * 2 ** ((event.midi - 69) / 12);
-    oscillator.connect(gain); trackVoice(oscillator, gain, [filter]); oscillator.start(at); oscillator.stop(at + seconds + .18);
+    oscillator.connect(gain); trackVoice(oscillator, gain, [filter], null, owner, at); oscillator.start(at); oscillator.stop(at + seconds + .18);
   }
-  function sound(event, at, beatSeconds) {
-    if (event.track === 'drums') sample(assets[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event);
+  function sound(event, at, beatSeconds, selection = selectedTimbres, owner = null) {
+    if (event.track === 'drums') sample(assets[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event, selection, owner);
     else if (event.track === 'bass') {
       const closest = bassAssets.reduce((best, asset) => !best || Math.abs(asset.midi - event.midi) < Math.abs(best.midi - event.midi) ? asset : best, null);
-      sample(closest, at, event.duration * beatSeconds, event.velocity * .66, 'bass', event.midi, event);
-    } else if (event.track === 'lead' && ['piano', 'violin'].includes(selectedTimbres.lead)) {
-      const asset = sampleBank?.get(selectedTimbres.lead, event);
-      sample(asset, at, event.duration * beatSeconds, event.velocity * (selectedTimbres.lead === 'violin' ? 1.8 : .95), 'lead', event.midi, event);
-    } else if (event.track === 'lead' || event.track === 'rhythm') sample(guitarSample(event), at, event.duration * beatSeconds, event.velocity * (event.track === 'lead' ? 1.2 : .62), event.track, event.midi, event);
-    else organ(event, at, event.duration * beatSeconds);
+      sample(closest, at, event.duration * beatSeconds, event.velocity * .66, 'bass', event.midi, event, selection, owner);
+    } else if (event.track === 'lead' && ['piano', 'violin'].includes(selection.lead)) {
+      const asset = sampleBank?.get(selection.lead, event);
+      sample(asset, at, event.duration * beatSeconds, event.velocity * (selection.lead === 'violin' ? 1.8 : .95), 'lead', event.midi, event, selection, owner);
+    } else if (event.track === 'lead' || event.track === 'rhythm') sample(guitarSample(event), at, event.duration * beatSeconds, event.velocity * (event.track === 'lead' ? 1.2 : .62), event.track, event.midi, event, selection, owner);
+    else organ(event, at, event.duration * beatSeconds, selection, owner);
+  }
+  function cancelVoices(owner) {
+    if (!context) return;
+    for (const voice of [...voices]) if (voice.owner === owner) {
+      // Only this candidate's future sources are removed. The current bar and
+      // already sounding tails retain their original envelopes.
+      try { voice.source.stop(context.currentTime); } catch {}
+      voice.source.disconnect(); voice.gain.disconnect(); voice.extra.forEach(node => node.disconnect());
+      voices.delete(voice);
+    }
   }
   function silence() {
     if (!context) return;
@@ -175,7 +202,7 @@
   }
   function volume(track, value) { getContext(); buses[track].gain.setTargetAtTime(Math.max(0, Math.min(1, value)) ** 2, context.currentTime, .015); }
   class Transport {
-    constructor(update = () => {}) { this.update = update; this.bpm = 96; this.position = 0; this.playing = false; this.loading = false; this.loop = true; this.loopBar = null; this.song = { events: [], beats: 0, chartBeats: 0 }; this.generation = 0; }
+    constructor(update = () => {}) { this.update = update; this.bpm = 96; this.position = 0; this.playing = false; this.loading = false; this.loop = true; this.loopBar = null; this.song = { events: [], beats: 0, chartBeats: 0 }; this.generation = 0; this.pendingUpdate = null; }
     bounds() { return this.loopBar === null ? (!this.loop && this.stopBounds || [0, this.song.beats]) : [this.loopBar * 4, this.loopBar * 4 + 4]; }
     load(song) { this.pause(); this.song = song; this.position = 0; this.loopBar = null; this.stopBounds = [0, song.chartBeats || song.beats]; this.update(); }
     current() {
@@ -194,39 +221,105 @@
         const [start, end] = this.bounds();
         if (this.position >= end || this.position < start) this.position = start;
         this.startBeat = this.position; this.started = context.currentTime + .025; this.cycle = 0;
+        this.activeTimbres = timbreSnapshot(); this.voiceScope = {}; this.lastScheduledAt = 0;
         this.next = this.song.events.findIndex(e => e.beat >= this.position - 1e-8);
         if (this.next < 0) this.next = this.song.events.length;
         this.playing = true;
         this.timer = window.setInterval(() => this.tick(), 25); this.tick(); this.update();
       } catch (error) { if (generation !== this.generation) return; this.loading = false; this.update(); throw error; }
     }
-    tick() {
-      if (!this.playing) return;
-      const [start, end] = this.bounds(), length = end - start, seconds = 60 / this.bpm;
-      const now = context.currentTime, horizon = now + .14;
-      // Recover from background throttling without a burst of stale notes or accumulated drift.
-      const elapsed = this.startBeat + Math.max(0, now - this.started) / seconds;
-      if (this.loop && elapsed > end + this.cycle * length + length) {
-        this.cycle = Math.floor((elapsed - start) / length);
-        this.next = this.song.events.findIndex(e => e.beat >= start);
+    queueUpdate(song, options = {}) {
+      if (!song?.beats || !Array.isArray(song.events)) throw Error('乐句尚未准备好');
+      this.cancelUpdate('replaced');
+      if (!this.playing) return null;
+      const seconds = 60 / this.bpm, [start, end] = this.bounds(), length = end - start;
+      // Never replace notes the old lookahead has already scheduled.
+      const safeTime = Math.max(context.currentTime + .14, this.lastScheduledAt || 0) + 1e-7;
+      const safeBeat = this.startBeat + (safeTime - this.started) / seconds;
+      const absoluteBeat = (Math.floor(safeBeat / 4) + 1) * 4;
+      if (!this.loop && absoluteBeat >= end - 1e-8) { options.onCancel?.('ended'); return null; }
+      const oldBeat = this.loop ? start + ((absoluteBeat - start) % length + length) % length : absoluteBeat;
+      const oldChart = this.song.chartBeats || this.song.beats, newChart = song.chartBeats || song.beats;
+      const chartBar = Math.floor(oldBeat % oldChart / 4), chorus = Math.floor(oldBeat / oldChart);
+      const loopBar = this.loopBar === null ? null : this.loopBar % Math.max(1, newChart / 4);
+      const position = loopBar === null
+        ? (chorus % Math.max(1, song.beats / newChart)) * newChart + (chartBar % Math.max(1, newChart / 4)) * 4
+        : loopBar * 4;
+      const stopStart = Math.floor(position / newChart) * newChart, stopBounds = [stopStart, Math.min(song.beats, stopStart + newChart)];
+      const limits = loopBar === null ? (this.loop ? [0, song.beats] : stopBounds) : [loopBar * 4, loopBar * 4 + 4];
+      const at = this.started + (absoluteBeat - this.startBeat) * seconds;
+      const pending = {
+        song, timbres: timbreSnapshot(options.timbres), bpm: options.bpm === undefined ? this.bpm : Math.max(40, Math.min(180, Number(options.bpm) || 96)),
+        at, beat: position, bar: Math.floor(position % newChart / 4), startBeat: position, started: at,
+        position, next: song.events.findIndex(e => e.beat >= position - 1e-8), cycle: 0,
+        loop: this.loop, loopBar, stopBounds, limits, voiceScope: {}, lastScheduledAt: 0,
+        onCommit: options.onCommit, onCancel: options.onCancel
+      };
+      if (pending.next < 0) pending.next = song.events.length;
+      this.pendingUpdate = pending;
+      this.tick();
+      return { at, beat: position, bar: pending.bar };
+    }
+    cancelUpdate(reason = 'cancelled') {
+      this.commitUpdateIfDue();
+      const pending = this.pendingUpdate;
+      if (!pending) return false;
+      this.pendingUpdate = null;
+      cancelVoices(pending.voiceScope);
+      // A cancellation can happen just before the boundary, between timer ticks.
+      // Refill the old plan immediately so that downbeat cannot disappear.
+      if (this.playing && reason !== 'stopped') this.schedule(this, context.currentTime, context.currentTime + .14);
+      pending.onCancel?.(reason);
+      return true;
+    }
+    commitUpdateIfDue() {
+      const pending = this.pendingUpdate;
+      if (!pending || !this.playing || context.currentTime < pending.at) return false;
+      this.pendingUpdate = null;
+      for (const key of ['song', 'bpm', 'startBeat', 'started', 'position', 'next', 'cycle', 'loopBar', 'stopBounds', 'voiceScope', 'lastScheduledAt']) this[key] = pending[key];
+      this.activeTimbres = commitTimbres(pending.timbres);
+      // Fill the audio horizon before a notation/DOM callback can use main-thread time.
+      this.schedule(this, context.currentTime, context.currentTime + .14);
+      pending.onCommit?.({ at: pending.at, beat: pending.beat, bar: pending.bar, song: pending.song, timbres: pending.timbres, bpm: pending.bpm });
+      return true;
+    }
+    schedule(plan, now, horizon, cutoff = Infinity) {
+      const [start, end] = plan.limits || this.bounds(), length = end - start, seconds = 60 / plan.bpm;
+      const elapsed = plan.startBeat + Math.max(0, now - plan.started) / seconds;
+      // Recover from a background stall without a burst of stale notes or drift.
+      if (plan.loop && elapsed > end + plan.cycle * length + length) {
+        plan.cycle = Math.floor((elapsed - start) / length);
+        plan.next = plan.song.events.findIndex(e => e.beat >= start);
       }
       let guard = 0;
       while (guard++ < 1000) {
-        let event = this.song.events[this.next];
+        let event = plan.song.events[plan.next];
         if (!event || event.beat >= end) {
-          if (!this.loop) break;
-          this.cycle++; this.next = this.song.events.findIndex(e => e.beat >= start); event = this.song.events[this.next];
+          if (!plan.loop) break;
+          plan.cycle++; plan.next = plan.song.events.findIndex(e => e.beat >= start); event = plan.song.events[plan.next];
           if (!event || event.beat >= end) break;
         }
-        const at = this.started + (event.beat + this.cycle * length - this.startBeat) * seconds;
-        if (at > horizon) break;
-        if (at >= now - .012) sound(event, Math.max(now, at), seconds);
-        this.next++;
+        const at = plan.started + (event.beat + plan.cycle * length - plan.startBeat) * seconds;
+        if (at > horizon || at >= cutoff - 1e-8) break;
+        if (at >= now - .012) {
+          sound(event, Math.max(now, at), seconds, plan.timbres || plan.activeTimbres, plan.voiceScope);
+          plan.lastScheduledAt = at;
+        }
+        plan.next++;
       }
+    }
+    tick() {
+      if (!this.playing) return;
+      this.commitUpdateIfDue();
+      if (!this.playing) return;
+      const [, end] = this.bounds(), now = context.currentTime, horizon = now + .14;
+      const pending = this.pendingUpdate;
+      this.schedule(this, now, horizon, pending?.at);
+      if (pending && horizon >= pending.at) this.schedule(pending, now, horizon);
       if (!this.loop && this.current() >= end) { this.pause(); this.position = end; }
       this.update();
     }
-    pause() { this.generation++; this.loading = false; this.position = this.current(); this.playing = false; window.clearInterval(this.timer); this.timer = null; silence(); this.update(); }
+    pause() { this.cancelUpdate('stopped'); this.generation++; this.loading = false; this.position = this.current(); this.playing = false; window.clearInterval(this.timer); this.timer = null; silence(); this.update(); }
     seek(value) { const playing = this.playing; this.pause(); const [start, end] = this.bounds(); this.position = Math.max(start, Math.min(end, Number(value) || 0)); this.update(); return playing ? this.play() : Promise.resolve(); }
     tempo(value) { const playing = this.playing; this.pause(); this.bpm = Math.max(40, Math.min(180, Number(value) || 96)); this.update(); return playing ? this.play() : Promise.resolve(); }
     setLoop(enabled) {
@@ -241,5 +334,5 @@
     }
     setLoopBar(bar) { const playing = this.playing; this.pause(); this.loopBar = bar; if (bar !== null) { this.loop = true; this.position = bar * 4; } this.update(); return playing ? this.play() : Promise.resolve(); }
   }
-  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre };
+  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre, prepareTimbres, commitTimbres };
 })();

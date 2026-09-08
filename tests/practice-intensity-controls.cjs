@@ -25,9 +25,9 @@ const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
  change('practice-bpm','118');await tick();
  const accompaniment=nonLead();
  // Exercise the real pause/load path without opening hardware audio in this UI test.
- const oldCurrent=S.transport.current;S.transport.current=()=>3;S.transport.playing=true;const generation=S.transport.generation;
- change('practice-intensity','easy');S.transport.current=oldCurrent;
- assert.equal(S.transport.playing,false,'changing intensity pauses playback');assert.ok(S.transport.generation>generation);
+ S.transport.position=3;const generation=S.transport.generation;
+ change('practice-intensity','easy');
+ assert.equal(S.transport.playing,false,'stopped intensity edits stay stopped; live edits are covered by practice-live-controls');assert.ok(S.transport.generation>generation);
  assert.equal(S.transport.bpm,118);assert.equal(q('practice-bpm').value,'118');
  assert.equal(S.getPhrase().seed,original.seed,'intensity reuses the same musical seed');
  assert.notDeepEqual(plain(S.getPhrase().notes),original.notes,'easy alters the phrase');

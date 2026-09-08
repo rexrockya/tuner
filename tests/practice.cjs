@@ -67,6 +67,7 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   assert.equal($('practice-error').hidden, true); assert.equal(studio.getProgression().bars.length, 12);
   assert.equal(studio.getProgression().bars[8][0].name, 'F7');
   change('practice-preset', 'blues');
+  change('practice-key-style', 'pad'); // The first-lookahead sound assertion needs a downbeat organ, not a random offbeat style.
   d.querySelector('[data-practice-bar="8"]').click(); await flush(); await flush();
   assert.equal(studio.transport.playing, true, 'clicking a bar starts playback');
   assert.equal(studio.transport.position, 32); assert.equal($('practice-current-chord').textContent, 'E7');
