@@ -23,4 +23,8 @@
 
 ## 发布
 
-沿用此前明确的提交/发布授权，目标仍为https://rexrockya.github.io/tuner/ 的main/docs；部署完成后追加线上逐字节核验事实。
+沿用此前明确的提交/发布授权，目标仍为https://rexrockya.github.io/tuner/ 的main/docs；以下为完成后的核验事实。
+
+- 功能提交`1ecca49de544d1d05dbe80f37bb7ab5ba8a0ba4f`已推送main，Pages于`2026-09-08T12:08:38Z`完成built，error为空。
+- `2026-09-08T12:10:04.787848+00:00`完整GET全部5个更新前端资源，HTTP 200，共174876字节，逐字节与功能提交一致。明细`intensity-online-verification-2026-09-08.json`。
+- 后续证据提交仅更新验收记录，不改变已核验前端。
