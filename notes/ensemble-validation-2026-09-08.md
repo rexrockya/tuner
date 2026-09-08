@@ -32,4 +32,10 @@
 
 ## 发布记录
 
-目标仍为https://rexrockya.github.io/tuner/，GitHub Pages main/docs。提交、构建及实际HTTP内容校验将在完成后补记。
+目标仍为https://rexrockya.github.io/tuner/，GitHub Pages main/docs。以下为实际完成后的记录。
+
+
+- 功能提交 `c581aef4bbb948856738613c85ba49d7750eea39` 已正常推送main。
+- GitHub Pages对应此提交为built，`2026-09-08T07:12:07Z`完成，error.message为null。
+- `2026-09-08T07:13:26Z`对公开站13个变更前端/许可资源执行完整HTTP GET，共293114字节，**13/13与该提交Git对象逐字节匹配**。详见 `ensemble-online-verification-2026-09-08.json`。
+- 追加的验收提交只保存这份记录及线上SHA-256明细，不改变已验证前端。node_modules保持未提交，旧备份stash保留。
