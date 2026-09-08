@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "name": "TUner original electronic percussion",
+  "source": "Original deterministic program synthesis; no third-party audio or recordings.",
+  "generator": "generate.cjs",
+  "sampleRate": 44100,
+  "channels": 1,
+  "bitDepth": 16,
+  "variants": "The numbered pairs are synthesized timbral/noise variants, not recorded round-robin takes.",
+  "files": {
+    "kick-1": {
+      "file": "kick-1.wav",
+      "description": "swept sine bass drum with short filtered-noise click",
+      "durationSeconds": 0.45,
+      "frames": 19845,
+      "bytes": 39734,
+      "peak": 0.759979248046875,
+      "rms": 0.18813206544826327,
+      "sha256": "d62042585965caff70445a286d55a11f96e463b71c5e4b5b96f93c695ef7cb12"
+    },
+    "kick-2": {
+      "file": "kick-2.wav",
+      "description": "slightly higher/tighter swept sine bass drum",
+      "durationSeconds": 0.45,
+      "frames": 19845,
+      "bytes": 39734,
+      "peak": 0.759979248046875,
+      "rms": 0.17531833757382176,
+      "sha256": "2ff20fd9ab643ae2fd0714d699ba94f9de7a43a2aaf0e63b7d813ad62c14c93f"
+    },
+    "snare-1": {
+      "file": "snare-1.wav",
+      "description": "two-mode tonal snare body with band-limited noise",
+      "durationSeconds": 0.22,
+      "frames": 9702,
+      "bytes": 19448,
+      "peak": 0.739990234375,
+      "rms": 0.10535904785705555,
+      "sha256": "4fc9569fd5ff53ddda48f71a90cde4ae97de62805774d74b6809ab811d7b67e4"
+    },
+    "snare-2": {
+      "file": "snare-2.wav",
+      "description": "higher/tighter tonal snare body with independent seeded noise",
+      "durationSeconds": 0.22,
+      "frames": 9702,
+      "bytes": 19448,
+      "peak": 0.739990234375,
+      "rms": 0.0999518596635843,
+      "sha256": "171ab407074ecea550d45d0062a1b24db4dcffe1945e40cfa2016590d2d54436"
+    },
+    "hat-1": {
+      "file": "hat-1.wav",
+      "description": "closed electronic hat: high-passed noise and inharmonic partials",
+      "durationSeconds": 0.08,
+      "frames": 3528,
+      "bytes": 7100,
+      "peak": 0.55999755859375,
+      "rms": 0.0779750212884502,
+      "sha256": "4455c2bb7009700d9ee7c72bd550af3d50a0cead9c9573beea54ae1c13d9e2fb"
+    },
+    "hat-2": {
+      "file": "hat-2.wav",
+      "description": "closed hat timbral variant with independent seeded noise",
+      "durationSeconds": 0.08,
+      "frames": 3528,
+      "bytes": 7100,
+      "peak": 0.55999755859375,
+      "rms": 0.07667436926237631,
+      "sha256": "f9c23b808903e7b51e5f361e148c73f6ccd7ff6f4a7be5d09ce7209575389a3a"
+    },
+    "open-hat": {
+      "file": "open-hat.wav",
+      "description": "open electronic hat: longer metallic-noise decay",
+      "durationSeconds": 0.4,
+      "frames": 17640,
+      "bytes": 35324,
+      "peak": 0.579986572265625,
+      "rms": 0.07649729226214814,
+      "sha256": "d3a5ed5adb42c8be68a1e301dc811f996c7c676253398df4e14777fca75d1e8e"
+    },
+    "ride": {
+      "file": "ride.wav",
+      "description": "synthetic metallic ride-like percussion; not a recorded cymbal",
+      "durationSeconds": 0.6,
+      "frames": 26460,
+      "bytes": 52964,
+      "peak": 0.5999755859375,
+      "rms": 0.07732681294230154,
+      "sha256": "fa42165157cde91c061f62c7f2962919943c8f1a30c9fa8df05a49d121d06552"
+    }
+  }
+}

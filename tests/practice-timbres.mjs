@@ -2,21 +2,22 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import { pathToFileURL } from 'node:url';
-const root = path.resolve(process.argv[2] || new URL('..', import.meta.url).pathname.replace(/^\/(?=[A-Za-z]:)/, ''));
+import { pathToFileURL, fileURLToPath } from 'node:url';
+const root = path.resolve(process.argv[2] || fileURLToPath(new URL('..', import.meta.url)));
 const docs = path.join(root, 'docs');
 const module = await import(pathToFileURL(path.join(docs, 'practice-timbres.js')).href);
 const manifest = JSON.parse(fs.readFileSync(path.join(docs, 'assets/audio/blues/manifest.json'), 'utf8'));
 const requests = [], decodes = [], nodes = [], starts = [], stops = [], timers = new Map();
 let now = 10, resumed = 0, nextTimer = 0, failPiano = false, stallViolin = null;
-class Param { value=0; setValueAtTime(value) {this.value=value;} linearRampToValueAtTime(value) {this.value=value;} setTargetAtTime(value) {this.value=value;} cancelScheduledValues(){} }
-class Node { constructor(type) { this.type=type; this.connections=[]; for(const key of ['gain','frequency','playbackRate','threshold','knee','ratio','attack','release']) this[key]=new Param(); nodes.push(this); } connect(next) {this.connections.push(next);return next;} disconnect(){} setPeriodicWave(wave){this.wave=wave;} start(at){starts.push({node:this,at});} stop(at){stops.push({node:this,at});} }
+class Param { value=0; setValueAtTime(value) {this.value=value;} linearRampToValueAtTime(value) {this.value=value;} exponentialRampToValueAtTime(value){this.value=value;} setTargetAtTime(value) {this.value=value;} cancelScheduledValues(){} }
+class Node { constructor(type) { this.type=type; this.connections=[]; for(const key of ['gain','frequency','playbackRate','threshold','knee','ratio','attack','release']) this[key]=new Param(); nodes.push(this); } connect(next) {this.connections.push(next);return next;} disconnect(){this.disconnected=true;} setPeriodicWave(wave){this.wave=wave;} start(at){starts.push({node:this,at});} stop(at){stops.push({node:this,at});} }
 class Context { sampleRate=44100; state='suspended'; destination=new Node('destination');get currentTime(){return now;} async resume(){resumed++;this.state='running';} createGain(){return new Node('gain');}createDynamicsCompressor(){return new Node('compressor');}createConvolver(){return new Node('room');}createBiquadFilter(){return new Node('filter');}createWaveShaper(){return new Node('drive');}createOscillator(){return new Node('organ');}createBufferSource(){return new Node('sample');}createPeriodicWave(real,imag){return Array.from(imag);}createBuffer(ch,length,rate){const data=Array.from({length:ch},()=>new Float32Array(length));return {duration:length/rate,length,sampleRate:rate,numberOfChannels:ch,getChannelData:c=>data[c]};} async decodeAudioData(bytes){const tag=Buffer.from(bytes).toString('utf8',0,160);decodes.push(tag);const b=this.createBuffer(1,154350,44100);b.tag=tag;return b;} }
 const originalFetch=globalThis.fetch;
 globalThis.fetch=async(url,options={})=>{
   const text=String(url);requests.push(text);
   if(text.includes('violin-mp3.js')) {if(stallViolin)await stallViolin;return {ok:true,text:async()=>fs.readFileSync(path.join(docs,'assets/audio/violin-mp3.js'),'utf8')};}
   if(text.includes('sfzinstruments-splendid-grand-piano'))return {ok:!failPiano,arrayBuffer:async()=>new TextEncoder().encode('PIANO '+decodeURIComponent(text)).buffer};
+  if(text.includes('electro/manifest.json'))return {ok:true,json:async()=>JSON.parse(fs.readFileSync(path.join(docs,'assets/audio/electro/manifest.json'),'utf8'))};
   if(text.includes('manifest.json'))return {ok:true,json:async()=>manifest};
   const b=fs.readFileSync(path.join(docs,text.split('?')[0]));return {ok:true,arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)};
 };
@@ -53,6 +54,15 @@ try {
   assert.ok(nodes.filter(node=>node.type==='lowpass').some(node=>node.frequency.value===1100),'muted bass changes the sound path: '+nodes.filter(n=>n.type==='lowpass').map(n=>n.frequency.value));
   assert.ok(nodes.filter(node=>node.type==='lowpass').some(node=>node.frequency.value===6400),'vintage drum patch changes the sound path');
   console.log('PASS: shared sample clock, actual piano/violin buffers, silence on pause and audible per-track patch processing');
+  assert.ok(!requests.some(url=>url.includes('electro/')),'electronic drum kit is not part of initial preload');
+  const electro={track:'drums',sample:'kick-1',beat:0,velocity:.7,duration:.12};
+  await Promise.all([A.prepareTimbres({drums:'electro'},[electro]),A.prepareTimbres({drums:'electro'},[electro])]);assert.equal(requests.filter(url=>url.includes('electro/manifest.json')).length,1);assert.equal(requests.filter(url=>url.includes('electro/')&&url.endsWith('.wav')).length,8);
+  assert.equal(A.getTimbre('drums'),'vintage','preparing kit leaves active selection unchanged');await A.setTimbre('drums','electro',[electro]);transport.load({events:[electro],beats:4,chartBeats:4});await transport.play();assert.ok(starts.at(-1).node.buffer.tag.startsWith('RIFF'),'electro playback uses supplied WAV buffer');transport.pause();
+  for(const [track,id]of[['bass','synth'],['bass','acid'],['keys','synth'],['keys','pad']]){
+    await A.setTimbre(track,id);const before=starts.length;transport.load({events:[{...event(track==='bass'?36:64),track}],beats:4,chartBeats:4});await transport.play();const voices=starts.slice(before);assert.equal(voices.length,2,'synth really schedules two oscillators');assert.ok(voices.every(v=>['sine','triangle','sawtooth'].includes(v.node.type)));transport.pause();assert.ok(voices.every(v=>stops.some(stop=>stop.node===v.node&&stop.at<=now+.031)),'pause stops every synth layer');
+  }
+  await A.setTimbre('lead','ambient');transport.load({events:[{...event(57),duration:.5}],beats:4,chartBeats:4});await transport.play();const ambientSource=starts.at(-1).node,convolver=nodes.findLast(node=>node.type==='room'&&Math.abs((node.buffer?.duration||0)-1.4)<.001),wet=convolver.connections[0];assert.ok(convolver);ambientSource.onended();assert.ok(!convolver.disconnected,'natural note end preserves spatial tail');transport.pause();assert.equal(wet.gain.value,.0001,'pause also fades wet tail');await new Promise(resolve=>setTimeout(resolve,45));assert.equal(convolver.disconnected,true,'paused tail resources are disposed');
+  console.log('PASS: lazy/cache-safe electronic kit, both synth basses/keys, oscillator cancellation and natural/paused ambient tails');
   // A new bank is needed to force a genuinely pending violin download.
   let release;stallViolin=new Promise(resolve=>release=resolve);
   const isolated={...window,importTimbres:async()=>module};const racebox={...sandbox,window:isolated};vm.createContext(racebox);for(const name of ['harmony.js','practice-arrangement.js','score-audio.js'])vm.runInContext(fs.readFileSync(path.join(docs,name),'utf8'),racebox);

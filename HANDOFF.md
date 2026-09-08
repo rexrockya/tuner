@@ -1,5 +1,18 @@
 # 弦音项目交接
 
+## 2026-09-09 多风格教学与 Funk 节奏吉他
+
+- 新增 `music-genres.js`，依赖原 harmony/arrangement，之后再加载 practice-audio。`genre` 独立于 feel/style；无 genre 的调用保持原始音符与伴奏，旧 v1/v2 收藏继续兼容。
+- 六风格为 blues/jazz/funk-soul/shoegaze/folk/rnb。每风格 3 个分级原创课，Funk 另加 3 个节奏专项，共 21 课。`genre-curriculum.js` 保留教学来源，`genre-lessons.js` 渲染统一入口、步骤、听辨、收藏与完成状态。
+- 课程是跟练任务，生成音频是可变原创材料，不宣称随机句子已经执行全部人工技法。保留原 2,545 条来源库及深链；资料库没有被错误标成 Shoegaze/R&B。
+- 新旋律按流派和写法确定节奏/音高，再按密度展开；Jazz 显式三/七音连接。配器支持新低音、轻鼓/碎拍、短切/分解/长音与色彩键盘；显式声部选择优先。扩展音仅通过 `colorIntervals` 启用，旧 intervals 不改。
+- 风格切换作为导航暂停播放，取消迟到音色，并保存 genre×mode 草稿；同一风格内的设置变更仍走原小节线提交。新收藏保存 genre；旧收藏用独立兼容状态，不能覆盖已保存的风格草稿。
+- Funk 的 sixteenth/soulcomp 显示本轮实际节奏格、和弦发声/模拟闷击/留空与右手摆动，支持跟随拍点和静音吉他。其他可能含非格点 fill 的旧型不冒充十六分练习谱。MIDI 继续只导主奏，未新增完整伴奏 MIDI。
+- 音频：原创电子鼓 8 WAV/220852B，仅选择并使用鼓时载入；Synth Bass（synth/acid）、Synth Keys（synth/pad）由振荡器实时发声。dry/ambient 仍为真实电吉他采样处理，不称木吉他实采。ambient 自然结束保留 1.4s 卷积尾，停止时干湿声一起淡出并清理。
+- 验证增加 music-genres/genre-controls，涵盖 2520 生成组合、各流派与写法实质差异、所有声部选择/律动、21 课、草稿/旧收藏、电子音色、闷奏、尾声和懒加载；旧回归不删除。两项 mjs 测试修复中文 Windows 路径解析。
+- 仅发布原 GitHub Pages 的 docs，不运行会覆盖 docs 的 website build、不部署 Sites/Worker。此次在 `codex/multigenre-teaching` 独立工作区开发，因为原 main 工作区有另一任务尚未提交的演奏功能；合并时保留两边能力，勿重置或覆盖另一任务的文件。
+
+
 ## 当前交付：2026-09-08 自动音符密度
 
 本节覆盖旧版“演奏强度”名称与默认值；此前音色和连续播放实现继续保留。

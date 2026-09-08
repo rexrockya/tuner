@@ -1,0 +1,27 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+(async()=>{
+ const dom=new JSDOM(fs.readFileSync('docs/index.html','utf8'),{url:'https://rexrockya.github.io/tuner/#lessons',runScripts:'outside-only'}),w=dom.window,d=w.document,q=id=>d.getElementById(id),plain=value=>JSON.parse(JSON.stringify(value)),tick=()=>new Promise(resolve=>setImmediate(resolve));
+ w.requestAnimationFrame=()=>1;w.cancelAnimationFrame=()=>{};w.HTMLMediaElement.prototype.pause=()=>{};w.HTMLElement.prototype.scrollTo=()=>{};Object.defineProperty(w.navigator,'connection',{value:{saveData:true}});
+ for(const file of ['storage.js','harmony.js','lessons.js','practice-arrangement.js','music-genres.js','practice-audio.js'])w.eval(fs.readFileSync('docs/'+file,'utf8'));
+ const A=w.practiceAudio,selection=Object.fromEntries(Object.keys(A.timbres).map(track=>[track,A.getTimbre(track)]));
+ A.getTimbre=track=>selection[track];A.setTimbre=async(track,id)=>{selection[track]=id;return true;};A.commitTimbres=next=>{Object.assign(selection,next);return next;};A.preload=async()=>{};A.getContext=()=>({resume:async()=>{}});A.volume=()=>{};
+ for(const file of ['practice.js','genre-curriculum.js','genre-lessons.js'])w.eval(fs.readFileSync('docs/'+file,'utf8'));
+ const S=w.practiceStudio;assert.equal(S.getMode(),'courses');assert.equal(q('genre-courses').hidden,false);assert.equal(d.querySelectorAll('[data-genre]').length,6);assert.equal(w.genreLessons.lessons.length,21);
+ const change=(id,value)=>{q(id).value=value;q(id).dispatchEvent(new w.Event('change'));};
+ for(const id of Object.keys(w.tunerGenres.profiles)){
+   d.querySelector('[data-genre="'+id+'"]').click();assert.equal(S.getGenre(),id);assert.equal(d.querySelector('[data-genre="'+id+'"]').getAttribute('aria-pressed'),'true');
+   assert.equal(q('genre-courses').querySelectorAll('.genre-lesson').length,id==='funk-soul'?6:3);
+   const lesson=w.genreLessons.lessons.find(item=>item.genre===id);S.openLesson(lesson,'create');await tick();assert.equal(S.getPhrase().genre,id);assert.equal(S.transport.playing,false);assert.equal(q('practice-progression').value,lesson.progression);assert.ok(S.midiFile().length>30);
+   const phrase=plain(S.getPhrase());S.setMode('backing');await tick();assert.ok(S.transport.song.events.every(event=>event.track!=='lead'));S.setMode('create');await tick();assert.deepEqual(plain(S.getPhrase()),phrase);assert.equal(d.querySelector('.genre-selector').parentElement.id,'lesson-page');S.setMode('courses');
+ }
+ S.setGenre('jazz');S.setMode('create');await tick();q('practice-progression').value='1maj7,6m7,2m7,57';q('practice-progression').dispatchEvent(new w.Event('input'));S.generate(891);await tick();change('practice-intensity','easy');const jazz=plain(S.getPhrase());
+ S.setGenre('folk');await tick();S.setGenre('jazz');await tick();assert.equal(q('practice-progression').value,'1maj7,6m7,2m7,57');assert.equal(q('practice-intensity').value,'easy');assert.deepEqual(plain(S.getPhrase()),jazz,'per genre draft preserves exact notes');
+ q('practice-save').click();const saved=JSON.parse(w.siteStorage.getItem('tuner-original-licks-v1'))[0];assert.equal(saved.genre,'jazz');S.setGenre('folk');await tick();change('practice-saved','0');await tick();assert.equal(S.getGenre(),'jazz');assert.deepEqual(plain(S.getPhrase()),jazz,'cross genre favorite restores notes');
+ const old={...saved};delete old.genre;w.siteStorage.setItem('tuner-original-licks-v1',JSON.stringify([old]));S.setMode('backing');S.setMode('create');await tick();change('practice-saved','0');await tick();assert.equal(S.getGenre(),null);assert.deepEqual(plain(S.getPhrase()),jazz,'old snapshot retains precise notes without genre rewriting');
+ S.openLesson(w.genreLessons.lessons.find(item=>item.id==='funk-soul-04'),'backing');await tick();assert.equal(q('practice-rhythm-score').hidden,false);assert.equal(q('practice-rhythm-score').querySelectorAll('[data-rhythm-step]').length,16);assert.ok(q('practice-rhythm-score').textContent.includes('×'));
+ q('practice-rhythm-mute').click();assert.equal(d.querySelector('[data-practice-volume="rhythm"]').value,'0');q('practice-rhythm-mute').click();assert.equal(d.querySelector('[data-practice-volume="rhythm"]').value,'66');
+ change('practice-rhythm-style','arpeggio');assert.equal(q('practice-rhythm-score').hidden,true,'do not misrepresent off-grid fills as a sixteenth exercise');change('practice-rhythm-style','sixteenth');assert.equal(q('practice-rhythm-score').hidden,false);
+ S.setMode('courses');q('genre-courses').querySelector('[data-complete-lesson]').click();assert.ok(JSON.parse(w.siteStorage.getItem('tuner-genre-completed-v1')).length===1);q('genre-courses').querySelector('[data-favorite-lesson]').click();assert.equal(JSON.parse(w.siteStorage.getItem('tuner-genre-favorites-v1')).length,1);
+ S.setMode('library');assert.equal(q('genre-courses').hidden,true);assert.equal(q('lesson-library-pane').hidden,false);assert.ok(q('lesson-library-pane').textContent.includes('BopLand'));
+ dom.window.close();console.log('PASS genre controls: 21 courses, six selectors, persistent per-genre drafts, old/new favorite snapshots, MIDI, visible rhythm score, minus-guitar practice, progress/favorites and original library');
+})().catch(error=>{console.error(error);process.exit(1)});

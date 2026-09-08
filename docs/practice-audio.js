@@ -3,11 +3,11 @@
   const H=window.tunerHarmony;
   const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles}=window.practiceArrangements;
   const timbres = {
-    drums: { natural: '原声 Studio', vintage: '复古暖鼓', crisp: '明亮紧致' },
-    bass: { precision: 'P 风格 · 厚实指弹', round: '圆润指弹', bright: '明亮指弹', muted: '闷音短奏' },
-    keys: { jazz: 'Jazz 风琴', gospel: 'Gospel 风琴', soft: '柔和风琴' },
-    rhythm: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio' },
-    lead: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
+    drums: { natural: '原声 Studio', vintage: '复古暖鼓', crisp: '明亮紧致', electro: 'Electro · 合成鼓' },
+    bass: { precision: 'P 风格 · 厚实指弹', round: '圆润指弹', bright: '明亮指弹', muted: '闷音短奏', synth: 'Synth Bass · 深低音', acid: 'Synth Bass · 弹性短奏' },
+    keys: { jazz: 'Jazz 风琴', gospel: 'Gospel 风琴', soft: '柔和风琴', synth: 'Synth Keys · 柔和电键', pad: 'Synth Pad · 空间铺底' },
+    rhythm: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他' },
+    lead: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
   };
   const selectedTimbres = { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', lead: 'warm' }, timbreRequests = {};
   const patches = {
@@ -21,14 +21,17 @@
     guitar: {
       warm: { cutoff: 6100, highpass: 70, level: .58, attack: .004, release: .12, drive: 1.2, eq: [['lowshelf', 180, 2.6], ['peaking', 900, 1.4, .65], ['peaking', 3200, -1.2, .8]], compress: [-24, 12, 2.4, .012, .14] },
       bright: { cutoff: 7600, highpass: 75, level: .58, attack: .003, release: .1, drive: 1.12, eq: [['lowshelf', 190, 2.2], ['peaking', 1100, 1.2, .7]], compress: [-23, 12, 2.2, .009, .12] },
-      crunch: { cutoff: 5600, highpass: 80, level: .44, attack: .004, release: .14, drive: 3, eq: [['lowshelf', 180, 2.8], ['peaking', 950, 2, .7], ['peaking', 3100, -2, 1]], compress: [-22, 12, 2.6, .01, .14] }
+      crunch: { cutoff: 5600, highpass: 80, level: .44, attack: .004, release: .14, drive: 3, eq: [['lowshelf', 180, 2.8], ['peaking', 950, 2, .7], ['peaking', 3100, -2, 1]], compress: [-22, 12, 2.6, .01, .14] },
+      dry: { cutoff:7400,highpass:100,level:.55,attack:.002,release:.045,drive:1.1,compress:[-24,10,2.5,.006,.09] },
+      ambient: { cutoff:4700,highpass:95,level:.43,attack:.065,release:.32,drive:1.8,space:true,compress:[-25,14,2.6,.018,.22] }
     }
   };
   let context, master, room, compressor, ready, assets = {}, voices = new Set(), buses = {};
-  let sampleBankPromise, sampleBank;
+  let sampleBankPromise, sampleBank, electroPromise, electroAssets = {}, ambientImpulse;
   function getTimbre(track) { return selectedTimbres[track]; }
   async function ensureSelection(selection, events = []) {
     const jobs = [];
+    if (selection.drums === 'electro' && events.some(event => event.track === 'drums')) jobs.push(prepareElectro());
     if (selection.bass === 'precision' && events.some(event => event.track === 'bass')) jobs.push(prepareModernBass());
     const id = selection.lead;
     if (id === 'piano' || id === 'violin') {
@@ -59,7 +62,7 @@
     if (!Object.hasOwn(timbres[track] || {}, id)) throw Error('未知音色');
     const generation = (timbreRequests[track] || 0) + 1; timbreRequests[track] = generation;
     const previous = selectedTimbres[track]; selectedTimbres[track] = id;
-    if (track === 'lead' || track === 'bass') {
+    if (track === 'lead' || track === 'bass' || track === 'drums') {
       try { await ensureSelection({ ...selectedTimbres }, events); }
       catch (error) { if (timbreRequests[track] !== generation) return false; selectedTimbres[track] = previous; throw error; }
     }
@@ -67,6 +70,20 @@
   }
   const decodedAssets = new Map();
   const organWaves = new Map(), driveCurves = new Map();
+  function prepareElectro() {
+    if(!electroPromise)electroPromise=(async()=>{
+      const manifest=await fetchAsset('assets/audio/electro/manifest.json','json');
+      for(const [name,entry] of Object.entries(manifest.files))if(!electroAssets[name])electroAssets[name]={buffer:await getContext().decodeAudioData(await fetchAsset('assets/audio/electro/'+entry.file))};
+    })().catch(error=>{electroPromise=null;throw error;});
+    return electroPromise;
+  }
+  function spatialBuffer() {
+    if(ambientImpulse)return ambientImpulse;
+    ambientImpulse=context.createBuffer(2,Math.floor(context.sampleRate*1.4),context.sampleRate);
+    const random=H.rng(9102026);
+    for(let channel=0;channel<2;channel++){const data=ambientImpulse.getChannelData(channel);for(let i=0;i<data.length;i++)data[i]=(random()*2-1)*Math.exp(-i/context.sampleRate*4)*.09;}
+    return ambientImpulse;
+  }
   let bassAssets = [], guitarAssets = [], modernBassAssets = [], modernBassPromise;
   function getContext() {
     if (context) return context;
@@ -142,15 +159,16 @@
     await Promise.all([unlocked, preload()]);
     return ctx;
   }
-  function trackVoice(source, gain, extra = [], choke = null, owner = null, at = 0) {
-    const item = { source, gain, extra, choke, owner, at }; voices.add(item);
-    source.onended = () => { voices.delete(item); source.disconnect(); gain.disconnect(); extra.forEach(node => node.disconnect()); };
+  function trackVoice(source, gain, extra = [], choke = null, owner = null, at = 0, tailSeconds = 0, silencers = []) {
+    const item = { source, gain, extra, choke, owner, at, tailSeconds, silencers, ended:false }; voices.add(item);
+    item.cleanup=()=>{clearTimeout(item.tailTimer);voices.delete(item);source.disconnect();gain.disconnect();extra.forEach(node=>node.disconnect());};
+    source.onended = () => {item.ended=true;source.disconnect();if(item.tailSeconds)item.tailTimer=setTimeout(item.cleanup,item.tailSeconds*1000);else item.cleanup();};
   }
   function sample(asset, at, duration, velocity, track, midi, event = {}, selection = selectedTimbres, owner = null) {
     if (!asset) return;
     const source = context.createBufferSource(), gain = context.createGain(); source.buffer = asset.buffer;
     const guitar = (track === 'lead' || track === 'rhythm') && !asset.kind;
-    const patch = guitar ? patches.guitar[selection[track]] : patches[track]?.[selection[track]] || {};
+    const patch = guitar ? (event.articulation==='dead'?{...patches.guitar.dry,cutoff:1800,highpass:650,length:.06,attack:.001,release:.012,level:.38}:event.articulation==='muted'?{...patches.guitar[selection[track]],cutoff:4300,length:.62,release:.025,space:false}:patches.guitar[selection[track]]) : patches[track]?.[selection[track]] || {};
     const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi) / 12)) * (patch.rate || 1);
     source.playbackRate.value = rate;
     const length = Math.max(.035, (duration || asset.buffer.duration / rate) * (patch.length || 1));
@@ -181,6 +199,8 @@
       chain.connect(node); chain = node; extra.push(node);
     }
     chain.connect(gain); gain.connect(buses[track]);
+    const silencers=[];
+    if(patch.space){const reverb=context.createConvolver(),wet=context.createGain();reverb.buffer=spatialBuffer();wet.gain.value=.3;gain.connect(reverb).connect(wet).connect(buses[track]);extra.push(reverb,wet);silencers.push(wet);}
     if (asset.loop) { source.loop = true; source.loopStart = asset.loopStart; source.loopEnd = asset.loopEnd; }
     if (guitar && event.articulation === 'slide') { source.playbackRate.setValueAtTime(rate * 2 ** (-.65 / 12), at); source.playbackRate.linearRampToValueAtTime(rate, at + Math.min(.065, length / 3)); }
     if (guitar && track === 'lead' && event.articulation === 'vibrato' && length > .36) {
@@ -191,7 +211,7 @@
     if (track === 'drums' && /^hat-/.test(event.sample || '')) for (const voice of voices) if (voice.choke === 'hat' && voice.owner === owner) {
       voice.gain.gain.setTargetAtTime(.0001, at, .006); try { voice.source.stop(at + .025); } catch {}
     }
-    trackVoice(source, gain, extra, choke, owner, at);
+    trackVoice(source, gain, extra, choke, owner, at, patch.space?1.4:0, silencers);
     source.start(at); source.stop(at + (asset.loop ? length + release * 2 : Math.min(asset.buffer.duration / rate, length + release * 2)));
   }
   function guitarSample(event) {
@@ -212,8 +232,21 @@
     oscillator.frequency.value = 440 * 2 ** ((event.midi - 69) / 12);
     oscillator.connect(gain); trackVoice(oscillator, gain, [filter], null, owner, at); oscillator.start(at); oscillator.stop(at + seconds + .18);
   }
+  function synth(event,at,seconds,selection,owner) {
+    const bass=event.track==='bass',id=selection[event.track],pad=id==='pad',acid=id==='acid';
+    const duration=Math.max(.035,seconds),frequency=440*2**((event.midi-69)/12);
+    const layers=bass?[[acid?'sawtooth':'sine',1,.7],['triangle',.5,.3]]:[['triangle',1,.7],['sine',pad?1.003:2,.3]];
+    layers.forEach(([type,multiple,level])=>{
+      const oscillator=context.createOscillator(),filter=context.createBiquadFilter(),gain=context.createGain();oscillator.type=type;oscillator.frequency.value=frequency*multiple;
+      filter.type='lowpass';filter.frequency.setValueAtTime(bass?(acid?1700:850):(pad?2200:4400),at);filter.frequency.exponentialRampToValueAtTime(bass?(acid?230:420):(pad?1300:1400),at+Math.min(duration,.28));
+      const attack=Math.min(pad?.07:.008,duration/3),peak=event.velocity*level*(bass?.25:.13),release=pad?.16:.055;
+      gain.gain.setValueAtTime(.0001,at);gain.gain.linearRampToValueAtTime(peak,at+attack);gain.gain.setTargetAtTime(peak*(pad?.8:.5),at+attack+.008,.11);gain.gain.setTargetAtTime(.0001,at+duration,release/3);
+      oscillator.connect(filter).connect(gain).connect(buses[event.track]);trackVoice(oscillator,gain,[filter],null,owner,at);oscillator.start(at);oscillator.stop(at+duration+release);
+    });
+  }
   function sound(event, at, beatSeconds, selection = selectedTimbres, owner = null) {
-    if (event.track === 'drums') sample(assets[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event, selection, owner);
+    if(event.track==='bass'&&['synth','acid'].includes(selection.bass)||event.track==='keys'&&['synth','pad'].includes(selection.keys)){synth(event,at,event.duration*beatSeconds,selection,owner);return;}
+    if (event.track === 'drums') sample((selection.drums==='electro'?electroAssets:assets)[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event, selection, owner);
     else if (event.track === 'bass') {
       const variant = (event.variant ?? Math.floor(event.beat * 3)) % 2;
       const bank = selection.bass === 'precision' ? modernBassAssets.filter(asset => asset.variant === variant) : bassAssets;
@@ -231,15 +264,17 @@
       // Only this candidate's future sources are removed. The current bar and
       // already sounding tails retain their original envelopes.
       try { voice.source.stop(context.currentTime); } catch {}
-      voice.source.disconnect(); voice.gain.disconnect(); voice.extra.forEach(node => node.disconnect());
-      voices.delete(voice);
+      voice.tailSeconds=0;voice.cleanup();
     }
   }
   function silence() {
     if (!context) return;
-    for (const { source, gain } of [...voices]) {
+    for (const voice of [...voices]) {
+      const {source,gain}=voice;voice.tailSeconds=0;
       gain.gain.cancelScheduledValues(context.currentTime); gain.gain.setTargetAtTime(.0001, context.currentTime, .006);
+      for(const output of voice.silencers){output.gain.cancelScheduledValues(context.currentTime);output.gain.setTargetAtTime(.0001,context.currentTime,.006);}
       try { source.stop(context.currentTime + .03); } catch {}
+      if(voice.ended){clearTimeout(voice.tailTimer);voice.tailTimer=setTimeout(voice.cleanup,35);}
     }
   }
   function volume(track, value) { getContext(); buses[track].gain.setTargetAtTime(Math.max(0, Math.min(1, value)) ** 2, context.currentTime, .015); }
