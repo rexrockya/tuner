@@ -1,0 +1,328 @@
+{
+  "label": "before",
+  "ref": "HEAD",
+  "created": "2026-09-08T12:56:28.368Z",
+  "root": ".",
+  "sourceHashes": {
+    "harmony.js": "e6e88da5532ab5fee4cd66c644d8a71e2ef2906299ef68ea4c048c3843bda3fe",
+    "practice-arrangement.js": "0476e720922a4af83bc0dcc2d5181601c01e6b12920edcba681a391b11994cbc",
+    "score-audio.js": "5a0fdff7a524825902a4f660ec04a10d8daee427ea10f2254c89ba68333a9f39",
+    "practice-audio.js": "e18e24f6922c59ebb67d06db10296c9361606be2f593f6d3791fed00064353c3",
+    "practice-timbres.js": "4aa475b243a8fbb7528acb5588696dff01ca3709c99b1fda65605a81097e821f",
+    "assets/audio/smplr-1.0.0.mjs": "85d2a2ce3db20e04c3483e0f5be7430f9c275ab3524b73bfc6db2f340200a613",
+    "assets/audio/blues/manifest.json": "417a18bade9c994fae66177339f50d88fc1da0e2202c7663b62fca18d463d08f"
+  },
+  "method": "Real node-web-audio-api OfflineAudioContext; unchanged production Web Audio graph and Transport.schedule; actual bundled samples and score piano/violin mapping; float WAV; sample peak and RMS (not LUFS/true peak). Offline resume and loader boundary adapted. Native setTargetAtTime future-time bug reproduced in pure sine probe; target automation evaluated analytically and supplied as per-sample setValueCurveAtTime for all old/new comparisons (production graph otherwise unchanged). AudioBuffer mutable views synchronized with copyToChannel for native library portability.",
+  "results": [
+    {
+      "name": "lead-warm",
+      "kind": "lead",
+      "selection": {
+        "lead": "warm"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -5.251992101206239,
+      "rmsDbFS": -27.05677000649986,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -5.251992101206239,
+        "rmsDbFS": -26.335779857028527,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -6.135876361501859,
+          "rmsDbFS": -21.24295153007058,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -5.251992101206239,
+          "rmsDbFS": -18.326997293220444,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -8.405098659001265,
+          "rmsDbFS": -22.549378886158415,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -10.270408591955562,
+          "rmsDbFS": -30.639509459660598,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -11.044575275956054,
+          "rmsDbFS": -26.617220719911945,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -12.460688557874477,
+          "rmsDbFS": -25.09383384946235,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -12.65372836522139,
+          "rmsDbFS": -32.19781910499866,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 13,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 7
+      },
+      "wav": "lead-warm.wav"
+    },
+    {
+      "name": "lead-violin",
+      "kind": "lead",
+      "selection": {
+        "lead": "violin"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -27.396347495294613,
+      "rmsDbFS": -41.10414415490322,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -27.396347495294613,
+        "rmsDbFS": -40.37071997285659,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -29.08759171564818,
+          "rmsDbFS": -40.9476942230117,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -29.0555645112643,
+          "rmsDbFS": -39.492630123249825,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -29.641394444754546,
+          "rmsDbFS": -38.22614009654862,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -29.377656091440784,
+          "rmsDbFS": -40.91486260049357,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -28.684518109509128,
+          "rmsDbFS": -39.72330050756595,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -28.603474645889342,
+          "rmsDbFS": -37.65038615319809,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -27.396347495294613,
+          "rmsDbFS": -37.43275979675892,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 13,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 7
+      },
+      "wav": "lead-violin.wav"
+    },
+    {
+      "name": "lead-piano",
+      "kind": "lead",
+      "selection": {
+        "lead": "piano"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -4.659749953963511,
+      "rmsDbFS": -20.508540054350846,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -4.659749953963511,
+        "rmsDbFS": -19.773471745894334,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -5.60529525753576,
+          "rmsDbFS": -20.480819614888183,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -4.6726146643055575,
+          "rmsDbFS": -15.086933427417568,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -5.778335718247023,
+          "rmsDbFS": -15.433548109946678,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -6.591829646234807,
+          "rmsDbFS": -22.767646205791742,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -5.323204342499132,
+          "rmsDbFS": -14.150463082859453,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -4.659749953963511,
+          "rmsDbFS": -12.582812527914164,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -5.021547700596544,
+          "rmsDbFS": -20.345388504014768,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 13,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 7
+      },
+      "wav": "lead-piano.wav"
+    },
+    {
+      "name": "mix-warm",
+      "kind": "mix",
+      "selection": {
+        "lead": "warm"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -4.925760169949807,
+      "rmsDbFS": -26.705500628174402,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -4.925760169949807,
+        "rmsDbFS": -26.197834786441263,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 181,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 175,
+        "createOscillator": 42
+      },
+      "wav": "mix-warm.wav"
+    },
+    {
+      "name": "mix-violin",
+      "kind": "mix",
+      "selection": {
+        "lead": "violin"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -11.529392871493618,
+      "rmsDbFS": -30.345453214959104,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -11.529392871493618,
+        "rmsDbFS": -29.823310828547488,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 181,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 175,
+        "createOscillator": 42
+      },
+      "wav": "mix-violin.wav"
+    }
+  ],
+  "sourceHashesLF": {
+    "harmony.js": "e6e88da5532ab5fee4cd66c644d8a71e2ef2906299ef68ea4c048c3843bda3fe",
+    "practice-arrangement.js": "0476e720922a4af83bc0dcc2d5181601c01e6b12920edcba681a391b11994cbc",
+    "score-audio.js": "5a0fdff7a524825902a4f660ec04a10d8daee427ea10f2254c89ba68333a9f39",
+    "practice-audio.js": "e18e24f6922c59ebb67d06db10296c9361606be2f593f6d3791fed00064353c3",
+    "practice-timbres.js": "4aa475b243a8fbb7528acb5588696dff01ca3709c99b1fda65605a81097e821f",
+    "assets/audio/smplr-1.0.0.mjs": "85d2a2ce3db20e04c3483e0f5be7430f9c275ab3524b73bfc6db2f340200a613",
+    "assets/audio/blues/manifest.json": "417a18bade9c994fae66177339f50d88fc1da0e2202c7663b62fca18d463d08f"
+  },
+  "waveformLocation": "WAV files are generated under the chosen temporary workdir; not shipped with the website or this report."
+}

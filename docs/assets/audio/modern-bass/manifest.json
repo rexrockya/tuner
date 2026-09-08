@@ -1,0 +1,114 @@
+{
+  "electric-27-r1": {
+    "file": "electric-27-r1.flac",
+    "fallback": "electric-27-r1.wav",
+    "midi": 27,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-27-r2": {
+    "file": "electric-27-r2.flac",
+    "fallback": "electric-27-r2.wav",
+    "midi": 27,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-30-r1": {
+    "file": "electric-30-r1.flac",
+    "fallback": "electric-30-r1.wav",
+    "midi": 30,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-30-r2": {
+    "file": "electric-30-r2.flac",
+    "fallback": "electric-30-r2.wav",
+    "midi": 30,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-33-r1": {
+    "file": "electric-33-r1.flac",
+    "fallback": "electric-33-r1.wav",
+    "midi": 33,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-33-r2": {
+    "file": "electric-33-r2.flac",
+    "fallback": "electric-33-r2.wav",
+    "midi": 33,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-36-r1": {
+    "file": "electric-36-r1.flac",
+    "fallback": "electric-36-r1.wav",
+    "midi": 36,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-36-r2": {
+    "file": "electric-36-r2.flac",
+    "fallback": "electric-36-r2.wav",
+    "midi": 36,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-39-r1": {
+    "file": "electric-39-r1.flac",
+    "fallback": "electric-39-r1.wav",
+    "midi": 39,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-39-r2": {
+    "file": "electric-39-r2.flac",
+    "fallback": "electric-39-r2.wav",
+    "midi": 39,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-42-r1": {
+    "file": "electric-42-r1.flac",
+    "fallback": "electric-42-r1.wav",
+    "midi": 42,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-42-r2": {
+    "file": "electric-42-r2.flac",
+    "fallback": "electric-42-r2.wav",
+    "midi": 42,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-48-r1": {
+    "file": "electric-48-r1.flac",
+    "fallback": "electric-48-r1.wav",
+    "midi": 48,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-48-r2": {
+    "file": "electric-48-r2.flac",
+    "fallback": "electric-48-r2.wav",
+    "midi": 48,
+    "variant": 1,
+    "sourceLayer": "f"
+  },
+  "electric-54-r1": {
+    "file": "electric-54-r1.flac",
+    "fallback": "electric-54-r1.wav",
+    "midi": 54,
+    "variant": 0,
+    "sourceLayer": "f"
+  },
+  "electric-54-r2": {
+    "file": "electric-54-r2.flac",
+    "fallback": "electric-54-r2.wav",
+    "midi": 54,
+    "variant": 1,
+    "sourceLayer": "f"
+  }
+}

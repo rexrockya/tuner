@@ -24,6 +24,23 @@ export function createSampleBank(context, helpers) {
     }
     return null;
   }
+  // Static practice-only trim: preserve note dynamics and never raise the whole mix.
+  function violinLevel(buffer) {
+    const start = Math.min(buffer.length, Math.round(buffer.sampleRate * .08));
+    const end = Math.min(buffer.length, Math.round(buffer.sampleRate * .6));
+    let energy = 0, count = 0, peak = 0;
+    for (let channel = 0; channel < buffer.numberOfChannels; channel++) {
+      const data = buffer.getChannelData(channel);
+      for (let i = 0; i < data.length; i++) {
+        peak = Math.max(peak, Math.abs(data[i]));
+        if (i >= start && i < end) { energy += data[i] * data[i]; count++; }
+      }
+    }
+    const rms = Math.sqrt(energy / Math.max(1, count));
+    if (!(peak > 0)) return 1;
+    const peakLimit = Math.min(8, 10 ** (-6 / 20) / peak);
+    return rms > 1e-6 ? Math.min(peakLimit, 10 ** (-24 / 20) / rms) : Math.min(1, peakLimit);
+  }
   async function prepareViolin() {
     if (!violinPromise) violinPromise = (async () => {
       const [source, lib] = await Promise.all([fetchBody(new URL('./assets/audio/violin-mp3.js', import.meta.url).href, 'text'), library()]);
@@ -60,7 +77,7 @@ export function createSampleBank(context, helpers) {
         const bytes = Uint8Array.from(raw, char => char.charCodeAt(0));
         const buffer = await context.decodeAudioData(bytes.buffer);
         if (!helpers?.prepareViolinSustain) throw Error('小提琴音源尚未就绪，请刷新重试');
-        return { buffer, ...helpers.prepareViolinSustain(buffer) };
+        return { buffer, level: violinLevel(buffer), ...helpers.prepareViolinSustain(buffer) };
       })));
     }
   }

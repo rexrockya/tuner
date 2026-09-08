@@ -23,7 +23,7 @@ function harness(options = {}) {
     get currentTime() { return state.now; }
     resume() { state.resumes++; this.state = 'running'; return Promise.resolve(); }
     createGain() { return new Node(); } createDynamicsCompressor() { return new Node(); } createConvolver() { return new Node(); }
-    createBiquadFilter() { return new Node(); } createOscillator() { return new Node(); } createBufferSource() { return new Node(); }
+    createBiquadFilter() { return new Node(); } createWaveShaper() { return new Node('drive'); } createOscillator() { return new Node(); } createBufferSource() { return new Node(); }
     createPeriodicWave() { state.waves++; return {}; }
     createBuffer(channels, length, rate) { const data = Array.from({ length: channels }, () => new Float32Array(length)); return { duration: length / rate, getChannelData: channel => data[channel] }; }
     async decodeAudioData(bytes) {

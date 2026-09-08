@@ -1,0 +1,1425 @@
+{
+  "label": "final",
+  "ref": "working",
+  "baseCommit": "4abdac2c73a215f38591d329a266752b8032e997",
+  "created": "2026-09-08T13:06:40.658Z",
+  "root": ".",
+  "sourceHashes": {
+    "harmony.js": "c349fbb346b63ca5fb050107bcd23d87820b4dc84b0e4ee0f5aa6d7177470a5d",
+    "practice-arrangement.js": "510caf9ecf257b46d29eacab99eed19fe340afe53329ff4614c1511d59929cdf",
+    "score-audio.js": "b843217623449f8957e69fa165ae720673215612b8b83562c99b90da2103dd83",
+    "practice-audio.js": "53265d7d7c61be1529de0bcd5cb2448de6884285c9ce552fc36bee39d6a1482b",
+    "practice-timbres.js": "d1edd18d343e01979334db83602cd62f376bfa8fda7888a1a9f09899888edc44",
+    "assets/audio/smplr-1.0.0.mjs": "6d050597e0f0a7f13692fdf9aa700b715b2259c7027053cc2574230be7fac780",
+    "assets/audio/blues/manifest.json": "64dc04fd25270a6176af6163b0cecf9dc46d27c1a416fda4a038cce5951d6927"
+  },
+  "assetHashes": {
+    "assets/audio/blues/manifest.json?v=20260908-guitar": "64dc04fd25270a6176af6163b0cecf9dc46d27c1a416fda4a038cce5951d6927",
+    "assets/audio/blues/bass-29.flac": "f8a4b1ba3704bd8082224a42bb39023cd28b49432cc8205a99bf734ee366f893",
+    "assets/audio/blues/bass-35.flac": "ab0d67ffcb621156056a35ec33db44098097b0016f5024b6a07ff567d0eac997",
+    "assets/audio/blues/bass-41.flac": "5a002366185be926740ba057c6f4a1cefebb3b908ea4662ef1b0f721b25ecb3b",
+    "assets/audio/blues/bass-47.flac": "dd49b2ac466672871473a8a4aff7d312a05f9d5704e1e24935f3ec365c929621",
+    "assets/audio/blues/hat-1.flac": "1f5bdcf8e007ef5957a5e3a0da135498bff2d4290df8c71661f3c12be43cc488",
+    "assets/audio/blues/hat-2.flac": "507aca1e1d4656e278559867ca1e7db6573c111af04c1c9e546faca57cfbe644",
+    "assets/audio/blues/kick-1.flac": "97d7ef72d06e963ff966b4a007e2146010fd46122eb3ca90723557e4ff6afc1d",
+    "assets/audio/blues/kick-2.flac": "34a1b16e332212c06fbf58ec6ca7b3fe06b9c92ae4a2828252f7ce8780e7f3d2",
+    "assets/audio/blues/open-hat.flac": "781ce24128ba34231e849c97d7bb3ca68ae3a76ccd01b6adc465fcb31f970ed3",
+    "assets/audio/blues/ride.flac": "fee9c057aef36dc28f9d40be2af01e9e9f5fc0a01b5445d4af1ff9537310e832",
+    "assets/audio/blues/snare-1.flac": "0efdbabdc77977848587da4a55eb02a6f9bade444cf9ddc1b51ad5948914f778",
+    "assets/audio/blues/snare-2.flac": "ccc239daf15969e1b08630a64b0c8627a8aae3cc55f1e4c756f186ac17eba09a",
+    "assets/audio/blues/guitar-45-v2-r1.flac": "4069695ca7baeb8e302018fc4d97773f96bf2c7f146ad96e10fbbcc8a085b8a5",
+    "assets/audio/blues/guitar-45-v2-r2.flac": "45573922a325477704b5eb95b22c7cb839cff491df64a13733a22a456bc66182",
+    "assets/audio/blues/guitar-45-v3-r1.flac": "59e31b332ba3c3d44ef9f96e99da28583c2aca51b9c51d865a5a64aef825ed84",
+    "assets/audio/blues/guitar-45-v3-r2.flac": "0c44f4b75f598ebd74dd725a5a5be9fee1d91dab3feb25ada4ee342eaf9a038c",
+    "assets/audio/blues/guitar-51-v2-r1.flac": "c5d494452c13b16ec551714e177ad29c5ce0fd9b5e0f3d3e3a8780a46b9cbf43",
+    "assets/audio/blues/guitar-51-v2-r2.flac": "64469155bab011abf70c13e18c8bdb4fed81178c1c22e5ba8669fbdb2e05c064",
+    "assets/audio/blues/guitar-51-v3-r1.flac": "1a6a35d705ac0057e298742e2d1658fe062da423db299038c9309fbc3821a714",
+    "assets/audio/blues/guitar-51-v3-r2.flac": "bdbd43fe98de6f1fa9ea5e58a1d45e633e0c74842aeb0e98c47eaa77174780b5",
+    "assets/audio/blues/guitar-57-v2-r1.flac": "c4445b09cba6c4044e9cb5aab5d4adb7b62f643dee3ce91b16fc4db4eeeabfc9",
+    "assets/audio/blues/guitar-57-v2-r2.flac": "9cecd8b378d3c7e6a246c85ae80aa8a4433c673493c7778af7542b22bfdae31a",
+    "assets/audio/blues/guitar-57-v3-r1.flac": "fc9785507023b3894bd149c79d03cd431c4ab99351cf40ea2671c2bae7f626fb",
+    "assets/audio/blues/guitar-57-v3-r2.flac": "17a0beab9b8fe73524633ff5511167b8330764220cb3701043d1e5bdc7dd0d13",
+    "assets/audio/blues/guitar-63-v2-r1.flac": "9c573fcff7b018d3f2d1964fd3d4b4e7cb5b7f0fd9debcbbd0256525b796558d",
+    "assets/audio/blues/guitar-63-v2-r2.flac": "a8d82f74fdcf1b3f3a72eedacaf2142b873bcc05bad9eb68ea3d3fc686711a5b",
+    "assets/audio/blues/guitar-63-v3-r1.flac": "2a56e17bd291dd25cb225ddec2ffc06532cc1ec8fd59b1eb4b06bc3d33c10073",
+    "assets/audio/blues/guitar-63-v3-r2.flac": "f810b7f4d1526fb32a4f379a484a6b1d259efc7ab180c84a0d3bece8d306aa77",
+    "assets/audio/blues/guitar-69-v2-r1.flac": "958c94996d70f04d5e3b666210486cbe207c2e8ae0ece8b997da9727133ef779",
+    "assets/audio/blues/guitar-69-v2-r2.flac": "49b65988d45409ab305c02f3b6d1d6c428496e6481dcde94e9ef916db477b7b8",
+    "assets/audio/blues/guitar-69-v3-r1.flac": "6a29f223130ee2050daa986d3accc465e9aaae90f1c35077740e7b5778614927",
+    "assets/audio/blues/guitar-69-v3-r2.flac": "2144d1ca64d87cdf2f2afe0410d7cb912915470f41bfa91d43b4d75966f1eb84",
+    "assets/audio/blues/guitar-75-v2-r1.flac": "2a0670f9ed9f6c942cf2ad56ec1cec7964c927467d6b6eb9ebff9ce0363b5abc",
+    "assets/audio/blues/guitar-75-v2-r2.flac": "61ec784f4645c7560607e39fed9e267ac0b43944e5d47529e2b2eddd3b299e86",
+    "assets/audio/blues/guitar-75-v3-r1.flac": "586cc78a9f4d30af4988b4555be94125c413528932655350f0feea1323b400b8",
+    "assets/audio/blues/guitar-75-v3-r2.flac": "062ab06e14daf384675a97cd20eee043bd9e838eb351924dea994ecac0c01389",
+    "assets/audio/modern-bass/manifest.json?v=20260908-tone-1": "02a5eac001fb928ade12a3d2f0dae558b332c554765b0ffb03d8e0d28f00239b",
+    "assets/audio/modern-bass/electric-27-r1.flac": "d29215a6e3314c7083529301d1d415f377e3aedc11086a8b2d31659ff47cde82",
+    "assets/audio/modern-bass/electric-27-r2.flac": "604931c03a01b572117b88059aad89bf06015fe6d058a9111a3de61020ec06aa",
+    "assets/audio/modern-bass/electric-30-r1.flac": "c6fe643663a8308dd25e53f8b7ddd648742f8c535bf6b8c6b2def5320512b211",
+    "assets/audio/modern-bass/electric-30-r2.flac": "337d0dd067b7bafbc634d4fb1cb780dc959bf17de11ba5b3724c685bb8240536",
+    "assets/audio/modern-bass/electric-33-r1.flac": "66b7745f3d79fb44be4fecc2c6af2eac2758fb412c648415ecd1703c15a26f1f",
+    "assets/audio/modern-bass/electric-33-r2.flac": "a9f0f472825fd543af7584da58dd5633ab5cd5db47ef2b451f5ff71c6cc8c4c2",
+    "assets/audio/modern-bass/electric-36-r1.flac": "d0d246051d657e6a7e7fa9a00fd31321fea76596c0649bbb7ece04524c4a0c43",
+    "assets/audio/modern-bass/electric-36-r2.flac": "af54751794156fb0d7048d92b678b2c78c96d4bc8ed499480332bd6778db4ccb",
+    "assets/audio/modern-bass/electric-39-r1.flac": "d1a05925e44efe8596b34e1dbbf4d1a8ed8ab98bf554cff95cb81f638046282f",
+    "assets/audio/modern-bass/electric-39-r2.flac": "d1a4326e383f1b4f5c8441c36d025fb148fe5d9d10d7f03ecdf77f428cded004",
+    "assets/audio/modern-bass/electric-42-r1.flac": "90f58bf2f31dc5e5ab57efd9068a56598e5fab3717f5840315e98bb627859c5a",
+    "assets/audio/modern-bass/electric-42-r2.flac": "fbe4410ca65204f8b79c69fd497b86ca03f5430e4465e6ce20c4d9b8e1d6029a",
+    "assets/audio/modern-bass/electric-48-r1.flac": "6e0b08d69b0d69c04ddb3eee79b2301ea80f7d34e7cff5b213855a19c9c64b75",
+    "assets/audio/modern-bass/electric-48-r2.flac": "fd9c984fe641832c645183c96bfda983d4697874e386f82f322708c309a716cd",
+    "assets/audio/modern-bass/electric-54-r1.flac": "11291a6e2bbfa8e363fda6894efdc73662af993679ea4aa7e08f76e31d7b0515",
+    "assets/audio/modern-bass/electric-54-r2.flac": "343f1c24a37372881289f46a218e1d30f6892ef61d32106b8bc85550d7b1dcb4",
+    "assets/audio/violin-mp3.js": "42f0853965dfde3cfa3e7f7b6e1f0e5e97247591c959f2aa5622d0356f670440",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20A2.ogg": "0eec814a5eef2897909e83d5335b32c0e7ca2e135f0313c474f1c3ee7ff9b8e5",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20C3.ogg": "d41eb710e35cbd73a89c67425057ad757a9634f04930e0c95b8c38a3be933614",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20E3.ogg": "6b3d250c7800379054a74091102759dcc67f8fbb1ab33e81413e1fec23c57f9f",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20G3.ogg": "172f3e1201cea4e596d240ab15782f8ec9d287db553d7d8bdfd9d22c6d0ef2d2",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20A3.ogg": "f11de13c469b04124b4fa4471058378cd02fe0c93c044561b22afdb55ea3586a",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20C4.ogg": "1d5b7db31072017b44354742b7f2d98f6ed4f05d85764cb953f7a64a82a46e28",
+    "https://smpldsnds.github.io/sfzinstruments-splendid-grand-piano/samples/Mp%20E4.ogg": "a4af9a976d7ed64ac250c5feb1179d79657514b1f6553e4d0888c3e260d95a08"
+  },
+  "rendererVersion": "2.1.0",
+  "automationSanity": {
+    "frames": 88200,
+    "maxAbsoluteError": 1.4898282940656316e-08,
+    "rmsError": 1.929123287481604e-09
+  },
+  "method": "Real node-web-audio-api OfflineAudioContext; unchanged production Web Audio graph and Transport.schedule; actual bundled samples and score piano/violin mapping; float WAV; sample peak and RMS (not LUFS/true peak). Offline resume and loader boundary adapted. Native setTargetAtTime future-time bug reproduced in pure sine probe; target automation evaluated analytically and supplied as per-sample setValueCurveAtTime for all old/new comparisons (production graph otherwise unchanged). AudioBuffer mutable views synchronized with copyToChannel for native library portability.",
+  "results": [
+    {
+      "name": "mix-bright",
+      "kind": "mix",
+      "selection": {
+        "lead": "bright"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -5.446454199112896,
+      "rmsDbFS": -26.577323294408338,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -5.446454199112896,
+        "rmsDbFS": -26.052776184879267,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 182,
+        "createDynamicsCompressor": 72,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 500,
+        "createOscillator": 42,
+        "createWaveShaper": 71
+      },
+      "wav": "mix-bright.wav"
+    },
+    {
+      "name": "mix-crunch",
+      "kind": "mix",
+      "selection": {
+        "lead": "crunch"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -6.75970489482986,
+      "rmsDbFS": -25.64277190438275,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -6.75970489482986,
+        "rmsDbFS": -25.117373989882164,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 182,
+        "createDynamicsCompressor": 72,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 507,
+        "createOscillator": 42,
+        "createWaveShaper": 71
+      },
+      "wav": "mix-crunch.wav"
+    },
+    {
+      "name": "challenge-warm",
+      "kind": "challenge",
+      "selection": {
+        "lead": "warm",
+        "bass": "precision"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 208,
+      "samplePeakDbFS": -3.4698644324675314,
+      "rmsDbFS": -23.122574295795417,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -3.4698644324675314,
+        "rmsDbFS": -22.607661291793463,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 215,
+        "createDynamicsCompressor": 121,
+        "createConvolver": 1,
+        "createBufferSource": 166,
+        "createBiquadFilter": 672,
+        "createWaveShaper": 120,
+        "createOscillator": 42
+      },
+      "wav": "challenge-warm.wav"
+    },
+    {
+      "name": "stress-warm",
+      "kind": "stress",
+      "selection": {
+        "lead": "warm",
+        "bass": "precision",
+        "keys": "gospel",
+        "rhythm": "warm",
+        "drums": "crisp"
+      },
+      "bpm": 180,
+      "sampleRate": 44100,
+      "duration": 6.583333333333333,
+      "eventCount": 274,
+      "samplePeakDbFS": -1.1508341085745168,
+      "rmsDbFS": -19.33409059292521,
+      "clippedSamples": 0,
+      "sampleCount": 580650,
+      "active": {
+        "samplePeakDbFS": -1.1508341085745168,
+        "rmsDbFS": -18.404898584084517,
+        "clippedSamples": 0,
+        "sampleCount": 466872
+      },
+      "nodeCounts": {
+        "createGain": 281,
+        "createDynamicsCompressor": 121,
+        "createConvolver": 1,
+        "createBufferSource": 209,
+        "createBiquadFilter": 827,
+        "createWaveShaper": 120,
+        "createOscillator": 65
+      },
+      "wav": "stress-warm.wav"
+    },
+    {
+      "name": "stress-bright",
+      "kind": "stress",
+      "selection": {
+        "lead": "bright",
+        "bass": "precision",
+        "keys": "gospel",
+        "rhythm": "bright",
+        "drums": "crisp"
+      },
+      "bpm": 180,
+      "sampleRate": 44100,
+      "duration": 6.583333333333333,
+      "eventCount": 274,
+      "samplePeakDbFS": -1.549272061000655,
+      "rmsDbFS": -19.710178110711386,
+      "clippedSamples": 0,
+      "sampleCount": 580650,
+      "active": {
+        "samplePeakDbFS": -1.549272061000655,
+        "rmsDbFS": -18.78039734709182,
+        "clippedSamples": 0,
+        "sampleCount": 466872
+      },
+      "nodeCounts": {
+        "createGain": 281,
+        "createDynamicsCompressor": 121,
+        "createConvolver": 1,
+        "createBufferSource": 209,
+        "createBiquadFilter": 723,
+        "createWaveShaper": 120,
+        "createOscillator": 65
+      },
+      "wav": "stress-bright.wav"
+    },
+    {
+      "name": "stress-crunch",
+      "kind": "stress",
+      "selection": {
+        "lead": "crunch",
+        "bass": "precision",
+        "keys": "gospel",
+        "rhythm": "crunch",
+        "drums": "crisp"
+      },
+      "bpm": 180,
+      "sampleRate": 44100,
+      "duration": 6.583333333333333,
+      "eventCount": 274,
+      "samplePeakDbFS": -1.2600614144081543,
+      "rmsDbFS": -18.848248099394684,
+      "clippedSamples": 0,
+      "sampleCount": 580650,
+      "active": {
+        "samplePeakDbFS": -1.2600614144081543,
+        "rmsDbFS": -17.921539798062287,
+        "clippedSamples": 0,
+        "sampleCount": 466872
+      },
+      "nodeCounts": {
+        "createGain": 281,
+        "createDynamicsCompressor": 121,
+        "createConvolver": 1,
+        "createBufferSource": 209,
+        "createBiquadFilter": 827,
+        "createWaveShaper": 120,
+        "createOscillator": 65
+      },
+      "wav": "stress-crunch.wav"
+    },
+    {
+      "name": "stress-violin",
+      "kind": "stress",
+      "selection": {
+        "lead": "violin",
+        "bass": "precision",
+        "keys": "gospel",
+        "rhythm": "warm",
+        "drums": "crisp"
+      },
+      "bpm": 180,
+      "sampleRate": 44100,
+      "duration": 6.583333333333333,
+      "eventCount": 274,
+      "samplePeakDbFS": -3.492183833279748,
+      "rmsDbFS": -20.915243174252225,
+      "clippedSamples": 0,
+      "sampleCount": 580650,
+      "active": {
+        "samplePeakDbFS": -3.492183833279748,
+        "rmsDbFS": -19.974256250938563,
+        "clippedSamples": 0,
+        "sampleCount": 466872
+      },
+      "nodeCounts": {
+        "createGain": 281,
+        "createDynamicsCompressor": 81,
+        "createConvolver": 1,
+        "createBufferSource": 209,
+        "createBiquadFilter": 667,
+        "createWaveShaper": 80,
+        "createOscillator": 65
+      },
+      "wav": "stress-violin.wav"
+    },
+    {
+      "name": "lead-warm",
+      "kind": "lead",
+      "selection": {
+        "lead": "warm"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -4.850772147165242,
+      "rmsDbFS": -26.54268523944854,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -4.850772147165242,
+        "rmsDbFS": -25.803244565391932,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -5.137094770467482,
+          "rmsDbFS": -21.258248059423714,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -5.182415665118143,
+          "rmsDbFS": -19.258169716668537,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -5.683945702067583,
+          "rmsDbFS": -21.687440103372467,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -6.484791300265863,
+          "rmsDbFS": -28.8323251905664,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -4.850772147165242,
+          "rmsDbFS": -24.28495508524898,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -6.34185248168738,
+          "rmsDbFS": -23.492309282507946,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -6.252992595747435,
+          "rmsDbFS": -29.346910519188377,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 35,
+        "createWaveShaper": 7
+      },
+      "wav": "lead-warm.wav"
+    },
+    {
+      "name": "lead-bright",
+      "kind": "lead",
+      "selection": {
+        "lead": "bright"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -5.604167080644865,
+      "rmsDbFS": -27.08863083243761,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -5.604167080644865,
+        "rmsDbFS": -26.34916321894236,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -5.75092331341388,
+          "rmsDbFS": -21.708137588261053,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -5.866068450029748,
+          "rmsDbFS": -19.728745820051245,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -6.379952181826937,
+          "rmsDbFS": -22.202050078281328,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -7.116212256024065,
+          "rmsDbFS": -29.454022287452165,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -5.604167080644865,
+          "rmsDbFS": -24.847687164095188,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -7.002469789538413,
+          "rmsDbFS": -24.118000220669728,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -6.677896829882439,
+          "rmsDbFS": -30.163870629614372,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 28,
+        "createWaveShaper": 7
+      },
+      "wav": "lead-bright.wav"
+    },
+    {
+      "name": "lead-crunch",
+      "kind": "lead",
+      "selection": {
+        "lead": "crunch"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -7.188834104186771,
+      "rmsDbFS": -25.54474780502978,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -7.188834104186771,
+        "rmsDbFS": -24.80541613637602,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -7.968697356213353,
+          "rmsDbFS": -20.66058142317864,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -7.670769953781143,
+          "rmsDbFS": -19.01361960243636,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -7.188834104186771,
+          "rmsDbFS": -20.80817206265644,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -8.05164135603002,
+          "rmsDbFS": -27.007419620307566,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -7.278816206577805,
+          "rmsDbFS": -22.9849764059281,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -7.21346163355887,
+          "rmsDbFS": -22.217792420580533,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -7.632653302905297,
+          "rmsDbFS": -27.266390334706706,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 35,
+        "createWaveShaper": 7
+      },
+      "wav": "lead-crunch.wav"
+    },
+    {
+      "name": "lead-violin",
+      "kind": "lead",
+      "selection": {
+        "lead": "violin"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -14.2434507769043,
+      "rmsDbFS": -28.09918376129932,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -14.2434507769043,
+        "rmsDbFS": -27.365010096057325,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -14.2434507769043,
+          "rmsDbFS": -26.103553869559214,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -15.484305055691365,
+          "rmsDbFS": -25.92136968479348,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -17.637744942982177,
+          "rmsDbFS": -26.22249070506889,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -15.929452262776366,
+          "rmsDbFS": -27.466658296733478,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -15.164307044717306,
+          "rmsDbFS": -26.203089693368064,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -17.248970814800757,
+          "rmsDbFS": -26.295882047831988,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -14.963835713301313,
+          "rmsDbFS": -25.000247973387136,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 7
+      },
+      "wav": "lead-violin.wav"
+    },
+    {
+      "name": "lead-piano",
+      "kind": "lead",
+      "selection": {
+        "lead": "piano"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -6.174164633210855,
+      "rmsDbFS": -22.022954605392428,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -6.174164633210855,
+        "rmsDbFS": -21.28788629694678,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 57,
+          "samplePeakDbFS": -7.119709865329967,
+          "rmsDbFS": -21.995234163941085,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -6.187029196380706,
+          "rmsDbFS": -16.601347977299348,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -7.292750188810846,
+          "rmsDbFS": -16.94796265859791,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 67,
+          "samplePeakDbFS": -8.106244504238179,
+          "rmsDbFS": -24.28206075686356,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 69,
+          "samplePeakDbFS": -6.837618712266514,
+          "rmsDbFS": -15.664877635019288,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 72,
+          "samplePeakDbFS": -6.174164633210855,
+          "rmsDbFS": -14.09722707926379,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 76,
+          "samplePeakDbFS": -6.535962133181654,
+          "rmsDbFS": -21.85980305659639,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 7
+      },
+      "wav": "lead-piano.wav"
+    },
+    {
+      "name": "bass-precision",
+      "kind": "bass",
+      "selection": {
+        "bass": "precision"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -7.282614003984483,
+      "rmsDbFS": -26.391346152980397,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -7.282614003984483,
+        "rmsDbFS": -25.65522068493842,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 33,
+          "samplePeakDbFS": -7.408748441657758,
+          "rmsDbFS": -25.61640393852524,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 36,
+          "samplePeakDbFS": -7.421048043046719,
+          "rmsDbFS": -22.05071036020098,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 40,
+          "samplePeakDbFS": -7.588230444151243,
+          "rmsDbFS": -21.727394983484896,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 43,
+          "samplePeakDbFS": -7.282614003984483,
+          "rmsDbFS": -26.567703545257935,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 45,
+          "samplePeakDbFS": -8.540559996209137,
+          "rmsDbFS": -22.77077119489632,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -7.356838547939577,
+          "rmsDbFS": -21.862009731874767,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -7.547086943366233,
+          "rmsDbFS": -24.116167875811545,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 28,
+        "createWaveShaper": 7
+      },
+      "wav": "bass-precision.wav"
+    },
+    {
+      "name": "bass-round",
+      "kind": "bass",
+      "selection": {
+        "bass": "round"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -10.20022097163556,
+      "rmsDbFS": -31.598834500197658,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -10.20022097163556,
+        "rmsDbFS": -30.90416681608162,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 33,
+          "samplePeakDbFS": -10.842433305240242,
+          "rmsDbFS": -29.291773320424944,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 36,
+          "samplePeakDbFS": -10.763575237636092,
+          "rmsDbFS": -26.57825258211709,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 40,
+          "samplePeakDbFS": -10.276178246118363,
+          "rmsDbFS": -25.422252037650544,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 43,
+          "samplePeakDbFS": -10.20022097163556,
+          "rmsDbFS": -30.22068876558166,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 45,
+          "samplePeakDbFS": -11.877901645380646,
+          "rmsDbFS": -26.59640839514676,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -11.78475414711896,
+          "rmsDbFS": -26.97310691364632,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -11.694698033683025,
+          "rmsDbFS": -33.53585361653878,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 28
+      },
+      "wav": "bass-round.wav"
+    },
+    {
+      "name": "bass-bright",
+      "kind": "bass",
+      "selection": {
+        "bass": "bright"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -12.764095468090401,
+      "rmsDbFS": -34.0547854404401,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -12.764095468090401,
+        "rmsDbFS": -33.361599257406965,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 33,
+          "samplePeakDbFS": -13.327227228296577,
+          "rmsDbFS": -31.49485580468236,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 36,
+          "samplePeakDbFS": -13.336738184327162,
+          "rmsDbFS": -28.960731820561442,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 40,
+          "samplePeakDbFS": -12.775275786634948,
+          "rmsDbFS": -27.83883807837707,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 43,
+          "samplePeakDbFS": -12.764095468090401,
+          "rmsDbFS": -32.6673070206283,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 45,
+          "samplePeakDbFS": -14.316714976000657,
+          "rmsDbFS": -29.120382310831925,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -14.277649442300131,
+          "rmsDbFS": -29.612463416200512,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -14.237158069137825,
+          "rmsDbFS": -36.246985399367205,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 21
+      },
+      "wav": "bass-bright.wav"
+    },
+    {
+      "name": "bass-muted",
+      "kind": "bass",
+      "selection": {
+        "bass": "muted"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -11.917319155944261,
+      "rmsDbFS": -34.26501354555391,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -11.917319155944261,
+        "rmsDbFS": -33.57935866703706,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 33,
+          "samplePeakDbFS": -12.431916611540132,
+          "rmsDbFS": -32.13186075640665,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 36,
+          "samplePeakDbFS": -12.421368411490777,
+          "rmsDbFS": -29.689767086470752,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 40,
+          "samplePeakDbFS": -11.917319155944261,
+          "rmsDbFS": -28.508829629691554,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 43,
+          "samplePeakDbFS": -11.938407423323266,
+          "rmsDbFS": -32.60400505140039,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 45,
+          "samplePeakDbFS": -13.54061839762424,
+          "rmsDbFS": -29.53303466537106,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -13.549078163869604,
+          "rmsDbFS": -29.666030738574165,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -13.633802497681526,
+          "rmsDbFS": -35.22046983285024,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 1,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 7
+      },
+      "wav": "bass-muted.wav"
+    },
+    {
+      "name": "rhythm-warm",
+      "kind": "rhythm",
+      "selection": {
+        "rhythm": "warm"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -10.983251201868482,
+      "rmsDbFS": -31.019436161268253,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -10.983251201868482,
+        "rmsDbFS": -30.27996372861423,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 45,
+          "samplePeakDbFS": -12.744023592611914,
+          "rmsDbFS": -30.535875488243214,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -12.155244516384162,
+          "rmsDbFS": -27.875290769030265,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -12.848273491395709,
+          "rmsDbFS": -28.625121211354084,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 55,
+          "samplePeakDbFS": -11.171037573595521,
+          "rmsDbFS": -27.602300305958455,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 57,
+          "samplePeakDbFS": -11.118212175180764,
+          "rmsDbFS": -25.14014595150476,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -10.983251201868482,
+          "rmsDbFS": -25.323999774797397,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -11.363825118151361,
+          "rmsDbFS": -33.55504683959288,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 35,
+        "createWaveShaper": 7
+      },
+      "wav": "rhythm-warm.wav"
+    },
+    {
+      "name": "rhythm-bright",
+      "kind": "rhythm",
+      "selection": {
+        "rhythm": "bright"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -11.666349593691091,
+      "rmsDbFS": -31.59541962049564,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -11.666349593691091,
+        "rmsDbFS": -30.855932015983708,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 45,
+          "samplePeakDbFS": -13.51498659817388,
+          "rmsDbFS": -31.33701023959654,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -13.051090181233132,
+          "rmsDbFS": -28.605396622600278,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -13.769925337768019,
+          "rmsDbFS": -29.344296208855752,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 55,
+          "samplePeakDbFS": -11.868264708852813,
+          "rmsDbFS": -28.07710867673037,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 57,
+          "samplePeakDbFS": -11.77188459670679,
+          "rmsDbFS": -25.640868612790815,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -11.666349593691091,
+          "rmsDbFS": -25.800818891357302,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -12.064091417158846,
+          "rmsDbFS": -34.145037642867194,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 28,
+        "createWaveShaper": 7
+      },
+      "wav": "rhythm-bright.wav"
+    },
+    {
+      "name": "rhythm-crunch",
+      "kind": "rhythm",
+      "selection": {
+        "rhythm": "crunch"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 8.75,
+      "eventCount": 7,
+      "samplePeakDbFS": -12.862599915563237,
+      "rmsDbFS": -30.13474299609509,
+      "clippedSamples": 0,
+      "sampleCount": 771750,
+      "active": {
+        "samplePeakDbFS": -12.862599915563237,
+        "rmsDbFS": -29.395335128656342,
+        "clippedSamples": 0,
+        "sampleCount": 650916
+      },
+      "noteWindows": [
+        {
+          "midi": 45,
+          "samplePeakDbFS": -14.447094985573871,
+          "rmsDbFS": -28.934394192641815,
+          "clippedSamples": 0,
+          "sampleCount": 88202
+        },
+        {
+          "midi": 48,
+          "samplePeakDbFS": -14.156156683571838,
+          "rmsDbFS": -27.07803553216086,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 52,
+          "samplePeakDbFS": -13.728193929258552,
+          "rmsDbFS": -27.37624724572093,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 55,
+          "samplePeakDbFS": -14.076531285318444,
+          "rmsDbFS": -26.845718539246487,
+          "clippedSamples": 0,
+          "sampleCount": 132302
+        },
+        {
+          "midi": 57,
+          "samplePeakDbFS": -14.191148552369041,
+          "rmsDbFS": -25.051120645949748,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 60,
+          "samplePeakDbFS": -13.621529157133184,
+          "rmsDbFS": -25.11417671523668,
+          "clippedSamples": 0,
+          "sampleCount": 24808
+        },
+        {
+          "midi": 64,
+          "samplePeakDbFS": -12.862599915563237,
+          "rmsDbFS": -32.038887701292275,
+          "clippedSamples": 0,
+          "sampleCount": 154350
+        }
+      ],
+      "nodeCounts": {
+        "createGain": 14,
+        "createDynamicsCompressor": 8,
+        "createConvolver": 1,
+        "createBufferSource": 7,
+        "createBiquadFilter": 35,
+        "createWaveShaper": 7
+      },
+      "wav": "rhythm-crunch.wav"
+    },
+    {
+      "name": "mix-precision",
+      "kind": "mix",
+      "selection": {
+        "lead": "warm",
+        "bass": "precision"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -3.873790668479825,
+      "rmsDbFS": -24.96915900664538,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -3.873790668479825,
+        "rmsDbFS": -24.441539655127915,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 182,
+        "createDynamicsCompressor": 88,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 507,
+        "createWaveShaper": 87,
+        "createOscillator": 42
+      },
+      "wav": "mix-precision.wav"
+    },
+    {
+      "name": "mix-warm",
+      "kind": "mix",
+      "selection": {
+        "lead": "warm"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -4.746795396531319,
+      "rmsDbFS": -26.258344706222267,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -4.746795396531319,
+        "rmsDbFS": -25.733479330875774,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 182,
+        "createDynamicsCompressor": 72,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 507,
+        "createOscillator": 42,
+        "createWaveShaper": 71
+      },
+      "wav": "mix-warm.wav"
+    },
+    {
+      "name": "mix-violin",
+      "kind": "mix",
+      "selection": {
+        "lead": "violin"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -10.757113638010495,
+      "rmsDbFS": -27.133299335760466,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -10.757113638010495,
+        "rmsDbFS": -26.609515026556746,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 182,
+        "createDynamicsCompressor": 65,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 479,
+        "createOscillator": 42,
+        "createWaveShaper": 64
+      },
+      "wav": "mix-violin.wav"
+    },
+    {
+      "name": "mix-piano",
+      "kind": "mix",
+      "selection": {
+        "lead": "piano"
+      },
+      "bpm": 96,
+      "sampleRate": 44100,
+      "duration": 11.25,
+      "eventCount": 175,
+      "samplePeakDbFS": -5.543068122219468,
+      "rmsDbFS": -23.11002556581062,
+      "clippedSamples": 0,
+      "sampleCount": 992250,
+      "active": {
+        "samplePeakDbFS": -5.543068122219468,
+        "rmsDbFS": -22.58773790212245,
+        "clippedSamples": 0,
+        "sampleCount": 878472
+      },
+      "nodeCounts": {
+        "createGain": 182,
+        "createDynamicsCompressor": 65,
+        "createConvolver": 1,
+        "createBufferSource": 133,
+        "createBiquadFilter": 479,
+        "createOscillator": 42,
+        "createWaveShaper": 64
+      },
+      "wav": "mix-piano.wav"
+    }
+  ],
+  "sourceHashesLF": {
+    "harmony.js": "e6e88da5532ab5fee4cd66c644d8a71e2ef2906299ef68ea4c048c3843bda3fe",
+    "practice-arrangement.js": "842b394cac3ae1c9fcb7f2b12b5b84413ac22a4f09f1a3b21e233f479151d020",
+    "score-audio.js": "5a0fdff7a524825902a4f660ec04a10d8daee427ea10f2254c89ba68333a9f39",
+    "practice-audio.js": "c568331ab2c9ef4a593b023e66a3d6bd1c54b075e0026e550f932faa6db59368",
+    "practice-timbres.js": "b840dbd6f233a90bf23f562d5835d88bf0f057f5228ae06206b64fdeeee3d82e",
+    "assets/audio/smplr-1.0.0.mjs": "85d2a2ce3db20e04c3483e0f5be7430f9c275ab3524b73bfc6db2f340200a613",
+    "assets/audio/blues/manifest.json": "417a18bade9c994fae66177339f50d88fc1da0e2202c7663b62fca18d463d08f"
+  },
+  "waveformLocation": "WAV files are generated under the chosen temporary workdir; not shipped with the website or this report."
+}

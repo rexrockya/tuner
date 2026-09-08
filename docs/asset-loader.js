@@ -2,9 +2,9 @@
   'use strict';
   const base = new URL('.', document.currentScript.src), pending = new Map();
   const libraries = {
-    arrangement: ['practice-arrangement.js?v=20260908-ensemble-1',()=>window.practiceArrangements],
+    arrangement: ['practice-arrangement.js?v=20260908-tone-1',()=>window.practiceArrangements],
     notation: ['practice-notation.js?v=20260908-ensemble-1',()=>window.practiceNotation],
-    practiceAudio: ['practice-audio.js?v=20260908-live-1', () => window.practiceAudio],
+    practiceAudio: ['practice-audio.js?v=20260908-tone-1', () => window.practiceAudio],
     practice: ['practice.js?v=20260908-live-1', () => window.practiceStudio],
     sound: ['sound-meter.js?v=20260908-3', () => window.soundMeter],
     score: ['assets/vendor/opensheetmusicdisplay-2.1.2.min.js', () => window.opensheetmusicdisplay],

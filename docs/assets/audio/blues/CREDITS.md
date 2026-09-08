@@ -60,3 +60,12 @@ Warm/bright/crunch guitar, round/bright/muted bass and natural/vintage/crisp dru
 Lead piano reuses the score player's Splendid Grand Piano regions, derived from the SFZ instrument at https://github.com/sfzinstruments/SplendidGrandPiano : original AKAI samples are public domain; kinwie prepared the SFZ mapping. The existing smplr distribution supplies the converted samples and region definitions. Only note/velocity regions required for the selected phrase are downloaded; no remapped or newly synthesized piano is substituted.
 
 Lead violin reuses the unmodified local Musyng Kite / MIDI.js recordings and score sustain preparation. The source and CC BY-SA 3.0 attribution remain at ../credits.html. The smplr library's MIT license remains at ../smplr-LICENSE. These choices have independent practice buffers and the same practice audio clock; no score player is started.
+
+
+## Fuller practice tones (2026-09-08)
+
+The warm, bright and crunch guitar IDs remain compatible with saved phrases. Both guitar tracks now use high-pass cleanup, broad low/mid equalization, gentle saturation, cabinet-style low-pass filtering and per-voice compression. The exact 24 Shinyguitar recordings above are unchanged. The guitar processing is not a new recorded guitar model or an endorsement.
+
+The additional `precision` Bass choice (P-style finger bass) uses 16 CC0 Swagbass recordings, 8 MIDI roots and 2 real round-robin takes. The recorded instrument is an Ibanez BTB-400QM neck pickup with flatwound strings, not a Fender Precision. Full source, retained license, processing and per-file hashes are in [../modern-bass/CREDITS.md](../modern-bass/CREDITS.md) and its provenance.json. This library is fetched only when the selected P-style bass is required for playback. Original Fashionbass choices remain available.
+
+Practice violin buffers receive a static per-sample level factor based on .08–.6 seconds of channel-averaged energy (target -24 dBFS RMS), capped at 8x and at -6 dBFS whole-buffer peak. Only the practice amplitude is adjusted; no additional processing is baked into the original recordings or applied to the score player. The source recordings remain under their original attribution/license above.

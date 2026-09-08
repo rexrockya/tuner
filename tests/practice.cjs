@@ -17,7 +17,7 @@ w.AudioContext = class {
   get currentTime() { return now; } async resume() {}
   createGain() { return new AudioNode('gain'); } createDynamicsCompressor() { return new AudioNode('compressor'); }
   createConvolver() { return new AudioNode('room'); } createBiquadFilter() { return new AudioNode('filter'); }
-  createOscillator() { return new AudioNode('organ'); } createBufferSource() { return new AudioNode('sample'); }
+  createWaveShaper() { return new AudioNode('drive'); } createOscillator() { return new AudioNode('organ'); } createBufferSource() { return new AudioNode('sample'); }
   createPeriodicWave() { return {}; }
   createBuffer(channels, length, rate) { return { duration: length / rate, getChannelData: () => new Float32Array(length) }; }
   async decodeAudioData(bytes) {

@@ -99,7 +99,7 @@
           let midi = i === 0 ? root : chordRoot + path[degree];
           if (styles.bass === 'walking' && i === cell.length - 1 && c.beats >= 2 && next.root !== c.root) midi = Math.max(28, H.nearest(next.bass ?? next.root, midi, 28, 51) - 1);
           const beat = swung(offset), length = Math.min(c.beats - beat, swung(Math.min(c.beats, offset + duration)) - beat);
-          add('bass', start + beat, { midi, duration: length, velocity: i === 0 ? .74 : .55 + randoms.bass() * .13, bassStyle: styles.bass });
+          add('bass', start + beat, { midi, duration: length, velocity: i === 0 ? .74 : .55 + randoms.bass() * .13, bassStyle: styles.bass, variant: (i + chordIndex + chorus) % 2 });
         });
         const colors = [c.intervals[1], c.intervals[3] ?? c.intervals[2], 12];
         const voicing = [...new Set(colors.map((n, i) => H.nearest(c.root + n, previousVoicing[i], 53, 77)))];

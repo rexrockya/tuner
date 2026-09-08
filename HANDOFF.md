@@ -1,6 +1,18 @@
 # 弦音项目交接
 
-## 当前交付：2026-09-08 连续播放与小节线切换
+## 当前交付：2026-09-08 音色平衡与厚实电贝斯
+
+- `practice-timbres.js`只对practice小提琴缓存增加asset.level：.08–.6秒跨声道平均RMS目标-24dBFS，whole-buffer峰值限-6dBFS、增益<=8。窗外强峰/短热样本也受限，纯零为1；每次decode只测一次。不改原MP3、score-audio或原有延音交叉淡化。Lead violin乘1.65，不能再次无依据叠加全局增益。
+- `practice-audio.js`原吉他ID warm/bright/crunch保留，两轨统一新Studio处理：HP→宽低中频EQ→tanh饱和→LP→每音压缩→voice gain→原bus。三个输出trim分别.58/.58/.44；均加入extra清理。主compressor参数不变，之后新增.84固定输出余量，约-1.51dB，不是硬限幅或所有曲目的无削顶保证。
+- 新Bass precision「P 风格 · 厚实指弹」为独立Swagbass录音（Ibanez BTB-400QM、颈拾音器、平绕弦），不要说Fender实采。`assets/audio/modern-bass/`16样本：8根MIDI27/30/33/36/39/42/48/54×2RR、f单力度层、4秒44100mono16bit；同根两RR共同增益、尾.12s渐弱。FLAC总1366183B，WAV回退5646048B；CC0、README、源固定SHA及逐文件hash齐全。
+- 新库通过ensureSelection在选中且events含bass时加载，绝不塞进旧preload/初始页面；失败重试共享成功缓存、并发去重。Bass事件增加确定性的variant=(i+chordIndex+chorus)%2，不改变旋律/节拍。音色准备/小节线提交与取消继续沿用上一版；停止选择失败恢复previous，过时失败不得覆盖新选项。
+- 原Bass round/bright/muted保留，前两者补低中频与适度电平；P音色选自「音色与音量」里的Bass下拉。默认仍round，旧收藏IDs有效。新采样仅单f力度层，力度仍由演奏包络控制，不能称多力度采样库。
+- 新`practice-tone-balance.mjs`与`practice-modern-bass.cjs`加入npm test；涵盖静态校准/缓存/原PCM、16采样哈希/真实RR/根音映射、lazy/回退/并发/失败重试与future候选撤销。三个旧音频mock补createWaveShaper接口，正常音色路径确实使用新增节点。
+- 最终完整npm test通过；23个离线case零越界采样、最高-1.151dBFS，小提琴固定句较旧版+13.01dB。
+- 离线真实图验证与实机试听分开；native Node WebAudio的未来setTarget数值问题用经逐采样校验的解析包络适配，不能把这称作浏览器实机。数据/方法/最终发布证据见`notes/tone-validation-2026-09-08.md`；首屏gzip6 112853/120000B。
+- 缓存`20260908-tone-1`更新asset-loader、practice-audio、practice-arrangement、动态practice-timbres；index仅改loader版本。沿用main/docs提交发布授权，不构建website，不另建站；排除node_modules，保留历史stash。
+
+## 上一版：2026-09-08 连续播放与小节线切换
 
 本节覆盖下方旧版“换音色/强度暂停”和“dirty暂停”的记录；已播放版本与待切换版本必须独立。
 
