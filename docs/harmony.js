@@ -27,7 +27,7 @@
     if (/#5/.test(text)) intervals[2] = 8;
     return { suffix: minorMajor ? 'mMaj7' : text, family, intervals, seventh, explicit: Boolean(raw), type };
   }
-  function chord(token, key = 'C', forceDegree = false) {
+  function chord(token, key = 'C', forceDegree = false, legacy = false) {
     const original = token;
     token = token.replace(/[()]/g, '').replace(/♭/g, 'b').replace(/♯/g, '#');
     const degreeFirst = forceDegree || /^[♭♯]/.test(original) || /^b[ivIV]/.test(token);
@@ -46,6 +46,8 @@
       root = mod(keyInfo.root + major[degreeIndex] + (degree[1] === '#' ? 1 : degree[1] === 'b' ? -1 : 0));
       implied = numeric ? (keyInfo.minor ? ['minor', 'dim', 'major', 'minor', 'minor', 'major', 'major'] : ['major', 'minor', 'minor', 'major', 'major', 'minor', 'dim'])[degreeIndex] : degree[2] === degree[2].toLowerCase() ? 'minor' : 'major';
       if (numeric && degree[1]) implied = 'major';
+      // Bare numbers are diatonic; explicit suffixes name the quality (37 = E7, 3m7 = Em7).
+      if (numeric && suffix && !legacy) implied = 'major';
     }
     const q = quality(suffix, implied);
     // Explicit 7 on V is dominant in minor too; a bare number remains diatonic.
@@ -53,12 +55,12 @@
     const displaySuffix = (q.type === 'minor' && !/^m/.test(q.suffix) ? 'm' : q.type === 'dim' && !/^dim/.test(q.suffix) ? 'dim' : '') + q.suffix;
     return { root, bass, ...q, token: original, degree: degreeIndex, numeric: Boolean(numeric), notation: note ? 'chord' : 'degree', name: (note ? note[1].toUpperCase() + note[2] : names[root]) + displaySuffix + (bass === null ? '' : '/' + slash[1][0].toUpperCase() + slash[1].slice(1)) };
   }
-  function parse(value, key = 'C') {
+  function parse(value, key = 'C', options = {}) {
     if (!String(value || '').trim()) return { chords: [], bars: [], notation: null, error: '' };
     try {
-      if (value.length > 256) throw Error('和声最多 256 个字符');
+      if (value.length > (options.legacy ? 256 : 512)) throw Error('和声最多 ' + (options.legacy ? 256 : 512) + ' 个字符');
       let clean = value.trim().replace(/♯/g, '#').replace(/♭/g, 'b').replace(/\|\|/g, '|').replace(/[→➜⇒,，;；\n]+/g, '|');
-      if (/^[1-7]{2,8}$/.test(clean)) clean = clean.split('').join('|');
+      if (options.legacy ? /^[1-7]{2,8}$/.test(clean) : /^[1-7]{2,}$/.test(clean) && !/^[1-7](?:5|6|7|11|13)$/.test(clean)) clean = clean.split('').join('|');
       clean = clean.replace(/(^|[\s|])([b#]?[1-7](?:\s*[-–—]\s*[b#]?[1-7])+)(?=$|[\s|])/g, (_, lead, run) => lead + run.replace(/\s*[-–—]\s*/g, '|')).replace(/\s+[-–—]\s+/g, '|').replace(/[-–—](?=[#b]?(?:[A-G]|[ivIV]))/g, '|');
       clean = clean.replace(/([A-Ga-g][#b]?(?:m7|maj7|7|m)?)\s*[×x]\s*(\d+)/g, (_, c, n) => {
         if (+n > 32) throw Error('最多 32 个和弦');
@@ -66,17 +68,33 @@
       });
       const explicitBars = clean.includes('|');
       const groups = explicitBars ? clean.split('|').map(x => x.trim()).filter(Boolean) : clean.split(/\s+/);
-      const forceDegree = /(^|[\s|])(?:[1-7](?=$|[\s|])|[#b]?[ivIV]+(?=\d|maj|m|ø|$|[\s|]))/.test(clean) || /^[♭♯]/.test(value.trim());
+      const numericInput = !options.legacy && (/(^|[\s|])[#]?[1-7]/.test(clean) || /(^|[\s|])b[1-7]/.test(clean) && !/(^|[\s|])[A-Gac-g]/.test(clean));
+      const forceDegree = numericInput || /(^|[\s|])(?:[1-7](?=$|[\s|])|[#b]?[ivIV]+(?=\d|maj|m|ø|$|[\s|]))/.test(clean) || /^[♭♯]/.test(value.trim());
       const bars = groups.map((group, index) => {
         const tokens = group.split(/\s+/).filter(Boolean);
-        if (![1, 2, 4].includes(tokens.length)) throw Error('每小节请写 1、2 或 4 个和弦，用 | 分小节');
-        return tokens.map((token, i) => ({ ...chord(token, key, forceDegree), beat: index * 4 + i * 4 / tokens.length, beats: 4 / tokens.length, bar: index }));
+        if (![1, 2, 4].includes(tokens.length)) throw Error('每小节请写 1、2 或 4 个和弦，用逗号分小节');
+        return tokens.map((token, i) => ({ ...chord(token, key, forceDegree, options.legacy), beat: index * 4 + i * 4 / tokens.length, beats: 4 / tokens.length, bar: index }));
       });
       const chords = bars.flat();
       if (chords.length > 32) throw Error('最多 32 个和弦');
       if (new Set(chords.map(c => c.notation)).size > 1) throw Error('请统一使用和弦名或级数');
       return { chords, bars, tonic: tonic(key).root, notation: chords[0]?.notation, error: '' };
     } catch (error) { return { chords: [], bars: [], notation: null, error: error.message }; }
+  }
+  // Only migrate inputs whose meaning changed; keep saved music and its reference key.
+  function upgradeInput(value, key = 'C') {
+    const old = parse(value, key, { legacy: true }), current = parse(value, key);
+    const signature = parsed => JSON.stringify(parsed.chords.map(c => [c.root, c.bass, c.intervals, c.family, c.beat, c.beats]));
+    if (old.error || signature(old) === signature(current)) return value;
+    return old.bars.map(bar => bar.map(c => {
+      if (c.notation === 'chord') return c.token.replace(/[()]/g, '').replace(/^[a-g]/, letter => letter.toUpperCase());
+      const accidental = c.token.replace(/[()]/g, '').replace(/♭/g, 'b').replace(/♯/g, '#').match(/^[b#]/)?.[0] || '';
+      const numeral = c.type === 'minor' ? romans[c.degree].toLowerCase() : romans[c.degree];
+      // Retain implied minor qualities; a diminished triad already includes its flat fifth.
+      const suffix = c.type === 'dim' && !/^dim/i.test(c.suffix) ? 'dim' + c.suffix.replace(/b5/g, '') : c.suffix;
+      const bass = c.name.match(/\/[A-G][#b]?$/)?.[0] || '';
+      return accidental + numeral + suffix + bass;
+    }).join(' ')).join(', ');
   }
   function collapse(chords) {
     return chords.filter((c, i) => !i || c.root !== chords[i - 1].root || c.family !== chords[i - 1].family || c.seventh !== chords[i - 1].seventh || c.bass !== chords[i - 1].bass);
@@ -85,7 +103,7 @@
   function matches(query, progression, key, transpose = false) {
     if (!query.chords.length) return !query.error;
     const cacheKey = progression + ':' + (key || 'C');
-    if (!matchCache.has(cacheKey)) { if (matchCache.size > 4096) matchCache.clear(); matchCache.set(cacheKey, parse(progression.replace(/\b([A-Ga-g][#b]?)maj\b/g, '$1maj7'), key || 'C')); }
+    if (!matchCache.has(cacheKey)) { if (matchCache.size > 4096) matchCache.clear(); matchCache.set(cacheKey, parse(progression.replace(/\b([A-Ga-g][#b]?)maj\b/g, '$1maj7'), key || 'C', { legacy: true })); }
     const candidate = matchCache.get(cacheKey);
     if (candidate.error) return false;
     const target = collapse(query.chords), source = collapse(candidate.chords);
@@ -190,5 +208,5 @@
     });
     return { version: 2, seed, feel, style: requested, notes, structure, bars: parsed.bars.length, chords: parsed.chords };
   }
-  window.tunerHarmony = { parse, chord, tonic, matches, collapse, generate, generateLegacy, phraseStyles, rng, nearest, names, mod };
+  window.tunerHarmony = { parse, chord, upgradeInput, tonic, matches, collapse, generate, generateLegacy, phraseStyles, rng, nearest, names, mod };
 })();

@@ -1,6 +1,15 @@
 # 弦音项目交接
 
-## 当前交付：2026-09-08 伴奏风格、音色与五线谱
+## 当前交付：2026-09-08 数字和声输入修复
+
+- 用户输入以数字为主，逗号/中文逗号分小节，同小节空格分1/2/4和弦。无显式分隔时仍每空格一小节；竖线/连字符兼容。全串纯数字不再限8位，但合法数字后缀优先：57=G7，5,7=G与Bdim；37=E7，小七显写3m7。数字裸级数保留调内三和弦，b7/#4支持变音级数。
+- `harmony.parse(value,key,{legacy:true})`原样保留旧8位连写和数字隐含性质，来源库matches候选继续走legacy，小写b7仍B7；底层chord的来源音名识别不变。不要用新输入语法重解来源或未标版本的旧收藏。
+- 新收藏`harmonyVersion:2`与旋律version独立。未标记者用`upgradeInput`比较实际根音/bass/intervals/family/节拍；有变化才转明确Roman与后缀。保留括号升降、隐含minor/dim、slash bass与大小写；绝对音名首字母转大写避免b7歧义。后续换风格、切模式、再次保存都用转换后的文本。
+- 解析/输入maxlength/收藏text校验统一512字符，legacy解析仍256；16小节和32和弦数量限制不变。旧16bar/32chord收藏转换后会超过旧256，不能收紧回去。
+- practice输入下原生折叠「和声怎么输入」，三组填入示例不自动生成/播放；数字逗号预设。dirty清旧error/aria-invalid后暂停，防止截图中旧后缀错误在新输入下残留。
+- 新tests/harmony-input.cjs与practice-input.cjs已加入npm test。完整回归通过，最终边界修复另跑相关输入/界面/全库/shell回归；见notes/harmony-input-validation-2026-09-08.md。只改docs、测试和文档，不构建website、不部署Worker；沿用此前提交发布授权与原GitHub Pages入口。
+
+## 上一版：2026-09-08 伴奏风格、音色与五线谱
 
 - 本轮沿用用户此前明确的测试、文档、提交和发布授权；公开入口仍仅 https://rexrockya.github.io/tuner/ ，不另建后端或公开站。
 - `practice-arrangement.js` 独立编配模块必须在 practice-audio 之前加载。导出鼓7类、风琴5类、节奏吉他5类风格；风琴/吉他含none，各轨auto按四轮选择、相邻轮及循环接缝避免重复。每progression最后1–2拍用对应fill替换原轨部分，非堆叠打击。改变一轨不随机重写别轨。auto鼓服从整体律动，显式鼓风格可有意形成对比。
