@@ -11,6 +11,7 @@
 - 音频：原创电子鼓 8 WAV/220852B，仅选择并使用鼓时载入；Synth Bass（synth/acid）、Synth Keys（synth/pad）由振荡器实时发声。dry/ambient 仍为真实电吉他采样处理，不称木吉他实采。ambient 自然结束保留 1.4s 卷积尾，停止时干湿声一起淡出并清理。
 - 验证增加 music-genres/genre-controls，涵盖 2520 生成组合、各流派与写法实质差异、所有声部选择/律动、21 课、草稿/旧收藏、电子音色、闷奏、尾声和懒加载；旧回归不删除。两项 mjs 测试修复中文 Windows 路径解析。
 - 仅发布原 GitHub Pages 的 docs，不运行会覆盖 docs 的 website build、不部署 Sites/Worker。此次在 `codex/multigenre-teaching` 独立工作区开发，因为原 main 工作区有另一任务尚未提交的演奏功能；合并时保留两边能力，勿重置或覆盖另一任务的文件。
+- 功能已通过 GitHub Git Data API 快进发布为 `14b619c`（与本地 `b108880` 的树完全相同）。20 个更新公开资源 / 494428 B 全部 HTTP 200 且逐字节一致，详见 `notes/multigenre-online-verification-2026-09-09.json`；最终完整 npm test 通过，首屏 gzip6 116066 / 120000 B。原 main 工作目录未动；后续任务先合并最新远端，再发布，勿用旧版本覆盖新增风格模块。
 
 
 ## 当前交付：2026-09-08 自动音符密度
