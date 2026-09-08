@@ -12,6 +12,17 @@
   const drumStyles = { auto: '随机经典型', shuffle: 'Shuffle 摇摆', backbeat: 'Backbeat 稳拍', ride: 'Ride 爵士', funk: 'Funk 切分', halftime: 'Half-time 半拍', latin: 'Latin 拉丁', boogie: 'Boogie 推进' };
   const keyStyles = { none: 'None · 关闭', auto: '随机经典型', pad: '长音铺底', offbeat: '反拍和弦', soul: 'Soul 应答', arpeggio: '流动分解', gospel: 'Gospel 推进' };
   const rhythmStyles = { none: 'None · 关闭', auto: '随机经典型', boogie: 'Boogie 双音', chop: '短切和弦', offbeat: '反拍扫弦', arpeggio: '分解伴奏', clave: 'Latin 切分' };
+  const leadGrooves = {
+    follow: { label: '跟随整体律动', swing: null, subdivision: 2, delayMs: 4, jitterMs: 3 },
+    straight: { label: 'Straight · 直八', swing: .5, subdivision: 2, delayMs: 3, jitterMs: 3 },
+    swing: { label: 'Swing · 轻摇摆', swing: .6, subdivision: 2, delayMs: 7, jitterMs: 4 },
+    shuffle: { label: 'Shuffle · 三连摆动', swing: 2 / 3, subdivision: 2, delayMs: 6, jitterMs: 4 },
+    pocket: { label: 'Pocket · 十六分律动', swing: .58, subdivision: 4, delayMs: 8, jitterMs: 5 },
+    laidback: { label: 'Laid-back · 靠后', swing: .57, subdivision: 2, delayMs: 20, jitterMs: 5 }
+  };
+  const leadTextures = { single: '单音旋律', double: '双音点缀', voicing: '和声 Voicing' };
+  const phraseCycleModes = { repeat: '固定重复', random: '每轮随机切换', sequence: '指定顺序' };
+  const densityCycleModes = { fixed: '保持所选密度', random: '每轮随机密度' };
   // Auto players follow the chosen feel; explicit player styles can intentionally contrast it.
   const drumPools = {
     shuffle: ['shuffle', 'ride', 'backbeat'], slow: ['ride', 'halftime', 'shuffle'], straight: ['backbeat', 'boogie', 'funk'],
@@ -35,6 +46,139 @@
       result.push(available[Math.floor(random() * available.length)]);
     }
     return result;
+  }
+  const guitarOpens = [64, 59, 55, 50, 45, 40];
+  const clonePhrase = phrase => ({ ...phrase, notes: phrase.notes.map(note => ({ ...note, ...(note.companions ? { companions: note.companions.map(voice => ({ ...voice })) } : {}) })), structure: phrase.structure?.map(item => ({ ...item })), densityPlan: phrase.densityPlan?.map(item => ({ ...item })) });
+  function companionVoices(chord, note, wanted) {
+    const chordPitches = new Set(chord.intervals.map(interval => H.mod(chord.root + interval))), preferred = wanted === 1 ? [3, 4, 8, 9, 7, 5] : [3, 4, 7, 10, 11, 5, 8, 9];
+    const positions = [];
+    for (let string = 0; string < guitarOpens.length; string++) for (let fret = 0; fret <= 24; fret++) {
+      const midi = guitarOpens[string] + fret, distance = Math.abs(midi - note.midi);
+      if (string === note.string || midi === note.midi || distance < 2 || distance > 16 || !chordPitches.has(H.mod(midi))) continue;
+      const intervalRank = Math.min(...preferred.map((interval, i) => Math.abs(distance - interval) + i * .08));
+      positions.push({ midi, string, fret, score: Math.abs(fret - note.fret) * 1.6 + Math.abs(string - note.string) * .55 + intervalRank * 1.8 + (midi > note.midi ? 1.6 : 0) });
+    }
+    positions.sort((a, b) => a.score - b.score || a.midi - b.midi);
+    const voices = [], usedStrings = new Set([note.string]), usedPitches = new Set([note.midi]), usedClasses = new Set([H.mod(note.midi)]);
+    for (const position of positions) {
+      if (usedStrings.has(position.string) || usedPitches.has(position.midi)) continue;
+      if (wanted > 1 && usedClasses.has(H.mod(position.midi)) && positions.some(other => !usedStrings.has(other.string) && !usedClasses.has(H.mod(other.midi)))) continue;
+      const frets = [note.fret, ...voices.map(voice => voice.fret), position.fret];
+      if (Math.max(...frets) - Math.min(...frets) > 6) continue;
+      voices.push(position); usedStrings.add(position.string); usedPitches.add(position.midi); usedClasses.add(H.mod(position.midi));
+      if (voices.length === wanted) break;
+    }
+    return voices;
+  }
+  function decorateLeadTexture(phrase, parsed, texture = 'single', seed = 1) {
+    texture = leadTextures[texture] ? texture : 'single';
+    const result = clonePhrase(phrase);
+    result.notes.forEach(note => delete note.companions);
+    if (texture === 'single') return result;
+    result.texture = texture;
+    const random = H.rng((seed >>> 0) ^ (texture === 'double' ? 0x5deece66 : 0x72f05ac3)), wanted = texture === 'double' ? 1 : 2;
+    let voiced = 0, firstEligible = null, fallback = null;
+    for (const note of result.notes) {
+      const chord = parsed.chords.find(item => note.beat >= item.beat && note.beat < item.beat + item.beats), written = note.notationDuration || note.duration;
+      if (chord && note.articulation !== 'slide') fallback ||= { note, chord };
+      if (!chord || note.articulation === 'slide' || written < .48 || note.beat % .5 !== 0) continue;
+      firstEligible ||= { note, chord };
+      const strong = note.beat % 1 === 0, cadence = note === result.notes.at(-1), chance = texture === 'double' ? (strong ? .5 : .2) : (strong ? .34 : .1);
+      if (!cadence && random() > chance) continue;
+      const positions = companionVoices(chord, note, wanted);
+      if (positions.length < wanted) continue;
+      note.companions = positions.map((position, index) => ({ ...position, velocity: Math.max(.18, note.velocity * (texture === 'double' ? .78 : .64 - index * .06)), role: texture === 'double' ? '双音和声' : '和声 Voicing', articulation: 'picked', variant: ((note.variant || 0) + index + 1) % 2 }));
+      voiced++;
+    }
+    const guaranteed = firstEligible || fallback;
+    if (!voiced && guaranteed) {
+      const positions = companionVoices(guaranteed.chord, guaranteed.note, wanted);
+      if (positions.length === wanted) guaranteed.note.companions = positions.map((position, index) => ({ ...position, velocity: Math.max(.18, guaranteed.note.velocity * (texture === 'double' ? .78 : .64 - index * .06)), role: texture === 'double' ? '双音和声' : '和声 Voicing', articulation: 'picked', variant: ((guaranteed.note.variant || 0) + index + 1) % 2 }));
+    }
+    return result;
+  }
+  function leadSequence(catalog, mode, requested, sequence, count, seed) {
+    if (mode === 'repeat') return Array(count).fill(requested);
+    if (mode === 'sequence') {
+      const valid = (sequence || []).filter(value => Object.hasOwn(catalog, value));
+      const source = valid.length ? valid : ['call', 'motif', 'space'];
+      return Array.from({ length: count }, (_, index) => source[index % source.length]);
+    }
+    const pool = Object.keys(catalog).filter(value => value !== 'mixed'), random = H.rng(seed), result = [];
+    for (let index = 0; index < count; index++) {
+      let available = pool.filter(value => value !== result[index - 1] && (index !== count - 1 || count < 3 || value !== result[0]));
+      if (!available.length) available = pool;
+      result.push(available[Math.floor(random() * available.length)]);
+    }
+    return result;
+  }
+  function densitySequence(mode, requested, count, seed) {
+    if (mode !== 'random') return Array(count).fill(requested);
+    const pools = { easy: ['easy', 'standard'], standard: ['easy', 'standard', 'advanced'], advanced: ['standard', 'advanced', 'challenge'], challenge: ['advanced', 'challenge'], auto: ['easy', 'standard', 'advanced', 'challenge'] };
+    const pool = pools[requested] || pools.standard, random = H.rng(seed), result = [];
+    for (let index = 0; index < count; index++) {
+      let available = pool.filter(value => value !== result[index - 1] && (index !== count - 1 || count < 3 || value !== result[0]));
+      if (!available.length) available = pool;
+      result.push(available[Math.floor(random() * available.length)]);
+    }
+    return result;
+  }
+  function planLeadCycle(parsed, seed, feel = 'blues', options = {}, choruses = 4) {
+    choruses = Math.max(1, Math.min(32, Math.floor(Number(choruses) || 1)));
+    const mode = phraseCycleModes[options.phraseCycleMode] ? options.phraseCycleMode : 'repeat';
+    const densityMode = densityCycleModes[options.densityCycleMode] ? options.densityCycleMode : 'fixed';
+    const texture = leadTextures[options.leadTexture] ? options.leadTexture : 'single';
+    const groove = leadGrooves[options.leadGroove] ? options.leadGroove : 'follow';
+    if (options.leadCycle?.rounds?.length === choruses) return { ...options.leadCycle, mode, densityMode, texture, groove, rounds: options.leadCycle.rounds.map(round => ({ ...round, phrase: clonePhrase(round.phrase) })) };
+    const requestedStyle = Object.hasOwn(H.phraseStyles, options.style) ? options.style : 'mixed';
+    const requestedDensity = Object.hasOwn(H.phraseIntensities, options.intensity) ? options.intensity : 'standard';
+    const styles = leadSequence(H.phraseStyles, mode, requestedStyle, options.phraseStyleSequence, choruses, (seed >>> 0) ^ 0x41c64e6d);
+    const densities = densitySequence(densityMode, requestedDensity, choruses, (seed >>> 0) ^ 0x9e3779b9);
+    let shared;
+    const rounds = Array.from({ length: choruses }, (_, index) => {
+      const roundSeed = index ? ((seed >>> 0) ^ Math.imul(index + 1, 0x6d2b79f5)) >>> 0 : seed >>> 0;
+      if (mode === 'repeat' && densityMode === 'fixed') {
+        shared ||= decorateLeadTexture(options.phrase || H.generate(parsed, seed, feel, { genre: options.genre, style: styles[0], intensity: densities[0], legacy: options.legacy }), parsed, texture, seed);
+        return { seed: seed >>> 0, style: styles[0], intensity: densities[0], phrase: clonePhrase(shared) };
+      }
+      const phrase = H.generate(parsed, roundSeed, feel, { genre: options.genre, style: styles[index], intensity: densities[index] });
+      return { seed: roundSeed, style: styles[index], intensity: densities[index], phrase: decorateLeadTexture(phrase, parsed, texture, roundSeed) };
+    });
+    return { mode, densityMode, texture, groove, rounds };
+  }
+  function expandLeadNote(note) {
+    const companions = note.companions || [], stackSize = companions.length + 1;
+    return [{ ...note, companions: undefined, stackIndex: 0, stackSize }, ...companions.map((voice, index) => ({ ...note, ...voice, companions: undefined, stackIndex: index + 1, stackSize }))];
+  }
+  function warpLeadBeat(beat, groove = 'follow', backingFeel = 'shuffle') {
+    const profile = leadGrooves[groove] || leadGrooves.follow, ratio = profile.swing ?? feels[backingFeel]?.swing ?? .5;
+    if (profile.subdivision !== 4) return swingBeat(beat, ratio);
+    const pair = .5, base = Math.floor((beat + 1e-8) / pair) * pair, phase = (beat - base) / pair;
+    return base + (phase <= .5 ? phase * ratio * 2 : ratio + (phase - .5) * (1 - ratio) * 2) * pair;
+  }
+  function leadCycleEvents(cycle, chartBeats, backingFeel = 'shuffle') {
+    const events = [];
+    cycle.rounds.forEach((round, chorus) => {
+      const profile = leadGrooves[cycle.groove] || leadGrooves.follow, random = H.rng((round.seed >>> 0) ^ 0xa511e9b3);
+      for (const onset of round.phrase.notes) {
+        const start = warpLeadBeat(onset.beat, cycle.groove, backingFeel), end = warpLeadBeat(onset.beat + onset.duration, cycle.groove, backingFeel);
+        const jitter = (random() * 2 - 1) * profile.jitterMs, dynamic = .96 + random() * .08, detune = (random() * 2 - 1) * 2.2;
+        for (const note of expandLeadNote(onset)) events.push({ ...note, beat: chorus * chartBeats + start, duration: Math.max(.02, end - start), velocity: Math.min(.96, note.velocity * dynamic), track: 'lead', chorus, leadStyle: round.style, leadIntensity: round.intensity, leadGroove: cycle.groove, timingOffset: Math.max(0, profile.delayMs + jitter + note.stackIndex * 7) / 1000, detuneCents: detune + note.stackIndex * .7 });
+      }
+    });
+    return events.sort((a, b) => a.beat - b.beat || a.stackIndex - b.stackIndex);
+  }
+  function humanizeArrangement(events, seed) {
+    const profiles = { drums: [3, 4, 0], bass: [6, 4, 1.1], keys: [11, 6, 1.8], rhythm: [8, 5, 1.6] };
+    for (const [track, [delay, jitter, detune]] of Object.entries(profiles)) {
+      const random = H.rng((seed >>> 0) ^ Math.imul(Object.keys(profiles).indexOf(track) + 11, 0x45d9f3b));
+      for (const event of events.filter(item => item.track === track)) {
+        const behind = track === 'drums' && /^snare-/.test(event.sample || '') ? 7 : 0;
+        event.timingOffset = Math.max(0, delay + behind + (random() * 2 - 1) * jitter) / 1000;
+        event.velocity = Math.max(.04, Math.min(.96, event.velocity * (.955 + random() * .09)));
+        if (event.midi !== undefined) event.detuneCents = (random() * 2 - 1) * detune;
+      }
+    }
   }
   function arrangement(parsed, feel = 'shuffle', seed = 1, choruses = 4, options = {}) {
     if (parsed.error || !parsed.chords?.length || !parsed.bars?.length) throw Error(parsed.error || '先写一组和声');
@@ -153,6 +297,7 @@
         });
       });
     }
+    humanizeArrangement(events, seed);
     events.sort((a, b) => a.beat - b.beat);
     // Trim repeated pitches at the next attack; deliberately voiced chords remain polyphonic.
     const latest = new Map();
@@ -163,5 +308,5 @@
     }
     return { events, beats: chartBeats * choruses, chartBeats, bassStyles: selected.bass, drumStyles: selected.drums, keyStyles: selected.keys, rhythmStyles: selected.rhythm, chorusStyles };
   }
-  window.practiceArrangements = { arrangement, swingBeat, feels, bassStyles, drumStyles, keyStyles, rhythmStyles };
+  window.practiceArrangements = { arrangement, swingBeat, feels, bassStyles, drumStyles, keyStyles, rhythmStyles, leadGrooves, leadTextures, phraseCycleModes, densityCycleModes, decorateLeadTexture, planLeadCycle, expandLeadNote, warpLeadBeat, leadCycleEvents, humanizeArrangement };
 })();

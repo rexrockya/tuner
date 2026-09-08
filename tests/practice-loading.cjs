@@ -78,9 +78,10 @@ function harness(options = {}) {
     assert.ok(state.decodes.every(file => file.endsWith('.flac'))); assert.equal(state.timers.size, 0, 'all asset deadlines are cleared');
     await A.preload(); await A.ensure(); assert.equal(state.resumes, 1); assert.equal(state.requests.length, names.length + 1, 'warm play reuses decoded assets');
     const transport = new A.Transport(); transport.load(A.arrangement(H.parse('I7 | IV7', 'A'), 'shuffle', 1)); await transport.play();
-    assert.ok(state.started.length); assert.ok(Math.abs(Math.min(...state.started.map(item => item.at)) - state.now - .025) < 1e-9, 'first warm event is scheduled 25 ms ahead');
+    assert.ok(state.started.length); const firstDelay = Math.min(...state.started.map(item => item.at)) - state.now;
+    assert.ok(firstDelay >= .025 - 1e-9 && firstDelay <= .042 + 1e-9, 'first warm event keeps the 25 ms safety lead plus bounded human timing');
     assert.equal(state.waves, 1, 'organ voices share one periodic wave'); transport.pause(); assert.equal(state.intervals.size, 0);
-    console.log('PASS: concurrent silent preload, interactive context, decoded cache, 25 ms warm schedule and shared organ waveform');
+    console.log('PASS: concurrent silent preload, interactive context, decoded cache, safe humanized warm schedule and shared organ waveform');
   }
   {
     const { A, state } = harness({ unsupportedFlac: true }); await A.preload();

@@ -22,13 +22,17 @@
   function scoreData({ phrase, parsed, feel = '', swing = .5 }) {
     if (!phrase || !parsed?.bars?.length || !Array.isArray(phrase.notes)) throw Error('先生成一条乐句');
     const notes = [...phrase.notes].sort((a, b) => a.beat - b.beat), end = parsed.bars.length * 4;
-    if (notes.length > 256 || end > 64 || notes.some(n => !Number.isFinite(n.beat) || !Number.isFinite(n.duration) || n.duration <= 0 || n.beat < 0 || n.beat >= end || !Number.isInteger(n.midi) || n.midi < 0 || n.midi > 127)) throw Error('乐句音符无法写入五线谱');
+    const invalidPitch=n=>!Number.isInteger(n.midi)||n.midi<0||n.midi>127;
+    if (notes.length > 256 || end > 64 || notes.some(n => !Number.isFinite(n.beat) || !Number.isFinite(n.duration) || n.duration <= 0 || n.beat < 0 || n.beat >= end || invalidPitch(n) || n.companions?.length>2 || n.companions?.some(invalidPitch))) throw Error('乐句音符无法写入五线谱');
     const segments = [], measures = parsed.bars.map(() => []); let cursor = 0;
     const add = (start, duration, note) => {
       const pieces = splitSpan(start, duration, !note);
       pieces.forEach((piece, i) => {
-        const segment = { ...piece, bar: Math.floor(piece.beat / 4), sourceBeat: note?.beat, midi: note?.midi, rest: !note, tieStart: Boolean(note && i < pieces.length - 1), tieStop: Boolean(note && i > 0), detached: Boolean(note && i === 0 && note.duration / duration < .76) };
-        segments.push(segment); measures[segment.bar].push(segment);
+        const voices=note?[note,...(note.companions||[])]:[null];
+        voices.forEach((voice,index)=>{
+          const segment = { ...piece, bar: Math.floor(piece.beat / 4), sourceBeat: note?.beat, midi: voice?.midi, rest: !note, chord: index>0, tieStart: Boolean(note && i < pieces.length - 1), tieStop: Boolean(note && i > 0), detached: Boolean(note && i === 0 && note.duration / duration < .76) };
+          segments.push(segment); measures[segment.bar].push(segment);
+        });
       });
     };
     notes.forEach((note, i) => {
@@ -55,7 +59,7 @@
           const pitch = item.rest ? '<rest/>' : (() => { const [step, alter] = spelling[item.midi % 12]; return `<pitch><step>${step}</step>${alter ? '<alter>' + alter + '</alter>' : ''}<octave>${Math.floor(item.midi / 12) - 1}</octave></pitch>`; })();
           const ties = (item.tieStop ? '<tie type="stop"/>' : '') + (item.tieStart ? '<tie type="start"/>' : '');
           const notations = (item.tieStop ? '<tied type="stop"/>' : '') + (item.tieStart ? '<tied type="start"/>' : '') + (item.detached ? '<articulations><staccato/></articulations>' : '');
-          return `<note>${pitch}<duration>${Math.round(item.duration * GRID)}</duration>${ties}<voice>1</voice><type>${item.type}</type>${'<dot/>'.repeat(item.dots)}${notations ? '<notations>' + notations + '</notations>' : ''}</note>`;
+           return `<note>${item.chord?'<chord/>':''}${pitch}<duration>${Math.round(item.duration * GRID)}</duration>${ties}<voice>1</voice><type>${item.type}</type>${'<dot/>'.repeat(item.dots)}${notations ? '<notations>' + notations + '</notations>' : ''}</note>`;
         }).join('') + (bar === measures.length - 1 ? '<barline location="right"><bar-style>light-heavy</bar-style></barline>' : '') + '</measure>').join('') + '</part></score-partwise>';
     return { xml, segments };
   }
@@ -95,7 +99,12 @@
       const svg = stage.querySelector('svg'); if (!svg) throw Error('五线谱没有生成，请重试');
       targets = new Map(); bars = [];
       const group = document.createElementNS(NS, 'g'); group.classList.add('practice-staff-targets');
-      const segments = new Map(model.segments.filter(n => !n.rest).map(n => [Math.round(n.beat * GRID), n]));
+      const segments = new Map(), occurrences = new Map();
+      for (const segment of model.segments.filter(n => !n.rest)) {
+        const stamp = Math.round(segment.beat * GRID);
+        if (!segments.has(stamp)) segments.set(stamp, []);
+        segments.get(stamp).push(segment);
+      }
       (score.GraphicSheet?.MeasureList || []).forEach((staffMeasures, bar) => {
         const measure = staffMeasures[0]; if (!measure) return;
         const box = measure.PositionAndShape, xy = box.AbsolutePosition;
@@ -107,7 +116,8 @@
         for (const entry of measure.staffEntries || []) for (const voice of entry.graphicalVoiceEntries || []) for (const note of voice.notes || []) {
           if (note.sourceNote.isRest?.()) continue;
           const stamp = note.sourceNote.ParentVoiceEntry.Timestamp.RealValue;
-          const segment = segments.get(Math.round((bar * 4 + stamp * 4) * GRID)); if (!segment) continue;
+          const key = Math.round((bar * 4 + stamp * 4) * GRID), candidates = segments.get(key); if (!candidates?.length) continue;
+          const occurrence = occurrences.get(key) || 0, segment = candidates[Math.min(occurrence, candidates.length - 1)]; occurrences.set(key, occurrence + 1);
           const point = note.PositionAndShape.AbsolutePosition, target = document.createElementNS(NS, 'rect');
           target.setAttribute('x', point.x * 10 - 6); target.setAttribute('y', point.y * 10 - 16);
           target.setAttribute('width', '26'); target.setAttribute('height', '32'); target.setAttribute('rx', '5');

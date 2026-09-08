@@ -1,6 +1,23 @@
 # 弦音项目交接
 
-## 2026-09-09 多风格教学与 Funk 节奏吉他
+## 当前交付：2026-09-09 创作演奏与循环变化
+
+本节覆盖下方“原创四轮计划重复同一句 Lead”和“自动旋律写成后四轮原样复用”的旧约束。默认设置仍保持原行为，只有用户启用变化时才展开不同乐句。
+
+- 创作页新增 Lead 独立律动：follow、straight、swing、shuffle、pocket、laidback。`warpLeadBeat`统一服务播放、点选定位和 MIDI；follow继续采用整体feel的swing比例。五线谱/TAB直写，不把演奏摇摆硬改成附点谱。
+- 新增single、double、voicing三类Lead织体。`practice-arrangement.js`仍保留一个主起音，在可用的强拍/长音上以`companions`增加1或2个和弦音；必须不同琴弦、0–24品、当前和弦音、整组最大6品跨度。默认single删除companions并保持旧单声部对象指纹。
+- `planLeadCycle`为创作建立固定4轮计划：repeat精确复制同一句；random从非mixed乐句写法中按seed选择，避免相邻轮及循环接缝重复；sequence按四个UI选择器循环，默认call、motif、space、space。网页播放第4轮后回第1轮；底层API可接受1–32轮，但不要把这误写成当前UI能力。
+- 每轮密度fixed保持所选档，random使用独立随机流。easy/standard/advanced/challenge从邻近档抽取，auto基准从四个固定档抽取；同seed可重现，改变密度随机不得改变同seed的乐句写法顺序。每轮都实际重新生成音符，不只改显示标签。
+- 播放中自动跟随当前Lead轮；停止时“当前乐句”选择器可查看、点选和试听第1–4轮。TAB把同起音所有声部绘出并一起高亮；MusicXML的附加声部使用`<chord/>`且不重复推进时值。
+- 收藏键仍为`tuner-original-licks-v1`，但新记录为version 3，保存完整`leadCycle`、4轮顺序、律动、织体和密度模式。v1/v2继续读取；缺新字段恢复repeat/fixed/follow/single。不要迁移、覆盖或删掉用户旧收藏。
+- MIDI仍只有Lead。repeat+fixed继续只导出一轮，保持旧文件长度；random/sequence或随机密度导出全部4轮。double/voicing所有声部均导出，起止时间、力度、Lead微时差及复音拨弦错开按BPM换算写入；房间、detune和伴奏不在MIDI内。吉他GM映射：crunch/blues/singing=29，其余吉他=26，piano=0，violin=40。
+- Lead新增jazz、blues、singing三个音色；与同日多风格交付的dry/ambient合并后，在既有warm/bright/crunch/piano/violin基础上共10项。三个新吉他音色都是现有Karoryfer Shinyguitar CC0采样的滤波、EQ、驱动、包络与压缩变体，不是新录音；许可/manifest不变，不应声称新增采样包。
+- `humanizeArrangement`给鼓/Bass/键盘/节奏吉他加入种子可复现的轻微时间、力度和可用声部detune；同日多风格模块新生成的专用声部也只应用一次该处理，旧声部不重复叠加。Lead另有律动相关延后、jitter与复音错开。音频总线加入克制的分轨声像和房间send，房间IR为0.42秒；Bass保持无房间send。采样播放尊重`ampRelease`，修复钢琴尾音被统一release覆盖。
+- 这些变化目标是减少齐拍、齐力度、全居中的MIDI感，不能由代码/模拟时钟测试证明已经达到真人录制backing track质感。鼓、Bass和吉他以既有真实录音采样为主，Electro鼓、Synth Bass与Synth Keys按所选音色使用采样或合成，钢琴/小提琴沿用既有乐谱音源。实体手机、耳机、扬声器、蓝牙及主观A/B仍待验收。
+- 合并缓存版本`20260909-performance-2`更新index内practice.css/asset-loader及loader内practice编配、谱面、音频和UI；本节本身没有新增媒体或后台。新增`tests/practice-performance.cjs`并扩展音色mock；最终`npm run test:practice`、`npm run test:qa`、`npm run test:sound`、`npm test`、首屏gzip6与线上验证状态以`notes/performance-variation-validation-2026-09-09.md`为准，未完成前不得写成通过或已上线。
+- 仍只发布main/docs到 https://rexrockya.github.io/tuner/ 。不要运行根`npm run build`覆盖Pages，不部署Worker或其他公开域名；精准暂存排除`node_modules/`和`website/site.tar.gz`，不提交或删除它们。
+
+## 同日已合入：2026-09-09 多风格教学与 Funk 节奏吉他
 
 - 新增 `music-genres.js`，依赖原 harmony/arrangement，之后再加载 practice-audio。`genre` 独立于 feel/style；无 genre 的调用保持原始音符与伴奏，旧 v1/v2 收藏继续兼容。
 - 六风格为 blues/jazz/funk-soul/shoegaze/folk/rnb。每风格 3 个分级原创课，Funk 另加 3 个节奏专项，共 21 课。`genre-curriculum.js` 保留教学来源，`genre-lessons.js` 渲染统一入口、步骤、听辨、收藏与完成状态。
@@ -11,10 +28,9 @@
 - 音频：原创电子鼓 8 WAV/220852B，仅选择并使用鼓时载入；Synth Bass（synth/acid）、Synth Keys（synth/pad）由振荡器实时发声。dry/ambient 仍为真实电吉他采样处理，不称木吉他实采。ambient 自然结束保留 1.4s 卷积尾，停止时干湿声一起淡出并清理。
 - 验证增加 music-genres/genre-controls，涵盖 2520 生成组合、各流派与写法实质差异、所有声部选择/律动、21 课、草稿/旧收藏、电子音色、闷奏、尾声和懒加载；旧回归不删除。两项 mjs 测试修复中文 Windows 路径解析。
 - 仅发布原 GitHub Pages 的 docs，不运行会覆盖 docs 的 website build、不部署 Sites/Worker。此次在 `codex/multigenre-teaching` 独立工作区开发，因为原 main 工作区有另一任务尚未提交的演奏功能；合并时保留两边能力，勿重置或覆盖另一任务的文件。
-- 功能已通过 GitHub Git Data API 快进发布为 `14b619c`（与本地 `b108880` 的树完全相同）。20 个更新公开资源 / 494428 B 全部 HTTP 200 且逐字节一致，详见 `notes/multigenre-online-verification-2026-09-09.json`；最终完整 npm test 通过，首屏 gzip6 116066 / 120000 B。原 main 工作目录未动；后续任务先合并最新远端，再发布，勿用旧版本覆盖新增风格模块。
+- 功能已通过 GitHub Git Data API 快进发布为 `14b619c`（与本地 `b108880` 的树完全相同）。20 个更新公开资源 / 494428 B 全部 HTTP 200 且逐字节一致，详见 `notes/multigenre-online-verification-2026-09-09.json`；最终完整 npm test 通过，首屏 gzip6 116066 / 120000 B。后续发布必须保留新增风格模块。
 
-
-## 当前交付：2026-09-08 自动音符密度
+## 上一版：2026-09-08 自动音符密度
 
 本节覆盖旧版“演奏强度”名称与默认值；此前音色和连续播放实现继续保留。
 

@@ -4,7 +4,13 @@ const H=box.window.tunerHarmony,R=box.window.practiceArrangements,plain=value=>J
 const chart=H.parse('2m7,57,1maj7','C'),oldPhrase=plain(H.generate(chart,128,'jazz',{intensity:'auto'})),oldSong=plain(R.arrangement(chart,'shuffle',128));
 vm.runInContext(fs.readFileSync('docs/music-genres.js','utf8'),box);vm.runInContext(fs.readFileSync('docs/genre-curriculum.js','utf8'),box);
 const G=box.window.tunerGenres;assert.deepEqual(plain(H.generate(chart,128,'jazz',{intensity:'auto'})),oldPhrase);assert.deepEqual(plain(R.arrangement(chart,'shuffle',128)),oldSong);
+for(const [genre,profile] of Object.entries(G.profiles)){
+  const generated=H.generate,calls=[];H.generate=(...args)=>{calls.push(args[3]?.genre);return generated(...args);};
+  const cycle=R.planLeadCycle(G.enrich(H.parse(profile.create,profile.key)),81,profile.feel,{genre,style:'motif',intensity:'standard',phraseCycleMode:'sequence',phraseStyleSequence:['call','motif','space','syncopated']},4);
+  H.generate=generated;assert.deepEqual(calls,Array(4).fill(genre),genre+' generates every Lead round through its genre writer');assert.ok(cycle.rounds.every(round=>round.phrase.genre===genre),genre+' survives on every generated phrase');
+}
 let cases=0;const fingerprints=new Set();
+const customStyles={bass:['pocket','sustain','fingerroot'],drums:['soft','wash','neo'],keys:['haze','neo'],rhythm:['sixteenth','fingerpick','wash','soulcomp']};
 for(const [genre,profile] of Object.entries(G.profiles)){
   for(const key of ['C','F#','Bb'])for(const text of [profile.create,'1m7 47,57 1maj7','1 2 3 4,57','1sus2,6m7,4add9,1maj9'])for(const style of Object.keys(H.phraseStyles))for(const intensity of Object.keys(H.phraseIntensities)){
     const parsed=G.enrich(H.parse(text,key));assert.equal(parsed.error,'');const options={genre,style,intensity},phrase=H.generate(parsed,4231,profile.feel,options);
@@ -29,6 +35,11 @@ for(const [genre,profile] of Object.entries(G.profiles)){
   }
   for(const [track,field,catalog]of[['bass','bassStyle',R.bassStyles],['drums','drumStyle',R.drumStyles],['keys','keyStyle',R.keyStyles],['rhythm','rhythmStyle',R.rhythmStyles]])for(const style of Object.keys(catalog)){
     const song=R.arrangement(parsed,profile.feel,3,4,{genre,[field]:style});if(style!=='auto')assert.ok(song.chorusStyles.every(round=>round[track]===style),'explicit style honored');
+    if(customStyles[track].includes(style)){
+      const customEvents=song.events.filter(event=>event.track===track);assert.ok(customEvents.length,track+' '+style+' creates custom events');
+      assert.ok(customEvents.every(event=>Number.isFinite(event.timingOffset)&&event.timingOffset>=0&&event.timingOffset<.03),track+' '+style+' has bounded timing humanization');
+      assert.ok(customEvents.filter(event=>event.midi!==undefined).every(event=>Number.isFinite(event.detuneCents)),track+' '+style+' has finite pitch humanization');
+    }
   }
 }
 assert.equal(fingerprints.size,6,'six genres change notes, not only metadata');

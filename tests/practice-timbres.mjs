@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import { pathToFileURL, fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = path.resolve(process.argv[2] || fileURLToPath(new URL('..', import.meta.url)));
 const docs = path.join(root, 'docs');
 const module = await import(pathToFileURL(path.join(docs, 'practice-timbres.js')).href);
@@ -10,8 +10,8 @@ const manifest = JSON.parse(fs.readFileSync(path.join(docs, 'assets/audio/blues/
 const requests = [], decodes = [], nodes = [], starts = [], stops = [], timers = new Map();
 let now = 10, resumed = 0, nextTimer = 0, failPiano = false, stallViolin = null;
 class Param { value=0; setValueAtTime(value) {this.value=value;} linearRampToValueAtTime(value) {this.value=value;} exponentialRampToValueAtTime(value){this.value=value;} setTargetAtTime(value) {this.value=value;} cancelScheduledValues(){} }
-class Node { constructor(type) { this.type=type; this.connections=[]; for(const key of ['gain','frequency','playbackRate','threshold','knee','ratio','attack','release']) this[key]=new Param(); nodes.push(this); } connect(next) {this.connections.push(next);return next;} disconnect(){this.disconnected=true;} setPeriodicWave(wave){this.wave=wave;} start(at){starts.push({node:this,at});} stop(at){stops.push({node:this,at});} }
-class Context { sampleRate=44100; state='suspended'; destination=new Node('destination');get currentTime(){return now;} async resume(){resumed++;this.state='running';} createGain(){return new Node('gain');}createDynamicsCompressor(){return new Node('compressor');}createConvolver(){return new Node('room');}createBiquadFilter(){return new Node('filter');}createWaveShaper(){return new Node('drive');}createOscillator(){return new Node('organ');}createBufferSource(){return new Node('sample');}createPeriodicWave(real,imag){return Array.from(imag);}createBuffer(ch,length,rate){const data=Array.from({length:ch},()=>new Float32Array(length));return {duration:length/rate,length,sampleRate:rate,numberOfChannels:ch,getChannelData:c=>data[c]};} async decodeAudioData(bytes){const tag=Buffer.from(bytes).toString('utf8',0,160);decodes.push(tag);const b=this.createBuffer(1,154350,44100);b.tag=tag;return b;} }
+class Node { constructor(type) { this.type=type; this.connections=[]; for(const key of ['gain','frequency','playbackRate','threshold','knee','ratio','attack','release','pan']) this[key]=new Param(); nodes.push(this); } connect(next) {this.connections.push(next);return next;} disconnect(){this.disconnected=true;} setPeriodicWave(wave){this.wave=wave;} start(at){starts.push({node:this,at});} stop(at){stops.push({node:this,at});} }
+class Context { sampleRate=44100; state='suspended'; destination=new Node('destination');get currentTime(){return now;} async resume(){resumed++;this.state='running';} createGain(){return new Node('gain');}createStereoPanner(){return new Node('panner');}createDynamicsCompressor(){return new Node('compressor');}createConvolver(){return new Node('room');}createBiquadFilter(){return new Node('filter');}createWaveShaper(){return new Node('drive');}createOscillator(){return new Node('organ');}createBufferSource(){return new Node('sample');}createPeriodicWave(real,imag){return Array.from(imag);}createBuffer(ch,length,rate){const data=Array.from({length:ch},()=>new Float32Array(length));return {duration:length/rate,length,sampleRate:rate,numberOfChannels:ch,getChannelData:c=>data[c]};} async decodeAudioData(bytes){const tag=Buffer.from(bytes).toString('utf8',0,160);decodes.push(tag);const b=this.createBuffer(1,154350,44100);b.tag=tag;return b;} }
 const originalFetch=globalThis.fetch;
 globalThis.fetch=async(url,options={})=>{
   const text=String(url);requests.push(text);
@@ -29,8 +29,9 @@ for(const name of ['harmony.js','practice-arrangement.js','score-audio.js'])vm.r
 vm.runInContext(fs.readFileSync(path.join(docs,'practice-audio.js'),'utf8').replace(/import\('\.\/practice-timbres\.js[^']*'\)/,"window.importTimbres()"),sandbox);
 const A=window.practiceAudio, event=(midi=69,velocity=.72)=>({track:'lead',midi,velocity,duration:1,beat:0});
 try {
-  assert.equal(A.getTimbre('lead'),'warm');for(const track of ['drums','bass','keys','rhythm','lead'])assert.ok(Object.keys(A.timbres[track]).length>=3);
+  assert.equal(A.getTimbre('lead'),'warm');for(const track of ['drums','bass','keys','rhythm','lead'])assert.ok(Object.keys(A.timbres[track]).length>=3);for(const id of ['jazz','blues','singing'])assert.ok(A.timbres.lead[id]);
   const ctx=A.getContext(), bank=module.createSampleBank(ctx,window.scoreAudio);
+  assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===-.2));assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===.2),'persistent track buses create a stereo stage');
   await bank.ensure('piano',[event()]);
   const pianoRequests=requests.filter(url=>url.includes('sfzinstruments-splendid-grand-piano'));
   assert.equal(pianoRequests.length,1,'one pitch/velocity requires one original region, not the entire piano');
@@ -53,6 +54,9 @@ try {
   assert.ok(nodes.some(node=>node.type==='drive'&&node.curve.length===1024),'crunch is an actual saturating guitar patch');
   assert.ok(nodes.filter(node=>node.type==='lowpass').some(node=>node.frequency.value===1100),'muted bass changes the sound path: '+nodes.filter(n=>n.type==='lowpass').map(n=>n.frequency.value));
   assert.ok(nodes.filter(node=>node.type==='lowpass').some(node=>node.frequency.value===6400),'vintage drum patch changes the sound path');
+  transport.load({events:[{track:'keys',midi:69,velocity:.5,duration:1,beat:0,detuneCents:100}],beats:4,chartBeats:4});await transport.play();const tunedOrgan=nodes.filter(node=>node.type==='organ').at(-1);assert.ok(Math.abs(tunedOrgan.frequency.value-466.1637615)<1e-5,'keys detune reaches the organ oscillator');transport.pause();
+  await A.setTimbre('lead','singing');const beforeTimed=starts.length;transport.load({events:[{...event(69),timingOffset:.02,detuneCents:1.5}],beats:4,chartBeats:4});await transport.play();const timed=starts.slice(beforeTimed).find(item=>item.node.type==='sample');assert.ok(timed.at>=now+.044&&timed.at<=now+.046,'seeded millisecond feel reaches the audio clock');transport.pause();
+  assert.ok(nodes.filter(node=>node.type==='lowpass').some(node=>node.frequency.value===5400));assert.ok(nodes.filter(node=>node.type==='compressor').some(node=>node.threshold.value===-29),'singing Lead is an audible dedicated patch');
   console.log('PASS: shared sample clock, actual piano/violin buffers, silence on pause and audible per-track patch processing');
   assert.ok(!requests.some(url=>url.includes('electro/')),'electronic drum kit is not part of initial preload');
   const electro={track:'drums',sample:'kick-1',beat:0,velocity:.7,duration:.12};

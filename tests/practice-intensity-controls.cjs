@@ -73,7 +73,8 @@ const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
  assert.deepEqual(plain(score.segments.filter(s=>!s.rest&&!s.tieStop).map(s=>s.midi)),exportPhrase.notes.map(n=>n.midi));
  const midi=Buffer.from(S.midiFile());let at=22,ticks=0;const ons=[];const vlq=()=>{let n=0,b;do{b=midi[at++];n=(n<<7)|(b&127);}while(b&128);return n;};
  while(at<midi.length){ticks+=vlq();const status=midi[at++];if(status===255){at++;const size=vlq();at+=size;}else if((status&240)===192){assert.equal(midi[at++],40);}else{const pitch=midi[at++],velocity=midi[at++];if((status&240)===144&&velocity)ons.push({tick:ticks,midi:pitch});}}
- assert.deepEqual(ons,exportPhrase.notes.map(n=>({tick:Math.round(A.swingBeat(n.beat,A.feels[q('practice-feel').value].swing)*480),midi:n.midi})),'MIDI uses actual generated pitches and swing onsets');
+ const exportCycle=S.getLeadCycle(),performed=A.leadCycleEvents({...exportCycle,rounds:[exportCycle.rounds[0]]},S.transport.song.chartBeats,q('practice-feel').value);
+ const expectedMidi=performed.map(n=>({tick:Math.round((n.beat+n.timingOffset*S.transport.bpm/60)*480),midi:n.midi}));assert.equal(ons.length,expectedMidi.length);ons.forEach((note,index)=>assert.deepEqual(note,expectedMidi[index],'MIDI uses actual generated pitches, groove and performed microtiming at note '+index));
  const beforeDirty=plain(S.getPhrase()),oldChart=plain(S.getProgression());input('1,b7,#4');change('practice-intensity','easy');assert.deepEqual(plain(S.getPhrase()),beforeDirty);assert.deepEqual(plain(S.getProgression()),oldChart);assert.equal(q('practice-play').disabled,true);assert.equal(q('practice-intensity').value,'easy');
  change('practice-phrase-style','space');assert.deepEqual(plain(S.getPhrase()),beforeDirty,'style also waits for dirty harmony submission');
  S.generate(912);assert.equal(q('practice-play').disabled,false);assert.equal(q('practice-intensity').value,'easy');assert.equal(S.getPhrase().style,'space');

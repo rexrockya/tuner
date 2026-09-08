@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import path from 'node:path';
-import { pathToFileURL, fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = path.resolve(process.argv[2] || fileURLToPath(new URL('..', import.meta.url)));
 const { createSampleBank } = await import(pathToFileURL(path.join(root, 'docs/practice-timbres.js')).href);
 const originalFetch = globalThis.fetch;

@@ -1,13 +1,13 @@
 (function () {
   'use strict';
   const H=window.tunerHarmony;
-  const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles}=window.practiceArrangements;
+  const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents}=window.practiceArrangements;
   const timbres = {
     drums: { natural: '原声 Studio', vintage: '复古暖鼓', crisp: '明亮紧致', electro: 'Electro · 合成鼓' },
     bass: { precision: 'P 风格 · 厚实指弹', round: '圆润指弹', bright: '明亮指弹', muted: '闷音短奏', synth: 'Synth Bass · 深低音', acid: 'Synth Bass · 弹性短奏' },
     keys: { jazz: 'Jazz 风琴', gospel: 'Gospel 风琴', soft: '柔和风琴', synth: 'Synth Keys · 柔和电键', pad: 'Synth Pad · 空间铺底' },
     rhythm: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他' },
-    lead: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
+    lead: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', jazz: '爵士琴颈 · 圆润', blues: 'Blues · 边缘破音', singing: '歌唱延音 · 压缩', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
   };
   const selectedTimbres = { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', lead: 'warm' }, timbreRequests = {};
   const patches = {
@@ -18,10 +18,20 @@
       bright: { cutoff: 6800, highpass: 32, level: 1.05, release: .07, eq: [['lowshelf', 160, 2]] },
       muted: { cutoff: 1100, level: 1.12, release: .025, length: .58 }
     },
-    guitar: {
+    rhythm: {
       warm: { cutoff: 6100, highpass: 70, level: .58, attack: .004, release: .12, drive: 1.2, eq: [['lowshelf', 180, 2.6], ['peaking', 900, 1.4, .65], ['peaking', 3200, -1.2, .8]], compress: [-24, 12, 2.4, .012, .14] },
       bright: { cutoff: 7600, highpass: 75, level: .58, attack: .003, release: .1, drive: 1.12, eq: [['lowshelf', 190, 2.2], ['peaking', 1100, 1.2, .7]], compress: [-23, 12, 2.2, .009, .12] },
       crunch: { cutoff: 5600, highpass: 80, level: .44, attack: .004, release: .14, drive: 3, eq: [['lowshelf', 180, 2.8], ['peaking', 950, 2, .7], ['peaking', 3100, -2, 1]], compress: [-22, 12, 2.6, .01, .14] },
+      dry: { cutoff:7400,highpass:100,level:.55,attack:.002,release:.045,drive:1.1,compress:[-24,10,2.5,.006,.09] },
+      ambient: { cutoff:4700,highpass:95,level:.43,attack:.065,release:.32,drive:1.8,space:true,compress:[-25,14,2.6,.018,.22] }
+    },
+    lead: {
+      warm: { cutoff: 6500, highpass: 72, level: .58, attack: .004, release: .14, drive: 1.25, eq: [['lowshelf', 180, 2.2], ['peaking', 950, 1.7, .65], ['peaking', 3300, -1.1, .8]], compress: [-25, 14, 2.5, .012, .16] },
+      bright: { cutoff: 7900, highpass: 78, level: .56, attack: .003, release: .12, drive: 1.15, eq: [['lowshelf', 190, 1.8], ['peaking', 1450, 1.5, .7]], compress: [-24, 12, 2.3, .009, .14] },
+      crunch: { cutoff: 5700, highpass: 82, level: .42, attack: .004, release: .17, drive: 3.1, eq: [['lowshelf', 180, 2.4], ['peaking', 1050, 2.2, .7], ['peaking', 3200, -2.1, 1]], compress: [-23, 12, 2.8, .01, .17] },
+      jazz: { cutoff: 4300, highpass: 68, level: .63, attack: .006, release: .18, drive: 1.12, eq: [['lowshelf', 190, 2.5], ['peaking', 720, 2.1, .72], ['peaking', 2800, -2.4, .9]], compress: [-27, 16, 2.7, .018, .2] },
+      blues: { cutoff: 5900, highpass: 76, level: .47, attack: .004, release: .2, drive: 2.25, eq: [['lowshelf', 175, 2.1], ['peaking', 880, 2.8, .65], ['peaking', 2700, -.8, .9]], compress: [-25, 14, 3, .012, .2] },
+      singing: { cutoff: 5400, highpass: 82, level: .43, attack: .009, release: .26, drive: 2.6, eq: [['lowshelf', 180, 1.8], ['peaking', 1250, 3, .62], ['peaking', 3600, -2.2, .85]], compress: [-29, 18, 3.8, .02, .26] },
       dry: { cutoff:7400,highpass:100,level:.55,attack:.002,release:.045,drive:1.1,compress:[-24,10,2.5,.006,.09] },
       ambient: { cutoff:4700,highpass:95,level:.43,attack:.065,release:.32,drive:1.8,space:true,compress:[-25,14,2.6,.018,.22] }
     }
@@ -96,14 +106,20 @@
     const output = context.createGain(); output.gain.value = .84; // Fixed mix headroom after compression; track balance stays intact.
     master.connect(compressor).connect(output).connect(context.destination);
     room = context.createConvolver();
-    const impulse = context.createBuffer(2, Math.floor(context.sampleRate * .28), context.sampleRate), random = H.rng(12);
+    const impulse = context.createBuffer(2, Math.floor(context.sampleRate * .42), context.sampleRate), random = H.rng(12);
     for (let ch = 0; ch < 2; ch++) {
       const samples = impulse.getChannelData(ch);
-      for (let i = 0; i < samples.length; i++) samples[i] = (random() * 2 - 1) * Math.exp(-i / context.sampleRate * 24) * .18;
+      for (let i = 0; i < samples.length; i++) samples[i] = (random() * 2 - 1) * Math.exp(-i / context.sampleRate * 17) * .14;
     }
     room.buffer = impulse; room.connect(master);
-    for (const track of ['drums', 'bass', 'keys', 'rhythm', 'lead']) { buses[track] = context.createGain(); buses[track].gain.value = 1; buses[track].connect(master); }
-    buses.keys.connect(room); buses.lead.connect(room);
+    const pans = { drums: -.03, bass: 0, keys: .2, rhythm: -.2, lead: .06 }, sends = { drums: .08, bass: 0, keys: .18, rhythm: .1, lead: .17 };
+    for (const track of ['drums', 'bass', 'keys', 'rhythm', 'lead']) {
+      buses[track] = context.createGain(); buses[track].gain.value = 1;
+      let stage = buses[track];
+      if (context.createStereoPanner) { const panner = context.createStereoPanner(); panner.pan.value = pans[track]; stage.connect(panner); stage = panner; }
+      stage.connect(master);
+      if (sends[track]) { const send = context.createGain(); send.gain.value = sends[track]; stage.connect(send); send.connect(room); }
+    }
     return context;
   }
   async function fetchAsset(url, method = 'arrayBuffer') {
@@ -168,11 +184,12 @@
     if (!asset) return;
     const source = context.createBufferSource(), gain = context.createGain(); source.buffer = asset.buffer;
     const guitar = (track === 'lead' || track === 'rhythm') && !asset.kind;
-    const patch = guitar ? (event.articulation==='dead'?{...patches.guitar.dry,cutoff:1800,highpass:650,length:.06,attack:.001,release:.012,level:.38}:event.articulation==='muted'?{...patches.guitar[selection[track]],cutoff:4300,length:.62,release:.025,space:false}:patches.guitar[selection[track]]) : patches[track]?.[selection[track]] || {};
-    const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi) / 12)) * (patch.rate || 1);
+    const basePatch = patches[track]?.[selection[track]] || {};
+    const patch = guitar ? (event.articulation==='dead'?{...(patches[track]?.dry||basePatch),cutoff:1800,highpass:650,length:.06,attack:.001,release:.012,level:.38}:event.articulation==='muted'?{...basePatch,cutoff:4300,length:.62,release:.025,space:false}:basePatch) : basePatch;
+    const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi + (event.detuneCents || 0) / 100) / 12)) * (patch.rate || 1);
     source.playbackRate.value = rate;
     const length = Math.max(.035, (duration || asset.buffer.duration / rate) * (patch.length || 1));
-    const release = asset.kind === 'violin' ? .06 : asset.kind === 'piano' ? .18 : patch.release || (guitar ? .075 : .05);
+    const release = asset.ampRelease ?? (asset.kind === 'violin' ? .06 : asset.kind === 'piano' ? .18 : patch.release || (guitar ? .075 : .05));
     const attack = asset.kind === 'violin' ? .008 : patch.attack || .003;
     velocity *= (patch.level || 1) * (asset.level ?? 1);
     gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(velocity, at + Math.min(attack, length / 3));
@@ -229,12 +246,12 @@
     gain.connect(filter).connect(buses.keys);
     if (!organWaves.has(id)) organWaves.set(id, context.createPeriodicWave(new Float32Array(settings.harmonics.length), new Float32Array(settings.harmonics)));
     const oscillator = context.createOscillator(); oscillator.setPeriodicWave(organWaves.get(id));
-    oscillator.frequency.value = 440 * 2 ** ((event.midi - 69) / 12);
+    oscillator.frequency.value = 440 * 2 ** ((event.midi - 69 + (event.detuneCents || 0) / 100) / 12);
     oscillator.connect(gain); trackVoice(oscillator, gain, [filter], null, owner, at); oscillator.start(at); oscillator.stop(at + seconds + .18);
   }
   function synth(event,at,seconds,selection,owner) {
     const bass=event.track==='bass',id=selection[event.track],pad=id==='pad',acid=id==='acid';
-    const duration=Math.max(.035,seconds),frequency=440*2**((event.midi-69)/12);
+    const duration=Math.max(.035,seconds),frequency=440*2**((event.midi-69+(event.detuneCents||0)/100)/12);
     const layers=bass?[[acid?'sawtooth':'sine',1,.7],['triangle',.5,.3]]:[['triangle',1,.7],['sine',pad?1.003:2,.3]];
     layers.forEach(([type,multiple,level])=>{
       const oscillator=context.createOscillator(),filter=context.createBiquadFilter(),gain=context.createGain();oscillator.type=type;oscillator.frequency.value=frequency*multiple;
@@ -254,8 +271,12 @@
       sample(closest, at, event.duration * beatSeconds, event.velocity * .66, 'bass', event.midi, event, selection, owner);
     } else if (event.track === 'lead' && ['piano', 'violin'].includes(selection.lead)) {
       const asset = sampleBank?.get(selection.lead, event);
-      sample(asset, at, event.duration * beatSeconds, event.velocity * (selection.lead === 'violin' ? 1.65 : .95), 'lead', event.midi, event, selection, owner);
-    } else if (event.track === 'lead' || event.track === 'rhythm') sample(guitarSample(event), at, event.duration * beatSeconds, event.velocity * (event.track === 'lead' ? 1.2 : .62), event.track, event.midi, event, selection, owner);
+      const stackGain = event.stackSize > 1 ? 1 / Math.sqrt(event.stackSize) : 1;
+      sample(asset, at, event.duration * beatSeconds, event.velocity * stackGain * (selection.lead === 'violin' ? 1.65 : .95), 'lead', event.midi, event, selection, owner);
+    } else if (event.track === 'lead' || event.track === 'rhythm') {
+      const stackGain = event.track === 'lead' && event.stackSize > 1 ? 1 / Math.sqrt(event.stackSize) : 1;
+      sample(guitarSample(event), at, event.duration * beatSeconds, event.velocity * stackGain * (event.track === 'lead' ? 1.2 : .62), event.track, event.midi, event, selection, owner);
+    }
     else organ(event, at, event.duration * beatSeconds, selection, owner);
   }
   function cancelVoices(owner) {
@@ -379,8 +400,9 @@
         const at = plan.started + (event.beat + plan.cycle * length - plan.startBeat) * seconds;
         if (at > horizon || at >= cutoff - 1e-8) break;
         if (at >= now - .012) {
-          sound(event, Math.max(now, at), seconds, plan.timbres || plan.activeTimbres, plan.voiceScope);
-          plan.lastScheduledAt = at;
+          const soundingAt = Math.max(now, at + Math.max(0, Number(event.timingOffset) || 0));
+          sound(event, soundingAt, seconds, plan.timbres || plan.activeTimbres, plan.voiceScope);
+          plan.lastScheduledAt = soundingAt;
         }
         plan.next++;
       }
@@ -411,5 +433,5 @@
     }
     setLoopBar(bar) { const playing = this.playing; this.pause(); this.loopBar = bar; if (bar !== null) { this.loop = true; this.position = bar * 4; } this.update(); return playing ? this.play() : Promise.resolve(); }
   }
-  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre, prepareTimbres, commitTimbres };
+  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre, prepareTimbres, commitTimbres };
 })();

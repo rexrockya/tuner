@@ -180,6 +180,8 @@ main:before{display:none}
 
 .practice-intensity-help{font-size:12px;line-height:1.7;color:var(--muted);margin:-8px 0 18px;max-width:75ch}
 @media(min-width:1000px){#lesson-page[data-lesson-mode="create"] .practice-colors{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.practice-phrase-sequence{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:-6px 0 18px;padding:12px;border:1px solid #34412c;border-radius:10px;background:#11170f}.practice-phrase-sequence label{display:grid;gap:6px;color:var(--muted);font-size:12px}.practice-phrase-sequence select{width:100%;min-height:40px!important;font-size:13px!important}.tab-fret.chord-tone{box-shadow:0 0 0 2px #bdf45d55}
+@media(max-width:600px){.practice-phrase-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.practice-notation-controls #practice-round-wrap{width:100%}}
 .tab-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px;scrollbar-width:thin;scrollbar-color:#839277 #e2e4d8}
 .tab-paper{width:100%}
 .tab-scroll:focus-visible{outline:2px solid #466b2d;outline-offset:-2px}

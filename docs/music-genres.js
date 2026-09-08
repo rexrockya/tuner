@@ -148,6 +148,7 @@
         (neo?[2]:[1,3]).forEach(beat=>add(base+R.swingBeat(beat,swing)+.012,.12,soft?.2:.48,{sample:'snare-2',drumStyle:style}));
         if(neo)[1.75,3.25].forEach(beat=>add(base+R.swingBeat(beat,swing),.08,.1,{sample:'snare-1',drumStyle:style}));
       }
+      R.humanizeArrangement?.(events,seed);
       return events;
     }
     parsed.chords.forEach((chord,chordIndex)=>{
@@ -173,6 +174,7 @@
         }
       }
     });
+    R.humanizeArrangement?.(events,seed);
     return events;
   }
   H.generate=generate;R.arrangement=arrange;
