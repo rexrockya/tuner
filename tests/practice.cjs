@@ -31,7 +31,7 @@ w.fetch = async url => {
   const file = path.resolve('docs', url.split('?')[0]); assert.ok(file.startsWith(path.resolve('docs/assets/audio/blues')), 'all new playback assets must be self-hosted');
   return { ok: fs.existsSync(file), json: async () => JSON.parse(fs.readFileSync(file, 'utf8')), arrayBuffer: async () => { const b = fs.readFileSync(file); return b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength); } };
 };
-for (const file of ['storage.js', 'harmony.js', 'lessons.js', 'practice-audio.js', 'practice.js']) w.eval(fs.readFileSync('docs/' + file, 'utf8'));
+for (const file of ['storage.js', 'harmony.js', 'lessons.js', 'practice-arrangement.js','practice-audio.js', 'practice.js']) w.eval(fs.readFileSync('docs/' + file, 'utf8'));
 const studio = w.practiceStudio, flush = () => new Promise(resolve => setImmediate(resolve));
 function advance(seconds) { const end = now + seconds; while (now < end) { now = Math.min(end, now + .017); for (const timer of timers.values()) timer(); } }
 function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Event('change')); }
@@ -49,10 +49,14 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   assert.deepEqual([...midi.subarray(29, 32)], [0, 192, 26], 'guitar program before the first note');
 
   const originalSaved = w.localStorage.getItem('tuner-original-licks-v1');
+  assert.equal(studio.transport.song.chorusStyles.length,4);assert.equal(studio.transport.song.events.filter(e=>e.track==='lead').length,phrase.notes.length*4,'repeat same lead over four changing choruses');
+  for(const field of ['drum','key','rhythm'])assert.equal($('practice-'+field+'-style').tagName,'SELECT');
+  change('practice-key-style','none');assert.ok(!studio.transport.song.events.some(e=>e.track==='keys'));change('practice-key-style','auto');assert.deepEqual(plain(studio.getPhrase()),phrase);
+  change('practice-drum-style','funk');assert.deepEqual(plain(studio.getPhrase()),phrase);
   change('practice-bass-style', 'octave'); assert.deepEqual(plain(studio.getPhrase()), phrase, 'changing bass retains the melody');
-  $('practice-rhythm').click(); assert.equal($('practice-rhythm').getAttribute('aria-pressed'), 'false'); assert.ok(!studio.transport.song.events.some(event => event.track === 'rhythm'));
+  change('practice-rhythm-style','none'); assert.equal($('practice-rhythm-style').value,'none'); assert.ok(!studio.transport.song.events.some(event => event.track === 'rhythm'));
   assert.deepEqual(plain(studio.getPhrase()), phrase, 'rhythm guitar toggle retains the melody');
-  $('practice-rhythm').click(); assert.ok(studio.transport.song.events.some(event => event.track === 'rhythm'));
+  change('practice-rhythm-style','auto'); assert.ok(studio.transport.song.events.some(event => event.track === 'rhythm'));
   change('practice-feel', 'funk'); assert.deepEqual(plain(studio.getPhrase()), phrase, 'changing groove retains the exact composition');
   change('practice-phrase-style', 'arpeggio'); assert.notDeepEqual(plain(studio.getPhrase().notes), phrase.notes, 'style selection changes musical vocabulary');
   $('practice-save').click(); const styled = plain(studio.getPhrase()); studio.generate(920); change('practice-saved','0'); assert.deepEqual(plain(studio.getPhrase()),styled,'version 2 favorites store exact note snapshots');
@@ -76,13 +80,14 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   assert.equal(studio.transport.current(), position, 'volume preserves timing');
   assert.ok(nodes.filter(node => node.type === 'filter').every(node => !node.connections.some(next => next.type === 'room')), 'organ reverb follows its volume bus');
   d.querySelector('.tab[data-page="sheet"]').click(); assert.equal(studio.transport.playing, false); assert.equal(timers.size, 0);
+  studio.setMode('create');const beforeDirty=plain(studio.getPhrase());$('practice-progression').value='C7';$('practice-progression').dispatchEvent(new w.Event('input'));change('practice-drum-style','ride');assert.equal($('practice-play').disabled,true);assert.deepEqual(plain(studio.getPhrase()),beforeDirty,'dirty harmony style changes must not combine new chart with old phrase');
   $('practice-progression').value = 'H7'; $('practice-progression').dispatchEvent(new w.Event('input')); $('practice-form').dispatchEvent(new w.Event('submit', { cancelable: true }));
   assert.equal($('practice-play').disabled, true); assert.equal($('practice-error').hidden, false);
   change('practice-bass-style', 'walking'); $('practice-progression').value = 'C/E | F/A | G/B'; studio.generate(1);
   const firstBass = studio.transport.song.events.filter(e => e.track === 'bass' && e.beat < 4);
   assert.equal(firstBass[0].midi % 12, 4); assert.ok(firstBass.slice(1, 3).every(e => [0, 4, 7, 9].includes(e.midi % 12)));
   const A = w.practiceAudio, arrangement = A.arrangement(w.tunerHarmony.parse('I7 | IV7', 'A'), 'shuffle', 2, 2);
-  const secondKeys = arrangement.events.filter(e => e.track === 'keys' && e.beat >= 8);
+  const secondKeys = A.arrangement(w.tunerHarmony.parse('I7 | IV7','A'),'shuffle',2,2,{keyStyle:'offbeat'}).events.filter(e => e.track === 'keys' && e.beat >= 8);
   assert.ok(secondKeys.some(e => Math.abs(e.beat % 1 - 2 / 3) < 1e-7));
   // A tab switch during asynchronous loading must cancel the scheduled start.
   const pending = studio.transport.play(); studio.setMode('library'); await pending; assert.equal(studio.transport.playing, false);

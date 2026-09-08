@@ -51,3 +51,12 @@ Shinyguitar by Karoryfer Samples, archtop played and mapped by D. Smolken. The o
 24 electric pickup samples: MIDI 45, 51, 57, 63, 69, 75; source velocity layers 2 and 3; two independently recorded round-robin takes per layer/root. MIDI roots were checked against Programs/electric_one.sfz. The local manifest preserves roots, layers and variant IDs. Each original recording is converted to mono 44.1 kHz 16-bit, limited to 3 seconds with a 120 ms tail fade, then losslessly compressed to FLAC with WAV fallback. No normalization or EQ is baked into the assets. Per-file original URLs, SHA-256 hashes and processing facts are in shinyguitar-provenance.json.
 
 The browser selects the nearest root (maximum four semitones over the generated lead range), recorded dynamic and take; a soft low-pass tone and restrained room send provide the mellow presentation. Lead and rhythm use separate volume buses. These are instrument recordings, not excerpts from existing songs. No artist endorsement is implied.
+
+
+## Ensemble timbre choices (2026-09-08)
+
+Warm/bright/crunch guitar, round/bright/muted bass and natural/vintage/crisp drums are playback patches of the existing recordings: filtering, envelopes and restrained distortion/tuning. They are not three newly recorded instruments. Organ voices are separately synthesized harmonic/filter/envelope settings.
+
+Lead piano reuses the score player's Splendid Grand Piano regions, derived from the SFZ instrument at https://github.com/sfzinstruments/SplendidGrandPiano : original AKAI samples are public domain; kinwie prepared the SFZ mapping. The existing smplr distribution supplies the converted samples and region definitions. Only note/velocity regions required for the selected phrase are downloaded; no remapped or newly synthesized piano is substituted.
+
+Lead violin reuses the unmodified local Musyng Kite / MIDI.js recordings and score sustain preparation. The source and CC BY-SA 3.0 attribution remain at ../credits.html. The smplr library's MIT license remains at ../smplr-LICENSE. These choices have independent practice buffers and the same practice audio clock; no score player is started.

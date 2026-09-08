@@ -1,0 +1,13 @@
+.practice-staff{margin-top:20px;min-width:0;max-width:100%}
+.practice-staff-message{margin:0 0 10px;color:var(--muted,#a0a89a);font-size:12px;line-height:1.7}
+.practice-staff-viewport{position:relative;max-width:100%;max-height:min(68vh,720px);overflow:auto;overscroll-behavior:contain;border-radius:8px;background:#f2f0e6;color:#172012;scrollbar-color:#99a38c #e4e4d7;scrollbar-width:thin;outline-offset:3px}
+.practice-staff-canvas{min-width:560px;line-height:0;padding:8px 0 18px;background:#f2f0e6}
+.practice-staff-canvas svg{display:block;max-width:none}
+.practice-staff-bar{fill:transparent;stroke:transparent;pointer-events:none}
+.practice-staff-bar.active{fill:#7aab2310;stroke:#618b2533;stroke-width:1}
+.practice-staff-note{fill:transparent;stroke:transparent;cursor:pointer;touch-action:manipulation}
+.practice-staff-note:hover{fill:#21420e15}
+.practice-staff-note.active{fill:#75a73d44;stroke:#315517;stroke-width:1.5}
+.practice-staff-note:focus-visible{fill:#75a73d44;stroke:#172012;stroke-width:2;outline:none}
+.practice-staff[aria-busy=true] .practice-staff-viewport{opacity:.55;pointer-events:none}
+@media(max-width:600px){.practice-staff-viewport{max-height:62vh;border-radius:5px}.practice-staff-message{font-size:11px}}

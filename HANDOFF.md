@@ -1,6 +1,19 @@
 # 弦音项目交接
 
-## 当前交付：2026-09-08 音乐工具与乐句扩展
+## 当前交付：2026-09-08 伴奏风格、音色与五线谱
+
+- 本轮沿用用户此前明确的测试、文档、提交和发布授权；公开入口仍仅 https://rexrockya.github.io/tuner/ ，不另建后端或公开站。
+- `practice-arrangement.js` 独立编配模块必须在 practice-audio 之前加载。导出鼓7类、风琴5类、节奏吉他5类风格；风琴/吉他含none，各轨auto按四轮选择、相邻轮及循环接缝避免重复。每progression最后1–2拍用对应fill替换原轨部分，非堆叠打击。改变一轨不随机重写别轨。auto鼓服从整体律动，显式鼓风格可有意形成对比。
+- 原创也使用四轮伴奏计划，Lead原句逐轮原样重复；五线谱/TAB始终显示同一条原句。关循环仍在当前progression末停止；单节仍只循环所选小节。不可改为四套旋律或破坏现有绝对AudioContext时钟。
+- `practice-audio.js` 导出 timbres/getTimbre/setTimbre。每轨三种音色，Lead另有piano/violin。UI先pause保留位置，选择音色不自动resume；按播放试听，加载失败按播放或重选重试。异步请求最新选择胜出、迟到请求不发声。混音器标签不折成逐字竖排。
+- `practice-timbres.js` 是按需ES模块，只有钢琴/小提琴会载入。共享scoreAudio的钢琴原音区/力度映射及小提琴延音处理，缓冲和声音归practice管理；不得实例化另一个谱面播放器/时钟。钢琴只下载所需音区/力度，小提琴下载已有本地soundfont而只解码所需音；与原乐谱一样钢琴仍有外部采样下载依赖。吉他/Bass/鼓的多种patch使用旧录音的滤波、包络、轻驱动等处理，不声称新增录音。
+- `practice-notation.js/.css` 提供整页TAB/实音高五线谱切换，TAB默认。staff模块和OSMD仅选staff后加载。五线谱高音谱号实音、不作吉他低八度；Swing直写加说明。新生成note含notationDuration，duration仍是演奏门长；旧v1生成器完全保留，旧收藏缺谱值时从相邻起音和和弦边界推断。休止/附点/连线、最小64分音符均可表示。
+- 谱面不改phrase/音频时钟，保留点击/键盘定位、高亮、小节/逐音局部滚动。setVisible(false)必须取消迟到渲染；顶层返回教学调用practiceStudio.activate恢复已有选中谱面。前后台/退出不能重新绘制隐藏谱。
+- 收藏继续v2音符快照，新增drumStyle/keyStyle/rhythmStyle/timbres，旧rhythm:false迁移none。MIDI仍只导Lead；program随钢琴0、小提琴40、轻驱动29/其余吉他26选择变化。编辑和声后风格切换只记选项、保持待生成，禁止旧phrase配新长度和声。
+- 新验证：practice-arrangement 1440组合与256节拍网格、practice-timbres真实映射/调度/竞态、practice-notation真实OSMD与手机尺寸/取消、practice-controls整合切换/收藏/MIDI；均入npm test。完整回归已通过；详情 `notes/ensemble-validation-2026-09-08.md`。继续保留120000B首屏gzip6预算和按需加载。
+
+
+## 上一版：2026-09-08 音乐工具与乐句扩展
 
 用户本轮已明确授权完成设计、更新文档、合并提交并公开发布至原 GitHub Pages；不要再次索要发布确认。此前“仅本地预览/未获授权”记录已被本轮授权覆盖。公开入口仍仅为 https://rexrockya.github.io/tuner/ 。
 

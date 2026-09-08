@@ -184,7 +184,7 @@
         const duration = Math.min(c.beats - offset, available * (activeStyle === 'space' || last && n === pattern.length - 1 ? .94 : activeStyle === 'syncopated' ? .66 : .84));
         const articulation = duration > .9 ? 'vibrato' : n && Math.abs(midi - previous) <= 2 && random() > .58 ? 'slide' : 'picked';
         hand = fingering(midi, hand);
-        notes.push({ beat: c.beat + offset, duration, midi, velocity: Math.min(.86, (n === 0 ? .7 : .48) + random() * .16), bar: c.bar, ...hand, role, articulation, variant: Math.floor(random() * 2) });
+        notes.push({ beat: c.beat + offset, duration, notationDuration: available, midi, velocity: Math.min(.86, (n === 0 ? .7 : .48) + random() * .16), bar: c.bar, ...hand, role, articulation, variant: Math.floor(random() * 2) });
         previous = midi;
       });
     });

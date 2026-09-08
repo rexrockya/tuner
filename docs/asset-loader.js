@@ -2,15 +2,17 @@
   'use strict';
   const base = new URL('.', document.currentScript.src), pending = new Map();
   const libraries = {
-    practiceAudio: ['practice-audio.js?v=20260908-5', () => window.practiceAudio],
-    practice: ['practice.js?v=20260908-5', () => window.practiceStudio],
+    arrangement: ['practice-arrangement.js?v=20260908-ensemble-1',()=>window.practiceArrangements],
+    notation: ['practice-notation.js?v=20260908-ensemble-1',()=>window.practiceNotation],
+    practiceAudio: ['practice-audio.js?v=20260908-ensemble-1', () => window.practiceAudio],
+    practice: ['practice.js?v=20260908-ensemble-1', () => window.practiceStudio],
     sound: ['sound-meter.js?v=20260908-3', () => window.soundMeter],
     score: ['assets/vendor/opensheetmusicdisplay-2.1.2.min.js', () => window.opensheetmusicdisplay],
     tone: ['assets/vendor/tone-14.9.17.js', () => window.Tone],
     zip: ['assets/vendor/fflate-0.8.2.min.js', () => window.fflate]
   };
   function load(name) {
-    if(name==='studio')return load('practiceAudio').then(()=>load('practice'));
+    if(name==='studio')return load('arrangement').then(()=>load('practiceAudio')).then(()=>load('practice'));
     const entry = libraries[name];
     if (!entry) return Promise.reject(new Error('未知资源'));
     if (entry[1]()) return Promise.resolve(entry[1]());

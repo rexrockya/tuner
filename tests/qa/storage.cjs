@@ -19,7 +19,7 @@ async function boot(policy='normal',stored={},url) {
   assert.ok(entries.some(entry=>entry.src.split('?')[0]==='storage.js'),'storage.js is absent from index');
   for(const entry of entries){assert.match(entry.attrs,/\bdefer\b/);const url=new URL(entry.src,'https://rexrockya.github.io/tuner/');const file=path.join(ROOT,'docs',url.pathname.replace(/^\/tuner\//,''));Object.defineProperty(h.d,'currentScript',{configurable:true,value:{src:url.href}});try{vm.runInContext(fs.readFileSync(file,'utf8'),h.dom.getInternalVMContext(),{filename:file})}catch(error){h.bootstrapErrors.push({file,message:error.message})}}
   // Exercise the same lazy studio entries after the real initial boot.
-  for(const name of ['practice-audio.js','practice.js'])vm.runInContext(fs.readFileSync(path.join(ROOT,'docs',name),'utf8'),h.dom.getInternalVMContext(),{filename:name});
+  for(const name of ['practice-arrangement.js','practice-audio.js','practice.js'])vm.runInContext(fs.readFileSync(path.join(ROOT,'docs',name),'utf8'),h.dom.getInternalVMContext(),{filename:name});
   await tick();assert.deepEqual(h.bootstrapErrors,[],'real script bootstrap failed');assert.ok(h.w.siteStorage,'storage API missing');assert.ok(h.w.lessonPlayer?.activate&&h.w.metronome?.getBpm&&h.w.scorePlayer?.ensureCatalog&&h.w.practiceStudio,'real player APIs missing');assert.deepEqual(h.errors,[]);assert.equal(rejections.length,0,rejections.map(error=>error.stack).join('\n'));return h;
 }
 function notice(h){const element=h.q('#storage-notice');assert.ok(element);assert.equal(element.getAttribute('role'),'status');assert.equal(element.hidden,false);assert.match(element.textContent,/本机存储不可用/);assert.match(element.textContent,/刷新后丢失/)}

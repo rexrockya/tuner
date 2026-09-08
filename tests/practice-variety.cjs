@@ -1,6 +1,6 @@
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict'), path = require('node:path');
 const w = {}, plain = value => JSON.parse(JSON.stringify(value));
-for (const file of ['harmony.js','practice-audio.js']) vm.runInNewContext(fs.readFileSync('docs/'+file,'utf8'),{window:w});
+for (const file of ['harmony.js','practice-arrangement.js','practice-audio.js']) vm.runInNewContext(fs.readFileSync('docs/'+file,'utf8'),{window:w});
 const H=w.tunerHarmony,A=w.practiceAudio;
 const chart=H.parse('I7 | IV7 | I7 | V7','A');
 const fingerprint = notes => notes.map(n=>`${n.beat}:${n.midi}:${n.duration.toFixed(2)}`).join('|');

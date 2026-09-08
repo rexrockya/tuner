@@ -1,87 +1,44 @@
 (function () {
   'use strict';
-  const H = window.tunerHarmony;
-  const swingBeat = (beat, swing) => Math.floor(beat) + (beat % 1 <= .5 ? beat % 1 * swing * 2 : swing + (beat % 1 - .5) * (1 - swing) * 2);
-  const feels = {
-    shuffle: { label: 'Shuffle 摇摆', swing: 2 / 3, bpm: 96 },
-    slow: { label: 'Slow 12/8 慢蓝调', swing: 2 / 3, bpm: 62 },
-    straight: { label: 'Straight 八分', swing: .5, bpm: 110 },
-    boogie: { label: 'Boogie 推进', swing: 2 / 3, bpm: 124 },
-    soul: { label: 'Soul 松弛', swing: .57, bpm: 82 },
-    funk: { label: 'Funk 十六分', swing: .5, bpm: 102 },
-    halftime: { label: 'Half-time 半拍', swing: .5, bpm: 78 },
-    latin: { label: 'Latin 切分', swing: .5, bpm: 108 }
+  const H=window.tunerHarmony;
+  const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles}=window.practiceArrangements;
+  const timbres = {
+    drums: { natural: '原声 Studio', vintage: '复古暖鼓', crisp: '明亮紧致' },
+    bass: { round: '圆润指弹', bright: '明亮指弹', muted: '闷音短奏' },
+    keys: { jazz: 'Jazz 风琴', gospel: 'Gospel 风琴', soft: '柔和风琴' },
+    rhythm: { warm: '温暖爵士吉他', bright: '明亮吉他', crunch: '轻过载吉他' },
+    lead: { warm: '温暖爵士吉他', bright: '明亮吉他', crunch: '轻过载吉他', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
   };
-  const bassStyles = { auto: '随机经典型', walking: 'Walking 行进', boogie: 'Boogie 走句', fifths: '根音 · 五度', riff: 'Riff 蓝调重复', octave: 'Octave 八度切分', pedal: 'Pedal 根音脉冲' };
-  const bassCells = {
-    walking: [[0, 0, .8], [1, 1, .8], [2, 2, .8], [3, 3, .78]],
-    boogie: [[0, 0, .38], [.5, 0, .3], [1, 1, .38], [1.5, 2, .3], [2, 3, .38], [2.5, 2, .3], [3, 1, .38], [3.5, 2, .3]],
-    fifths: [[0, 0, 1.55], [2, 2, 1.2], [3.5, 0, .32]],
-    riff: [[0, 0, .7], [1, 0, .35], [1.5, 2, .35], [2.5, 3, .35], [3, 2, .65]],
-    octave: [[0, 0, .4], [.75, 4, .23], [1.5, 2, .35], [2, 0, .4], [2.75, 4, .23], [3.5, 2, .35]],
-    pedal: [[0, 0, .7], [1, 0, .36], [1.5, 0, .25], [2, 0, .72], [3, 0, .36]]
+  const selectedTimbres = { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', lead: 'warm' }, timbreRequests = {};
+  const patches = {
+    drums: { natural: { cutoff: 18000, level: 1 }, vintage: { cutoff: 6400, level: 1.07, rate: .96 }, crisp: { cutoff: 18000, level: .98, rate: 1.04, highpass: 48 } },
+    bass: { round: { cutoff: 2200, level: 1, release: .07 }, bright: { cutoff: 7200, level: .86, release: .05 }, muted: { cutoff: 1100, level: 1.12, release: .025, length: .58 } },
+    guitar: { warm: { cutoff: 3100, level: 1, attack: .006 }, bright: { cutoff: 9200, level: .83, attack: .003 }, crunch: { cutoff: 3600, level: .68, attack: .004, drive: 2.4 } }
   };
-  function arrangement(parsed, feel = 'shuffle', seed = 1, choruses = 4, options = {}) {
-    const { swing } = feels[feel] || feels.shuffle, random = H.rng(seed), events = [];
-    const chartBeats = parsed.bars.length * 4, selectedBass = [];
-    const add = (track, beat, data) => events.push({ track, beat, ...data });
-    let previousVoicing = [60, 64, 67], priorBass;
-    for (let chorus = 0; chorus < choruses; chorus++) {
-      const base = chorus * chartBeats;
-      const choices = feel === 'slow' || feel === 'halftime' ? ['fifths', 'pedal', 'walking'] : feel === 'funk' || feel === 'latin' ? ['octave', 'riff', 'pedal'] : ['walking', 'boogie', 'fifths', 'riff', 'octave'];
-      const available = choices.filter(style => style !== priorBass);
-      const bassStyle = bassCells[options.bassStyle] ? options.bassStyle : available[Math.floor(random() * available.length)];
-      selectedBass.push(bassStyle); priorBass = bassStyle;
-      parsed.bars.forEach((bar, barIndex) => {
-        const b = base + barIndex * 4, turnaround = barIndex === parsed.bars.length - 1;
-        const hatStep = feel === 'funk' ? .25 : feel === 'slow' ? 1 / 3 : .5;
-        for (let offset = 0, step = 0; offset < 3.999; offset += hatStep, step++) {
-          const swung = feel === 'slow' ? offset : swingBeat(offset, swing);
-          add('drums', b + swung + .006, { sample: feel === 'slow' && step % 3 === 0 ? 'ride' : `hat-${1 + (step + chorus) % 2}`, velocity: (step % (feel === 'funk' ? 4 : 2) === 0 ? .38 : .17) + random() * .065 });
-        }
-        const kicks = { funk: [0, .75, 2, 2.5], latin: [0, 1.5, 2.5], halftime: [0, 1.5], soul: [0, 2.5], boogie: [0, 1, 2, 3] }[feel] || [0, 2];
-        const snares = { halftime: [2], latin: [1, 2.5] }[feel] || [1, 3];
-        kicks.forEach((beat, i) => add('drums', b + swingBeat(beat, swing), { sample: `kick-${1 + (barIndex + i + chorus) % 2}`, velocity: beat === 0 ? .69 : .49 }));
-        snares.forEach((beat, i) => add('drums', b + swingBeat(beat, swing) + (feel === 'latin' ? 0 : .018), { sample: `snare-${1 + (barIndex + chorus + i) % 2}`, velocity: (feel === 'latin' ? .35 : .64) + random() * .09 }));
-        if (feel === 'funk' || feel === 'soul') add('drums', b + swingBeat(2.75, swing), { sample: 'snare-2', velocity: .12 });
-        if (barIndex % 4 === 3 && chorus % 2 === 1) add('drums', b + 3 + swing, { sample: 'open-hat', velocity: .25 });
-        if (turnaround && chorus % 2 === 1) [2.5, 3.25, 3.5].forEach((offset, i) => add('drums', b + swingBeat(offset, swing), { sample: `snare-${1 + i % 2}`, velocity: .2 + i * .04 }));
-        bar.forEach(c => {
-          const chordIndex = parsed.chords.indexOf(c), next = parsed.chords[(chordIndex + 1) % parsed.chords.length];
-          const root = 28 + H.mod((c.bass ?? c.root) - 4), chordRoot = 28 + H.mod(c.root - 4);
-          const path = [0, c.intervals[1], c.intervals[2], c.family === 'minor' || c.family === 'half-dim' ? 10 : c.family === 'dim' ? 9 : 9, 12];
-          const cell = bassCells[bassStyle].filter(([beat]) => beat < c.beats);
-          cell.forEach(([offset, degree, duration], i) => {
-            let midi = i === 0 ? root : chordRoot + path[degree];
-            if (bassStyle === 'walking' && i === cell.length - 1 && c.beats >= 2 && next.root !== c.root) midi = Math.max(28, H.nearest(next.bass ?? next.root, midi, 28, 51) - 1);
-            const beat = swingBeat(offset, swing), length = Math.min(c.beats - beat, swingBeat(Math.min(c.beats, offset + duration), swing) - beat);
-            add('bass', base + c.beat + beat, { midi, duration: length, velocity: i === 0 ? .74 : .55 + random() * .13, bassStyle });
-          });
-          const colors = [c.intervals[1], c.intervals[3] ?? c.intervals[2], c.intervals[2] + 12];
-          const voicing = colors.map((n, i) => H.nearest(c.root + n, previousVoicing[i], 53, 77)); previousVoicing = voicing;
-          const placements = c.beats >= 4 ? chorus % 2 ? [swing, 2 + swing] : [0, 2 + swing] : [0];
-          placements.forEach((offset, i) => voicing.forEach(midi => add('keys', base + c.beat + offset, { midi, duration: Math.min(feel === 'slow' ? 1.9 : .9, c.beats - offset), velocity: i ? .17 : .22 })));
-          if (options.rhythm !== false) {
-            const strokes = { slow: [0, 1 + 2 / 3, 3], funk: [.5, 1.25, 2.5, 3.25], latin: [0, 1.5, 2.5], halftime: [0, 2.5], soul: [.5, 2.5] }[feel] || [0, .5, 1, 1.5, 2, 2.5, 3, 3.5];
-            strokes.filter(offset => offset < c.beats).forEach((offset, stroke) => {
-              const isBoogie = ['shuffle', 'boogie', 'straight'].includes(feel), up = stroke % 2;
-              const intervals = isBoogie ? [0, c.intervals[2] + (Math.floor(offset) % 2 && c.family === 'dominant' ? 2 : 0)] : [c.intervals[1], c.intervals[3] ?? c.intervals[2], 12];
-              const chordBase = 45 + H.mod(c.root - 9), beat = feel === 'slow' ? offset : swingBeat(offset, swing);
-              const pitches = intervals.map(interval => chordBase + interval); if (up) pitches.reverse();
-              pitches.forEach((midi, string) => {
-                const strumBeat = beat + string * .012;
-                if (strumBeat < c.beats) add('rhythm', base + c.beat + strumBeat, { midi, duration: Math.min(c.beats - strumBeat, isBoogie ? .28 : .45), velocity: (up ? .43 : .58) + random() * .07, variant: (stroke + chorus) % 2, articulation: 'muted' });
-              });
-            });
-          }
-        });
-      });
-    }
-    return { events: events.sort((a, b) => a.beat - b.beat), beats: chartBeats * choruses, chartBeats, bassStyles: selectedBass };
-  }
   let context, master, room, compressor, ready, assets = {}, voices = new Set(), buses = {};
+  let sampleBankPromise, sampleBank;
+  function getTimbre(track) { return selectedTimbres[track]; }
+  async function ensureSelected(events = []) {
+    const id = selectedTimbres.lead;
+    if (id !== 'piano' && id !== 'violin') return;
+    if (!sampleBankPromise) sampleBankPromise = import('./practice-timbres.js?v=20260908-1').then(module => sampleBank = module.createSampleBank(getContext(), window.scoreAudio)).catch(error => { sampleBankPromise = null; throw error; });
+    const bank = await sampleBankPromise;
+    await bank.ensure(id, events);
+  }
+  // Caller pauses transport first. Selection/load never resumes a context or schedules sound.
+  async function setTimbre(track, id, events = []) {
+    if (!Object.hasOwn(timbres[track] || {}, id)) throw Error('未知音色');
+    const generation = (timbreRequests[track] || 0) + 1; timbreRequests[track] = generation;
+    selectedTimbres[track] = id;
+    if (track === 'lead') {
+      try { await ensureSelected(events); }
+      catch (error) { if (timbreRequests[track] !== generation) return false; throw error; }
+    }
+    return timbreRequests[track] === generation;
+  }
   const decodedAssets = new Map();
-  let organWave, bassAssets = [], guitarAssets = [];
+  const organWaves = new Map(), driveCurves = new Map();
+  let bassAssets = [], guitarAssets = [];
   function getContext() {
     if (context) return context;
     const Context = window.AudioContext || window.webkitAudioContext;
@@ -146,22 +103,30 @@
   function sample(asset, at, duration, velocity, track, midi, event = {}) {
     if (!asset) return;
     const source = context.createBufferSource(), gain = context.createGain(); source.buffer = asset.buffer;
-    const rate = midi === undefined ? 1 : 2 ** ((midi - asset.midi) / 12);
+    const guitar = (track === 'lead' || track === 'rhythm') && !asset.kind;
+    const patch = guitar ? patches.guitar[selectedTimbres[track]] : patches[track]?.[selectedTimbres[track]] || {};
+    const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi) / 12)) * (patch.rate || 1);
     source.playbackRate.value = rate;
-    const length = Math.max(.035, duration || asset.buffer.duration / rate);
-    const guitar = track === 'lead' || track === 'rhythm';
-    gain.gain.setValueAtTime(guitar ? .0001 : velocity, at);
-    if (guitar) gain.gain.linearRampToValueAtTime(velocity, at + .006);
-    gain.gain.setTargetAtTime(.0001, at + Math.max(.01, length - .055), guitar ? .025 : .02);
-    const extra = [];
-    if (guitar || track === 'bass') {
-      const filter = context.createBiquadFilter(); filter.type = 'lowpass';
-      filter.frequency.value = track === 'bass' ? 1300 + event.velocity * 1600 : track === 'rhythm' ? 1800 : 2200 + event.velocity * 1300;
-      source.connect(filter).connect(gain); extra.push(filter);
-    } else source.connect(gain);
-    gain.connect(buses[track]);
+    const length = Math.max(.035, (duration || asset.buffer.duration / rate) * (patch.length || 1));
+    const release = asset.kind === 'violin' ? .06 : asset.kind === 'piano' ? .18 : patch.release || (guitar ? .075 : .05);
+    const attack = asset.kind === 'violin' ? .008 : patch.attack || .003;
+    velocity *= patch.level || 1;
+    gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(velocity, at + Math.min(attack, length / 3));
+    gain.gain.setTargetAtTime(.0001, at + length, release / 3);
+    const extra = []; let chain = source;
+    if (patch.drive) {
+      const shaper = context.createWaveShaper();
+      if (!driveCurves.has(patch.drive)) driveCurves.set(patch.drive, Float32Array.from({ length: 1024 }, (_, i) => Math.tanh((i / 511.5 - 1) * patch.drive) / Math.tanh(patch.drive)));
+      shaper.curve = driveCurves.get(patch.drive); shaper.oversample = '2x'; chain.connect(shaper); chain = shaper; extra.push(shaper);
+    }
+    const filter = context.createBiquadFilter(); filter.type = 'lowpass';
+    filter.frequency.value = Math.min(context.sampleRate * .45, asset.lpfCutoffHz || patch.cutoff || (asset.kind === 'violin' ? 10000 : 16000));
+    chain.connect(filter); chain = filter; extra.push(filter);
+    if (patch.highpass) { const highpass = context.createBiquadFilter(); highpass.type = 'highpass'; highpass.frequency.value = patch.highpass; chain.connect(highpass); chain = highpass; extra.push(highpass); }
+    chain.connect(gain); gain.connect(buses[track]);
+    if (asset.loop) { source.loop = true; source.loopStart = asset.loopStart; source.loopEnd = asset.loopEnd; }
     if (guitar && event.articulation === 'slide') { source.playbackRate.setValueAtTime(rate * 2 ** (-.65 / 12), at); source.playbackRate.linearRampToValueAtTime(rate, at + Math.min(.065, length / 3)); }
-    if (track === 'lead' && event.articulation === 'vibrato' && length > .36) {
+    if (guitar && track === 'lead' && event.articulation === 'vibrato' && length > .36) {
       source.playbackRate.setValueAtTime(rate, at + .24);
       for (let t = .29, i = 0; t < length; t += .095, i++) source.playbackRate.linearRampToValueAtTime(rate * 2 ** ((i % 2 ? -9 : 9) / 1200), at + t);
     }
@@ -170,7 +135,7 @@
       voice.gain.gain.setTargetAtTime(.0001, at, .006); try { voice.source.stop(at + .025); } catch {}
     }
     trackVoice(source, gain, extra, choke);
-    source.start(at); source.stop(at + Math.min(asset.buffer.duration / rate, length + .12));
+    source.start(at); source.stop(at + (asset.loop ? length + release * 2 : Math.min(asset.buffer.duration / rate, length + release * 2)));
   }
   function guitarSample(event) {
     const layer = event.velocity >= .68 ? 3 : 2, variant = event.variant % 2 || 0;
@@ -178,21 +143,26 @@
     return candidates.reduce((best, asset) => !best || Math.abs(asset.midi - event.midi) < Math.abs(best.midi - event.midi) ? asset : best, null);
   }
   function organ(event, at, seconds) {
-    const gain = context.createGain(), filter = context.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 2600;
-    gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(event.velocity * .16, at + .018);
-    gain.gain.setTargetAtTime(event.velocity * .11, at + .05, .15);
-    gain.gain.setTargetAtTime(.0001, at + seconds * .75, .06);
+    const id = selectedTimbres.keys;
+    const settings = { jazz: { harmonics: [0, 1, .48, .23, .13, 0, .08, 0, .04], cutoff: 2600, attack: .018, level: 1 }, gospel: { harmonics: [0, 1, .74, .53, .38, .24, .18, .13, .08], cutoff: 5500, attack: .01, level: .73 }, soft: { harmonics: [0, 1, .16, .04, .02], cutoff: 1600, attack: .045, level: 1.17 } }[id];
+    const gain = context.createGain(), filter = context.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = settings.cutoff;
+    gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(event.velocity * .16 * settings.level, at + settings.attack);
+    gain.gain.setTargetAtTime(event.velocity * .11 * settings.level, at + .05, .15);
+    gain.gain.setTargetAtTime(.0001, at + seconds * .9, .04);
     gain.connect(filter).connect(buses.keys);
-    organWave ??= context.createPeriodicWave(new Float32Array(9), new Float32Array([0, 1, .48, .23, .13, 0, .08, 0, .04]));
-    const oscillator = context.createOscillator(); oscillator.setPeriodicWave(organWave);
+    if (!organWaves.has(id)) organWaves.set(id, context.createPeriodicWave(new Float32Array(settings.harmonics.length), new Float32Array(settings.harmonics)));
+    const oscillator = context.createOscillator(); oscillator.setPeriodicWave(organWaves.get(id));
     oscillator.frequency.value = 440 * 2 ** ((event.midi - 69) / 12);
-    oscillator.connect(gain); trackVoice(oscillator, gain, [filter]); oscillator.start(at); oscillator.stop(at + seconds + .25);
+    oscillator.connect(gain); trackVoice(oscillator, gain, [filter]); oscillator.start(at); oscillator.stop(at + seconds + .18);
   }
   function sound(event, at, beatSeconds) {
     if (event.track === 'drums') sample(assets[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event);
     else if (event.track === 'bass') {
       const closest = bassAssets.reduce((best, asset) => !best || Math.abs(asset.midi - event.midi) < Math.abs(best.midi - event.midi) ? asset : best, null);
       sample(closest, at, event.duration * beatSeconds, event.velocity * .66, 'bass', event.midi, event);
+    } else if (event.track === 'lead' && ['piano', 'violin'].includes(selectedTimbres.lead)) {
+      const asset = sampleBank?.get(selectedTimbres.lead, event);
+      sample(asset, at, event.duration * beatSeconds, event.velocity * (selectedTimbres.lead === 'violin' ? 1.8 : .95), 'lead', event.midi, event);
     } else if (event.track === 'lead' || event.track === 'rhythm') sample(guitarSample(event), at, event.duration * beatSeconds, event.velocity * (event.track === 'lead' ? 1.2 : .62), event.track, event.midi, event);
     else organ(event, at, event.duration * beatSeconds);
   }
@@ -218,7 +188,7 @@
       const generation = ++this.generation;
       this.loading = true; this.update();
       try {
-        await ensure();
+        await Promise.all([ensure(), ensureSelected(this.song.events)]);
         if (generation !== this.generation) return;
         this.loading = false;
         const [start, end] = this.bounds();
@@ -271,5 +241,5 @@
     }
     setLoopBar(bar) { const playing = this.playing; this.pause(); this.loopBar = bar; if (bar !== null) { this.loop = true; this.position = bar * 4; } this.update(); return playing ? this.play() : Promise.resolve(); }
   }
-  window.practiceAudio = { arrangement, swingBeat, feels, bassStyles, guitarSample, Transport, volume, ensure, preload, silence, getContext };
+  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre };
 })();

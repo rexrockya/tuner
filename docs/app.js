@@ -825,7 +825,7 @@ const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
       if(page!=="tuner")stop?.();
       tunerPanel?.onPage(page);
       if(page!=="lesson"){window.lessonPlayer?.stop();window.practiceStudio?.stop();}else{
-        window.lessonPlayer?.activate?.();
+        window.lessonPlayer?.activate?.();window.practiceStudio?.activate?.();
         if(!window.practiceStudio&&window.siteAssets){
           const pending=document.querySelector("#practice-loader");pending.hidden=false;pending.querySelector("button").hidden=true;
           window.siteAssets.load("studio").then(()=>{pending.hidden=true}).catch(()=>{pending.querySelector("span").textContent="创作与伴奏暂时不可用";const retry=pending.querySelector("button");retry.hidden=false;retry.onclick=()=>navigatePage("lesson");});

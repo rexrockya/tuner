@@ -10,6 +10,7 @@ const{setup,tick,raw,ROOT}=require('./qa/harness.cjs');
  const evaluate=name=>{const node=pending.find(n=>n.src.includes(name));assert.ok(node,'pending '+name);vm.runInContext(fs.readFileSync(path.join(ROOT,'docs',name),'utf8'),h.dom.getInternalVMContext());node.onload();};
  assert.equal(w.practiceStudio,undefined);assert.equal(w.soundMeter,undefined);assert.equal(h.streams.length,0);
  h.click('.tab[data-page="lesson"]');h.click('.tab[data-page="lesson"]');
+ assert.equal(pending.filter(n=>n.src.includes('practice-arrangement.js')).length,1);evaluate('practice-arrangement.js');await tick();
  assert.equal(pending.filter(n=>n.src.includes('practice-audio.js')).length,1);assert.equal(pending.filter(n=>n.src.includes('practice.js')).length,0);
  evaluate('practice-audio.js');await tick();assert.equal(pending.filter(n=>n.src.includes('practice.js')).length,1);
  h.click('.brand');evaluate('practice.js');await tick();assert.equal(h.q('#lesson-page').style.display,'none');assert.equal(h.q('#practice-loader').hidden,true);assert.ok(w.practiceStudio);assert.equal(h.streams.length,0);

@@ -62,7 +62,7 @@ function harness(options = {}) {
   const sandbox = { window, fetch, console, AbortController, TextDecoder, Float32Array, Map, Set,
     setTimeout(fn) { const id = ++state.sequence; state.timers.set(id, fn); return id; }, clearTimeout(id) { state.timers.delete(id); } };
   vm.createContext(sandbox);
-  for (const file of ['harmony.js', 'practice-audio.js']) vm.runInContext(fs.readFileSync(path.join(docs, file), 'utf8'), sandbox, { filename: file });
+  for (const file of ['harmony.js', 'practice-arrangement.js','practice-audio.js']) vm.runInContext(fs.readFileSync(path.join(docs, file), 'utf8'), sandbox, { filename: file });
   return { A: window.practiceAudio, H: window.tunerHarmony, state, options };
 }
 

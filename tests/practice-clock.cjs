@@ -9,6 +9,7 @@ const sandbox={AbortController,setTimeout,clearTimeout,window:w,fetch:async url=
 vm.createContext(sandbox);
 const root=require('node:path').resolve(__dirname,'../docs')+'/';
 vm.runInContext(fs.readFileSync(root+'harmony.js','utf8'),sandbox);
+vm.runInContext(fs.readFileSync(root+'practice-arrangement.js','utf8'),sandbox);
 vm.runInContext(fs.readFileSync(root+'practice-audio.js','utf8'),sandbox);
 const A=w.practiceAudio, near=(a,b)=>assert.ok(Math.abs(a-b)<1e-7,a+' != '+b);
 function advance(to){while(now<to){now=Math.min(to,now+.017);for(const f of timers.values())f();}}
