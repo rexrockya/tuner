@@ -38,4 +38,10 @@
 
 ## 发布
 
-用户已明确授权合并提交和原站公开发布。发布前以上适用检查已通过。目标为 `main` 的 `docs/`，公开地址 https://rexrockya.github.io/tuner/ 。本节的提交、Pages构建及线上内容匹配结果在实际完成后补记。
+用户已明确授权合并提交和原站公开发布。发布前以上适用检查已通过。目标为 `main` 的 `docs/`，公开地址 https://rexrockya.github.io/tuner/ 。以下为实际完成后的发布记录。
+
+
+- 功能提交 `590f0a7c984905a232db2c90000a423f29f92f77` 已正常推送 `origin/main`。
+- GitHub Pages 对应同一提交状态 `built`，构建更新时间 `2026-09-08T05:57:07Z`，error.message 为 null。
+- `2026-09-08T05:58:17Z` 对公开站132个本轮变更资源执行实际完整HTTP GET（HTML、JS/CSS、全部新音频/谱图/标注、许可和manifest），合计11,564,774字节；**132/132与该提交的Git对象逐字节一致**。URL只使用原GitHub Pages域名。明细与SHA-256见 `music-tools-online-verification-2026-09-08.json`。
+- 后续仅提交本验收记录与线上校验JSON，不改前端发布内容。node_modules未提交；pull前备份stash保留。

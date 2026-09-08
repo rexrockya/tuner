@@ -1,0 +1,934 @@
+{
+  "commit": "590f0a7c984905a232db2c90000a423f29f92f77",
+  "publicUrl": "https://rexrockya.github.io/tuner/",
+  "verifiedAt": "2026-09-08T05:58:17Z",
+  "passed": true,
+  "files": 132,
+  "bytes": 11564774,
+  "results": [
+    {
+      "path": "app.js",
+      "status": 200,
+      "bytes": 71310,
+      "sha256": "7c14c95c66a66e1bf04e6bfca886c5dd99330ba287b74c2e9b2bf9c1d46757ea",
+      "matchesCommit": true
+    },
+    {
+      "path": "asset-loader.js",
+      "status": 200,
+      "bytes": 2034,
+      "sha256": "38132a21e63be65e4be48405a526e9889354e02d2a5066ced12e5e54ca551945",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/CREDITS.md",
+      "status": 200,
+      "bytes": 6253,
+      "sha256": "62ef0122c883ff7098859adc0a7714b9b991845fe53f5fa9d056f3c899eb3404",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/SHINYGUITAR-LICENSE.txt",
+      "status": 200,
+      "bytes": 7049,
+      "sha256": "7179683e8000e6bdc9bbc60d85edf0a4ac8e76f951857f54fcb775d5886f1309",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v2-r1.flac",
+      "status": 200,
+      "bytes": 47690,
+      "sha256": "4069695ca7baeb8e302018fc4d97773f96bf2c7f146ad96e10fbbcc8a085b8a5",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v2-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "a2ff3cfb4990d81cc3f01552461060139e69c517b99c96838a5b516845b5ccf3",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v2-r2.flac",
+      "status": 200,
+      "bytes": 47794,
+      "sha256": "45573922a325477704b5eb95b22c7cb839cff491df64a13733a22a456bc66182",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v2-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "83d7ef0f4e3872e6a51661574f295eb5d0447067ca9bf9fd859c79c3e4bfb248",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v3-r1.flac",
+      "status": 200,
+      "bytes": 48224,
+      "sha256": "59e31b332ba3c3d44ef9f96e99da28583c2aca51b9c51d865a5a64aef825ed84",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v3-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "80a4e4e4b41f2980fec02d91bc04c02d33de0a89c6d1f6044d33c5bf7e88e42b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v3-r2.flac",
+      "status": 200,
+      "bytes": 48692,
+      "sha256": "0c44f4b75f598ebd74dd725a5a5be9fee1d91dab3feb25ada4ee342eaf9a038c",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-45-v3-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "3c0610f21ec730597644e2a93a94158d71458bae33a19199dbadee951132c7ac",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v2-r1.flac",
+      "status": 200,
+      "bytes": 50930,
+      "sha256": "c5d494452c13b16ec551714e177ad29c5ce0fd9b5e0f3d3e3a8780a46b9cbf43",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v2-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "e64016a400cc2ec17af4a0fccd6e5a41395eeea8854390ec16b7488fab94577b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v2-r2.flac",
+      "status": 200,
+      "bytes": 51419,
+      "sha256": "64469155bab011abf70c13e18c8bdb4fed81178c1c22e5ba8669fbdb2e05c064",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v2-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "0c1c008000bbbfe2fc06ca983fa8195abec0ec3e4ddc9370c831f9f37aa3e41c",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v3-r1.flac",
+      "status": 200,
+      "bytes": 54063,
+      "sha256": "1a6a35d705ac0057e298742e2d1658fe062da423db299038c9309fbc3821a714",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v3-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "17cd93a17c46e966e48e7e5587e1b8d6d3883d06f1d4077cf00e80cc3aa9441b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v3-r2.flac",
+      "status": 200,
+      "bytes": 54818,
+      "sha256": "bdbd43fe98de6f1fa9ea5e58a1d45e633e0c74842aeb0e98c47eaa77174780b5",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-51-v3-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "cdfd4be958da54890996174cca5689a8d7da542239f4d1e89af54cdf900c29d2",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v2-r1.flac",
+      "status": 200,
+      "bytes": 54889,
+      "sha256": "c4445b09cba6c4044e9cb5aab5d4adb7b62f643dee3ce91b16fc4db4eeeabfc9",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v2-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "62022f4716b0868447786bbf6ad9ea0d91fcee9af91db7ca33c756d6dc5dee2b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v2-r2.flac",
+      "status": 200,
+      "bytes": 54915,
+      "sha256": "9cecd8b378d3c7e6a246c85ae80aa8a4433c673493c7778af7542b22bfdae31a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v2-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "3610d28a1302f82fa70c14143f3ecb90c2c170af1f36d9eef4d2217aeaf3c2a1",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v3-r1.flac",
+      "status": 200,
+      "bytes": 58068,
+      "sha256": "fc9785507023b3894bd149c79d03cd431c4ab99351cf40ea2671c2bae7f626fb",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v3-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "17a2d8c891dce61c56691282f832ad9c957c33ec9e91cdade92919440f2a7d23",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v3-r2.flac",
+      "status": 200,
+      "bytes": 58627,
+      "sha256": "17a0beab9b8fe73524633ff5511167b8330764220cb3701043d1e5bdc7dd0d13",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-57-v3-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "d58620cbfd56dbddc145656b78ce357910e343bcb46f981e2a6ccb6d2d4bdffa",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v2-r1.flac",
+      "status": 200,
+      "bytes": 63535,
+      "sha256": "9c573fcff7b018d3f2d1964fd3d4b4e7cb5b7f0fd9debcbbd0256525b796558d",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v2-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "1703a42f3a8558bdf1d2d451b394511d474df1c372bb3b319366bfe4360ba289",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v2-r2.flac",
+      "status": 200,
+      "bytes": 63562,
+      "sha256": "a8d82f74fdcf1b3f3a72eedacaf2142b873bcc05bad9eb68ea3d3fc686711a5b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v2-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "11b31ca40433e255e404932e5f4aeb1c2e48b6b51d718250b1486adeaac81d58",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v3-r1.flac",
+      "status": 200,
+      "bytes": 71359,
+      "sha256": "2a56e17bd291dd25cb225ddec2ffc06532cc1ec8fd59b1eb4b06bc3d33c10073",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v3-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "9cb5f818b52bb7c87c376ca38dabb74c0ee6486e0ff7cef498c037e2da91f06d",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v3-r2.flac",
+      "status": 200,
+      "bytes": 71178,
+      "sha256": "f810b7f4d1526fb32a4f379a484a6b1d259efc7ab180c84a0d3bece8d306aa77",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-63-v3-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "f9ec78d257795765bfbe4fa69b0339f6b29994473aa8a648d8ad4c56cafbae45",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v2-r1.flac",
+      "status": 200,
+      "bytes": 67081,
+      "sha256": "958c94996d70f04d5e3b666210486cbe207c2e8ae0ece8b997da9727133ef779",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v2-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "97b11f59cda60ecda5516f17a77e1a6f9366f7a8ec908db9bbd1c7a7482d8258",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v2-r2.flac",
+      "status": 200,
+      "bytes": 69172,
+      "sha256": "49b65988d45409ab305c02f3b6d1d6c428496e6481dcde94e9ef916db477b7b8",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v2-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "07b789041b76f8b31cd609fc42ee73e7dcb167e27948ea40b6ae50e28575b65b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v3-r1.flac",
+      "status": 200,
+      "bytes": 71380,
+      "sha256": "6a29f223130ee2050daa986d3accc465e9aaae90f1c35077740e7b5778614927",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v3-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "53083a68a0dba03ebec4f1659603c4bb7173cec57a61f2bd53f69fe410784408",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v3-r2.flac",
+      "status": 200,
+      "bytes": 72826,
+      "sha256": "2144d1ca64d87cdf2f2afe0410d7cb912915470f41bfa91d43b4d75966f1eb84",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-69-v3-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "5f839b582b8fcb0e496bfc8b7a5749b5a28badceb44299321d9a25b7bac50729",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v2-r1.flac",
+      "status": 200,
+      "bytes": 71210,
+      "sha256": "2a0670f9ed9f6c942cf2ad56ec1cec7964c927467d6b6eb9ebff9ce0363b5abc",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v2-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "f0c93be6108571cd835672743a6854360a7884d44910273b05cee6b78e6edaed",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v2-r2.flac",
+      "status": 200,
+      "bytes": 72763,
+      "sha256": "61ec784f4645c7560607e39fed9e267ac0b43944e5d47529e2b2eddd3b299e86",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v2-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "04fc095ba156a3cb19915d76368b5a745dec7f33df215f407a974e275cecb045",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v3-r1.flac",
+      "status": 200,
+      "bytes": 71603,
+      "sha256": "586cc78a9f4d30af4988b4555be94125c413528932655350f0feea1323b400b8",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v3-r1.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "7238f395648805a226ac71f6a079424773b7ab98f9149e4961c68a55888efd66",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v3-r2.flac",
+      "status": 200,
+      "bytes": 74657,
+      "sha256": "062ab06e14daf384675a97cd20eee043bd9e838eb351924dea994ecac0c01389",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/guitar-75-v3-r2.wav",
+      "status": 200,
+      "bytes": 264678,
+      "sha256": "a6742fd47908215f33d83e9c949ed42a9d20b8d798df8f951436b0d56893bf05",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/manifest.json",
+      "status": 200,
+      "bytes": 4627,
+      "sha256": "417a18bade9c994fae66177339f50d88fc1da0e2202c7663b62fca18d463d08f",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/audio/blues/shinyguitar-provenance.json",
+      "status": 200,
+      "bytes": 12366,
+      "sha256": "827c81c8e22adf5c612b9fa5393657ea12003e7502ec35a1aedcfbcdc154f175",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset-index.js",
+      "status": 200,
+      "bytes": 15849,
+      "sha256": "4b1e9146312969d466c01ac723ca953a1acc7819126547ce035ed57043eba66a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/README.md",
+      "status": 200,
+      "bytes": 3527,
+      "sha256": "63fd84ef40624510b4cea3938630a7c6f87ecf6165547a5de37eb1b3051a75e6",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00bn5.json",
+      "status": 200,
+      "bytes": 6686,
+      "sha256": "bbc4c4ec03700b68c0f5296ae8cc4b2241c2cab7c963cb5a27cab34f86b11b2e",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00bn5.mp3",
+      "status": 200,
+      "bytes": 119997,
+      "sha256": "a2cd05d5592ca7d5e7d1d30f308fd98bea84f70a20644a8ab1d346922cfc44f8",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00bn5.svg",
+      "status": 200,
+      "bytes": 11608,
+      "sha256": "9c0e848b32a8482f6355ad359a23a5226b70e2a61092bfbd9c6a212915cdc58a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00bn9.json",
+      "status": 200,
+      "bytes": 5347,
+      "sha256": "3163fe9894548dfac6f9b2615eee38fdd98a6a795825f86e5061113ed9810e6f",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00bn9.mp3",
+      "status": 200,
+      "bytes": 119997,
+      "sha256": "ab63cbd07593e1a985c4b1f0721ee07fb7468b0ac62109a3b50b0a43399d16a6",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00bn9.svg",
+      "status": 200,
+      "bytes": 10096,
+      "sha256": "5dac047d5a9f14064da77c21cbef6fa0a91f435c4c17340e70157309dd26cb82",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00funk5.json",
+      "status": 200,
+      "bytes": 6156,
+      "sha256": "d240a7d5e1b0f6691d2256283316ddae2ac5c36b5e59d54f118feb3d03c8fe52",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00funk5.mp3",
+      "status": 200,
+      "bytes": 159285,
+      "sha256": "f2753e93c46475713da8cf5f14be36f7d7bd8b8c2613c499b76ac8271c941aa3",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00funk5.svg",
+      "status": 200,
+      "bytes": 10611,
+      "sha256": "c9c34363a2c578290fb425fcea62759758bf4261a55023e4b322c6d7cdd5354a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00funk9.json",
+      "status": 200,
+      "bytes": 6412,
+      "sha256": "cb7e29a2da173d000bb803c260f17bba253656e7b75ae75bbd1e9d397e383121",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00funk9.mp3",
+      "status": 200,
+      "bytes": 159285,
+      "sha256": "8996c857117170f1188092e764b6f6731fafcd3b420d6696ba7b126e897aebc1",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00funk9.svg",
+      "status": 200,
+      "bytes": 11376,
+      "sha256": "bf118a37187c715f6d6949eb9231c9199dd14858a76a2ed791071140c40d2670",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00jazz5.json",
+      "status": 200,
+      "bytes": 4531,
+      "sha256": "5aaab53408858b04bbc9d1b0d7e2e2a4c637c9691c023fa2282547d8bc635d0e",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00jazz5.mp3",
+      "status": 200,
+      "bytes": 119161,
+      "sha256": "a36c8d654005bcbb27f115d3b2fc564fd8555863395a1c4abdd61cc50371f370",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00jazz5.svg",
+      "status": 200,
+      "bytes": 9277,
+      "sha256": "ddd4583130a36b96e8f53858a81c6682511bd182e92586c4366e315342aebd9c",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00jazz9.json",
+      "status": 200,
+      "bytes": 2920,
+      "sha256": "51fd51a335a5fe76becd5ffe7bdd0ac034b9239270c958e4903f25f901ee76af",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00jazz9.mp3",
+      "status": 200,
+      "bytes": 119161,
+      "sha256": "8a664e412dbede3b10ec8022d63b6c2ff33657d68110d3ba1f21254bfae87a01",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00jazz9.svg",
+      "status": 200,
+      "bytes": 7781,
+      "sha256": "7ad57c76bafb4d5202f70ade985bc02a0b8d39f519b005df4d98e2f02d9d38f4",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00rock5.json",
+      "status": 200,
+      "bytes": 12104,
+      "sha256": "b4ad9e710515dbb74f78e4c747693184ff84879ba6ca817c1d8c835301a0256a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00rock5.mp3",
+      "status": 200,
+      "bytes": 171824,
+      "sha256": "e6c48c7b59792a3e3a2fd10e01c3c268b71ca789e3fce91b572d5e7a682e3746",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00rock5.svg",
+      "status": 200,
+      "bytes": 16782,
+      "sha256": "f3b7647024cd5518376ad3a200b5d67221daf97103436bd5bb7a3982d14b5d5e",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00rock9.json",
+      "status": 200,
+      "bytes": 7217,
+      "sha256": "d8523647d2901722779606404eecc2b81a97b3245f5ca0aacc5c28bc829de755",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00rock9.mp3",
+      "status": 200,
+      "bytes": 171824,
+      "sha256": "f8eabe13431cff4bbab056239b2f8885cb1d1c0f6911810298d26b4832e2bb3a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00rock9.svg",
+      "status": 200,
+      "bytes": 11856,
+      "sha256": "41c8af8b5d2d2c82077e762eddc9abfa2cbd3c26e1144f5c6895a3b62195f683",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00ss5.json",
+      "status": 200,
+      "bytes": 5856,
+      "sha256": "7d2bbfa44c8c0cd76dbc8656d8f13456c35bbc8dd75e177ba8ae0f9958d2baaf",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00ss5.mp3",
+      "status": 200,
+      "bytes": 154687,
+      "sha256": "dd7a96a0def51d8407bfc079bc66e5f110386ac99128379741bfd1972c7ca3f7",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00ss5.svg",
+      "status": 200,
+      "bytes": 10650,
+      "sha256": "2da2a50e867cbac2f197c3aece211ea12943f36c6012a5da826a7872f4bf1936",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00ss9.json",
+      "status": 200,
+      "bytes": 6668,
+      "sha256": "d31e3c3b1ee0b58998e9c34f1898a5557c12af68827e9b3f9750f275bd0bf996",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00ss9.mp3",
+      "status": 200,
+      "bytes": 154687,
+      "sha256": "fdfac162edf747385d640eed9a707230d920b2f3d90013526bd6644763018273",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs00ss9.svg",
+      "status": 200,
+      "bytes": 11668,
+      "sha256": "7c695e0186ecd568f17b7ab50def21f6c23263a46a00a9d990debc4edd025d57",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01bn5.json",
+      "status": 200,
+      "bytes": 5887,
+      "sha256": "824f0eec7b73ee621ba506b5861361dde44d0fde720d965a10ad427f4890f262",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01bn5.mp3",
+      "status": 200,
+      "bytes": 119997,
+      "sha256": "6768f582acea4a059bc346fcc0f09711723bfee84dae9f287d338ab6c7395f5f",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01bn5.svg",
+      "status": 200,
+      "bytes": 10631,
+      "sha256": "8758698fbb1c1733bf12cf1e415ddd34998bd82b1248d07cfa7617b5918133dc",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01bn9.json",
+      "status": 200,
+      "bytes": 5903,
+      "sha256": "a9558de933514f7b0d8342369c3c8d6032b70ac0f3526916765532bd20464edc",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01bn9.mp3",
+      "status": 200,
+      "bytes": 119997,
+      "sha256": "60e1490477d6f8fddbc6cc8939001bbdfa93213474e6693fe4e7d8d41291c5b8",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01bn9.svg",
+      "status": 200,
+      "bytes": 10353,
+      "sha256": "10611ce431fd7344ae3fa29b978057c442df7d687f2deaa1f09cca6a5d6f3270",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01funk5.json",
+      "status": 200,
+      "bytes": 12114,
+      "sha256": "9317f0b90ce44da4a12402d4392480594f49e08a17b8c439a28b1dc2296ce10e",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01funk5.mp3",
+      "status": 200,
+      "bytes": 159285,
+      "sha256": "d8459216e73198ec8d4aca7cd7faa211ca956ad95059c94dec2b68ce5bd81187",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01funk5.svg",
+      "status": 200,
+      "bytes": 16303,
+      "sha256": "9032e05961c46184381c968d0fc9a944d30afbf6801e05a1db7bdf22f6709587",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01funk9.json",
+      "status": 200,
+      "bytes": 10493,
+      "sha256": "9ad7cd674fe0f45257aaa5b953c307a92ba4b236ac82a3b04b163423d2176019",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01funk9.mp3",
+      "status": 200,
+      "bytes": 159285,
+      "sha256": "3e911f7858dd2568f8a3f5a265a03adf0312afd0b1d1833b34a7c7c0d0a591d3",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01funk9.svg",
+      "status": 200,
+      "bytes": 14985,
+      "sha256": "ad9e21950317782f3c1981d34fd082f68c80ab3ad4c08eb06afea654a6ba18ad",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01jazz5.json",
+      "status": 200,
+      "bytes": 6421,
+      "sha256": "db4c28a357b73b51de587273e63c650041bde6d56c1704fef2f5a83b0e656847",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01jazz5.mp3",
+      "status": 200,
+      "bytes": 119161,
+      "sha256": "0fc0dfafb72a5516b06574f0a7c880b4389b933c08b1062e6b751467ab089d32",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01jazz5.svg",
+      "status": 200,
+      "bytes": 10878,
+      "sha256": "6ab23e4ff87d474add5aa4ae9bf2bae6037c41672e08b7cb32a0f8f83897c714",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01jazz9.json",
+      "status": 200,
+      "bytes": 7777,
+      "sha256": "f6cf93b100470acb55f4c76f560c1111a42c2c460bfde3e3fc6879a097910a7b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01jazz9.mp3",
+      "status": 200,
+      "bytes": 119161,
+      "sha256": "9b1b27c6efc6dde5dee4d63db44a6f4296277dd0b533ad3bda1f6af8fbcca3eb",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01jazz9.svg",
+      "status": 200,
+      "bytes": 12673,
+      "sha256": "443aebc0496a8d8b415b7eb6ef152ff39198f9a66233d7b0986abdae9d32e148",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01rock5.json",
+      "status": 200,
+      "bytes": 12647,
+      "sha256": "d72da9ac0bed0f233099db0e89989011d8fbed9a3c6039899b7ee3cfa57b168a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01rock5.mp3",
+      "status": 200,
+      "bytes": 171824,
+      "sha256": "b592e5534d3233034120c9ad346179890430465a0e43d34efe1c21c6ed9ec15a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01rock5.svg",
+      "status": 200,
+      "bytes": 17028,
+      "sha256": "c6b0aca47c093feb0ed484aa4e673d767a7f26dd6556621d9bd34639cd6eaf5c",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01rock9.json",
+      "status": 200,
+      "bytes": 14252,
+      "sha256": "be2b66e43c9b5732c519ef094147b752991dffcb0380cefa6d6bf8333f8420fc",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01rock9.mp3",
+      "status": 200,
+      "bytes": 171824,
+      "sha256": "20d01b5355fe39feb7bb135b4ce914caeba2c5ce08a283088551028fcea2effc",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01rock9.svg",
+      "status": 200,
+      "bytes": 18342,
+      "sha256": "dcd305acf1559faac7909475363b9b471a4cd7c123743f620872058f4c961afc",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01ss5.json",
+      "status": 200,
+      "bytes": 12370,
+      "sha256": "f01446fd7a411c65a24297a2bf02522f92be7503c1a440773dc54711be20f4e4",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01ss5.mp3",
+      "status": 200,
+      "bytes": 154687,
+      "sha256": "5ac4120f7576f39ea3a5df49f40fe746d456d0f7b4d311db01e71c983050d9c6",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01ss5.svg",
+      "status": 200,
+      "bytes": 16807,
+      "sha256": "55a68cafeeb91a5e19a34d4d4d4a3041e1a2f929b6f408450d34afe99560fd21",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01ss9.json",
+      "status": 200,
+      "bytes": 13143,
+      "sha256": "497fd939b4b00e7d3f472d69f36ed1de2e4c237e48a8e4d4a30c97509b1cd30b",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01ss9.mp3",
+      "status": 200,
+      "bytes": 154687,
+      "sha256": "12daba093d1ea10af1af901763ff0b77369d86a973ada05e435e3c7740996142",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/gs01ss9.svg",
+      "status": 200,
+      "bytes": 17598,
+      "sha256": "ba4cef6f95a4a089c326cadc59f446faf729d9901fd653ca74d64d6aec4ccb4a",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/manifest.json",
+      "status": 200,
+      "bytes": 14859,
+      "sha256": "affb12b01967e513f4e9ec8e27bfb1c892b2a3d81f652b95b335d4356f0d49cd",
+      "matchesCommit": true
+    },
+    {
+      "path": "assets/licks/guitarset/source-files.json",
+      "status": 200,
+      "bytes": 3752,
+      "sha256": "cd565d12fd9651fba5136d266a90a48a1e6b65b80048c116debaf6536c6d5b26",
+      "matchesCommit": true
+    },
+    {
+      "path": "harmony.js",
+      "status": 200,
+      "bytes": 15610,
+      "sha256": "ffaeff6a36656dcd4a2c0d7949e34971d7f410c7a0a637184439a2a12fce9c82",
+      "matchesCommit": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 93959,
+      "sha256": "abdd962215ffcd875e4bb09b0d878dc731f6331588ba59dd9a7a0ad91375cf37",
+      "matchesCommit": true
+    },
+    {
+      "path": "lessons.js",
+      "status": 200,
+      "bytes": 52937,
+      "sha256": "605e8ac98dd485f13f067b577575bded12a10dfa9fba3ad9b40b81616f859d39",
+      "matchesCommit": true
+    },
+    {
+      "path": "loudness-dsp.js",
+      "status": 200,
+      "bytes": 7196,
+      "sha256": "f21b19a3f79ad3741e83acf44d53f3c18ffda3a760d75cba7b173e5b15aab3ad",
+      "matchesCommit": true
+    },
+    {
+      "path": "practice-audio.js",
+      "status": 200,
+      "bytes": 19611,
+      "sha256": "a6f49acc4690cb6945cd43dad7d3a3c5ee0984c7799f3745df7c1f24c128d073",
+      "matchesCommit": true
+    },
+    {
+      "path": "practice.css",
+      "status": 200,
+      "bytes": 12209,
+      "sha256": "e6769f985cdf8f1002c088b6e06a1f0dd92762161ca02d475de89dfa6942af32",
+      "matchesCommit": true
+    },
+    {
+      "path": "practice.js",
+      "status": 200,
+      "bytes": 26283,
+      "sha256": "68d132c6dc886a94c39e7ad2807f671cbf3518a6c81238243a3772105737c7bd",
+      "matchesCommit": true
+    },
+    {
+      "path": "sound-dsp.js",
+      "status": 200,
+      "bytes": 3513,
+      "sha256": "a419341507dc1b04bff9a1a96dd01797f12432d84985c20448cea3eee253d080",
+      "matchesCommit": true
+    },
+    {
+      "path": "sound-meter.css",
+      "status": 200,
+      "bytes": 4103,
+      "sha256": "e5000a6561d7e0464d7636d8e0185b8fc53fe3353be9bad67e5955b88399d57e",
+      "matchesCommit": true
+    },
+    {
+      "path": "sound-meter.js",
+      "status": 200,
+      "bytes": 19303,
+      "sha256": "63c3adf6088c9df0caa458a45793f5468860982d5707600d5d08e40daf810f36",
+      "matchesCommit": true
+    },
+    {
+      "path": "sound-worklet.js",
+      "status": 200,
+      "bytes": 2305,
+      "sha256": "91869cabb83a5413972bf22508930fa41fd0b7b2a86282973d63aff94691cf83",
+      "matchesCommit": true
+    },
+    {
+      "path": "tools.css",
+      "status": 200,
+      "bytes": 2455,
+      "sha256": "3b51ddc6dbadfaaa94f4286a5645a36afe32f095a1f3b9b5fa7ed9649e2c0455",
+      "matchesCommit": true
+    },
+    {
+      "path": "tuner-ui.css",
+      "status": 200,
+      "bytes": 6018,
+      "sha256": "4a30d118e36f2a707226dc48613cff82eae28ba5fe88f028325469163e5d0ca8",
+      "matchesCommit": true
+    },
+    {
+      "path": "tuner-ui.js",
+      "status": 200,
+      "bytes": 12896,
+      "sha256": "09123816bbddec318a2c289b94ed4efd456c0c2f4ffd94aa60221046d7c442bd",
+      "matchesCommit": true
+    }
+  ]
+}
