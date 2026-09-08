@@ -1,6 +1,20 @@
 # 弦音项目交接
 
-## 当前交付：2026-09-08 音色平衡与厚实电贝斯
+## 当前交付：2026-09-08 自动音符密度
+
+本节覆盖旧版“演奏强度”名称与默认值；此前音色和连续播放实现继续保留。
+
+- 原创「音符密度」新增auto并默认选择。固定四档保留easy/standard/advanced/challenge IDs，界面为稀疏·多留白、适中·均衡、密集·流动、繁密·音群。帮助文字只解释用音与留白；不增加额外图表或技法等级。
+- `generateAutoDensity`独立分支，按小节规划再取同seed的已有密度材料。问答每两小节一繁一简，种子决定先后；动机保留两音节奏/和弦关系核心，逐渐发展，末句适中收束。其余风格保留各自语汇与展开/呼吸位置。不是每小节独立抽签换难度。
+- 自动音符统一到.25拍起音网格，连续重排音域/指法，修正不合法slide；不跨和弦、不叠旋律，末根至少半拍并延续到段尾。arpeggio只用当前和弦音。`densityPlan`记录每bar的style/level/role/实际count，motif另有motifCore；无需在UI绘图。
+- 底层generate省略/未知intensity仍走原standard，legacy优先；旧四档完整结果哈希保持不变。UI仅新create草稿默认auto，旧收藏缺失/未知值恢复standard并保留原音符；字段名和控件ID不迁移。
+- 新密度沿用现有同seed编辑、资源准备和下一安全小节线提交；准备期间旧乐句/和声继续，伴奏、音色、BPM与播放位置不受密度改变影响。自动旋律写成后仍原样复用于四轮伴奏，不在每Loop偷偷重写。
+- 新`practice-auto-density.cjs`覆盖1680确定性边界案例、224首音乐结构检查、1344旧四档完整输出指纹；原固定四档8064案例继续明确只跑原四档。UI/live回归覆盖auto草稿/收藏、同seed、独立伴奏、谱面/MIDI一致与小节线提交；真实OSMD增加auto动机八小节渲染。
+- 最终完整npm test通过，独立审查无阻断；没有新增实体手机主观试听。
+- 缓存版本`20260908-density-1`更新index内harmony/loader与loader内practice。无新依赖、采样或后台；首屏gzip6为114735/120000B。验收见`notes/density-validation-2026-09-08.md`。
+- 发布沿用已授权的main/docs和原GitHub Pages。不要构建website覆盖docs或部署其他站点；精准暂存排除node_modules并保留历史stash。
+
+## 上一版：2026-09-08 音色平衡与厚实电贝斯
 
 - `practice-timbres.js`只对practice小提琴缓存增加asset.level：.08–.6秒跨声道平均RMS目标-24dBFS，whole-buffer峰值限-6dBFS、增益<=8。窗外强峰/短热样本也受限，纯零为1；每次decode只测一次。不改原MP3、score-audio或原有延音交叉淡化。Lead violin乘1.65，不能再次无依据叠加全局增益。
 - `practice-audio.js`原吉他ID warm/bright/crunch保留，两轨统一新Studio处理：HP→宽低中频EQ→tanh饱和→LP→每音压缩→voice gain→原bus。三个输出trim分别.58/.58/.44；均加入extra清理。主compressor参数不变，之后新增.84固定输出余量，约-1.51dB，不是硬限幅或所有曲目的无削顶保证。

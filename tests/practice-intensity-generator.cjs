@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const candidate=process.argv[2]||'docs/harmony.js', w={};vm.runInNewContext(fs.readFileSync(candidate,'utf8'),{window:w});const H=w.tunerHarmony;
-const openings=[64,59,55,50,45,40],stats={},styles=Object.keys(H.phraseStyles),levels=Object.keys(H.phraseIntensities);
+const openings=[64,59,55,50,45,40],stats={},styles=Object.keys(H.phraseStyles),levels=['easy','standard','advanced','challenge'];
 const charts=['1maj7,57,4sus2,6aug,37,2,7dim,1','1 4,57 6m,2m 57,1maj7','1 b7 #4 6m,2m 57 7dim 1',Array(32).fill('57').join(',')];
 let cases=0,slides=0,held=0;
 for(const style of styles){stats[style]={};for(const intensity of levels){stats[style][intensity]=0;for(let seed=0;seed<24;seed++)for(const key of ['C','F#','Bb'])for(const text of charts){

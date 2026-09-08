@@ -1,0 +1,108 @@
+{
+  "method": "Default tuner HTML + initial JS/CSS, normalized to committed LF and independently compressed with gzip level 6. Excludes favicon symmetrically with prior inventory; deferred feature resources and media are checked by boot.cjs. This is a resource budget, not network time.",
+  "resourceCount": 20,
+  "gzip6Bytes": 114735,
+  "budgetBytes": 120000,
+  "rows": [
+    {
+      "file": "index.html",
+      "rawBytes": 94141,
+      "gzip6Bytes": 24038
+    },
+    {
+      "file": "metronome.css?v=20260906-4",
+      "rawBytes": 1416,
+      "gzip6Bytes": 588
+    },
+    {
+      "file": "score-controls.css?v=20260907-6",
+      "rawBytes": 7751,
+      "gzip6Bytes": 2188
+    },
+    {
+      "file": "practice-notation.css?v=20260908-ensemble-1",
+      "rawBytes": 1237,
+      "gzip6Bytes": 536
+    },
+    {
+      "file": "practice.css?v=20260908-live-1",
+      "rawBytes": 16362,
+      "gzip6Bytes": 4065
+    },
+    {
+      "file": "sound-meter.css?v=20260908-release-1",
+      "rawBytes": 4103,
+      "gzip6Bytes": 1355
+    },
+    {
+      "file": "tuner-ui.css?v=20260908-release-1",
+      "rawBytes": 6018,
+      "gzip6Bytes": 1986
+    },
+    {
+      "file": "tools.css?v=20260908-release-1",
+      "rawBytes": 2455,
+      "gzip6Bytes": 880
+    },
+    {
+      "file": "storage.js?v=20260908-3",
+      "rawBytes": 1261,
+      "gzip6Bytes": 452
+    },
+    {
+      "file": "asset-loader.js?v=20260908-density-1",
+      "rawBytes": 2263,
+      "gzip6Bytes": 936
+    },
+    {
+      "file": "tuner-pitch.js?v=20260908-2",
+      "rawBytes": 1926,
+      "gzip6Bytes": 873
+    },
+    {
+      "file": "harmony.js?v=20260908-density-1",
+      "rawBytes": 31769,
+      "gzip6Bytes": 9902
+    },
+    {
+      "file": "lessons.js?v=20260908-release-1",
+      "rawBytes": 52937,
+      "gzip6Bytes": 15523
+    },
+    {
+      "file": "score-audio.js?v=20260908-2",
+      "rawBytes": 2897,
+      "gzip6Bytes": 1214
+    },
+    {
+      "file": "score-beats.js?v=20260906-5",
+      "rawBytes": 5972,
+      "gzip6Bytes": 2227
+    },
+    {
+      "file": "metronome.js?v=20260908-3",
+      "rawBytes": 11131,
+      "gzip6Bytes": 3386
+    },
+    {
+      "file": "scores.js?v=20260908-3",
+      "rawBytes": 63721,
+      "gzip6Bytes": 17731
+    },
+    {
+      "file": "score-reader.js?v=20260907-5",
+      "rawBytes": 6507,
+      "gzip6Bytes": 2297
+    },
+    {
+      "file": "tuner-ui.js?v=20260908-release-1",
+      "rawBytes": 12896,
+      "gzip6Bytes": 4384
+    },
+    {
+      "file": "app.js?v=20260908-ensemble-1",
+      "rawBytes": 71346,
+      "gzip6Bytes": 20174
+    }
+  ]
+}

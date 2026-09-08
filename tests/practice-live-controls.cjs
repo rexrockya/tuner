@@ -8,7 +8,7 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   w.requestAnimationFrame = () => 1; w.cancelAnimationFrame = () => {};
   w.HTMLMediaElement.prototype.pause = () => {}; w.HTMLElement.prototype.scrollTo = () => {};
   Object.defineProperty(w.navigator, 'connection', { value: { saveData: true } });
-  for (const file of ['storage.js', 'harmony.js', 'lessons.js', 'practice-arrangement.js', 'practice-audio.js']) w.eval(fs.readFileSync('docs/' + file, 'utf8'));
+  for (const file of ['storage.js', 'harmony.js', 'lessons.js', 'practice-arrangement.js', 'practice-audio.js']) w.eval(fs.readFileSync(file === 'harmony.js' && process.argv[3] ? process.argv[3] : 'docs/' + file, 'utf8'));
   const A = w.practiceAudio, active = Object.fromEntries(Object.keys(A.timbres).map(track => [track, A.getTimbre(track)]));
   const preparations = [], queued = [], commits = [];
   A.getTimbre = track => active[track];
@@ -73,9 +73,22 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   q('practice-save').click(); const favorite = JSON.parse(w.siteStorage.getItem('tuner-original-licks-v1'))[0];
   assert.equal(favorite.intensity, 'challenge'); assert.equal(favorite.style, 'space'); assert.equal(favorite.rhythmStyle, 'none'); assert.equal(favorite.timbres.lead, 'violin'); assert.deepEqual(favorite.phrase, plain(S.getPhrase()));
 
+  const beforeAuto=plain(S.getPhrase()), beforeAutoSong=t.song, beforeAutoBacking=plain(t.song.events.filter(event=>event.track!=='lead'));
+  const autoPauses=t.pauseCalls, autoLoads=t.loadCalls, autoBpm=t.bpm;
+  change('practice-intensity','auto');
+  assert.equal(t.playing,true);assert.equal(t.song,beforeAutoSong);assert.deepEqual(plain(S.getPhrase()),beforeAuto);
+  assert.equal(t.pauseCalls,autoPauses);assert.equal(t.loadCalls,autoLoads);assert.equal(q('practice-save').disabled,true);
+  await completeLatest();assert.ok(t.pendingUpdate);assert.equal(t.song,beforeAutoSong);
+  assert.deepEqual(plain(t.pendingUpdate.song.events.filter(event=>event.track!=='lead')),beforeAutoBacking,'auto density preserves all backing events');
+  t.boundary(12);assert.equal(t.playing,true);assert.equal(t.bpm,autoBpm);assert.equal(S.getPhrase().intensity,'auto');assert.equal(S.getPhrase().seed,beforeAuto.seed);
+  assert.equal(q('practice-intensity').value,'auto');assert.equal(A.getTimbre('lead'),'violin');
+  const committedAuto=plain(S.getPhrase());q('practice-save').click();const savedAuto=JSON.parse(w.siteStorage.getItem('tuner-original-licks-v1'))[0];
+  assert.equal(savedAuto.intensity,'auto');assert.deepEqual(savedAuto.phrase,committedAuto,'only the committed auto phrase is saved');
+
   change('practice-drum-style', 'funk'); await completeLatest(); const superseded = t.pendingUpdate;
   change('practice-bass-style', 'octave'); assert.notEqual(t.pendingUpdate, superseded, 'ready-but-uncommitted update is invalidated by a newer choice');
-  assert.equal(t.playing, true); await completeLatest(); t.boundary(12);
+  assert.equal(t.playing, true); await completeLatest(); t.boundary(16);
+  assert.deepEqual(plain(S.getPhrase()),committedAuto,'accompaniment changes preserve the committed automatic phrase');
   assert.equal(q('practice-drum-style').value, 'funk'); assert.equal(q('practice-bass-style').value, 'octave');
 
   const preserved = plain(S.getPhrase()), preservedSong = t.song;
@@ -83,7 +96,7 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   assert.equal(t.playing, true, 'resource failure cannot silence current playback'); assert.equal(t.song, preservedSong); assert.deepEqual(plain(S.getPhrase()), preserved);
   assert.equal(A.getTimbre('lead'), 'violin'); assert.equal(t.pendingUpdate, null);
   assert.equal(q('practice-live-retry').hidden, false, 'failure exposes a visible retry action');
-  q('practice-live-retry').click(); await completeLatest(); t.boundary(16); assert.equal(A.getTimbre('lead'), 'piano', 'retry loads and applies the same chosen voice');
+  q('practice-live-retry').click(); await completeLatest(); t.boundary(20); assert.equal(A.getTimbre('lead'), 'piano', 'retry loads and applies the same chosen voice');
 
   change('practice-intensity', 'easy'); const cancelled = preparations.at(-1), queueCount = queued.length;
   q('practice-play').click(); assert.equal(t.playing, false, 'pause button works while changes prepare');
@@ -141,5 +154,5 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   for (const [field, expected] of [['practice-feel', 'funk'], ['practice-intensity', 'standard'], ['practice-bass-style', 'walking'], ['practice-drum-style', 'ride'], ['practice-key-style', 'soul'], ['practice-rhythm-style', 'chop']]) assert.equal(q(field).value, expected);
   S.stop();
   assert.deepEqual(errors, []); dom.window.close();
-  console.log('PASS live controls: uninterrupted preparation, boundary-only phrase/timbre commit, latest full snapshot, pending save/export protection, retry, pause and navigation cancellation');
+  console.log('PASS live controls: automatic density switches at the bar boundary, uninterrupted preparation, boundary-only phrase/timbre commit, latest full snapshot, pending save/export protection, retry, pause and navigation cancellation');
 })().catch(error => { console.error(error); process.exit(1); });

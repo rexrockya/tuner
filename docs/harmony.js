@@ -164,10 +164,11 @@
     space: [[0, 2.5], [.5, 1.5, 3], [1, 2.5], [0, 1.5]]
   };
   const phraseIntensities = {
-    easy: { label: '轻松', description: '少音、整拍、小跨度；固定把位拨弦' },
-    standard: { label: '标准', description: '原有音符密度与演奏技法' },
-    advanced: { label: '进阶', description: '更多八分与少量十六分；加入滑音、揉弦' },
-    challenge: { label: '挑战', description: '更密十六分、切分与跨弦；保留乐句呼吸' }
+    auto: { label: '自动 · 疏密有致', description: '按问答与动机结构安排疏密；展开后自然收束' },
+    easy: { label: '稀疏 · 多留白', description: '少量音符与较长停顿；让旋律充分呼吸' },
+    standard: { label: '适中 · 均衡', description: '音符与留白均衡；保留原有密度' },
+    advanced: { label: '密集 · 流动', description: '更多连接音与八分流动；保留句间空隙' },
+    challenge: { label: '繁密 · 音群', description: '十六分音群与更紧凑的节奏；保留落点' }
   };
   function generateIntensity(parsed, seed, feel, options) {
     // Derive from the unchanged composition so intensity retains its style and seed.
@@ -240,9 +241,108 @@
     });
     return { ...phrase, intensity: level, notes };
   }
+  function generateAutoDensity(parsed, seed, feel, options) {
+    const base = generate(parsed, seed, feel, { ...options, intensity: 'standard' });
+    const random = rng((seed >>> 0) ^ 0x36d1b4a7), reverseCall = random() < .5;
+    const levels = ['easy', 'standard', 'advanced', 'challenge'];
+    const phrases = new Map([['standard', base]]);
+    const material = level => {
+      if (!phrases.has(level)) phrases.set(level, generateIntensity(parsed, seed, feel, { ...options, intensity: level }));
+      return phrases.get(level);
+    };
+    const count = parsed.bars.length, requested = base.style;
+    // A small core recurs over new harmonies; later notes develop it instead of replacing it.
+    const motifCore = { steps: random() < .5 ? [1, 2] : [0, 1], offsets: [0, .5] };
+    const densityPlan = parsed.bars.map((chords, bar) => {
+      const style = base.structure.find(item => item.bar === bar).style;
+      let level, role;
+      if (requested === 'call') {
+        level = (bar % 2 === 0) !== reverseCall ? 'advanced' : 'easy';
+        role = bar % 2 === 0 ? 'call' : 'answer';
+      } else if (requested === 'motif') {
+        const progress = count <= 2 ? bar : bar / Math.max(1, count - 2);
+        level = levels[Math.min(3, Math.floor(progress * 3))];
+        role = bar === 0 ? 'statement' : level === 'challenge' ? 'peak' : 'development';
+      } else if (requested === 'blues') {
+        level = ['standard', 'easy', bar >= Math.max(2, count - 4) ? 'challenge' : 'advanced', 'easy'][bar % 4];
+        role = ['statement', 'answer', 'turnaround', 'breath'][bar % 4];
+      } else if (requested === 'arpeggio') {
+        level = ['easy', 'standard', 'advanced', 'standard'][bar % 4];
+        role = ['statement', 'unfold', 'peak', 'release'][bar % 4];
+      } else if (requested === 'syncopated') {
+        level = ['standard', 'advanced', 'easy', 'challenge'][bar % 4];
+        role = ['statement', 'push', 'breath', 'pickup'][bar % 4];
+      } else if (requested === 'space') {
+        level = (bar % 4 === 2 || count === 2 && bar === 1) ? 'standard' : 'easy';
+        role = level === 'standard' ? 'answer' : 'breath';
+      } else {
+        level = ['standard', 'easy', 'advanced', 'standard'][bar % 4];
+        role = ['statement', 'answer', 'development', 'release'][bar % 4];
+        // The mixed vocabulary's quiet cells retain their purpose inside the broader arc.
+        if (style === 'space' && level === 'advanced') level = 'standard';
+      }
+      if (count === 1) { level = requested === 'space' ? 'easy' : 'standard'; role = 'cadence'; }
+      else if (bar === count - 1) {
+        // Preserve call/answer contrast; a dense answer still ends on a held root.
+        if (requested === 'motif') level = 'standard';
+        if (requested === 'syncopated' && level === 'challenge') level = 'standard';
+        role = 'cadence';
+      }
+      return { bar, style, level, role, phrase: Math.floor(bar / (requested === 'call' ? 2 : 4)) };
+    });
+    let notes = [];
+    for (const plan of densityPlan) {
+      let local = material(plan.level).notes.filter(note => note.bar === plan.bar).map(note => ({ ...note }));
+      local = local.map(note => { const chord = parsed.bars[plan.bar].find(chord => note.beat >= chord.beat && note.beat < chord.beat + chord.beats); return { ...note, beat: Math.min(chord.beat + chord.beats - .25, Math.round(note.beat * 4) / 4) }; }).filter((note, i, all) => !i || note.beat > all[i - 1].beat);
+      if (requested === 'motif') {
+        const chord = parsed.bars[plan.bar][0], coreBeats = motifCore.offsets.map(offset => chord.beat + Math.min(offset, chord.beats / 2));
+        // Keep the same two-note rhythm/interval core at each statement; elaboration follows it.
+        const anchor = local[0];
+        local = local.filter(note => note.beat >= coreBeats[1] + .25);
+        local.unshift(...coreBeats.map((beat, i) => ({ ...anchor, beat, midi: nearest(chord.root + chord.intervals[motifCore.steps[i] % chord.intervals.length], anchor.midi, 55, 79), role: '动机核心', articulation: 'picked', velocity: i ? .62 : .76 })));
+      }
+      // One-bar space figures remain sparse; reserve written silence at the end of responses.
+      const tail = local[local.length - 1], end = (plan.bar + 1) * 4;
+      if (tail && plan.bar < count - 1 && ['easy', 'standard'].includes(plan.level) && end - tail.beat >= 1) {
+        tail.notationDuration = Math.min(tail.notationDuration, end - tail.beat - .5);
+        tail.duration = Math.min(tail.duration, tail.notationDuration * .92);
+      }
+      notes.push(...local);
+    }
+    notes.sort((a, b) => a.beat - b.beat);
+    const lastChord = parsed.chords[parsed.chords.length - 1], end = count * 4;
+    // A cadence needs audible time, not a final sixteenth that is cut off by the loop.
+    notes = notes.filter(note => note.beat < lastChord.beat || note.beat <= end - .5);
+    let previous = 64, hand = { fret: 7, string: 2 };
+    notes = notes.map((note, index) => {
+      const chord = parsed.chords.find(chord => note.beat >= chord.beat && note.beat < chord.beat + chord.beats);
+      let pc = mod(note.midi), role = note.role;
+      if (requested === 'arpeggio' && !chord.intervals.some(interval => mod(chord.root + interval) === pc)) {
+        pc = mod(chord.root + chord.intervals.reduce((best, interval) => Math.abs(nearest(chord.root + interval, note.midi) - note.midi) < Math.abs(nearest(chord.root + best, note.midi) - note.midi) ? interval : best, chord.intervals[0]));
+        role = '和弦分解';
+      }
+      const final = index === notes.length - 1;
+      if (final) { pc = lastChord.root; role = '根音收束'; }
+      // Re-voice the continuous line across density boundaries; never concatenate unrelated fingerings.
+      let midi = nearest(pc, note.midi, 55, 79);
+      if (Math.abs(midi - previous) > 9) midi = nearest(pc, previous, 55, 79);
+      const oldHand = hand; hand = fingering(midi, hand);
+      const available = Math.min(chord.beat + chord.beats, notes[index + 1]?.beat ?? end) - note.beat;
+      const notationDuration = final ? end - note.beat : Math.min(available, Math.max(.25, Math.round((note.notationDuration || available) * 4) / 4));
+      const duration = final ? notationDuration * .94 : Math.min(note.duration, notationDuration * .94);
+      let articulation = note.articulation || 'picked';
+      if (articulation === 'slide' && (hand.string !== oldHand.string || Math.abs(midi - previous) > 2 || midi === previous)) articulation = 'picked';
+      if (final && duration > .9) articulation = 'vibrato';
+      previous = midi;
+      return { ...note, midi, ...hand, role, notationDuration, duration, articulation };
+    });
+    for (const plan of densityPlan) plan.count = notes.filter(note => note.bar === plan.bar).length;
+    return { ...base, intensity: 'auto', notes, densityPlan, ...(requested === 'motif' ? { motifCore } : {}) };
+  }
   function generate(parsed, seed, feel = 'blues', options = {}) {
     if (options.legacy) return generateLegacy(parsed, seed, feel);
-    if (phraseIntensities[options.intensity] && options.intensity !== 'standard') return generateIntensity(parsed, seed, feel, options);
+    if (options.intensity === 'auto') return generateAutoDensity(parsed, seed, feel, options);
+    if (['easy', 'advanced', 'challenge'].includes(options.intensity)) return generateIntensity(parsed, seed, feel, options);
     if (parsed.error || !parsed.chords.length) throw Error(parsed.error || '先写一组和声');
     const random = rng(seed), pick = items => items[Math.floor(random() * items.length)];
     const requested = phraseStyles[options.style] ? options.style : 'mixed';
