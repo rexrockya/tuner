@@ -41,4 +41,8 @@ Bass新增「P 风格 · 厚实指弹」，在音色与音量中的Bass下拉选
 
 ## 发布
 
-沿用先前授权发布原GitHub Pages main/docs，版本20260908-tone-1；不构建website覆盖docs、不发布其他站点。发布完成后补齐提交、Pages状态与线上逐文件验证。
+沿用先前授权发布原GitHub Pages main/docs，版本20260908-tone-1；不构建website覆盖docs、不发布其他站点。以下为已完成的发布核验。
+
+- 功能提交`10ca585f624ef5ac5211164e8aa5a5d20ccc1cf0`已推送main，Pages于`2026-09-08T13:10:09Z`完成built，error为空。
+- `2026-09-08T13:11:29.150507+00:00`完整GET全部44个更新前端/采样/许可资源，均HTTP 200，共7190730字节，与功能提交逐字节一致。包括全部16 FLAC和16 WAV回退，详见`tone-online-verification-2026-09-08.json`。
+- 后续证据提交只更新交接与验收记录，不改变已核验音源/代码。

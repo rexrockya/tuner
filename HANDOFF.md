@@ -10,6 +10,7 @@
 - 新`practice-tone-balance.mjs`与`practice-modern-bass.cjs`加入npm test；涵盖静态校准/缓存/原PCM、16采样哈希/真实RR/根音映射、lazy/回退/并发/失败重试与future候选撤销。三个旧音频mock补createWaveShaper接口，正常音色路径确实使用新增节点。
 - 最终完整npm test通过；23个离线case零越界采样、最高-1.151dBFS，小提琴固定句较旧版+13.01dB。
 - 离线真实图验证与实机试听分开；native Node WebAudio的未来setTarget数值问题用经逐采样校验的解析包络适配，不能把这称作浏览器实机。数据/方法/最终发布证据见`notes/tone-validation-2026-09-08.md`；首屏gzip6 112853/120000B。
+- 功能提交`10ca585`已发布；44个更新前端/采样/许可资源共7190730B在线HTTP200并与Git逐字节一致，见本次online-verification。
 - 缓存`20260908-tone-1`更新asset-loader、practice-audio、practice-arrangement、动态practice-timbres；index仅改loader版本。沿用main/docs提交发布授权，不构建website，不另建站；排除node_modules，保留历史stash。
 
 ## 上一版：2026-09-08 连续播放与小节线切换

@@ -1,0 +1,364 @@
+{
+  "commit": "10ca585f624ef5ac5211164e8aa5a5d20ccc1cf0",
+  "verifiedAt": "2026-09-08T13:11:29.150507+00:00",
+  "publicSite": "https://rexrockya.github.io/tuner/",
+  "pagesStatus": "built",
+  "pagesUpdatedAt": "2026-09-08T13:10:09Z",
+  "resourceCount": 44,
+  "totalBytes": 7190730,
+  "allMatch": true,
+  "resources": [
+    {
+      "path": "asset-loader.js",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "649e34cd47a8ab8a38b9b1ae1990ad3c613622e40d02595093bfc591de6a080c",
+      "expectedSha256": "649e34cd47a8ab8a38b9b1ae1990ad3c613622e40d02595093bfc591de6a080c",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/blues/CREDITS.md",
+      "status": 200,
+      "bytes": 8732,
+      "sha256": "d48cea3a711492a4032dd32c1ae07e59b9f6b0b19736fdb39bebd10ab4c01ac5",
+      "expectedSha256": "d48cea3a711492a4032dd32c1ae07e59b9f6b0b19736fdb39bebd10ab4c01ac5",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/blues/credits.html",
+      "status": 200,
+      "bytes": 2088,
+      "sha256": "8ee0ceea3e1ca9a368b60f97a73b5e895efe5592eb14dbf2be437ea7e472154b",
+      "expectedSha256": "8ee0ceea3e1ca9a368b60f97a73b5e895efe5592eb14dbf2be437ea7e472154b",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/CREDITS.md",
+      "status": 200,
+      "bytes": 1477,
+      "sha256": "2bb1cfdfc33652adb0c580a3c873ac74bec936063a62d767289c3d95d5d1739e",
+      "expectedSha256": "2bb1cfdfc33652adb0c580a3c873ac74bec936063a62d767289c3d95d5d1739e",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/LICENSE.txt",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "expectedSha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/SOURCE-README.txt",
+      "status": 200,
+      "bytes": 1024,
+      "sha256": "d065a0f4de13e6b3fbd0196e9dc60a04af4fd814b1a0a7e313ba7a5e2ce1ecd8",
+      "expectedSha256": "d065a0f4de13e6b3fbd0196e9dc60a04af4fd814b1a0a7e313ba7a5e2ce1ecd8",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-27-r1.flac",
+      "status": 200,
+      "bytes": 79566,
+      "sha256": "d29215a6e3314c7083529301d1d415f377e3aedc11086a8b2d31659ff47cde82",
+      "expectedSha256": "d29215a6e3314c7083529301d1d415f377e3aedc11086a8b2d31659ff47cde82",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-27-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "921a2b554368f393d2be59a6129f648bed4676aab2a5f88d1b34f83aa17386e7",
+      "expectedSha256": "921a2b554368f393d2be59a6129f648bed4676aab2a5f88d1b34f83aa17386e7",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-27-r2.flac",
+      "status": 200,
+      "bytes": 79508,
+      "sha256": "604931c03a01b572117b88059aad89bf06015fe6d058a9111a3de61020ec06aa",
+      "expectedSha256": "604931c03a01b572117b88059aad89bf06015fe6d058a9111a3de61020ec06aa",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-27-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "48013c426e71390fbb9178394addd80f017dc35c82ff2d813ff82aa45dcaac1e",
+      "expectedSha256": "48013c426e71390fbb9178394addd80f017dc35c82ff2d813ff82aa45dcaac1e",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-30-r1.flac",
+      "status": 200,
+      "bytes": 80683,
+      "sha256": "c6fe643663a8308dd25e53f8b7ddd648742f8c535bf6b8c6b2def5320512b211",
+      "expectedSha256": "c6fe643663a8308dd25e53f8b7ddd648742f8c535bf6b8c6b2def5320512b211",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-30-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "ad281c2513208e8b84bcfa47d876ae2ffe6f2ca9bd2da842fd2bc4bb2ac01848",
+      "expectedSha256": "ad281c2513208e8b84bcfa47d876ae2ffe6f2ca9bd2da842fd2bc4bb2ac01848",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-30-r2.flac",
+      "status": 200,
+      "bytes": 79452,
+      "sha256": "337d0dd067b7bafbc634d4fb1cb780dc959bf17de11ba5b3724c685bb8240536",
+      "expectedSha256": "337d0dd067b7bafbc634d4fb1cb780dc959bf17de11ba5b3724c685bb8240536",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-30-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "5678b087efd93177e38b2dc9d4ce203602f7acce2f7904d9814d468831b98fdd",
+      "expectedSha256": "5678b087efd93177e38b2dc9d4ce203602f7acce2f7904d9814d468831b98fdd",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-33-r1.flac",
+      "status": 200,
+      "bytes": 85490,
+      "sha256": "66b7745f3d79fb44be4fecc2c6af2eac2758fb412c648415ecd1703c15a26f1f",
+      "expectedSha256": "66b7745f3d79fb44be4fecc2c6af2eac2758fb412c648415ecd1703c15a26f1f",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-33-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "ae03598dc3271f341ca081998b3199b494fecebdfe57f2227ab75bd9ae819a7c",
+      "expectedSha256": "ae03598dc3271f341ca081998b3199b494fecebdfe57f2227ab75bd9ae819a7c",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-33-r2.flac",
+      "status": 200,
+      "bytes": 85988,
+      "sha256": "a9f0f472825fd543af7584da58dd5633ab5cd5db47ef2b451f5ff71c6cc8c4c2",
+      "expectedSha256": "a9f0f472825fd543af7584da58dd5633ab5cd5db47ef2b451f5ff71c6cc8c4c2",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-33-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "dcd9328f1d8d9bd71d7de1080a4d56ab44de192fd64863f18435553d5d95dce6",
+      "expectedSha256": "dcd9328f1d8d9bd71d7de1080a4d56ab44de192fd64863f18435553d5d95dce6",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-36-r1.flac",
+      "status": 200,
+      "bytes": 86807,
+      "sha256": "d0d246051d657e6a7e7fa9a00fd31321fea76596c0649bbb7ece04524c4a0c43",
+      "expectedSha256": "d0d246051d657e6a7e7fa9a00fd31321fea76596c0649bbb7ece04524c4a0c43",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-36-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "cc68b445c04a098c7c91b271d92a23e6078fa01d0ee5b1b61e9ff68f7e969ef0",
+      "expectedSha256": "cc68b445c04a098c7c91b271d92a23e6078fa01d0ee5b1b61e9ff68f7e969ef0",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-36-r2.flac",
+      "status": 200,
+      "bytes": 87891,
+      "sha256": "af54751794156fb0d7048d92b678b2c78c96d4bc8ed499480332bd6778db4ccb",
+      "expectedSha256": "af54751794156fb0d7048d92b678b2c78c96d4bc8ed499480332bd6778db4ccb",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-36-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "bd9be9f90f2e2475c137c3a7963c73255f03cbaf96a31e3ca8f028c1180b8ae9",
+      "expectedSha256": "bd9be9f90f2e2475c137c3a7963c73255f03cbaf96a31e3ca8f028c1180b8ae9",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-39-r1.flac",
+      "status": 200,
+      "bytes": 89155,
+      "sha256": "d1a05925e44efe8596b34e1dbbf4d1a8ed8ab98bf554cff95cb81f638046282f",
+      "expectedSha256": "d1a05925e44efe8596b34e1dbbf4d1a8ed8ab98bf554cff95cb81f638046282f",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-39-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "d5da24571296e1e6fd5e68f2f939c26d4282841a33fbf9e300766dca1db1a4e4",
+      "expectedSha256": "d5da24571296e1e6fd5e68f2f939c26d4282841a33fbf9e300766dca1db1a4e4",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-39-r2.flac",
+      "status": 200,
+      "bytes": 89320,
+      "sha256": "d1a4326e383f1b4f5c8441c36d025fb148fe5d9d10d7f03ecdf77f428cded004",
+      "expectedSha256": "d1a4326e383f1b4f5c8441c36d025fb148fe5d9d10d7f03ecdf77f428cded004",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-39-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "e203574c957e46b46cfbda6e3dd16fe4106443030dd151988f5cd7abe3c030ee",
+      "expectedSha256": "e203574c957e46b46cfbda6e3dd16fe4106443030dd151988f5cd7abe3c030ee",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-42-r1.flac",
+      "status": 200,
+      "bytes": 88368,
+      "sha256": "90f58bf2f31dc5e5ab57efd9068a56598e5fab3717f5840315e98bb627859c5a",
+      "expectedSha256": "90f58bf2f31dc5e5ab57efd9068a56598e5fab3717f5840315e98bb627859c5a",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-42-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "6c46d3fe50f31466c4c32f00ee1b6030e3c9a186b7ce916de4666b80d7bbffd9",
+      "expectedSha256": "6c46d3fe50f31466c4c32f00ee1b6030e3c9a186b7ce916de4666b80d7bbffd9",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-42-r2.flac",
+      "status": 200,
+      "bytes": 89366,
+      "sha256": "fbe4410ca65204f8b79c69fd497b86ca03f5430e4465e6ce20c4d9b8e1d6029a",
+      "expectedSha256": "fbe4410ca65204f8b79c69fd497b86ca03f5430e4465e6ce20c4d9b8e1d6029a",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-42-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "3b6a62a8b7a02709eff746a1e4f6aa7592c52261c0d0ffd05dd04371471fc5ca",
+      "expectedSha256": "3b6a62a8b7a02709eff746a1e4f6aa7592c52261c0d0ffd05dd04371471fc5ca",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-48-r1.flac",
+      "status": 200,
+      "bytes": 84826,
+      "sha256": "6e0b08d69b0d69c04ddb3eee79b2301ea80f7d34e7cff5b213855a19c9c64b75",
+      "expectedSha256": "6e0b08d69b0d69c04ddb3eee79b2301ea80f7d34e7cff5b213855a19c9c64b75",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-48-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "1722ace48b12f9fd1dfff926741aab9f8485a1b193c759fb54cf1dfd0e9445a8",
+      "expectedSha256": "1722ace48b12f9fd1dfff926741aab9f8485a1b193c759fb54cf1dfd0e9445a8",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-48-r2.flac",
+      "status": 200,
+      "bytes": 85257,
+      "sha256": "fd9c984fe641832c645183c96bfda983d4697874e386f82f322708c309a716cd",
+      "expectedSha256": "fd9c984fe641832c645183c96bfda983d4697874e386f82f322708c309a716cd",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-48-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "6b32c668acd506a080e79ef7c44eb0cac6c4c7bb01e51e50431a317963479f5b",
+      "expectedSha256": "6b32c668acd506a080e79ef7c44eb0cac6c4c7bb01e51e50431a317963479f5b",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-54-r1.flac",
+      "status": 200,
+      "bytes": 87556,
+      "sha256": "11291a6e2bbfa8e363fda6894efdc73662af993679ea4aa7e08f76e31d7b0515",
+      "expectedSha256": "11291a6e2bbfa8e363fda6894efdc73662af993679ea4aa7e08f76e31d7b0515",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-54-r1.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "c301e6465d28e57abe54a6940acc938993ffdb611e8282985f848cf97329d699",
+      "expectedSha256": "c301e6465d28e57abe54a6940acc938993ffdb611e8282985f848cf97329d699",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-54-r2.flac",
+      "status": 200,
+      "bytes": 86950,
+      "sha256": "343f1c24a37372881289f46a218e1d30f6892ef61d32106b8bc85550d7b1dcb4",
+      "expectedSha256": "343f1c24a37372881289f46a218e1d30f6892ef61d32106b8bc85550d7b1dcb4",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/electric-54-r2.wav",
+      "status": 200,
+      "bytes": 352878,
+      "sha256": "685da8a5d4a4dd25e5de5c861383083d334e5c123020be8c4cdb538684f512ac",
+      "expectedSha256": "685da8a5d4a4dd25e5de5c861383083d334e5c123020be8c4cdb538684f512ac",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/manifest.json",
+      "status": 200,
+      "bytes": 2515,
+      "sha256": "d0d1745f41e14f5aa025c609943a3b48a126b9ce36aff8a51f67bf9d63928b2d",
+      "expectedSha256": "d0d1745f41e14f5aa025c609943a3b48a126b9ce36aff8a51f67bf9d63928b2d",
+      "matches": true
+    },
+    {
+      "path": "assets/audio/modern-bass/provenance.json",
+      "status": 200,
+      "bytes": 11079,
+      "sha256": "1772448cbd2a4fb4f6b8c61addd97cf62765874f61a2e978dd7188dcc6e6c486",
+      "expectedSha256": "1772448cbd2a4fb4f6b8c61addd97cf62765874f61a2e978dd7188dcc6e6c486",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 94140,
+      "sha256": "268e74190cc8730b29d9c5c90b35636c7b5d3ce3771f0f341757d5995a058b69",
+      "expectedSha256": "268e74190cc8730b29d9c5c90b35636c7b5d3ce3771f0f341757d5995a058b69",
+      "matches": true
+    },
+    {
+      "path": "practice-arrangement.js",
+      "status": 200,
+      "bytes": 16280,
+      "sha256": "842b394cac3ae1c9fcb7f2b12b5b84413ac22a4f09f1a3b21e233f479151d020",
+      "expectedSha256": "842b394cac3ae1c9fcb7f2b12b5b84413ac22a4f09f1a3b21e233f479151d020",
+      "matches": true
+    },
+    {
+      "path": "practice-audio.js",
+      "status": 200,
+      "bytes": 26328,
+      "sha256": "c568331ab2c9ef4a593b023e66a3d6bd1c54b075e0026e550f932faa6db59368",
+      "expectedSha256": "c568331ab2c9ef4a593b023e66a3d6bd1c54b075e0026e550f932faa6db59368",
+      "matches": true
+    },
+    {
+      "path": "practice-timbres.js",
+      "status": 200,
+      "bytes": 5528,
+      "sha256": "b840dbd6f233a90bf23f562d5835d88bf0f057f5228ae06206b64fdeeee3d82e",
+      "expectedSha256": "b840dbd6f233a90bf23f562d5835d88bf0f057f5228ae06206b64fdeeee3d82e",
+      "matches": true
+    }
+  ]
+}
