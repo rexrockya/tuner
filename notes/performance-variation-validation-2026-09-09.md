@@ -62,4 +62,4 @@ MIDI仍只导出Lead：
 
 新增编配和Lead计划位于教学按需脚本，没有新媒体、后台服务或第三方运行时。合并缓存版本为`20260909-performance-2`；`npm run test:qa`实测首屏为116,175 / 120,000 B gzip6，共20个资源，余量3,825 B。
 
-本文建立时尚未为本轮写入功能提交、Pages built状态或正式站逐字节核验。发布只能使用`main/docs`和唯一公开入口 https://rexrockya.github.io/tuner/ ，不得运行根`npm run build`用Worker产物覆盖`docs/`，也不得展示临时预览或API域名。完成发布后再追加真实提交SHA、Pages完成时间、error状态及更新资源HTTP／Git一致性；部署前不得预写“已上线”。
+功能提交`8e5d4e91e9d037614176b0174fd1cce22a99707b`已推送到`main`。GitHub Pages在2026-09-08 19:02:56 UTC（北京时间2026-09-09 03:02:56）将该提交标记为`built`，`error`为`null`。正式站唯一入口及`asset-loader.js`、`music-genres.js`、`practice-arrangement.js`、`practice-audio.js`、`practice-notation.js`、`practice.js`、`practice.css`均返回HTTP 200；逐个按Git blob算法计算远端字节哈希，与该提交完全一致。发布只使用`main/docs`和唯一公开入口 https://rexrockya.github.io/tuner/ ，没有运行根`npm run build`覆盖`docs/`，也没有增加临时预览或API入口。
