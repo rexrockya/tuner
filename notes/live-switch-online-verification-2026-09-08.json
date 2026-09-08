@@ -1,0 +1,52 @@
+{
+  "commit": "f2eec02c39ccbfd347832bf0f84d9387ca5ce613",
+  "verifiedAt": "2026-09-08T12:38:29.392685+00:00",
+  "publicSite": "https://rexrockya.github.io/tuner/",
+  "pagesStatus": "built",
+  "pagesUpdatedAt": "2026-09-08T12:37:24Z",
+  "resourceCount": 5,
+  "totalBytes": 178608,
+  "allMatch": true,
+  "resources": [
+    {
+      "path": "asset-loader.js",
+      "status": 200,
+      "bytes": 2264,
+      "sha256": "69c103efc7c1628c47a9d5b61f30593da6b65be5e502392e410c0f8ddbf83669",
+      "expectedSha256": "69c103efc7c1628c47a9d5b61f30593da6b65be5e502392e410c0f8ddbf83669",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 94140,
+      "sha256": "d652abb2e51780d51fbc8f945d11c644782f521f84a7d04c0b6c03db39c7152c",
+      "expectedSha256": "d652abb2e51780d51fbc8f945d11c644782f521f84a7d04c0b6c03db39c7152c",
+      "matches": true
+    },
+    {
+      "path": "practice-audio.js",
+      "status": 200,
+      "bytes": 23075,
+      "sha256": "e18e24f6922c59ebb67d06db10296c9361606be2f593f6d3791fed00064353c3",
+      "expectedSha256": "e18e24f6922c59ebb67d06db10296c9361606be2f593f6d3791fed00064353c3",
+      "matches": true
+    },
+    {
+      "path": "practice.css",
+      "status": 200,
+      "bytes": 16362,
+      "sha256": "be7707f1a51e83bba2b2843f5c860c7e58ca5dbfe4f9df6f1e5746e8c15ff2fe",
+      "expectedSha256": "be7707f1a51e83bba2b2843f5c860c7e58ca5dbfe4f9df6f1e5746e8c15ff2fe",
+      "matches": true
+    },
+    {
+      "path": "practice.js",
+      "status": 200,
+      "bytes": 42767,
+      "sha256": "68813bfa7252424b23cbfb3c04e737780efcf9356f0640802dc8f120dcb15af7",
+      "expectedSha256": "68813bfa7252424b23cbfb3c04e737780efcf9356f0640802dc8f120dcb15af7",
+      "matches": true
+    }
+  ]
+}

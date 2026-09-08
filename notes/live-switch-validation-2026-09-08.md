@@ -25,4 +25,8 @@
 
 ## 发布
 
-沿用用户此前提交发布授权，仅原GitHub Pages的main/docs。前端缓存版本`20260908-live-1`，只更新index、asset-loader、practice-audio、practice、practice.css；不构建website覆盖docs，不部署其他域名。发布事实完成后补记。
+沿用用户此前提交发布授权，仅原GitHub Pages的main/docs。前端缓存版本`20260908-live-1`，只更新index、asset-loader、practice-audio、practice、practice.css；不构建website覆盖docs，不部署其他域名。以下为完成后的核验事实。
+
+- 功能提交`f2eec02c39ccbfd347832bf0f84d9387ca5ce613`已推送main，Pages于`2026-09-08T12:37:24Z`完成built，error为空。
+- `2026-09-08T12:38:29.392685+00:00`完整GET全部5个更新前端资源，HTTP 200，共178608字节，与功能提交逐字节一致。明细`live-switch-online-verification-2026-09-08.json`。
+- 后续证据提交仅更新验收记录，不改变已核验前端。

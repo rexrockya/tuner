@@ -11,6 +11,7 @@
 - 创作/伴奏音色、各轨风格、乐句/强度、生成、和声调性预设、收藏、律动与BPM共用路径；单纯伴奏/音色变化保留最新候选旋律。收藏五声部与BPM一次准备，不能逐轨中途生效。播放高亮/谱式新开使用activeFeel至提交。
 - 编辑输入继续旧版本播放，未生成时改风格只记录选择，改音色拒绝并恢复实际选项；生成成功才排队。停止状态generate统一补齐未生效音色。暂停/导航/定位/循环改变取消pending并恢复activeControls；晚加载不会再启动。
 - 新`practice-live-clock.cjs`11组实际音频调度测试与`practice-live-controls.cjs`真实UI脚本受控异步测试已纳入npm test；旧强度测试改为停止态编辑，live行为由新测试覆盖。旧practice首个140ms内风琴断言明确选择pad，避免随机反拍风格造成偶发失败。
+- 最终完整npm test通过，含真实OSMD与46项响度标准信号。功能提交`f2eec02`已发布并核对5个前端资源逐字节一致，见本次online-verification。
 - 资源缓存版本`20260908-live-1`只更新index/asset-loader/practice-audio/practice/practice.css；无新依赖、采样或后台。首屏gzip6 112849/120000 B；验收与发布证据见`notes/live-switch-validation-2026-09-08.md`。
 - 继续沿用原GitHub Pages main/docs发布授权，不构建website覆盖docs，不部署其他站点；精准暂存排除node_modules并保留历史stash。
 
