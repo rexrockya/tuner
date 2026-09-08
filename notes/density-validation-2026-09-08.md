@@ -26,4 +26,6 @@
 
 ## 发布目标
 
-沿用已授权的原GitHub Pages main/docs，唯一公开入口为https://rexrockya.github.io/tuner/。本次缓存版本20260908-density-1；发布后的逐文件核验会另附记录。
+沿用已授权的原GitHub Pages main/docs，唯一公开入口为https://rexrockya.github.io/tuner/。本次缓存版本20260908-density-1；功能提交`23fe5743716a3b30c0971678aee610697d4fe9f3`已推送main，Pages于`2026-09-08T13:29:36Z`完成built，error为空。
+
+`2026-09-08T13:30:11.694739+00:00`完整GET全部4个更新前端资源，HTTP 200，共170893字节，与功能提交逐字节一致。明细见`density-online-verification-2026-09-08.json`。后续证据提交仅更新文档，不改变已核验前端。

@@ -12,6 +12,7 @@
 - 新`practice-auto-density.cjs`覆盖1680确定性边界案例、224首音乐结构检查、1344旧四档完整输出指纹；原固定四档8064案例继续明确只跑原四档。UI/live回归覆盖auto草稿/收藏、同seed、独立伴奏、谱面/MIDI一致与小节线提交；真实OSMD增加auto动机八小节渲染。
 - 最终完整npm test通过，独立审查无阻断；没有新增实体手机主观试听。
 - 缓存版本`20260908-density-1`更新index内harmony/loader与loader内practice。无新依赖、采样或后台；首屏gzip6为114735/120000B。验收见`notes/density-validation-2026-09-08.md`。
+- 功能提交`23fe574`已发布，4个更新前端资源共170893B在线HTTP200并与Git逐字节一致；见本次online-verification。
 - 发布沿用已授权的main/docs和原GitHub Pages。不要构建website覆盖docs或部署其他站点；精准暂存排除node_modules并保留历史stash。
 
 ## 上一版：2026-09-08 音色平衡与厚实电贝斯
