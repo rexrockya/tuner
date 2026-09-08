@@ -1,15 +1,17 @@
 (function () {
   'use strict';
   const H=window.tunerHarmony;
-  const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents}=window.practiceArrangements;
+  const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,percussionStyles,stringsStyles,performerProfiles,shapeLeadPhrase,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents}=window.practiceArrangements;
   const timbres = {
     drums: { natural: '原声 Studio', vintage: '复古暖鼓', crisp: '明亮紧致', electro: 'Electro · 合成鼓' },
     bass: { precision: 'P 风格 · 厚实指弹', round: '圆润指弹', bright: '明亮指弹', muted: '闷音短奏', synth: 'Synth Bass · 深低音', acid: 'Synth Bass · 弹性短奏' },
     keys: { jazz: 'Jazz 风琴', gospel: 'Gospel 风琴', soft: '柔和风琴', synth: 'Synth Keys · 柔和电键', pad: 'Synth Pad · 空间铺底' },
     rhythm: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他' },
+    percussion: { natural: 'Natural · 木质辅助打击', bright: 'Bright · 清晰穿透', electro: 'Electro · 合成打击' },
+    strings: { chamber: 'Chamber · 室内弦乐', warm: 'Warm · 温暖弦乐', air: 'Air · 空间弦乐' },
     lead: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', jazz: '爵士琴颈 · 圆润', blues: 'Blues · 边缘破音', singing: '歌唱延音 · 压缩', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
   };
-  const selectedTimbres = { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', lead: 'warm' }, timbreRequests = {};
+  const selectedTimbres = { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', percussion: 'natural', strings: 'chamber', lead: 'warm' }, timbreRequests = {};
   const patches = {
     drums: { natural: { cutoff: 18000, level: 1 }, vintage: { cutoff: 6400, level: 1.07, rate: .96 }, crisp: { cutoff: 18000, level: .98, rate: 1.04, highpass: 48 } },
     bass: {
@@ -24,6 +26,16 @@
       crunch: { cutoff: 5600, highpass: 80, level: .44, attack: .004, release: .14, drive: 3, eq: [['lowshelf', 180, 2.8], ['peaking', 950, 2, .7], ['peaking', 3100, -2, 1]], compress: [-22, 12, 2.6, .01, .14] },
       dry: { cutoff:7400,highpass:100,level:.55,attack:.002,release:.045,drive:1.1,compress:[-24,10,2.5,.006,.09] },
       ambient: { cutoff:4700,highpass:95,level:.43,attack:.065,release:.32,drive:1.8,space:true,compress:[-25,14,2.6,.018,.22] }
+    },
+    percussion: {
+      natural: { cutoff: 9800, highpass: 520, level: .72, attack: .001, release: .035 },
+      bright: { cutoff: 15000, highpass: 850, level: .62, attack: .001, release: .025, rate: 1.04 },
+      electro: { cutoff: 12500, highpass: 620, level: .58, attack: .001, release: .03 }
+    },
+    strings: {
+      chamber: { cutoff: 7200, highpass: 105, level: 1.08, attack: .035, release: .22, eq: [['lowshelf', 220, -1.5], ['peaking', 1700, 1.2, .8]], compress: [-27, 15, 2.2, .025, .24] },
+      warm: { cutoff: 5200, highpass: 90, level: 1.15, attack: .07, release: .3, eq: [['lowshelf', 240, 1.2], ['peaking', 2400, -1.4, .9]], compress: [-28, 16, 2.1, .03, .3] },
+      air: { cutoff: 4300, highpass: 130, level: .92, attack: .12, release: .42, space: true, eq: [['peaking', 3100, -1.8, .85]], compress: [-30, 18, 2, .04, .34] }
     },
     lead: {
       warm: { cutoff: 6500, highpass: 72, level: .58, attack: .004, release: .14, drive: 1.25, eq: [['lowshelf', 180, 2.2], ['peaking', 950, 1.7, .65], ['peaking', 3300, -1.1, .8]], compress: [-25, 14, 2.5, .012, .16] },
@@ -41,12 +53,13 @@
   function getTimbre(track) { return selectedTimbres[track]; }
   async function ensureSelection(selection, events = []) {
     const jobs = [];
-    if (selection.drums === 'electro' && events.some(event => event.track === 'drums')) jobs.push(prepareElectro());
+    if ((selection.drums === 'electro' && events.some(event => event.track === 'drums')) || (selection.percussion === 'electro' && events.some(event => event.track === 'percussion'))) jobs.push(prepareElectro());
     if (selection.bass === 'precision' && events.some(event => event.track === 'bass')) jobs.push(prepareModernBass());
     const id = selection.lead;
-    if (id === 'piano' || id === 'violin') {
-      if (!sampleBankPromise) sampleBankPromise = import('./practice-timbres.js?v=20260908-tone-1').then(module => sampleBank = module.createSampleBank(getContext(), window.scoreAudio)).catch(error => { sampleBankPromise = null; throw error; });
-      jobs.push(sampleBankPromise.then(bank => bank.ensure(id, events)));
+    if (id === 'piano' || id === 'violin' || events.some(event => event.track === 'strings')) {
+      if (!sampleBankPromise) sampleBankPromise = import('./practice-timbres.js?v=20260909-players-1').then(module => sampleBank = module.createSampleBank(getContext(), window.scoreAudio)).catch(error => { sampleBankPromise = null; throw error; });
+      if (id === 'piano' || id === 'violin') jobs.push(sampleBankPromise.then(bank => bank.ensure(id, events, 'lead')));
+      if (events.some(event => event.track === 'strings')) jobs.push(sampleBankPromise.then(bank => bank.ensure('violin', events, 'strings')));
     }
     await Promise.all(jobs);
   }
@@ -72,7 +85,7 @@
     if (!Object.hasOwn(timbres[track] || {}, id)) throw Error('未知音色');
     const generation = (timbreRequests[track] || 0) + 1; timbreRequests[track] = generation;
     const previous = selectedTimbres[track]; selectedTimbres[track] = id;
-    if (track === 'lead' || track === 'bass' || track === 'drums') {
+    if (track === 'lead' || track === 'bass' || track === 'drums' || track === 'percussion' || track === 'strings') {
       try { await ensureSelection({ ...selectedTimbres }, events); }
       catch (error) { if (timbreRequests[track] !== generation) return false; selectedTimbres[track] = previous; throw error; }
     }
@@ -112,8 +125,8 @@
       for (let i = 0; i < samples.length; i++) samples[i] = (random() * 2 - 1) * Math.exp(-i / context.sampleRate * 17) * .14;
     }
     room.buffer = impulse; room.connect(master);
-    const pans = { drums: -.03, bass: 0, keys: .2, rhythm: -.2, lead: .06 }, sends = { drums: .08, bass: 0, keys: .18, rhythm: .1, lead: .17 };
-    for (const track of ['drums', 'bass', 'keys', 'rhythm', 'lead']) {
+    const pans = { drums: -.03, bass: 0, keys: .2, rhythm: -.2, percussion: .3, strings: -.14, lead: .06 }, sends = { drums: .08, bass: 0, keys: .18, rhythm: .1, percussion: .08, strings: .25, lead: .17 };
+    for (const track of ['drums', 'bass', 'keys', 'rhythm', 'percussion', 'strings', 'lead']) {
       buses[track] = context.createGain(); buses[track].gain.value = 1;
       let stage = buses[track];
       if (context.createStereoPanner) { const panner = context.createStereoPanner(); panner.pan.value = pans[track]; stage.connect(panner); stage = panner; }
@@ -186,11 +199,11 @@
     const guitar = (track === 'lead' || track === 'rhythm') && !asset.kind;
     const basePatch = patches[track]?.[selection[track]] || {};
     const patch = guitar ? (event.articulation==='dead'?{...(patches[track]?.dry||basePatch),cutoff:1800,highpass:650,length:.06,attack:.001,release:.012,level:.38}:event.articulation==='muted'?{...basePatch,cutoff:4300,length:.62,release:.025,space:false}:basePatch) : basePatch;
-    const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi + (event.detuneCents || 0) / 100) / 12)) * (patch.rate || 1);
+    const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi + (event.detuneCents || 0) / 100) / 12)) * (patch.rate || 1) * (event.playbackRate || 1);
     source.playbackRate.value = rate;
     const length = Math.max(.035, (duration || asset.buffer.duration / rate) * (patch.length || 1));
-    const release = asset.ampRelease ?? (asset.kind === 'violin' ? .06 : asset.kind === 'piano' ? .18 : patch.release || (guitar ? .075 : .05));
-    const attack = asset.kind === 'violin' ? .008 : patch.attack || .003;
+    const release = patch.release ?? asset.ampRelease ?? (asset.kind === 'violin' ? .06 : asset.kind === 'piano' ? .18 : guitar ? .075 : .05);
+    const attack = patch.attack ?? (asset.kind === 'violin' ? .008 : .003);
     velocity *= (patch.level || 1) * (asset.level ?? 1);
     gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(velocity, at + Math.min(attack, length / 3));
     gain.gain.setTargetAtTime(.0001, at + length, release / 3);
@@ -224,8 +237,8 @@
       source.playbackRate.setValueAtTime(rate, at + .24);
       for (let t = .29, i = 0; t < length; t += .095, i++) source.playbackRate.linearRampToValueAtTime(rate * 2 ** ((i % 2 ? -9 : 9) / 1200), at + t);
     }
-    const choke = event.sample === 'open-hat' ? 'hat' : null;
-    if (track === 'drums' && /^hat-/.test(event.sample || '')) for (const voice of voices) if (voice.choke === 'hat' && voice.owner === owner) {
+    const choke = event.sample === 'open-hat' ? `${track}:hat` : null;
+    if ((track === 'drums' || track === 'percussion') && /^hat-/.test(event.sample || '')) for (const voice of voices) if (voice.choke === `${track}:hat` && voice.owner === owner) {
       voice.gain.gain.setTargetAtTime(.0001, at, .006); try { voice.source.stop(at + .025); } catch {}
     }
     trackVoice(source, gain, extra, choke, owner, at, patch.space?1.4:0, silencers);
@@ -264,6 +277,7 @@
   function sound(event, at, beatSeconds, selection = selectedTimbres, owner = null) {
     if(event.track==='bass'&&['synth','acid'].includes(selection.bass)||event.track==='keys'&&['synth','pad'].includes(selection.keys)){synth(event,at,event.duration*beatSeconds,selection,owner);return;}
     if (event.track === 'drums') sample((selection.drums==='electro'?electroAssets:assets)[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event, selection, owner);
+    else if (event.track === 'percussion') sample((selection.percussion==='electro'?electroAssets:assets)[event.sample], at, event.duration * beatSeconds, event.velocity * .5, 'percussion', undefined, event, selection, owner);
     else if (event.track === 'bass') {
       const variant = (event.variant ?? Math.floor(event.beat * 3)) % 2;
       const bank = selection.bass === 'precision' ? modernBassAssets.filter(asset => asset.variant === variant) : bassAssets;
@@ -273,11 +287,14 @@
       const asset = sampleBank?.get(selection.lead, event);
       const stackGain = event.stackSize > 1 ? 1 / Math.sqrt(event.stackSize) : 1;
       sample(asset, at, event.duration * beatSeconds, event.velocity * stackGain * (selection.lead === 'violin' ? 1.65 : .95), 'lead', event.midi, event, selection, owner);
+    } else if (event.track === 'strings') {
+      const asset = sampleBank?.get('violin', event), stackGain = event.stackSize > 1 ? 1 / Math.sqrt(event.stackSize) : 1;
+      sample(asset, at, event.duration * beatSeconds, event.velocity * stackGain * 1.25, 'strings', event.midi, event, selection, owner);
     } else if (event.track === 'lead' || event.track === 'rhythm') {
       const stackGain = event.track === 'lead' && event.stackSize > 1 ? 1 / Math.sqrt(event.stackSize) : 1;
       sample(guitarSample(event), at, event.duration * beatSeconds, event.velocity * stackGain * (event.track === 'lead' ? 1.2 : .62), event.track, event.midi, event, selection, owner);
     }
-    else organ(event, at, event.duration * beatSeconds, selection, owner);
+    else if (event.track === 'keys') organ(event, at, event.duration * beatSeconds, selection, owner);
   }
   function cancelVoices(owner) {
     if (!context) return;
@@ -433,5 +450,5 @@
     }
     setLoopBar(bar) { const playing = this.playing; this.pause(); this.loopBar = bar; if (bar !== null) { this.loop = true; this.position = bar * 4; } this.update(); return playing ? this.play() : Promise.resolve(); }
   }
-  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre, prepareTimbres, commitTimbres };
+  window.practiceAudio = { arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,percussionStyles,stringsStyles,performerProfiles,shapeLeadPhrase,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents,guitarSample, Transport, volume, ensure, preload, silence, getContext, timbres, setTimbre, getTimbre, prepareTimbres, commitTimbres };
 })();

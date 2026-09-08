@@ -12,6 +12,8 @@
   const drumStyles = { auto: '随机经典型', shuffle: 'Shuffle 摇摆', backbeat: 'Backbeat 稳拍', ride: 'Ride 爵士', funk: 'Funk 切分', halftime: 'Half-time 半拍', latin: 'Latin 拉丁', boogie: 'Boogie 推进' };
   const keyStyles = { none: 'None · 关闭', auto: '随机经典型', pad: '长音铺底', offbeat: '反拍和弦', soul: 'Soul 应答', arpeggio: '流动分解', gospel: 'Gospel 推进' };
   const rhythmStyles = { none: 'None · 关闭', auto: '随机经典型', boogie: 'Boogie 双音', chop: '短切和弦', offbeat: '反拍扫弦', arpeggio: '分解伴奏', clave: 'Latin 切分' };
+  const percussionStyles = { none: 'None · 关闭', auto: '随演奏取向变化', shaker: 'Shaker · 八分推动', tambourine: 'Tambourine · 反拍', clap: 'Clap · 二四拍' };
+  const stringsStyles = { none: 'None · 关闭', auto: '随演奏取向变化', pad: '弦乐长音 · 铺底', pulse: '弦乐脉冲 · 推进', response: '弦乐回应 · 留白' };
   const leadGrooves = {
     follow: { label: '跟随整体律动', swing: null, subdivision: 2, delayMs: 4, jitterMs: 3 },
     straight: { label: 'Straight · 直八', swing: .5, subdivision: 2, delayMs: 3, jitterMs: 3 },
@@ -23,6 +25,14 @@
   const leadTextures = { single: '单音旋律', double: '双音点缀', voicing: '和声 Voicing' };
   const phraseCycleModes = { repeat: '固定重复', random: '每轮随机切换', sequence: '指定顺序' };
   const densityCycleModes = { fixed: '保持所选密度', random: '每轮随机密度' };
+  const performerProfiles = {
+    balanced: { label: '均衡会话', description: '保留自然的问答、力度与时值，适合作为中性起点。', timingBiasMs: 0, jitterScale: 1, detune: 2.2, stackMs: 7, gate: 1, velocityScale: 1, affinity: {} },
+    storyteller: { label: '问答叙事', description: '前后句用更宽的动态和呼吸形成对话。', timingBiasMs: 6, jitterScale: 1.15, detune: 2.6, stackMs: 8, gate: .88, velocityScale: 1, affinity: { bass: ['walking', 'fifths'], drums: ['backbeat', 'ride'], keys: ['soul', 'pad'], rhythm: ['offbeat', 'arpeggio'], percussion: ['shaker'], strings: ['response'] } },
+    navigator: { label: '和声导航', description: '强调三音、七音与和弦边界，连接更清楚。', timingBiasMs: -2, jitterScale: .65, detune: 1.4, stackMs: 5, gate: .74, velocityScale: 1, affinity: { bass: ['walking'], drums: ['ride', 'backbeat'], keys: ['offbeat'], rhythm: ['chop', 'arpeggio'], percussion: ['shaker'], strings: ['response'] } },
+    pocket: { label: '切分口袋', description: '短奏、反拍重音与靠后的微时值更贴近节奏组。', timingBiasMs: 3, jitterScale: .7, detune: 1.2, stackMs: 4, gate: .52, velocityScale: 1, affinity: { bass: ['octave', 'riff'], drums: ['funk', 'backbeat'], keys: ['offbeat', 'soul'], rhythm: ['chop', 'offbeat'], percussion: ['clap', 'tambourine', 'shaker'], strings: ['pulse'] } },
+    colorist: { label: '色彩和声', description: '更多七音、九音与复音空间，和声色彩更浓。', timingBiasMs: 7, jitterScale: .9, detune: 1.9, stackMs: 10, gate: .88, velocityScale: .94, affinity: { bass: ['pedal', 'fifths'], drums: ['halftime', 'ride'], keys: ['soul', 'pad'], rhythm: ['arpeggio', 'offbeat'], percussion: ['shaker'], strings: ['pad', 'response'] } },
+    atmospheric: { label: '延音空间', description: '减少弱拍音符、延长落点，让留白和层次更明显。', timingBiasMs: 12, jitterScale: 1.35, detune: 3.4, stackMs: 12, gate: .97, velocityScale: .82, affinity: { bass: ['fifths', 'pedal'], drums: ['halftime', 'ride'], keys: ['pad'], rhythm: ['arpeggio'], percussion: ['none', 'shaker'], strings: ['pad'] } }
+  };
   // Auto players follow the chosen feel; explicit player styles can intentionally contrast it.
   const drumPools = {
     shuffle: ['shuffle', 'ride', 'backbeat'], slow: ['ride', 'halftime', 'shuffle'], straight: ['backbeat', 'boogie', 'funk'],
@@ -39,6 +49,8 @@
   // Independent seeded choices keep a drum/style edit from rewriting the other players.
   function styleSequence(catalog, requested, pool, count, seed) {
     if (requested && requested !== 'auto' && Object.hasOwn(catalog, requested)) return Array(count).fill(requested);
+    pool = pool.filter(style => Object.hasOwn(catalog, style) && style !== 'auto');
+    if (pool.length <= 1) return Array(count).fill(pool[0] || 'none');
     const random = H.rng(seed), result = [];
     for (let i = 0; i < count; i++) {
       let available = pool.filter(style => style !== result[i - 1] && (i !== count - 1 || count < 3 || style !== result[0]));
@@ -49,6 +61,56 @@
   }
   const guitarOpens = [64, 59, 55, 50, 45, 40];
   const clonePhrase = phrase => ({ ...phrase, notes: phrase.notes.map(note => ({ ...note, ...(note.companions ? { companions: note.companions.map(voice => ({ ...voice })) } : {}) })), structure: phrase.structure?.map(item => ({ ...item })), densityPlan: phrase.densityPlan?.map(item => ({ ...item })) });
+  function refinger(midi, previous = { fret: 7, string: 2 }) {
+    return guitarOpens.map((open, string) => ({ string, fret: midi - open })).filter(position => position.fret >= 0 && position.fret <= 24)
+      .sort((a, b) => Math.abs(a.fret - previous.fret) + Math.abs(a.string - previous.string) * 1.5 - Math.abs(b.fret - previous.fret) - Math.abs(b.string - previous.string) * 1.5)[0];
+  }
+  function shapeLeadPhrase(phrase, parsed, profileId = 'balanced', seed = 1, context = {}) {
+    const id = Object.hasOwn(performerProfiles, profileId) ? profileId : 'balanced', result = clonePhrase(phrase);
+    if (id === 'balanced' || !result.notes.length) return result;
+    const random = H.rng((seed >>> 0) ^ Math.imul(Object.keys(performerProfiles).indexOf(id) + 17, 0x45d9f3b));
+    const chordFor = note => parsed.chords.find(chord => note.beat >= chord.beat - 1e-8 && note.beat < chord.beat + chord.beats - 1e-8);
+    if (id === 'atmospheric') {
+      const firstByChord = new Set();
+      result.notes = result.notes.filter((note, index) => {
+        const chord = chordFor(note), key = chord?.beat;
+        if (key !== undefined && !firstByChord.has(key)) { firstByChord.add(key); return true; }
+        return index === result.notes.length - 1 || Math.abs(note.beat % 1) < 1e-8 || random() < .58;
+      });
+    }
+    let hand = { fret: result.notes[0]?.fret ?? 7, string: result.notes[0]?.string ?? 2 };
+    result.notes.forEach((note, index) => {
+      const chord = chordFor(note); if (!chord) return;
+      const boundary = Math.abs(note.beat - chord.beat) < 1e-8, answer = note.bar % 2 === 1;
+      if (id === 'storyteller') {
+        note.velocity = Math.max(.18, Math.min(.94, note.velocity * (answer ? .9 : 1.08)));
+        note.duration = Math.min(chord.beat + chord.beats - note.beat, note.duration * (answer ? .82 : 1.06));
+        note.role = answer ? '回答 · 收束' : '提问 · 展开';
+        if (note.duration > .72) note.articulation = 'vibrato';
+      } else if (id === 'navigator') {
+        if (boundary || index && result.notes[index - 1].bar !== note.bar) {
+          const target = chord.intervals[index % 2 ? 3 : 1] ?? chord.intervals[1] ?? 0;
+          note.midi = H.nearest(chord.root + target, note.midi, 55, 79); note.role = index % 2 ? '七音连接' : '三音连接';
+        }
+        note.duration = Math.min(note.duration, Math.max(.08, (note.notationDuration || note.duration) * .74)); note.articulation = 'picked';
+      } else if (id === 'pocket') {
+        note.duration = Math.min(note.duration, Math.max(.055, (note.notationDuration || note.duration) * .52));
+        note.velocity = Math.max(.16, Math.min(.94, note.velocity * (note.beat % 1 ? 1.12 : .9)));
+        note.articulation = 'muted'; note.role = note.beat % 1 ? '反拍重音' : '口袋短奏';
+      } else if (id === 'colorist' && index !== result.notes.length - 1 && (boundary || note.beat % 1 === 0) && random() < .68) {
+        const colors = [...(chord.colorIntervals || chord.intervals)].filter(interval => interval === 10 || interval === 11 || interval >= 14);
+        const target = colors[index % Math.max(1, colors.length)] ?? chord.intervals[3] ?? chord.intervals[1] ?? 0;
+        note.midi = H.nearest(chord.root + target, note.midi, 55, 79); note.velocity = Math.max(.18, note.velocity * .94); note.role = target >= 14 ? '延伸音色彩' : '七音色彩';
+      } else if (id === 'atmospheric') {
+        note.duration = Math.min(chord.beat + chord.beats - note.beat, Math.max(note.duration, (note.notationDuration || note.duration) * .94));
+        note.velocity = Math.max(.16, note.velocity * .82); note.articulation = note.duration > .7 ? 'vibrato' : 'picked'; note.role = boundary ? '共同音落点' : '空间留白';
+      }
+      hand = refinger(note.midi, hand) || hand; note.string = hand.string; note.fret = hand.fret;
+      note.duration = Math.max(.02, Math.min(note.duration, chord.beat + chord.beats - note.beat));
+    });
+    if (result.densityPlan) result.densityPlan.forEach(plan => { plan.count = result.notes.filter(note => note.bar === plan.bar).length; });
+    return result;
+  }
   function companionVoices(chord, note, wanted) {
     const chordPitches = new Set(chord.intervals.map(interval => H.mod(chord.root + interval))), preferred = wanted === 1 ? [3, 4, 8, 9, 7, 5] : [3, 4, 7, 10, 11, 5, 8, 9];
     const positions = [];
@@ -129,7 +191,8 @@
     const densityMode = densityCycleModes[options.densityCycleMode] ? options.densityCycleMode : 'fixed';
     const texture = leadTextures[options.leadTexture] ? options.leadTexture : 'single';
     const groove = leadGrooves[options.leadGroove] ? options.leadGroove : 'follow';
-    if (options.leadCycle?.rounds?.length === choruses) return { ...options.leadCycle, mode, densityMode, texture, groove, rounds: options.leadCycle.rounds.map(round => ({ ...round, phrase: clonePhrase(round.phrase) })) };
+    const performerProfile = Object.hasOwn(performerProfiles, options.performerProfile) ? options.performerProfile : 'balanced';
+    if (options.leadCycle?.rounds?.length === choruses) return { ...options.leadCycle, mode, densityMode, texture, groove, performerProfile: Object.hasOwn(performerProfiles, options.leadCycle.performerProfile) ? options.leadCycle.performerProfile : 'balanced', rounds: options.leadCycle.rounds.map(round => ({ ...round, phrase: clonePhrase(round.phrase) })) };
     const requestedStyle = Object.hasOwn(H.phraseStyles, options.style) ? options.style : 'mixed';
     const requestedDensity = Object.hasOwn(H.phraseIntensities, options.intensity) ? options.intensity : 'standard';
     const styles = leadSequence(H.phraseStyles, mode, requestedStyle, options.phraseStyleSequence, choruses, (seed >>> 0) ^ 0x41c64e6d);
@@ -138,13 +201,17 @@
     const rounds = Array.from({ length: choruses }, (_, index) => {
       const roundSeed = index ? ((seed >>> 0) ^ Math.imul(index + 1, 0x6d2b79f5)) >>> 0 : seed >>> 0;
       if (mode === 'repeat' && densityMode === 'fixed') {
-        shared ||= decorateLeadTexture(options.phrase || H.generate(parsed, seed, feel, { genre: options.genre, style: styles[0], intensity: densities[0], legacy: options.legacy }), parsed, texture, seed);
+        if (!shared) {
+          const generated = options.phrase || H.generate(parsed, seed, feel, { genre: options.genre, style: styles[0], intensity: densities[0], legacy: options.legacy });
+          const source = options.phrase || (options.legacy ? generated : shapeLeadPhrase(generated, parsed, performerProfile, seed, { feel, style: styles[0], intensity: densities[0] }));
+          shared = decorateLeadTexture(source, parsed, texture, seed);
+        }
         return { seed: seed >>> 0, style: styles[0], intensity: densities[0], phrase: clonePhrase(shared) };
       }
       const phrase = H.generate(parsed, roundSeed, feel, { genre: options.genre, style: styles[index], intensity: densities[index] });
-      return { seed: roundSeed, style: styles[index], intensity: densities[index], phrase: decorateLeadTexture(phrase, parsed, texture, roundSeed) };
+      return { seed: roundSeed, style: styles[index], intensity: densities[index], phrase: decorateLeadTexture(shapeLeadPhrase(phrase, parsed, performerProfile, roundSeed, { feel, style: styles[index], intensity: densities[index] }), parsed, texture, roundSeed) };
     });
-    return { mode, densityMode, texture, groove, rounds };
+    return { mode, densityMode, texture, groove, performerProfile, rounds };
   }
   function expandLeadNote(note) {
     const companions = note.companions || [], stackSize = companions.length + 1;
@@ -159,24 +226,27 @@
   function leadCycleEvents(cycle, chartBeats, backingFeel = 'shuffle') {
     const events = [];
     cycle.rounds.forEach((round, chorus) => {
-      const profile = leadGrooves[cycle.groove] || leadGrooves.follow, random = H.rng((round.seed >>> 0) ^ 0xa511e9b3);
+      const grooveProfile = leadGrooves[cycle.groove] || leadGrooves.follow, player = performerProfiles[cycle.performerProfile] || performerProfiles.balanced, random = H.rng((round.seed >>> 0) ^ 0xa511e9b3);
       for (const onset of round.phrase.notes) {
         const start = warpLeadBeat(onset.beat, cycle.groove, backingFeel), end = warpLeadBeat(onset.beat + onset.duration, cycle.groove, backingFeel);
-        const jitter = (random() * 2 - 1) * profile.jitterMs, dynamic = .96 + random() * .08, detune = (random() * 2 - 1) * 2.2;
-        for (const note of expandLeadNote(onset)) events.push({ ...note, beat: chorus * chartBeats + start, duration: Math.max(.02, end - start), velocity: Math.min(.96, note.velocity * dynamic), track: 'lead', chorus, leadStyle: round.style, leadIntensity: round.intensity, leadGroove: cycle.groove, timingOffset: Math.max(0, profile.delayMs + jitter + note.stackIndex * 7) / 1000, detuneCents: detune + note.stackIndex * .7 });
+        const jitter = (random() * 2 - 1) * grooveProfile.jitterMs * player.jitterScale, dynamic = .96 + random() * .08, detune = (random() * 2 - 1) * player.detune;
+        const accent = cycle.performerProfile === 'storyteller' ? (onset.bar % 2 ? .9 : 1.08) : cycle.performerProfile === 'pocket' ? (onset.beat % 1 ? 1.12 : .9) : 1;
+        for (const note of expandLeadNote(onset)) events.push({ ...note, beat: chorus * chartBeats + start, duration: Math.max(.02, (end - start) * player.gate), velocity: Math.min(.96, note.velocity * dynamic * player.velocityScale * accent), track: 'lead', chorus, leadStyle: round.style, leadIntensity: round.intensity, leadGroove: cycle.groove, performerProfile: cycle.performerProfile || 'balanced', timingOffset: Math.max(0, grooveProfile.delayMs + player.timingBiasMs + jitter + note.stackIndex * player.stackMs) / 1000, detuneCents: detune + note.stackIndex * .7 });
       }
     });
     return events.sort((a, b) => a.beat - b.beat || a.stackIndex - b.stackIndex);
   }
-  function humanizeArrangement(events, seed) {
-    const profiles = { drums: [3, 4, 0], bass: [6, 4, 1.1], keys: [11, 6, 1.8], rhythm: [8, 5, 1.6] };
+  function humanizeArrangement(events, seed, performerProfile = 'balanced') {
+    const profiles = { drums: [3, 4, 0], bass: [6, 4, 1.1], keys: [11, 6, 1.8], rhythm: [8, 5, 1.6], percussion: [5, 5, 0], strings: [13, 7, 2.5] }, player = performerProfiles[performerProfile] || performerProfiles.balanced;
     for (const [track, [delay, jitter, detune]] of Object.entries(profiles)) {
       const random = H.rng((seed >>> 0) ^ Math.imul(Object.keys(profiles).indexOf(track) + 11, 0x45d9f3b));
       for (const event of events.filter(item => item.track === track)) {
         const behind = track === 'drums' && /^snare-/.test(event.sample || '') ? 7 : 0;
-        event.timingOffset = Math.max(0, delay + behind + (random() * 2 - 1) * jitter) / 1000;
-        event.velocity = Math.max(.04, Math.min(.96, event.velocity * (.955 + random() * .09)));
+        const profileDelay = performerProfile === 'balanced' ? 0 : player.timingBiasMs * (track === 'drums' || track === 'percussion' ? .28 : .48);
+        event.timingOffset = Math.max(0, delay + behind + profileDelay + (random() * 2 - 1) * jitter * player.jitterScale + (track === 'strings' ? (event.stackIndex || 0) * player.stackMs : 0)) / 1000;
+        event.velocity = Math.max(.04, Math.min(.96, event.velocity * (.955 + random() * .09) * (performerProfile === 'balanced' ? 1 : player.velocityScale)));
         if (event.midi !== undefined) event.detuneCents = (random() * 2 - 1) * detune;
+        if (performerProfile !== 'balanced' && event.midi !== undefined && track !== 'bass') event.duration = Math.max(.02, event.duration * Math.max(.58, player.gate));
       }
     }
   }
@@ -185,17 +255,21 @@
     choruses = Math.max(1, Math.min(32, Math.floor(Number(choruses) || 1)));
     if (!feels[feel]) feel = 'shuffle';
     const { swing } = feels[feel], chartBeats = parsed.bars.length * 4, events = [], chorusStyles = [];
-    const randoms = Object.fromEntries(['bass', 'drums', 'keys', 'rhythm'].map((track, i) => [track, H.rng((seed >>> 0) ^ Math.imul(i + 1, 0x9e3779b9))]));
+    const randoms = Object.fromEntries(['bass', 'drums', 'keys', 'rhythm', 'percussion', 'strings'].map((track, i) => [track, H.rng((seed >>> 0) ^ Math.imul(i + 1, 0x9e3779b9))]));
     const mellow = feel === 'slow' || feel === 'halftime', syncopated = feel === 'funk' || feel === 'latin';
+    const player = performerProfiles[options.performerProfile] || performerProfiles.balanced;
+    const preferred = (track, fallback) => player.affinity[track]?.filter(style => Object.hasOwn({ bass: bassStyles, drums: drumStyles, keys: keyStyles, rhythm: rhythmStyles, percussion: percussionStyles, strings: stringsStyles }[track], style)) || fallback;
     const selected = {
-      bass: styleSequence(bassStyles, options.bassStyle, mellow ? ['fifths', 'pedal', 'walking'] : syncopated ? ['octave', 'riff', 'pedal'] : ['walking', 'boogie', 'fifths', 'riff', 'octave'], choruses, seed),
-      drums: styleSequence(drumStyles, options.drumStyle, drumPools[feel], choruses, seed ^ 0x354a),
-      keys: styleSequence(keyStyles, options.keyStyle, mellow ? ['pad', 'soul', 'arpeggio'] : syncopated ? ['offbeat', 'soul', 'arpeggio'] : ['pad', 'offbeat', 'soul', 'gospel', 'arpeggio'], choruses, seed ^ 0x78b1),
-      rhythm: styleSequence(rhythmStyles, options.rhythm === false ? 'none' : options.rhythmStyle, mellow ? ['arpeggio', 'offbeat', 'chop'] : syncopated ? ['clave', 'chop', 'offbeat'] : ['boogie', 'chop', 'offbeat', 'arpeggio'], choruses, seed ^ 0xe09c)
+      bass: styleSequence(bassStyles, options.bassStyle, preferred('bass', mellow ? ['fifths', 'pedal', 'walking'] : syncopated ? ['octave', 'riff', 'pedal'] : ['walking', 'boogie', 'fifths', 'riff', 'octave']), choruses, seed),
+      drums: styleSequence(drumStyles, options.drumStyle, preferred('drums', drumPools[feel]), choruses, seed ^ 0x354a),
+      keys: styleSequence(keyStyles, options.keyStyle, preferred('keys', mellow ? ['pad', 'soul', 'arpeggio'] : syncopated ? ['offbeat', 'soul', 'arpeggio'] : ['pad', 'offbeat', 'soul', 'gospel', 'arpeggio']), choruses, seed ^ 0x78b1),
+      rhythm: styleSequence(rhythmStyles, options.rhythm === false ? 'none' : options.rhythmStyle, preferred('rhythm', mellow ? ['arpeggio', 'offbeat', 'chop'] : syncopated ? ['clave', 'chop', 'offbeat'] : ['boogie', 'chop', 'offbeat', 'arpeggio']), choruses, seed ^ 0xe09c),
+      percussion: styleSequence(percussionStyles, options.percussionStyle ?? 'none', preferred('percussion', mellow ? ['none', 'shaker'] : syncopated ? ['clap', 'tambourine', 'shaker'] : ['shaker', 'tambourine', 'none']), choruses, seed ^ 0x6c8e),
+      strings: styleSequence(stringsStyles, options.stringsStyle ?? 'none', preferred('strings', mellow ? ['pad', 'response', 'none'] : syncopated ? ['pulse', 'response', 'none'] : ['response', 'pad', 'none']), choruses, seed ^ 0xb529)
     };
     const add = (track, beat, data) => events.push({ track, beat, ...data });
     const swung = beat => swingBeat(beat, swing);
-    let previousVoicing = [60, 64, 67];
+    let previousVoicing = [60, 64, 67], previousStrings = [55, 60, 64];
     for (let chorus = 0; chorus < choruses; chorus++) {
       const base = chorus * chartBeats, end = base + chartBeats;
       const styles = Object.fromEntries(Object.entries(selected).map(([track, values]) => [track, values[chorus]]));
@@ -221,6 +295,13 @@
         snares.forEach((offset, i) => hit(snare(offset, i + barIndex), b + drumBeat(offset) + .014, d === 'ride' ? .26 : d === 'latin' ? .34 : .62));
         if (d === 'funk') [.25, 2.75].forEach((offset, i) => hit(snare(offset, i), b + drumBeat(offset), .11));
         if (d === 'ride') [1, 3].forEach(offset => hit('hat-2', b + offset + .006, .17));
+      });
+      if (styles.percussion !== 'none') parsed.bars.forEach((bar, barIndex) => {
+        const b = base + barIndex * 4, cells = styles.percussion === 'shaker'
+          ? Array.from({ length: 8 }, (_, i) => [i / 2, `hat-${1 + (i + chorus) % 2}`, i % 2 ? .13 : .2, 1.55 + i % 2 * .12])
+          : styles.percussion === 'tambourine' ? [[1, 'open-hat', .28, 1.42], [3, 'open-hat', .31, 1.5], [3.5, 'hat-2', .14, 1.65]]
+            : [[1, 'snare-1', .31, 1.08], [3, 'snare-2', .34, 1.12]];
+        cells.forEach(([offset, sample, velocity, playbackRate], index) => add('percussion', b + swung(offset), { sample, duration: .075, velocity: Math.min(.55, velocity + randoms.percussion() * .035), playbackRate, percussionStyle: styles.percussion, variant: (barIndex + index + chorus) % 2 }));
       });
       // Style-specific drum pickups replace the ending groove, so backbeats are never doubled.
       const drumFills = {
@@ -274,6 +355,17 @@
         else if (styles.rhythm === 'offbeat') [.5, 1.5, 2.5, 3.5].filter(offset => offset < c.beats).forEach((offset, i) => strum(offset, .24, .5, [c.intervals[1], c.intervals[3] ?? c.intervals[2], 12], i));
         else if (styles.rhythm === 'clave') [0, 1.5, 3].filter(offset => offset < c.beats).forEach((offset, i) => strum(offset, .35, .49, c.intervals.slice(0, 3), i));
         else if (styles.rhythm === 'arpeggio') for (let i = 0; i / 2 < c.beats; i++) tone('rhythm', rhythmVoicing[[0, 2, 1, 2][i % 4]], start + swung(i / 2), .56, .45 + randoms.rhythm() * .04, { articulation: 'picked' });
+        const stringIntervals = [0, c.intervals[1] ?? 3, c.intervals[2] ?? 7], stringVoicing = [...new Set(stringIntervals.map((interval, i) => H.nearest(c.root + interval, previousStrings[i], 52, 79)))];
+        previousStrings = stringVoicing;
+        if (styles.strings !== 'none') {
+          const offsets = styles.strings === 'pad' ? [0] : styles.strings === 'pulse' ? [0, 2].filter(offset => offset < c.beats) : [Math.min(Math.max(1, c.beats * .55), Math.max(0, c.beats - .55))];
+          offsets.forEach((offset, pulse) => stringVoicing.forEach((midi, stackIndex) => {
+            const beat = start + swung(offset), available = chordEnd - beat;
+            if (available <= .006) return;
+            const duration = styles.strings === 'pad' ? available * .92 : styles.strings === 'pulse' ? Math.min(.82, available * .82) : Math.min(.72, available * .84);
+            add('strings', beat, { midi, duration: Math.max(.04, duration), velocity: (styles.strings === 'pad' ? .18 : styles.strings === 'pulse' ? .23 : .2) + randoms.strings() * .025, stringsStyle: styles.strings, articulation: styles.strings === 'pulse' ? 'short' : 'sustain', stackIndex, stackSize: stringVoicing.length, variant: (pulse + stackIndex + chordIndex + chorus) % 2 });
+          }));
+        }
         // Ending responses stay in the current chord and leave air before the next downbeat.
         if (chordEnd <= fillStart) return;
         const responseStart = Math.max(fillStart, start), responseLength = chordEnd - responseStart;
@@ -297,16 +389,16 @@
         });
       });
     }
-    humanizeArrangement(events, seed);
+    humanizeArrangement(events, seed, options.performerProfile);
     events.sort((a, b) => a.beat - b.beat);
     // Trim repeated pitches at the next attack; deliberately voiced chords remain polyphonic.
     const latest = new Map();
-    for (const event of events) if (event.track !== 'drums') {
+    for (const event of events) if (event.midi !== undefined) {
       const key = `${event.track}:${event.midi}`, previous = latest.get(key);
       if (previous && previous.beat + previous.duration > event.beat) previous.duration = Math.max(.001, event.beat - previous.beat);
       latest.set(key, event);
     }
-    return { events, beats: chartBeats * choruses, chartBeats, bassStyles: selected.bass, drumStyles: selected.drums, keyStyles: selected.keys, rhythmStyles: selected.rhythm, chorusStyles };
+    return { events, beats: chartBeats * choruses, chartBeats, bassStyles: selected.bass, drumStyles: selected.drums, keyStyles: selected.keys, rhythmStyles: selected.rhythm, percussionStyles: selected.percussion, stringsStyles: selected.strings, performerProfile: Object.hasOwn(performerProfiles, options.performerProfile) ? options.performerProfile : 'balanced', chorusStyles };
   }
-  window.practiceArrangements = { arrangement, swingBeat, feels, bassStyles, drumStyles, keyStyles, rhythmStyles, leadGrooves, leadTextures, phraseCycleModes, densityCycleModes, decorateLeadTexture, planLeadCycle, expandLeadNote, warpLeadBeat, leadCycleEvents, humanizeArrangement };
+  window.practiceArrangements = { arrangement, swingBeat, feels, bassStyles, drumStyles, keyStyles, rhythmStyles, percussionStyles, stringsStyles, performerProfiles, leadGrooves, leadTextures, phraseCycleModes, densityCycleModes, shapeLeadPhrase, decorateLeadTexture, planLeadCycle, expandLeadNote, warpLeadBeat, leadCycleEvents, humanizeArrangement };
 })();

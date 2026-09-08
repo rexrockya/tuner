@@ -29,9 +29,9 @@ for(const name of ['harmony.js','practice-arrangement.js','score-audio.js'])vm.r
 vm.runInContext(fs.readFileSync(path.join(docs,'practice-audio.js'),'utf8').replace(/import\('\.\/practice-timbres\.js[^']*'\)/,"window.importTimbres()"),sandbox);
 const A=window.practiceAudio, event=(midi=69,velocity=.72)=>({track:'lead',midi,velocity,duration:1,beat:0});
 try {
-  assert.equal(A.getTimbre('lead'),'warm');for(const track of ['drums','bass','keys','rhythm','lead'])assert.ok(Object.keys(A.timbres[track]).length>=3);for(const id of ['jazz','blues','singing'])assert.ok(A.timbres.lead[id]);
+  assert.equal(A.getTimbre('lead'),'warm');for(const track of ['drums','bass','keys','rhythm','percussion','strings','lead'])assert.ok(Object.keys(A.timbres[track]).length>=3);for(const id of ['jazz','blues','singing'])assert.ok(A.timbres.lead[id]);
   const ctx=A.getContext(), bank=module.createSampleBank(ctx,window.scoreAudio);
-  assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===-.2));assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===.2),'persistent track buses create a stereo stage');
+  assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===-.2));assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===.2));assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===.3));assert.ok(nodes.filter(node=>node.type==='panner').some(node=>node.pan.value===-.14),'all persistent track buses create a stereo stage');
   await bank.ensure('piano',[event()]);
   const pianoRequests=requests.filter(url=>url.includes('sfzinstruments-splendid-grand-piano'));
   assert.equal(pianoRequests.length,1,'one pitch/velocity requires one original region, not the entire piano');
@@ -41,11 +41,19 @@ try {
   failPiano=true;await assert.rejects(bank.ensure('piano',[event(76)]),/音色载入失败/);failPiano=false;await bank.ensure('piano',[event(76)]);assert.ok(bank.get('piano',event(76)),'failed region retry succeeds');
   const before=decodes.length;await bank.ensure('violin',[event(69),event(72)]);assert.equal(decodes.length-before,2,'only selected violin notes decoded');
   const violin=bank.get('violin',event());assert.equal(violin.midi,69);assert.equal(violin.loop,true);assert.equal(violin.loopStart,.8);assert.equal(violin.loopEnd,2.8);assert.ok(!violin.buffer.tag.includes('PIANO'));
+  const stringEvent={track:'strings',midi:74,velocity:.42,duration:2,beat:0,stackIndex:0,stackSize:3};const stringBefore=decodes.length;await bank.ensure('violin',[event(76),stringEvent],'strings');assert.equal(decodes.length-stringBefore,1,'strings prepare only their own requested violin region');assert.ok(bank.get('violin',stringEvent));
   console.log('PASS: original score piano regions, requested pitch/velocity only, cache, retry and real local violin sustain mapping');
   const transport=new A.Transport();transport.load({events:[event()],beats:4,chartBeats:4});
   await A.setTimbre('lead','piano',transport.song.events);assert.equal(starts.length,0);assert.equal(resumed,0,'timbre loads never unlock audio');
   await transport.play();assert.equal(timers.size,1);const playingPiano=starts.at(-1).node;assert.ok(playingPiano.buffer.tag.includes('PIANO'));assert.equal(playingPiano.loop,undefined);transport.pause();assert.equal(timers.size,0);
   await A.setTimbre('lead','violin',transport.song.events);await transport.play();assert.equal(starts.at(-1).node.loop,true,'actual scheduled violin retains bow sustain');transport.pause();assert.ok(stops.some(item=>item.node===starts.at(-1).node),'pause stops sampled instrument voices too');
+  await A.setTimbre('strings','warm',[stringEvent]);transport.load({events:[stringEvent],beats:4,chartBeats:4});await transport.play();assert.equal(starts.at(-1).node.loop,true,'strings use the shared real bowed sustain bank');assert.ok(nodes.filter(node=>node.type==='lowpass').some(node=>node.frequency.value===5200),'warm strings use a dedicated slow, filtered patch');transport.pause();
+  const percussion={track:'percussion',sample:'hat-1',beat:0,velocity:.3,duration:.08,playbackRate:1.6};await A.setTimbre('percussion','natural',[percussion]);transport.load({events:[percussion],beats:4,chartBeats:4});await transport.play();assert.ok(starts.at(-1).node.buffer,'auxiliary percussion starts a real recorded source');transport.pause();
+  await A.setTimbre('drums','natural');
+  let sourceOffset=starts.length;transport.load({events:[{track:'drums',sample:'open-hat',beat:0,velocity:.4,duration:.12},percussion],beats:4,chartBeats:4});await transport.play();
+  let openSource=starts.slice(sourceOffset).find(item=>item.node.type==='sample').node;assert.equal(stops.filter(item=>item.node===openSource).length,1,'percussion closed hat does not choke the drum open hat');transport.pause();
+  sourceOffset=starts.length;transport.load({events:[{track:'percussion',sample:'open-hat',beat:0,velocity:.3,duration:.08},{track:'drums',sample:'hat-1',beat:0,velocity:.4,duration:.12}],beats:4,chartBeats:4});await transport.play();
+  openSource=starts.slice(sourceOffset).find(item=>item.node.type==='sample').node;assert.equal(stops.filter(item=>item.node===openSource).length,1,'drum closed hat does not choke the auxiliary open hat');transport.pause();
   for(const track of ['drums','bass','rhythm','lead']){
     const id=track==='drums'?'vintage':track==='bass'?'muted':'crunch';await A.setTimbre(track,id);
     const e=track==='drums'?{track,sample:'kick-1',velocity:.7,beat:0}: {...event(57),track};
@@ -62,6 +70,7 @@ try {
   const electro={track:'drums',sample:'kick-1',beat:0,velocity:.7,duration:.12};
   await Promise.all([A.prepareTimbres({drums:'electro'},[electro]),A.prepareTimbres({drums:'electro'},[electro])]);assert.equal(requests.filter(url=>url.includes('electro/manifest.json')).length,1);assert.equal(requests.filter(url=>url.includes('electro/')&&url.endsWith('.wav')).length,8);
   assert.equal(A.getTimbre('drums'),'vintage','preparing kit leaves active selection unchanged');await A.setTimbre('drums','electro',[electro]);transport.load({events:[electro],beats:4,chartBeats:4});await transport.play();assert.ok(starts.at(-1).node.buffer.tag.startsWith('RIFF'),'electro playback uses supplied WAV buffer');transport.pause();
+  const electroPercussion={...percussion,sample:'hat-2'};await A.setTimbre('percussion','electro',[electroPercussion]);transport.load({events:[electroPercussion],beats:4,chartBeats:4});await transport.play();assert.ok(starts.at(-1).node.buffer.tag.startsWith('RIFF'),'percussion can share the lazy electro kit without another manifest');transport.pause();assert.equal(requests.filter(url=>url.includes('electro/manifest.json')).length,1);
   for(const [track,id]of[['bass','synth'],['bass','acid'],['keys','synth'],['keys','pad']]){
     await A.setTimbre(track,id);const before=starts.length;transport.load({events:[{...event(track==='bass'?36:64),track}],beats:4,chartBeats:4});await transport.play();const voices=starts.slice(before);assert.equal(voices.length,2,'synth really schedules two oscillators');assert.ok(voices.every(v=>['sine','triangle','sawtooth'].includes(v.node.type)));transport.pause();assert.ok(voices.every(v=>stops.some(stop=>stop.node===v.node&&stop.at<=now+.031)),'pause stops every synth layer');
   }

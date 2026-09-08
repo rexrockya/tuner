@@ -3,22 +3,22 @@
   const H = window.tunerHarmony, R = window.practiceArrangements;
   if (!H || !R || window.tunerGenres) return;
   const profiles = {
-    blues: { label: 'Blues', subtitle: '蓝调 · 问答与摇摆', color: '#79a9ff', key: 'A', feel: 'shuffle', bpm: 96, style: 'blues', description: '从十二小节、蓝调音和问答句开始，让短句在和声变化中找到落点。', create: '17,47,17,57', backing: '17,17,17,17,47,47,17,17,57,47,17,57', timbres: { drums: 'vintage', bass: 'round', keys: 'jazz', rhythm: 'warm', lead: 'warm' }, pools: { bass: ['walking','boogie','riff'], drums: ['shuffle','backbeat'], keys: ['soul','pad'], rhythm: ['boogie','offbeat'] }, presets: [['十二小节', '17,17,17,17,47,47,17,17,57,47,17,57'], ['Quick change', '17,47,17,17,47,47,17,17,57,47,17,57'], ['小调 Blues', '1m7,1m7,4m7,1m7,b67,57,1m7,57']] },
-    jazz: { label: 'Jazz', subtitle: '爵士 · 和弦音与连接', color: '#edbd68', key: 'C', feel: 'shuffle', bpm: 112, style: 'arpeggio', description: '听三音和七音如何连接，以 ii–V–I、动机和留白练习即兴。', create: '2m7,57,1maj7,1maj7', backing: '2m7,57,1maj7,6m7,2m7,57,1maj7,1maj7', timbres: { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', lead: 'warm' }, pools: { bass: ['walking','fifths'], drums: ['ride','backbeat'], keys: ['offbeat','soul'], rhythm: ['chop','arpeggio'] }, presets: [['ii–V–I', '2m7,57,1maj7,1maj7'], ['Turnaround', '1maj7,67,2m7,57'], ['小调 ii–V–i', '2m7b5,57,1m7,1m7']] },
-    'funk-soul': { label: 'Funk / Soul', subtitle: '切分 · 短奏与应答', color: '#f1869f', key: 'A', feel: 'funk', bpm: 100, style: 'syncopated', description: '让十六分切分与空拍交替；短奏锁住鼓和 Bass，再用 Soul 长句作回答。', create: '1m7,1m7,4m7,1m7', backing: '1m7,1m7,4m7,1m7,1m7,b7,4m7,1m7', timbres: { drums: 'crisp', bass: 'precision', keys: 'gospel', rhythm: 'dry', lead: 'bright' }, pools: { bass: ['pocket','octave'], drums: ['funk','neo'], keys: ['soul','offbeat'], rhythm: ['sixteenth','soulcomp'] }, presets: [['Minor pocket', '1m7,1m7,4m7,1m7'], ['Soul 应答', '1maj7,6m7,2m7,57'], ['Dominant vamp', '17,17,47,17']] },
-    shoegaze: { label: 'Shoegaze', subtitle: '梦幻噪音 · 延音与层次', color: '#c4a2ef', key: 'D', feel: 'dream', bpm: 78, style: 'space', description: '在缓慢变化的和弦上保持共同音，用重复动机、延音和空间音色建立层次。', create: '1sus2,6m7,4sus2,1sus2', backing: '1sus2,1sus2,6m7,6m7,4sus2,4sus2,1sus2,1sus2', timbres: { drums: 'vintage', bass: 'round', keys: 'soft', rhythm: 'ambient', lead: 'ambient' }, pools: { bass: ['sustain','fifths'], drums: ['wash','halftime'], keys: ['haze','pad'], rhythm: ['wash','arpeggio'] }, presets: [['悬挂音色', '1sus2,6m7,4sus2,1sus2'], ['缓慢展开', '1add9,1add9,b7add9,4add9'], ['共同音', '1maj7,6m7,4maj7,1maj7']] },
-    folk: { label: 'Folk', subtitle: '民谣 · 旋律与分解', color: '#8fcea2', key: 'G', feel: 'folk', bpm: 92, style: 'motif', description: '用可唱的五声音阶动机、交替低音与分解伴奏，练习清楚的乐句呼吸。', create: '1,5,6,4', backing: '1,5,6,4,1,4,5,1', timbres: { drums: 'vintage', bass: 'muted', keys: 'soft', rhythm: 'dry', lead: 'dry' }, pools: { bass: ['fingerroot','fifths'], drums: ['soft','none'], keys: ['none'], rhythm: ['fingerpick','arpeggio'] }, presets: [['四和弦叙事', '1,5,6,4'], ['主属问答', '1,4,5,1'], ['小调叙事', '6,4,1,5']] },
-    rnb: { label: 'R&B', subtitle: '节奏布鲁斯 · 留白与色彩', color: '#d99aed', key: 'C', feel: 'rnb', bpm: 76, style: 'call', description: '在松弛的节奏上用七和弦、九音色彩和短装饰音作答，让休止也成为旋律。', create: '4maj7,3m7,6m7,2m7', backing: '4maj7,3m7,6m7,2m7,4maj7,3m7,6m7,57', timbres: { drums: 'vintage', bass: 'precision', keys: 'soft', rhythm: 'warm', lead: 'warm' }, pools: { bass: ['pocket','sustain'], drums: ['neo','halftime'], keys: ['neo','soul'], rhythm: ['soulcomp','arpeggio'] }, presets: [['七和弦循环', '4maj7,3m7,6m7,2m7'], ['九音色彩', '4maj9,3m7,6m9,2m9'], ['温柔终止', '2m7,57,1maj7,6m7']] }
+    blues: { label: 'Blues', subtitle: '蓝调 · 问答与摇摆', color: '#79a9ff', key: 'A', feel: 'shuffle', bpm: 96, style: 'blues', performer: 'storyteller', description: '从十二小节、蓝调音和问答句开始，让短句在和声变化中找到落点。', create: '17,47,17,57', backing: '17,17,17,17,47,47,17,17,57,47,17,57', timbres: { drums: 'vintage', bass: 'round', keys: 'jazz', rhythm: 'warm', percussion: 'natural', strings: 'warm', lead: 'warm' }, pools: { bass: ['walking','boogie','riff'], drums: ['shuffle','backbeat'], keys: ['soul','pad'], rhythm: ['boogie','offbeat'], percussion: ['shaker','none'], strings: ['response','none'] }, presets: [['十二小节', '17,17,17,17,47,47,17,17,57,47,17,57'], ['Quick change', '17,47,17,17,47,47,17,17,57,47,17,57'], ['小调 Blues', '1m7,1m7,4m7,1m7,b67,57,1m7,57']] },
+    jazz: { label: 'Jazz', subtitle: '爵士 · 和弦音与连接', color: '#edbd68', key: 'C', feel: 'shuffle', bpm: 112, style: 'arpeggio', performer: 'navigator', description: '听三音和七音如何连接，以 ii–V–I、动机和留白练习即兴。', create: '2m7,57,1maj7,1maj7', backing: '2m7,57,1maj7,6m7,2m7,57,1maj7,1maj7', timbres: { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', percussion: 'bright', strings: 'chamber', lead: 'warm' }, pools: { bass: ['walking','fifths'], drums: ['ride','backbeat'], keys: ['offbeat','soul'], rhythm: ['chop','arpeggio'], percussion: ['shaker','none'], strings: ['response','none'] }, presets: [['ii–V–I', '2m7,57,1maj7,1maj7'], ['Turnaround', '1maj7,67,2m7,57'], ['小调 ii–V–i', '2m7b5,57,1m7,1m7']] },
+    'funk-soul': { label: 'Funk / Soul', subtitle: '切分 · 短奏与应答', color: '#f1869f', key: 'A', feel: 'funk', bpm: 100, style: 'syncopated', performer: 'pocket', description: '让十六分切分与空拍交替；短奏锁住鼓和 Bass，再用 Soul 长句作回答。', create: '1m7,1m7,4m7,1m7', backing: '1m7,1m7,4m7,1m7,1m7,b7,4m7,1m7', timbres: { drums: 'crisp', bass: 'precision', keys: 'gospel', rhythm: 'dry', percussion: 'bright', strings: 'warm', lead: 'bright' }, pools: { bass: ['pocket','octave'], drums: ['funk','neo'], keys: ['soul','offbeat'], rhythm: ['sixteenth','soulcomp'], percussion: ['clap','tambourine','shaker'], strings: ['pulse','response'] }, presets: [['Minor pocket', '1m7,1m7,4m7,1m7'], ['Soul 应答', '1maj7,6m7,2m7,57'], ['Dominant vamp', '17,17,47,17']] },
+    shoegaze: { label: 'Shoegaze', subtitle: '梦幻噪音 · 延音与层次', color: '#c4a2ef', key: 'D', feel: 'dream', bpm: 78, style: 'space', performer: 'atmospheric', description: '在缓慢变化的和弦上保持共同音，用重复动机、延音和空间音色建立层次。', create: '1sus2,6m7,4sus2,1sus2', backing: '1sus2,1sus2,6m7,6m7,4sus2,4sus2,1sus2,1sus2', timbres: { drums: 'vintage', bass: 'round', keys: 'soft', rhythm: 'ambient', percussion: 'natural', strings: 'air', lead: 'ambient' }, pools: { bass: ['sustain','fifths'], drums: ['wash','halftime'], keys: ['haze','pad'], rhythm: ['wash','arpeggio'], percussion: ['none','shaker'], strings: ['pad','response'] }, presets: [['悬挂音色', '1sus2,6m7,4sus2,1sus2'], ['缓慢展开', '1add9,1add9,b7add9,4add9'], ['共同音', '1maj7,6m7,4maj7,1maj7']] },
+    folk: { label: 'Folk', subtitle: '民谣 · 旋律与分解', color: '#8fcea2', key: 'G', feel: 'folk', bpm: 92, style: 'motif', performer: 'storyteller', description: '用可唱的五声音阶动机、交替低音与分解伴奏，练习清楚的乐句呼吸。', create: '1,5,6,4', backing: '1,5,6,4,1,4,5,1', timbres: { drums: 'vintage', bass: 'muted', keys: 'soft', rhythm: 'dry', percussion: 'natural', strings: 'chamber', lead: 'dry' }, pools: { bass: ['fingerroot','fifths'], drums: ['soft','none'], keys: ['none'], rhythm: ['fingerpick','arpeggio'], percussion: ['shaker','tambourine','none'], strings: ['response','none'] }, presets: [['四和弦叙事', '1,5,6,4'], ['主属问答', '1,4,5,1'], ['小调叙事', '6,4,1,5']] },
+    rnb: { label: 'R&B', subtitle: '节奏布鲁斯 · 留白与色彩', color: '#d99aed', key: 'C', feel: 'rnb', bpm: 76, style: 'call', performer: 'colorist', description: '在松弛的节奏上用七和弦、九音色彩和短装饰音作答，让休止也成为旋律。', create: '4maj7,3m7,6m7,2m7', backing: '4maj7,3m7,6m7,2m7,4maj7,3m7,6m7,57', timbres: { drums: 'vintage', bass: 'precision', keys: 'soft', rhythm: 'warm', percussion: 'bright', strings: 'warm', lead: 'warm' }, pools: { bass: ['pocket','sustain'], drums: ['neo','halftime'], keys: ['neo','soul'], rhythm: ['soulcomp','arpeggio'], percussion: ['clap','shaker','none'], strings: ['pad','response'] }, presets: [['七和弦循环', '4maj7,3m7,6m7,2m7'], ['九音色彩', '4maj9,3m7,6m9,2m9'], ['温柔终止', '2m7,57,1maj7,6m7']] }
   };
   const originalGenerate = H.generate, originalArrange = R.arrangement;
-  const oldCatalogs = Object.fromEntries(['bass','drum','key','rhythm'].map(track => [track, {...R[track+'Styles']}]));
+  const oldCatalogs = Object.fromEntries(['bass','drum','key','rhythm','percussion','strings'].map(track => [track, {...R[track+'Styles']}]));
   const oldFeels = {...R.feels};
   Object.assign(R.feels, { dream: {label:'Dream · 舒展四拍',swing:.5,bpm:78}, folk:{label:'Folk · 分解四拍',swing:.5,bpm:92}, rnb:{label:'R&B · 松弛四拍',swing:.5,bpm:76} });
   Object.assign(R.bassStyles, { pocket:'Pocket · 切分低音', sustain:'长音 · 根音铺底', fingerroot:'Folk · 交替低音' });
   Object.assign(R.drumStyles, { none:'None · 关闭', soft:'Folk · 轻鼓', wash:'Dream · 宽松重拍', neo:'R&B · 碎拍' });
   Object.assign(R.keyStyles, { haze:'Dream · 色彩长音', neo:'R&B · 七九和弦' });
   Object.assign(R.rhythmStyles, { sixteenth:'Funk · 十六分短切', fingerpick:'Folk · 交替分解', wash:'Dream · 延音和弦', soulcomp:'Soul · 留白应答' });
-  for (const track of ['bass','drum','key','rhythm']) R[track+'Styles'].auto = '风格内自动变化';
+  for (const track of ['bass','drum','key','rhythm','percussion','strings']) R[track+'Styles'].auto = track === 'percussion' || track === 'strings' ? '风格与演奏取向自动变化' : '风格内自动变化';
   const normalize = id => Object.hasOwn(profiles,id) ? id : null;
   // Keep the historical parser and saved interval snapshots unchanged. New profiles
   // explicitly opt into sounding the color tones described by a chord's suffix.
@@ -104,38 +104,41 @@
   }
   function sequence(pool,requested,count,seed) {
     if (requested&&requested!=='auto') return Array(count).fill(requested);
+    if (pool.length <= 1) return Array(count).fill(pool[0] || 'none');
     const random=H.rng(seed),out=[];
     for(let i=0;i<count;i++){const choices=pool.filter(value=>value!==out[i-1]&&(i!==count-1||count<3||value!==out[0]));const list=choices.length?choices:pool;out.push(list[Math.floor(random()*list.length)]);}
     return out;
   }
   function arrange(parsed,feel,seed,choruses=4,options={}) {
-    const genre=normalize(options.genre), custom=Object.entries({bass:'bass',drums:'drum',keys:'key',rhythm:'rhythm'}).some(([,key])=>options[key+'Style']&&!oldCatalogs[key][options[key+'Style']]);
+    const genre=normalize(options.genre), trackKeys={bass:'bass',drums:'drum',keys:'key',rhythm:'rhythm',percussion:'percussion',strings:'strings'}, custom=Object.entries(trackKeys).some(([,key])=>options[key+'Style']&&!oldCatalogs[key][options[key+'Style']]);
     if (!genre&&!custom&&oldFeels[feel]) return originalArrange(parsed,feel,seed,choruses,options);
     const profile=profiles[genre||'blues'];
     choruses=Math.max(1,Math.min(32,Math.floor(Number(choruses)||1)));
     const chart=enrich(parsed),chartBeats=chart.bars.length*4,events=[],chorusStyles=[];
     if(chart.error||!chart.chords.length)throw Error(chart.error||'先写一组和声');
-    const catalogs={bass:R.bassStyles,drums:R.drumStyles,keys:R.keyStyles,rhythm:R.rhythmStyles},fields={bass:'bassStyle',drums:'drumStyle',keys:'keyStyle',rhythm:'rhythmStyle'};
+    const catalogs={bass:R.bassStyles,drums:R.drumStyles,keys:R.keyStyles,rhythm:R.rhythmStyles,percussion:R.percussionStyles,strings:R.stringsStyles},fields={bass:'bassStyle',drums:'drumStyle',keys:'keyStyle',rhythm:'rhythmStyle',percussion:'percussionStyle',strings:'stringsStyle'},player=R.performerProfiles[options.performerProfile]||R.performerProfiles.balanced;
     const selected=Object.fromEntries(Object.entries(fields).map(([track,field],i)=>{
       let requested=options[field];if(track==='rhythm'&&options.rhythm===false)requested='none';
+      if(requested===undefined&&(track==='percussion'||track==='strings'))requested='none';
       if(!catalogs[track][requested])requested='auto';
-      return [track,sequence(profile.pools[track],requested,choruses,(seed>>>0)^Math.imul(i+1,0x9e3779b9))];
+      const affinity=(player.affinity[track]||[]).filter(value=>catalogs[track][value]&&profile.pools[track].includes(value)),pool=affinity.length?[...affinity,...profile.pools[track]]:profile.pools[track];
+      return [track,sequence(pool,requested,choruses,(seed>>>0)^Math.imul(i+1,0x9e3779b9))];
     }));
     for(let chorus=0;chorus<choruses;chorus++) {
       const styles=Object.fromEntries(Object.entries(selected).map(([track,list])=>[track,list[chorus]])),base=chorus*chartBeats,localSeed=(seed+chorus*8191)>>>0;
-      const legacyOptions=Object.fromEntries(Object.entries(fields).map(([track,field])=>[field,oldCatalogs[field.replace('Style','')][styles[track]]?styles[track]:track==='bass'?'fifths':track==='drums'?'backbeat':'none']));
+      const legacyOptions={...Object.fromEntries(Object.entries(fields).map(([track,field])=>[field,oldCatalogs[field.replace('Style','')][styles[track]]?styles[track]:track==='bass'?'fifths':track==='drums'?'backbeat':'none'])),performerProfile:options.performerProfile};
       const legacy=originalArrange(chart,oldFeels[feel]?feel:'straight',localSeed,1,legacyOptions);
       for(const track of Object.keys(fields)) {
         const registry=oldCatalogs[fields[track].replace('Style','')];
         if(registry[styles[track]]) events.push(...legacy.events.filter(event=>event.track===track).map(event=>({...event,beat:event.beat+base})));
-        else events.push(...part(chart,track,styles[track],feel,localSeed,chorus).map(event=>({...event,beat:event.beat+base})));
+        else events.push(...part(chart,track,styles[track],feel,localSeed,chorus,options.performerProfile).map(event=>({...event,beat:event.beat+base})));
       }
       chorusStyles.push(styles);
     }
     events.sort((a,b)=>a.beat-b.beat);
-    return {events,genre,beats:chartBeats*choruses,chartBeats,bassStyles:selected.bass,drumStyles:selected.drums,keyStyles:selected.keys,rhythmStyles:selected.rhythm,chorusStyles};
+    return {events,genre,beats:chartBeats*choruses,chartBeats,bassStyles:selected.bass,drumStyles:selected.drums,keyStyles:selected.keys,rhythmStyles:selected.rhythm,percussionStyles:selected.percussion,stringsStyles:selected.strings,performerProfile:R.performerProfiles[options.performerProfile]?options.performerProfile:'balanced',chorusStyles};
   }
-  function part(parsed,track,style,feel,seed,chorus) {
+  function part(parsed,track,style,feel,seed,chorus,performerProfile) {
     if(style==='none')return [];
     const events=[],random=H.rng(seed^({bass:11,drums:23,keys:37,rhythm:51})[track]),swing=R.feels[feel]?.swing??.5,total=parsed.bars.length*4;
     const add=(beat,duration,velocity,data={})=>{if(beat<total)events.push({track,beat,duration:Math.max(.006,Math.min(duration,total-beat)),velocity:Math.min(.9,velocity*(.96+random()*.08)),variant:Math.floor(random()*2),...data});};
@@ -148,7 +151,7 @@
         (neo?[2]:[1,3]).forEach(beat=>add(base+R.swingBeat(beat,swing)+.012,.12,soft?.2:.48,{sample:'snare-2',drumStyle:style}));
         if(neo)[1.75,3.25].forEach(beat=>add(base+R.swingBeat(beat,swing),.08,.1,{sample:'snare-1',drumStyle:style}));
       }
-      R.humanizeArrangement?.(events,seed);
+      R.humanizeArrangement?.(events,seed,performerProfile);
       return events;
     }
     parsed.chords.forEach((chord,chordIndex)=>{
@@ -174,7 +177,7 @@
         }
       }
     });
-    R.humanizeArrangement?.(events,seed);
+    R.humanizeArrangement?.(events,seed,performerProfile);
     return events;
   }
   H.generate=generate;R.arrangement=arrange;

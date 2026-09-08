@@ -2,13 +2,13 @@
   'use strict';
   const base = new URL('.', document.currentScript.src), pending = new Map();
   const libraries = {
-    arrangement: ['practice-arrangement.js?v=20260909-performance-2',()=>window.practiceArrangements],
-    genres: ['music-genres.js?v=20260909-genres-1',()=>window.tunerGenres],
+    arrangement: ['practice-arrangement.js?v=20260909-players-1',()=>window.practiceArrangements],
+    genres: ['music-genres.js?v=20260909-players-1',()=>window.tunerGenres],
     curriculum: ['genre-curriculum.js?v=20260909-genres-1',()=>window.tunerCurriculum],
     courses: ['genre-lessons.js?v=20260909-genres-1',()=>window.genreLessons],
     notation: ['practice-notation.js?v=20260909-performance-2',()=>window.practiceNotation],
-    practiceAudio: ['practice-audio.js?v=20260909-performance-2', () => window.practiceAudio],
-    practice: ['practice.js?v=20260909-performance-2', () => window.practiceStudio],
+    practiceAudio: ['practice-audio.js?v=20260909-players-1', () => window.practiceAudio],
+    practice: ['practice.js?v=20260909-players-1', () => window.practiceStudio],
     sound: ['sound-meter.js?v=20260908-3', () => window.soundMeter],
     score: ['assets/vendor/opensheetmusicdisplay-2.1.2.min.js', () => window.opensheetmusicdisplay],
     tone: ['assets/vendor/tone-14.9.17.js', () => window.Tone],

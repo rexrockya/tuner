@@ -139,6 +139,7 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   S.generate(916); await flush(); assert.equal(t.playing, false); assert.equal(A.getTimbre('lead'), 'violin', 'stopped generation reconciles a selected but cancelled voice');
   const queuedBeforeLate = queued.length; stoppedRequest.resolve(); await flush(); assert.equal(queued.length, queuedBeforeLate); assert.equal(t.playing, false);
   const storedVoices = { drums: 'vintage', bass: 'muted', keys: 'gospel', rhythm: 'bright', lead: 'piano' };
+  const restoredVoices = { ...storedVoices, percussion: 'natural', strings: 'chamber' };
   const restoredFavorite = { version: 2, harmonyVersion: 2, text: '2m7,57,1maj7', key: 'C', feel: 'funk', bpm: 123,
     seed: initial.seed, phrase: initial, style: 'mixed', intensity: 'standard', bassStyle: 'walking', drumStyle: 'ride', keyStyle: 'soul', rhythmStyle: 'chop', timbres: storedVoices };
   w.siteStorage.setItem('tuner-original-licks-v1', JSON.stringify([restoredFavorite]));
@@ -147,8 +148,8 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   change('practice-saved', '0');
   assert.equal(preparations.length, beforeSavedRequests + 1, 'loading a live favorite prepares one complete candidate, not one per changed instrument');
   assert.equal(t.playing, true); assert.equal(t.song, beforeSavedSong); assert.equal(t.bpm, beforeSavedBpm); assert.deepEqual(plain(S.getPhrase()), beforeSavedPhrase);
-  assert.deepEqual(preparations.at(-1).selection, storedVoices, 'favorite preparation includes all five selected voices together');
-  await completeLatest(); assert.equal(t.pendingUpdate.options.bpm, 123); assert.deepEqual(plain(t.pendingUpdate.options.timbres), storedVoices);
+  assert.deepEqual(preparations.at(-1).selection, restoredVoices, 'favorite preparation includes all selected voices and compatible defaults together');
+  await completeLatest(); assert.equal(t.pendingUpdate.options.bpm, 123); assert.deepEqual(plain(t.pendingUpdate.options.timbres), restoredVoices);
   t.boundary(4); assert.equal(t.playing, true); assert.equal(t.bpm, 123); assert.deepEqual(plain(S.getPhrase()), initial);
   for (const [track, id] of Object.entries(storedVoices)) { assert.equal(A.getTimbre(track), id); assert.equal(d.querySelector('[data-practice-timbre="' + track + '"]').value, id); }
   for (const [field, expected] of [['practice-feel', 'funk'], ['practice-intensity', 'standard'], ['practice-bass-style', 'walking'], ['practice-drum-style', 'ride'], ['practice-key-style', 'soul'], ['practice-rhythm-style', 'chop']]) assert.equal(q(field).value, expected);

@@ -6,7 +6,9 @@ const fs=require('node:fs'),assert=require('node:assert/strict'),{JSDOM}=require
  const A=w.practiceAudio,S=w.practiceStudio;d.getElementById('lesson-page').style.display='block';S.setMode('create');S.generate(912);const phrase=plain(S.getPhrase());
  const change=(id,value)=>{q(id).value=value;q(id).dispatchEvent(new w.Event('change'));};
  assert.equal(q('practice-notation').value,'tab');assert.equal(q('practice-tab').hidden,false);assert.equal(q('practice-staff').hidden,true);
- for(const track of ['drums','bass','keys','rhythm','lead'])assert.ok(d.querySelector('[data-practice-timbre="'+track+'"]').options.length>=3);
+ for(const track of ['drums','bass','keys','rhythm','percussion','strings','lead'])assert.ok(d.querySelector('[data-practice-timbre="'+track+'"]').options.length>=3);
+ assert.equal(q('practice-performer-profile').options.length,6);assert.ok(q('practice-performer-help').textContent.includes('手动选择'));
+ for(const id of ['practice-percussion-style','practice-strings-style'])assert.equal(q(id).tagName,'SELECT');
  for(const id of ['piano','violin'])assert.ok(d.querySelector('[data-practice-timbre="lead"] [value="'+id+'"]'));
  const volume=d.querySelector('[data-practice-volume="lead"]');volume.value='37';volume.dispatchEvent(new w.Event('input'));assert.equal(d.querySelector('[data-practice-volume-value="lead"]').textContent,'37%');
  change('practice-rhythm-style','none');change('practice-key-style','none');assert.ok(S.transport.song.events.every(e=>!['keys','rhythm'].includes(e.track)));assert.deepEqual(plain(S.getPhrase()),phrase);
@@ -23,7 +25,7 @@ const fs=require('node:fs'),assert=require('node:assert/strict'),{JSDOM}=require
  const current=plain(S.getPhrase());S.transport.position=3;voice('piano');assert.equal(q('practice-play').disabled,true);voice('violin');pending[0].resolve(false);await tick();assert.equal(q('practice-play').disabled,true,'older choice cannot clear pending newer choice');
  selected.lead='violin';pending[1].resolve(true);await tick();assert.equal(q('practice-play').disabled,false);assert.equal(S.transport.playing,false);assert.equal(S.transport.position,3);assert.deepEqual(plain(S.getPhrase()),current);
  const midi=Buffer.from(S.midiFile());assert.deepEqual([...midi.subarray(29,32)],[0,192,40],'Lead violin MIDI program follows selected timbre');
- q('practice-save').click();const saved=JSON.parse(w.siteStorage.getItem('tuner-original-licks-v1'))[0];assert.equal(saved.timbres.lead,'violin');assert.equal(saved.keyStyle,'none');assert.equal(saved.rhythmStyle,'none');
+ q('practice-save').click();const saved=JSON.parse(w.siteStorage.getItem('tuner-original-licks-v1'))[0];assert.equal(saved.timbres.lead,'violin');assert.equal(saved.keyStyle,'none');assert.equal(saved.rhythmStyle,'none');assert.equal(saved.performerProfile,'balanced');assert.equal(saved.percussionStyle,'none');assert.equal(saved.stringsStyle,'none');
  S.setMode('backing');S.setMode('create');assert.deepEqual(plain(S.getPhrase()),current);assert.equal(q('practice-key-style').value,'none');
  dom.window.close();console.log('PASS ensemble controls: per-track style/voice selectors, none, volumes, four-chorus melody reuse, global notation cancellation/reentry, pending voice races, position preservation, MIDI and saved voice/style settings');
 })().catch(e=>{console.error(e);process.exit(1)});

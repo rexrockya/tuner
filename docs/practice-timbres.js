@@ -5,7 +5,7 @@ const library = () => libraryPromise ||= import('./assets/audio/smplr-1.0.0.mjs'
 export function createSampleBank(context, helpers) {
   const buffers = new Map(), pending = new Map();
   let pianoPreset, violinPreset, violinData, violinPromise;
-  const eventNotes = events => events.filter(e => e.track === 'lead' && Number.isFinite(e.midi)).map(e => ({ pitch: e.midi, velocity: Math.max(1, Math.round(e.velocity * 127)) }));
+  const eventNotes = (events, track) => events.filter(e => e.track === track && Number.isFinite(e.midi)).map(e => ({ pitch: e.midi, velocity: Math.max(1, Math.round(e.velocity * 127)) }));
   async function fetchBody(url, method = 'arrayBuffer') {
     const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 15000);
     try { const response = await fetch(url, { signal: controller.signal }); if (!response.ok) throw Error('音色载入失败，请重试'); return await response[method](); }
@@ -52,8 +52,8 @@ export function createSampleBank(context, helpers) {
     })().catch(error => { violinPromise = null; throw error; });
     return violinPromise;
   }
-  async function ensure(id, events = []) {
-    const notes = eventNotes(events); if (!notes.length) return;
+  async function ensure(id, events = [], track = 'lead') {
+    const notes = eventNotes(events, track); if (!notes.length) return;
     if (id === 'piano') {
       const lib = await library();
       if (!helpers?.pianoPresetForScore) throw Error('钢琴音源尚未就绪，请刷新重试');

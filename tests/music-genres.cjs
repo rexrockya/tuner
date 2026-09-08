@@ -5,6 +5,7 @@ const chart=H.parse('2m7,57,1maj7','C'),oldPhrase=plain(H.generate(chart,128,'ja
 vm.runInContext(fs.readFileSync('docs/music-genres.js','utf8'),box);vm.runInContext(fs.readFileSync('docs/genre-curriculum.js','utf8'),box);
 const G=box.window.tunerGenres;assert.deepEqual(plain(H.generate(chart,128,'jazz',{intensity:'auto'})),oldPhrase);assert.deepEqual(plain(R.arrangement(chart,'shuffle',128)),oldSong);
 for(const [genre,profile] of Object.entries(G.profiles)){
+  assert.ok(R.performerProfiles[profile.performer],genre+' has a supported performer profile');for(const track of ['percussion','strings']){assert.ok(profile.pools[track]?.length);assert.equal(typeof profile.timbres[track],'string');}
   const generated=H.generate,calls=[];H.generate=(...args)=>{calls.push(args[3]?.genre);return generated(...args);};
   const cycle=R.planLeadCycle(G.enrich(H.parse(profile.create,profile.key)),81,profile.feel,{genre,style:'motif',intensity:'standard',phraseCycleMode:'sequence',phraseStyleSequence:['call','motif','space','syncopated']},4);
   H.generate=generated;assert.deepEqual(calls,Array(4).fill(genre),genre+' generates every Lead round through its genre writer');assert.ok(cycle.rounds.every(round=>round.phrase.genre===genre),genre+' survives on every generated phrase');
@@ -41,6 +42,11 @@ for(const [genre,profile] of Object.entries(G.profiles)){
       assert.ok(customEvents.filter(event=>event.midi!==undefined).every(event=>Number.isFinite(event.detuneCents)),track+' '+style+' has finite pitch humanization');
     }
   }
+  for(const [track,field,catalog]of[['percussion','percussionStyle',R.percussionStyles],['strings','stringsStyle',R.stringsStyles]])for(const style of Object.keys(catalog)){
+    const song=R.arrangement(parsed,profile.feel,3,4,{genre,[field]:style});if(style!=='auto')assert.ok(song.chorusStyles.every(round=>round[track]===style),'explicit '+track+' style honored');
+    if(style!=='auto'&&style!=='none')assert.ok(song.events.some(event=>event.track===track),track+' '+style+' creates audible events');
+  }
+  const autoLayers=R.arrangement(parsed,profile.feel,31,4,{genre,percussionStyle:'auto',stringsStyle:'auto',performerProfile:profile.performer});assert.ok(autoLayers.percussionStyles.every(style=>profile.pools.percussion.includes(style)));assert.ok(autoLayers.stringsStyles.every(style=>profile.pools.strings.includes(style)));
 }
 assert.equal(fingerprints.size,6,'six genres change notes, not only metadata');
 assert.notDeepEqual(plain(R.arrangement(chart,'straight',77,1,{genre:'rnb',drumStyle:'neo'}).events.filter(e=>e.track==='drums').map(e=>e.beat)),plain(R.arrangement(chart,'shuffle',77,1,{genre:'rnb',drumStyle:'neo'}).events.filter(e=>e.track==='drums').map(e=>e.beat)),'new drum styles follow chosen swing');
