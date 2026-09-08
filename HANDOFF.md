@@ -9,7 +9,7 @@
 - 辅助打击复用已加载的鼓采样并用播放速率与patch形成不同质感；electro仍按需准备原创电子鼓。弦乐复用既有小提琴soundfont与延音处理，只有启用弦乐且候选中存在事件时才懒加载所需音区；不新增大型媒体或第二套AudioContext／调度器。
 - 新轨统一经过既有`trackVoice`、Transport owner、下一安全小节线提交、取消、暂停淡出和尾音清理。弦乐和弦按`stackSize`补偿叠加增益；不要为每个普通弦乐音另建长期不回收的播放器或时钟。
 - 收藏继续使用`tuner-original-licks-v1`与version 3；`performerProfile`、`percussionStyle`、`stringsStyle`及两轨timbre为兼容性新增字段。v1/v2/v3缺失时回退balanced、none和默认音色，不做破坏性v4迁移。MIDI仍只导出Lead，演奏取向会影响Lead事件，但辅助打击、弦乐和其他伴奏不进入MIDI。
-- 代码语法检查、`npm run test:practice`、完整`npm test`、`npm run test:qa`与`npm run test:sound`均已通过；响度标准46/46，首屏gzip6为116174/120000 B、20项初始资源。正式Pages构建及线上逐字节核验仍待根任务完成，完成前不得写成已上线；状态见`notes/performer-tracks-validation-2026-09-09.md`。
+- 代码语法检查、`npm run test:practice`、完整`npm test`、`npm run test:qa`与`npm run test:sound`均已通过；响度标准46/46，首屏gzip6为116174/120000 B、20项初始资源。功能提交`126a7bb`已由Pages成功构建；7个变更前端资源全部HTTP 200并与Git对象逐字节一致，详见`notes/performer-tracks-validation-2026-09-09.md`与对应online-verification JSON。
 - 发布前独立审查已闭环两项听感问题并补回归：`colorist`保留全句最后的根音收束；主鼓与辅助打击使用各自的镲片choke组，不能跨轨互相截断。修复后已重跑完整`npm test`。
 - 设备主观音质尚未验收。自动事件／WebAudio测试不能代替手机、耳机、扬声器、蓝牙及音量匹配盲听，也不能证明已达到真人实录backing track质感。
 - 唯一公开入口仍是 https://rexrockya.github.io/tuner/ ，只发布`main/docs`。不要运行根`npm run build`覆盖`docs/`，不要部署Worker、Sites或其他公开入口；精准暂存时继续排除`node_modules/`与`website/site.tar.gz`。

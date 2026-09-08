@@ -56,6 +56,8 @@
 
 ## 发布状态
 
-当前尚未记录本轮公开发布。唯一允许的公开入口是 https://rexrockya.github.io/tuner/ ，发布目标仅为`main`分支的`docs/`。不得运行根`npm run build`覆盖现行Pages前端，不部署可选Worker、Sites、临时后端或其他公开域名。
+功能提交`126a7bbbac8f1443b8aa6ecbe4a507d351062dd2`已快进发布到`main`。常规Git传输连续连接失败后，复用仓库既有`scripts/publish-pages.cjs`，通过GitHub Git Data API核对父提交、18个允许路径、各blob、完整tree与commit SHA后执行非强制更新；没有覆盖远端历史。
 
-完成全量验证、提交、推送与Pages构建后，再在本节追加目标提交、构建状态／错误、正式站HTTP检查和提交内容一致性结果；不得用本地通过代替上线，也不得在实际构建完成前预写“已发布”。
+GitHub Pages已于`2026-09-08T20:04:22Z`将该提交构建为`built`，错误为`null`。`2026-09-08T20:05:07.869Z`从唯一公开入口 https://rexrockya.github.io/tuner/ 完整GET本轮7个变更前端资源，全部HTTP 200，共259,686字节，且每个响应均与功能提交中的`docs/`对象逐字节一致。SHA-256与逐文件字节数见`performer-tracks-online-verification-2026-09-09.json`；后续证据提交只更新根目录文档，不改变已核验前端。
+
+发布目标仍只允许`main/docs`。不得运行根`npm run build`覆盖现行Pages前端，不部署可选Worker、Sites、临时后端或其他公开域名。
