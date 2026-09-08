@@ -1,0 +1,74 @@
+const fs = require('node:fs'), assert = require('node:assert/strict'), crypto = require('node:crypto');
+const { createRequire } = require('node:module'), path = require('node:path');
+const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
+(async () => {
+ const dom = new JSDOM(fs.readFileSync('docs/index.html','utf8'), { url:'https://rexrockya.github.io/tuner/#lessons', runScripts:'outside-only' });
+ const w = dom.window, d = w.document, q = id => d.getElementById(id), plain = v => JSON.parse(JSON.stringify(v)), tick = () => new Promise(r => setImmediate(r));
+ const errors = []; w.addEventListener('error',e => errors.push(e.message));
+ w.requestAnimationFrame = () => 1; w.cancelAnimationFrame = () => {}; w.HTMLMediaElement.prototype.pause = () => {}; w.HTMLElement.prototype.scrollTo = () => {};
+ Object.defineProperty(w.navigator,'connection',{value:{saveData:true}});
+ for (const file of ['storage.js','harmony.js','lessons.js','practice-arrangement.js','practice-audio.js','practice.js']) w.eval(fs.readFileSync(file==='harmony.js'&&process.argv[2]?process.argv[2]:'docs/'+file,'utf8'));
+ const S = w.practiceStudio, H = w.tunerHarmony, A = w.practiceAudio, storageKey = 'tuner-original-licks-v1';
+ const change = (id,value) => { q(id).value=value; q(id).dispatchEvent(new w.Event('change')); };
+ const input = text => { q('practice-progression').value=text; q('practice-progression').dispatchEvent(new w.Event('input')); };
+ const nonLead = () => plain(S.transport.song.events.filter(n => n.track !== 'lead'));
+ const voices = Object.fromEntries(Object.keys(A.timbres).map(track => [track,A.getTimbre(track)]));
+ A.getTimbre = track => voices[track]; A.setTimbre = async (track,id) => { voices[track]=id; return true; };
+ S.setMode('create'); input('2m7,57,1maj7'); S.generate(912);
+ assert.equal(q('practice-intensity-wrap').hidden,false);
+ assert.equal(q('practice-intensity').value,'standard');
+ assert.deepEqual([...q('practice-intensity').options].map(o=>o.value),['easy','standard','advanced','challenge']);
+ const original = plain(S.getPhrase());
+ assert.equal(crypto.createHash('sha256').update(JSON.stringify(original.notes)).digest('hex'),'deb27196be42323821f2be83a6e75f8bb5a341dce9a1d99637cb54a8855b9480','default retains the published standard phrase');
+ for(const [id,value] of [['practice-bass-style','octave'],['practice-drum-style','funk'],['practice-key-style','gospel'],['practice-rhythm-style','chop']]) change(id,value);
+ const leadPicker=d.querySelector('[data-practice-timbre="lead"]'); leadPicker.value='violin';leadPicker.dispatchEvent(new w.Event('change'));await tick();
+ change('practice-bpm','118');await tick();
+ const accompaniment=nonLead();
+ // Exercise the real pause/load path without opening hardware audio in this UI test.
+ const oldCurrent=S.transport.current;S.transport.current=()=>3;S.transport.playing=true;const generation=S.transport.generation;
+ change('practice-intensity','easy');S.transport.current=oldCurrent;
+ assert.equal(S.transport.playing,false,'changing intensity pauses playback');assert.ok(S.transport.generation>generation);
+ assert.equal(S.transport.bpm,118);assert.equal(q('practice-bpm').value,'118');
+ assert.equal(S.getPhrase().seed,original.seed,'intensity reuses the same musical seed');
+ assert.notDeepEqual(plain(S.getPhrase().notes),original.notes,'easy alters the phrase');
+ assert.deepEqual(nonLead(),accompaniment,'intensity leaves every backing event unchanged');assert.equal(A.getTimbre('lead'),'violin');assert.equal(leadPicker.value,'violin');
+ q('practice-save').click();const easy=plain(S.getPhrase());let items=JSON.parse(w.siteStorage.getItem(storageKey));assert.equal(items[0].intensity,'easy');assert.deepEqual(items[0].phrase,easy);
+ change('practice-intensity','challenge');const challenge=plain(S.getPhrase());assert.notDeepEqual(challenge.notes,easy.notes);assert.equal(challenge.seed,easy.seed);q('practice-save').click();
+ items=JSON.parse(w.siteStorage.getItem(storageKey));assert.equal(items.length,2,'distinct intensities with same seed remain distinct favorites');assert.equal(items[0].intensity,'challenge');
+ S.setMode('backing');assert.equal(q('practice-intensity-wrap').hidden,true);S.setMode('create');assert.equal(q('practice-intensity-wrap').hidden,false);assert.equal(q('practice-intensity').value,'challenge');assert.deepEqual(plain(S.getPhrase()),challenge,'mode switch restores exact draft');assert.equal(S.transport.bpm,118);
+ // A deterministic dense single-string phrase exercises small-screen TAB geometry.
+ const dense={...challenge,notes:Array.from({length:8},(_,i)=>({...challenge.notes[0],beat:i*.25,duration:.2,notationDuration:.25,midi:62,string:2,fret:7,bar:0}))};
+ S.generate(912,{phrase:dense});const paper=q('practice-tab').querySelector('.tab-paper'),viewport=paper.closest('.tab-scroll');
+ assert.ok(parseFloat(paper.style.minWidth)>=508,'dense same-string frets receive at least 28 px spacing');assert.equal(viewport.getAttribute('tabindex'),'0');
+ Object.defineProperty(viewport,'scrollWidth',{value:700});Object.defineProperty(viewport,'clientWidth',{value:300});viewport.getBoundingClientRect=()=>({left:0,right:300});
+ const scrolls=[];viewport.scrollTo=value=>scrolls.push(value);for(const node of paper.querySelectorAll('.tab-fret'))node.getBoundingClientRect=()=>({left:350,right:366});
+ let atBeat=A.swingBeat(.25,A.feels[q('practice-feel').value].swing);const actualCurrent=S.transport.current;S.transport.current=()=>atBeat;S.transport.playing=true;S.transport.update();
+ assert.equal(scrolls.length,1,'playing dense TAB follows inside its own viewport');assert.deepEqual(plain(scrolls[0]),{left:322,behavior:'auto'});S.transport.update();assert.equal(scrolls.length,1,'unchanged active note does not scroll again');
+ q('practice-tab').hidden=true;atBeat=A.swingBeat(.5,A.feels[q('practice-feel').value].swing);S.transport.update();assert.equal(scrolls.length,1,'hidden TAB never scrolls');
+ S.transport.pause();S.transport.current=actualCurrent;S.generate(912,{phrase:challenge});
+ change('practice-phrase-style','blues');assert.equal(q('practice-intensity').value,'challenge');const styled=plain(S.getPhrase());
+ change('practice-key-style','none');change('practice-rhythm-style','none');change('practice-drum-style','ride');assert.deepEqual(plain(S.getPhrase()),styled,'changing accompaniment preserves intensity melody');
+ let rendered;
+ w.practiceNotation={mount(){return{setVisible(){},render(data){rendered=data;return Promise.resolve(true);},update(){}};}};
+ change('practice-notation','staff');await tick();assert.deepEqual(plain(rendered.phrase),styled);
+ change('practice-intensity','advanced');await tick();const advanced=plain(S.getPhrase());assert.deepEqual(plain(rendered.phrase),advanced,'staff receives newly generated intensity');
+ const xmlWindow={};const vm=require('node:vm');vm.runInNewContext(fs.readFileSync('docs/practice-notation.js','utf8'),{window:xmlWindow});
+ const score=xmlWindow.practiceNotation.scoreData({phrase:advanced,parsed:plain(S.getProgression()),swing:A.feels[q('practice-feel').value].swing});
+ assert.deepEqual(plain(score.segments.filter(s=>!s.rest&&!s.tieStop).map(s=>s.midi)),advanced.notes.map(n=>n.midi));
+ const midi=Buffer.from(S.midiFile());let at=22,ticks=0;const ons=[];const vlq=()=>{let n=0,b;do{b=midi[at++];n=(n<<7)|(b&127);}while(b&128);return n;};
+ while(at<midi.length){ticks+=vlq();const status=midi[at++];if(status===255){at++;const size=vlq();at+=size;}else if((status&240)===192){assert.equal(midi[at++],40);}else{const pitch=midi[at++],velocity=midi[at++];if((status&240)===144&&velocity)ons.push({tick:ticks,midi:pitch});}}
+ assert.deepEqual(ons,advanced.notes.map(n=>({tick:Math.round(A.swingBeat(n.beat,A.feels[q('practice-feel').value].swing)*480),midi:n.midi})),'MIDI uses actual generated pitches and swing onsets');
+ const beforeDirty=plain(S.getPhrase()),oldChart=plain(S.getProgression());input('1,b7,#4');change('practice-intensity','easy');assert.deepEqual(plain(S.getPhrase()),beforeDirty);assert.deepEqual(plain(S.getProgression()),oldChart);assert.equal(q('practice-play').disabled,true);assert.equal(q('practice-intensity').value,'easy');
+ change('practice-phrase-style','space');assert.deepEqual(plain(S.getPhrase()),beforeDirty,'style also waits for dirty harmony submission');
+ S.generate(912);assert.equal(q('practice-play').disabled,false);assert.equal(q('practice-intensity').value,'easy');assert.equal(S.getPhrase().style,'space');
+ const oldText='ii7 | V7 | Imaj7',oldParsed=H.parse(oldText,'C',{legacy:true});
+ for(const version of [1,2])for(const intensity of [undefined,'future-value']){
+  const storedPhrase=version===1?H.generateLegacy(oldParsed,913,'blues'):original;
+  const favorite={version,text:version===1?oldText:'2m7,57,1maj7',key:'C',feel:'shuffle',seed:version===1?913:912,bpm:96,...(version===2?{harmonyVersion:2,phrase:storedPhrase}:{}),...(intensity===undefined?{}:{intensity})};
+  w.siteStorage.setItem(storageKey,JSON.stringify([favorite]));S.setMode('backing');S.setMode('create');change('practice-saved','0');await tick();
+  assert.equal(q('practice-intensity').value,'standard','missing or unknown saved intensity falls back to standard');assert.deepEqual(plain(S.getPhrase()),plain(storedPhrase),'old favorite snapshot and legacy generation stay exact');
+  if(version===1)assert.equal(crypto.createHash('sha256').update(JSON.stringify(plain(S.getPhrase()))).digest('hex'),'f15cc446349967e473ab980aeee3d74bf68d028ddcf85c2ac82b7d11afeda206');
+ }
+ assert.deepEqual(errors,[]);dom.window.close();
+ console.log('PASS intensity controls: standard compatibility, same-seed paused regeneration, independent accompaniment/timbres/tempo, distinct favorites, draft/legacy restore, dirty input, staff and MIDI pitches/onsets');
+})().catch(e=>{console.error(e);process.exit(1)});

@@ -163,8 +163,86 @@
     syncopated: [[.5, 1.5, 2.25, 2.75, 3.5], [.75, 1.5, 2.5, 3.25], [0, .75, 1.5, 2.75, 3.5], [.25, 1.5, 2.5, 3.25], [.5, 1.25, 2.75, 3.5]],
     space: [[0, 2.5], [.5, 1.5, 3], [1, 2.5], [0, 1.5]]
   };
+  const phraseIntensities = {
+    easy: { label: '轻松', description: '少音、整拍、小跨度；固定把位拨弦' },
+    standard: { label: '标准', description: '原有音符密度与演奏技法' },
+    advanced: { label: '进阶', description: '更多八分与少量十六分；加入滑音、揉弦' },
+    challenge: { label: '挑战', description: '更密十六分、切分与跨弦；保留乐句呼吸' }
+  };
+  function generateIntensity(parsed, seed, feel, options) {
+    // Derive from the unchanged composition so intensity retains its style and seed.
+    const phrase = generate(parsed, seed, feel, { ...options, intensity: 'standard' });
+    const level = options.intensity, easy = level === 'easy', challenge = level === 'challenge';
+    const random = rng((seed >>> 0) ^ 0x49ad736b), notes = [];
+    const totalBeats = parsed.bars.length * 4, opens = [64, 59, 55, 50, 45, 40];
+    let previous = 64, hand = { fret: 5, string: 1 };
+    parsed.chords.forEach((c, index) => {
+      const source = phrase.notes.filter(note => note.beat >= c.beat && note.beat < c.beat + c.beats);
+      const style = phrase.structure[index].style, last = index === parsed.chords.length - 1;
+      const budget = Math.max(1, Math.floor(256 * c.beats / totalBeats));
+      let pattern;
+      if (easy) {
+        pattern = c.beats >= 4 ? (style === 'space' ? [0] : random() < .5 ? [0, 2] : [0, 3]) : [0];
+      } else {
+        pattern = [...new Set(source.map(note => Math.round((note.beat - c.beat) * 4) / 4))].filter(offset => offset < c.beats);
+        const target = Math.min(budget, c.beats * 4, style === 'space' ? Math.ceil(c.beats * (challenge ? 1.5 : 1)) : pattern.length + Math.ceil(c.beats * (challenge ? 1.25 : .5)));
+        // Keep the largest original gap as a breathing point, even in dense phrases.
+        const gaps = pattern.slice(1).map((end, i) => ({ start: pattern[i], end })).sort((a, b) => (b.end - b.start) - (a.end - a.start));
+        const gap = c.beats >= 2 && gaps.find(item => item.end - item.start >= .75);
+        const candidates = Array.from({ length: c.beats * 4 }, (_, i) => i / 4).filter(offset => !pattern.includes(offset) && (!gap || offset <= gap.start || offset >= gap.start + .5));
+        const ranked = candidates.map(offset => ({ offset, rank: random() + (!challenge && offset % .5 === 0 ? 2 : 0) + (style === 'syncopated' && offset % 1 !== 0 ? .6 : 0) }));
+        ranked.sort((a, b) => b.rank - a.rank);
+        pattern.push(...ranked.slice(0, Math.max(0, target - pattern.length)).map(item => item.offset));
+        pattern.sort((a, b) => a - b);
+        if (pattern.length > budget) pattern = pattern.filter((_, i) => Math.floor(i * budget / pattern.length) !== Math.floor((i - 1) * budget / pattern.length));
+      }
+      pattern.forEach((offset, n) => {
+        const original = source.reduce((best, note) => Math.abs(note.beat - c.beat - offset) < Math.abs(best.beat - c.beat - offset) ? note : best, source[0]);
+        const added = !source.some(note => Math.abs(note.beat - c.beat - offset) < .02);
+        let pc = mod(original.midi), role = original.role;
+        if (added && !easy) {
+          const colors = style === 'blues' && ['dominant', 'minor'].includes(c.family) ? [0, 3, 5, 6, 7, 10] : style === 'arpeggio' ? c.intervals : [...c.intervals, 2, 5, 9];
+          const candidates = colors.map(interval => nearest(c.root + interval, previous + (n % 3 === 0 && challenge ? 5 : n % 2 ? 2 : -2), 55, challenge ? 81 : 79));
+          const ordered = candidates.sort((a, b) => Math.abs(a - previous) - Math.abs(b - previous));
+          pc = mod(ordered[Math.min(ordered.length - 1, Math.floor(random() * (challenge ? 3 : 2)))]);
+          role = style === 'arpeggio' ? '和弦分解' : style === 'blues' ? '蓝调经过音' : '动机连接';
+        }
+        if (last && n === pattern.length - 1) { pc = c.root; role = '根音收束'; }
+        let midi;
+        if (easy) {
+          // Every pitch class is available in this box; choose a close chord tone when a leap would be awkward.
+          let positions = opens.flatMap((open, string) => [4, 5, 6, 7, 8].map(fret => ({ midi: open + fret, string, fret }))).filter(pos => pos.midi >= (last && n === pattern.length - 1 ? 54 : 58) && pos.midi <= (last && n === pattern.length - 1 ? 72 : 69));
+          const desired = positions.filter(pos => mod(pos.midi) === pc && Math.abs(pos.midi - previous) <= 7);
+          const alternatives = positions.filter(pos => c.intervals.some(interval => mod(c.root + interval) === mod(pos.midi)) && Math.abs(pos.midi - previous) <= 7);
+          positions = desired.length ? desired : alternatives.length ? alternatives : positions.filter(pos => mod(pos.midi) === pc);
+          positions.sort((a, b) => Math.abs(a.midi - previous) * 2 + Math.abs(a.string - hand.string) + Math.abs(a.fret - hand.fret) * .4 - (Math.abs(b.midi - previous) * 2 + Math.abs(b.string - hand.string) + Math.abs(b.fret - hand.fret) * .4));
+          const chosen = positions[0]; midi = chosen.midi; hand = { string: chosen.string, fret: chosen.fret };
+          if (mod(midi) !== pc) role = '就近和弦音';
+        } else {
+          midi = nearest(pc, added ? previous + (challenge && n % 5 === 0 ? 5 : 0) : original.midi, 55, challenge ? 81 : 79);
+          // Avoid a large jump on a sixteenth note; complexity comes from phrasing, not arbitrary octave flips.
+          if (Math.abs(midi - previous) > (challenge ? 12 : 9) || n && offset - pattern[n - 1] <= .25 && Math.abs(midi - previous) > (challenge ? 9 : 7)) midi = nearest(pc, previous, 55, challenge ? 81 : 79);
+          const oldHand = hand; hand = fingering(midi, hand);
+          if (challenge && n % 5 === 0) {
+            const alternate = opens.map((open, string) => ({ string, fret: midi - open })).filter(pos => pos.fret >= 3 && pos.fret <= 14 && Math.abs(pos.string - oldHand.string) <= 2).sort((a, b) => Math.abs(a.fret - oldHand.fret) - Math.abs(b.fret - oldHand.fret))[0];
+            if (alternate) hand = alternate;
+          }
+        }
+        const available = (pattern[n + 1] ?? c.beats) - offset;
+        const breath = n === pattern.length - 1 && !last && available >= 1 ? (style === 'space' || easy ? .5 : .25) : 0;
+        const notationDuration = available - breath;
+        const duration = notationDuration * (easy || style === 'space' || last && n === pattern.length - 1 ? .92 : style === 'syncopated' ? .7 : .84);
+        const previousNote = notes[notes.length - 1], closeSlide = previousNote && previousNote.string === hand.string && Math.abs(midi - previous) > 0 && Math.abs(midi - previous) <= 2;
+        const articulation = easy ? 'picked' : duration > .9 ? 'vibrato' : closeSlide && duration >= .18 && random() < (challenge ? .72 : .45) ? 'slide' : 'picked';
+        notes.push({ beat: c.beat + offset, duration, notationDuration, midi, velocity: Math.min(.88, (offset % 1 === 0 ? .68 : .49) + random() * .16), bar: c.bar, ...hand, role, articulation, variant: Math.floor(random() * 2) });
+        previous = midi;
+      });
+    });
+    return { ...phrase, intensity: level, notes };
+  }
   function generate(parsed, seed, feel = 'blues', options = {}) {
     if (options.legacy) return generateLegacy(parsed, seed, feel);
+    if (phraseIntensities[options.intensity] && options.intensity !== 'standard') return generateIntensity(parsed, seed, feel, options);
     if (parsed.error || !parsed.chords.length) throw Error(parsed.error || '先写一组和声');
     const random = rng(seed), pick = items => items[Math.floor(random() * items.length)];
     const requested = phraseStyles[options.style] ? options.style : 'mixed';
@@ -208,5 +286,5 @@
     });
     return { version: 2, seed, feel, style: requested, notes, structure, bars: parsed.bars.length, chords: parsed.chords };
   }
-  window.tunerHarmony = { parse, chord, upgradeInput, tonic, matches, collapse, generate, generateLegacy, phraseStyles, rng, nearest, names, mod };
+  window.tunerHarmony = { parse, chord, upgradeInput, tonic, matches, collapse, generate, generateLegacy, phraseStyles, phraseIntensities, rng, nearest, names, mod };
 })();

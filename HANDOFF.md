@@ -1,6 +1,15 @@
 # 弦音项目交接
 
-## 当前交付：2026-09-08 数字和声输入修复
+## 当前交付：2026-09-08 原创乐句演奏强度
+
+- `harmony.phraseIntensities`四档easy/standard/advanced/challenge，元数据label/description；`generate(...,{intensity})`仅对非standard进入派生函数。standard完整对象/notes与此前相同，legacy优先且完全不变，未知值回standard。
+- 非标准档从同seed原风格句派生，独立RNG；easy正拍少音、4–8品、相邻<=7半音/跨弦<=2，picked。easy非尾音最低MIDI58（不可退57，会在部分调连续属七尾根变三音），尾音候选54–72。advanced/challenge增密，保留动机与至少局部呼吸，同弦1–2半音才slide，长音vibrato；全句<=256、最短起音.25拍、保留notationDuration、根音收束和和弦边界。
+- `practice-intensity`在乐句风格后，仅create显示。改变强度/风格使用same-seed重写、暂停、保留BPM/音色/伴奏；dirty共同保护，不自动生成。草稿与收藏存item.intensity，去重包含强度；旧收藏回standard不改快照。技法播放仅复用吉他原有处理，非新增采样、推弦或MIDI技法曲线。
+- 密集TAB新增tab-scroll/tab-paper，按同弦最短间隔预留28px，局部可滚，当前音变化时只做本视口水平跟随。默认未密集小节不强制放大；隐藏TAB不滚动。强度不改谱面模式或播放时钟。
+- 新tests/practice-intensity-generator.cjs与practice-intensity-controls.cjs已入npm test；8064生成组合、各档密度阶梯、收藏/草稿/dirty/音色/BPM与伴奏不变、MIDI/谱面一致、模拟密集TAB滚动通过。practice-notation另增四档7风格数据与真实OSMD挑战8小节渲染。完整npm test通过。
+- 验收详见notes/intensity-validation-2026-09-08.md与资源预算；首屏gzip6 112806/120000 B。仅原docs/测试/文档，沿用原站发布授权，仍不得构建website覆盖docs或部署其他公开域名。
+
+## 上一版：2026-09-08 数字和声输入修复
 
 - 用户输入以数字为主，逗号/中文逗号分小节，同小节空格分1/2/4和弦。无显式分隔时仍每空格一小节；竖线/连字符兼容。全串纯数字不再限8位，但合法数字后缀优先：57=G7，5,7=G与Bdim；37=E7，小七显写3m7。数字裸级数保留调内三和弦，b7/#4支持变音级数。
 - `harmony.parse(value,key,{legacy:true})`原样保留旧8位连写和数字隐含性质，来源库matches候选继续走legacy，小写b7仍B7；底层chord的来源音名识别不变。不要用新输入语法重解来源或未标版本的旧收藏。

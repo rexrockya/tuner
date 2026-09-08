@@ -1,0 +1,11 @@
+{
+  "sourceSha": "c349fbb346b63ca5fb050107bcd23d87820b4dc84b0e4ee0f5aa6d7177470a5d",
+  "standardCases": 252,
+  "legacyCases": 3,
+  "cases": 12096,
+  "max": 176,
+  "minEasy": 54,
+  "maxEasy": 72,
+  "score": 12096,
+  "issues": []
+}

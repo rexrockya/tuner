@@ -5,7 +5,7 @@
     arrangement: ['practice-arrangement.js?v=20260908-ensemble-1',()=>window.practiceArrangements],
     notation: ['practice-notation.js?v=20260908-ensemble-1',()=>window.practiceNotation],
     practiceAudio: ['practice-audio.js?v=20260908-ensemble-1', () => window.practiceAudio],
-    practice: ['practice.js?v=20260908-harmony-2', () => window.practiceStudio],
+    practice: ['practice.js?v=20260908-intensity-1', () => window.practiceStudio],
     sound: ['sound-meter.js?v=20260908-3', () => window.soundMeter],
     score: ['assets/vendor/opensheetmusicdisplay-2.1.2.min.js', () => window.opensheetmusicdisplay],
     tone: ['assets/vendor/tone-14.9.17.js', () => window.Tone],
