@@ -23,4 +23,8 @@
 
 ## 发布
 
-目标仍为 https://rexrockya.github.io/tuner/ 的main/docs。发布和逐字节线上验证完成后在此追加事实。
+目标仍为 https://rexrockya.github.io/tuner/ 的main/docs。以下为实际完成后的记录。
+
+- 功能提交`fde166200f9b46517180d5f31e0f6289490893e0`已推送main，GitHub Pages于`2026-09-08T11:51:25Z`完成built，error.message为空。
+- `2026-09-08T11:52:40.393677+00:00`对公开站本轮5个变更资源完整HTTP GET，全部HTTP 200，共164743字节，5/5与功能提交Git对象逐字节一致；明细见`harmony-input-online-verification-2026-09-08.json`。
+- 后续验收记录提交仅更新文档与证据，不改变前端。
