@@ -42,3 +42,12 @@ MIDI roots come from the original fashionbass_clean.sfz pitch_keycenter values. 
 ## Lossless delivery (2026-09-08)
 
 The manifest now prefers FLAC encodings of these exact 16-bit PCM samples, with the original WAV files as decode/network fallbacks. All 12 decoded PCM checksums match: WAV 3,070,296 bytes → FLAC 1,031,145 bytes (66.42% smaller). No additional equalization, resampling or lossy compression was applied.
+
+
+## Mellow archtop guitar (2026-09-08)
+
+Shinyguitar by Karoryfer Samples, archtop played and mapped by D. Smolken. The official instrument page (https://shop.karoryfer.com/pages/free-shinyguitar) links this GitHub source. The official free-samples page (https://shop.karoryfer.com/pages/free-samples) confirms CC0 for these libraries, including older downloads formerly carrying another license. The pinned repository LICENSE is retained in SHINYGUITAR-LICENSE.txt. Source revision: 57243cca85277dbcc120ce17c6178032f93c80f3.
+
+24 electric pickup samples: MIDI 45, 51, 57, 63, 69, 75; source velocity layers 2 and 3; two independently recorded round-robin takes per layer/root. MIDI roots were checked against Programs/electric_one.sfz. The local manifest preserves roots, layers and variant IDs. Each original recording is converted to mono 44.1 kHz 16-bit, limited to 3 seconds with a 120 ms tail fade, then losslessly compressed to FLAC with WAV fallback. No normalization or EQ is baked into the assets. Per-file original URLs, SHA-256 hashes and processing facts are in shinyguitar-provenance.json.
+
+The browser selects the nearest root (maximum four semitones over the generated lead range), recorded dynamic and take; a soft low-pass tone and restrained room send provide the mellow presentation. Lead and rhythm use separate volume buses. These are instrument recordings, not excerpts from existing songs. No artist endorsement is implied.

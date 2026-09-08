@@ -10,24 +10,27 @@ const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
     accountForm.onsubmit=async event=>{event.preventDefault();accountMessage.textContent=accountMode==="register"?"正在创建账号…":"正在登录…";accountMessage.classList.remove("error");const form=new FormData(accountForm),payload={username:form.get("username"),password:form.get("password")};if(accountMode==="register")payload.displayName=form.get("displayName");try{const response=await accountRequest(`/api/auth/${accountMode}`,{method:"POST",body:JSON.stringify(payload)}),data=await response.json();if(!response.ok)throw new Error(data.error||"操作失败");renderAccount(data.user);accountForm.reset()}catch(error){accountMessage.textContent=error.message||"账号服务暂时不可用";accountMessage.classList.add("error")}};
     document.querySelector("#account-logout").onclick=async()=>{try{await accountRequest("/api/auth/logout",{method:"POST",body:"{}"})}catch(error){}renderAccount(null);setAccountMode("login")};setAccountMode("login");refreshAccount();
     let running=false,stop=null,micGeneration=0;
+    const tunerPanel=window.tunerUI?.mount(ui,{stopInput:()=>stop?.()});
     function detectPitch(buffer,sampleRate){return window.tunerPitch.detect(buffer,sampleRate)}
-    function render(pitch){if(pitch<0)return;const midi=Math.round(69+12*Math.log2(pitch/440)),note=NOTES[(midi%12+12)%12],cents=1200*Math.log2(pitch/(440*2**((midi-69)/12))),tuned=Math.abs(cents)<5;ui.note.textContent=note;ui.octave.textContent=Math.floor(midi/12)-1;ui.frequency.textContent=`${pitch.toFixed(1)} Hz`;ui.needle.style.left=`${50+Math.max(-50,Math.min(50,cents))}%`;ui.state.textContent=tuned?"音准":cents<0?"偏低":"偏高";ui.main.classList.toggle("tuned",tuned)}
+    function render(pitch,now=performance.now()){if(tunerPanel){tunerPanel.render(pitch,now);return}if(pitch<0)return;const midi=Math.round(69+12*Math.log2(pitch/440)),note=NOTES[(midi%12+12)%12],cents=1200*Math.log2(pitch/(440*2**((midi-69)/12))),tuned=Math.abs(cents)<5;ui.note.textContent=note;ui.octave.textContent=Math.floor(midi/12)-1;ui.frequency.textContent=`${pitch.toFixed(1)} Hz`;ui.needle.style.left=`${50+Math.max(-50,Math.min(50,cents))}%`;ui.state.textContent=tuned?"音准":cents<0?"偏低":"偏高";ui.main.classList.toggle("tuned",tuned)}
     ui.toggle.addEventListener("click",async()=>{
       if(stop){stop();return}
+      tunerPanel?.beforeInput();
       const generation=++micGeneration;let stream,context,frame,lastSample=-Infinity;
       const cleanup=()=>{cancelAnimationFrame(frame);stream?.getTracks().forEach(track=>track.stop());if(context&&context.state!=="closed")Promise.resolve(context.close()).catch(()=>{})};
-      stop=()=>{micGeneration++;running=false;cleanup();stop=null;ui.status.textContent="准备就绪";ui.toggle.textContent="开启麦克风";ui.note.textContent="—";ui.octave.textContent="";ui.frequency.textContent="— Hz";ui.needle.style.left="50%";ui.state.textContent="弹奏一个音";ui.main.classList.remove("tuned")};
-      ui.status.textContent="等待麦克风授权";ui.toggle.textContent="取消";ui.error.style.display="none";
+      stop=()=>{micGeneration++;running=false;cleanup();stop=null;ui.status.textContent="准备就绪";ui.toggle.textContent="开启麦克风";ui.note.textContent="—";ui.octave.textContent="";ui.frequency.textContent="— Hz";ui.needle.style.left="50%";ui.state.textContent="弹奏一个音";ui.main.classList.remove("tuned");tunerPanel?.inputState("idle")};
+      ui.status.textContent="等待麦克风授权";ui.toggle.textContent="取消";ui.error.style.display="none";tunerPanel?.inputState("pending");
       try{
-        stream=await navigator.mediaDevices.getUserMedia({audio:true});
+        stream=await navigator.mediaDevices.getUserMedia({audio:{channelCount:1,echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
         if(generation!==micGeneration){cleanup();return}
         const Context=window.AudioContext||window.webkitAudioContext;
         context=new Context({latencyHint:"interactive"});
         const analyser=context.createAnalyser();analyser.fftSize=4096;context.createMediaStreamSource(stream).connect(analyser);
         await context.resume?.();
         if(generation!==micGeneration){cleanup();return}
-        const samples=new Float32Array(analyser.fftSize);running=true;ui.status.textContent="正在聆听";ui.toggle.textContent="停止";
-        const update=(now=performance.now())=>{if(generation!==micGeneration)return;if(now-lastSample>=50){lastSample=now;analyser.getFloatTimeDomainData(samples);render(detectPitch(samples,context.sampleRate))}frame=requestAnimationFrame(update)};update();
+        const samples=new Float32Array(analyser.fftSize);running=true;ui.status.textContent="正在聆听";ui.toggle.textContent="停止";tunerPanel?.inputState("running");
+        stream.getTracks().forEach(track=>{track.onended=()=>{if(generation===micGeneration)stop?.()};track.onmute=()=>{if(generation===micGeneration)stop?.()}});
+        const update=(now=performance.now())=>{if(generation!==micGeneration)return;if(now-lastSample>=50){lastSample=now;analyser.getFloatTimeDomainData(samples);render(detectPitch(samples,context.sampleRate),now)}frame=requestAnimationFrame(update)};update();
       }catch(error){cleanup();if(generation!==micGeneration)return;stop?.();ui.error.textContent="无法使用麦克风，请检查浏览器权限。";ui.error.style.display="block"}
     });
     const roomParams=new URLSearchParams(location.search),rawRoomMode=roomParams.get("mode"),pageMode=rawRoomMode==="parent"?"host":rawRoomMode==="child"?"member":rawRoomMode,isRoomHost=pageMode==="host",isRoomMember=pageMode==="member";let roomCode=roomParams.get("room")||"";if(isRoomHost&&!/^\d{6}$/.test(roomCode)){roomCode=window.siteStorage.getItem("tuner-room-code-v1")||"";if(!/^\d{6}$/.test(roomCode)){roomCode=String(Math.floor(100000+Math.random()*900000));window.siteStorage.setItem("tuner-room-code-v1",roomCode)}}const roomTopic=/^\d{6}$/.test(roomCode)?`xianyin-${roomCode}-room-metronome-v1`:"";let metroBpm=window.metronome.getBpm(),metroRunning=false;const metroPage=document.querySelector("#metro-page"),metroValue=document.querySelector("#metro-bpm"),metroDot=document.querySelector("#metro-dot"),metroStart=document.querySelector("#metro-start");metroValue.textContent=metroBpm;
@@ -803,10 +806,31 @@ const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
 
 
     function navigatePage(page,fromHash=false){
-      document.querySelectorAll(".tab").forEach(tab=>{const active=tab.dataset.page===page;tab.classList.toggle("active",active);if(active)tab.setAttribute("aria-current","page");else tab.removeAttribute("aria-current")});
+      document.querySelectorAll(".tab").forEach(tab=>{const active=Boolean(tab.closest("nav"))&&(tab.dataset.page===page||tab.dataset.page==="tools"&&["tuner","sound","metro"].includes(page));tab.classList.toggle("active",active);if(active)tab.setAttribute("aria-current","page");else tab.removeAttribute("aria-current")});
       for(const [name,element,display] of [["tuner",ui.main,"grid"],["lesson",document.querySelector("#lesson-page"),"block"],["sheet",document.querySelector("#sheet-page"),"block"],["metro",metroPage,"block"],["jam",jamPage,"block"]])element.style.display=name===page?display:"none";
+      document.querySelector("#tools-page").style.display=page==="tools"?"block":"none";
+      const toolNames={tuner:"调音器",sound:"响度表",metro:"节拍器"};
+      document.querySelector("#tools-back").hidden=!toolNames[page];
+      document.querySelector("#tools-current").textContent=toolNames[page]||"";
+      document.querySelector("#sound-page").style.display=page==="sound"?"grid":"none";
+      if(page==="sound"&&!window.soundMeter){
+        document.querySelector("#sound-start").disabled=true;
+        const asset=window.siteAssets?.load("sound");
+        asset?.then(()=>{if(document.querySelector("#sound-page").style.display!=="none")window.soundMeter.onPage("sound")}).catch(()=>{
+          document.querySelector("#sound-status").textContent="响度表载入失败，点击重试";
+          const retry=document.querySelector("#sound-start");retry.disabled=false;retry.textContent="重新载入";retry.onclick=()=>navigatePage("sound");
+        });
+      }
+      window.soundMeter?.onPage(page);
       if(page!=="tuner")stop?.();
-      if(page!=="lesson")window.lessonPlayer?.stop();else window.lessonPlayer?.activate?.();
+      tunerPanel?.onPage(page);
+      if(page!=="lesson"){window.lessonPlayer?.stop();window.practiceStudio?.stop();}else{
+        window.lessonPlayer?.activate?.();
+        if(!window.practiceStudio&&window.siteAssets){
+          const pending=document.querySelector("#practice-loader");pending.hidden=false;pending.querySelector("button").hidden=true;
+          window.siteAssets.load("studio").then(()=>{pending.hidden=true}).catch(()=>{pending.querySelector("span").textContent="创作与伴奏暂时不可用";const retry=pending.querySelector("button");retry.hidden=false;retry.onclick=()=>navigatePage("lesson");});
+        }
+      }
       if(page!=="sheet"&&page!=="metro"){window.scorePlayer?.pause();window.metronome?.releaseScore()}
       if(page!=="jam")jamStopPreview(false);else window.siteAssets?.warm("tone");
       if(page==="sheet"){
@@ -817,10 +841,12 @@ const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
         else if(bound&&!fromHash)window.scorePlayer?.open(bound,false);
         else window.scorePlayer?.showLibrary();
       }
-      if(!fromHash){const hash={tuner:"",lesson:"#lessons",sheet:"#scores",metro:"#metro",jam:"#jam"}[page];history.replaceState(null,"",location.pathname+location.search+hash)}
+      if(!fromHash){const hash={tools:"#tools",sound:"#sound",tuner:"#tuner",lesson:"#lessons",sheet:"#scores",metro:"#metro",jam:"#jam"}[page];history.replaceState(null,"",location.pathname+location.search+hash)}
     }
-    function routeHash(){const hash=location.hash;const page=hash.startsWith("#lick/")||hash==="#lessons"?"lesson":hash==="#scores"||hash.startsWith("#score/")?"sheet":hash==="#jam"?"jam":hash==="#metro"?"metro":"tuner";navigatePage(page,true)}
+    function routeHash(){const hash=location.hash;const page=hash.startsWith("#lick/")||hash==="#lessons"?"lesson":hash==="#scores"||hash.startsWith("#score/")?"sheet":hash==="#jam"?"jam":hash==="#metro"?"metro":hash==="#sound"?"sound":hash==="#tuner"?"tuner":"tools";navigatePage(page,true)}
     document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>navigatePage(tab.dataset.page)));
+    document.querySelector("#tools-back-button").onclick=()=>navigatePage("tools");
+    document.querySelector(".brand").onclick=event=>{event.preventDefault();navigatePage("tools")};
     window.addEventListener("hashchange",routeHash);
     routeHash();
     document.querySelector("#remote-send").onclick=()=>{const code=document.querySelector("#room-code").value,status=document.querySelector("#remote-status");if(!/^\d{6}$/.test(code)){status.textContent="请输入 6 位房间码";return}location.href=`?mode=member&room=${code}#metro`};

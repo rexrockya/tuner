@@ -1,0 +1,356 @@
+{
+  "dataset": "GuitarSet 1.1.0",
+  "source": "https://zenodo.org/records/3371780",
+  "license": "CC BY 4.0",
+  "authors": [
+    "Qingyang Xi",
+    "Rachel M. Bittner",
+    "Johan Pauwels",
+    "Xuzhou Ye",
+    "Juan P. Bello"
+  ],
+  "retrieved": "2026-09-08",
+  "count": 20,
+  "files": [
+    {
+      "id": "gs00bn5",
+      "sourceTrack": "00_BN1-129-Eb_solo",
+      "sourceAudioSha256": "2a6057d0485d8ee2f4a04175ee085d610c0f7a13194e083b13ce803bec091d43",
+      "sourceAnnotationSha256": "2258ef6f5dc58437f2807dfc0c05416ad8498cd345f95d6563b13d19283e6d54",
+      "audioSha256": "a2cd05d5592ca7d5e7d1d30f308fd98bea84f70a20644a8ab1d346922cfc44f8",
+      "scoreSha256": "9c0e848b32a8482f6355ad359a23a5226b70e2a61092bfbd9c6a212915cdc58a",
+      "annotationSha256": "a3f38b81adffcf46eb9f9a421e75fdd05cf1e8ec37fc3f6f43c2ff35e3a1b49d",
+      "audioBytes": 119997,
+      "noteCount": 24,
+      "startSeconds": 7.441859410430839,
+      "endSeconds": 14.883718820861677,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs00bn9",
+      "sourceTrack": "00_BN1-129-Eb_solo",
+      "sourceAudioSha256": "2a6057d0485d8ee2f4a04175ee085d610c0f7a13194e083b13ce803bec091d43",
+      "sourceAnnotationSha256": "2258ef6f5dc58437f2807dfc0c05416ad8498cd345f95d6563b13d19283e6d54",
+      "audioSha256": "ab63cbd07593e1a985c4b1f0721ee07fb7468b0ac62109a3b50b0a43399d16a6",
+      "scoreSha256": "5dac047d5a9f14064da77c21cbef6fa0a91f435c4c17340e70157309dd26cb82",
+      "annotationSha256": "d145b41966631bd41eea14b72395013a44e9729cf68d83f02239cfffd8f6ec75",
+      "audioBytes": 119997,
+      "noteCount": 19,
+      "startSeconds": 14.883718820861677,
+      "endSeconds": 22.32439909297052,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs00funk5",
+      "sourceTrack": "00_Funk1-97-C_solo",
+      "sourceAudioSha256": "8e0d08e0e2c8b1a66ff50cb7e0a7433d87068620d9c607394412ca4248238ee3",
+      "sourceAnnotationSha256": "00c77a22d7a0022002926f186ec11cc6c66d4fd2704619e1869dab76a712aade",
+      "audioSha256": "f2753e93c46475713da8cf5f14be36f7d7bd8b8c2613c499b76ac8271c941aa3",
+      "scoreSha256": "c9c34363a2c578290fb425fcea62759758bf4261a55023e4b322c6d7cdd5354a",
+      "annotationSha256": "925ef38adceb4d1d0421742c8c95fed4161ee3840a5c61a8901b5b03bc8e04e5",
+      "audioBytes": 159285,
+      "noteCount": 22,
+      "startSeconds": 9.896916099773243,
+      "endSeconds": 19.793809523809525,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs00funk9",
+      "sourceTrack": "00_Funk1-97-C_solo",
+      "sourceAudioSha256": "8e0d08e0e2c8b1a66ff50cb7e0a7433d87068620d9c607394412ca4248238ee3",
+      "sourceAnnotationSha256": "00c77a22d7a0022002926f186ec11cc6c66d4fd2704619e1869dab76a712aade",
+      "audioSha256": "8996c857117170f1188092e764b6f6731fafcd3b420d6696ba7b126e897aebc1",
+      "scoreSha256": "bf118a37187c715f6d6949eb9231c9199dd14858a76a2ed791071140c40d2670",
+      "annotationSha256": "ad907bd46ef40777c38fa02b437ab76b0210da4d0f42f4e97c21bc7a3a5dd89a",
+      "audioBytes": 159285,
+      "noteCount": 23,
+      "startSeconds": 19.793809523809525,
+      "endSeconds": 29.688390022675737,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs00jazz5",
+      "sourceTrack": "00_Jazz1-130-D_solo",
+      "sourceAudioSha256": "275623936a0f6cf7cb959a7e81ff801c6fcc4d3128a939e1ba7ef89b8dbb413d",
+      "sourceAnnotationSha256": "e7ac222ef17b572e9b4f8b60ad731d6427ce090afa7a4f9eb7b79a6952ca99a5",
+      "audioSha256": "a36c8d654005bcbb27f115d3b2fc564fd8555863395a1c4abdd61cc50371f370",
+      "scoreSha256": "ddd4583130a36b96e8f53858a81c6682511bd182e92586c4366e315342aebd9c",
+      "annotationSha256": "f12a5da9b2cce9dcd78fde5ae8ca32d3937f63100bd69e327dbafb369cfd09d4",
+      "audioBytes": 119161,
+      "noteCount": 16,
+      "startSeconds": 7.384625850340136,
+      "endSeconds": 14.76922902494331,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs00jazz9",
+      "sourceTrack": "00_Jazz1-130-D_solo",
+      "sourceAudioSha256": "275623936a0f6cf7cb959a7e81ff801c6fcc4d3128a939e1ba7ef89b8dbb413d",
+      "sourceAnnotationSha256": "e7ac222ef17b572e9b4f8b60ad731d6427ce090afa7a4f9eb7b79a6952ca99a5",
+      "audioSha256": "8a664e412dbede3b10ec8022d63b6c2ff33657d68110d3ba1f21254bfae87a01",
+      "scoreSha256": "7ad57c76bafb4d5202f70ade985bc02a0b8d39f519b005df4d98e2f02d9d38f4",
+      "annotationSha256": "f81261211cca70e350f2b87cf985d193f91373f1735870c1110a3f6c80bd95f1",
+      "audioBytes": 119161,
+      "noteCount": 10,
+      "startSeconds": 14.76922902494331,
+      "endSeconds": 22.14721088435374,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs00rock5",
+      "sourceTrack": "00_Rock1-90-C#_solo",
+      "sourceAudioSha256": "7027f166d92969ef4e442a998ffbffdb6a9d78ba1c77bfdde1c73f3b3193b083",
+      "sourceAnnotationSha256": "2f6d3726620d229c904d28d09c761a086c305427bc2377eedd7ddabcc6704cf7",
+      "audioSha256": "e6c48c7b59792a3e3a2fd10e01c3c268b71ca789e3fce91b572d5e7a682e3746",
+      "scoreSha256": "f3b7647024cd5518376ad3a200b5d67221daf97103436bd5bb7a3982d14b5d5e",
+      "annotationSha256": "35f9d4007cee3ecf3ab09baa2603ea3cf20e1be527de5f4bc268ec9fc66d3004",
+      "audioBytes": 171824,
+      "noteCount": 44,
+      "startSeconds": 10.666666666666666,
+      "endSeconds": 21.333333333333332,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs00rock9",
+      "sourceTrack": "00_Rock1-90-C#_solo",
+      "sourceAudioSha256": "7027f166d92969ef4e442a998ffbffdb6a9d78ba1c77bfdde1c73f3b3193b083",
+      "sourceAnnotationSha256": "2f6d3726620d229c904d28d09c761a086c305427bc2377eedd7ddabcc6704cf7",
+      "audioSha256": "f8eabe13431cff4bbab056239b2f8885cb1d1c0f6911810298d26b4832e2bb3a",
+      "scoreSha256": "41c8af8b5d2d2c82077e762eddc9abfa2cbd3c26e1144f5c6895a3b62195f683",
+      "annotationSha256": "24ac78009fc2b682eda1d22da27ca1c6b8b5ab3d2c6b13ffc9f9c6d02a2d3d5f",
+      "audioBytes": 171824,
+      "noteCount": 26,
+      "startSeconds": 21.333333333333332,
+      "endSeconds": 32.0,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs00ss5",
+      "sourceTrack": "00_SS1-100-C#_solo",
+      "sourceAudioSha256": "41a3bf8c5cacf65a601b1171e5cbc36787170bcae6d0d1d970a31a5d4e231e0d",
+      "sourceAnnotationSha256": "69c82b69be5d3c176226baf695b56d6f8f30165a3c2cf98c0f48e3cecc19ef84",
+      "audioSha256": "dd7a96a0def51d8407bfc079bc66e5f110386ac99128379741bfd1972c7ca3f7",
+      "scoreSha256": "2da2a50e867cbac2f197c3aece211ea12943f36c6012a5da826a7872f4bf1936",
+      "annotationSha256": "9b62dede35086335d136cfbd891f16a10e86bf75ad51eb6e90bc7014c9de1fe5",
+      "audioBytes": 154687,
+      "noteCount": 21,
+      "startSeconds": 9.6,
+      "endSeconds": 19.2,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs00ss9",
+      "sourceTrack": "00_SS1-100-C#_solo",
+      "sourceAudioSha256": "41a3bf8c5cacf65a601b1171e5cbc36787170bcae6d0d1d970a31a5d4e231e0d",
+      "sourceAnnotationSha256": "69c82b69be5d3c176226baf695b56d6f8f30165a3c2cf98c0f48e3cecc19ef84",
+      "audioSha256": "fdfac162edf747385d640eed9a707230d920b2f3d90013526bd6644763018273",
+      "scoreSha256": "7c695e0186ecd568f17b7ab50def21f6c23263a46a00a9d990debc4edd025d57",
+      "annotationSha256": "43c25f3f1fba978a0f762d754cd4812f039a24ddcd1e2cf23a6947207bbf00d1",
+      "audioBytes": 154687,
+      "noteCount": 24,
+      "startSeconds": 19.2,
+      "endSeconds": 28.8,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs01bn5",
+      "sourceTrack": "01_BN1-129-Eb_solo",
+      "sourceAudioSha256": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4",
+      "sourceAnnotationSha256": "ecdd877eaf6208cfefa47b74c1a6a5211146e12dfa0f5132345a4c456cd67fc8",
+      "audioSha256": "6768f582acea4a059bc346fcc0f09711723bfee84dae9f287d338ab6c7395f5f",
+      "scoreSha256": "8758698fbb1c1733bf12cf1e415ddd34998bd82b1248d07cfa7617b5918133dc",
+      "annotationSha256": "2d46b4a4838ff5ca5fd0c149455ab733d7cff3f4d9127b0ba05c7799d72e5011",
+      "audioBytes": 119997,
+      "noteCount": 21,
+      "startSeconds": 7.441859410430839,
+      "endSeconds": 14.883718820861677,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs01bn9",
+      "sourceTrack": "01_BN1-129-Eb_solo",
+      "sourceAudioSha256": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4",
+      "sourceAnnotationSha256": "ecdd877eaf6208cfefa47b74c1a6a5211146e12dfa0f5132345a4c456cd67fc8",
+      "audioSha256": "60e1490477d6f8fddbc6cc8939001bbdfa93213474e6693fe4e7d8d41291c5b8",
+      "scoreSha256": "10611ce431fd7344ae3fa29b978057c442df7d687f2deaa1f09cca6a5d6f3270",
+      "annotationSha256": "b192fc49e7dfe61d1e7847370fc4a7038cfd219e00f9a3e32ee34caa23c3890d",
+      "audioBytes": 119997,
+      "noteCount": 21,
+      "startSeconds": 14.883718820861677,
+      "endSeconds": 22.32439909297052,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs01funk5",
+      "sourceTrack": "01_Funk1-97-C_solo",
+      "sourceAudioSha256": "00ae184307da8f9d36667546bd5fe543f46f7f03d9f8fa1c432ff52982b1b384",
+      "sourceAnnotationSha256": "a7f9107a705a86409828c98cbcc9b767c24c490c42ace0ff19dd25a88135ad5a",
+      "audioSha256": "d8459216e73198ec8d4aca7cd7faa211ca956ad95059c94dec2b68ce5bd81187",
+      "scoreSha256": "9032e05961c46184381c968d0fc9a944d30afbf6801e05a1db7bdf22f6709587",
+      "annotationSha256": "f904c8d4999303e62849a6b908c8a822be67beffa18c94c38c78f97b7660a9d8",
+      "audioBytes": 159285,
+      "noteCount": 44,
+      "startSeconds": 9.896916099773243,
+      "endSeconds": 19.793809523809525,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs01funk9",
+      "sourceTrack": "01_Funk1-97-C_solo",
+      "sourceAudioSha256": "00ae184307da8f9d36667546bd5fe543f46f7f03d9f8fa1c432ff52982b1b384",
+      "sourceAnnotationSha256": "a7f9107a705a86409828c98cbcc9b767c24c490c42ace0ff19dd25a88135ad5a",
+      "audioSha256": "3e911f7858dd2568f8a3f5a265a03adf0312afd0b1d1833b34a7c7c0d0a591d3",
+      "scoreSha256": "ad9e21950317782f3c1981d34fd082f68c80ab3ad4c08eb06afea654a6ba18ad",
+      "annotationSha256": "2e3de7b104a1b5e16845d58d73b028b2cb436ef3e016f737862990580f4157c6",
+      "audioBytes": 159285,
+      "noteCount": 38,
+      "startSeconds": 19.793809523809525,
+      "endSeconds": 29.688390022675737,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs01jazz5",
+      "sourceTrack": "01_Jazz1-130-D_solo",
+      "sourceAudioSha256": "726991869569d7b76fe69b36fbefb3571f030556f020a7e3d599f0728d60f3ef",
+      "sourceAnnotationSha256": "39226e2e4bc3178272d22f940b66986fec22474cf8c2b0ec4838942b469b942d",
+      "audioSha256": "0fc0dfafb72a5516b06574f0a7c880b4389b933c08b1062e6b751467ab089d32",
+      "scoreSha256": "6ab23e4ff87d474add5aa4ae9bf2bae6037c41672e08b7cb32a0f8f83897c714",
+      "annotationSha256": "6c19160692935586ceeeb3e78bcb1111c949f433d2d47a7c47c2f9c49f087128",
+      "audioBytes": 119161,
+      "noteCount": 23,
+      "startSeconds": 7.384625850340136,
+      "endSeconds": 14.76922902494331,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs01jazz9",
+      "sourceTrack": "01_Jazz1-130-D_solo",
+      "sourceAudioSha256": "726991869569d7b76fe69b36fbefb3571f030556f020a7e3d599f0728d60f3ef",
+      "sourceAnnotationSha256": "39226e2e4bc3178272d22f940b66986fec22474cf8c2b0ec4838942b469b942d",
+      "audioSha256": "9b1b27c6efc6dde5dee4d63db44a6f4296277dd0b533ad3bda1f6af8fbcca3eb",
+      "scoreSha256": "443aebc0496a8d8b415b7eb6ef152ff39198f9a66233d7b0986abdae9d32e148",
+      "annotationSha256": "97cc6dc0019125ae297d7023b8325abb77731c4e9ced53e930f22b0f386c7bc1",
+      "audioBytes": 119161,
+      "noteCount": 28,
+      "startSeconds": 14.76922902494331,
+      "endSeconds": 22.14721088435374,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs01rock5",
+      "sourceTrack": "01_Rock1-90-C#_solo",
+      "sourceAudioSha256": "978ac8c3e925704f8c7f1ef592bd0819ae2ec4fba961b25aaa713baefe01a243",
+      "sourceAnnotationSha256": "422f00ed0c61cd26c5bef4738e72596ee3f831ec77b1cf686401ce5ad4e775d2",
+      "audioSha256": "b592e5534d3233034120c9ad346179890430465a0e43d34efe1c21c6ed9ec15a",
+      "scoreSha256": "c6b0aca47c093feb0ed484aa4e673d767a7f26dd6556621d9bd34639cd6eaf5c",
+      "annotationSha256": "6667c052d4df606d26bd52a6c8214957f4a0c1366eafc446ab88b95b528cad3f",
+      "audioBytes": 171824,
+      "noteCount": 46,
+      "startSeconds": 10.666666666666666,
+      "endSeconds": 21.333333333333332,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs01rock9",
+      "sourceTrack": "01_Rock1-90-C#_solo",
+      "sourceAudioSha256": "978ac8c3e925704f8c7f1ef592bd0819ae2ec4fba961b25aaa713baefe01a243",
+      "sourceAnnotationSha256": "422f00ed0c61cd26c5bef4738e72596ee3f831ec77b1cf686401ce5ad4e775d2",
+      "audioSha256": "20d01b5355fe39feb7bb135b4ce914caeba2c5ce08a283088551028fcea2effc",
+      "scoreSha256": "dcd305acf1559faac7909475363b9b471a4cd7c123743f620872058f4c961afc",
+      "annotationSha256": "d3a7d257a84a303a69b16bddf2ab97a9e92321342f1f157fdf29d0432b040bf1",
+      "audioBytes": 171824,
+      "noteCount": 52,
+      "startSeconds": 21.333333333333332,
+      "endSeconds": 32.0,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": "gs01ss5",
+      "sourceTrack": "01_SS1-100-C#_solo",
+      "sourceAudioSha256": "2b9c9eda652c2ebf9dab32d906f757973427c00c3df9f945e357a54156e47069",
+      "sourceAnnotationSha256": "86377a1d21a57900b5df1f4e05230faedc83e6a17a5c7277887f2e5fc1c2e8ed",
+      "audioSha256": "5ac4120f7576f39ea3a5df49f40fe746d456d0f7b4d311db01e71c983050d9c6",
+      "scoreSha256": "55a68cafeeb91a5e19a34d4d4d4a3041e1a2f929b6f408450d34afe99560fd21",
+      "annotationSha256": "bddeffd692f7681e11f5df462f133d4e972a3a8a2cdbd44c7465aae6b818d2f1",
+      "audioBytes": 154687,
+      "noteCount": 45,
+      "startSeconds": 9.6,
+      "endSeconds": 19.2,
+      "sourceMeasures": [
+        5,
+        8
+      ]
+    },
+    {
+      "id": "gs01ss9",
+      "sourceTrack": "01_SS1-100-C#_solo",
+      "sourceAudioSha256": "2b9c9eda652c2ebf9dab32d906f757973427c00c3df9f945e357a54156e47069",
+      "sourceAnnotationSha256": "86377a1d21a57900b5df1f4e05230faedc83e6a17a5c7277887f2e5fc1c2e8ed",
+      "audioSha256": "12daba093d1ea10af1af901763ff0b77369d86a973ada05e435e3c7740996142",
+      "scoreSha256": "ba4cef6f95a4a089c326cadc59f446faf729d9901fd653ca74d64d6aec4ccb4a",
+      "annotationSha256": "db4f0fc36463dec56267f66dd70402f60f34797afcc0f833e4e376a56e28eaae",
+      "audioBytes": 154687,
+      "noteCount": 48,
+      "startSeconds": 19.2,
+      "endSeconds": 28.8,
+      "sourceMeasures": [
+        9,
+        12
+      ]
+    }
+  ]
+}

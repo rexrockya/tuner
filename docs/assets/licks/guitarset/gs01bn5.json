@@ -1,0 +1,242 @@
+{
+  "sourceTrack": "01_BN1-129-Eb_solo",
+  "startSeconds": 7.441859410430839,
+  "endSeconds": 14.883718820861677,
+  "startSample": 328186,
+  "endSample": 656372,
+  "sampleRate": 44100,
+  "originalBpm": 129,
+  "notes": [
+    {
+      "time": 0.0,
+      "duration": 0.040041,
+      "midi": 63,
+      "sourceMidi": 62.9792804423628,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": true,
+      "sourceTime": 7.156820861678057,
+      "sourceDuration": 0.32507936507931845
+    },
+    {
+      "time": 0.007773,
+      "duration": 0.203175,
+      "midi": 70,
+      "sourceMidi": 70.14979587131566,
+      "stringIndex": 4,
+      "fret": 11,
+      "carryIn": false,
+      "sourceTime": 7.449632653061258,
+      "sourceDuration": 0.20317460317460245
+    },
+    {
+      "time": 0.21639,
+      "duration": 0.261224,
+      "midi": 67,
+      "sourceMidi": 67.05707950604008,
+      "stringIndex": 4,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 7.658249433106562,
+      "sourceDuration": 0.2612244897959499
+    },
+    {
+      "time": 0.551878,
+      "duration": 0.17415,
+      "midi": 67,
+      "sourceMidi": 67.12934671767674,
+      "stringIndex": 4,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 7.9937369614513045,
+      "sourceDuration": 0.17414965986392872
+    },
+    {
+      "time": 1.614621,
+      "duration": 0.1161,
+      "midi": 45,
+      "sourceMidi": 45.098836881831396,
+      "stringIndex": 1,
+      "fret": 0,
+      "carryIn": false,
+      "sourceTime": 9.0564807256236,
+      "sourceDuration": 0.11609977324258125
+    },
+    {
+      "time": 1.657456,
+      "duration": 0.10449,
+      "midi": 50,
+      "sourceMidi": 50.11051615630492,
+      "stringIndex": 2,
+      "fret": 0,
+      "carryIn": false,
+      "sourceTime": 9.099315192743802,
+      "sourceDuration": 0.10448979591831176
+    },
+    {
+      "time": 1.709088,
+      "duration": 0.191565,
+      "midi": 70,
+      "sourceMidi": 70.10654433950211,
+      "stringIndex": 4,
+      "fret": 11,
+      "carryIn": false,
+      "sourceTime": 9.150947845805035,
+      "sourceDuration": 0.19156462585033296
+    },
+    {
+      "time": 2.110018,
+      "duration": 0.214785,
+      "midi": 67,
+      "sourceMidi": 67.1045896041294,
+      "stringIndex": 4,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 9.551877551020539,
+      "sourceDuration": 0.21478458049887195
+    },
+    {
+      "time": 2.350562,
+      "duration": 0.412154,
+      "midi": 67,
+      "sourceMidi": 67.07051915617036,
+      "stringIndex": 4,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 9.792421768707527,
+      "sourceDuration": 0.41215419501133965
+    },
+    {
+      "time": 2.777637,
+      "duration": 0.249615,
+      "midi": 65,
+      "sourceMidi": 65.03590957519924,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 10.21949659863958,
+      "sourceDuration": 0.24961451247168043
+    },
+    {
+      "time": 3.046549,
+      "duration": 0.24381,
+      "midi": 67,
+      "sourceMidi": 67.04039235024507,
+      "stringIndex": 4,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 10.488408163265376,
+      "sourceDuration": 0.24380952380954568
+    },
+    {
+      "time": 3.258748,
+      "duration": 0.17415,
+      "midi": 65,
+      "sourceMidi": 65.0038689080155,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 10.700607709750557,
+      "sourceDuration": 0.17414965986392872
+    },
+    {
+      "time": 3.478703,
+      "duration": 0.156735,
+      "midi": 63,
+      "sourceMidi": 62.99931713248877,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 10.920562358276584,
+      "sourceDuration": 0.15673469387752448
+    },
+    {
+      "time": 3.677433,
+      "duration": 0.203175,
+      "midi": 67,
+      "sourceMidi": 66.55298354767332,
+      "stringIndex": 3,
+      "fret": 12,
+      "carryIn": false,
+      "sourceTime": 11.119292517006897,
+      "sourceDuration": 0.20317460317460245
+    },
+    {
+      "time": 3.929791,
+      "duration": 0.632744,
+      "midi": 67,
+      "sourceMidi": 67.07290621581394,
+      "stringIndex": 3,
+      "fret": 12,
+      "carryIn": false,
+      "sourceTime": 11.371650793650815,
+      "sourceDuration": 0.6327437641723463
+    },
+    {
+      "time": 6.069315,
+      "duration": 0.18576,
+      "midi": 63,
+      "sourceMidi": 62.96951581996924,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 13.511174603174709,
+      "sourceDuration": 0.1857596371881982
+    },
+    {
+      "time": 6.292422,
+      "duration": 0.156735,
+      "midi": 65,
+      "sourceMidi": 64.99191439786459,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 13.734281179138407,
+      "sourceDuration": 0.15673469387752448
+    },
+    {
+      "time": 6.529088,
+      "duration": 0.19737,
+      "midi": 63,
+      "sourceMidi": 63.009658293666604,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 13.970947845805085,
+      "sourceDuration": 0.1973696145124677
+    },
+    {
+      "time": 6.755846,
+      "duration": 0.20898,
+      "midi": 63,
+      "sourceMidi": 63.004921571356135,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 14.197705215419546,
+      "sourceDuration": 0.2089795918367372
+    },
+    {
+      "time": 6.99639,
+      "duration": 0.18576,
+      "midi": 63,
+      "sourceMidi": 63.001668035344466,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 14.438249433106535,
+      "sourceDuration": 0.1857596371881982
+    },
+    {
+      "time": 7.218544,
+      "duration": 0.19737,
+      "midi": 63,
+      "sourceMidi": 62.994553830456596,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 14.660403628118047,
+      "sourceDuration": 0.1973696145124677
+    }
+  ]
+}

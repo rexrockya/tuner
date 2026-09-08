@@ -40,7 +40,7 @@ function harness(options = {}) {
     else signal.addEventListener('abort', () => reject(new Error('Aborted by timeout')), { once: true });
   });
   const fetch = async (url, request = {}) => {
-    const file = url.split('/').pop(); state.requests.push(file);
+    const file = url.split('/').pop().split('?')[0]; state.requests.push(file);
     const isManifest = file === 'manifest.json';
     if (isManifest && options.stallManifest === 'fetch') return pendingAbort(request.signal);
     if (options.failedFiles?.has(file)) return { ok: false };
@@ -88,7 +88,7 @@ function harness(options = {}) {
     assert.equal(state.decodes.filter(file => file.endsWith('.flac')).length, names.length);
     assert.equal(state.successful.filter(file => file.endsWith('.wav')).length, names.length, 'every unsupported FLAC automatically uses the bundled WAV');
     await A.ensure(); assert.equal(state.resumes, 1); assert.equal(state.requests.length, names.length * 2 + 1); assert.equal(state.timers.size, 0);
-    console.log('PASS: unsupported FLAC decode falls back to all 12 WAV samples and warm playback reuses the fallback buffers');
+    console.log('PASS: unsupported FLAC decode falls back to all bundled WAV samples and warm playback reuses the fallback buffers');
   }
   {
     const failedFiles = new Set(['snare-2.flac', 'snare-2.wav']);
@@ -101,7 +101,7 @@ function harness(options = {}) {
     for (const [name, entry] of Object.entries(manifest)) if (name !== 'snare-2') assert.equal(state.requests.filter(file => file === entry.file).length, prior.get(entry.file), `${name} must not be downloaded or decoded again`);
     assert.equal(state.requests.filter(file => file === 'snare-2.flac').length, 2);
     assert.equal(state.timers.size, 0); assert.equal(state.resumes, 0);
-    console.log('PASS: partial loading failure is retryable and reuses all 11 already decoded samples');
+    console.log('PASS: partial loading failure is retryable and reuses all already decoded samples');
   }
   for (const stage of ['fetch', 'body']) {
     const options = { stallManifest: stage }, { A, state } = harness(options);

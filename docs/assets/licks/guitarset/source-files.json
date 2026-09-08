@@ -1,0 +1,122 @@
+[
+  {
+    "archive": "annotation.zip",
+    "file": "00_Rock1-90-C#_solo.jams",
+    "bytes": 1610902,
+    "sha256": "2f6d3726620d229c904d28d09c761a086c305427bc2377eedd7ddabcc6704cf7"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "00_Rock1-90-C#_solo_mic.wav",
+    "bytes": 2822444,
+    "sha256": "7027f166d92969ef4e442a998ffbffdb6a9d78ba1c77bfdde1c73f3b3193b083"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "00_SS1-100-C#_solo.jams",
+    "bytes": 955040,
+    "sha256": "69c82b69be5d3c176226baf695b56d6f8f30165a3c2cf98c0f48e3cecc19ef84"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "00_SS1-100-C#_solo_mic.wav",
+    "bytes": 2540204,
+    "sha256": "41a3bf8c5cacf65a601b1171e5cbc36787170bcae6d0d1d970a31a5d4e231e0d"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "00_Funk1-97-C_solo.jams",
+    "bytes": 1303396,
+    "sha256": "00c77a22d7a0022002926f186ec11cc6c66d4fd2704619e1869dab76a712aade"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "00_Funk1-97-C_solo_mic.wav",
+    "bytes": 2618560,
+    "sha256": "8e0d08e0e2c8b1a66ff50cb7e0a7433d87068620d9c607394412ca4248238ee3"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "00_Jazz1-130-D_solo.jams",
+    "bytes": 633754,
+    "sha256": "e7ac222ef17b572e9b4f8b60ad731d6427ce090afa7a4f9eb7b79a6952ca99a5"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "00_Jazz1-130-D_solo_mic.wav",
+    "bytes": 1953428,
+    "sha256": "275623936a0f6cf7cb959a7e81ff801c6fcc4d3128a939e1ba7ef89b8dbb413d"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "00_BN1-129-Eb_solo.jams",
+    "bytes": 950809,
+    "sha256": "2258ef6f5dc58437f2807dfc0c05416ad8498cd345f95d6563b13d19283e6d54"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "00_BN1-129-Eb_solo_mic.wav",
+    "bytes": 1969056,
+    "sha256": "2a6057d0485d8ee2f4a04175ee085d610c0f7a13194e083b13ce803bec091d43"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "01_Rock1-90-C#_solo.jams",
+    "bytes": 879060,
+    "sha256": "422f00ed0c61cd26c5bef4738e72596ee3f831ec77b1cf686401ce5ad4e775d2"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "01_Rock1-90-C#_solo_mic.wav",
+    "bytes": 2822444,
+    "sha256": "978ac8c3e925704f8c7f1ef592bd0819ae2ec4fba961b25aaa713baefe01a243"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "01_SS1-100-C#_solo.jams",
+    "bytes": 606474,
+    "sha256": "86377a1d21a57900b5df1f4e05230faedc83e6a17a5c7277887f2e5fc1c2e8ed"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "01_SS1-100-C#_solo_mic.wav",
+    "bytes": 2540204,
+    "sha256": "2b9c9eda652c2ebf9dab32d906f757973427c00c3df9f945e357a54156e47069"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "01_Funk1-97-C_solo.jams",
+    "bytes": 585754,
+    "sha256": "a7f9107a705a86409828c98cbcc9b767c24c490c42ace0ff19dd25a88135ad5a"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "01_Funk1-97-C_solo_mic.wav",
+    "bytes": 2618560,
+    "sha256": "00ae184307da8f9d36667546bd5fe543f46f7f03d9f8fa1c432ff52982b1b384"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "01_Jazz1-130-D_solo.jams",
+    "bytes": 581755,
+    "sha256": "39226e2e4bc3178272d22f940b66986fec22474cf8c2b0ec4838942b469b942d"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "01_Jazz1-130-D_solo_mic.wav",
+    "bytes": 1953428,
+    "sha256": "726991869569d7b76fe69b36fbefb3571f030556f020a7e3d599f0728d60f3ef"
+  },
+  {
+    "archive": "annotation.zip",
+    "file": "01_BN1-129-Eb_solo.jams",
+    "bytes": 509838,
+    "sha256": "ecdd877eaf6208cfefa47b74c1a6a5211146e12dfa0f5132345a4c456cd67fc8"
+  },
+  {
+    "archive": "audio_mono-mic.zip",
+    "file": "01_BN1-129-Eb_solo_mic.wav",
+    "bytes": 1969056,
+    "sha256": "76330537c6a88df56c7e338da9dd81d84cbf7f3a5ae7cd1b32a663bded6b76b4"
+  }
+]

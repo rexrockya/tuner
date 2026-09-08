@@ -50,5 +50,173 @@
   "snare-2": {
     "file": "snare-2.flac",
     "fallback": "snare-2.wav"
+  },
+  "guitar-45-v2-r1": {
+    "file": "guitar-45-v2-r1.flac",
+    "fallback": "guitar-45-v2-r1.wav",
+    "midi": 45,
+    "layer": 2,
+    "variant": 0
+  },
+  "guitar-45-v2-r2": {
+    "file": "guitar-45-v2-r2.flac",
+    "fallback": "guitar-45-v2-r2.wav",
+    "midi": 45,
+    "layer": 2,
+    "variant": 1
+  },
+  "guitar-45-v3-r1": {
+    "file": "guitar-45-v3-r1.flac",
+    "fallback": "guitar-45-v3-r1.wav",
+    "midi": 45,
+    "layer": 3,
+    "variant": 0
+  },
+  "guitar-45-v3-r2": {
+    "file": "guitar-45-v3-r2.flac",
+    "fallback": "guitar-45-v3-r2.wav",
+    "midi": 45,
+    "layer": 3,
+    "variant": 1
+  },
+  "guitar-51-v2-r1": {
+    "file": "guitar-51-v2-r1.flac",
+    "fallback": "guitar-51-v2-r1.wav",
+    "midi": 51,
+    "layer": 2,
+    "variant": 0
+  },
+  "guitar-51-v2-r2": {
+    "file": "guitar-51-v2-r2.flac",
+    "fallback": "guitar-51-v2-r2.wav",
+    "midi": 51,
+    "layer": 2,
+    "variant": 1
+  },
+  "guitar-51-v3-r1": {
+    "file": "guitar-51-v3-r1.flac",
+    "fallback": "guitar-51-v3-r1.wav",
+    "midi": 51,
+    "layer": 3,
+    "variant": 0
+  },
+  "guitar-51-v3-r2": {
+    "file": "guitar-51-v3-r2.flac",
+    "fallback": "guitar-51-v3-r2.wav",
+    "midi": 51,
+    "layer": 3,
+    "variant": 1
+  },
+  "guitar-57-v2-r1": {
+    "file": "guitar-57-v2-r1.flac",
+    "fallback": "guitar-57-v2-r1.wav",
+    "midi": 57,
+    "layer": 2,
+    "variant": 0
+  },
+  "guitar-57-v2-r2": {
+    "file": "guitar-57-v2-r2.flac",
+    "fallback": "guitar-57-v2-r2.wav",
+    "midi": 57,
+    "layer": 2,
+    "variant": 1
+  },
+  "guitar-57-v3-r1": {
+    "file": "guitar-57-v3-r1.flac",
+    "fallback": "guitar-57-v3-r1.wav",
+    "midi": 57,
+    "layer": 3,
+    "variant": 0
+  },
+  "guitar-57-v3-r2": {
+    "file": "guitar-57-v3-r2.flac",
+    "fallback": "guitar-57-v3-r2.wav",
+    "midi": 57,
+    "layer": 3,
+    "variant": 1
+  },
+  "guitar-63-v2-r1": {
+    "file": "guitar-63-v2-r1.flac",
+    "fallback": "guitar-63-v2-r1.wav",
+    "midi": 63,
+    "layer": 2,
+    "variant": 0
+  },
+  "guitar-63-v2-r2": {
+    "file": "guitar-63-v2-r2.flac",
+    "fallback": "guitar-63-v2-r2.wav",
+    "midi": 63,
+    "layer": 2,
+    "variant": 1
+  },
+  "guitar-63-v3-r1": {
+    "file": "guitar-63-v3-r1.flac",
+    "fallback": "guitar-63-v3-r1.wav",
+    "midi": 63,
+    "layer": 3,
+    "variant": 0
+  },
+  "guitar-63-v3-r2": {
+    "file": "guitar-63-v3-r2.flac",
+    "fallback": "guitar-63-v3-r2.wav",
+    "midi": 63,
+    "layer": 3,
+    "variant": 1
+  },
+  "guitar-69-v2-r1": {
+    "file": "guitar-69-v2-r1.flac",
+    "fallback": "guitar-69-v2-r1.wav",
+    "midi": 69,
+    "layer": 2,
+    "variant": 0
+  },
+  "guitar-69-v2-r2": {
+    "file": "guitar-69-v2-r2.flac",
+    "fallback": "guitar-69-v2-r2.wav",
+    "midi": 69,
+    "layer": 2,
+    "variant": 1
+  },
+  "guitar-69-v3-r1": {
+    "file": "guitar-69-v3-r1.flac",
+    "fallback": "guitar-69-v3-r1.wav",
+    "midi": 69,
+    "layer": 3,
+    "variant": 0
+  },
+  "guitar-69-v3-r2": {
+    "file": "guitar-69-v3-r2.flac",
+    "fallback": "guitar-69-v3-r2.wav",
+    "midi": 69,
+    "layer": 3,
+    "variant": 1
+  },
+  "guitar-75-v2-r1": {
+    "file": "guitar-75-v2-r1.flac",
+    "fallback": "guitar-75-v2-r1.wav",
+    "midi": 75,
+    "layer": 2,
+    "variant": 0
+  },
+  "guitar-75-v2-r2": {
+    "file": "guitar-75-v2-r2.flac",
+    "fallback": "guitar-75-v2-r2.wav",
+    "midi": 75,
+    "layer": 2,
+    "variant": 1
+  },
+  "guitar-75-v3-r1": {
+    "file": "guitar-75-v3-r1.flac",
+    "fallback": "guitar-75-v3-r1.wav",
+    "midi": 75,
+    "layer": 3,
+    "variant": 0
+  },
+  "guitar-75-v3-r2": {
+    "file": "guitar-75-v3-r2.flac",
+    "fallback": "guitar-75-v3-r2.wav",
+    "midi": 75,
+    "layer": 3,
+    "variant": 1
   }
 }

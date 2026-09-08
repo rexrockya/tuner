@@ -1,0 +1,142 @@
+[
+  {
+    "id": "gs00bn5",
+    "sourceFrames": 328186,
+    "decodedFrames": 328186,
+    "correlation": 0.999907,
+    "durationSeconds": 7.441859
+  },
+  {
+    "id": "gs00bn9",
+    "sourceFrames": 328134,
+    "decodedFrames": 328134,
+    "correlation": 0.999848,
+    "durationSeconds": 7.44068
+  },
+  {
+    "id": "gs00funk5",
+    "sourceFrames": 436453,
+    "decodedFrames": 436453,
+    "correlation": 0.999347,
+    "durationSeconds": 9.896893
+  },
+  {
+    "id": "gs00funk9",
+    "sourceFrames": 436351,
+    "decodedFrames": 436351,
+    "correlation": 0.999444,
+    "durationSeconds": 9.89458
+  },
+  {
+    "id": "gs00jazz5",
+    "sourceFrames": 325661,
+    "decodedFrames": 325661,
+    "correlation": 0.999898,
+    "durationSeconds": 7.384603
+  },
+  {
+    "id": "gs00jazz9",
+    "sourceFrames": 325369,
+    "decodedFrames": 325369,
+    "correlation": 0.999895,
+    "durationSeconds": 7.377982
+  },
+  {
+    "id": "gs00rock5",
+    "sourceFrames": 470400,
+    "decodedFrames": 470400,
+    "correlation": 0.999468,
+    "durationSeconds": 10.666667
+  },
+  {
+    "id": "gs00rock9",
+    "sourceFrames": 470400,
+    "decodedFrames": 470400,
+    "correlation": 0.99958,
+    "durationSeconds": 10.666667
+  },
+  {
+    "id": "gs00ss5",
+    "sourceFrames": 423360,
+    "decodedFrames": 423360,
+    "correlation": 0.999874,
+    "durationSeconds": 9.6
+  },
+  {
+    "id": "gs00ss9",
+    "sourceFrames": 423360,
+    "decodedFrames": 423360,
+    "correlation": 0.999928,
+    "durationSeconds": 9.6
+  },
+  {
+    "id": "gs01bn5",
+    "sourceFrames": 328186,
+    "decodedFrames": 328186,
+    "correlation": 0.999861,
+    "durationSeconds": 7.441859
+  },
+  {
+    "id": "gs01bn9",
+    "sourceFrames": 328134,
+    "decodedFrames": 328134,
+    "correlation": 0.999786,
+    "durationSeconds": 7.44068
+  },
+  {
+    "id": "gs01funk5",
+    "sourceFrames": 436453,
+    "decodedFrames": 436453,
+    "correlation": 0.999888,
+    "durationSeconds": 9.896893
+  },
+  {
+    "id": "gs01funk9",
+    "sourceFrames": 436351,
+    "decodedFrames": 436351,
+    "correlation": 0.999902,
+    "durationSeconds": 9.89458
+  },
+  {
+    "id": "gs01jazz5",
+    "sourceFrames": 325661,
+    "decodedFrames": 325661,
+    "correlation": 0.999866,
+    "durationSeconds": 7.384603
+  },
+  {
+    "id": "gs01jazz9",
+    "sourceFrames": 325369,
+    "decodedFrames": 325369,
+    "correlation": 0.999864,
+    "durationSeconds": 7.377982
+  },
+  {
+    "id": "gs01rock5",
+    "sourceFrames": 470400,
+    "decodedFrames": 470400,
+    "correlation": 0.999706,
+    "durationSeconds": 10.666667
+  },
+  {
+    "id": "gs01rock9",
+    "sourceFrames": 470400,
+    "decodedFrames": 470400,
+    "correlation": 0.999559,
+    "durationSeconds": 10.666667
+  },
+  {
+    "id": "gs01ss5",
+    "sourceFrames": 423360,
+    "decodedFrames": 423360,
+    "correlation": 0.999819,
+    "durationSeconds": 9.6
+  },
+  {
+    "id": "gs01ss9",
+    "sourceFrames": 423360,
+    "decodedFrames": 423360,
+    "correlation": 0.999742,
+    "durationSeconds": 9.6
+  }
+]

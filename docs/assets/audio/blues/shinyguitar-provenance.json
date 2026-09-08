@@ -1,0 +1,249 @@
+{
+  "sourceCommit": "57243cca85277dbcc120ce17c6178032f93c80f3",
+  "verified": "2026-09-08",
+  "license": "CC0-1.0",
+  "officialInstrument": "https://shop.karoryfer.com/pages/free-shinyguitar",
+  "officialLicense": "https://shop.karoryfer.com/pages/free-samples",
+  "assets": [
+    {
+      "name": "guitar-45-v2-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a2_vl2_rr1_2.wav",
+      "sourceSha256": "3381847154cd087a74a4f78692416aa3a7231330c22918afe60cba707319a344",
+      "midi": 45,
+      "layer": 2,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 47690
+    },
+    {
+      "name": "guitar-45-v2-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a2_vl2_rr2_2.wav",
+      "sourceSha256": "fbfe43165aaedf6d164a2ebe7e6c77b564440f827d683192fea11afd51b71e89",
+      "midi": 45,
+      "layer": 2,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 47794
+    },
+    {
+      "name": "guitar-45-v3-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a2_vl3_rr1_2.wav",
+      "sourceSha256": "d01bc418125e52be29da52fedfc097e357006579dbc39906318e37e37ca92187",
+      "midi": 45,
+      "layer": 3,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 48224
+    },
+    {
+      "name": "guitar-45-v3-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a2_vl3_rr2_2.wav",
+      "sourceSha256": "eac1cbf27676c6f66931d25319e73d7f7b24393bbbf55ae18b5b74b83a9ac0ab",
+      "midi": 45,
+      "layer": 3,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 48692
+    },
+    {
+      "name": "guitar-51-v2-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb3_vl2_rr1_2.wav",
+      "sourceSha256": "046abce000e40ec2ba0c7da5613660b949e6cbd52a2645a8a594ca257dd60426",
+      "midi": 51,
+      "layer": 2,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 50930
+    },
+    {
+      "name": "guitar-51-v2-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb3_vl2_rr2_2.wav",
+      "sourceSha256": "3eeba38d5bbdc8975457155d24b5c614dad31030f8330c71c401c8ee5eb261c0",
+      "midi": 51,
+      "layer": 2,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 51419
+    },
+    {
+      "name": "guitar-51-v3-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb3_vl3_rr1_2.wav",
+      "sourceSha256": "7a71c7755a6008d5ab5c638cf295e0b96569ec62828662fc927428d4bd765f14",
+      "midi": 51,
+      "layer": 3,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 54063
+    },
+    {
+      "name": "guitar-51-v3-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb3_vl3_rr2_2.wav",
+      "sourceSha256": "64541c7fd51d6232c51bafc85701860a64ce577a115a50237ca44f7ef0b03e22",
+      "midi": 51,
+      "layer": 3,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 54818
+    },
+    {
+      "name": "guitar-57-v2-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a3_vl2_rr1_2.wav",
+      "sourceSha256": "b6d579078761ae7af663b728663b7bf2cd370a86c4769edebd69c0dfa0e9770d",
+      "midi": 57,
+      "layer": 2,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 54889
+    },
+    {
+      "name": "guitar-57-v2-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a3_vl2_rr2_2.wav",
+      "sourceSha256": "4cb4e23a65829b3c389a958ab010a7e11895e0e069fbb5a960cdd9ddcfa4e325",
+      "midi": 57,
+      "layer": 2,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 54915
+    },
+    {
+      "name": "guitar-57-v3-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a3_vl3_rr1_2.wav",
+      "sourceSha256": "7836f5fa19b645a0dfd19a9427143b7f5754b343dc74b085ccd04ad91b8afbc2",
+      "midi": 57,
+      "layer": 3,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 58068
+    },
+    {
+      "name": "guitar-57-v3-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a3_vl3_rr2_2.wav",
+      "sourceSha256": "8cda0c063c0cac3dd6466bb68774be7d32ecafd31c66f4082a6746ca3f667d93",
+      "midi": 57,
+      "layer": 3,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 58627
+    },
+    {
+      "name": "guitar-63-v2-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb4_vl2_rr1_2.wav",
+      "sourceSha256": "d19391f6ed3b0ed7c7e90f26cf9cc663ebba75c353671414db247deb3d15d870",
+      "midi": 63,
+      "layer": 2,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 63535
+    },
+    {
+      "name": "guitar-63-v2-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb4_vl2_rr2_2.wav",
+      "sourceSha256": "45800074619974b31a7978c5b7fb9dd2fd7496d4afa08eec8ed961225d067a57",
+      "midi": 63,
+      "layer": 2,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 63562
+    },
+    {
+      "name": "guitar-63-v3-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb4_vl3_rr1_2.wav",
+      "sourceSha256": "30795de8dab8a3c60978f54b5aaa9f5900d4aea56f3accdb1d0242b291b9b9aa",
+      "midi": 63,
+      "layer": 3,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 71359
+    },
+    {
+      "name": "guitar-63-v3-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb4_vl3_rr2_2.wav",
+      "sourceSha256": "759fb9b63b696903a9212f86c2f2b395d8d469bae3a2f01ca0b15668e123053b",
+      "midi": 63,
+      "layer": 3,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 71178
+    },
+    {
+      "name": "guitar-69-v2-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a4_vl2_rr1_2.wav",
+      "sourceSha256": "ef61646f78c34269a6f8ede35e9f0e43e578b3a1b2d581fa4fda2187827595f0",
+      "midi": 69,
+      "layer": 2,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 67081
+    },
+    {
+      "name": "guitar-69-v2-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a4_vl2_rr2_2.wav",
+      "sourceSha256": "31c7fe2b1513f64f008166db95e27ef4289b4dee782eaed9be69c576b9e13da4",
+      "midi": 69,
+      "layer": 2,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 69172
+    },
+    {
+      "name": "guitar-69-v3-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a4_vl3_rr1_2.wav",
+      "sourceSha256": "24267a7b5223a4958ff95564a1a6f642b178fdfe8d78d656d2b7b18704e24b36",
+      "midi": 69,
+      "layer": 3,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 71380
+    },
+    {
+      "name": "guitar-69-v3-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/a4_vl3_rr2_2.wav",
+      "sourceSha256": "37ecfb1b7415af832af89ea4ad49412ea254cecbec151b832a03d3f40ce7ee96",
+      "midi": 69,
+      "layer": 3,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 72826
+    },
+    {
+      "name": "guitar-75-v2-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb5_vl2_rr1_2.wav",
+      "sourceSha256": "eea742b03e8effabdda55b492ba1b1a1a30289969bc4741f095a2241547c9b35",
+      "midi": 75,
+      "layer": 2,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 71210
+    },
+    {
+      "name": "guitar-75-v2-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb5_vl2_rr2_2.wav",
+      "sourceSha256": "97d9a70f36ff905953a24624443cde2b66a1045ebed81b3713d735a405927fa0",
+      "midi": 75,
+      "layer": 2,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 72763
+    },
+    {
+      "name": "guitar-75-v3-r1",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb5_vl3_rr1_2.wav",
+      "sourceSha256": "ba4c52652950cccf809ca9151278024882b51bef137056a42cdf036a4dac7180",
+      "midi": 75,
+      "layer": 3,
+      "roundRobin": 1,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 71603
+    },
+    {
+      "name": "guitar-75-v3-r2",
+      "source": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.shinyguitar/57243cca85277dbcc120ce17c6178032f93c80f3/Samples/electric/eb5_vl3_rr2_2.wav",
+      "sourceSha256": "1c017e544bd5f7398ab4943faa31a4fca1141b7480a018c71299283f8e0aad90",
+      "midi": 75,
+      "layer": 3,
+      "roundRobin": 2,
+      "processing": "Pickup mono; 44.1 kHz 16-bit; 3 s maximum; final 120 ms fade; no normalization or equalization",
+      "flacBytes": 74657
+    }
+  ]
+}

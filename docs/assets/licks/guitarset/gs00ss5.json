@@ -1,0 +1,242 @@
+{
+  "sourceTrack": "00_SS1-100-C#_solo",
+  "startSeconds": 9.6,
+  "endSeconds": 19.2,
+  "startSample": 423360,
+  "endSample": 846720,
+  "sampleRate": 44100,
+  "originalBpm": 100,
+  "notes": [
+    {
+      "time": 0.0,
+      "duration": 0.026097,
+      "midi": 61,
+      "sourceMidi": 61.08899460825348,
+      "stringIndex": 3,
+      "fret": 6,
+      "carryIn": true,
+      "sourceTime": 9.335847619047627,
+      "sourceDuration": 0.2902494331065668
+    },
+    {
+      "time": 0.026392,
+      "duration": 1.462857,
+      "midi": 63,
+      "sourceMidi": 63.02817400208375,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 9.626391836734683,
+      "sourceDuration": 1.462857142857132
+    },
+    {
+      "time": 1.496573,
+      "duration": 0.638549,
+      "midi": 61,
+      "sourceMidi": 61.06635039423983,
+      "stringIndex": 3,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 11.09657324263037,
+      "sourceDuration": 0.6385487528344811
+    },
+    {
+      "time": 2.143127,
+      "duration": 0.841723,
+      "midi": 65,
+      "sourceMidi": 64.95515454732961,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 11.743126530612244,
+      "sourceDuration": 0.8417233560090835
+    },
+    {
+      "time": 2.716052,
+      "duration": 0.16254,
+      "midi": 50,
+      "sourceMidi": 50.11155348503804,
+      "stringIndex": 2,
+      "fret": 0,
+      "carryIn": false,
+      "sourceTime": 12.316051700680305,
+      "sourceDuration": 0.16253968253965922
+    },
+    {
+      "time": 3.008682,
+      "duration": 0.296054,
+      "midi": 65,
+      "sourceMidi": 65.03745221760688,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 12.60868208616779,
+      "sourceDuration": 0.29605442176870156
+    },
+    {
+      "time": 3.305938,
+      "duration": 0.278639,
+      "midi": 65,
+      "sourceMidi": 65.05373521816448,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 12.90593832199545,
+      "sourceDuration": 0.2786394557822973
+    },
+    {
+      "time": 3.605462,
+      "duration": 0.249615,
+      "midi": 65,
+      "sourceMidi": 65.03111708071225,
+      "stringIndex": 3,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 13.205462131519255,
+      "sourceDuration": 0.24961451247168043
+    },
+    {
+      "time": 3.896913,
+      "duration": 0.18576,
+      "midi": 63,
+      "sourceMidi": 63.0362495417578,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 13.496913378684837,
+      "sourceDuration": 0.1857596371881982
+    },
+    {
+      "time": 4.225984,
+      "duration": 0.12771,
+      "midi": 61,
+      "sourceMidi": 61.07181324837065,
+      "stringIndex": 3,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 13.825983673469352,
+      "sourceDuration": 0.1277097505669076
+    },
+    {
+      "time": 4.357254,
+      "duration": 0.16254,
+      "midi": 63,
+      "sourceMidi": 63.03859799771043,
+      "stringIndex": 3,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 13.957253514739193,
+      "sourceDuration": 0.16253968253965922
+    },
+    {
+      "time": 4.534238,
+      "duration": 0.325079,
+      "midi": 61,
+      "sourceMidi": 61.05494332273207,
+      "stringIndex": 3,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 14.13423764172336,
+      "sourceDuration": 0.3250793650793753
+    },
+    {
+      "time": 4.864283,
+      "duration": 1.451247,
+      "midi": 61,
+      "sourceMidi": 61.05319090779031,
+      "stringIndex": 3,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 14.464282993197287,
+      "sourceDuration": 1.451247165532891
+    },
+    {
+      "time": 6.294396,
+      "duration": 0.290249,
+      "midi": 56,
+      "sourceMidi": 56.16212407415659,
+      "stringIndex": 2,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 15.894396371882067,
+      "sourceDuration": 0.2902494331065668
+    },
+    {
+      "time": 6.595734,
+      "duration": 0.16254,
+      "midi": 54,
+      "sourceMidi": 54.204315123014396,
+      "stringIndex": 2,
+      "fret": 4,
+      "carryIn": false,
+      "sourceTime": 16.195734240362754,
+      "sourceDuration": 0.16253968253965922
+    },
+    {
+      "time": 6.76036,
+      "duration": 0.191565,
+      "midi": 56,
+      "sourceMidi": 56.128644935882534,
+      "stringIndex": 2,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 16.360360090702898,
+      "sourceDuration": 0.19156462585033296
+    },
+    {
+      "time": 6.910133,
+      "duration": 0.406349,
+      "midi": 59,
+      "sourceMidi": 59.04975702626274,
+      "stringIndex": 3,
+      "fret": 4,
+      "carryIn": false,
+      "sourceTime": 16.51013333333333,
+      "sourceDuration": 0.4063492063492049
+    },
+    {
+      "time": 7.230859,
+      "duration": 1.468662,
+      "midi": 56,
+      "sourceMidi": 56.11383366926485,
+      "stringIndex": 2,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 16.830858956916074,
+      "sourceDuration": 1.4686621315192951
+    },
+    {
+      "time": 8.724011,
+      "duration": 0.278639,
+      "midi": 56,
+      "sourceMidi": 56.159570498586724,
+      "stringIndex": 2,
+      "fret": 6,
+      "carryIn": false,
+      "sourceTime": 18.324010884353754,
+      "sourceDuration": 0.2786394557822973
+    },
+    {
+      "time": 9.021698,
+      "duration": 0.290249,
+      "midi": 54,
+      "sourceMidi": 54.13469503525477,
+      "stringIndex": 2,
+      "fret": 4,
+      "carryIn": false,
+      "sourceTime": 18.62169795918362,
+      "sourceDuration": 0.2902494331065668
+    },
+    {
+      "time": 9.321857,
+      "duration": 0.278143,
+      "midi": 53,
+      "sourceMidi": 53.16262158379306,
+      "stringIndex": 2,
+      "fret": 3,
+      "carryIn": false,
+      "sourceTime": 18.921856689342405,
+      "sourceDuration": 0.3018594104308363
+    }
+  ]
+}

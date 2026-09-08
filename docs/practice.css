@@ -142,3 +142,20 @@ main:before{display:none}
   .sync-tools{gap:6px}.sync-tools button{padding:9px 10px}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Compact musical choices; each control stays touch-sized without a dense settings panel. */
+.practice-colors{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 18px;padding:14px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(120deg,#bdf45d09,transparent)}
+.practice-colors label{display:flex;align-items:center;gap:9px;min-width:0;color:var(--muted);font-size:12px}
+.practice-colors select{min-width:130px;max-width:200px}
+.practice-colors button{min-width:0;min-height:44px;padding:10px 14px;font-size:13px;background:#252d20;color:var(--muted);margin-left:auto}
+.practice-colors button.on{background:#bdf45d1c;color:var(--lime);box-shadow:inset 0 0 0 1px #bdf45d55}
+.practice-arrangement{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 12px;min-height:20px}
+#practice-feel{max-width:190px}
+@media(max-width:600px){
+ .practice-colors{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+ .practice-colors label{display:block}.practice-colors select{display:block;width:100%;min-width:0;max-width:none!important;margin-top:5px}
+ .practice-colors button{margin:0;grid-column:1/-1;width:100%;min-height:40px}
+ #practice-phrase-style-wrap[hidden]+label{grid-column:1/-1}
+ .practice-arrangement{font-size:11px;line-height:1.7}
+ .practice-transport #practice-feel{min-width:158px!important;max-width:185px!important;flex-basis:158px}
+}

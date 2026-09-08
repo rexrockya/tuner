@@ -1,0 +1,468 @@
+[
+  {
+    "name": "44100 Tech 3341 #1: stereo reference",
+    "passed": true,
+    "ms": 178,
+    "detail": {
+      "M": -22.990538266404037,
+      "S": -22.99053826638063,
+      "I": -22.990539787389938
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #2: stereo reference",
+    "passed": true,
+    "ms": 139,
+    "detail": {
+      "M": -32.99053829469713,
+      "S": -32.99053829456341,
+      "I": -32.99053981480935
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #3: gating/energy integration",
+    "passed": true,
+    "ms": 446,
+    "detail": {
+      "I": -23.011111354143228,
+      "gate": -34.152724921328456
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #4: gating/energy integration",
+    "passed": true,
+    "ms": 538,
+    "detail": {
+      "I": -23.011111354143228,
+      "gate": -34.18422634305662
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #5: gating/energy integration",
+    "passed": true,
+    "ms": 325,
+    "detail": {
+      "I": -22.97590012566905,
+      "gate": -32.97590012566906
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #9: rectangular 3 s window",
+    "passed": true,
+    "ms": 83,
+    "detail": {
+      "minimum": -22.983520650966266,
+      "maximum": -22.983509023307242
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #12: rectangular 400 ms window",
+    "passed": true,
+    "ms": 52,
+    "detail": {
+      "minimum": -22.957683620092205,
+      "maximum": -22.9576836200922
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #13: 400 ms peak at 20 ms offsets",
+    "passed": true,
+    "ms": 484,
+    "detail": {
+      "minimum": -22.990837938774906,
+      "maximum": -22.990837938774906
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #10: 3 s max at 150 ms offsets",
+    "passed": true,
+    "ms": 854,
+    "detail": {
+      "minimum": -22.990578221253987,
+      "maximum": -22.990578221253987
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #11: live successive S maxima",
+    "passed": true,
+    "ms": 1677,
+    "detail": [
+      -37.99057821372044,
+      -36.99057822763307,
+      -35.990578200887796,
+      -34.990578193938546,
+      -33.990578209551764,
+      -32.99057824831287,
+      -31.990578220965126,
+      -30.990578207129406,
+      -29.990578214499752,
+      -28.990578197849825,
+      -27.990578240636065,
+      -26.990578211096484,
+      -25.990578225331586,
+      -24.99057822127234,
+      -23.990578197864867,
+      -22.990578221253987,
+      -21.990578243779588,
+      -20.990578180951857,
+      -19.990578218072827,
+      -18.990578215563804
+    ]
+  },
+  {
+    "name": "44100 Tech 3341 #14: live successive M maxima",
+    "passed": true,
+    "ms": 194,
+    "detail": [
+      -37.99083793126313,
+      -36.99083794509342,
+      -35.99083791841967,
+      -34.99083791147793,
+      -33.99083792708466,
+      -32.99083796585344,
+      -31.99083793847755,
+      -30.990837924641784,
+      -29.99083793202252,
+      -28.990837915366146,
+      -27.990837958166047,
+      -26.990837928613335,
+      -25.990837942856288,
+      -24.9908379387916,
+      -23.990837915376456,
+      -22.990837938774906,
+      -21.990837961310042,
+      -20.99083789849627,
+      -19.9908379356095,
+      -18.99083793308846
+    ]
+  },
+  {
+    "name": "44100 Tech 3341 #15: intersample true peak",
+    "passed": true,
+    "ms": 5,
+    "detail": {
+      "dBTP": -6.020599913279624
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #16: intersample true peak",
+    "passed": true,
+    "ms": 3,
+    "detail": {
+      "dBTP": -5.975311974298555
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #17: intersample true peak",
+    "passed": true,
+    "ms": 2,
+    "detail": {
+      "dBTP": -6.313033182254487
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #18: intersample true peak",
+    "passed": true,
+    "ms": 2,
+    "detail": {
+      "dBTP": -6.027603853997785
+    }
+  },
+  {
+    "name": "44100 Tech 3341 #19: intersample true peak",
+    "passed": true,
+    "ms": 4,
+    "detail": {
+      "dBTP": 3.029670136364879
+    }
+  },
+  {
+    "name": "44100 Tech 3342 #1: LRA percentiles and gating",
+    "passed": true,
+    "ms": 216,
+    "detail": {
+      "LRA": 9.999999996429064
+    }
+  },
+  {
+    "name": "44100 Tech 3342 #2: LRA percentiles and gating",
+    "passed": true,
+    "ms": 217,
+    "detail": {
+      "LRA": 5.000000025288344
+    }
+  },
+  {
+    "name": "44100 Tech 3342 #3: LRA percentiles and gating",
+    "passed": true,
+    "ms": 213,
+    "detail": {
+      "LRA": 19.999999976975516
+    }
+  },
+  {
+    "name": "44100 Tech 3342 #4: LRA percentiles and gating",
+    "passed": true,
+    "ms": 554,
+    "detail": {
+      "LRA": 14.999999975865826
+    }
+  },
+  {
+    "name": "44100 mono / stereo / opposite phase and chunk partition",
+    "passed": true,
+    "ms": 77,
+    "detail": {
+      "mono": -26.000844598536553,
+      "stereo": -22.99054464189674,
+      "reverse": -22.99054464189674
+    }
+  },
+  {
+    "name": "44100 pause keeps cumulative I/LRA/TP; resume excludes paused loud audio",
+    "passed": true,
+    "ms": 61,
+    "detail": {
+      "beforeTP": -22.992053916080156,
+      "resumedTP": -22.992053916080156
+    }
+  },
+  {
+    "name": "44100 reset and digital silence",
+    "passed": true,
+    "ms": 98
+  },
+  {
+    "name": "48000 Tech 3341 #1: stereo reference",
+    "passed": true,
+    "ms": 129,
+    "detail": {
+      "M": -22.99329558036165,
+      "S": -22.993295580361647,
+      "I": -22.993297101682867
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #2: stereo reference",
+    "passed": true,
+    "ms": 125,
+    "detail": {
+      "M": -32.993295519361695,
+      "S": -32.993295519361695,
+      "I": -32.99329704068298
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #3: gating/energy integration",
+    "passed": true,
+    "ms": 511,
+    "detail": {
+      "I": -23.013868674469798,
+      "gate": -34.15548224439869
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #4: gating/energy integration",
+    "passed": true,
+    "ms": 632,
+    "detail": {
+      "I": -23.013868674469798,
+      "gate": -34.18698366667089
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #5: gating/energy integration",
+    "passed": true,
+    "ms": 385,
+    "detail": {
+      "I": -22.978657436578743,
+      "gate": -32.97865743657875
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #9: rectangular 3 s window",
+    "passed": true,
+    "ms": 116,
+    "detail": {
+      "minimum": -22.98627840224786,
+      "maximum": -22.986266641340244
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #12: rectangular 400 ms window",
+    "passed": true,
+    "ms": 73,
+    "detail": {
+      "minimum": -22.96044308394152,
+      "maximum": -22.96044308394151
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #13: 400 ms peak at 20 ms offsets",
+    "passed": true,
+    "ms": 511,
+    "detail": {
+      "minimum": -22.993595290930614,
+      "maximum": -22.993595290930614
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #10: 3 s max at 150 ms offsets",
+    "passed": true,
+    "ms": 1042,
+    "detail": {
+      "minimum": -22.99333554057583,
+      "maximum": -22.99333554057583
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #11: live successive S maxima",
+    "passed": true,
+    "ms": 1740,
+    "detail": [
+      -37.993335455312604,
+      -36.99333558679278,
+      -35.99333551806382,
+      -34.9933355038976,
+      -33.993335689099546,
+      -32.99333547957775,
+      -31.99333562269879,
+      -30.993335608568646,
+      -29.993335619415753,
+      -28.993335606101642,
+      -27.993335542761702,
+      -26.9933356924389,
+      -25.993335492453067,
+      -24.993335580265967,
+      -23.993335669689852,
+      -22.99333554057583,
+      -21.993335738366746,
+      -20.993335379185257,
+      -19.993335546815572,
+      -18.993335552078978
+    ]
+  },
+  {
+    "name": "48000 Tech 3341 #14: live successive M maxima",
+    "passed": true,
+    "ms": 212,
+    "detail": [
+      -37.99359520567254,
+      -36.9935953371396,
+      -35.993595268438526,
+      -34.99359525425674,
+      -33.99359543947131,
+      -32.9935952299447,
+      -31.99359537306246,
+      -30.993595358933128,
+      -29.99359536976232,
+      -28.993595356467868,
+      -27.99359529311336,
+      -26.99359544280292,
+      -25.993595242800136,
+      -24.993595330627862,
+      -23.99359542006491,
+      -22.993595290930614,
+      -21.99359548873753,
+      -20.993595129535304,
+      -19.99359529717425,
+      -18.993595302446362
+    ]
+  },
+  {
+    "name": "48000 Tech 3341 #15: intersample true peak",
+    "passed": true,
+    "ms": 1,
+    "detail": {
+      "dBTP": -6.020599913279624
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #16: intersample true peak",
+    "passed": true,
+    "ms": 1,
+    "detail": {
+      "dBTP": -5.9759090337932275
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #17: intersample true peak",
+    "passed": true,
+    "ms": 1,
+    "detail": {
+      "dBTP": -6.3132751595923935
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #18: intersample true peak",
+    "passed": true,
+    "ms": 3,
+    "detail": {
+      "dBTP": -6.026489256977294
+    }
+  },
+  {
+    "name": "48000 Tech 3341 #19: intersample true peak",
+    "passed": true,
+    "ms": 3,
+    "detail": {
+      "dBTP": 3.0290731170159995
+    }
+  },
+  {
+    "name": "48000 Tech 3342 #1: LRA percentiles and gating",
+    "passed": true,
+    "ms": 256,
+    "detail": {
+      "LRA": 10.000000072602049
+    }
+  },
+  {
+    "name": "48000 Tech 3342 #2: LRA percentiles and gating",
+    "passed": true,
+    "ms": 234,
+    "detail": {
+      "LRA": 5.00000006916431
+    }
+  },
+  {
+    "name": "48000 Tech 3342 #3: LRA percentiles and gating",
+    "passed": true,
+    "ms": 242,
+    "detail": {
+      "LRA": 19.999999989829487
+    }
+  },
+  {
+    "name": "48000 Tech 3342 #4: LRA percentiles and gating",
+    "passed": true,
+    "ms": 588,
+    "detail": {
+      "LRA": 14.999999957081961
+    }
+  },
+  {
+    "name": "48000 mono / stereo / opposite phase and chunk partition",
+    "passed": true,
+    "ms": 75,
+    "detail": {
+      "mono": -26.003601913606726,
+      "stereo": -22.993301956966913,
+      "reverse": -22.993301956966913
+    }
+  },
+  {
+    "name": "48000 pause keeps cumulative I/LRA/TP; resume excludes paused loud audio",
+    "passed": true,
+    "ms": 67,
+    "detail": {
+      "beforeTP": -22.993304465401287,
+      "resumedTP": -22.993304465401287
+    }
+  },
+  {
+    "name": "48000 reset and digital silence",
+    "passed": true,
+    "ms": 90
+  }
+]

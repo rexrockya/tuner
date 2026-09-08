@@ -1,0 +1,121 @@
+{
+  "sourceTrack": "00_Jazz1-130-D_solo",
+  "startSeconds": 14.76922902494331,
+  "endSeconds": 22.14721088435374,
+  "startSample": 651323,
+  "endSample": 976692,
+  "sampleRate": 44100,
+  "originalBpm": 130,
+  "notes": [
+    {
+      "time": 0.464044,
+      "duration": 0.423764,
+      "midi": 74,
+      "sourceMidi": 74.03915880375334,
+      "stringIndex": 5,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 15.233272562358366,
+      "sourceDuration": 0.42376417233560915
+    },
+    {
+      "time": 0.934225,
+      "duration": 0.452789,
+      "midi": 73,
+      "sourceMidi": 73.01068015445472,
+      "stringIndex": 5,
+      "fret": 9,
+      "carryIn": false,
+      "sourceTime": 15.703453968254053,
+      "sourceDuration": 0.4527891156462829
+    },
+    {
+      "time": 1.388556,
+      "duration": 0.516644,
+      "midi": 69,
+      "sourceMidi": 69.09601325163845,
+      "stringIndex": 4,
+      "fret": 10,
+      "carryIn": false,
+      "sourceTime": 16.157785034013614,
+      "sourceDuration": 0.5166439909296514
+    },
+    {
+      "time": 1.839259,
+      "duration": 0.557279,
+      "midi": 71,
+      "sourceMidi": 71.031498596814,
+      "stringIndex": 5,
+      "fret": 7,
+      "carryIn": false,
+      "sourceTime": 16.608487981859525,
+      "sourceDuration": 0.5572789115645946
+    },
+    {
+      "time": 2.315948,
+      "duration": 0.423764,
+      "midi": 67,
+      "sourceMidi": 67.10899577820705,
+      "stringIndex": 4,
+      "fret": 8,
+      "carryIn": false,
+      "sourceTime": 17.0851773242631,
+      "sourceDuration": 0.42376417233560915
+    },
+    {
+      "time": 2.744202,
+      "duration": 0.516644,
+      "midi": 66,
+      "sourceMidi": 66.0477799378212,
+      "stringIndex": 4,
+      "fret": 7,
+      "carryIn": false,
+      "sourceTime": 17.51343129251711,
+      "sourceDuration": 0.5166439909296514
+    },
+    {
+      "time": 3.271459,
+      "duration": 0.528254,
+      "midi": 64,
+      "sourceMidi": 64.08215440499671,
+      "stringIndex": 4,
+      "fret": 5,
+      "carryIn": false,
+      "sourceTime": 18.040687528344733,
+      "sourceDuration": 0.5282539682539209
+    },
+    {
+      "time": 3.734474,
+      "duration": 1.358367,
+      "midi": 62,
+      "sourceMidi": 62.05795114139755,
+      "stringIndex": 3,
+      "fret": 7,
+      "carryIn": false,
+      "sourceTime": 18.503703401360553,
+      "sourceDuration": 1.358367346938735
+    },
+    {
+      "time": 5.135699,
+      "duration": 0.429569,
+      "midi": 59,
+      "sourceMidi": 59.03919708528388,
+      "stringIndex": 3,
+      "fret": 4,
+      "carryIn": false,
+      "sourceTime": 19.904927891156603,
+      "sourceDuration": 0.4295691609977439
+    },
+    {
+      "time": 5.582796,
+      "duration": 1.795175,
+      "midi": 62,
+      "sourceMidi": 62.0430695548486,
+      "stringIndex": 3,
+      "fret": 7,
+      "carryIn": false,
+      "sourceTime": 20.352025396825525,
+      "sourceDuration": 1.7951746031744733
+    }
+  ]
+}

@@ -34,6 +34,9 @@ let LICKS = SOURCE.map(([id, group, chord, degree, bars, kind]) => {
 });
 
 const BOPLAND_DATABASE_URL = "assets/licks/guitar-index.js?v=20260908-1";
+const SUPPLEMENTAL_DATABASE_URL = "assets/licks/guitarset-index.js?v=20260908-1";
+const supplementalLicks = new Map();
+let supplementalRequested = false, supplementalLoaded = false;
 const BOPLAND_CATEGORIES = [
   "Major 2-5-1", "Minor 2-5-1", "Turnaround", "All The Things You Are", "Autumn Leaves", "Blues",
   "The Days Of Wine And Roses", "How High The Moon / Ornithology", "Invitation", "It Don't Mean A Thing",
@@ -42,7 +45,7 @@ const BOPLAND_CATEGORIES = [
   "Andalusian Cadence", "Major 2-5-1-6", "Major 3-6-2-5-1", "Circle of Dominant 7th Chords",
   "Giant Steps", "Nardis", "Major 5-1", "Minor 5-1"
 ];
-const libraryState = { harmony: "", transpose: false, query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6, loaded: false };
+const libraryState = { harmony: "", transpose: false, query: "", source: "all", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6, loaded: false };
 
 const THEORY = {
   blues: {
@@ -123,8 +126,12 @@ const fallbackWaveform = Array.from({ length: 560 }, (_, index) => {
   return [-peak, peak];
 });
 let waveformPeaks = fallbackWaveform;
-let practiceBpm = Math.max(40, Math.min(180, Number(window.siteStorage.getItem("tuner-bpm-v1") || 80)));
 const SOURCE_BPM = 120;
+let practiceBpm = SOURCE_BPM;
+function sourceBpm(lick = LICKS[current]) {
+  const value = Number(lick?.originalBpm);
+  return Number.isFinite(value) && value >= 40 && value <= 180 ? value : SOURCE_BPM;
+}
 
 function chordProgression(lick = LICKS[current]) {
   if (lick.chord.includes("×")) {
@@ -195,7 +202,7 @@ async function startBackingClock() {
   stopBackingClock();
   const tick = () => {
     if (audio.paused || !backingEnabled) return stopBackingClock();
-    const beat = Math.floor(audio.currentTime * SOURCE_BPM / 60 + 0.06);
+    const beat = Math.floor(audio.currentTime * sourceBpm() / 60 + 0.06);
     if (beat !== lastBackingBeat) {
       lastBackingBeat = beat;
       triggerBackingBeat(beat);
@@ -268,7 +275,7 @@ function buildBoplandLibrary(database) {
 }
 
 function populateLibraryFilters() {
-  const categoryOrder = [...BOPLAND_CATEGORIES, "Waltz / 3/4", "Take Five / 5/4", "其他进行"];
+  const categoryOrder = [...new Set([...BOPLAND_CATEGORIES, "Waltz / 3/4", "Take Five / 5/4", "其他进行", ...LICKS.map(lick => lick.group)])];
   const categories = new Set(LICKS.map(lick => lick.group));
   $("lick-category").innerHTML = '<option value="all">全部分类</option>' + categoryOrder.filter(category => categories.has(category)).map(category => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
   const keys = [...new Set(LICKS.map(lick => lick.key).filter(Boolean))].sort((left, right) => left.localeCompare(right, "en"));
@@ -285,11 +292,38 @@ function ingestBoplandLibrary(database) {
   const selectedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1] || window.siteStorage.getItem("lick-current-id-v1") || LICKS[current]?.id;
   const expanded = buildBoplandLibrary(database);
   if (expanded.length < 2000) return;
-  LICKS = expanded;
+  const previousId = LICKS[current]?.id;
+  LICKS = [...expanded, ...supplementalLicks.values()];
   current = Math.max(0, LICKS.findIndex(lick => lick.id === selectedId));
+  if (LICKS[current]?.id !== previousId) updatePracticeBpm(sourceBpm());
   libraryState.loaded = true;
   populateLibraryFilters();
   render();
+}
+
+function registerSupplemental(items) {
+  if (!Array.isArray(items)) return;
+  const selectedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1] || LICKS[current]?.id;
+  const previousId = LICKS[current]?.id;
+  for (const item of items) {
+    if (!/^[A-Za-z0-9]+$/.test(item?.id) || item.sourceType !== "guitarset" || !/^assets\/licks\/guitarset\/[A-Za-z0-9]+\.mp3$/.test(item.audio) || !/^assets\/licks\/guitarset\/[A-Za-z0-9]+\.svg$/.test(item.score)) continue;
+    supplementalLicks.set(item.id, item);
+  }
+  LICKS = [...LICKS.filter(lick => lick.sourceType !== "guitarset"), ...supplementalLicks.values()];
+  const selectedIndex = LICKS.findIndex(lick => lick.id === selectedId);
+  if (selectedIndex >= 0) current = selectedIndex;
+  if (LICKS[current]?.id !== previousId) { stopLick(true); updatePracticeBpm(sourceBpm()); }
+  supplementalLoaded = true;
+  populateLibraryFilters();
+  render();
+}
+function loadSupplementalLibrary() {
+  if (supplementalRequested || supplementalLoaded) return;
+  supplementalRequested = true;
+  const script = document.createElement("script");
+  script.src = SUPPLEMENTAL_DATABASE_URL; script.async = true;
+  script.onerror = () => { supplementalRequested = false; };
+  document.head.appendChild(script);
 }
 
 window.bopland = { db: { register: ingestBoplandLibrary } };
@@ -570,6 +604,7 @@ function bindLickLinks(container) {
 }
 
 function goToLick(index) {
+  if (!Number.isInteger(Number(index))) return;
   const next = Math.max(0, Math.min(LICKS.length - 1, Number(index)));
   selectLick(next);
   const hash = lickHref(next);
@@ -659,6 +694,7 @@ function filteredLibrary() {
   const harmony = window.tunerHarmony?.parse(libraryState.harmony);
   if (harmony?.error) return [];
   return LICKS.map((lick, index) => ({ lick, index })).filter(({ lick }) => {
+    if (libraryState.source !== "all" && (lick.sourceType || "bopland") !== libraryState.source) return false;
     if (libraryState.category !== "all" && lick.group !== libraryState.category) return false;
     if (libraryState.key !== "all" && lick.key !== libraryState.key) return false;
     if (libraryState.meter !== "all" && lick.meter !== libraryState.meter) return false;
@@ -691,7 +727,7 @@ function renderLibrary() {
   $("course-map").innerHTML = shown.length ? shown.map(({ lick, index }) => `
     <a class="level ${finished.has(lick.id) ? "done" : ""} ${index === current ? "current" : ""}"
        href="${lickHref(index)}" data-lick-index="${index}" title="${escapeHtml(lick.chord)}">
-      <span><small>${escapeHtml(lick.group)} · ${escapeHtml(lick.key || lick.meter || "")}</small><strong>${escapeHtml(lick.chord)}</strong></span><em>${index === current ? "已选" : "▶"}</em>
+      <span><small>${escapeHtml(lick.group)} · ${escapeHtml(lick.key || lick.meter || "")}${lick.sourceType === "guitarset" ? " · 真人木吉他" : ""}</small><strong>${escapeHtml(lick.chord)}</strong></span><em>${index === current ? "已选" : "▶"}</em>
     </a>`).join("") : '<p class="empty-results">没有符合条件的 Lick</p>';
   bindLickLinks($("course-map"));
   $("load-more").hidden = shown.length >= visible.length;
@@ -714,13 +750,14 @@ function renderFavoritesDialog() {
 }
 
 function updatePracticeBpm(next, syncMetronome = true) {
-  practiceBpm = Math.max(40, Math.min(180, Math.round(Number(next) / 5) * 5));
+  if (!Number.isFinite(Number(next))) return;
+  practiceBpm = Math.max(40, Math.min(180, Math.round(Number(next))));
   window.siteStorage.setItem("tuner-bpm-v1", String(practiceBpm));
-  audio.playbackRate = practiceBpm / SOURCE_BPM;
+  audio.playbackRate = practiceBpm / sourceBpm();
   audio.preservesPitch = true;
   audio.webkitPreservesPitch = true;
   $("lesson-bpm").textContent = `${practiceBpm} BPM`;
-  $("lesson-original-speed").classList.toggle("on", practiceBpm === SOURCE_BPM);
+  $("lesson-original-speed").classList.toggle("on", practiceBpm === sourceBpm());
   if (syncMetronome) window.metronome?.setBpm(practiceBpm);
 }
 
@@ -769,14 +806,16 @@ function render() {
   renderLibrary();
 
   $("lesson-title").textContent = lick.name;
-  $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}`;
+  $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}${lick.sourceType === "guitarset" ? " · 真人木吉他 / 演奏 TAB" : ""}`;
   $("lesson-track").textContent = lick.key || lick.group;
   $("lesson-harmony").textContent = lick.chord;
-  $("lick-staff").innerHTML = `<img loading="lazy" decoding="async" src="${lick.score}" alt="${lick.name} 五线谱" draggable="false">`;
+  $("lick-staff").innerHTML = `<img loading="lazy" decoding="async" src="${lick.score}" alt="${escapeHtml(lick.name)} ${lick.sourceType === "guitarset" ? "演奏 TAB" : "五线谱与 TAB"}" draggable="false">`;
   const scoreImage = $("lick-staff").querySelector("img");
   scoreImage.addEventListener("load", fitScoreHeight, { once: true });
   requestAnimationFrame(fitScoreHeight);
-  $("preview-status").innerHTML = '2,525 条吉他 Lick 来源：<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand.org</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
+  $("preview-status").innerHTML = lick.sourceType === "guitarset"
+    ? '<a href="https://zenodo.org/records/3371780" target="_blank" rel="noopener">GuitarSet · Xi 等</a> · 真人木吉他节选 · 按原始标注制谱 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>'
+    : '<a href="https://bopland.org/database#guitar-licks" target="_blank" rel="noopener">BopLand.org</a> · 吉他谱与示范 · <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans" target="_blank" rel="noopener">CC BY-SA 4.0</a>';
   $("master-lick").textContent = "掌握";
   $("master-lick").classList.toggle("on", finished.has(lick.id));
   $("master-lick").setAttribute("aria-pressed", String(finished.has(lick.id)));
@@ -816,6 +855,7 @@ function selectLick(index) {
   if (next === current && audio.src) return;
   stopLick(true);
   current = next;
+  updatePracticeBpm(sourceBpm());
   scoreZoom = 1;
   window.siteStorage.setItem("lick-current-v2", String(current));
   window.siteStorage.setItem("lick-current-id-v1", LICKS[current].id);
@@ -877,7 +917,7 @@ $("reset-loop-points").addEventListener("click", () => {
 });
 $("lesson-bpm-minus").addEventListener("click", () => updatePracticeBpm(practiceBpm - 5));
 $("lesson-bpm-plus").addEventListener("click", () => updatePracticeBpm(practiceBpm + 5));
-$("lesson-original-speed").addEventListener("click", () => updatePracticeBpm(SOURCE_BPM));
+$("lesson-original-speed").addEventListener("click", () => updatePracticeBpm(sourceBpm()));
 $("toggle-backing").addEventListener("click", async () => {
   backingEnabled = !backingEnabled;
   $("toggle-backing").classList.toggle("on", backingEnabled);
@@ -950,8 +990,8 @@ $("lick-search").addEventListener("input", event => {
   libraryState.limit = 6;
   renderLibrary();
 });
-[["lick-category", "category"], ["lick-key", "key"], ["lick-meter", "meter"]].forEach(([id, field]) => {
-  $(id).addEventListener("change", event => {
+[["lick-source", "source"], ["lick-category", "category"], ["lick-key", "key"], ["lick-meter", "meter"]].forEach(([id, field]) => {
+  $(id)?.addEventListener("change", event => {
     libraryState[field] = event.target.value;
     libraryState.limit = 6;
     renderLibrary();
@@ -966,9 +1006,10 @@ $("clear-filters").addEventListener("click", () => {
   $("lick-harmony").value = "";
   $("harmony-transpose").classList.remove("on");
   $("harmony-transpose").setAttribute("aria-pressed", "false");
-  Object.assign(libraryState, { harmony: "", transpose: false, query: "", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6 });
+  Object.assign(libraryState, { harmony: "", transpose: false, query: "", source: "all", category: "all", key: "all", meter: "all", favoritesOnly: false, limit: 6 });
   $("lick-search").value = "";
   $("lick-category").value = "all";
+  if ($("lick-source")) $("lick-source").value = "all";
   $("lick-key").value = "all";
   $("lick-meter").value = "all";
   renderLibrary();
@@ -1126,7 +1167,8 @@ current = initialFromHash >= 0 ? initialFromHash : savedIndex;
 function activate() {
   if (!mediaActive) { mediaActive = true; audio.preload = "metadata"; loadWaveform(audio.src); }
   loadBoplandLibrary();
+  loadSupplementalLibrary();
 }
-window.lessonPlayer = { activate, stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
+window.lessonPlayer = { activate, registerSupplemental, stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
 })();

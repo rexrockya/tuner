@@ -1,4 +1,5 @@
-const fs=require("fs"),{JSDOM}=require("jsdom");
+const fs=require("fs"),path=require("path"),root=process.argv[2]||process.cwd(),candidate=process.argv[3]||root,{JSDOM}=require(path.join(root,"node_modules/jsdom"));
+process.chdir(root);
 const html=fs.readFileSync("docs/index.html","utf8").replace(/<script[\s\S]*?<\/script>/g,"");
 const dom=new JSDOM(html,{url:"https://example.test/",runScripts:"dangerously"});
 dom.window.scrollTo=()=>{};
@@ -7,7 +8,7 @@ dom.window.HTMLMediaElement.prototype.pause=()=>{};
 dom.window.HTMLElement.prototype.scrollTo=()=>{};
 dom.window.eval(fs.readFileSync("docs/storage.js","utf8"));
 dom.window.eval(fs.readFileSync("docs/harmony.js","utf8"));
-dom.window.eval(fs.readFileSync("docs/lessons.js","utf8"));
+dom.window.eval(fs.readFileSync(path.join(candidate,"docs/lessons.js"),"utf8"));
 const q=s=>dom.window.document.querySelector(s),click=s=>q(s).dispatchEvent(new dom.window.MouseEvent("click",{bubbles:true}));
 if(!html.includes("-webkit-overflow-scrolling:touch"))throw Error("iOS momentum scrolling failed");
 if(q("#slow"))throw Error("legacy speed button still present");
@@ -26,7 +27,11 @@ click("#score-plus");if(q("#score-zoom").textContent!=="125%")throw Error("score
 click("#favorite-lick");if(q("#favorite-lick").getAttribute("aria-pressed")!=="true")throw Error("favorite toggle failed");
 click("#favorites-filter");if(dom.window.document.querySelectorAll("#course-map [data-lick-index]").length!==1)throw Error("favorite-only filter failed");
 click('#course-map [data-lick-index="2"]');if(q("#lesson-title").textContent!=="A Blues Lick 3")throw Error("favorite navigation failed");
-click("#lesson-bpm-plus");if(q("#lesson-bpm").textContent!=="85 BPM")throw Error("linked bpm failed");
+click("#lesson-bpm-plus");if(q("#lesson-bpm").textContent!=="125 BPM")throw Error("linked bpm failed");
+dom.window.lessonPlayer.select(1);if(q("#lesson-bpm").textContent!=="120 BPM")throw Error("new selection must reset to source tempo");
+click("#lesson-bpm-minus");click("#favorite-lick");if(q("#lesson-bpm").textContent!=="115 BPM")throw Error("rerender must retain current practice tempo");
+dom.window.lessonPlayer.select(1);if(q("#lesson-bpm").textContent!=="115 BPM")throw Error("same selection must retain current practice tempo");
+dom.window.lessonPlayer.select(2);if(q("#lesson-bpm").textContent!=="120 BPM")throw Error("next selection must reset to source tempo");
 click("#lesson-original-speed");if(q("#lesson-bpm").textContent!=="120 BPM")throw Error("original speed reset failed");
 if(!q("#toggle-backing")||!q("#toggle-backing").title.includes("实时生成"))throw Error("generated backing controls failed");
 click("#toggle-demo");if(q("#toggle-demo").getAttribute("aria-pressed")!=="false")throw Error("backing-only mode failed");

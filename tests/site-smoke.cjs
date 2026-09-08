@@ -16,10 +16,13 @@ for(const element of d.querySelectorAll('script[src],link[rel="stylesheet"][href
 for(const script of d.querySelectorAll('script:not([src])')){
  if(script.type==='application/json')JSON.parse(script.textContent);else new vm.Script(script.textContent);
 }
-for(const page of ['tuner','lesson','sheet','metro','jam'])assert.equal(d.querySelectorAll(`.tab[data-page="${page}"]`).length,1);
+for(const page of ['tools','tuner','sound','lesson','sheet','metro','jam'])assert.equal(d.querySelectorAll(`.tab[data-page="${page}"]`).length,1);
 for(const button of d.querySelectorAll('button'))assert.ok(button.textContent.trim()||button.getAttribute('aria-label'),'unlabelled button');
 assert.ok(d.querySelector('meta[name="viewport"]').content.includes('width=device-width'));
 assert.doesNotMatch(d.querySelector('meta[name="viewport"]').content,/user-scalable=no|maximum-scale=1/);
 assert.equal(d.querySelector('.score-entry'),null);
+assert.deepEqual([...d.querySelectorAll('nav .tab')].map(n=>n.dataset.page),['tools','lesson','sheet','jam']);
+assert.deepEqual([...d.querySelectorAll('#tools-page .tool-card')].map(n=>n.dataset.page),['tuner','sound','metro']);
+console.log('PASS site shell: tools hub and 6 sections, unique IDs, labels, accessibility references, script syntax, local assets, mobile viewport');
+
 dom.window.close();
-console.log('PASS site shell: 5 sections, unique IDs, labels, accessibility references, script syntax, local assets, mobile viewport');

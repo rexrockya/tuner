@@ -1,0 +1,170 @@
+[
+  {
+    "name": "guitar-45-v2-r1",
+    "duration": 3.0,
+    "pcmSha256": "988fd7dbb60a38180b6fd83d85ea0954f241024f6a89bfa3bb8f6dcf9158fd53",
+    "peakDbFS": -7.49,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-45-v2-r2",
+    "duration": 3.0,
+    "pcmSha256": "2cac1f7a8b37cd96b6ae21ab27860f04f887bceace7673068527e8919bf3febc",
+    "peakDbFS": -6.93,
+    "onsetSecondsAtMinus50dB": 4.5351473922902495e-05
+  },
+  {
+    "name": "guitar-45-v3-r1",
+    "duration": 3.0,
+    "pcmSha256": "b27fa609704d08862f9c5d1964d839b71c3739ec8e66e8f30a949996ef9d1907",
+    "peakDbFS": -6.0,
+    "onsetSecondsAtMinus50dB": 4.5351473922902495e-05
+  },
+  {
+    "name": "guitar-45-v3-r2",
+    "duration": 3.0,
+    "pcmSha256": "8e4372887a57e54a671e8dffa0bd3b37d664b9ce0e4050fae48142af165bbeff",
+    "peakDbFS": -4.36,
+    "onsetSecondsAtMinus50dB": 4.5351473922902495e-05
+  },
+  {
+    "name": "guitar-51-v2-r1",
+    "duration": 3.0,
+    "pcmSha256": "17bf7a68cfbb016d510ee4f0f38ab87c48fac1e4df836b3624720cdb4c9eb953",
+    "peakDbFS": -9.84,
+    "onsetSecondsAtMinus50dB": 4.5351473922902495e-05
+  },
+  {
+    "name": "guitar-51-v2-r2",
+    "duration": 3.0,
+    "pcmSha256": "b66ece3e51e0cd8b96c5cc4228585a07ebc9c15af154814e29ad3aa747444415",
+    "peakDbFS": -8.71,
+    "onsetSecondsAtMinus50dB": 6.802721088435374e-05
+  },
+  {
+    "name": "guitar-51-v3-r1",
+    "duration": 3.0,
+    "pcmSha256": "9b17ea1a9e72c76ec515c0e82ea7d1c1f84c71a4e059da4f507ed3aa30f77e24",
+    "peakDbFS": -5.75,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-51-v3-r2",
+    "duration": 3.0,
+    "pcmSha256": "01c6b0faa003e19e5a8dd4bbc013698e57ae10c176d8f2622107a8193ee88220",
+    "peakDbFS": -3.51,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-57-v2-r1",
+    "duration": 3.0,
+    "pcmSha256": "dc23ccc3142d52f14c5cafd32fbf31cbf719bdab754ab84a1c1b3d01fba3541b",
+    "peakDbFS": -3.93,
+    "onsetSecondsAtMinus50dB": 9.070294784580499e-05
+  },
+  {
+    "name": "guitar-57-v2-r2",
+    "duration": 3.0,
+    "pcmSha256": "b788866960cb1b75b6ffcd5c4b6382f87dc087b97b909cafcab39ec12ae10c20",
+    "peakDbFS": -3.69,
+    "onsetSecondsAtMinus50dB": 9.070294784580499e-05
+  },
+  {
+    "name": "guitar-57-v3-r1",
+    "duration": 3.0,
+    "pcmSha256": "f8c9ef904afb8295870ab1699d0ddc3f7d87aa1ba193c083e0601b8b479d6bc4",
+    "peakDbFS": -2.6,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-57-v3-r2",
+    "duration": 3.0,
+    "pcmSha256": "630880e378683f20013e084dc277623de77b538467dcb6881ae8e6fbf05b8dca",
+    "peakDbFS": -2.42,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-63-v2-r1",
+    "duration": 3.0,
+    "pcmSha256": "79a1cbcba45c6369be6e5f2cda262130ce21988b1597a717adc5e304a576372b",
+    "peakDbFS": -8.28,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-63-v2-r2",
+    "duration": 3.0,
+    "pcmSha256": "23e39c178db13a372fcff4567901c337bbeb4c136f13c5f594865f6b957f66c9",
+    "peakDbFS": -7.99,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-63-v3-r1",
+    "duration": 3.0,
+    "pcmSha256": "ddfe6d77ae82553a78e3d5b4e92b3433f872798907a7fb54c41217f1df5d5187",
+    "peakDbFS": -3.75,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-63-v3-r2",
+    "duration": 3.0,
+    "pcmSha256": "e35ab0683b9b7b4757e0d52a17832f7f4b3fc8d5325cca3c1063bcc21ce65120",
+    "peakDbFS": -2.23,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-69-v2-r1",
+    "duration": 3.0,
+    "pcmSha256": "662fa210f0dc8aa91813dc82fad99766b59c9d719831ea8e431750cab39c0f93",
+    "peakDbFS": -8.02,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-69-v2-r2",
+    "duration": 3.0,
+    "pcmSha256": "de8311b1d038a5c285fb8302bcf2c30e37eca485cef4d339b55dddd6409a184d",
+    "peakDbFS": -7.95,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-69-v3-r1",
+    "duration": 3.0,
+    "pcmSha256": "06dc66d4af3b98c3257ccc063edb8f513e220bdd72c1d4901377b4264cd426f2",
+    "peakDbFS": -2.43,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-69-v3-r2",
+    "duration": 3.0,
+    "pcmSha256": "297bd22c42f140cff61db840437ab3dd151ce90aee85b4e0a189b1609228ceec",
+    "peakDbFS": -4.24,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-75-v2-r1",
+    "duration": 3.0,
+    "pcmSha256": "b817fa66cfd42ab721ac0abbd636333d961766074c692af1412becf77d18b422",
+    "peakDbFS": -7.64,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-75-v2-r2",
+    "duration": 3.0,
+    "pcmSha256": "ecb979e0f0a5578a4c977c232933f65eb69ede9fe142728679ac84c5245ceeb7",
+    "peakDbFS": -6.15,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-75-v3-r1",
+    "duration": 3.0,
+    "pcmSha256": "6301bdfd0fee37b64c6cfe5a16365531d48d4d2b4bb0418fb8a561f7c813579d",
+    "peakDbFS": -4.06,
+    "onsetSecondsAtMinus50dB": 2.2675736961451248e-05
+  },
+  {
+    "name": "guitar-75-v3-r2",
+    "duration": 3.0,
+    "pcmSha256": "c5830063b4e8c3cbce39843515daf485d2e408d89f4f5208ba7f3adcfc8363af",
+    "peakDbFS": -3.42,
+    "onsetSecondsAtMinus50dB": 4.5351473922902495e-05
+  }
+]

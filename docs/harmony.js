@@ -107,7 +107,7 @@
   function fingering(midi, previous = { fret: 7, string: 2 }) {
     return [64, 59, 55, 50, 45, 40].map((open, string) => ({ string, fret: midi - open })).filter(p => p.fret >= 0 && p.fret <= 17).sort((a, b) => Math.abs(a.fret - previous.fret) + Math.abs(a.string - previous.string) * 1.6 - Math.abs(b.fret - previous.fret) - Math.abs(b.string - previous.string) * 1.6)[0];
   }
-  function generate(parsed, seed, feel = 'blues') {
+  function generateLegacy(parsed, seed, feel = 'blues') {
     if (parsed.error || !parsed.chords.length) throw Error(parsed.error || '先写一组和声');
     const random = rng(seed), notes = [];
     let previous = 64, hand = { fret: 7, string: 2 };
@@ -134,5 +134,61 @@
     });
     return { seed, feel, notes, bars: parsed.bars.length, chords: parsed.chords };
   }
-  window.tunerHarmony = { parse, chord, tonic, matches, collapse, generate, rng, nearest, names, mod };
+
+  const phraseStyles = { mixed: '多样变化', call: '问答呼应', motif: '动机发展', blues: '蓝调回转', arpeggio: '和弦分解', syncopated: '切分律动', space: '留白慢句' };
+  // These short interval/rhythm cells are original compositional rules, not song transcriptions.
+  const rhythmCells = {
+    call: [[0, .5, 1.5, 2.5], [.5, 1, 2, 3], [0, 1, 1.5, 3]],
+    motif: [[.5, 1, 1.5, 2.5, 3], [0, .5, 1.5, 2, 3], [0, 1, 1.5, 2.5]],
+    blues: [[0, .5, 1, 2, 2.5, 3.5], [.5, 1, 1.5, 2.5, 3], [0, 1.5, 2, 2.5, 3.5]],
+    arpeggio: [[0, .5, 1, 1.5, 2.5, 3.5], [.5, 1, 1.5, 2, 3], [0, 1, 1.5, 2, 2.5, 3]],
+    syncopated: [[.5, 1.5, 2.25, 2.75, 3.5], [.75, 1.5, 2.5, 3.25], [0, .75, 1.5, 2.75, 3.5], [.25, 1.5, 2.5, 3.25], [.5, 1.25, 2.75, 3.5]],
+    space: [[0, 2.5], [.5, 1.5, 3], [1, 2.5], [0, 1.5]]
+  };
+  function generate(parsed, seed, feel = 'blues', options = {}) {
+    if (options.legacy) return generateLegacy(parsed, seed, feel);
+    if (parsed.error || !parsed.chords.length) throw Error(parsed.error || '先写一组和声');
+    const random = rng(seed), pick = items => items[Math.floor(random() * items.length)];
+    const requested = phraseStyles[options.style] ? options.style : 'mixed';
+    const vocabulary = Object.keys(rhythmCells), notes = [], structure = [];
+    const home = pick([60, 64, 67]), direction = pick([-1, 1]);
+    let previous = home, hand = { fret: 7, string: 2 }, cell, activeStyle, motif;
+    parsed.chords.forEach((c, index) => {
+      const pairStart = index === 0 || c.bar % 2 === 0 && parsed.chords[index - 1].bar !== c.bar;
+      if (pairStart || !cell) {
+        activeStyle = requested === 'mixed' ? pick(vocabulary.filter(style => style !== activeStyle)) : requested;
+        cell = pick(rhythmCells[activeStyle]);
+        motif = pick([[0, 2, 1, 3, 2, 0], [2, 1, 0, 2, 3, 1], [0, 0, 2, 1, 3, 2], [3, 1, 2, 0, 1, 0]]);
+      }
+      const answer = c.bar % 2 === 1, next = parsed.chords[index + 1], last = index === parsed.chords.length - 1;
+      // Compress a cell for quick harmonic rhythm; never add notes across the next chord boundary.
+      let pattern = cell.map(offset => offset * c.beats / 4).filter((offset, i, all) => !i || offset - all[i - 1] >= .24);
+      if (answer && activeStyle === 'call') pattern = pattern.slice(0, Math.max(2, pattern.length - 1));
+      if (last && pattern.length > 1) pattern = pattern.filter(offset => offset <= c.beats - .5);
+      const bluesChord = c.family === 'dominant' || c.family === 'minor';
+      const pool = activeStyle === 'blues' && bluesChord ? [0, 3, 5, 6, 7, 10] : [...c.intervals, 2, c.family === 'minor' ? 5 : 9];
+      structure.push({ bar: c.bar, style: activeStyle, response: answer });
+      pattern.forEach((offset, n) => {
+        let interval, role;
+        if (activeStyle === 'arpeggio') { interval = c.intervals[(motif[n % motif.length] + index) % c.intervals.length]; role = '和弦分解'; }
+        else if (activeStyle === 'blues' && bluesChord) { interval = pool[(motif[n % motif.length] + (answer ? 1 : 0)) % pool.length]; role = interval === 6 ? '蓝调经过音' : '蓝调回转'; }
+        else { interval = pool[motif[(n + (answer ? 1 : 0)) % motif.length] % pool.length]; role = phraseStyles[activeStyle]; }
+        const target = activeStyle === 'arpeggio' ? home + direction * n * 2 : previous + direction * (answer ? -1 : 1) * (n % 3 === 0 ? 3 : -1);
+        let midi = nearest(c.root + interval, target, 55, 79);
+        if (n === 0 && offset < .6 && activeStyle !== 'blues') { midi = nearest(c.root + c.intervals[1], previous, 55, 79); role = '三音落点'; }
+        if (next && n === pattern.length - 1 && offset >= c.beats - 1 && ['arpeggio', 'syncopated'].includes(activeStyle)) {
+          midi = Math.max(55, nearest(next.root + next.intervals[1], previous, 55, 79) - 1); role = '半音趋近下一和弦三音';
+        }
+        if (last && n === pattern.length - 1) { midi = nearest(c.root, previous, 55, 79); role = '根音收束'; }
+        const available = (pattern[n + 1] ?? c.beats) - offset;
+        const duration = Math.min(c.beats - offset, available * (activeStyle === 'space' || last && n === pattern.length - 1 ? .94 : activeStyle === 'syncopated' ? .66 : .84));
+        const articulation = duration > .9 ? 'vibrato' : n && Math.abs(midi - previous) <= 2 && random() > .58 ? 'slide' : 'picked';
+        hand = fingering(midi, hand);
+        notes.push({ beat: c.beat + offset, duration, midi, velocity: Math.min(.86, (n === 0 ? .7 : .48) + random() * .16), bar: c.bar, ...hand, role, articulation, variant: Math.floor(random() * 2) });
+        previous = midi;
+      });
+    });
+    return { version: 2, seed, feel, style: requested, notes, structure, bars: parsed.bars.length, chords: parsed.chords };
+  }
+  window.tunerHarmony = { parse, chord, tonic, matches, collapse, generate, generateLegacy, phraseStyles, rng, nearest, names, mod };
 })();
