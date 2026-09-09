@@ -1,0 +1,3302 @@
+{
+  "version": 1,
+  "source": {
+    "repository": "https://github.com/sfzinstruments/virtuosity_drums",
+    "commit": "9f04cf9a734527edfbb0a4eee1f674e45bbf71bc",
+    "license": "CC0-1.0"
+  },
+  "files": [
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl1_rr1.flac",
+      "sourceGitBlobSha1": "d2e400a7a3d0fc9f94e38b72267dd898f4962c06",
+      "sourceSha256": "147f81717c3821008f63b16708a3c97c0935271807868c742f83c14ed9899dec",
+      "sourceBytes": 103238,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v1-rr1.flac": {
+          "sha256": "02f3c8605908a2caf5ce7d2ace5c15143fe1e5b3e61fc95153859b106fa1e77f",
+          "bytes": 28534
+        },
+        "kick-v1-rr1.wav": {
+          "sha256": "78503918cf1026c1df93c0f9521521de125c00eed20b62ee37ccdd5245553cd6",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl1_rr2.flac",
+      "sourceGitBlobSha1": "71b1da44130eee132473a912bcd147ed17f2283f",
+      "sourceSha256": "2a31c5a2394dfd9ded175ab930d53a1614c9638efadf1a79c505d6ff47f164b5",
+      "sourceBytes": 85389,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v1-rr2.flac": {
+          "sha256": "d7d1f53b46aaab89d7556ae1149fa182e4e98a416abb227cfcf6934fd1521ebf",
+          "bytes": 27090
+        },
+        "kick-v1-rr2.wav": {
+          "sha256": "98e95a496c51347f1387fa35396f69c04e46f1a784866b433378fa5e73dc4a16",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl1_rr3.flac",
+      "sourceGitBlobSha1": "0e6d4976dc29567457082ce0b4b27ff2befdcd65",
+      "sourceSha256": "4e6e9d50a029367a833675d5315f4a31eb19c5a03243fb6d0e4cbf571883c9dc",
+      "sourceBytes": 86196,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v1-rr3.flac": {
+          "sha256": "3e10e4decd80cc3161abda272a8cbfd359f629a63fd75f49784cae8b914a210c",
+          "bytes": 28196
+        },
+        "kick-v1-rr3.wav": {
+          "sha256": "4ea8804e73144b7e39f9f0418e2e8e37fec5359fad161af44626b4155af7a8d0",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl1_rr4.flac",
+      "sourceGitBlobSha1": "f5075d9b471692d622448589e24554749f4d5898",
+      "sourceSha256": "b54b6d2f7f357a3132a8a9823784477d596e4f2f6cffd4f6f4060817373d1505",
+      "sourceBytes": 81529,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v1-rr4.flac": {
+          "sha256": "53b17740bad77d342cdedd23281e3a39325e02cd6d3812a4bd67f89e9e1dba77",
+          "bytes": 29007
+        },
+        "kick-v1-rr4.wav": {
+          "sha256": "f9a3f4e3bf1f855b9ef072477fd46c7749dbe2c7513ec814e9cb750666f7ebca",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl2_rr1.flac",
+      "sourceGitBlobSha1": "2e7c651b156bd4aefc8a8f8fb0d08401c56a617d",
+      "sourceSha256": "5f816bb152f879e09399edb86b8862509360702103a1f9c08ef794a2296c2290",
+      "sourceBytes": 89460,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v2-rr1.flac": {
+          "sha256": "b856918f3e175c62b4bdbc20328af0659e73738db9516c25ba29849e4a8bd31c",
+          "bytes": 28804
+        },
+        "kick-v2-rr1.wav": {
+          "sha256": "a76aaff2a9eb460e25be8eec979dc607b77da418e64b2c62884e73df5e13cd33",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl2_rr2.flac",
+      "sourceGitBlobSha1": "c470ceb38e8a54e42eaf8d6199a3ece09427e831",
+      "sourceSha256": "c2cbc978e6271f3029ba79a7829dd90ae8404533483e68d611385f5ca358b7d4",
+      "sourceBytes": 85349,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v2-rr2.flac": {
+          "sha256": "1948772dea11b75ec98cc3e9912a5f08c53b1206cd2aecb4eea1534832e1ad98",
+          "bytes": 28927
+        },
+        "kick-v2-rr2.wav": {
+          "sha256": "d037c7d1ecd965e55f90af6a324d22ec21f7d9eaf31186772443803dfbce01e8",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl2_rr3.flac",
+      "sourceGitBlobSha1": "c91ae52e4bf56a4da9442daa02fdd55f20ad80e8",
+      "sourceSha256": "ba50791ce0a632db126be50a15d92ee89bff59e7b5f62b6692267a195cb6add5",
+      "sourceBytes": 93424,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v2-rr3.flac": {
+          "sha256": "504eeade9e28167c68bbbe6e49d515c37f55a78503980d19810b867bee98bde6",
+          "bytes": 29091
+        },
+        "kick-v2-rr3.wav": {
+          "sha256": "9ef7a563daac5e9aef9a87e06b3344786717050e528e735a0ecfe4761f5d08c7",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl2_rr4.flac",
+      "sourceGitBlobSha1": "7a8f9e9de91267dc5af70134f6db22518dd3d653",
+      "sourceSha256": "ee6312864c5f48348e88817a9993ab4fe400fe4d7f141ad15df6330ff16943bd",
+      "sourceBytes": 85984,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v2-rr4.flac": {
+          "sha256": "023a72042f41958d58302573884de0183246b7d9890198778685c8551f7b3e73",
+          "bytes": 28962
+        },
+        "kick-v2-rr4.wav": {
+          "sha256": "bd8cfc7bfdf1d469b2b2b6bd104a5209dba83d47bec9ba9f2b9cd1caa1a65c35",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl3_rr1.flac",
+      "sourceGitBlobSha1": "83f5a89d0b25f0feef1e64c68a80c7b8565351ef",
+      "sourceSha256": "a317688b4a81cb833c579f0004beb4fef46b3c80c858448fe3413b2f9b9410be",
+      "sourceBytes": 107117,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v3-rr1.flac": {
+          "sha256": "6ffe92993824ca8bb143c58dccb598c88a80c16f45ebf89be16f0dd20e55d2ae",
+          "bytes": 30239
+        },
+        "kick-v3-rr1.wav": {
+          "sha256": "7c26c193e3df5e97531c356ce2ad3498812d72b8133895fe29f4458653508350",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl3_rr2.flac",
+      "sourceGitBlobSha1": "27fa04f7fe2f6c7bd47cb8d4c1c3bf481ce328b9",
+      "sourceSha256": "387835266e8c7b12310ff41956503d0d9af93722bdcb77f683a1a0d4bdaa67eb",
+      "sourceBytes": 110359,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v3-rr2.flac": {
+          "sha256": "3aca3424c51876b5e0996702fd87de331826dfb543c5307b8720eba0e5861366",
+          "bytes": 30356
+        },
+        "kick-v3-rr2.wav": {
+          "sha256": "36a398bb1c6ff0214e155f6090b17edfd1c07f6722446e90d836c4f29480939f",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl3_rr3.flac",
+      "sourceGitBlobSha1": "52e225ed5d976d1b37845dd727f6e390d19fdfa0",
+      "sourceSha256": "57156a987a5fbff08b19cbfa1b16c106f33b865fc1455c1113d79083cfbe91e2",
+      "sourceBytes": 111922,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v3-rr3.flac": {
+          "sha256": "20ab4ad828f19214bf49936c25a583a3effb5fc40095a13e21f5661bc39f9ed5",
+          "bytes": 30476
+        },
+        "kick-v3-rr3.wav": {
+          "sha256": "0d6cf5e5c1abe30e93e61a9c83e5a951efb56949ce88ea85493a4c90fc105dfa",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl3_rr4.flac",
+      "sourceGitBlobSha1": "0c82f76693fd8ef199b5816e2944aab9bdea581b",
+      "sourceSha256": "3f91a5b4bced0c971fcd0869c2d679ae28e7ef39bb20805b4cbbd0402c4ee54c",
+      "sourceBytes": 100784,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v3-rr4.flac": {
+          "sha256": "2085b217a55b01a85f96d0abf71afa1f87e0f94ddd3ea81134a15d6d347b208b",
+          "bytes": 30341
+        },
+        "kick-v3-rr4.wav": {
+          "sha256": "3113a25f1b0023e7b13b6170bc8700f32caf8d05dbc5c78ae4da780aedbde7c0",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl4_rr1.flac",
+      "sourceGitBlobSha1": "f60d85e25f3d93aaa9563675e814fb52c49f4499",
+      "sourceSha256": "3b9026557c757edeccd26467ff420fceb787902dd94f7f9b2b12b2581faa17e5",
+      "sourceBytes": 112410,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v4-rr1.flac": {
+          "sha256": "70e1d55c22240ba716147870ea264c601fd71e3651d9167f25510d64033d9c2d",
+          "bytes": 31770
+        },
+        "kick-v4-rr1.wav": {
+          "sha256": "cd66243a69a366405708483e2a5074a90b6b9391b43e6c9167dca1a5ac691513",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl4_rr2.flac",
+      "sourceGitBlobSha1": "01b13c5d42c4f01fc64a797dbfe454a942b1428d",
+      "sourceSha256": "662ac9d76024ecc6390b4c98172fb529c65a8a4e617d7b74096eeded84556856",
+      "sourceBytes": 117300,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v4-rr2.flac": {
+          "sha256": "9dfda6206b5a158cd899bd2347fddae27680fc628ca638ee25d27f1f04486b82",
+          "bytes": 31906
+        },
+        "kick-v4-rr2.wav": {
+          "sha256": "0993794f678fff94b0dc741330e25375d6e95f980c17b771c23c1ab8ac920852",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl4_rr3.flac",
+      "sourceGitBlobSha1": "1ae69085d041f88d88311cac18002ed5cd6e3874",
+      "sourceSha256": "c6343a0c3d65fd275515109451731ad896ead3813eb48d907311524739c866b6",
+      "sourceBytes": 110003,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v4-rr3.flac": {
+          "sha256": "938bbe29c291503531c177496b3ec37915b7f2eb0e1b39b1c765bca06b6fa793",
+          "bytes": 31894
+        },
+        "kick-v4-rr3.wav": {
+          "sha256": "754cecf6fa2947dd51a1df934645608984f962274604a4f3c018a9985384a0b6",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/kickmic/kick/kickmic_kick_snon_vl4_rr4.flac",
+      "sourceGitBlobSha1": "33a8e98d38e52a3edfff33501c50588d413ce793",
+      "sourceSha256": "56a761ae239e1f0c2899889df6fecabbd8847956ce9a33d3612fd511b54b82b0",
+      "sourceBytes": 111126,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.8223805469646378
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "kick-v4-rr4.flac": {
+          "sha256": "f8071cf976056bc8d7b0076de129b34c86da49c9fecc143d370626da2056f7c0",
+          "bytes": 31689
+        },
+        "kick-v4-rr4.wav": {
+          "sha256": "33043c323c6408a0ec1e192fb887cb3ca5f08f3d8bf9997514abc18071142f22",
+          "bytes": 158838
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl1_rr1.flac",
+      "sourceGitBlobSha1": "7b98abd01698cfd114c60fff058e55e7cc6e63fb",
+      "sourceSha256": "8e23666927c51d04c0e70085f746778fbac0f76638bde06ff54d88c70031c0dc",
+      "sourceBytes": 79433,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.759,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.759002
+      },
+      "outputs": {
+        "hat-closed-v1-rr1.flac": {
+          "sha256": "6649f852495467dd5f4af4b769435d865993874b96a041b9bfedb864e75fc825",
+          "bytes": 27310
+        },
+        "hat-closed-v1-rr1.wav": {
+          "sha256": "ed89d7a7922a8e4633d00f3627c907b9e9bddb25295969fd3d384ff9f77dd190",
+          "bytes": 133966
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl1_rr2.flac",
+      "sourceGitBlobSha1": "0cfca98b443cbe3d653bf0e185969b83ee6528fc",
+      "sourceSha256": "c8a05ec78f11f7ac4bdc00bbbdb6df445e45106f0adb4eb882ac42fdb0606234",
+      "sourceBytes": 60762,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.559979,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.56
+      },
+      "outputs": {
+        "hat-closed-v1-rr2.flac": {
+          "sha256": "09c0f3226b29e3c870312c03d110b9dcf0713340befa6c40587cc34f96872ca4",
+          "bytes": 23458
+        },
+        "hat-closed-v1-rr2.wav": {
+          "sha256": "2d1ab2951c4b60a0ac82968b340aa20e7082a5d16a9a9e22c9812082bb3b22ff",
+          "bytes": 98862
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl1_rr3.flac",
+      "sourceGitBlobSha1": "9eefc603b73440437aee33f7d12425655cfa5826",
+      "sourceSha256": "bf5bd60af5ce8f90b66994a46fa878dc0b447f66f5f2dd297b950970cd87d7eb",
+      "sourceBytes": 69966,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.661854,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.661859
+      },
+      "outputs": {
+        "hat-closed-v1-rr3.flac": {
+          "sha256": "22f8f15b6ce540f6f415a65ca679fe6a19c02be5098d020be3130672b9db233c",
+          "bytes": 25155
+        },
+        "hat-closed-v1-rr3.wav": {
+          "sha256": "2bfe7474a19f1d246fa8c94f385af98c1ce8b6acd740ed97dad3739578923b95",
+          "bytes": 116830
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl1_rr4.flac",
+      "sourceGitBlobSha1": "2c760483463ddc504e401cf65aaf9fafed677d06",
+      "sourceSha256": "93b1fada5a5f8835022fb7525bcbead74d885758af58daf1113a6c23fb702a27",
+      "sourceBytes": 66375,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.623188,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.623175
+      },
+      "outputs": {
+        "hat-closed-v1-rr4.flac": {
+          "sha256": "2b085193d7c455c1e1d935523d2dbe8060cb2358de28da3fa28c2f803f363a78",
+          "bytes": 24997
+        },
+        "hat-closed-v1-rr4.wav": {
+          "sha256": "416614df5547f43f3deac4823d7c24c3494501838d09b7e52446cee422bec3f8",
+          "bytes": 110006
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl2_rr1.flac",
+      "sourceGitBlobSha1": "0dd2c1a05176140352a6fb18cbc8cac86f94a5e0",
+      "sourceSha256": "466a0dac394ae52abea418ca62c27614986159cd6c7127cb25b4991a9cb614df",
+      "sourceBytes": 73755,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.626646,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.626667
+      },
+      "outputs": {
+        "hat-closed-v2-rr1.flac": {
+          "sha256": "33c707b0d607d54e1f69a4f1e07bb6eeba54845a2568557eab65a50206a87ef8",
+          "bytes": 30210
+        },
+        "hat-closed-v2-rr1.wav": {
+          "sha256": "f4460b787345f0c11e06a7861dd29148bf6469c6eac0aaa2b5aefbbca40f969d",
+          "bytes": 110622
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl2_rr2.flac",
+      "sourceGitBlobSha1": "c31f6fcba85968e8174c1668bde67fe17d80fcb5",
+      "sourceSha256": "57dff040657690e62a8847919118db5d98ba1ef5bed5230f9510cbf944a40b72",
+      "sourceBytes": 69306,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.585604,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.585624
+      },
+      "outputs": {
+        "hat-closed-v2-rr2.flac": {
+          "sha256": "b74a4333488fb4171ffdcc7b5636e97c86bfa8f67d5a89ea6c0667e6b9c09f74",
+          "bytes": 28893
+        },
+        "hat-closed-v2-rr2.wav": {
+          "sha256": "de6d3ec240d223bd02e86eeadd32af8220a5c4843ea5f46181ff661a16bef12e",
+          "bytes": 103382
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl2_rr3.flac",
+      "sourceGitBlobSha1": "2a4f1da5a4157244c9ee0116940cb45bdaba6b71",
+      "sourceSha256": "06ceaa4a7375307520ce9dd59c68c5e44c01dc7d3fcb85111213db079123d182",
+      "sourceBytes": 83231,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.707958,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.707959
+      },
+      "outputs": {
+        "hat-closed-v2-rr3.flac": {
+          "sha256": "95897ed6812f4a3682faf790daba3bdbedcafead2379c101de19cd4bc4839542",
+          "bytes": 32804
+        },
+        "hat-closed-v2-rr3.wav": {
+          "sha256": "6ce15855e94742c4999efc9e7416485466ba5f344144084b48819e7576de3188",
+          "bytes": 124962
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl2_rr4.flac",
+      "sourceGitBlobSha1": "0a7cfedd1094de17c85723aad38f48513542bb5f",
+      "sourceSha256": "c4d7b235e1cda3830de9d22b80b5a746d636cf949183186e029927bdf5c96591",
+      "sourceBytes": 77734,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.661333,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.661338
+      },
+      "outputs": {
+        "hat-closed-v2-rr4.flac": {
+          "sha256": "11d23f30b6a1dc2e579649b5568381930b2e21770300c4bc2376646207fbddcc",
+          "bytes": 31453
+        },
+        "hat-closed-v2-rr4.wav": {
+          "sha256": "c80437d63ee440a74cf52ed403fb3995626e32ad1307b4adec389defa8b89ea7",
+          "bytes": 116738
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl3_rr1.flac",
+      "sourceGitBlobSha1": "c7f1ee86c09041eeaf3e374b74877e07f30d225c",
+      "sourceSha256": "328a4d33daf15c72362db234312eba56eda60c1668f5c39a5527d61279793fef",
+      "sourceBytes": 85639,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.695958,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.695964
+      },
+      "outputs": {
+        "hat-closed-v3-rr1.flac": {
+          "sha256": "867302841dcd95b83cbe7a9f593682e09b1cc5738e6d675b7b4a3713684cba25",
+          "bytes": 35364
+        },
+        "hat-closed-v3-rr1.wav": {
+          "sha256": "e94611a0bdd06f27b89c4732b6744bd295e65f8866f3c8d98ebcded21c13819a",
+          "bytes": 122846
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl3_rr2.flac",
+      "sourceGitBlobSha1": "bf1ae12c2f96bac086509ed8139afc1949f7fbb7",
+      "sourceSha256": "53727d06a33fc153df450657aeeba08dd66fa9059825f92227b1c963fd2136b3",
+      "sourceBytes": 85482,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.699417,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.699433
+      },
+      "outputs": {
+        "hat-closed-v3-rr2.flac": {
+          "sha256": "744cfa2a4d801783946122477d058db19d943a4c74e750420e6034e219ff0a4f",
+          "bytes": 35132
+        },
+        "hat-closed-v3-rr2.wav": {
+          "sha256": "9c7b2ac750a5ad95f479f94e7d4f1c3a9c472bffa8ef7e31b4d8cfae9a373f6c",
+          "bytes": 123458
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl3_rr3.flac",
+      "sourceGitBlobSha1": "219f572818fc646ac067a2e0d7458cd8ec135f24",
+      "sourceSha256": "2183465bbbeacabe792712f4ed5efc78b33517cf5dbc53e34b8e5b6215bc3139",
+      "sourceBytes": 88975,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.722187,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.7222
+      },
+      "outputs": {
+        "hat-closed-v3-rr3.flac": {
+          "sha256": "5d9a3c65b44fd436f322e4520ba4357a3c3fdac99499db52f5d01fdad0a54474",
+          "bytes": 36491
+        },
+        "hat-closed-v3-rr3.wav": {
+          "sha256": "2ec84e22ddb4794c690144c884bfe1abd071d893e69760cd4c058e89118be14a",
+          "bytes": 127474
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl3_rr4.flac",
+      "sourceGitBlobSha1": "0589e187a3afa4e0f277db4e22913cc5ae187c37",
+      "sourceSha256": "62e71f489b2b1c81169e16f430f2458aed0b698d6467318deedfd8198c07c34e",
+      "sourceBytes": 90049,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.722875,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.72288
+      },
+      "outputs": {
+        "hat-closed-v3-rr4.flac": {
+          "sha256": "4dd3a7203748082afc283bee734ff2db7c9dca0b2ff76376e8a87b65d137c0f3",
+          "bytes": 37419
+        },
+        "hat-closed-v3-rr4.wav": {
+          "sha256": "df1c4bea669cbb934dae46af4c3868eb7a78eaf883462c60ff55ffd0dcfd692e",
+          "bytes": 127594
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl4_rr1.flac",
+      "sourceGitBlobSha1": "bc44dee816193be60e66dc631e7db126d29bd748",
+      "sourceSha256": "163b306f52ebe55017e46a7b664b8438458bd7becc01553309a2f441c0bd452b",
+      "sourceBytes": 111711,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.781042,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.781043
+      },
+      "outputs": {
+        "hat-closed-v4-rr1.flac": {
+          "sha256": "2251e11da4096f39505fc76302d3512b7df2fd3229ff2173a192a760172781b6",
+          "bytes": 50637
+        },
+        "hat-closed-v4-rr1.wav": {
+          "sha256": "bd65332e32019af96ca15fcb4983ec29a8909bc2680c75687f73cb829ea3c3a2",
+          "bytes": 137854
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl4_rr2.flac",
+      "sourceGitBlobSha1": "51f22f67572841dc5b15034a6e6e975598b9e18d",
+      "sourceSha256": "32aa1fdbf7be06eb31a1665d5b6390fe3c6209d0abe4230351f07c1af9d4d0c2",
+      "sourceBytes": 109478,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.767625,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.767642
+      },
+      "outputs": {
+        "hat-closed-v4-rr2.flac": {
+          "sha256": "a10c0d4954ff7e21b0d17c2dddc892a26cbf2a8a4b6fcc7c5f1f2faf23c664e2",
+          "bytes": 49259
+        },
+        "hat-closed-v4-rr2.wav": {
+          "sha256": "f31d5d4d00757c9bbef206d84fb665fb6ab34c42f7591993f445f2765a756d4a",
+          "bytes": 135490
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl4_rr3.flac",
+      "sourceGitBlobSha1": "3964643c13017f890d34ebcf72b8291dc3e09c18",
+      "sourceSha256": "00774a044569a3ecf1fb29eccd6e862357aa14e136133fdd5ce55b87c3a24625",
+      "sourceBytes": 105145,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.730208,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.730227
+      },
+      "outputs": {
+        "hat-closed-v4-rr3.flac": {
+          "sha256": "711c3246abdfea16c9c33b904e51c99f1b3bb8e9fff8be94d1a1a90d93fad2b2",
+          "bytes": 48191
+        },
+        "hat-closed-v4-rr3.wav": {
+          "sha256": "3cb263f47fd7aa59b660b344bb2433141d137dd3bd524fd8f9eb8d7cbe192d2b",
+          "bytes": 128890
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_closed_vl4_rr4.flac",
+      "sourceGitBlobSha1": "5fc1bdda967e77baeb8accb908b7a2a87948b0fc",
+      "sourceSha256": "bee8056c08b292a91121ecc25b9402f4df90602b821ee66a920c05b701e619ef",
+      "sourceBytes": 109289,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.762271,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.313283179482366
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.76229
+      },
+      "outputs": {
+        "hat-closed-v4-rr4.flac": {
+          "sha256": "3a623bf5fca8563e971d0bd953012074e73a249d8398468296364bfc113fbe29",
+          "bytes": 49584
+        },
+        "hat-closed-v4-rr4.wav": {
+          "sha256": "f64c94943d32b9eb7ce5376029ff2964911dc805259e539a655bc853c3c0f73f",
+          "bytes": 134546
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_half_vl1_rr1.flac",
+      "sourceGitBlobSha1": "80023043864c81af81d3a4962da37c6fe218f30d",
+      "sourceSha256": "1cd96c1d9f3702d19cb546a5f1fe59640ceb8c147f9665227040e10184b228ee",
+      "sourceBytes": 237954,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8935,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.66014546217581
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.893515
+      },
+      "outputs": {
+        "hat-half-v1-rr1.flac": {
+          "sha256": "e7ecf84795cdfb79ca60d15e5d26ed7212c7072aef80bd1d3ac0c093ba82a230",
+          "bytes": 85018
+        },
+        "hat-half-v1-rr1.wav": {
+          "sha256": "677e90262d4b70b089c1c97f282e21977c87e2ec02376e9551ef12f281441834",
+          "bytes": 334094
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_half_vl1_rr2.flac",
+      "sourceGitBlobSha1": "f3110e0af2841faf8b9c2051ed85d35475ffbf43",
+      "sourceSha256": "2cbdf785a991047b01ac8bc65ce646697beb6c06483c81a0d20a81b2fde093be",
+      "sourceBytes": 227984,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.776396,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.66014546217581
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.776417
+      },
+      "outputs": {
+        "hat-half-v1-rr2.flac": {
+          "sha256": "4bc8b2b99e48200cabede8f8a98f12566827bac55fa31175182429f57444a6b3",
+          "bytes": 84450
+        },
+        "hat-half-v1-rr2.wav": {
+          "sha256": "53043316e96bc1fac30fa5106e03679d4b7b0010c0589a620c443cc78e71060e",
+          "bytes": 313438
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_half_vl2_rr1.flac",
+      "sourceGitBlobSha1": "340c411709a5d1c195f7923fad7862f3ebff4125",
+      "sourceSha256": "b2d0d4a0a270fe2c94ad56d776e464982b16c1564fc14b3abb750dd03616d833",
+      "sourceBytes": 230852,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.659667,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.66014546217581
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.659683
+      },
+      "outputs": {
+        "hat-half-v2-rr1.flac": {
+          "sha256": "b030dff8eb5e5bf243210c7bfd85d8c231dc6e89538337050e47f821a15d62bb",
+          "bytes": 92506
+        },
+        "hat-half-v2-rr1.wav": {
+          "sha256": "74f85f0543df4e3e9c8daaf995e0b269466301d4bcecdfc94a6d24001a04953c",
+          "bytes": 292846
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_half_vl2_rr2.flac",
+      "sourceGitBlobSha1": "8987ff8569b4b4d06fb1f6b9531dcab3a3411224",
+      "sourceSha256": "cca64d3c3afc0e0d75d47d0dbedec3560f9dc9f5eb40f8124cb9e6c3f91a7d15",
+      "sourceBytes": 241287,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.775021,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.66014546217581
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.775034
+      },
+      "outputs": {
+        "hat-half-v2-rr2.flac": {
+          "sha256": "e9387705adb922cdab2db7ddf2b61e25be50cc7d5d5fa97889f16584259e2980",
+          "bytes": 93626
+        },
+        "hat-half-v2-rr2.wav": {
+          "sha256": "a53c62ef05085229f4ab0ca3d7a86e11112637cb31655383cd1334b6229a6196",
+          "bytes": 313194
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_half_vl4_rr1.flac",
+      "sourceGitBlobSha1": "5276f5d45e2e845061881e6d5ae3153d0bf95a01",
+      "sourceSha256": "8fcf0a7e727f374bb838a7490e18fa45eb7549eba526a3cc7911f11b4376a45d",
+      "sourceBytes": 298891,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.948979,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.66014546217581
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.94898
+      },
+      "outputs": {
+        "hat-half-v4-rr1.flac": {
+          "sha256": "ece27be5563e27dcd534bfdca8d4bff4aef0092f4be69eb8b48b8c59bdd60f80",
+          "bytes": 128882
+        },
+        "hat-half-v4-rr1.wav": {
+          "sha256": "ff208a05021d8aa7292aed72faf87056f2da529e67d74358064809a990769e9e",
+          "bytes": 343878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_half_vl4_rr2.flac",
+      "sourceGitBlobSha1": "c038706f5eeb6bbb4d4647257f55bad50957fb61",
+      "sourceSha256": "422d68769631c44241069569da946d7818c5366374ab4578de3829300298d32d",
+      "sourceBytes": 309362,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.985583,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.66014546217581
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.985601
+      },
+      "outputs": {
+        "hat-half-v4-rr2.flac": {
+          "sha256": "1de2ab14f60396ccfa0d43efd8af45f6ddf90f2de9b56f238cf8bcbc5956cec4",
+          "bytes": 136194
+        },
+        "hat-half-v4-rr2.wav": {
+          "sha256": "1cbad5e77aeef3124158dd8ad5af662b8431ccc617903410a1915b019b07dda2",
+          "bytes": 350338
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_open_vl1_rr1.flac",
+      "sourceGitBlobSha1": "530c565d8821e88fa05bb92bae249eca51729d8b",
+      "sourceSha256": "bce174c48b9ab905bb48e36ecd5023f6f507d5210d220c7f2a00c21dca670121",
+      "sourceBytes": 911893,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7845229760389948
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "hat-open-v1-rr1.flac": {
+          "sha256": "1b7bc1478de67fb2d8b72b1e06e8dcf8683b7d2967f52437af714afa922b792c",
+          "bytes": 159861
+        },
+        "hat-open-v1-rr1.wav": {
+          "sha256": "ace609fa4d521a52ae7ab38a00bd5bf4a01e6baa9fe4af5c59379482be9c0fc0",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_open_vl1_rr2.flac",
+      "sourceGitBlobSha1": "ef14a8efcc1a1044b1420fc0d317d3d328f27d6c",
+      "sourceSha256": "15bef7db238fddb5675c1d294613970a739da9fe2346c53d0732ad4a6889cfa7",
+      "sourceBytes": 786585,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7845229760389948
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "hat-open-v1-rr2.flac": {
+          "sha256": "d4940175f7219666361a179fd213245e8fac258fbd941d766a00ca75fe3e6593",
+          "bytes": 161422
+        },
+        "hat-open-v1-rr2.wav": {
+          "sha256": "8a1d2fc3e430f1e72043fee9e250f9e80e33be30e06699c664decbcc5776734a",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_open_vl2_rr1.flac",
+      "sourceGitBlobSha1": "5bf1aa91c0a148c6f41d492c7c70dfafae77631a",
+      "sourceSha256": "70974258a4b6b702b4d9ce3ef0f6668d0b0d211e0481253d4408d9acf848d012",
+      "sourceBytes": 851427,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7845229760389948
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "hat-open-v2-rr1.flac": {
+          "sha256": "2b25d27e301b8be23f3e5211224c300ff03e55553d4bfeee8ec6030a41c051dc",
+          "bytes": 179721
+        },
+        "hat-open-v2-rr1.wav": {
+          "sha256": "2470b11149aa7918b1eb6134cce5014f10d7fadde8a0e9f7dfa752d10ef13e20",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_open_vl2_rr2.flac",
+      "sourceGitBlobSha1": "362b3662725f89c1bfed1bd58b79897cc5a75f83",
+      "sourceSha256": "73cb8823ceb31e7ddbab0a8830b58a02af9e11ad78087712f8ac3b7578cfac45",
+      "sourceBytes": 787826,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7845229760389948
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "hat-open-v2-rr2.flac": {
+          "sha256": "468b2fbae5609262c0aa25eaee1b5c1221f2c516ad0ad945b70e86ef56b23f2f",
+          "bytes": 179291
+        },
+        "hat-open-v2-rr2.wav": {
+          "sha256": "7ede824b4f22f34bbe2f02e938f19e5f6c590f6791138b9f442e4081cccc0603",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_open_vl4_rr1.flac",
+      "sourceGitBlobSha1": "effd72ef941529b3c253e40f3da30543a496c4e2",
+      "sourceSha256": "784687e70ed0adf17229a38f4347674ac4283a0dd85def26c556a5e9be3b1ffc",
+      "sourceBytes": 1350021,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7845229760389948
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "hat-open-v4-rr1.flac": {
+          "sha256": "6271fe14575dd4ed9a39a864e77314574f1c45d7699a0e6969ba76391d20e1e9",
+          "bytes": 276506
+        },
+        "hat-open-v4-rr1.wav": {
+          "sha256": "9ac9419807faf08d240566b2998a5d505c8a720212f2fe6f4eb549fb6b1c0d39",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_open_vl4_rr2.flac",
+      "sourceGitBlobSha1": "7f753025311f0c1f10dd276bbd5149275535f84f",
+      "sourceSha256": "29613222ea16060da00e33dc20624974e6a2812a397da316986d89b5b750d8d3",
+      "sourceBytes": 1446299,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7845229760389948
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "hat-open-v4-rr2.flac": {
+          "sha256": "3fd72c13a3dad3fcc428152211efc1198940e77e5fea07b7c1198d64a6061b8f",
+          "bytes": 284092
+        },
+        "hat-open-v4-rr2.wav": {
+          "sha256": "825ee425f719584f93fdfbb47cc97cae92ddb164295fdd03635672bbfb238507",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_pedal_vl1_rr1.flac",
+      "sourceGitBlobSha1": "0aae7805e438db2c691edd7165119152adf28e44",
+      "sourceSha256": "914fdab7847eacf82f016d48959ddd286c8dff9626ba9a4873a600b3d5d8f6d0",
+      "sourceBytes": 198789,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 7.579051732084836
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "hat-pedal-v1-rr1.flac": {
+          "sha256": "1e864eb1d7bc40cc7103ee4c9d0be4678e3102b8e641b3ee4afacd286eb2121a",
+          "bytes": 56642
+        },
+        "hat-pedal-v1-rr1.wav": {
+          "sha256": "4b60fce5ad5ae7af48bf974c90362992922405a814b175eba72634815ac8cc9a",
+          "bytes": 317598
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_pedal_vl1_rr2.flac",
+      "sourceGitBlobSha1": "9ab1699459341040c9691ea7e528e1e3923932ff",
+      "sourceSha256": "f8f93f771893a14f292d12f7bebbcb421200d6d45e899f286517c9ce0dfc6ad0",
+      "sourceBytes": 181345,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.722938,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 7.579051732084836
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.722925
+      },
+      "outputs": {
+        "hat-pedal-v1-rr2.flac": {
+          "sha256": "345ecc4c606dd2b3b1815ce6c836eb67162bd7ad38e0b4ed65b3ea29fdf505a3",
+          "bytes": 55259
+        },
+        "hat-pedal-v1-rr2.wav": {
+          "sha256": "902424f0365a4ff3bfdeae57094f495d0343f871ad0c54c49911aa5e617cbf9c",
+          "bytes": 304002
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_pedal_vl2_rr1.flac",
+      "sourceGitBlobSha1": "02ab0834f0ef892ff10bce53b0fb746259987f1e",
+      "sourceSha256": "8e7cf653e07bb6773e835e3fa7502bc199c23ee6e94d44cf3b6fda783ac309b0",
+      "sourceBytes": 210256,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 7.579051732084836
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "hat-pedal-v2-rr1.flac": {
+          "sha256": "776a74b81dc207258c4c508536b9ac03c97718d69dcbafd616d93ee128555c2c",
+          "bytes": 61875
+        },
+        "hat-pedal-v2-rr1.wav": {
+          "sha256": "cde43d2da9799f49e2397e75a04fa6433b8fc44cb2a20d3162091ba85f081b55",
+          "bytes": 317598
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_pedal_vl2_rr2.flac",
+      "sourceGitBlobSha1": "feffe245bd7a3123a2e07bb28fbc85782111ae44",
+      "sourceSha256": "78cc168c52d8b81caa447078dd3976476794fbf6b1073b9ab0aacfe0c55299e6",
+      "sourceBytes": 195030,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 7.579051732084836
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "hat-pedal-v2-rr2.flac": {
+          "sha256": "3e7124934df9a89d428886c71795325584c77b8badf880458390ece5df926072",
+          "bytes": 61762
+        },
+        "hat-pedal-v2-rr2.wav": {
+          "sha256": "ed0ad5ba8de06019a39e9476d312f1fa115a4d2d27b9523edaa20bc0b2a2109c",
+          "bytes": 317598
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_pedal_vl3_rr1.flac",
+      "sourceGitBlobSha1": "b04694f0d97136ef5e17555d20e8fb1b421ed8b4",
+      "sourceSha256": "5311c752a8852e48a05be2d5841bbccb5dedce5b606f49ad8168cc8c52b22235",
+      "sourceBytes": 245386,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 7.579051732084836
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "hat-pedal-v3-rr1.flac": {
+          "sha256": "8076afcab2891199e2a8715b0ae60b6b81f73873451fc7e64510fc876610b90f",
+          "bytes": 63712
+        },
+        "hat-pedal-v3-rr1.wav": {
+          "sha256": "27fb1d7d1b65ed8ff0f5c2023d25f1bbb58e8cca7f6f2e076dcb55e662eeb13a",
+          "bytes": 317598
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/hh/oh_hh_pedal_vl3_rr2.flac",
+      "sourceGitBlobSha1": "95a807856df71ba4d07eef217945a1a60099bfc1",
+      "sourceSha256": "ef8cb0f9ff9e9f6368a138c95a2e59a9b85e4a2eae661ae73c9500f61ca6a43b",
+      "sourceBytes": 254347,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.8,
+        "tailFadeSeconds": 0.14400000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 7.579051732084836
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.8
+      },
+      "outputs": {
+        "hat-pedal-v3-rr2.flac": {
+          "sha256": "18f4c1249bb24a079a7980aa5bf49afb38d313833727d362d6c3f0aeef16470b",
+          "bytes": 64594
+        },
+        "hat-pedal-v3-rr2.wav": {
+          "sha256": "acba549115e3f4851d63c2400164cac248e7e1e190e2e9a594cf859be68634c9",
+          "bytes": 317598
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_ride_vl1_rr1.flac",
+      "sourceGitBlobSha1": "aff84ed9a051aabe7582efecfbe8f46ca35e24df",
+      "sourceSha256": "df47cd9bee89a98afa6626e38a7363c36ac6091e9964f113693807d0675fd0ab",
+      "sourceBytes": 1107361,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 6.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.481565752483185
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 6.0
+      },
+      "outputs": {
+        "ride-v1-rr1.flac": {
+          "sha256": "5d27722f68822cc940b30d180670503f481d2143eea0f7c13e4d7c3a4fb87a1b",
+          "bytes": 171827
+        },
+        "ride-v1-rr1.wav": {
+          "sha256": "bb87e61e69b36795357f3a98518d0a4b93550f0388ce99c6626ce0298b515788",
+          "bytes": 1058478
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_ride_vl1_rr2.flac",
+      "sourceGitBlobSha1": "34f479c844eabaa7ff1440310fc42fa5b467c638",
+      "sourceSha256": "b94e95308c3c2c88001426dc57a4f92745a3bad9021171fe6bc0c0f8992c6d7c",
+      "sourceBytes": 862504,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 6.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.481565752483185
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 6.0
+      },
+      "outputs": {
+        "ride-v1-rr2.flac": {
+          "sha256": "6f4efdde2e914338fdce73e10cbbbe03d8f4159cba8fbe40ede9a4d6cf021829",
+          "bytes": 186251
+        },
+        "ride-v1-rr2.wav": {
+          "sha256": "6243c3dcaa92b4032804edd1e6a1e3eb4c2ed05deafd39ae71056db497da4983",
+          "bytes": 1058478
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_ride_vl2_rr1.flac",
+      "sourceGitBlobSha1": "7bd3f5b5998be54c876097ff622598b2587b39a3",
+      "sourceSha256": "56481c1109ac7baba9ab4b049cacfbc5050cf29d59951c654e7316595385eeaa",
+      "sourceBytes": 961942,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 6.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.481565752483185
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 6.0
+      },
+      "outputs": {
+        "ride-v2-rr1.flac": {
+          "sha256": "f1887e90c2ca8838e498d7b397f665bfa7175aff9d7ad49ebea18c423467a9c1",
+          "bytes": 223778
+        },
+        "ride-v2-rr1.wav": {
+          "sha256": "3a78a1c72cfc3cfd9fdb417440c1ed05b68322f7ad6d2ca3144bd32150a5fdfa",
+          "bytes": 1058478
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_ride_vl2_rr2.flac",
+      "sourceGitBlobSha1": "03fafaa977b558d53caed373cda79cfe89fdb0e6",
+      "sourceSha256": "5cec02ecdc875cfc5fde8d2cd7f5be23cc8e0b1ad35e4bcdef222328f6fbb6ab",
+      "sourceBytes": 967228,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 6.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.481565752483185
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 6.0
+      },
+      "outputs": {
+        "ride-v2-rr2.flac": {
+          "sha256": "105853e5a7d165253b0535eaca79f5595f8e5020e1865ca80ddaa72528f9b6cf",
+          "bytes": 229696
+        },
+        "ride-v2-rr2.wav": {
+          "sha256": "f04c47fe6372e8422f8b621320da6a3c859984937be2af1ce0837d3fb9f98ce2",
+          "bytes": 1058478
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_ride_vl3_rr1.flac",
+      "sourceGitBlobSha1": "11b81972377915468bcf033785d313d2a7665b31",
+      "sourceSha256": "855f22d2408439f7944c056dab306003b8fc172310c92b37b63a6aef21aa4f5c",
+      "sourceBytes": 945050,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 6.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.481565752483185
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 6.0
+      },
+      "outputs": {
+        "ride-v3-rr1.flac": {
+          "sha256": "6d2259b913ddfe44fed9e493c3373fe63b21240bd472596dc70696f0bfad0c78",
+          "bytes": 259661
+        },
+        "ride-v3-rr1.wav": {
+          "sha256": "409c41e1d0ce1b5166fb6adb8538cf3b4b25fd1abd91ffcfd9606cc9cb4b54b4",
+          "bytes": 1058478
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_ride_vl3_rr2.flac",
+      "sourceGitBlobSha1": "7eb3b0ef766a8fe81cb6e7c9517a295731982a04",
+      "sourceSha256": "dc2abfafd76352382f94fe3e011315381ec324837ea2e08117f947bd2bdde694",
+      "sourceBytes": 803470,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 6.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.481565752483185
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 6.0
+      },
+      "outputs": {
+        "ride-v3-rr2.flac": {
+          "sha256": "ce9b9b1a72832cc2d75901ec0f2d490c620f6deed40f48135a1bb4c3fe19ca44",
+          "bytes": 258539
+        },
+        "ride-v3-rr2.wav": {
+          "sha256": "ce8adce94b63dc4f33824daa68b096f16063617d8f4c7966fa63da1ecfaf0c57",
+          "bytes": 1058478
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_bell_vl1_rr1.flac",
+      "sourceGitBlobSha1": "95f7c62fa3f122d30fb4dfb4bc19897f7a30de75",
+      "sourceSha256": "c1d4a6d958fe778cda3c534c3343e1072da5a69b2853a2ae0b1805e6643080e0",
+      "sourceBytes": 600750,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.1375800131084133
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "ride-bell-v1-rr1.flac": {
+          "sha256": "72c4856046957f8fae11b00ce10f519bbbfae53c65ec003e8d6b48cd34559bfc",
+          "bytes": 149349
+        },
+        "ride-bell-v1-rr1.wav": {
+          "sha256": "6e206dd95683429967bdc1f5fb1db6e357c62607f571907303c7fc1ee6c253f7",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_bell_vl1_rr2.flac",
+      "sourceGitBlobSha1": "7ea28d4f0b95ca4a343180703a8162a2cef2a370",
+      "sourceSha256": "0995af72e6736f11caa8b6a341b8dcd4e4a0d9b5bfa57b2ca20e4e880e0a9577",
+      "sourceBytes": 508042,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 4.707312,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.1375800131084133
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 4.707324
+      },
+      "outputs": {
+        "ride-bell-v1-rr2.flac": {
+          "sha256": "cd996d96fc8a37137345c3c5f4eed44b2c20e6ad83a6089a94ec8d9c7c261804",
+          "bytes": 141865
+        },
+        "ride-bell-v1-rr2.wav": {
+          "sha256": "bc6ed8e0d284608685da86036d533798e66db1c977f6db2d52101e87ce5088d3",
+          "bytes": 830450
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_bell_vl2_rr1.flac",
+      "sourceGitBlobSha1": "cb62785f95e29a240efd9c26ac2876b84ba5d504",
+      "sourceSha256": "36930c1702ff868d84e1bf58fad899c9559b0312b6393bb1b7a4c5d5e91e28aa",
+      "sourceBytes": 659602,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.1375800131084133
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "ride-bell-v2-rr1.flac": {
+          "sha256": "2afff36f35ce62fa8d1c1f686fc06cad72169e971048207478fa61da60264f5f",
+          "bytes": 175118
+        },
+        "ride-bell-v2-rr1.wav": {
+          "sha256": "0a8966f6cdc730ca93a5c01ba46713b89ebdd317bb09c434d5f1d5f9ca81fd89",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_bell_vl2_rr2.flac",
+      "sourceGitBlobSha1": "b421eca320539096a3a347e817f22128b0cea145",
+      "sourceSha256": "fcd4127cef7484c9f6a647013989844cb622b689795de16ad4777bf76f152cd0",
+      "sourceBytes": 690283,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.1375800131084133
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "ride-bell-v2-rr2.flac": {
+          "sha256": "7d1d40dcdc961b8bc990bf923cfef4648c8e5d1fe99a3119d096be53d5351106",
+          "bytes": 204108
+        },
+        "ride-bell-v2-rr2.wav": {
+          "sha256": "912ab9036154d3a1bd5dfce28ca62c18946357702ba83707161995adb4edc80e",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_bell_vl3_rr1.flac",
+      "sourceGitBlobSha1": "2bd256a7c5cae3de0fe854b6388d2fbc06c32f03",
+      "sourceSha256": "e9d367cb70b15377fcec2299a15b6590a93e2b8b0d789511616bcb7b8345281d",
+      "sourceBytes": 938303,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.1375800131084133
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "ride-bell-v3-rr1.flac": {
+          "sha256": "529d9ea335fd1011efaca8f62ecf2619b9351373bda893289e2830d621f6e315",
+          "bytes": 265602
+        },
+        "ride-bell-v3-rr1.wav": {
+          "sha256": "741234ac54183427526f9ac0d7dc79450b3dbee63d479d18ced649c1fe1873c7",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ride/oh_ride_bell_vl3_rr2.flac",
+      "sourceGitBlobSha1": "e717207aebfc47fbd298daab5a5256013e34b9f8",
+      "sourceSha256": "89f73fcf2c149f89c4cee3d904ad37d4e2d47aad6a5693f8386977009584e4dd",
+      "sourceBytes": 969328,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 5.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.1375800131084133
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 5.0
+      },
+      "outputs": {
+        "ride-bell-v3-rr2.flac": {
+          "sha256": "8fcbc370ef69135f7ea8df6becb71893fb8d26c5d332a96d4cd248ab82c683e5",
+          "bytes": 262765
+        },
+        "ride-bell-v3-rr2.wav": {
+          "sha256": "fb39aecc44e6834edea1485b3dc0a40b0fa5aefcb3994f57107664dd992fe717",
+          "bytes": 882078
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/crash/oh_crash_crash_vl1_rr1.flac",
+      "sourceGitBlobSha1": "8cbe9cb0bc2d8d42703148c18828bd1b8b58f5d0",
+      "sourceSha256": "3307ad060004db51990b81b80badc0d26c90dae87e7b0f9b9ebcf099224fd823",
+      "sourceBytes": 1264401,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 7.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.8429822934057847
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 7.0
+      },
+      "outputs": {
+        "crash-v1-rr1.flac": {
+          "sha256": "032e50995e0c8ecb26198335590727bf64b362e3d86cb478be071635ecd39db2",
+          "bytes": 255190
+        },
+        "crash-v1-rr1.wav": {
+          "sha256": "6b95e311f61cce363365632fc90ef68aa8b8874c848f3d0d4247f95e6288690a",
+          "bytes": 1234878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/crash/oh_crash_crash_vl1_rr2.flac",
+      "sourceGitBlobSha1": "c24484922e87b16234b38b5d786440e281e055d4",
+      "sourceSha256": "5867af63074b0f80318e3c26f0164a13bdc59d56fcc2e6c799bbd5b8a8a36557",
+      "sourceBytes": 1312381,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 7.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.8429822934057847
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 7.0
+      },
+      "outputs": {
+        "crash-v1-rr2.flac": {
+          "sha256": "70f893d623f7ba12b41cb3920ce0847bb470c9e1c237baac3483dea8852e27d8",
+          "bytes": 252871
+        },
+        "crash-v1-rr2.wav": {
+          "sha256": "31227e6f5799c965b6e9cc6b0a7379dc4962a222e0c1b8219d48d638b9faab43",
+          "bytes": 1234878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/crash/oh_crash_crash_vl2_rr1.flac",
+      "sourceGitBlobSha1": "b6af432414327be04e97d23bc6c5dd3cc1c3e439",
+      "sourceSha256": "2eb8c5bddc510bb56a48f325d9cdcc54ea52d926645df9180b206a820638fce1",
+      "sourceBytes": 1426940,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 7.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.8429822934057847
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 7.0
+      },
+      "outputs": {
+        "crash-v2-rr1.flac": {
+          "sha256": "52b5a5788757618e7573d498e63fa4d0ec3bf10a937c2a9e49ff97dd9ee24d10",
+          "bytes": 288057
+        },
+        "crash-v2-rr1.wav": {
+          "sha256": "38a9241d293c3391e282565f0454f0aface665a8abcaf252d48125869ec1fb02",
+          "bytes": 1234878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/crash/oh_crash_crash_vl2_rr2.flac",
+      "sourceGitBlobSha1": "c9cb2131b03410a6ecc38f495d96c20a6e41b61d",
+      "sourceSha256": "501b67c566727274f6a9567816dbe94dd66624ee924e82c5fc84df2aa5743980",
+      "sourceBytes": 1311650,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 7.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.8429822934057847
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 7.0
+      },
+      "outputs": {
+        "crash-v2-rr2.flac": {
+          "sha256": "2ca7030fbc773f7472552f509fd93d80de12434c7fbe050fc420295ca7de43d4",
+          "bytes": 280575
+        },
+        "crash-v2-rr2.wav": {
+          "sha256": "8108a7e825a343b044974d384294ba339e130354b9402d9439630e4e8c22dccc",
+          "bytes": 1234878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/crash/oh_crash_crash_vl3_rr1.flac",
+      "sourceGitBlobSha1": "464020e19ae66f3c6b1bedcb87877590f705cdff",
+      "sourceSha256": "28ac4dc5c130175555ef54009f9186e418a664c544c1f996058b5acd3b85ccb9",
+      "sourceBytes": 1628049,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 7.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.8429822934057847
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 7.0
+      },
+      "outputs": {
+        "crash-v3-rr1.flac": {
+          "sha256": "2bbc38e41d735eb74a21b43509af2a91bd9e37e526cb7b61d0ed3971663d34df",
+          "bytes": 329981
+        },
+        "crash-v3-rr1.wav": {
+          "sha256": "d5fd860697faf8a82f4c1789062dbd4f23bb2dc020de79d05900e306c5c149b4",
+          "bytes": 1234878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/crash/oh_crash_crash_vl3_rr2.flac",
+      "sourceGitBlobSha1": "f80c919d56e5a7229b6eec4a06a8a5b5b4739ba7",
+      "sourceSha256": "a9a13b01c169505ade812614fbd5b929006884ac2fa9fc13be2c72028ba1779f",
+      "sourceBytes": 1585868,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 7.0,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 3.8429822934057847
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 7.0
+      },
+      "outputs": {
+        "crash-v3-rr2.flac": {
+          "sha256": "d018a8c43ec10ec249d16da416387791128c36289efa8bf4dd6e013da16d1735",
+          "bytes": 322689
+        },
+        "crash-v3-rr2.wav": {
+          "sha256": "c8493e9b6ed135b0afefe04dab733d6e7c7d3dcac2229319685528d39f0f7ddc",
+          "bytes": 1234878
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl3.flac",
+      "sourceGitBlobSha1": "b72ddae8bb4697c97a0cae387605207de6c6462f",
+      "sourceSha256": "e7b15a5dc3258e21dda5d7ccd2e612a7701092d60f9ab997233c11273e9a649a",
+      "sourceBytes": 203053,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.011083,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.011088
+      },
+      "outputs": {
+        "snare-v3-rr1.flac": {
+          "sha256": "0bf03794e8220b2addcaa8fec986dacd1eb4c8715ff79d1ebdf4f2bc4484533a",
+          "bytes": 58076
+        },
+        "snare-v3-rr1.wav": {
+          "sha256": "699174b9a81bea1ae5e1db2ec201449f81689dcc519ac00de7960c6a82c1146b",
+          "bytes": 354834
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl6.flac",
+      "sourceGitBlobSha1": "164c00d72af0d17e6169d4e0536146443e4777e3",
+      "sourceSha256": "6c5580a68a6f53f830d51dc839d779c6950169b3381c6df855ec29243101b027",
+      "sourceBytes": 157180,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.484917,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.484921
+      },
+      "outputs": {
+        "snare-v6-rr1.flac": {
+          "sha256": "08006d12953ede5506a7d8d7693aca6d6c26cba315ffbd34802aa9fe2df52197",
+          "bytes": 49780
+        },
+        "snare-v6-rr1.wav": {
+          "sha256": "43bd051b64b702347970297695983e169922a4b1443fa28715f52bda1dc45f2d",
+          "bytes": 262018
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl9.flac",
+      "sourceGitBlobSha1": "a720872a343c1e9b929e804f751b70d47d897d14",
+      "sourceSha256": "aebf4c95584a300333a38c1322908b4637d33328ec82673a55649cead6f3ff68",
+      "sourceBytes": 174373,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.633521,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.633537
+      },
+      "outputs": {
+        "snare-v9-rr1.flac": {
+          "sha256": "40e52cdfec2af81bd5f7126e8223614dd0b747daaeeb19455fc38a16ac4a6c39",
+          "bytes": 56183
+        },
+        "snare-v9-rr1.wav": {
+          "sha256": "6c81bdb7341983760189ce9b998f2c5a97035f0ee5579a1433ac3aa70e7970fe",
+          "bytes": 288234
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl12.flac",
+      "sourceGitBlobSha1": "1e1f989a355ad0e68daf3bef9f2c61e4bab40d7d",
+      "sourceSha256": "8dae68a0523987a265c9da8a6a488e9d8d5ea1d7dfc37f974e8c32a53531c05c",
+      "sourceBytes": 170682,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.582,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.582018
+      },
+      "outputs": {
+        "snare-v12-rr1.flac": {
+          "sha256": "6d727bab7f136adec1d980776fdb74709bc1ba45e7456cc101408ca0898afd2b",
+          "bytes": 55026
+        },
+        "snare-v12-rr1.wav": {
+          "sha256": "01909aff223fed8ab7bc6047ae4ad7293fa6d1c2bf48407bc00c3e4d218ca80c",
+          "bytes": 279146
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl15.flac",
+      "sourceGitBlobSha1": "434bcdee85a2dbee7735639d9477e07e4cff3405",
+      "sourceSha256": "e5cffaabac87596e8dbfb78c8a74df8e15d9b1081ca9ebdcf14383ce9de075f6",
+      "sourceBytes": 181608,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.682667,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.682653
+      },
+      "outputs": {
+        "snare-v15-rr1.flac": {
+          "sha256": "f55ea6352eadebb5ec5d12923bb80e9b88039b056c12da59d3bce43b1048807f",
+          "bytes": 57942
+        },
+        "snare-v15-rr1.wav": {
+          "sha256": "c1ddef6dc82683af8a115951e5844fa9a7d25a44043053d18c87ca22eb6c41bc",
+          "bytes": 296898
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl18.flac",
+      "sourceGitBlobSha1": "b63be13d12081dee2f0fe8ef12a2b508ce9f7346",
+      "sourceSha256": "cf4246fc66188e635c046f1ff5fa2adebb1a5075945280790a3533455fcb64ae",
+      "sourceBytes": 186566,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.704312,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.704331
+      },
+      "outputs": {
+        "snare-v18-rr1.flac": {
+          "sha256": "0c50c26238fc66e14edf0c6c5d787dd2fc1fc313ea215f577779870e5b40ed58",
+          "bytes": 60944
+        },
+        "snare-v18-rr1.wav": {
+          "sha256": "489fbe0ec2b912f8849a4ed95ac6a3435d137cfdd973e63027d7a4d7aa534eaa",
+          "bytes": 300722
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl21.flac",
+      "sourceGitBlobSha1": "85f7452b456b9df7a35d2bc290b6c13d655413c2",
+      "sourceSha256": "53d1e2f11d9629c890e217a7a94c462369ad24e49f32de9c9c9a6ea8dbf2612d",
+      "sourceBytes": 169631,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.515646,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.515646
+      },
+      "outputs": {
+        "snare-v21-rr1.flac": {
+          "sha256": "39338c58718ab94128be50ce3dfe8a896aa6ed47cd582a77e112c395aabb0c83",
+          "bytes": 56721
+        },
+        "snare-v21-rr1.wav": {
+          "sha256": "d12f71eb64562465945cda891bbb3cfbf5a5060eea99d19b23938063c79d00e2",
+          "bytes": 267438
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl24.flac",
+      "sourceGitBlobSha1": "5aa37634dda8316e16b65b54db65f4861133f6cd",
+      "sourceSha256": "5bc9e2c4feee91c8b22966f1db3d517567d24e35894dedf9a1ebeef6ff449c94",
+      "sourceBytes": 188744,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.671146,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.671156
+      },
+      "outputs": {
+        "snare-v24-rr1.flac": {
+          "sha256": "b0f69db14f70e4c1b1dd401fd51984ab65f81c327cfa3bf426762f055748e94a",
+          "bytes": 63068
+        },
+        "snare-v24-rr1.wav": {
+          "sha256": "937dfde90372abb2b387c6d00202601121cee117060e1e6f6e73db5fcbed322b",
+          "bytes": 294870
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl27.flac",
+      "sourceGitBlobSha1": "4a0ba29a46a2c64fa16b59b5ffc727055bf6dfaf",
+      "sourceSha256": "7c5204e8c29598554aaad842e260b7eee71b3f42f039b02c9ab0fdeccd68eea7",
+      "sourceBytes": 179794,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.551187,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.551202
+      },
+      "outputs": {
+        "snare-v27-rr1.flac": {
+          "sha256": "945aac806500cd96045fa29ec6001a124cc2af47bc4fdbd94e82c2d5ec1d1685",
+          "bytes": 62294
+        },
+        "snare-v27-rr1.wav": {
+          "sha256": "d1826234d4d53a4c425024fa967b139b149dce95c62ffeb734f77a90f9491d6b",
+          "bytes": 273710
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl30.flac",
+      "sourceGitBlobSha1": "2203d5f3920fefcec2fc6872978c1f4decae0590",
+      "sourceSha256": "3792e17c751219caa72c9e5108468a826e742d0917806da1bb2298523afe8357",
+      "sourceBytes": 229733,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.027708,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.02771
+      },
+      "outputs": {
+        "snare-v30-rr1.flac": {
+          "sha256": "b24ffdce20b38a629ae50d563c1d4cbab405f75557b4757751905047f9749f3d",
+          "bytes": 74832
+        },
+        "snare-v30-rr1.wav": {
+          "sha256": "fa645fb9f7426e27f1b4f1fd8d4ebaa5fd20178a58e1a20114f69fc7f4cd18ca",
+          "bytes": 357766
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl33.flac",
+      "sourceGitBlobSha1": "84e79a404b8f16a34ec3fc4fac62a0c6b5009cf0",
+      "sourceSha256": "f14e363a33200fa9b0d80195dc49f873c1afaf40497da38dc88090412b23d5b4",
+      "sourceBytes": 237081,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.0615,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.061519
+      },
+      "outputs": {
+        "snare-v33-rr1.flac": {
+          "sha256": "4c19e58a1b0ae2ee3e68f190e6315fbdd1b9e80b960c87a3c0c2fed4bfb192ad",
+          "bytes": 78458
+        },
+        "snare-v33-rr1.wav": {
+          "sha256": "01352d604e38504f14b464ef7cf0381cb5952508f7dade8a08c86cbbb656112d",
+          "bytes": 363730
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_center_vl36.flac",
+      "sourceGitBlobSha1": "a515221413f221229605be4735c8ddcafcfe19d3",
+      "sourceSha256": "7464b0a2e2ccfb4782831b04d3e63349974dbf563fd4bb37efce4d33a1f00d19",
+      "sourceBytes": 223974,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.902375,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7079459531716061
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.902381
+      },
+      "outputs": {
+        "snare-v36-rr1.flac": {
+          "sha256": "93061269a1f5c44b2003b871efe636f3d715f10729227fd371edc73589f5d4e9",
+          "bytes": 76084
+        },
+        "snare-v36-rr1.wav": {
+          "sha256": "746c95fe2d9b99fccd0e610c67bbd7a4d87b201b73865e4128a967d689064b9f",
+          "bytes": 335658
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_crossstick_vl4.flac",
+      "sourceGitBlobSha1": "7b3cb686d7c3c5e2677bb6f248fd2a3605fdd532",
+      "sourceSha256": "02444cdbd262ef63a3718cd76ab1212395240b6813659d6de630ae6121e19486",
+      "sourceBytes": 284850,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.5,
+        "tailFadeSeconds": 0.12,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.4451909147977753
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.5
+      },
+      "outputs": {
+        "snare-crossstick-v4-rr1.flac": {
+          "sha256": "266baa2f6408a64c9cad6e36fb98c110311c206b817caf3259a498db0f423c2e",
+          "bytes": 46631
+        },
+        "snare-crossstick-v4-rr1.wav": {
+          "sha256": "b15469caf74a7599e80251e412c447f2445bf649b891bc3aa75aaa854bfbb5fb",
+          "bytes": 264678
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_crossstick_vl8.flac",
+      "sourceGitBlobSha1": "917b71b74b43ab2d291c722444d5b418553a2554",
+      "sourceSha256": "e27b19b9d4db53ee5fa21b4018c85d7d3010cb0f38b904f153c830f551bd1b7c",
+      "sourceBytes": 275184,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.5,
+        "tailFadeSeconds": 0.12,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.4451909147977753
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.5
+      },
+      "outputs": {
+        "snare-crossstick-v8-rr1.flac": {
+          "sha256": "99209b1f2d55e199b190e9b68b63f55282bd292e7ba468629c5df0d8e5a9eb54",
+          "bytes": 50874
+        },
+        "snare-crossstick-v8-rr1.wav": {
+          "sha256": "9b37a8eaeb482d4715d76bbbc4f63a85d8fb40b4e3269be7136071cfb84373b9",
+          "bytes": 264678
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_crossstick_vl12.flac",
+      "sourceGitBlobSha1": "50806b328393e8311ff882a310fb42cd99aa57d4",
+      "sourceSha256": "cc93404363086713a4d72380495d919fc9d6a53e23777c2a69795c501e3b6e90",
+      "sourceBytes": 294292,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.5,
+        "tailFadeSeconds": 0.12,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.4451909147977753
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.5
+      },
+      "outputs": {
+        "snare-crossstick-v12-rr1.flac": {
+          "sha256": "9ddcdde325c300530667c640fd16780caaa74fb800d028e71850e4977a78ec57",
+          "bytes": 55201
+        },
+        "snare-crossstick-v12-rr1.wav": {
+          "sha256": "9a71541cd2a4e2a7e06c35d3bdcccbcaea2cad868a6cba59482701b8d204ce4a",
+          "bytes": 264678
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_crossstick_vl16.flac",
+      "sourceGitBlobSha1": "08195abc1c90cd36e776e5a34bee833a5fc52cf8",
+      "sourceSha256": "0e3683ae61ff6bb8c138c236cd2e3b07fcbe53c39f47a84e895e208b3566a91f",
+      "sourceBytes": 269396,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.5,
+        "tailFadeSeconds": 0.12,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.4451909147977753
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.5
+      },
+      "outputs": {
+        "snare-crossstick-v16-rr1.flac": {
+          "sha256": "375f5a3d585d2701a01c0963d7adc0d52732fff7ad832199d55f47fd91bb57ea",
+          "bytes": 57102
+        },
+        "snare-crossstick-v16-rr1.wav": {
+          "sha256": "e5b45e2cacfd7b9130af7205c84f1ad06c0ad22440b004ca5af7bd995b62e0e4",
+          "bytes": 264678
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_rimshot_vl3.flac",
+      "sourceGitBlobSha1": "c2b4110644aaa226e9549d0f4c30d84f519b7285",
+      "sourceSha256": "e842a2615ba8eb6fbbe7da206d640fc6a8829d7848329e82b7a4cf747aa0c9bd",
+      "sourceBytes": 319189,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.2,
+        "tailFadeSeconds": 0.17600000000000002,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.9800768574937022
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.2
+      },
+      "outputs": {
+        "snare-rimshot-v3-rr1.flac": {
+          "sha256": "d34c2e64d2891d2578c53e1e642158e692546c28a03e11044710b000ee2502c9",
+          "bytes": 88865
+        },
+        "snare-rimshot-v3-rr1.wav": {
+          "sha256": "d27a539a116bf222c5f25142b6a8efdd4728de93d6841ad1c60feec482b64ce3",
+          "bytes": 388158
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_rimshot_vl6.flac",
+      "sourceGitBlobSha1": "689feca7094b55898d4347a79e539c46f4b86ed8",
+      "sourceSha256": "94d6579d56938d10fc388cba756c9af8cf086be6f4f03d839e882fa6ba1258fe",
+      "sourceBytes": 254746,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.094146,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.9800768574937022
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.09415
+      },
+      "outputs": {
+        "snare-rimshot-v6-rr1.flac": {
+          "sha256": "4fd968bffb015e54b74aedf03ef06387d0d6c8893e486be0d42124f7643053df",
+          "bytes": 87879
+        },
+        "snare-rimshot-v6-rr1.wav": {
+          "sha256": "5d43b7643e2d15331b1cbd765caf4d8f44784adc1ad72320d1529dc8fd61796f",
+          "bytes": 369486
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_rimshot_vl9.flac",
+      "sourceGitBlobSha1": "92b0040b4861b35a31e2bb361a91272b56f115b3",
+      "sourceSha256": "c460012a79b58d8b263f3fba99f50013875ea785b18fea808cc49d4d306cc717",
+      "sourceBytes": 247172,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.830458,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.9800768574937022
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.830476
+      },
+      "outputs": {
+        "snare-rimshot-v9-rr1.flac": {
+          "sha256": "671c482e508f15230afdb3e832af2c6c04dfdb1c2e4b2e0076a68cbe601000e9",
+          "bytes": 93159
+        },
+        "snare-rimshot-v9-rr1.wav": {
+          "sha256": "9fc84ced571aba434bafe3d9b1f5d8a339d0c9461a270a82d94f4c4e69c04f33",
+          "bytes": 322974
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/snare/oh_snare_rimshot_vl12.flac",
+      "sourceGitBlobSha1": "6fd016d1c16e0abc3fab2d35e365319bfd76ade2",
+      "sourceSha256": "2a9816bfc172e2cecac56e70710507811657c1d7ec6bb2bea8a913130e832371",
+      "sourceBytes": 236423,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.970708,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.9800768574937022
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.970726
+      },
+      "outputs": {
+        "snare-rimshot-v12-rr1.flac": {
+          "sha256": "f15b65e75e037e9f65d1a24dcf21252c6c07131a7f1dbc431800959a7cbdee48",
+          "bytes": 80836
+        },
+        "snare-rimshot-v12-rr1.wav": {
+          "sha256": "d3c6b8a706f4f88bbc93c3cbe99557cc8d09f0bd47b62357cf435127579e65c3",
+          "bytes": 347714
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/htom/oh_htom_center_vl2.flac",
+      "sourceGitBlobSha1": "bf13917d3e64e015f432410764686fd38d0232b8",
+      "sourceSha256": "74314d5c30f6dd29da9b0c307b84277c9c70118e7863a0c30a02f341589b96c6",
+      "sourceBytes": 173207,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.733417,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.160017093634398
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.733424
+      },
+      "outputs": {
+        "tom-high-v2-rr1.flac": {
+          "sha256": "bfb80ad86595aa0a569043e7dc29394709b5bd0421e36e4b9af36474dc593c70",
+          "bytes": 48238
+        },
+        "tom-high-v2-rr1.wav": {
+          "sha256": "1e50800a89d7589325648a06b9544fb05c393d138f55f8a21fcd66062ac26511",
+          "bytes": 305854
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/htom/oh_htom_center_vl5.flac",
+      "sourceGitBlobSha1": "55bf268d8e5fc758e1a37c186871c7cc75bd3675",
+      "sourceSha256": "ff393a0b06dbe217e71ba73e9b64837604f75b5a85d2af66254d86da7ddf6160",
+      "sourceBytes": 204850,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.008625,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.160017093634398
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.008639
+      },
+      "outputs": {
+        "tom-high-v5-rr1.flac": {
+          "sha256": "c938de968c8b64a58d4b72915315e583a04cda2c9acc6914857b8959fc38b6ee",
+          "bytes": 58641
+        },
+        "tom-high-v5-rr1.wav": {
+          "sha256": "ac3d5e4ef88ca488010cbe4482b20a72fbc23a8e1fb95c2d670d6e6a4de55b60",
+          "bytes": 354402
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/htom/oh_htom_center_vl8.flac",
+      "sourceGitBlobSha1": "f41cb6c351a2a166cebb45a976e30ff6297c07f8",
+      "sourceSha256": "c68daba8574ee466c0871f1da699fc9de5472f2ae9c1a2c8bb61df3763b6c76a",
+      "sourceBytes": 206749,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.983375,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.160017093634398
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.983379
+      },
+      "outputs": {
+        "tom-high-v8-rr1.flac": {
+          "sha256": "4179ce3e212ecfd8a7e0ca0c9e561e63a450a9a3528cdc2293e21ec3db326eac",
+          "bytes": 59537
+        },
+        "tom-high-v8-rr1.wav": {
+          "sha256": "0d4694eae3c50302103705007e36c2b4d601b4b733be0ca5e74c8b917deeac24",
+          "bytes": 349946
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/htom/oh_htom_center_vl11.flac",
+      "sourceGitBlobSha1": "0badb420ef8b04f1d63d86b26a9a3aa128fc3ac3",
+      "sourceSha256": "d72a2a691755983dd7036b3669219b0d8a4b804418a7409f911210c118cd84f5",
+      "sourceBytes": 206510,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.93675,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.160017093634398
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.936757
+      },
+      "outputs": {
+        "tom-high-v11-rr1.flac": {
+          "sha256": "d8d68dd03b3ee9a38630a72ab98222fde985cdcf2189ffb30b94ec68b1f1094f",
+          "bytes": 60854
+        },
+        "tom-high-v11-rr1.wav": {
+          "sha256": "14504e4f1f74b129474e0564ae75908b46754913598c883232f3241b81017c89",
+          "bytes": 341722
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/htom/oh_htom_center_vl14.flac",
+      "sourceGitBlobSha1": "73d624cdc1eb7c731dd0d232450730ec4c6f4ee7",
+      "sourceSha256": "767b825f16c4ecef0d6892307fec691fd946edc52b3f9e30293dcb11ceabe755",
+      "sourceBytes": 225790,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.08225,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.160017093634398
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.082268
+      },
+      "outputs": {
+        "tom-high-v14-rr1.flac": {
+          "sha256": "260cf3b939ecf3e432eb18d237e5a00cc83c6d089b98760f14a7e428f9724da7",
+          "bytes": 66515
+        },
+        "tom-high-v14-rr1.wav": {
+          "sha256": "dcfa268dea975a8dc6fb18d54ed15fe015962441d0f96a214a2d3f2e60d75cd5",
+          "bytes": 367390
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/htom/oh_htom_center_vl16.flac",
+      "sourceGitBlobSha1": "ea1c84960a9e53d1a598ed77f36a74540c9e3284",
+      "sourceSha256": "04367c509397f84691d389a4166720b1940c9b7d9ff7a87abd35364b3e9ba6bf",
+      "sourceBytes": 246151,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.232604,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.160017093634398
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.232608
+      },
+      "outputs": {
+        "tom-high-v16-rr1.flac": {
+          "sha256": "6c7298d1806d4851f2a410b2bb79176cdbc09dc75f716daf3a7af0af07b295ca",
+          "bytes": 72751
+        },
+        "tom-high-v16-rr1.wav": {
+          "sha256": "65cbaad3acf079ed793099b345f7227f1342be6ed70320132fe95f0ebd584b5e",
+          "bytes": 393910
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ltom/oh_ltom_center_vl2.flac",
+      "sourceGitBlobSha1": "25defd1feef2b4bb87d6b7359a89feb3bf0786c0",
+      "sourceSha256": "a3710859008e12e8406558764887bcc19c8108bd3be0063803c043d12e4110b9",
+      "sourceBytes": 281857,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.8,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.5868707408034703
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.8
+      },
+      "outputs": {
+        "tom-low-v2-rr1.flac": {
+          "sha256": "dcb503a6028ba51bc070794f3d85b42be8f447d77186018e11c373b05ef33150",
+          "bytes": 70488
+        },
+        "tom-low-v2-rr1.wav": {
+          "sha256": "a21074f176f4b97126b55043ea4970986c13c7ee950c2293eb5c09ffb18acf9d",
+          "bytes": 493998
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ltom/oh_ltom_center_vl5.flac",
+      "sourceGitBlobSha1": "a5219339852336be5b1c7034cd4c9d91b1d1d421",
+      "sourceSha256": "988e4b8ae8985cb652b4d5334db3cf60286d8d55a91cef188ea0393a7b35dcff",
+      "sourceBytes": 348893,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.8,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.5868707408034703
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.8
+      },
+      "outputs": {
+        "tom-low-v5-rr1.flac": {
+          "sha256": "a426d5f5e724bb4ab110a63b14e0aec685b002ff44546b6e69a8c5332855dd84",
+          "bytes": 74532
+        },
+        "tom-low-v5-rr1.wav": {
+          "sha256": "dcce0abfd259c9f575f89c0203d6e4e5a061c47c5a658194e4ffc8fbb092bb25",
+          "bytes": 493998
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ltom/oh_ltom_center_vl8.flac",
+      "sourceGitBlobSha1": "cc56d19a8330546cc7eacc60fbdd02e0ef1e589a",
+      "sourceSha256": "57e2cbfb2a0e63451bf01bc469ba16c8ae99e38a6d53690ab2ff0e68a26a81c9",
+      "sourceBytes": 488698,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.8,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.5868707408034703
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.8
+      },
+      "outputs": {
+        "tom-low-v8-rr1.flac": {
+          "sha256": "a9ba2df096a6f2e4944b46a800d5ba66c27f0f09835d6fdedb6a1afbd006e79a",
+          "bytes": 77597
+        },
+        "tom-low-v8-rr1.wav": {
+          "sha256": "3d23538e359798fb82ec75a67b60c608ecd0eabc3a24d705a82856b7673caa47",
+          "bytes": 493998
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ltom/oh_ltom_center_vl11.flac",
+      "sourceGitBlobSha1": "243087c9c8fc5544c8da0dc3d80f1861c1571236",
+      "sourceSha256": "ff265c9989ea3326c2b34c0b9c323b9d45aa6c0a7a5316d97b5498881ce3551d",
+      "sourceBytes": 441301,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.8,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.5868707408034703
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.8
+      },
+      "outputs": {
+        "tom-low-v11-rr1.flac": {
+          "sha256": "8cb9289078699ae0570f2f433aaa56f256b7f76c0d621795d0be6ea1eb1c3075",
+          "bytes": 80283
+        },
+        "tom-low-v11-rr1.wav": {
+          "sha256": "5beb17fcc90e9f5216a16f3e3f60c7f645577b4918a412f78aa5578427328938",
+          "bytes": 493998
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ltom/oh_ltom_center_vl14.flac",
+      "sourceGitBlobSha1": "158cbaee5aeb12ba06582b702c11b6daead85fc1",
+      "sourceSha256": "0fbe3d0b63418a0a3641e1ed21e815931c47ef966eead407d1fcdd1d9ecb9287",
+      "sourceBytes": 498526,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.8,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.5868707408034703
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.8
+      },
+      "outputs": {
+        "tom-low-v14-rr1.flac": {
+          "sha256": "82302e94397f9539dd9c6d547b7590677b1955e6faf97f2f1cfc7099f387a3ef",
+          "bytes": 84164
+        },
+        "tom-low-v14-rr1.wav": {
+          "sha256": "592aecf7718e8ac21dca13958ac8ada32d9c38d3c5b2e56047d50a158d3477d7",
+          "bytes": 493998
+        }
+      }
+    },
+    {
+      "sourcePath": "Samples/oh/ltom/oh_ltom_center_vl16.flac",
+      "sourceGitBlobSha1": "ad69018068e47b6df0529d94a30e2947d84f0bb1",
+      "sourceSha256": "28cab9363a520570377df54026b2036f03e59da5f96c60993e1ddf5d7795026c",
+      "sourceBytes": 435742,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 2.8,
+        "tailFadeSeconds": 0.2,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 1.5868707408034703
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 2.8
+      },
+      "outputs": {
+        "tom-low-v16-rr1.flac": {
+          "sha256": "c8b63cf35dd75f6274ee1897e82cd4a8bd586b17804d6f9005526faa2c0f367c",
+          "bytes": 84486
+        },
+        "tom-low-v16-rr1.wav": {
+          "sha256": "8d95a2875ea0fd999ff50163f5361a01799703e27281e41b04325596fc2e4251",
+          "bytes": 493998
+        }
+      }
+    }
+  ],
+  "sourceDocuments": [
+    {
+      "sourcePath": "Programs/mappings/kickmic/kick_snon_map.sfz",
+      "sourceGitBlobSha1": "55442e2c66f23045f14c2dd9f9697eac5014edf3",
+      "sha256": "704d7038c1b1c4c4869977c98e5fb1d2e3932f8c891eec84d93c5f02dbca45d8",
+      "file": "SOURCE-mappings/kickmic-kick_snon_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/snare_center_map.sfz",
+      "sourceGitBlobSha1": "4f0572feb20f6a5095d70b4e31a15407cca5113c",
+      "sha256": "be28b46f4d4159e312980fa61205118a6ee9ec045be8b42708f5d6129064b497",
+      "file": "SOURCE-mappings/oh-snare_center_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/snare_crossstick_map.sfz",
+      "sourceGitBlobSha1": "fed840ad56b397f1a517a926923d27f753549ef4",
+      "sha256": "c7ed9862f807f528fc364ef54aaf66d1291370de65b201cb1ba2e9b7fb18567b",
+      "file": "SOURCE-mappings/oh-snare_crossstick_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/snare_rimshot_map.sfz",
+      "sourceGitBlobSha1": "36f87b927695658ed4fb079160d0d9e9eef3be74",
+      "sha256": "eef1554211b1b4b01a48945acf161189a5385f68710cdcaf0c5feb8aa343a6e6",
+      "file": "SOURCE-mappings/oh-snare_rimshot_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/htom_center_map.sfz",
+      "sourceGitBlobSha1": "d62c7e7578bdeaaed34fd89c5dfc5c75e626fa0e",
+      "sha256": "113f5ae98cdbfeac0d62f081e934a18bbe1e0f0141da3ee7c1efabd9c056ecc0",
+      "file": "SOURCE-mappings/oh-htom_center_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/ltom_center_map.sfz",
+      "sourceGitBlobSha1": "bedb5d5a93c87cf31611d6fbde16b40e202ba1b3",
+      "sha256": "648884a4692d4a14c60554cf47b44baa21d17b59c4a564c1b8d13cbde96515ec",
+      "file": "SOURCE-mappings/oh-ltom_center_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/hh_closed_map.sfz",
+      "sourceGitBlobSha1": "c085d17c32198f34beabb797142f3171268e0541",
+      "sha256": "10c675d0e585f57ce2b7e0a8de5e298305e2d6c8f75321abd328fe2d731782e6",
+      "file": "SOURCE-mappings/oh-hh_closed_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/hh_half_map.sfz",
+      "sourceGitBlobSha1": "adbd1bea84c0e558d4f6c777e4594306038ef0af",
+      "sha256": "03c83618fd63f1ea84867e2af11c2e62ba8c47493836aab3dbc704364b8160b5",
+      "file": "SOURCE-mappings/oh-hh_half_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/hh_open_map.sfz",
+      "sourceGitBlobSha1": "8be673942f5a4efed398da80957cde266367aba8",
+      "sha256": "f928ccd4968f5c02950ee6301a92314b9c59a679f6cca41277cb8370578412f3",
+      "file": "SOURCE-mappings/oh-hh_open_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/hh_pedal_map.sfz",
+      "sourceGitBlobSha1": "d38c753e2cbb3a96fe76ed44b77c9b4b46f4eda3",
+      "sha256": "bfd815d5823ed9cb8c76787c81ae59c32838889e1a90a450a3e2f29efc2aef7a",
+      "file": "SOURCE-mappings/oh-hh_pedal_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/ride_ride_map.sfz",
+      "sourceGitBlobSha1": "a611d6efe320e519f41a00fb8e3b2e5e78cc5fa0",
+      "sha256": "59592e9c831b8e2e588ee9dd63a5302a45f38a1d49d23cdb661268e5deb64be5",
+      "file": "SOURCE-mappings/oh-ride_ride_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/ride_bell_map.sfz",
+      "sourceGitBlobSha1": "f623a99e38ab377b60da821e384d9564dc55a5a9",
+      "sha256": "2a3855b88b8fa9cf5758d23254f7a8b5e43f4d06efeb20fe8b8a8ec07c93f925",
+      "file": "SOURCE-mappings/oh-ride_bell_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh/crash_crash_map.sfz",
+      "sourceGitBlobSha1": "db7c88a4f507469859837b2bb00779078ab1ce5d",
+      "sha256": "c09e9b3f5118fa3b49dcebfb567b1a8e2b41590e7018a413d8ef8f67e134b20f",
+      "file": "SOURCE-mappings/oh-crash_crash_map.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/oh_all.sfz",
+      "sourceGitBlobSha1": "5ad5b340b495c2ebd2c2f1bd10bed0f82aefd65b",
+      "sha256": "ee242aaf97cfc971f6e37099f4eaf9ded7966cc4989fd89f505312ba4f427ded",
+      "file": "SOURCE-mappings/oh_all.sfz"
+    },
+    {
+      "sourcePath": "Programs/mappings/kickmic_all.sfz",
+      "sourceGitBlobSha1": "9d9c18539d6ad829189c9c7d25be66e3336008ab",
+      "sha256": "8c70a2f5645abfda3ce79943c0273d282ecd96b54fb7c3798db63113c9dfe59f",
+      "file": "SOURCE-mappings/kickmic_all.sfz"
+    }
+  ]
+}

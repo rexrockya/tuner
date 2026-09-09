@@ -1,0 +1,10 @@
+{
+  "bank": "natural-keys",
+  "regions": 48,
+  "files": 42,
+  "flacBytes": 2391082,
+  "wavBytes": 8868616,
+  "articulations": {
+    "wurli": 48
+  }
+}

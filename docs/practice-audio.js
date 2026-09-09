@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  const H=window.tunerHarmony;
+  const H=window.tunerHarmony, recordings=window.practiceSamples;
   const {arrangement,swingBeat,feels,bassStyles,drumStyles,keyStyles,rhythmStyles,percussionStyles,stringsStyles,performerProfiles,shapeLeadPhrase,leadGrooves,leadTextures,phraseCycleModes,densityCycleModes,planLeadCycle,expandLeadNote,warpLeadBeat,leadCycleEvents}=window.practiceArrangements;
   const timbres = {
     drums: { natural: '原声 Studio', vintage: '复古暖鼓', crisp: '明亮紧致', electro: 'Electro · 合成鼓' },
@@ -11,7 +11,16 @@
     strings: { chamber: 'Chamber · 室内弦乐', warm: 'Warm · 温暖弦乐', air: 'Air · 空间弦乐' },
     lead: { warm: '暖净音 · Studio', bright: '亮净音 · Studio', crunch: '厚过载 · Studio', jazz: '爵士琴颈 · 圆润', blues: 'Blues · 边缘破音', singing: '歌唱延音 · 压缩', dry: '干净短奏 · 电吉他', ambient: '空间延音 · 电吉他', piano: '大钢琴 · 乐谱音色', violin: '小提琴' }
   };
-  const selectedTimbres = { drums: 'natural', bass: 'round', keys: 'jazz', rhythm: 'warm', percussion: 'natural', strings: 'chamber', lead: 'warm' }, timbreRequests = {};
+  if (recordings) {
+    timbres.keys = { wurli: 'Wurli · 实录电钢琴', 'wurli-soft': 'Wurli · 柔和', 'wurli-bright': 'Wurli · 明亮', ...timbres.keys };
+    Object.assign(timbres.keys, { jazz: 'Jazz · 合成风琴', gospel: 'Gospel · 合成风琴', soft: '柔和 · 合成风琴' });
+    for (const track of ['lead', 'rhythm']) Object.assign(timbres[track], { warm: 'Clean · 温暖箱体', bright: 'Clean · 明亮箱体', crunch: 'Drive · 轻破音', dry: 'Clean · 干净短奏', ambient: 'Ambient · 空间延音' });
+    Object.assign(timbres.lead, { jazz: 'Jazz · 柔和净音', blues: 'Blues · 温暖破音', singing: 'Lead · 延音破音', violin: '小提琴 · 弓弦实录' });
+    for (const [genre, profile] of Object.entries(window.tunerGenres?.profiles || {})) profile.timbres.keys = genre === 'funk-soul' ? 'wurli-bright' : ['rnb','shoegaze','folk'].includes(genre) ? 'wurli-soft' : 'wurli';
+    Object.assign(timbres.strings, { chamber: '弦乐组 · 自然', warm: '弦乐组 · 温暖', air: '弦乐组 · 空间' });
+    Object.assign(timbres.percussion, { natural: '原声 · 实录打击', bright: '明亮 · 实录打击' });
+  }
+  const selectedTimbres = { drums: 'natural', bass: 'round', keys: recordings ? 'wurli' : 'jazz', rhythm: 'warm', percussion: 'natural', strings: 'chamber', lead: 'warm' }, timbreRequests = {};
   const patches = {
     drums: { natural: { cutoff: 18000, level: 1 }, vintage: { cutoff: 6400, level: 1.07, rate: .96 }, crisp: { cutoff: 18000, level: .98, rate: 1.04, highpass: 48 } },
     bass: {
@@ -49,17 +58,20 @@
     }
   };
   let context, master, room, compressor, ready, assets = {}, voices = new Set(), buses = {};
+  let recordingBank;
+  const getRecordingBank = () => recordingBank ||= recordings.createBank(getContext());
   let sampleBankPromise, sampleBank, electroPromise, electroAssets = {}, ambientImpulse;
   function getTimbre(track) { return selectedTimbres[track]; }
   async function ensureSelection(selection, events = []) {
     const jobs = [];
+    if (recordings) jobs.push(getRecordingBank().ensure(selection, events));
     if ((selection.drums === 'electro' && events.some(event => event.track === 'drums')) || (selection.percussion === 'electro' && events.some(event => event.track === 'percussion'))) jobs.push(prepareElectro());
-    if (selection.bass === 'precision' && events.some(event => event.track === 'bass')) jobs.push(prepareModernBass());
+    if (!recordings && selection.bass === 'precision' && events.some(event => event.track === 'bass')) jobs.push(prepareModernBass());
     const id = selection.lead;
-    if (id === 'piano' || id === 'violin' || events.some(event => event.track === 'strings')) {
+    if (id === 'piano' || !recordings && (id === 'violin' || events.some(event => event.track === 'strings'))) {
       if (!sampleBankPromise) sampleBankPromise = import('./practice-timbres.js?v=20260909-players-1').then(module => sampleBank = module.createSampleBank(getContext(), window.scoreAudio)).catch(error => { sampleBankPromise = null; throw error; });
-      if (id === 'piano' || id === 'violin') jobs.push(sampleBankPromise.then(bank => bank.ensure(id, events, 'lead')));
-      if (events.some(event => event.track === 'strings')) jobs.push(sampleBankPromise.then(bank => bank.ensure('violin', events, 'strings')));
+      if (id === 'piano' || !recordings && id === 'violin') jobs.push(sampleBankPromise.then(bank => bank.ensure(id, events, 'lead')));
+      if (!recordings && events.some(event => event.track === 'strings')) jobs.push(sampleBankPromise.then(bank => bank.ensure('violin', events, 'strings')));
     }
     await Promise.all(jobs);
   }
@@ -84,12 +96,14 @@
   async function setTimbre(track, id, events = []) {
     if (!Object.hasOwn(timbres[track] || {}, id)) throw Error('未知音色');
     const generation = (timbreRequests[track] || 0) + 1; timbreRequests[track] = generation;
-    const previous = selectedTimbres[track]; selectedTimbres[track] = id;
-    if (track === 'lead' || track === 'bass' || track === 'drums' || track === 'percussion' || track === 'strings') {
-      try { await ensureSelection({ ...selectedTimbres }, events); }
-      catch (error) { if (timbreRequests[track] !== generation) return false; selectedTimbres[track] = previous; throw error; }
+    const selection = { ...selectedTimbres, [track]: id };
+    if (track === 'lead' || track === 'bass' || track === 'drums' || track === 'percussion' || track === 'strings' || recordings && track === 'keys') {
+      try { await ensureSelection(selection, events); }
+      catch (error) { if (timbreRequests[track] !== generation) return false; throw error; }
     }
-    return timbreRequests[track] === generation;
+    if (timbreRequests[track] !== generation) return false;
+    selectedTimbres[track] = id;
+    return true;
   }
   const decodedAssets = new Map();
   const organWaves = new Map(), driveCurves = new Map();
@@ -116,7 +130,7 @@
     master = context.createGain(); master.gain.value = .65;
     compressor = context.createDynamicsCompressor();
     compressor.threshold.value = -14; compressor.knee.value = 18; compressor.ratio.value = 3; compressor.attack.value = .008; compressor.release.value = .18;
-    const output = context.createGain(); output.gain.value = .84; // Fixed mix headroom after compression; track balance stays intact.
+    const output = context.createGain(); output.gain.value = recordings ? .49 : .84; // Shared output headroom preserves recording dynamics and instrument balance.
     master.connect(compressor).connect(output).connect(context.destination);
     room = context.createConvolver();
     const impulse = context.createBuffer(2, Math.floor(context.sampleRate * .42), context.sampleRate), random = H.rng(12);
@@ -146,6 +160,7 @@
   }
   function preload() {
     const ctx = getContext();
+    if (recordings) return Promise.resolve(); // Recording files are prepared from actual events, never the old all-in-one bank.
     if (!ready) ready = (async () => {
       const manifest = await fetchAsset('assets/audio/blues/manifest.json?v=20260908-guitar', 'json');
       const loaded = await Promise.all(Object.entries(manifest).map(async ([name, entry]) => {
@@ -193,11 +208,30 @@
     item.cleanup=()=>{clearTimeout(item.tailTimer);voices.delete(item);source.disconnect();gain.disconnect();extra.forEach(node=>node.disconnect());};
     source.onended = () => {item.ended=true;source.disconnect();if(item.tailSeconds)item.tailTimer=setTimeout(item.cleanup,item.tailSeconds*1000);else item.cleanup();};
   }
+  function recordedPatch(track, id) {
+    if (track === 'drums') return { cutoff: id === 'vintage' ? 12500 : 19500, level: 1, attack: .0005, release: .08 };
+    if (track === 'percussion') return { cutoff: id === 'bright' ? 19000 : 15500, level: 1, attack: .0005, release: .09 };
+    if (track === 'bass') return { cutoff: id === 'muted' ? 2600 : id === 'bright' ? 10000 : 6500, highpass: 28, level: 1, attack: .001, release: id === 'muted' ? .055 : .12 };
+    if (track === 'keys') return { cutoff: id === 'wurli-soft' ? 5200 : id === 'wurli-bright' ? 16000 : 10000, highpass: 55, level: 1, attack: .001, release: .18 };
+    if (track === 'strings' || id === 'violin') return { cutoff: id === 'air' ? 7200 : id === 'warm' ? 9000 : 16000, highpass: 90, level: id === 'violin' ? 1.6 : .65, attack: .002, release: track === 'strings' ? .18 : .1, space: id === 'air' };
+    // These guitar recordings already include a real amplifier. Clean patches keep that attack and decay.
+    return { cutoff: id === 'jazz' ? 5500 : id === 'warm' ? 10000 : id === 'ambient' ? 8500 : id === 'blues' ? 7000 : id === 'singing' ? 9000 : 16500, highpass: 65, level: id === 'crunch' ? .4 : id === 'blues' ? .52 : id === 'singing' ? .44 : .65, attack: id === 'ambient' ? .016 : .001, release: id === 'dry' ? .055 : id === 'singing' ? .24 : .12, drive: id === 'crunch' ? 1.7 : id === 'blues' ? 1.35 : id === 'singing' ? 1.5 : undefined, space: id === 'ambient' };
+  }
+  function recordedSound(event, at, beatSeconds, selection, owner) {
+    const asset = getRecordingBank().get(event, selection);
+    if (!asset) throw Error('录音音源尚未准备完成，请重试');
+    const track = event.track, stackGain = event.stackSize > 1 ? 1 / Math.sqrt(event.stackSize) : 1;
+    const level = { drums: 1.1, percussion: .5, bass: 2.6, keys: 1, rhythm: .62, strings: 4, lead: 1.2 }[track];
+    const oneShot = track === 'drums' || track === 'percussion';
+    // Real takes provide the variation. Do not pitch-scoop every slide or pitch-shift a cymbal into a shaker.
+    const performed = { ...event, sample: track === 'percussion' ? asset.articulation : event.sample, playbackRate: 1, detuneCents: asset.tuneCents || 0, articulation: 'recorded' };
+    sample(asset, at, oneShot ? 0 : event.duration * beatSeconds, recordings.amplitude(asset, recordings.velocity(event)) * stackGain * level, track, oneShot ? undefined : event.midi, performed, selection, owner);
+  }
   function sample(asset, at, duration, velocity, track, midi, event = {}, selection = selectedTimbres, owner = null) {
     if (!asset) return;
     const source = context.createBufferSource(), gain = context.createGain(); source.buffer = asset.buffer;
-    const guitar = (track === 'lead' || track === 'rhythm') && !asset.kind;
-    const basePatch = patches[track]?.[selection[track]] || {};
+    const guitar = !asset.natural && (track === 'lead' || track === 'rhythm') && !asset.kind;
+    const basePatch = asset.natural ? recordedPatch(track, selection[track]) : patches[track]?.[selection[track]] || {};
     const patch = guitar ? (event.articulation==='dead'?{...(patches[track]?.dry||basePatch),cutoff:1800,highpass:650,length:.06,attack:.001,release:.012,level:.38}:event.articulation==='muted'?{...basePatch,cutoff:4300,length:.62,release:.025,space:false}:basePatch) : basePatch;
     const rate = (midi === undefined ? 1 : 2 ** ((midi - asset.midi + (event.detuneCents || 0) / 100) / 12)) * (patch.rate || 1) * (event.playbackRate || 1);
     source.playbackRate.value = rate;
@@ -205,9 +239,10 @@
     const release = patch.release ?? asset.ampRelease ?? (asset.kind === 'violin' ? .06 : asset.kind === 'piano' ? .18 : guitar ? .075 : .05);
     const attack = patch.attack ?? (asset.kind === 'violin' ? .008 : .003);
     velocity *= (patch.level || 1) * (asset.level ?? 1);
+    const extra = []; let chain = source;
+    if (asset.natural) { const input = context.createGain(); input.gain.value = velocity; chain.connect(input); chain = input; extra.push(input); velocity = 1; }
     gain.gain.setValueAtTime(.0001, at); gain.gain.linearRampToValueAtTime(velocity, at + Math.min(attack, length / 3));
     gain.gain.setTargetAtTime(.0001, at + length, release / 3);
-    const extra = []; let chain = source;
     if (patch.highpass && track !== 'drums') { const node = context.createBiquadFilter(); node.type = 'highpass'; node.frequency.value = patch.highpass; chain.connect(node); chain = node; extra.push(node); }
     for (const [type, frequency, db, q = .707] of patch.eq || []) {
       const node = context.createBiquadFilter(); node.type = type; node.frequency.value = frequency; node.gain.value = db;
@@ -275,6 +310,7 @@
     });
   }
   function sound(event, at, beatSeconds, selection = selectedTimbres, owner = null) {
+    if (recordings?.route(event, selection)) return recordedSound(event, at, beatSeconds, selection, owner);
     if(event.track==='bass'&&['synth','acid'].includes(selection.bass)||event.track==='keys'&&['synth','pad'].includes(selection.keys)){synth(event,at,event.duration*beatSeconds,selection,owner);return;}
     if (event.track === 'drums') sample((selection.drums==='electro'?electroAssets:assets)[event.sample], at, 0, event.velocity * .62, 'drums', undefined, event, selection, owner);
     else if (event.track === 'percussion') sample((selection.percussion==='electro'?electroAssets:assets)[event.sample], at, event.duration * beatSeconds, event.velocity * .5, 'percussion', undefined, event, selection, owner);
@@ -336,7 +372,7 @@
         const [start, end] = this.bounds();
         if (this.position >= end || this.position < start) this.position = start;
         this.startBeat = this.position; this.started = context.currentTime + .025; this.cycle = 0;
-        this.activeTimbres = timbreSnapshot(); this.voiceScope = {}; this.lastScheduledAt = 0;
+        this.activeTimbres = timbreSnapshot(); recordingBank?.retain(this.activeTimbres, this.song.events); this.voiceScope = {}; this.lastScheduledAt = 0;
         this.next = this.song.events.findIndex(e => e.beat >= this.position - 1e-8);
         if (this.next < 0) this.next = this.song.events.length;
         this.playing = true;
@@ -345,6 +381,8 @@
     }
     queueUpdate(song, options = {}) {
       if (!song?.beats || !Array.isArray(song.events)) throw Error('乐句尚未准备好');
+      const nextTimbres = timbreSnapshot(options.timbres);
+      if (recordings && song.events.some(event => recordings.route(event, nextTimbres) && !recordingBank?.get(event, nextTimbres))) throw Error('录音音源尚未准备完成，请重试');
       this.cancelUpdate('replaced');
       if (!this.playing) return null;
       const seconds = 60 / this.bpm, [start, end] = this.bounds(), length = end - start;
@@ -364,7 +402,7 @@
       const limits = loopBar === null ? (this.loop ? [0, song.beats] : stopBounds) : [loopBar * 4, loopBar * 4 + 4];
       const at = this.started + (absoluteBeat - this.startBeat) * seconds;
       const pending = {
-        song, timbres: timbreSnapshot(options.timbres), bpm: options.bpm === undefined ? this.bpm : Math.max(40, Math.min(180, Number(options.bpm) || 96)),
+        song, timbres: nextTimbres, bpm: options.bpm === undefined ? this.bpm : Math.max(40, Math.min(180, Number(options.bpm) || 96)),
         at, beat: position, bar: Math.floor(position % newChart / 4), startBeat: position, started: at,
         position, next: song.events.findIndex(e => e.beat >= position - 1e-8), cycle: 0,
         loop: this.loop, loopBar, stopBounds, limits, voiceScope: {}, lastScheduledAt: 0,
@@ -395,6 +433,7 @@
       this.activeTimbres = commitTimbres(pending.timbres);
       // Fill the audio horizon before a notation/DOM callback can use main-thread time.
       this.schedule(this, context.currentTime, context.currentTime + .14);
+      recordingBank?.retain(pending.timbres, pending.song.events);
       pending.onCommit?.({ at: pending.at, beat: pending.beat, bar: pending.bar, song: pending.song, timbres: pending.timbres, bpm: pending.bpm });
       return true;
     }

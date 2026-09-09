@@ -1,0 +1,5916 @@
+{
+  "source": {
+    "name": "Karoryfer Swagbass",
+    "repo": "https://github.com/sfzinstruments/karoryfer.swagbass",
+    "commit": "9d10fcae71af1975988ddecd5af1c95d372c7355",
+    "license": "CC0-1.0",
+    "recordedInstrument": "Ibanez BTB-400QM, neck pickup DI, old DAddario Chrome flatwound strings; no onboard EQ or effects",
+    "mapping": "swagbass_clean.sfz: original pitch centers, key ranges, velocity boundaries and four-take sequence"
+  },
+  "processing": "Preserve each original recording up to 8 seconds, including onset and natural decay; only final 20ms safety fade; mono 44.1kHz PCM16, lossless FLAC plus bit-identical decoded WAV fallback. No per-note or per-velocity normalization, pitch shift, EQ, compression or added effects. Shared gain 0dB.",
+  "originalMidiDefault": "SFZ omits pitch_keycenter for root60 groups; default is MIDI60. Retained alongside roots27..57 at three-semitone intervals.",
+  "samples": [
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-27-p-r4.flac",
+      "fallback": "bass-27-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_p_rr4.wav",
+      "sourceBlobSha1": "0cb4b4e540cb318690f473caca9cae13681042dc",
+      "sourceSha256": "4b00945d1cd903589a74a6b90a10b1db2ea356f48e79fbb937929b28b952206f",
+      "sourceBytes": 746994,
+      "flacSha256": "b7c9956d6c4cd8bf096241f4f7efb5dc3e433fe9837cb13c4e3f96a2dfb8cb28",
+      "wavSha256": "e51abd97cf364905d6aadce40a2c6f82d597039817c5df8e875d7d451ab57fd0",
+      "decodedPcmSha256": "8ebda65bc70ee56ad078773e9761a59c9aab502c40dc293b4f43913b302c43db",
+      "flacBytes": 88876,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -16.22084,
+      "rms08to60DbFS": -34.26336,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-27-p-r3.flac",
+      "fallback": "bass-27-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_p_rr3.wav",
+      "sourceBlobSha1": "98ebcad52706fcef3814c492c8b18e178711b001",
+      "sourceSha256": "5915b9bc2a8b6aecdde0aab3b8edb0e86f0c8ae6fc16224521389e25187d1cd2",
+      "sourceBytes": 746994,
+      "flacSha256": "5450cd795c3f4f44a24245835c27d33652cf1fbcb51f3d6fbe1ea79b1dc3418a",
+      "wavSha256": "3b03fc4c1f0e6da85d982a7b7fa0ede3fa0e093638537ea2df41ada1ba7aa942",
+      "decodedPcmSha256": "b38b774a67c9af82b43172b8a8c9db003fe88b7839fb04f23b0516bb58b71dd9",
+      "flacBytes": 88478,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -15.691739,
+      "rms08to60DbFS": -33.998386,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-27-p-r2.flac",
+      "fallback": "bass-27-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_p_rr2.wav",
+      "sourceBlobSha1": "2088151665c3e37a2f17494e2744fa8fbc677833",
+      "sourceSha256": "72b2fcf19c8b5897b65b196768263c4bab6e8b7846e475e1ab47ff7e2c91551c",
+      "sourceBytes": 746994,
+      "flacSha256": "97d8ba2fd74940e4bb0b990052df0f6b4b49d69773cb95861d6be9de732d4876",
+      "wavSha256": "554aee709f485b2a34f4775133fd433359ad7fac330eaf16a4f2d739a50b41ec",
+      "decodedPcmSha256": "5603bc8e1ff8b1dba0e6b1c018785f0c874bfe2173dc9ff94a2bcbc05acd45c7",
+      "flacBytes": 88661,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -17.110675,
+      "rms08to60DbFS": -34.954884,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-27-p-r1.flac",
+      "fallback": "bass-27-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_p_rr1.wav",
+      "sourceBlobSha1": "40f05fd5a0a2ecc3cc9df351adfe69b419b1b017",
+      "sourceSha256": "64e7760c0f3cc3110315be7fd105b1be98489e19e972ed53ff7c5873e499ac92",
+      "sourceBytes": 746994,
+      "flacSha256": "51ca332bfec513c39a3d9caebd0bf340a770cdc15e84dfb29307231edd24b278",
+      "wavSha256": "1b03839bf97702245540f665d81810378e433c3af598430b90337ccef5be2bc1",
+      "decodedPcmSha256": "a0ba80f595b7514931261a7e31be8403c370a503ffa04cd0137cf8731dbafee3",
+      "flacBytes": 88859,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -16.846737,
+      "rms08to60DbFS": -34.422294,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-27-f-r4.flac",
+      "fallback": "bass-27-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_f_rr4.wav",
+      "sourceBlobSha1": "a99316c48e71790f6bddb6f366c351f75aee3142",
+      "sourceSha256": "a6515c3d8e7aa1691e46efdf7ba81e7bfa62e49ff8bc82fa17308fcee195ce38",
+      "sourceBytes": 746994,
+      "flacSha256": "64471eeffdc3977ebc712ab738f9995a66d8a9d5102c086a23045bc465f6461e",
+      "wavSha256": "00562ff57888faa5a4734ab8840fe9602a6194d540a5ee7bd04a7d25adaef352",
+      "decodedPcmSha256": "d45c7d61d2b7e31fb36c482afea3b7b33721d1cda0920e104c4a1030f975caca",
+      "flacBytes": 91045,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.162281,
+      "rms08to60DbFS": -31.523524,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-27-f-r3.flac",
+      "fallback": "bass-27-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_f_rr3.wav",
+      "sourceBlobSha1": "77840327aba8a304506c4ff883de033ddd7f7e33",
+      "sourceSha256": "aa779d62c69f52f2e336e79932c441138e46e3b5d1dd319c257cd888be456f6e",
+      "sourceBytes": 746994,
+      "flacSha256": "f44bf4503619d8a5735f47075401fccf3de308beacd6a4230c3ffaf6267a5ab6",
+      "wavSha256": "8493b5a485714830fa08512340980da8773a799bd0c37d9c12ee9c58f88245c6",
+      "decodedPcmSha256": "f21ff75b43bd47617368f3b00ddcbd31d5dccf00012df048156caf2e6e08594a",
+      "flacBytes": 89267,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.771095,
+      "rms08to60DbFS": -31.633041,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-27-f-r2.flac",
+      "fallback": "bass-27-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_f_rr2.wav",
+      "sourceBlobSha1": "fe5a7c8a428e87f091f597c230ff316073c7b3de",
+      "sourceSha256": "4c0c962f0bff3a5e49837ba47e08ac68bc1312096f64a683494b11b13800d6d8",
+      "sourceBytes": 746994,
+      "flacSha256": "f43204c1db5da50ed1fb40efd177e772693e065aa56ac170f25283b2084a4925",
+      "wavSha256": "f067e4584e2f4b94cb233852fa0f5dae9a0493b0e4c6269e0aadc354da18ab13",
+      "decodedPcmSha256": "0615ef5752a7e943e14291845b1ceeda9b4c97a71f1e8c249020dcbe3f9f3947",
+      "flacBytes": 90994,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.171961,
+      "rms08to60DbFS": -31.099064,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-27-f-r1.flac",
+      "fallback": "bass-27-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_f_rr1.wav",
+      "sourceBlobSha1": "18ff6d256e5069e1948b7929bd2b8fb903b03bb5",
+      "sourceSha256": "e2df95c3c0b6bf9612257e820ab93e95c6dbb593f294db3a20096d66ff434fbf",
+      "sourceBytes": 746994,
+      "flacSha256": "c2d3cdcde7ec6f207def40ed97ecb837ac911d13811fd1cd25e83e6cb626cc77",
+      "wavSha256": "43bb81c14e9e4ab2749b1dea7ed02a32453841f2bef85b14c7ec330db3f6714a",
+      "decodedPcmSha256": "c40c47d5124ac6d7f50b381d5f9f171d85b02755fbb642d9b3e950012ff99c4d",
+      "flacBytes": 90876,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.724859,
+      "rms08to60DbFS": -30.742132,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-27-fff-r4.flac",
+      "fallback": "bass-27-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_fff_rr4.wav",
+      "sourceBlobSha1": "f457becf9e5d3aa96e934572cf4cd02209d229aa",
+      "sourceSha256": "0342fc386229c291c65d6cea9fa5bcac3d1404581133607387503101249966d8",
+      "sourceBytes": 746994,
+      "flacSha256": "03034addf5c6748ca883957ddb0685a1ab591e4ea8cfadbdbf4884f5d9f4db5b",
+      "wavSha256": "231f3e360cb9b8041ff86edee35e3de60b5ef080f0dbfa3156e058be85e00dad",
+      "decodedPcmSha256": "5d66003930faf95deaf6ca7fdaf5f62b1dcd024e0cda20a836e6a2d9b2653969",
+      "flacBytes": 92835,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.46104,
+      "rms08to60DbFS": -27.982399,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-27-fff-r3.flac",
+      "fallback": "bass-27-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_fff_rr3.wav",
+      "sourceBlobSha1": "f0be689ea88c8204863bb0f7b432546aefc1fb5a",
+      "sourceSha256": "1335456239fbe8f2d9cc42df2137b368f859e4835151f2628584e013e670793d",
+      "sourceBytes": 746994,
+      "flacSha256": "87ed81446d7f2646bd187563e4b14094d05400dc7fe40a94b256376e0d4886bf",
+      "wavSha256": "08a35197835738128acdef4f05017cfab8e6d8e19b12fe85c9d189a493de1a1c",
+      "decodedPcmSha256": "ac1a8ea663d2debf8f5202d2d0ae4b9cf834a077060a10e509c41680495d20c3",
+      "flacBytes": 93351,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -0.958908,
+      "rms08to60DbFS": -28.547741,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-27-fff-r2.flac",
+      "fallback": "bass-27-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_fff_rr2.wav",
+      "sourceBlobSha1": "33f807c36011276d59f7d2f10c20322425fd6600",
+      "sourceSha256": "27bb974e4d27a6cfb46f1c7c327599971904bdc5e2d5926eb1c1a879dbe9b319",
+      "sourceBytes": 746994,
+      "flacSha256": "d6bf073d367d39262e2299cb1e7ad6150b820f50c37d97969af9bda0a1b64f31",
+      "wavSha256": "1deffcc2b8afb56324908ee8188dcdde12f164408f995864f97aca22a0681bd6",
+      "decodedPcmSha256": "3aed6a5329c51fa3d207cc0d591db1c263b43c2996ac758d2859e2e849249d01",
+      "flacBytes": 92461,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -4.232123,
+      "rms08to60DbFS": -28.408416,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb2_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-27-fff-r1.flac",
+      "fallback": "bass-27-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb2_fff_rr1.wav",
+      "sourceBlobSha1": "d703064f031020d9d17a9ec23c02a04a67a30368",
+      "sourceSha256": "b9d8ca662b21ebd32e0654ea5d150cb89b387a660e687bb0ea89a1e966fffdd0",
+      "sourceBytes": 746994,
+      "flacSha256": "5b85ff345a6f081fac7bf7156989af91758d24f27af012fc3e8c67b34298d6aa",
+      "wavSha256": "3f4add527fcea80e17a96a754c97e1e6891a5240669149ff8d7fa09746d3d3c5",
+      "decodedPcmSha256": "0960378fa60f3aca29dd80872a95230cef9ec06a6c45d2a3fe008c01359b910b",
+      "flacBytes": 93070,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.264803,
+      "rms08to60DbFS": -28.889255,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-30-p-r4.flac",
+      "fallback": "bass-30-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_p_rr4.wav",
+      "sourceBlobSha1": "bca8ca398bd278cf26dac5343a8d779dcf95e20e",
+      "sourceSha256": "c4d6004c79847beb90d47d6450414e146c322d79061bb552e1c9fa60c612702b",
+      "sourceBytes": 746994,
+      "flacSha256": "8f69674a49773d2e6b4f92d56a9ec044824b386346866de6f9504b93e20feed1",
+      "wavSha256": "f48b2a0d44de49ba4b997a0bf6a2353fe803214a5c28f87067f2fa47ea39a00d",
+      "decodedPcmSha256": "2f43030734474d16d3f5ae2eceb2d1f790d903200364c97c8f691af80b142974",
+      "flacBytes": 87681,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.886237,
+      "rms08to60DbFS": -34.617611,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-30-p-r3.flac",
+      "fallback": "bass-30-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_p_rr3.wav",
+      "sourceBlobSha1": "0136db09e7376af04f77c043e38d8d8332ceec1b",
+      "sourceSha256": "cc3b6f49afcb7beede586456c9586ad47a791ab55f1a37787e3dbaab2ecf125f",
+      "sourceBytes": 746994,
+      "flacSha256": "a6b8a29fccdef3464313f568bf8d1ece61d23f130a93e50fd876d9b6e4066c85",
+      "wavSha256": "9a13ff6ac9aa0ade7ff50e4e41738b4d62d32fe212f84e56c7d8d1f28bbb166b",
+      "decodedPcmSha256": "628984f5427a5c854009a171066c52ceccf819f5b4c7e3eca379fd2676f835f1",
+      "flacBytes": 87372,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.722959,
+      "rms08to60DbFS": -34.227012,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-30-p-r2.flac",
+      "fallback": "bass-30-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_p_rr2.wav",
+      "sourceBlobSha1": "e12ff1e3e1e98cce7ed89df7b5b136f71be8088c",
+      "sourceSha256": "1727a5555cc42ba3e0bf24c1e7511895e235f006a581057ec9d27da979f8be01",
+      "sourceBytes": 746994,
+      "flacSha256": "60a88c0559ad831aefd85b83a8e61a26bebb9d175291dcd5303f7631c90ac8e8",
+      "wavSha256": "dd62040ff5c61d9c3af4e7b72dcc81c110b386440ba0fe32fcdfcc911286d091",
+      "decodedPcmSha256": "b9d3d2975bd7cd7c3f22b4e7d010b4c18bcfea5b3edfa6192f141d1a82f3f476",
+      "flacBytes": 87920,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -17.141138,
+      "rms08to60DbFS": -33.632341,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-30-p-r1.flac",
+      "fallback": "bass-30-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_p_rr1.wav",
+      "sourceBlobSha1": "d5c920740f5ff1c8f6a231fe92c4ed459df5142f",
+      "sourceSha256": "a7dfc34de61c1adba50ec1477eb06589f1b7fd3af8ab7ff2650a13a399905114",
+      "sourceBytes": 746994,
+      "flacSha256": "b2e22fcf1bced6d27c116d16a960072a160995ae208cab8ec20b9e78d7e7b8d5",
+      "wavSha256": "a3a44e70928c035a2d9d650e6ed39924325131e28b80e117f23c1c7ecae0d4de",
+      "decodedPcmSha256": "b8b97ea243099011419577a1229dca12aad532cb7b7035d213df7ff84c0986dd",
+      "flacBytes": 87149,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.507417,
+      "rms08to60DbFS": -34.577593,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-30-f-r4.flac",
+      "fallback": "bass-30-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_f_rr4.wav",
+      "sourceBlobSha1": "7ffd48506d345823f42e86dc3a3635f131e8c266",
+      "sourceSha256": "f8493ceedfbe9c45af50c0931d215f8733eac222e7f2d8a1bce2da95787489d3",
+      "sourceBytes": 746994,
+      "flacSha256": "ea4dad152804feac54653d832de8ea36e8dc1b4f8390d154d1941cebd44c2e20",
+      "wavSha256": "5153099ef56b5b4e78234b8df40f44945cd5690ff6bd7ec6b35dca0c20092d6b",
+      "decodedPcmSha256": "d6e907087e2a0dbc8f0f3c1dd4077256c67e2b82211c2fe62a5bf09acf192abd",
+      "flacBytes": 88994,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.433095,
+      "rms08to60DbFS": -30.106493,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-30-f-r3.flac",
+      "fallback": "bass-30-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_f_rr3.wav",
+      "sourceBlobSha1": "a6fbe4740fa1847a2431051edda000f01903359e",
+      "sourceSha256": "3e44ec0bcff65ac5d33c9540e11c7057d0323adbaed11dd85f9b14080aaa88b7",
+      "sourceBytes": 746994,
+      "flacSha256": "c4f9491756ff0e9d121a700dc0ace91fc10c0b908c22de1d7a08aa49520e143c",
+      "wavSha256": "a37c00ec7d576b7127f27c9940e94934be12acd8a8a12dbdec856f8e4929326e",
+      "decodedPcmSha256": "db9c2ba7848d7a0c596062276fec7cbd29344d3e4fbaa0649e33174c02b96708",
+      "flacBytes": 89604,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.822828,
+      "rms08to60DbFS": -30.550827,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-30-f-r2.flac",
+      "fallback": "bass-30-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_f_rr2.wav",
+      "sourceBlobSha1": "70a175bf6cb3e0c7f3e1c624a94520aad94bcbf4",
+      "sourceSha256": "ce4694e7fcd6c314819eb92ee67753f8d2dc6c11bd3942a46865f8dc5490e29d",
+      "sourceBytes": 746994,
+      "flacSha256": "f5ae3f36c034d1bb64eed71ed0a49fb7bf7f3729c5bbcbe42cc942dfb935fe37",
+      "wavSha256": "d8c689915956845615643ebe99c1d1cf32807f524a6b6768394edeeed5ab21f1",
+      "decodedPcmSha256": "3ff61a28a05941622b2021a398aa2d6c1e431b1e25b515f3c4ee36d53c7788eb",
+      "flacBytes": 88761,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.342355,
+      "rms08to60DbFS": -30.854377,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-30-f-r1.flac",
+      "fallback": "bass-30-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_f_rr1.wav",
+      "sourceBlobSha1": "e2f700aec0f2adb196e68b59767c25bcc613b9fe",
+      "sourceSha256": "220dace09272783affc937d18184e87d021f6c0ae28652761b0d9bc8e11aa378",
+      "sourceBytes": 746994,
+      "flacSha256": "721dd83e56c425eac15165053acea4bbbeb378056346eaf6b25f2dc80eb87c1e",
+      "wavSha256": "12bf8706277787ea65d649180196dd7c610256d5d686c4e8e0f540626f4bb2d8",
+      "decodedPcmSha256": "e7453a1b5c6726471684e421635e535b1856b14de1900b9a13477d0205a9d68e",
+      "flacBytes": 89529,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.42312,
+      "rms08to60DbFS": -30.027177,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-30-fff-r4.flac",
+      "fallback": "bass-30-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_fff_rr4.wav",
+      "sourceBlobSha1": "c1a4ef40fcec78dcf6be8478f4b1399d3634c0cb",
+      "sourceSha256": "e4ff2f9877e3b0496009f36e312ebc925cea02f8c5918c4e17be0af0ecd6354a",
+      "sourceBytes": 746994,
+      "flacSha256": "aa97c838147cff63b5c83a92607d0518aad2f853b1c8d937e50f0d8fca6016eb",
+      "wavSha256": "cd20ccd8b985fc731f5ca4f61aed8a8e22169e17e420c81f0f8e15e944359038",
+      "decodedPcmSha256": "f99a66bd96be3b065dc6c4843f771a90f7567fbe5898667f1afb999e7cd1f471",
+      "flacBytes": 92756,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -1.185323,
+      "rms08to60DbFS": -25.267188,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-30-fff-r3.flac",
+      "fallback": "bass-30-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_fff_rr3.wav",
+      "sourceBlobSha1": "3d6d09643b81efb8a3484c1206fdfe548f6c0309",
+      "sourceSha256": "54e9edc3cbe60b617ff038c01383d1a8eec84fbde62c34a22e7531ef1a464cff",
+      "sourceBytes": 746994,
+      "flacSha256": "5ce1129ce18e84fe129e39400d458f66b4713ca9f03c0586a70147ab5f7768c5",
+      "wavSha256": "aaff332a3e01c25884f015717a978300f1cf385b2512924bbc2c3868f3a81b75",
+      "decodedPcmSha256": "d91216219e24835f02daf7c71130b1db58c92b3e21d5a95fc4ebee48872f0e5e",
+      "flacBytes": 92589,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.912812,
+      "rms08to60DbFS": -26.172967,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-30-fff-r2.flac",
+      "fallback": "bass-30-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_fff_rr2.wav",
+      "sourceBlobSha1": "6fa73f994da96484d4cb1b50993675a6aa52304a",
+      "sourceSha256": "741471cf67b39a5b4ac6a2173480c356442157c58105f1f72a1efce6ae24c6ed",
+      "sourceBytes": 746994,
+      "flacSha256": "e8d43365d7a5024997b44cfca8d659a97059b7f51c0fcadad5efefd4bc0ab9a2",
+      "wavSha256": "fefa72e818ebe4706b3ca58081bab3753ebbc48c94748b60db8e64010dc64963",
+      "decodedPcmSha256": "45367ed673f756fbd84b4edfdfdb767ee076894ed0335569b5fd9271aa363cc6",
+      "flacBytes": 91838,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -3.469631,
+      "rms08to60DbFS": -26.237769,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb2_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-30-fff-r1.flac",
+      "fallback": "bass-30-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb2_fff_rr1.wav",
+      "sourceBlobSha1": "aa92d8a6c2bc7160f01c3d821f4535d8a0233f4b",
+      "sourceSha256": "ec53a86ea893bec80af0f639c642c63588a387b84373e5796e1560a445ac68d6",
+      "sourceBytes": 746994,
+      "flacSha256": "0548ec0bd9e5455ddb4cd1fd374e80f6c7756e26bd0507c4566b5981258bd369",
+      "wavSha256": "c2c674aa70997521e5da3178b512ae9874ae630d9c2dd43148fe0f2e0c107c0e",
+      "decodedPcmSha256": "de10b081c23ef5d20e33255596686e3402ff786cd9f470969a65745fe32be303",
+      "flacBytes": 93603,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -1.203877,
+      "rms08to60DbFS": -26.213569,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-33-p-r4.flac",
+      "fallback": "bass-33-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_p_rr4.wav",
+      "sourceBlobSha1": "e44626f6ce7f1dd45f55583acbc32551b1c66e14",
+      "sourceSha256": "b7974ab3f8ddce289ac970e29e41a262587af7626349182d7efa83c9af7a8f40",
+      "sourceBytes": 746994,
+      "flacSha256": "8e0f24fa8063fb9b801671d097f523ebda542a4d76f86b9656d4e78b9876c5a1",
+      "wavSha256": "d52f4671ab0ff118325ab279bd3971855191cae1df7d8176ef52c1816c5ec73b",
+      "decodedPcmSha256": "7d75ef8b75b83243728c52930fffac886c339a24784394c1fd2def95bd9001b9",
+      "flacBytes": 88857,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.82887,
+      "rms08to60DbFS": -33.989497,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-33-p-r3.flac",
+      "fallback": "bass-33-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_p_rr3.wav",
+      "sourceBlobSha1": "6ed23cac542ac24274a1b23dfa7ccabdf898aa77",
+      "sourceSha256": "949b1448c7743e56b1bcfbf9123495283ede8f2443348c78b90f74fbd4eb7e5f",
+      "sourceBytes": 746994,
+      "flacSha256": "492551d5db22d59ab77819811a0d874a50ccd32167a89a727bfdb90d1cc4c12f",
+      "wavSha256": "06e0bb206920f0432c8ae0bba350ebbd4df5edf837cf406257fb1259f6274d82",
+      "decodedPcmSha256": "fc01e3ced3680493cd7b6876c61458e3c4574998f371b396aaff0bf0c232bf65",
+      "flacBytes": 89222,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.038505,
+      "rms08to60DbFS": -33.263561,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-33-p-r2.flac",
+      "fallback": "bass-33-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_p_rr2.wav",
+      "sourceBlobSha1": "9cbdf9ad6e8be08f0c174fe5e8d8b04ec9e04a66",
+      "sourceSha256": "c28334550b2dd3e3db619a878fcde2d5a6505ce1f66ccde52c7c49b7426e7d80",
+      "sourceBytes": 746994,
+      "flacSha256": "f5fcb62ec93cf78cb6acb6796eea01b1279d199be5f0e0537a2cc98a823223e7",
+      "wavSha256": "1c5d1777ed140211e41cbc8ef9843efa32c5c2efc07f585fdfc2879c5b285f9e",
+      "decodedPcmSha256": "c1b05f1f566129379d5ac6c939ec6253fc5782ac53abf22dbb0186898c64892b",
+      "flacBytes": 89593,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -16.725894,
+      "rms08to60DbFS": -32.526068,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-33-p-r1.flac",
+      "fallback": "bass-33-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_p_rr1.wav",
+      "sourceBlobSha1": "d1b80735076f0da405d8d434afa580ee3103a2af",
+      "sourceSha256": "038ebf58b703260320edba61209163845414411fceae9b58d79e55be4305d6fe",
+      "sourceBytes": 746994,
+      "flacSha256": "a755574c6aff670474b1b9196d5aa920c95fb28319c79521d61618846f2a19fa",
+      "wavSha256": "14670b144e55d6c79d47ba167c9878886a6b32e5b93dfbd8d46074f7bf203d1c",
+      "decodedPcmSha256": "a342e76eac121bc487c085751f397872c8899afc78e66ceeeddfb7f42949f59a",
+      "flacBytes": 88401,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.094133,
+      "rms08to60DbFS": -33.960376,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-33-f-r4.flac",
+      "fallback": "bass-33-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_f_rr4.wav",
+      "sourceBlobSha1": "589ce189d970499d4ee178c2fce416c6acba4fd7",
+      "sourceSha256": "339072cdefaf8717b721f231572c2f01040a8767b7dda19469fd40e1968f4050",
+      "sourceBytes": 746994,
+      "flacSha256": "3a4586169573cf73d31c14d6621e7d815c2deb2e90029ff4c47c429ca4322249",
+      "wavSha256": "0e659035a7e8a7d48b766afbd12b6419a44ba5d489bf1f42b02f365163e0e34b",
+      "decodedPcmSha256": "a271dba65bb04533533019db56e61269c705a1b2b11054b79764698782b57a62",
+      "flacBytes": 92830,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.035578,
+      "rms08to60DbFS": -29.418271,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-33-f-r3.flac",
+      "fallback": "bass-33-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_f_rr3.wav",
+      "sourceBlobSha1": "263a46cfef126af15de63f66e548c6029d041410",
+      "sourceSha256": "2282843c8ccc3986b3596121e35009c743dca007ac84a159ad09faf8bb802be1",
+      "sourceBytes": 746994,
+      "flacSha256": "169681c97acc4f2789f0b3361149a5f7b1665c4fffb058343aa93f17883700ba",
+      "wavSha256": "b1dca74b1c9cc1d2b06611551a83bc9a8c34bb7109768a5ea005e19152ac0e26",
+      "decodedPcmSha256": "d54495281d51fa87d3a6b6ae44049c1e2be0a799c019632f15dde5992938f30a",
+      "flacBytes": 92032,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.960886,
+      "rms08to60DbFS": -28.818506,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-33-f-r2.flac",
+      "fallback": "bass-33-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_f_rr2.wav",
+      "sourceBlobSha1": "45e28964cc09516de96d16cc029abb8edb803454",
+      "sourceSha256": "aabcfe91317719060d8995748b610e2f1d26f4c13c631f215dc677cb83f91ff7",
+      "sourceBytes": 746994,
+      "flacSha256": "dd5cc8427946a4393bba5fd9b45b71786bdaed00beea1f46147d7ec90da1b8d3",
+      "wavSha256": "810441b41284ea4ec928a6c43450045c73d1c2ff172b8d23dadb137fafd7bbc3",
+      "decodedPcmSha256": "2a30b8fc8ad3efc4bd96d179c4a82c9a141d390c884d60cf6885985554930008",
+      "flacBytes": 92959,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.351046,
+      "rms08to60DbFS": -28.459971,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-33-f-r1.flac",
+      "fallback": "bass-33-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_f_rr1.wav",
+      "sourceBlobSha1": "bb9909368c61e6083560f05ce6726f794d5e75d9",
+      "sourceSha256": "31dacbba544d18fae6d8605eb69123f94943c2557fdfcba61433e95c95bced7a",
+      "sourceBytes": 746994,
+      "flacSha256": "4899fcf4d8bc2bf042cff246208d0deb725d5b8113af6a025525ac9b027c649f",
+      "wavSha256": "ae2cea8ad6077154c94cc39990f90402503952284b859eb59ab6786233dde062",
+      "decodedPcmSha256": "72dac3006b3d322f2124257727b49e65f949bd6a0d56eb3b0b959e10671cb649",
+      "flacBytes": 92233,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.763821,
+      "rms08to60DbFS": -28.951762,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-33-fff-r4.flac",
+      "fallback": "bass-33-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_fff_rr4.wav",
+      "sourceBlobSha1": "aaf345011e78f4d91e2fff99aa80476c32bdefc0",
+      "sourceSha256": "ac645b38b7afce6065ef93afce3f5851c121495aa0318b970db4929cb725f917",
+      "sourceBytes": 746994,
+      "flacSha256": "05812c4dcdcd86c6358e957d26ab514abb567734f9a5d724df5bd0ba40473032",
+      "wavSha256": "57ba4dc70d45a2857c1e20fd80e83d102cff9e0e54c7c77332021ac82cea6665",
+      "decodedPcmSha256": "ba7dfbe5464cb284a425d4ba7ee790f4c6873a3bbafc1e529e1d211fa8897159",
+      "flacBytes": 93841,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -1.043983,
+      "rms08to60DbFS": -31.008281,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-33-fff-r3.flac",
+      "fallback": "bass-33-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_fff_rr3.wav",
+      "sourceBlobSha1": "35e566bb5b2828f27df2a2a3bbcacbeb13f734ca",
+      "sourceSha256": "3334cc9166e8949aaceb6d638e038645eb5482f9af6834b1872876b04a2bc3c2",
+      "sourceBytes": 746994,
+      "flacSha256": "d834d547f17876ea03b426ae199a769070b3c77a392072a0ab9c044289031573",
+      "wavSha256": "e4d35f4b20858ad1852c2810c79a02b0765fdd6728167c92123910a67986ac09",
+      "decodedPcmSha256": "b80e2b0a6499734cd80a82b10a85c084fd595db4699457ea8c5d0ae013471c70",
+      "flacBytes": 93819,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.804142,
+      "rms08to60DbFS": -28.172082,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-33-fff-r2.flac",
+      "fallback": "bass-33-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_fff_rr2.wav",
+      "sourceBlobSha1": "e617798844bd3b4c598762c8ee333c2219bd11ee",
+      "sourceSha256": "5655d5cd896a642cccbdc4eca27caf140f6dae11e2e0882c9485c55513e18d21",
+      "sourceBytes": 746994,
+      "flacSha256": "4220a3b31da10b620e1ba7c1d868672bb8e48b74855066bef805e348d716ab4f",
+      "wavSha256": "2906c2d5a6a257476e311a4917713b7a98bf870c5127009831e00dacda68e6dc",
+      "decodedPcmSha256": "0a886254a4645b39809413d1edb0403089fc6d2a03f937efaa49322954d0aa18",
+      "flacBytes": 93955,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -1.725585,
+      "rms08to60DbFS": -29.920799,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a2_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-33-fff-r1.flac",
+      "fallback": "bass-33-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a2_fff_rr1.wav",
+      "sourceBlobSha1": "0a34c98a96b3fc9830b7ace14f3442765e98ca15",
+      "sourceSha256": "9f811b005284353e877d791403aa96c289b7171f86fbb9b2d1932be262f98211",
+      "sourceBytes": 746994,
+      "flacSha256": "852cbcec21a4196e91a159fefe8e5746744b23553adc45e2c921f0d504366e6b",
+      "wavSha256": "2bb5ff9581dfadb5107c224ab2666c0139f84115e63ec6b727b5447e09b12d7f",
+      "decodedPcmSha256": "272f180d8e1d5914ec63559f91b94f5f4c1ca38e62bf8abf90ced4d5236c7045",
+      "flacBytes": 93599,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -0.134904,
+      "rms08to60DbFS": -30.720703,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-36-p-r4.flac",
+      "fallback": "bass-36-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_p_rr4.wav",
+      "sourceBlobSha1": "a51c3073306036fa5dba3b178f68c230c04cc348",
+      "sourceSha256": "672cd8cad53514fa0861fee703652213ad3d7ab341a9f7ec3c591446315c8f41",
+      "sourceBytes": 746994,
+      "flacSha256": "f78df3a08ab0bee536f8c8c29414e1d7d9ab56b5632f9c2bb6566b3eda57c64b",
+      "wavSha256": "c052a4f86cad413a96a098fbcd554617a0c6fc71138ce616e8b6e99622f5b107",
+      "decodedPcmSha256": "ea51b7d9a69ff38b49cbe71cdb7721ed2f7e7a87ce9aac2055beb1d949bd90f0",
+      "flacBytes": 87893,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -17.040634,
+      "rms08to60DbFS": -33.41729,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-36-p-r3.flac",
+      "fallback": "bass-36-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_p_rr3.wav",
+      "sourceBlobSha1": "2356040f890bf2e8802685831867dfe44a642e3d",
+      "sourceSha256": "6c455798f0d5391942f2a970006b289abbb0eefde5207a1127b55abee74c2d83",
+      "sourceBytes": 746994,
+      "flacSha256": "2ba7d55f6efd8de23a7f6212623a4e50799273863679e052f92e4ae289c41710",
+      "wavSha256": "7d5cf7fcf75ff1c709e2f22ec67ac433544fb68f0a97b0d93884d0ac32acd6de",
+      "decodedPcmSha256": "091a2b8b1c7661a12e8125c2022c1690af982619b42be7b3e68276db0841c924",
+      "flacBytes": 88183,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.1342,
+      "rms08to60DbFS": -33.861933,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-36-p-r2.flac",
+      "fallback": "bass-36-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_p_rr2.wav",
+      "sourceBlobSha1": "e82b8096cae5b9e68fd84ffcdf2fe30ceb289fc0",
+      "sourceSha256": "3bded24464a495494d1b84c59b16b435356e25a454be1d2a7f5d8bd4b90dfede",
+      "sourceBytes": 746994,
+      "flacSha256": "cde4e6a7bcbea2c4df7702a6b94c34857ad439ac9d90bf4d7083fe98c6b17d89",
+      "wavSha256": "31be8e3d097a158cbe7b27a158107ce655ca69ae6dea71eb27285b3c08e4f5d1",
+      "decodedPcmSha256": "85d2636567d67221403a9232dce0b85d30f68506e56640d1c0602303358f0dec",
+      "flacBytes": 87760,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.144899,
+      "rms08to60DbFS": -34.285583,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-36-p-r1.flac",
+      "fallback": "bass-36-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_p_rr1.wav",
+      "sourceBlobSha1": "d297337e4b5ab937b3e038c3374140f42bf0c697",
+      "sourceSha256": "5e001e93c48a8d4ae30335793fd8e1979d7149a6bcf39de1d1c72d132c3ff25d",
+      "sourceBytes": 746994,
+      "flacSha256": "8ad3058c3eaead78eb5e077baba9ed5e45b24f2fdcb479315ced073869b0a8d8",
+      "wavSha256": "0e44b583461a01843e8b0bb9578276e42b31a81d8c77d65debad2d99a82489c7",
+      "decodedPcmSha256": "026e744e749c990b3c0c84f042ebc01bc1f45fca011074ef7d897575d40d007e",
+      "flacBytes": 88789,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -15.622605,
+      "rms08to60DbFS": -32.488948,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-36-f-r4.flac",
+      "fallback": "bass-36-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_f_rr4.wav",
+      "sourceBlobSha1": "b1f7c5431d2da1175de59e03e0352fab52db9692",
+      "sourceSha256": "0c806e86906db3013c0994d749693bb76f9a9486d917cceb24b4464f4697995b",
+      "sourceBytes": 746994,
+      "flacSha256": "caef8f60ababa5766ed972f06326ce380897302afe09afd24f054bc6f9eadc3c",
+      "wavSha256": "c62f7a45bf04190bf5f3431ba9b8d0a14794b53a517ced5a233ca61379b14bd3",
+      "decodedPcmSha256": "dc78858b7405f679162cdc2e338c20d8b8f9198d87efaec6ec9fcdb984796947",
+      "flacBytes": 93097,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.987562,
+      "rms08to60DbFS": -28.711248,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-36-f-r3.flac",
+      "fallback": "bass-36-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_f_rr3.wav",
+      "sourceBlobSha1": "16c95c2f07188ee2b2706754b9c7eed630a1e647",
+      "sourceSha256": "4a6c32395e5aa856242b0f3426f441c870ddca2b6adfd26a1912624f6d853c1a",
+      "sourceBytes": 746994,
+      "flacSha256": "bb8c6cfd1b0a1498de673b7e846db8c5f415e9e36e84a198a0ce7662978a4aa7",
+      "wavSha256": "4817ea946c6c687455061fd31a35d9d68e333e470eb90fcef0dcad37159be0ef",
+      "decodedPcmSha256": "e82771bdd2b4c834676a2da073bfbbef1531dcb494b1ca7235e833175032a0da",
+      "flacBytes": 92666,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.18768,
+      "rms08to60DbFS": -28.138729,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-36-f-r2.flac",
+      "fallback": "bass-36-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_f_rr2.wav",
+      "sourceBlobSha1": "29aea33bb796cc33da53fc03ce110394d94cec4d",
+      "sourceSha256": "30cb353b549cf49d4e6198b147c6d85273499f20aa161a0f7bc6fa689b37d280",
+      "sourceBytes": 746994,
+      "flacSha256": "29b89de89aa81ea6b5eb853aa95e1a7ca7d3e45a79d32921050b754188599d7c",
+      "wavSha256": "0d9d7a76f382a8d688995fcde0854723addd67685b3a75dd5a658ade2a226983",
+      "decodedPcmSha256": "2e69d1cd434150f9867bddaad8fd8d565088812bbf5b7b57704ada37cbdc23f3",
+      "flacBytes": 92858,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.38456,
+      "rms08to60DbFS": -28.383605,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-36-f-r1.flac",
+      "fallback": "bass-36-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_f_rr1.wav",
+      "sourceBlobSha1": "f8b669077e0c084037579cc9bdfcede44927854d",
+      "sourceSha256": "ccba00d8c29167226a8318ce909404cf856c25855262f76fc4157b9301907371",
+      "sourceBytes": 746994,
+      "flacSha256": "d3a6958e5492bef0c807e08dff4a278cd41aa75ba7f89febd0084be043b2d81a",
+      "wavSha256": "8e3f0173c85543e3d964e26d0a92501068d4fe36834a7b4ec3827a1bcbd23d72",
+      "decodedPcmSha256": "7223ea1c550e2b0df6b5a234fbde1b60e4bb4086e934e19d9ef5be8fab5d8eaa",
+      "flacBytes": 91789,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.850538,
+      "rms08to60DbFS": -27.989064,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-36-fff-r4.flac",
+      "fallback": "bass-36-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_fff_rr4.wav",
+      "sourceBlobSha1": "b7f5b1ed242f5fe4dd4edee998d1eb4ccbdb973e",
+      "sourceSha256": "421f73217b625a6e17cd0ef81be3b1af8aad653781dd61404ff82f16f8e1ecca",
+      "sourceBytes": 746994,
+      "flacSha256": "090a30ea0ae72c0b5165e5c044983f562a3c709a430ebe30c0eb7c1b94430f52",
+      "wavSha256": "7c215018176d23dd1025d6c6db97d2322075036acd4edcee9674bd3a8cab4a52",
+      "decodedPcmSha256": "8cfe4e16fd63157183e0aa43e9608b44f55a510a3ffa3d54fffa127ff6676687",
+      "flacBytes": 92655,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.407016,
+      "rms08to60DbFS": -30.771728,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-36-fff-r3.flac",
+      "fallback": "bass-36-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_fff_rr3.wav",
+      "sourceBlobSha1": "5c90cff629bb0d13bbc51667c939dee7f05aa505",
+      "sourceSha256": "0551a0c0080e4c9b5faa22135a389e0fa99b84da0ae5f1e368a25910f1eebf88",
+      "sourceBytes": 746994,
+      "flacSha256": "00874e3a6ba6c5b77f39345cdf00ea12556cbbd8c294d44c97e4265b8bc7a7eb",
+      "wavSha256": "6b34c28a9956a9a952b07192087d3ed3844a4c5517ac6cf23b6f1ff56f04f444",
+      "decodedPcmSha256": "39ad0738192f53a678ec4fb756cbb174bf62d0ddfc13fb7ac942a70837665f55",
+      "flacBytes": 94138,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.638795,
+      "rms08to60DbFS": -30.993025,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-36-fff-r2.flac",
+      "fallback": "bass-36-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_fff_rr2.wav",
+      "sourceBlobSha1": "ceec1943ff3b9c1830f1bf5eaebed2c43cc1e9c1",
+      "sourceSha256": "38957974c03d936caa91e231782aece3e233842b91a267f3dffd126a8d6895c6",
+      "sourceBytes": 746994,
+      "flacSha256": "09620416e4b314190f7b2f8770acfed51899ea68089e3f6068d4b8a84ed25d40",
+      "wavSha256": "27a4e7a0bea3739b4ab53e2a5e996734bd45b76fb24be0224733790ce47c8684",
+      "decodedPcmSha256": "e1802d660967478a18b993f3ea858c2da1151401550596bf51260a45826b4d6b",
+      "flacBytes": 93636,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -2.629462,
+      "rms08to60DbFS": -27.917457,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c3_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-36-fff-r1.flac",
+      "fallback": "bass-36-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c3_fff_rr1.wav",
+      "sourceBlobSha1": "52a7205d1f659e1b8e26fb45f981d9006ec91b31",
+      "sourceSha256": "617ff9ff7883bd4ac87d489e557a09593d5b983dc317779ac56b637258b5c618",
+      "sourceBytes": 746994,
+      "flacSha256": "573b18ead21346500e1515fb2afb5e4bc01e0b6d9eff65eece283562c30c4a4b",
+      "wavSha256": "5be2e6edddcd7433ceb9ca9e9890c1006f6c693c451eebaeb3fe08c7a81ef7f3",
+      "decodedPcmSha256": "f6810dac411e05085e7feb245fa7db1e49cd18a455251dcfc84b9769dab8446b",
+      "flacBytes": 93772,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -3.3021,
+      "rms08to60DbFS": -27.293429,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-39-p-r4.flac",
+      "fallback": "bass-39-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_p_rr4.wav",
+      "sourceBlobSha1": "0a3d075d0ce3d42fa4d3de55a75ba071188a71a1",
+      "sourceSha256": "1601692f4c70fd66d2c72c81ced3f4d14e0a9b3fb1026d5224aad01928c8d8c5",
+      "sourceBytes": 746992,
+      "flacSha256": "df0dbe958536689b029e3869703c2201f57307ae05d913733290e633d761cd17",
+      "wavSha256": "811260422492da236b4e621de59a14f38afb0c78ffd1267b8e741c846951c7b1",
+      "decodedPcmSha256": "c1a55b1c97bfa2dbbfb4be7c4c2bc26546d34bcc7fa15cb280b00653ba4e9a3d",
+      "flacBytes": 90785,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.230463,
+      "rms08to60DbFS": -32.667673,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-39-p-r3.flac",
+      "fallback": "bass-39-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_p_rr3.wav",
+      "sourceBlobSha1": "83d07440d630162bc56d37910c7051c1bd2aadd4",
+      "sourceSha256": "4817c818f6f29171425275e7faae83d92a908b6e84a6f2a7615270e09f585d3f",
+      "sourceBytes": 746992,
+      "flacSha256": "8f740c49113ccef83c469ded8f02abd362763a3c3fe9af63fd68302d8fcbadfa",
+      "wavSha256": "a80ded9704f8b3e8e925b38d6eb9e0a4ee7073c80f8767e1f89238d8d3374e52",
+      "decodedPcmSha256": "d21ff5c886592c833be4994833fce8d9a12c06317801d17c75306e77c56c3664",
+      "flacBytes": 90398,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.728095,
+      "rms08to60DbFS": -32.243536,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-39-p-r2.flac",
+      "fallback": "bass-39-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_p_rr2.wav",
+      "sourceBlobSha1": "f8640060f1be5860c4bff7afbe1e0b3d779946fa",
+      "sourceSha256": "5a4033b0e8a7d9b519d99fe2ff5585939dc68bd30468d3214e50aa2d80879964",
+      "sourceBytes": 746992,
+      "flacSha256": "02ac4091d1b45785b219563deb1e5fdb98e1c1b9657a8bb108a6a6043f2cd869",
+      "wavSha256": "224a027f4423261aff1e38e7110c5271c4e0713bff7f0401c04b304abddfc9fe",
+      "decodedPcmSha256": "5deed60e4d0ee3743e107da90fdff8bbe6af1939d15088d4a4d82778a0c87571",
+      "flacBytes": 90306,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.068659,
+      "rms08to60DbFS": -32.406702,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-39-p-r1.flac",
+      "fallback": "bass-39-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_p_rr1.wav",
+      "sourceBlobSha1": "2b5b8b881f17d9ebeb891d618ce83a23bc20b0bc",
+      "sourceSha256": "c3267172a4a5cdce5ae6d8ae10945169179a02f5365735870f41cd33383d2b19",
+      "sourceBytes": 746992,
+      "flacSha256": "500e02085d0183dde8a41747d09c2c26718bfb16e8761962bc908b61b646db6a",
+      "wavSha256": "0860d21e5ee039ab0dc425f3e6dd026749e95eb8122ea4b83c2118e3e56afdc9",
+      "decodedPcmSha256": "1f743d22328801b3ad2fb0731a35434ac29cd22a8d3fc069d776121173b7ab0a",
+      "flacBytes": 90708,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.331765,
+      "rms08to60DbFS": -32.457107,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-39-f-r4.flac",
+      "fallback": "bass-39-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_f_rr4.wav",
+      "sourceBlobSha1": "a64c48e337b5af74243d59979b82719046b91c83",
+      "sourceSha256": "69bdf60d8870040bb8d7f99d34397a96b94a228c5d8da868bd8d92ae77e30463",
+      "sourceBytes": 746992,
+      "flacSha256": "bbd961d975883aa18e5cd18f6ac22fde5dd33a71a3c4262b05068098519f053c",
+      "wavSha256": "b66fe60e9e3587c4054dfb27c50aa79e8ccdabbd6e2b6fa186bf680f21a71d9d",
+      "decodedPcmSha256": "e6aa6a5747a10d2427ed907af8480cea9ad0d31a70e4be1f40cde43fc44fa259",
+      "flacBytes": 94589,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.169415,
+      "rms08to60DbFS": -26.884906,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-39-f-r3.flac",
+      "fallback": "bass-39-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_f_rr3.wav",
+      "sourceBlobSha1": "5ac7412dfcc5945cfd91cd9b790ca7cf3e73b303",
+      "sourceSha256": "2f9b2a1299d567ec1d5edcd2fe4e8c3fc434aa671a49986f2daabf5767b92c01",
+      "sourceBytes": 746992,
+      "flacSha256": "ccd0884317f9f95ed4bc8669f110af6302a2f61417730a6729b77bd2593425b8",
+      "wavSha256": "9aaf191114573e7615930ef4c0351dcd7144f39c1c84faf7e73f1c2406a05563",
+      "decodedPcmSha256": "75ad4fd3b7da8f85f5d0ea7a72ad0146aecdee44e8891b528e8e9f43b881c6db",
+      "flacBytes": 95191,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.552504,
+      "rms08to60DbFS": -27.515466,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-39-f-r2.flac",
+      "fallback": "bass-39-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_f_rr2.wav",
+      "sourceBlobSha1": "f2eb1a50fe2bf170607ed0b6ac313204c2cf060f",
+      "sourceSha256": "39b80804fbbac798010a4e7f2f8687fc78c933ecf8b1979b2f1252310c8f12d3",
+      "sourceBytes": 746992,
+      "flacSha256": "990997c40a3e7f911cb38d462cc8157e434d97d0757d55f82c1598c457a8cdb1",
+      "wavSha256": "16fd1e27628922851a23e3e451f4ab6aee4fb41e432e5153b7adfe7b7bcd323e",
+      "decodedPcmSha256": "dfea20003d8294e3acc0b3d0ff58693af0825ba2782e13400704e437c880dfce",
+      "flacBytes": 94272,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.003481,
+      "rms08to60DbFS": -26.563859,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-39-f-r1.flac",
+      "fallback": "bass-39-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_f_rr1.wav",
+      "sourceBlobSha1": "e448065db37162c729f1be79d28dae4616bb1e85",
+      "sourceSha256": "cc4cf70665960b41209480ea0a72d86ca9d6bc09cf3897ae676c853e20eef701",
+      "sourceBytes": 746992,
+      "flacSha256": "cf5dae00c82f5e4ed472e134bbbcb23da79269020fb274ce2cb34c4549542af8",
+      "wavSha256": "39db018d729212a2a39d808ba38276d0647d86965001fb4238a112ce6ad6a94f",
+      "decodedPcmSha256": "b72ee49364f9cd7b6b74b50c33c9c5c0a5deb12914ee5a15137deb74abcf4977",
+      "flacBytes": 94582,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.194238,
+      "rms08to60DbFS": -26.933816,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-39-fff-r4.flac",
+      "fallback": "bass-39-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_fff_rr4.wav",
+      "sourceBlobSha1": "9dfd15eab48a3d41d2b6780d6cfb1bf838bc89ce",
+      "sourceSha256": "1fd0961817445a042da35d36479d107674f95941d2f98d78d8de2a9850d29ed2",
+      "sourceBytes": 746992,
+      "flacSha256": "c5dcc00bf84d8e5442d9cb36ab1fbf4155b37ef1e2357dae523170da56bdffc0",
+      "wavSha256": "aecbb9fbe45ba2c5efe9e15bc4270b2ffc839be092f460b850d2b9803698623b",
+      "decodedPcmSha256": "2a55890a71502d89ff69c6e2bb09f863fc043cd08284c4d16d928441dcd53bc7",
+      "flacBytes": 96226,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.313295,
+      "rms08to60DbFS": -29.324456,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-39-fff-r3.flac",
+      "fallback": "bass-39-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_fff_rr3.wav",
+      "sourceBlobSha1": "a1e3efbace317c59ec73862d0f8d1d1db1076d66",
+      "sourceSha256": "e54a9e3f1fd0bda63514b826b163a2c23a218d67d6ade53155a2b050a31896d9",
+      "sourceBytes": 746992,
+      "flacSha256": "5d6753cf2d8d3a3f70ff77fd6c1850b6b45f471ff969c9814b65d013c39557f8",
+      "wavSha256": "9c1faf6bf35cb56e54fe101b12fb022725177395c2b6043c0a724bdd64576788",
+      "decodedPcmSha256": "e51159de906c407e4c96076590733c8fd3c5fbaaf08a0a1ee01102b89e6d90c3",
+      "flacBytes": 97068,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.691849,
+      "rms08to60DbFS": -28.489419,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-39-fff-r2.flac",
+      "fallback": "bass-39-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_fff_rr2.wav",
+      "sourceBlobSha1": "e78c69c3ac03632655dc465f3c05cc8e2f8e3064",
+      "sourceSha256": "c09d83433482e5e6e146d3292b215b48ad5480b6b2a85f4658a1deaf4a83f8f8",
+      "sourceBytes": 746992,
+      "flacSha256": "5ece3a5052bf71fcce3b924b0be6f1547725c7d8a7ced15a540c0c4e2d16067d",
+      "wavSha256": "7516b8d7706cdd383d0186417eb715ff4a0e31514d98aaebdfcc29f0d1950d26",
+      "decodedPcmSha256": "d55f01bc069fb2c77c69c082dc1ec3e07caa71e4b02ff98b480cd761005a9360",
+      "flacBytes": 95158,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.456183,
+      "rms08to60DbFS": -30.094731,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb3_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-39-fff-r1.flac",
+      "fallback": "bass-39-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb3_fff_rr1.wav",
+      "sourceBlobSha1": "8804aa50272dbf7dd3470bca69823facce733a8b",
+      "sourceSha256": "cce2797c6166130b73f4779ead62feac66e4efb69e18cd02070bcaf9947964ef",
+      "sourceBytes": 746992,
+      "flacSha256": "02612a063f7ef81ae769e371d777c16c3b08fb0415bfdfcdb59515c235f60879",
+      "wavSha256": "1798f9636d10dc091ac1cbde4d0288a7ad819829bbdbdddd211bedaa98a87e0d",
+      "decodedPcmSha256": "80510bb18e541cea499374738ca40ca5176574393242657e88cf1857e4a11ddb",
+      "flacBytes": 96929,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.250482,
+      "rms08to60DbFS": -28.680471,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-42-p-r4.flac",
+      "fallback": "bass-42-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_p_rr4.wav",
+      "sourceBlobSha1": "5de3e2a73bd12436f4834d597f8215f62f769477",
+      "sourceSha256": "4120ac7d4702d8c1b4309473086068d10abd63eb8d93806c3d008753b08639af",
+      "sourceBytes": 746994,
+      "flacSha256": "033c175f3df401098cda9026bd1647ae4b565c6cd641b3fdcfa5bb68d7869a90",
+      "wavSha256": "315a9db11f035e7604998c9d5f43c1dd7dd6030c8fa72057ab7845cc2138241d",
+      "decodedPcmSha256": "8c716359cf8b05b83830ee8dd4f98e92675763359ded7250291702f230117dd0",
+      "flacBytes": 90100,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.837643,
+      "rms08to60DbFS": -32.572546,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-42-p-r3.flac",
+      "fallback": "bass-42-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_p_rr3.wav",
+      "sourceBlobSha1": "6dcae2cd57a00276910abb2d56a01c034c4e3b06",
+      "sourceSha256": "596be825b287ff0d653aa0d535e818d8d4ec776beea0aca7c0b95028d6af93b6",
+      "sourceBytes": 746994,
+      "flacSha256": "f0ab4adcbedd6af576cabfd8c6cb95de8e2f5fe2cc4351767d31a3ae6efa2182",
+      "wavSha256": "57e3d1995330a2334bb0605eb09f1949baa5b3681005f599ce2fe79261d924da",
+      "decodedPcmSha256": "bcd41444250d029916dcc03571ef74ecdefa794e5b1bc209f75e6b708fbd2d87",
+      "flacBytes": 90385,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.421148,
+      "rms08to60DbFS": -32.116083,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-42-p-r2.flac",
+      "fallback": "bass-42-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_p_rr2.wav",
+      "sourceBlobSha1": "76f156e20947808b0911e1445c88462f5dee798d",
+      "sourceSha256": "6ba8d66a2cbb7a32c3dfc651f33b71dc9fb9a898ff68eab21c3fecee8d712a30",
+      "sourceBytes": 746994,
+      "flacSha256": "be96a1e706e1b131f90577baf00006ed6b87fe24adf7633cdeb1c3a719612bb5",
+      "wavSha256": "a72d126afa3fde002ec9e662e719e9cd8e01f9cbd63aafb22d017286bdc766fa",
+      "decodedPcmSha256": "2d1967e6959bbe104dd6504fa8ad2c777f72804273a5c396b1b27823de99d61b",
+      "flacBytes": 90649,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.777565,
+      "rms08to60DbFS": -32.199073,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-42-p-r1.flac",
+      "fallback": "bass-42-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_p_rr1.wav",
+      "sourceBlobSha1": "f242184aaaaaf02288557f6e427aed85bd2b6aa4",
+      "sourceSha256": "27e33fc091c098eceb0f72afa59807d59d652b634f3e629e0dea79fb8cff92f2",
+      "sourceBytes": 746994,
+      "flacSha256": "0fb77d049f13983bbe4e91ed526f0ded2a937c560f65ffb99796869bc1377c9d",
+      "wavSha256": "5c66500a4e2b8e7b2d0cae7e212980938e0ce5739fe8575d89114c488825c73f",
+      "decodedPcmSha256": "6a80806ba50232d38e76fbf8513d63ae8f160b9c3692498cdf9567d1282d589b",
+      "flacBytes": 89685,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.151881,
+      "rms08to60DbFS": -33.323459,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-42-f-r4.flac",
+      "fallback": "bass-42-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_f_rr4.wav",
+      "sourceBlobSha1": "4a85f5353fa3263315cc7d7c3f176556e9479eed",
+      "sourceSha256": "7b99661c1516b5c23b2319f176e7666ab4426eddb70a7a2d25f95efed0bd2be4",
+      "sourceBytes": 746994,
+      "flacSha256": "e73d7d4631c0af6d8f9c96f14896a64c5359404d45bd4dff5a291f99391281aa",
+      "wavSha256": "e55df965f3285f09dc672bb9bc3e98b0e708651befecd721919a53664467a46a",
+      "decodedPcmSha256": "a3c3166b3a7de7a227ad3a0afc9752bace5e5404112a7a3808d5a4ceda4fd29c",
+      "flacBytes": 94625,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.146367,
+      "rms08to60DbFS": -27.332084,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-42-f-r3.flac",
+      "fallback": "bass-42-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_f_rr3.wav",
+      "sourceBlobSha1": "1e7b90f2c2996475de9330f4c064bfa069fb8207",
+      "sourceSha256": "b656c71a65ae23f0bb0d0d9322c6774f70d200e9a719e3fefd105e5b14da82ec",
+      "sourceBytes": 746994,
+      "flacSha256": "99934a0bd2db2e02c4518ff1e8e33605dff10eaeb7d392f0b82565a01c4d275d",
+      "wavSha256": "b49e649645f464724be09fb93eb09f0d2828e3741ea354cdfffdcb08c781ebc6",
+      "decodedPcmSha256": "f0a5c3454c97bdd38e0c042dad1cfad70f1f37c85307ce83980e902a31a2e8fc",
+      "flacBytes": 94364,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.626557,
+      "rms08to60DbFS": -26.896514,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-42-f-r2.flac",
+      "fallback": "bass-42-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_f_rr2.wav",
+      "sourceBlobSha1": "c08083b7b298f720b30e4eb8c3d4dcee3f2c8fdf",
+      "sourceSha256": "afe7a47ddeba5a1c5622dff14acf507ce84950fc7d10541280b44e5811f13fd8",
+      "sourceBytes": 746994,
+      "flacSha256": "458827473a79eb2076ccb21884c5142d9671b3c1e4ed94e9354dcc5db1b3c465",
+      "wavSha256": "618934ef9189ac2fc4f6309938c9b7fd579a5c5c56b56b568703ebc8ad6282a3",
+      "decodedPcmSha256": "4610cb920f11a3cf31fce56f2df6a8d6b79d2f0bc8bb65ef59ec7770e863a3e5",
+      "flacBytes": 95580,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.028829,
+      "rms08to60DbFS": -29.188094,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-42-f-r1.flac",
+      "fallback": "bass-42-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_f_rr1.wav",
+      "sourceBlobSha1": "79241b05364fff46dc9f286803bc489b61937103",
+      "sourceSha256": "c7db448abaa5c270c4e0170ab13ccdc44381e1f40caa7b8f266c0a3cad0605cf",
+      "sourceBytes": 746994,
+      "flacSha256": "7bf0831d90f5b12d636d3d6f3f9cfdd689c49fd5c9b68ce125a60ac3951984d5",
+      "wavSha256": "5472631a71e77ce3852333000de8531813b4c464d83a1c641c6fe8fd2f7c5342",
+      "decodedPcmSha256": "fc13214537ce31de2c2193ad1f64e664c86697af791e25d41c02fba972bcb7a1",
+      "flacBytes": 95003,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.643692,
+      "rms08to60DbFS": -27.954144,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-42-fff-r4.flac",
+      "fallback": "bass-42-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_fff_rr4.wav",
+      "sourceBlobSha1": "7a6693c775a34a3e9969be0d4db61ebdced08801",
+      "sourceSha256": "45cfce23d4a9708d3b94f3d82291d9106ce9c1cc4ed58b8ae3212d30d33ad8da",
+      "sourceBytes": 746994,
+      "flacSha256": "972b57c872073a03a3948f16f01d9f1ce726330627430ffab2f7cb8fb206e0e3",
+      "wavSha256": "922c979ed1e16eab1b6d282b100ab80eca2007880b9753bb4dc58f38d04429c2",
+      "decodedPcmSha256": "6bac22e158262ec9fa6b9e796f27f76c74230161b81a22d2e56703fa37af18e9",
+      "flacBytes": 95421,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -4.997078,
+      "rms08to60DbFS": -31.887835,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-42-fff-r3.flac",
+      "fallback": "bass-42-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_fff_rr3.wav",
+      "sourceBlobSha1": "2350a0a887546d0beb3ec1703c92eb3ec0fcb556",
+      "sourceSha256": "8e7ac62e9d3c2f32390d24c25e4284b06324bb6ce9e1389f8c493c7be6d4caf4",
+      "sourceBytes": 746994,
+      "flacSha256": "81807567eccfa42b7698ca060cbf0eabccc868ab56a6ba3a1ddc97055a3ab970",
+      "wavSha256": "cf292375a48c186a902da6190ba317517059c3f906fcaf065888e01097212fee",
+      "decodedPcmSha256": "01f1e8f8f3a7811b8ad2a87ed84a73a007bbca7d9ef5a01fff4152b4eda9f611",
+      "flacBytes": 96615,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.242723,
+      "rms08to60DbFS": -29.730896,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-42-fff-r2.flac",
+      "fallback": "bass-42-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_fff_rr2.wav",
+      "sourceBlobSha1": "a49e3714286bc5524b0163b38fc7b726e1001475",
+      "sourceSha256": "dc96fd54f4a20d6dd4b90622f461e2b76212fb0ee54d6f05f432b8076e9bc80a",
+      "sourceBytes": 746994,
+      "flacSha256": "a1bdf43ee2556f9e3eed2c97ccdc06329c303616fd72f1132f8b6df0710e4446",
+      "wavSha256": "f0c6e50f7e05a51411a921146c3c9f588415758d41316e25a042370ec7fa8226",
+      "decodedPcmSha256": "0de37254a40d4649289a7baa948cb5789329f243ec6edf74f3c844166003aea6",
+      "flacBytes": 97190,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.137485,
+      "rms08to60DbFS": -29.70981,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb3_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-42-fff-r1.flac",
+      "fallback": "bass-42-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb3_fff_rr1.wav",
+      "sourceBlobSha1": "066fa3900ca2968186fbb282e07813bfe26fa5de",
+      "sourceSha256": "1baa3917337538c81a38899aa7ddd5d8634fa1317e2b48e5e04e34325642fd78",
+      "sourceBytes": 746994,
+      "flacSha256": "969448dc0242bf49465425b4fbd661c67a56f409e8945e88a9ce67e76e172299",
+      "wavSha256": "ed81e722fafbeca2575a5129d4ab62aa519c88f8e6403011b44ebd914fd4bdb0",
+      "decodedPcmSha256": "e417e53a853f4472d60e2b3965f556ebffde98ee548d3bde38347070a2dcd9ad",
+      "flacBytes": 94822,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.034384,
+      "rms08to60DbFS": -33.121869,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-45-p-r4.flac",
+      "fallback": "bass-45-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_p_rr4.wav",
+      "sourceBlobSha1": "73c2e19b0acbfce4a6d695f077a51736645f84fe",
+      "sourceSha256": "6d42f051d2c49900c1103a2ce12fe6d1dab3af1298b0b3346261388a9d268cb4",
+      "sourceBytes": 746992,
+      "flacSha256": "adacbf55c1387171d352020ee3264ecd6f926425c3b2eaa438da4945b1fc0a61",
+      "wavSha256": "31da6f5d84987a35b00d6ff336858351ffe57d4a501e431c9394dc0c1dfe2339",
+      "decodedPcmSha256": "053157e734856d944c28634e44525f9a03a0ff35d4229350fa4537d3ddbfdcc9",
+      "flacBytes": 87660,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.033996,
+      "rms08to60DbFS": -34.345831,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-45-p-r3.flac",
+      "fallback": "bass-45-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_p_rr3.wav",
+      "sourceBlobSha1": "69768fd77c0d6bc9ca26a0e4268e213431bc9f71",
+      "sourceSha256": "5e1bbfba945ed4c5e5b8dbbb96afae72c3b1419e179ce4186d9d858b2d5045a4",
+      "sourceBytes": 746992,
+      "flacSha256": "c7b42c9f0905985a00b9cb414c9328d7bb4d41e8a8abdad8c6c60881f9c3a267",
+      "wavSha256": "5b107faabf56bb23b1a51cb9dc865fbbb2cae023f03609db420e9f006f860ec9",
+      "decodedPcmSha256": "8235f08baef9652cc5e07d9b564ac8d9fc449ffe8da75821c0a981dfdeab2875",
+      "flacBytes": 88523,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.042735,
+      "rms08to60DbFS": -32.169718,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-45-p-r2.flac",
+      "fallback": "bass-45-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_p_rr2.wav",
+      "sourceBlobSha1": "4bb4d566de04cf367a979b9c01d45b839f37ca34",
+      "sourceSha256": "1432f7d973da85d1e71ee3980cb2c5b211c62f97a0e28b260241524ec2533e36",
+      "sourceBytes": 746992,
+      "flacSha256": "9d99ebc10510205c7188856aa726017ce5914da829ced3fccda4b1bdc9ab08c7",
+      "wavSha256": "b2a272522257f2b8949d2096c3ab17ce83b0da50c24547690986880da43421a4",
+      "decodedPcmSha256": "b01613acb61c891f098afe584c5248a129895fe56c5c6d140a1491228c1436e5",
+      "flacBytes": 88231,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.060762,
+      "rms08to60DbFS": -33.710619,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-45-p-r1.flac",
+      "fallback": "bass-45-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_p_rr1.wav",
+      "sourceBlobSha1": "15b7daf0dbb31377cab9f0358ee1626a20dc550f",
+      "sourceSha256": "f50d84dd4d600a4d396e93f72a7f57e5b88e5e241d890cd366367112dc8fdf07",
+      "sourceBytes": 746992,
+      "flacSha256": "fadf4ef1269404d8d3672650f269edea9e3ae4b1ec1ed94d624496bcaec8b289",
+      "wavSha256": "aed9c3beb3b77840afc4a376c104c8c4346a10a2e79c4462471ff433605e11e0",
+      "decodedPcmSha256": "e150bc9b2990350165d9945c7d7bfb5abee4016e1e3b7562e8129abbc8be5a00",
+      "flacBytes": 88047,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -17.551202,
+      "rms08to60DbFS": -31.972082,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-45-f-r4.flac",
+      "fallback": "bass-45-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_f_rr4.wav",
+      "sourceBlobSha1": "e82d877458dadfd805bc2df8da5990e3b4d9fbb4",
+      "sourceSha256": "f9e786882b253febb5e8a150589ff57d846f7e980ef7b864324d13ea7a8b771b",
+      "sourceBytes": 746992,
+      "flacSha256": "8c1bdbeb77d47be743342d940f3cb6221126f19e55318dee567e7e83cc4a7c00",
+      "wavSha256": "e1d0b31349130ae5b59d4b7d34187952a4b568f67cbe9910d28da02992c6f9ba",
+      "decodedPcmSha256": "178123f03af312d768ef30c770318b3afe4844d05c2db51ca51312dd8991ee87",
+      "flacBytes": 94001,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.225934,
+      "rms08to60DbFS": -29.40377,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-45-f-r3.flac",
+      "fallback": "bass-45-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_f_rr3.wav",
+      "sourceBlobSha1": "7b3c7dc404901eaed711c04913136b08423867fe",
+      "sourceSha256": "03ba767607548d5091ca5aac423a89cdbfac005b12bbcce8f8e9c564d9392201",
+      "sourceBytes": 746992,
+      "flacSha256": "867279f084d4a0409eb274d0f5bc25cf14cd56c8b727da004a184bc865526046",
+      "wavSha256": "b82f6bf72ec98afa47acfa5631ca064738d551c2ddfd1360980389c310ea3189",
+      "decodedPcmSha256": "da529a980ffd938c6dbebba793bd7454bb3ed7315f925c27a77450714afeea59",
+      "flacBytes": 93374,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -11.500661,
+      "rms08to60DbFS": -28.674729,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-45-f-r2.flac",
+      "fallback": "bass-45-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_f_rr2.wav",
+      "sourceBlobSha1": "934df75adf56f27bf8da9e9b6809ba33ae26c24b",
+      "sourceSha256": "3d6f14e745174c888a46f11987cfc9a429b921d30a5f9b5490400a9ea788c3da",
+      "sourceBytes": 746992,
+      "flacSha256": "88b366b7c5f7b91874cbc13593add606b0c3f7e4df1e036a2ff9275230e4c638",
+      "wavSha256": "4817753e23daf1f072472e8e071bed957400871b68269ff4f9ed03c83880b951",
+      "decodedPcmSha256": "9bc99f187eab22ba9642f9f4dc6917f39b8044d1ca6eaa7a4782613108e4585f",
+      "flacBytes": 92751,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -11.74928,
+      "rms08to60DbFS": -28.564065,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-45-f-r1.flac",
+      "fallback": "bass-45-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_f_rr1.wav",
+      "sourceBlobSha1": "411567b617e13d88e8033b61551401aa601968f0",
+      "sourceSha256": "d0efad002072bfc6d017a3ad265c8c92e164af576d31239d93b271acbb041028",
+      "sourceBytes": 746992,
+      "flacSha256": "66669d5f4b93301d9e2addcbb289dd93bcc2b73f510f77a4fcbcc769188809bb",
+      "wavSha256": "0c1dc2959b9e7e207e18dc4266f998598fba96e749047889eb93c436b57b4a31",
+      "decodedPcmSha256": "5d444396fe1e8bf700b7033775cf7131822ee84fd07e593bea622bfe6d5c670f",
+      "flacBytes": 92800,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -11.31242,
+      "rms08to60DbFS": -28.27591,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-45-fff-r4.flac",
+      "fallback": "bass-45-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_fff_rr4.wav",
+      "sourceBlobSha1": "68b3991f5333fdf4fc8d66d45da52e382c527c77",
+      "sourceSha256": "cdc2e22c9f03c3ee03d0da94682a5fef0bdfe48ee1f43ee10746cb142ed362c6",
+      "sourceBytes": 746992,
+      "flacSha256": "0a6b8888f5d3f95027f425c39a6f3947c2204885cdae30eea277d726186b9710",
+      "wavSha256": "7675352399d36256e992aa7c8335df2064df3ec4b6c3fdb37bb49350c690ce62",
+      "decodedPcmSha256": "28342da0f4bb537780180f6dcaa9fcdd3a92bedd8d21cb6a2b3278a92a5072fd",
+      "flacBytes": 95064,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.527015,
+      "rms08to60DbFS": -27.994083,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-45-fff-r3.flac",
+      "fallback": "bass-45-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_fff_rr3.wav",
+      "sourceBlobSha1": "915424c74a791a314f5b802fce7f6cadf154a675",
+      "sourceSha256": "d08c1dd7dbe2ee297533086c856720152805cc113f30607163ba5e0a11b1c81d",
+      "sourceBytes": 746992,
+      "flacSha256": "1c74cc054035e8b1665723107263775c52cf98436b655ed01f1538cdbf50485b",
+      "wavSha256": "54a70923b038dfd6d47e597d6aba8c24ca91854fedb22d997d1b25d4ecc95de0",
+      "decodedPcmSha256": "4498eec318d8bdbdefd000fb51784a222021974182c312eef699220fe331134f",
+      "flacBytes": 94981,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.31938,
+      "rms08to60DbFS": -28.120515,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-45-fff-r2.flac",
+      "fallback": "bass-45-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_fff_rr2.wav",
+      "sourceBlobSha1": "9f0d874f3782dca3220af26c93ea27eea74cbe59",
+      "sourceSha256": "47ef741738756abab296adec4f2849cbccb18a5412c43027f2bfbb5fb68f86d4",
+      "sourceBytes": 746992,
+      "flacSha256": "9e7a21dbdae4f4ad02b6f6acdaa2b5c427ece3cc05e4c11fc14ac3915f060c1d",
+      "wavSha256": "f47678e278810d38a33c88f1a738ccc51c6ade70f0ab289d33cd52de29db05c3",
+      "decodedPcmSha256": "ce556ddc008ab3f7cca402dd93c482cf5dfed55c1e8f704a34bae60c27933b4d",
+      "flacBytes": 95351,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.950842,
+      "rms08to60DbFS": -28.501713,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a3_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-45-fff-r1.flac",
+      "fallback": "bass-45-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a3_fff_rr1.wav",
+      "sourceBlobSha1": "de486ac36e8622ff42e948855af5d385f74d6810",
+      "sourceSha256": "73cae4abdbcc8f662308ee80230bf00ad5a5c8fde56832253adbd1ef42e00186",
+      "sourceBytes": 746992,
+      "flacSha256": "7f1fdc521fafb69a0fd1465614104be8dfcfff8f95f19e847356c55cf90ec9cd",
+      "wavSha256": "f6c29d554aad92031faa5ebb568f32049b559e0fe4df30d19aaee3e280bc56e4",
+      "decodedPcmSha256": "f0d366a6728e8dbba711ab42a3be92e5ea824bd8d7563a54ab909967bb641261",
+      "flacBytes": 95622,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -5.033911,
+      "rms08to60DbFS": -28.897384,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-48-p-r4.flac",
+      "fallback": "bass-48-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_p_rr4.wav",
+      "sourceBlobSha1": "e6a5bbdb44a655535f6672896b6fe6b0dd73bea3",
+      "sourceSha256": "72b9c0f1c18cfac9c8c60721a99bd41103ba2678a29cb764618a9de6a24b628b",
+      "sourceBytes": 746994,
+      "flacSha256": "37a8c7c9394ac5c3d0dd32d18c620c5fa88ad48acd2d6d6da695f81b2caba209",
+      "wavSha256": "8703d83cc58f903eacb0a18bee7ca8d3d201b02995b5748702389985ddc26b14",
+      "decodedPcmSha256": "d9800bee78ae17ca73c52e904d9be8ce18911377d49a4788800fce352b7aaec2",
+      "flacBytes": 90362,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.891138,
+      "rms08to60DbFS": -32.294312,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-48-p-r3.flac",
+      "fallback": "bass-48-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_p_rr3.wav",
+      "sourceBlobSha1": "8a4a0530ef971fc26903b1c933150c56de66ffb9",
+      "sourceSha256": "1f06bbcbced7767382cc2f554ab5a2819b2b58ad4277ce2683c1a86aa8e6da73",
+      "sourceBytes": 746994,
+      "flacSha256": "37564678769020e0d6c86eebb3f8dfeb3884ca366b41190ac4becac168c0f5ea",
+      "wavSha256": "40bd99842c2587c3087bdc7bc4f08369bb069274119f3725e5223a79041d6f8f",
+      "decodedPcmSha256": "3c645124ce63c8fb34c4301cae381629af8eeccf8601e7f52fb07fee4152b073",
+      "flacBytes": 89702,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -19.81329,
+      "rms08to60DbFS": -32.729451,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-48-p-r2.flac",
+      "fallback": "bass-48-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_p_rr2.wav",
+      "sourceBlobSha1": "2394107c90e960a745fa8348377bac2a8eac3782",
+      "sourceSha256": "4207d895ae57f155c6875b0e85bba69f2063ede923b6c376805eb029dd8f36c1",
+      "sourceBytes": 746994,
+      "flacSha256": "10aa1d6f93c83dd2f9e6ce63f06d0cb1771095ee37a9dd88740f4d2c90dd2598",
+      "wavSha256": "9721a82290336d8ce8ae35d535fdda643568fd1d44b616bb55839baa94fdc1e1",
+      "decodedPcmSha256": "2460f0b78a0f7b7a92044a62fa1d83977b1270c3535b18860552027da842c0a7",
+      "flacBytes": 90203,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.662963,
+      "rms08to60DbFS": -33.391912,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-48-p-r1.flac",
+      "fallback": "bass-48-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_p_rr1.wav",
+      "sourceBlobSha1": "a29d2f6ca240e0a13fd68ba65acf8008ffff1cff",
+      "sourceSha256": "a463376a6ac879b51de9bb2c455af8102bc2ac1673969536e2cbcbc178832d4d",
+      "sourceBytes": 746994,
+      "flacSha256": "3ca15bc69b195c72ddd7f9a2bc0b1bfdc9bca23fc820faf3de7226abd3311771",
+      "wavSha256": "196ac4e745f03c0c9de4ebad09cdf7a80bd99c44dc31f8c9045f35b93879c74f",
+      "decodedPcmSha256": "4570b29a52b4661d965aaf67ec1457384ae9dad17d3a287b67f4fdfe10cf3e4f",
+      "flacBytes": 89446,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.949661,
+      "rms08to60DbFS": -31.990608,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-48-f-r4.flac",
+      "fallback": "bass-48-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_f_rr4.wav",
+      "sourceBlobSha1": "7fe1d33ade43573c69c8ddbb3a3cf1c44d05867a",
+      "sourceSha256": "5d87908664a724034325303c346dc4c848093604befd505cdee9316eda7caa61",
+      "sourceBytes": 746994,
+      "flacSha256": "213fb323f54fdb49106d187d348f537be9ad7733eda6bc0752c23fbb93a29e9d",
+      "wavSha256": "73808beaec7708aa075a31c32a66bc5066e8e9944dd80651694b666ccca1c36f",
+      "decodedPcmSha256": "13ef28dfa97d99c966ea8fbef16962422f2a24028f8190db85e0add8d6d7010c",
+      "flacBytes": 93203,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.210612,
+      "rms08to60DbFS": -26.753688,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-48-f-r3.flac",
+      "fallback": "bass-48-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_f_rr3.wav",
+      "sourceBlobSha1": "dad4135aa4446faa1a6224f18328610bca8a1e39",
+      "sourceSha256": "d3f8bbfd42865514e612beb2c514f05eeae4812e4617343acb9a3a269b20573e",
+      "sourceBytes": 746994,
+      "flacSha256": "95ae7dbd6a7d43928b7a7269d78d191898e8bb5166444783ccd338230f899d75",
+      "wavSha256": "aa8813629919702fa170dcbfe0161cf3ed5bff984a5d24151cca5a9ebe3aac34",
+      "decodedPcmSha256": "ed462f4f4d096139f7ebcf1685939994cf5df757d83eab65f098f52fe7c81bf2",
+      "flacBytes": 93238,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.056899,
+      "rms08to60DbFS": -26.401046,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-48-f-r2.flac",
+      "fallback": "bass-48-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_f_rr2.wav",
+      "sourceBlobSha1": "3b7806e029cf479fe20ec4f033bf9417412b3a4d",
+      "sourceSha256": "d86c6171eee24147b4e113fa0a856d971b41583b219e72bbb3cc5692ad039535",
+      "sourceBytes": 746994,
+      "flacSha256": "aaa9f9f1aab144dde07b7a75f04a71378e6185a5dd144974d53d89622bdc5901",
+      "wavSha256": "36b5f84c67b2a0b46d91677fa3637d7755413b5bdd5b7a9e4bd6b5be4726f56b",
+      "decodedPcmSha256": "f679846122cdc61d1a8028129542debf6eed0bd1f0d075461628ac8fc3b4f9ca",
+      "flacBytes": 93485,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.849304,
+      "rms08to60DbFS": -26.706426,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-48-f-r1.flac",
+      "fallback": "bass-48-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_f_rr1.wav",
+      "sourceBlobSha1": "85de19887bd37d91bc34dbca50a4cbdf283c3f5d",
+      "sourceSha256": "680678274a257027e2395fbd76bf8a8c0816eab3634ade0dcea679376b6e3db4",
+      "sourceBytes": 746994,
+      "flacSha256": "5d2b0a9a6c504c42469bed4cd9f93a0802fa20bcdfb45de057ed54e6f5f015d0",
+      "wavSha256": "f80f19e83ccc9bfeb0ed23444b41be2bfeb172f087541bbc3b77dfe20514fb6e",
+      "decodedPcmSha256": "2f553e25c108776636b09ca6a74a7f5c41726afdc66800219ab39f3b3180f9bb",
+      "flacBytes": 92401,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.415618,
+      "rms08to60DbFS": -27.384653,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-48-fff-r4.flac",
+      "fallback": "bass-48-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_fff_rr4.wav",
+      "sourceBlobSha1": "f76c359b0c82990da5ed5069022d35b69670be52",
+      "sourceSha256": "aff3c3b35ff9361692586ae318ab86101e3d36ad978f26256d6e78b8351adafc",
+      "sourceBytes": 746994,
+      "flacSha256": "947e96d31f5ea0228b05e436620ad5bb31e82f278c917ed64e12ee537852f849",
+      "wavSha256": "0e941c544cc153877ab6db52f9743c48c6cb4af2452ba62c65f59c77e28f9043",
+      "decodedPcmSha256": "30c28334814ed2f31d1fa993ab3ddd6bdf3add15fafeeb5dc8a6591cd6b48264",
+      "flacBytes": 100101,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -4.92902,
+      "rms08to60DbFS": -22.578537,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-48-fff-r3.flac",
+      "fallback": "bass-48-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_fff_rr3.wav",
+      "sourceBlobSha1": "2438f9f12c1f6cc9c630c4657dadb748dff2c09b",
+      "sourceSha256": "5cd2adb60037a00f6bddda0f6ee3c2e689b4fd26ccb6cf42711ab5db94fa2573",
+      "sourceBytes": 746994,
+      "flacSha256": "d40424ad16b3bc711cd59b6931dfc17be45bc85e60dc5a4cccb106e502754604",
+      "wavSha256": "a1c1f7ce7edb26a762d86b3d7640f0c2d78b10a5201535edd90248bc89937f31",
+      "decodedPcmSha256": "3898d8becdc42f9c9a96353f496b4d89ff76a4e0e16c31a81ac48e8c65c927a3",
+      "flacBytes": 99077,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.996788,
+      "rms08to60DbFS": -22.723094,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-48-fff-r2.flac",
+      "fallback": "bass-48-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_fff_rr2.wav",
+      "sourceBlobSha1": "9075bff25758d883ee0988bfa6abe840c945f974",
+      "sourceSha256": "bafd06e7086e34fb012ce1de481e8f74a263b7f3eeda54efe182fa7754740f8e",
+      "sourceBytes": 746994,
+      "flacSha256": "97b06fd2b7839fffee42e72043ce7926fac0366d94bf9921281c0b3cd5a534e3",
+      "wavSha256": "29cd1422996951fb002b3ca4b55061454d8faade5c764c8494390651ce33c2fa",
+      "decodedPcmSha256": "3a5bc17150cc805a287263825eb752cb007869d70f678bbd90b34340b2f6cf08",
+      "flacBytes": 100943,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.19517,
+      "rms08to60DbFS": -22.777773,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c4_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-48-fff-r1.flac",
+      "fallback": "bass-48-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c4_fff_rr1.wav",
+      "sourceBlobSha1": "d3fd4d29e6edef16f75d86b4fa6aa09c76779a81",
+      "sourceSha256": "6187a474f8ff4145579409fb1bc464d25910f80f9a73bffa5168e242556d3e9d",
+      "sourceBytes": 746994,
+      "flacSha256": "fef999b234a51c54312d69f5312e13a4036038a0d8d92ff98d17478f1c0b3d2a",
+      "wavSha256": "a6118653733f0970bcc4e3f668e97305b2190f359d3e941e197062493d8f41c1",
+      "decodedPcmSha256": "344fe8e806b505b67a35d8f355b3ec2b319825427fc3889bc4659cafac3bf450",
+      "flacBytes": 101147,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.053531,
+      "rms08to60DbFS": -23.253919,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-51-p-r4.flac",
+      "fallback": "bass-51-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_p_rr4.wav",
+      "sourceBlobSha1": "16f89e5bab964637ed0dfac5c1ba860e8ae61fbc",
+      "sourceSha256": "67c74dccca0636654ee57c25b53f5a3e7015ab38d79750651c018ed01b14364b",
+      "sourceBytes": 746992,
+      "flacSha256": "2f3e0657d0064f32383e3f727df2088faf37da5703fcaa88cc3bdf0e1786807b",
+      "wavSha256": "6e2d4949c8a153b8dffe0c27f77e806bf9bed04897a8f7b75dd174b94e5205d4",
+      "decodedPcmSha256": "679a2f79f35eb3a55dd82dd21769949ac533730584f13e4f031c808701c3ba6a",
+      "flacBytes": 90512,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -17.710618,
+      "rms08to60DbFS": -30.065764,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-51-p-r3.flac",
+      "fallback": "bass-51-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_p_rr3.wav",
+      "sourceBlobSha1": "fce68e237c36673b816c4d390ecbd739b60be15a",
+      "sourceSha256": "c83b0623f6a8a541f3f7d3371d7a30364f07bbb53406b8185430ee1992bf5105",
+      "sourceBytes": 746992,
+      "flacSha256": "5d165d44dc1a5eb1b5795dccbde4f8f16674df9f20b449ad0d280b45044be729",
+      "wavSha256": "f67361e65803218bac22e4c4561f73e9ea6d3faad024851a27ea11eb3a382ef0",
+      "decodedPcmSha256": "acdbef19d5c9bfeb3310c6ce66a12c844e1eb14266d15b91b3267358052f448d",
+      "flacBytes": 90818,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.856213,
+      "rms08to60DbFS": -31.162803,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-51-p-r2.flac",
+      "fallback": "bass-51-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_p_rr2.wav",
+      "sourceBlobSha1": "664c47828294e8380bbd217f807c67ce3a726c70",
+      "sourceSha256": "5ac3b93cb1cafef64a1527ab5f88505f2c1fb4a8c1fb6ea19cc551e02e0ac4fb",
+      "sourceBytes": 746992,
+      "flacSha256": "0c4debc0bd16bcf8cd6d9b9328475a09a70974eb743ae7e73414a5691c1046d9",
+      "wavSha256": "1648d0c8b2b8fbdd989831dd663f4bff62ee94db6c54a1b38a5b9efea32ca050",
+      "decodedPcmSha256": "19c17ceeccfbea11992c38700b0be8ae81a9d24cae17f91b8edfcb25e4a4bf27",
+      "flacBytes": 90689,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.828373,
+      "rms08to60DbFS": -31.063933,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-51-p-r1.flac",
+      "fallback": "bass-51-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_p_rr1.wav",
+      "sourceBlobSha1": "40ae7bcb438558b86230e2b1ddebbcb072320a83",
+      "sourceSha256": "0c74c9b6d793771adb81196e761be2b4ba32a8895fd0cfad9602f72169ae7b3d",
+      "sourceBytes": 746992,
+      "flacSha256": "c9b1f5e34ba114f6447e21d792fcc09931a4a6889bab7f00a2661ed3c8e92d96",
+      "wavSha256": "b228c75624e2ce9583e426b019d70b812a949f45bb0fdc9f7e47fb3d1406c411",
+      "decodedPcmSha256": "1a609df12b13bc142f8946ac2d85ff70cf2ddde8956c69e6bbafd708d41c5f1f",
+      "flacBytes": 90135,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.125651,
+      "rms08to60DbFS": -29.786812,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-51-f-r4.flac",
+      "fallback": "bass-51-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_f_rr4.wav",
+      "sourceBlobSha1": "8723ca040b81a75f173b723d6dd74cc4d30f5178",
+      "sourceSha256": "0e162dd0c565984718fe85d70a09c7821cece9c93bb11e530ad36c4ca80ecd0a",
+      "sourceBytes": 746992,
+      "flacSha256": "ed11f28d5954ee2fe73d5caf192db8f9553939aa58a2e5e85a95f0b86f762139",
+      "wavSha256": "b6263a74088a7e12811a9488e0779353c27664ccd2cd94d748ff06c4006ea4bb",
+      "decodedPcmSha256": "9ce7ae20eea593de8083d4143e5a0b38a6b0e28d891781cd0d1ede9d1ff5f7b0",
+      "flacBytes": 93556,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.470601,
+      "rms08to60DbFS": -25.302471,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-51-f-r3.flac",
+      "fallback": "bass-51-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_f_rr3.wav",
+      "sourceBlobSha1": "4a877adf60f9c5a912511e7fa7f76dac806ec697",
+      "sourceSha256": "2aa583739d7491c7fa119442c19f21a84b2bc33c76a7ebfa87e55ce4c0850587",
+      "sourceBytes": 746992,
+      "flacSha256": "1a89bc363b0f12724bc965398039dd6b57e065bcb18a713843ca7fccd5773e4b",
+      "wavSha256": "e4c3d98f059a424e50d2d5ecad8023a6331eec4a5e7caba9892ff1bcd4cd3d4a",
+      "decodedPcmSha256": "3b66a2a7409ac7c056ac923196aec187551666ea7424cd9a9eaacc2e3a371bbe",
+      "flacBytes": 94381,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.448177,
+      "rms08to60DbFS": -24.866895,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-51-f-r2.flac",
+      "fallback": "bass-51-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_f_rr2.wav",
+      "sourceBlobSha1": "b06340f4031518b8c5bef0e899993298513c7f4c",
+      "sourceSha256": "2b7648fddf35d265d0863271a8d565f3aea8c9039e8e4362b48f5e0641439613",
+      "sourceBytes": 746992,
+      "flacSha256": "4aef30cc19f4d9318786c61a82c12aabdd668b508408c920c1a3af23af3f2d37",
+      "wavSha256": "3512041a0d7508bc9ba90db41ff66f77048cafe21c814e3db33e836877a28f59",
+      "decodedPcmSha256": "5d491a67c00d435e9b86e27c83bd9ba664da7c1ed9dee5c985fcb40a0da0cb2f",
+      "flacBytes": 92500,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.380517,
+      "rms08to60DbFS": -26.414009,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-51-f-r1.flac",
+      "fallback": "bass-51-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_f_rr1.wav",
+      "sourceBlobSha1": "f6c29114024e9806db9d4a8cc5b460ba65d25832",
+      "sourceSha256": "fdcbd2d18b1da0385d6916534942e07cf9f47a38cb2177bb30ed270ecd66d04b",
+      "sourceBytes": 746992,
+      "flacSha256": "9dfe9b2253d142389d446b771941943be31d5c27852cc0eebdad508f6c1b93fa",
+      "wavSha256": "177ed7efe7254942fc302538c029138cea52e76b142f11afe41453bcf1d7f2dc",
+      "decodedPcmSha256": "e9541d7145acd0668788c61c142e0106f92b785fc56fb41d9e90d23916dbcc98",
+      "flacBytes": 92939,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.751471,
+      "rms08to60DbFS": -25.859073,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-51-fff-r4.flac",
+      "fallback": "bass-51-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_fff_rr4.wav",
+      "sourceBlobSha1": "b53e112db1495c2c8263c1085c5c12bc06d7b8ce",
+      "sourceSha256": "826c6229f507446d09d4e285ca448e141a20f74fa8c4163e419fd00d9bf35967",
+      "sourceBytes": 746992,
+      "flacSha256": "73c83462ee13e07784a9fcb7d3eb60e3dad96cc691531d04643f2638576458b1",
+      "wavSha256": "b21214b2a370fc996fb0269196f82cfc200c778b497175d6c5e032fe6c7ba649",
+      "decodedPcmSha256": "a6445e251902b4fbc9d1e1081184ade26ef27b09217de0c630561faf73e9dcb4",
+      "flacBytes": 98253,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.156237,
+      "rms08to60DbFS": -23.227837,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-51-fff-r3.flac",
+      "fallback": "bass-51-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_fff_rr3.wav",
+      "sourceBlobSha1": "00ebf95d239f164c6203c8a5b9f7f85511fce4a0",
+      "sourceSha256": "191447ad065ddd2898f8a9b1c8e010d2f44dd4e4c5b5c49fd6c8427fe13e4b49",
+      "sourceBytes": 746992,
+      "flacSha256": "5b89e8a5af0fc73e3db49c049b280da076fd9bfebe4d1e46ab8d2814efcc2334",
+      "wavSha256": "1e3268dce8867acbb862206d8d0bf084f7a7ae2af84acf7ccd6ba88a3796f86a",
+      "decodedPcmSha256": "52518f7e0c2251a3b8a02c89177157680f289c25ce361f0f1a1b411edde3d6b2",
+      "flacBytes": 97077,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.99106,
+      "rms08to60DbFS": -23.60635,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-51-fff-r2.flac",
+      "fallback": "bass-51-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_fff_rr2.wav",
+      "sourceBlobSha1": "d8ed4f5871c5e45181fe322c8022c318437bdb19",
+      "sourceSha256": "9215cb8bfae48a5dde9796961b44ae88f432656d7da48f207cf60ddda74a6bb7",
+      "sourceBytes": 746992,
+      "flacSha256": "28db1c00e34d38229da1c1d466a6f176d54dc9e7d09913776543a0a21a267c33",
+      "wavSha256": "fdff2b758b4f0a61139988402d45f95c57c5c5ce119a86669e20d342178fb279",
+      "decodedPcmSha256": "756da59c9020e853c9ef26cccafa5691739a9ae40a5109fbf554591266ba8c10",
+      "flacBytes": 98400,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.786015,
+      "rms08to60DbFS": -23.521153,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/eb4_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-51-fff-r1.flac",
+      "fallback": "bass-51-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/eb4_fff_rr1.wav",
+      "sourceBlobSha1": "b651b0ac6982c0a4204c0115707fdcf77a618145",
+      "sourceSha256": "9d9ce11c02393961856524ff1a67580d1fa9da9fe8b74377fdf1635d59dffc0a",
+      "sourceBytes": 728792,
+      "flacSha256": "96417dc55c0fae3176ff459891351c20dbe4272b230a13024f54cdc91226c24a",
+      "wavSha256": "70c24cce72826f92e7a65056b322b9b715c4e0a8492bc8384da2a37832238b6a",
+      "decodedPcmSha256": "758754ef309900820c8c095ff1781d4ffcdd2d3efbef264ad87cd759201eef9d",
+      "flacBytes": 96380,
+      "wavBytes": 484072,
+      "durationSeconds": 5.48746,
+      "peakDbFS": -6.887347,
+      "rms08to60DbFS": -23.862435,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-54-p-r4.flac",
+      "fallback": "bass-54-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_p_rr4.wav",
+      "sourceBlobSha1": "0b5014a8fcd09994dd161c50c106f14da04b6a88",
+      "sourceSha256": "d9b20c93337188edbb09596343a61de4acd17c42a7c3d0b44c90b5d03a92e668",
+      "sourceBytes": 746994,
+      "flacSha256": "5cf0bb7de1ff2f5d3665dcb389f2ddad77f461367cc6c83a04d761e603dfae36",
+      "wavSha256": "dca9da95fc2801b77849420a36b4f664dfa6afee26799a67d3bf4e01fc0cb7db",
+      "decodedPcmSha256": "bea99cd748a2ed86278a6300fb6a802551c8de95118be3bae1f54c8abca6f73c",
+      "flacBytes": 90451,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -20.087382,
+      "rms08to60DbFS": -30.21568,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-54-p-r3.flac",
+      "fallback": "bass-54-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_p_rr3.wav",
+      "sourceBlobSha1": "8318ec18fe7e77994827926eaff040e85420d6a2",
+      "sourceSha256": "d26265198c7a65b3c47004536a14a75cede921b3590de315ae7eadf9d98e9e73",
+      "sourceBytes": 746994,
+      "flacSha256": "5b271198fb656edb2bab397a12798fc327ae2ab5c28a799e3c1cc122a612976b",
+      "wavSha256": "18a674913d74c5fc258275de3622aabffd26fb309d80d74fc32d8f8d7f56fb59",
+      "decodedPcmSha256": "b9688e76d880cab4981875667c044e035d2366d109eb2ae21303ab0ac32cde1c",
+      "flacBytes": 90627,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.95201,
+      "rms08to60DbFS": -29.117348,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-54-p-r2.flac",
+      "fallback": "bass-54-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_p_rr2.wav",
+      "sourceBlobSha1": "1c7133e5646efda052f2866cf117d4f23e99ef8c",
+      "sourceSha256": "ba7454119ad398b15c417072f12d2f35534fe1fac322b4bc49cde4bda0160d4c",
+      "sourceBytes": 746994,
+      "flacSha256": "91877ecf4572f703953c1a792895fbc8d4d978e30bc5e2ed084e9c8bdc7dcbfc",
+      "wavSha256": "7745ad4359c7ed58868dc72ddc90a0088eaa133bb028b91c6a88d45e3ca10335",
+      "decodedPcmSha256": "cc009a59474fcfa353352bfc6ce50ece6709520665f6222611045b45753596df",
+      "flacBytes": 90452,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -21.224301,
+      "rms08to60DbFS": -30.722169,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-54-p-r1.flac",
+      "fallback": "bass-54-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_p_rr1.wav",
+      "sourceBlobSha1": "74ecb66e28d7c1622e68b51c99ebe8858f291bee",
+      "sourceSha256": "d7d5887cfcaa759d49ebd19c7032728fc3a8403e0c53ea02c5737d4c2c1fe31b",
+      "sourceBytes": 746994,
+      "flacSha256": "92b72061ae0cc3c8ccf0bb5fade45caaa45e5a9c9df83ed7c97de6fb19655645",
+      "wavSha256": "825b667775854cbbe6136183f8715c92807040b6ba9955ae92286942ff5f17c7",
+      "decodedPcmSha256": "4cbf19c45808ced570ba133b0fcabaa462ba168ab112dd5151bc67b63aaa85bb",
+      "flacBytes": 90731,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -21.421856,
+      "rms08to60DbFS": -30.627938,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-54-f-r4.flac",
+      "fallback": "bass-54-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_f_rr4.wav",
+      "sourceBlobSha1": "91b1f502188cd74bbc577b0fde7bc7d365d8512f",
+      "sourceSha256": "31e932c604410e773c6aca28e8985e412695e96ce681d545693cd46cbb95a3e7",
+      "sourceBytes": 746994,
+      "flacSha256": "391ff96cdf301e3a103fefae6d4dd7bfe60374272d84e4e1c10219a5bf04085a",
+      "wavSha256": "c49ed22b6c79fc1740e849b1245f69212f63c48b2b636e4ab20c1fb523f7d903",
+      "decodedPcmSha256": "bbd924dff3643215341ce10fa87e25dff36a155edde761080e8222ab2bd527b2",
+      "flacBytes": 94884,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.688822,
+      "rms08to60DbFS": -24.481507,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-54-f-r3.flac",
+      "fallback": "bass-54-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_f_rr3.wav",
+      "sourceBlobSha1": "9c1f45b6b8ce18bf1c782d251abfbcfadf190922",
+      "sourceSha256": "2b375d9e7d70a08eef7dae91348be131d629f737b4299d044bc1ad1decf26b71",
+      "sourceBytes": 746994,
+      "flacSha256": "c81bbe84eaff1dd7de9ee1e93f5ae91caee45574f0ba5a3e75be2fcd6c0984a9",
+      "wavSha256": "128536ea596960e16fd7c749dc0d2bc4bc075b6fdb50c6397db73c9b27fdf3aa",
+      "decodedPcmSha256": "22d9269f1e8a69063a701aeb5b759c5e2b8863a75ce4b1b66e94157ff65735f2",
+      "flacBytes": 94579,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.413988,
+      "rms08to60DbFS": -24.24665,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-54-f-r2.flac",
+      "fallback": "bass-54-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_f_rr2.wav",
+      "sourceBlobSha1": "23692210b62ee095591c97716ac1d722c498db45",
+      "sourceSha256": "11efa1b99346838dbda06381a8f685b86f06ea9ad592f3ff3a1aafbc12107e63",
+      "sourceBytes": 746994,
+      "flacSha256": "a58fd8089ea82483eaafa2057eced17ccb4a42d68a1d54be76b8813d3f2868a0",
+      "wavSha256": "cc70b5dd131d4f5c551010762cb69410ef27611b51e5d7edc0831fa7c7957053",
+      "decodedPcmSha256": "3a7c9d08f7fee7e7c18311f48931d20e3f3d63f3b4147012708b89d36f153af5",
+      "flacBytes": 92228,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.815081,
+      "rms08to60DbFS": -25.358313,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-54-f-r1.flac",
+      "fallback": "bass-54-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_f_rr1.wav",
+      "sourceBlobSha1": "82123ffd8f6a32f35c8f85cc5184382678324d8e",
+      "sourceSha256": "fa90253419e324f3da870a23f7dc742e75667600e26dd59c4834698ee449ea4e",
+      "sourceBytes": 746994,
+      "flacSha256": "cd13a48c732e1049dcb9c51dce0389807861e2ad9d6aa501316eed608fe0e9e2",
+      "wavSha256": "f90bb884213f4fc7136724451fe28f6c5629a10db917186b10c8999bb93fc06f",
+      "decodedPcmSha256": "b041b1f35146627ddd7ed73f01a7dd4316e7bc5443767e184781100aaed753b0",
+      "flacBytes": 92346,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -9.503283,
+      "rms08to60DbFS": -25.15281,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-54-fff-r4.flac",
+      "fallback": "bass-54-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_fff_rr4.wav",
+      "sourceBlobSha1": "a38a9fce63a56983d7fa7a69dcd18bf8dd4caee4",
+      "sourceSha256": "d6e530a9dee3122aaf271111b8d1bb5f9ec4d7eb237bfa4960befce6bc042a2c",
+      "sourceBytes": 746994,
+      "flacSha256": "fbdee0c4c7fafcbf305ace2b47ed8fd8a056ac5671f4bd2761b99ee05dc12064",
+      "wavSha256": "5e7283f0b84720d9fa9b0e8e2c21fee284c9d1b5cc3d6dd1caf9c90c58e3d75b",
+      "decodedPcmSha256": "10144357e98b4caa25c698ab93e3972032d814af014e657dff67c54c0189ad99",
+      "flacBytes": 98927,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.070313,
+      "rms08to60DbFS": -20.957114,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-54-fff-r3.flac",
+      "fallback": "bass-54-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_fff_rr3.wav",
+      "sourceBlobSha1": "bdf5e0c1dde2d84251636a5f7341b0c960cf1b25",
+      "sourceSha256": "bfa0506490c9734b5ecfcafb58d0a6bfabe7a28d7826bb760c14c182f6f943cf",
+      "sourceBytes": 746994,
+      "flacSha256": "467b2d86e985aeadc446349fb9d3c66cb848684739660e2dd0e6a3fbe67a73d8",
+      "wavSha256": "7657c542ceae998f3ba2a2a75f606b695669b2e7394643f60552a40d963c8121",
+      "decodedPcmSha256": "21e3c4bb11ba6cda8a504d51b41d487e7fa2b37f497e5c0f600e92cdb785c8c2",
+      "flacBytes": 99187,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.91081,
+      "rms08to60DbFS": -21.607865,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-54-fff-r2.flac",
+      "fallback": "bass-54-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_fff_rr2.wav",
+      "sourceBlobSha1": "9f1518107682a496a3a15bc8774221c164b0c7e9",
+      "sourceSha256": "f37a586245fd74bdb0e02f1f43db9868866397fe58f560513c027c547c352da1",
+      "sourceBytes": 746994,
+      "flacSha256": "06c4f32559f0bf5d5accbf4f1f55f277a5b903e4800c90b02304ca3afe9ed0ff",
+      "wavSha256": "f4b4fd71bc15255aa10f392c47d65ac20136c3f646abd963ae3c983112879a42",
+      "decodedPcmSha256": "ae206ea6d5098770ece44e9bb4af14b264c406276a36ed549c7ea906fab69022",
+      "flacBytes": 98015,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.112844,
+      "rms08to60DbFS": -22.056169,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/gb4_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-54-fff-r1.flac",
+      "fallback": "bass-54-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/gb4_fff_rr1.wav",
+      "sourceBlobSha1": "728ca7d0fdfba1d6bf02025d19d4d1e0c74507a4",
+      "sourceSha256": "7f00945ca4eb0262c3e2d5e2e09bd6766765ff7a12fc5bc5cf3a70a41f39026e",
+      "sourceBytes": 746994,
+      "flacSha256": "9094328b89f7791d13596ab54ad8223f23859f20c92f5d3d85e4d2453dcc6374",
+      "wavSha256": "2ee484d625b6abbad3eb4c55bc80eeefc99994bb4622a71b9e820e09a9cb487f",
+      "decodedPcmSha256": "96332f938f24c7ed8f6a7c5a9485ef22fa0b6425a76301a8ae506fa4b7503fa6",
+      "flacBytes": 97240,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.36663,
+      "rms08to60DbFS": -21.560512,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-57-p-r4.flac",
+      "fallback": "bass-57-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_p_rr4.wav",
+      "sourceBlobSha1": "1d72a711f22d01d5c359427e1df98284b7b28ba1",
+      "sourceSha256": "a138e8a91b7e64d73e67e90d9d61042e762c86987581ee70a653c95e6de5f95c",
+      "sourceBytes": 746992,
+      "flacSha256": "5982761f90a0cf5e8ec4d25fbb1413afd4e2a6414b081e1e7a65452e2292c21f",
+      "wavSha256": "eb998d1c071fb4af74123fff1ae71ce7e4d15d9a6e6fb715d6adda6428f8665d",
+      "decodedPcmSha256": "2fe61587055fc249dbf5728634a1912404dc32fd1b6ed60ea6b08e1dba794e86",
+      "flacBytes": 88095,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.076656,
+      "rms08to60DbFS": -29.40906,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-57-p-r3.flac",
+      "fallback": "bass-57-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_p_rr3.wav",
+      "sourceBlobSha1": "6d031f180cc0759d8ecddbef65ea65369930e938",
+      "sourceSha256": "de6aa62f9b730da51b62c25427e699431825ce610d469543516e967af8bc74a6",
+      "sourceBytes": 746992,
+      "flacSha256": "c8b91f2fa7dd5d74b10c70019ba36e1143124be5cce076eeaa7ca153c9e52912",
+      "wavSha256": "3e39a326f9805b9bd8b37199dc2fd84d78b4ef2aaeedcd1a27aee8ab1890116e",
+      "decodedPcmSha256": "2be7577ee26a2bb3d48ce277bb64a90290497aeb6c7d113c6d2fe9887789b9f4",
+      "flacBytes": 87998,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -16.885542,
+      "rms08to60DbFS": -28.570029,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-57-p-r2.flac",
+      "fallback": "bass-57-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_p_rr2.wav",
+      "sourceBlobSha1": "f353266fe2a3adc42b1a7a36434904f7e4398ece",
+      "sourceSha256": "f70f857c1a97b5c7b27efad261705ae99345098b67f7eedcfc92601d1df434bb",
+      "sourceBytes": 746992,
+      "flacSha256": "62b64f8043298693c08e84b2c6ce1a56270e1185ab3e8666ef01c747d7716303",
+      "wavSha256": "498766f71948a29314c1f149227bdc64ada2b3cca676f3ccb245e423ed5848da",
+      "decodedPcmSha256": "6db9499749fdf79371e4e22bbec3f840214a51fbf1a5e5d926d46f9eadf92205",
+      "flacBytes": 87644,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -18.575003,
+      "rms08to60DbFS": -29.029595,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-57-p-r1.flac",
+      "fallback": "bass-57-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_p_rr1.wav",
+      "sourceBlobSha1": "92c5664a68e8efd43845550ccac5edf753a91197",
+      "sourceSha256": "71a1dc28f63d14a102b7f57254070e9897f006ca1f66edc022e2324f018e2a2c",
+      "sourceBytes": 718876,
+      "flacSha256": "c3ace9ca6c220bef5c57f657f256217e49cf1f5385b797d98baa0890f7130041",
+      "wavSha256": "c5878ecc0596b62569c0c9bf515a93a86a5fb035a104b8e20cfd6cdced6ad784",
+      "decodedPcmSha256": "389defd6686b72a9df97aab1a72878ecc50edd0a0fcdbab77d99efce88c604e9",
+      "flacBytes": 84946,
+      "wavBytes": 477462,
+      "durationSeconds": 5.412517,
+      "peakDbFS": -19.110866,
+      "rms08to60DbFS": -29.342984,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-57-f-r4.flac",
+      "fallback": "bass-57-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_f_rr4.wav",
+      "sourceBlobSha1": "b8ac262adf744e5a271e9d37f688edcff30e6259",
+      "sourceSha256": "df860a8e40c3307beda84867c37acf0dabc5368f8d71cd4abee7c3f119c0dcf7",
+      "sourceBytes": 746992,
+      "flacSha256": "b326e78371073a9048bf9f36b06e6a2f0eaab386a6ab7f8ead629b953d14e71e",
+      "wavSha256": "d847557177d0475fa7cc2ca35ad322f2c28af68feb2d5e39aaedbf347d9f3edf",
+      "decodedPcmSha256": "82672fe6515d993f2a888024807b9a0c329e9e6e79002c980267201014b9f401",
+      "flacBytes": 90506,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.982822,
+      "rms08to60DbFS": -25.507267,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-57-f-r3.flac",
+      "fallback": "bass-57-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_f_rr3.wav",
+      "sourceBlobSha1": "b60a4c97dc86fe3ce7c89b04d1c8779033ea6a1c",
+      "sourceSha256": "6c18eda0e27604120897da01b59dbb6dfc2e0660b07a58f71ac1aa454f30b092",
+      "sourceBytes": 746992,
+      "flacSha256": "d87e17f992e776e95dd66089b479c716a9f84e41340f2f527650f03cd7a8476f",
+      "wavSha256": "ea8cb65f7c89df327c6d906f3bc568e986c583cddf570c8f5c80cc5a943093d8",
+      "decodedPcmSha256": "4ea965a96f1035aa14a1135c29a21469541072d83fa32fe00c2a4acdc12ee93c",
+      "flacBytes": 90161,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -8.669098,
+      "rms08to60DbFS": -25.630078,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-57-f-r2.flac",
+      "fallback": "bass-57-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_f_rr2.wav",
+      "sourceBlobSha1": "fede7668eb4c40ce1b8de40e6a18d59ae90f5b20",
+      "sourceSha256": "15a7b428e1ef05afa23ff726afd725018dd839eaa680e054a604f84242a88335",
+      "sourceBytes": 746992,
+      "flacSha256": "098ca5c25dd44d50756f2a18c669cfe094b42a00158a48863e03c096457f335d",
+      "wavSha256": "358a4813ca2f49ea2de08bddb101b3944f2f18b559b142f0f199c5f3d723ecdd",
+      "decodedPcmSha256": "ba72e3a2d9a46a86d4dd322b807a0d94cd670fd0ebeee75ddcb32ce1c9b5f414",
+      "flacBytes": 89785,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.078436,
+      "rms08to60DbFS": -25.97412,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-57-f-r1.flac",
+      "fallback": "bass-57-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_f_rr1.wav",
+      "sourceBlobSha1": "b0898976719e4d0ae081603be90918b79fce3ea9",
+      "sourceSha256": "223f4ecfdd57c521bdd2928bbda59d32f7cf20b619eaf59794d60ac16c36f6bf",
+      "sourceBytes": 746992,
+      "flacSha256": "64cc507712407a040106f475a1f97a782b7df076293d067b5f94dff0fc28be4b",
+      "wavSha256": "a4675de8a3dc131d1167c454a2fad8ec9fea99870e8156078f823c937435b46d",
+      "decodedPcmSha256": "e70f38bab6dcc362d65e7ec8d70d4bf5b1edf28cb7d36de46a7a3e874ab8415c",
+      "flacBytes": 89302,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -10.280382,
+      "rms08to60DbFS": -26.313182,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-57-fff-r4.flac",
+      "fallback": "bass-57-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_fff_rr4.wav",
+      "sourceBlobSha1": "e9e0e5df1b238412b90dbfd1bac3e172b9ca06bb",
+      "sourceSha256": "2ac8777ba08d60ca1cd30cc523b47be524fa624c1f0b9eed6b51ee70c64f563c",
+      "sourceBytes": 741698,
+      "flacSha256": "52d4709605dc3904068cca5a1df5f9db7199f823ce242acee7ecdd169c60028c",
+      "wavSha256": "845c505d917f00708aab6dc718a0b2daec8080d65d89c7135660eb8a27616eca",
+      "decodedPcmSha256": "c76188c3e4f56ae34ed451158b769b2a304304955aefeb747ddccb2e368d138d",
+      "flacBytes": 97141,
+      "wavBytes": 492676,
+      "durationSeconds": 5.585011,
+      "peakDbFS": -7.867304,
+      "rms08to60DbFS": -22.751474,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-57-fff-r3.flac",
+      "fallback": "bass-57-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_fff_rr3.wav",
+      "sourceBlobSha1": "e2f62997bdb874f84ad0f84a65686fe29dc80093",
+      "sourceSha256": "092c584a4112112a7a3f005b2848064c195fb6943555ff346e66a560428ee2e1",
+      "sourceBytes": 746992,
+      "flacSha256": "1f3e497aa218de71394b02647a3b51299701ab061d7ca1e122da47ee4eff77f7",
+      "wavSha256": "96167b702cb5639af4ae0ff762faf12beb6b15b0ccc6115e6d4c12ce9ff44e37",
+      "decodedPcmSha256": "8c04671603477e88ac756ff7e5f67461596bd4d5ffc18d189642678a84dcee88",
+      "flacBytes": 97254,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.106234,
+      "rms08to60DbFS": -23.591043,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-57-fff-r2.flac",
+      "fallback": "bass-57-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_fff_rr2.wav",
+      "sourceBlobSha1": "cb33b8714295881f7ce8ef435d86029a5d3c3538",
+      "sourceSha256": "f369313ddbde75d2fc66351bc3dfbd98bfc954843e4b78d2688e02888ddf4e82",
+      "sourceBytes": 746992,
+      "flacSha256": "f44a4b732740f0e57c71749fc740ea58dec302846c240004aed9b198b2bbabc5",
+      "wavSha256": "e22dba799e47ac9f67c3b03c9ed2090dca71685fe78659a036545493cc0df0df",
+      "decodedPcmSha256": "be06480707933264db009b37c9d9659c54e9abd3d97d9e0c8d9414fe7c5cee0a",
+      "flacBytes": 96248,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -7.566349,
+      "rms08to60DbFS": -23.578245,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/a4_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-57-fff-r1.flac",
+      "fallback": "bass-57-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/a4_fff_rr1.wav",
+      "sourceBlobSha1": "1be564f3d9578f24ff145a158f79d2c4ea06d297",
+      "sourceSha256": "9d6c3197f89d743aae8d45a91aa36264eb19c7e12932a37fec4d50ff6e62a11c",
+      "sourceBytes": 746992,
+      "flacSha256": "d3e81e51510ba308d979f635c6563d2cacf15fce66d63f70437923ec32f2e05a",
+      "wavSha256": "3cafa62253d20c29ee26eb1ebda13c8b9a186f8c412594c7bd16e50c93b6c946",
+      "decodedPcmSha256": "748f83c6f453d188d3de82ccf3c8bd969f598aa87a509422f6d7a2f3e5001ad8",
+      "flacBytes": 96154,
+      "wavBytes": 496206,
+      "durationSeconds": 5.625034,
+      "peakDbFS": -6.668699,
+      "rms08to60DbFS": -23.648045,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_p_rr4.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 4,
+      "file": "bass-60-p-r4.flac",
+      "fallback": "bass-60-p-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_p_rr4.wav",
+      "sourceBlobSha1": "98515190fdf7a3714bc5981b2808dba9f8d42af0",
+      "sourceSha256": "6ff4c26cedcae15316a300effd1721a61ca83f623979a41d46cb66fb1e630c78",
+      "sourceBytes": 560946,
+      "flacSha256": "dd3f1fb7c3b854cbf5c713089a63208e18e3cca2e6e21d8b9d4e3af18de030d2",
+      "wavSha256": "bcc77cae460ff837ac26a33aeddbd53da897600145d6c05e4228d6a806f01939",
+      "decodedPcmSha256": "06972e9f11259db41005c3dc35d23f5d9ddbe9497ea2b8658258ed727fa01dad",
+      "flacBytes": 69571,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -19.878392,
+      "rms08to60DbFS": -29.085055,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_p_rr3.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 3,
+      "file": "bass-60-p-r3.flac",
+      "fallback": "bass-60-p-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_p_rr3.wav",
+      "sourceBlobSha1": "9fdfd1101080dae46ba0879f4148f4b186a198a8",
+      "sourceSha256": "ad320c9098c871fa822a2c989ac23fded6149d3bb534f1ad79e6062a27d2bf55",
+      "sourceBytes": 560946,
+      "flacSha256": "f9ccf5275cd9ff663abb7e5acc47d37d0cf6253da8076617de1c446fe99b8c7a",
+      "wavSha256": "0b9ab4aa9715cd0520df03d13aa6c22f28bd66a280a3017d87c9a5e61083caf4",
+      "decodedPcmSha256": "3c20ce552c365123cae8cedf6d5ef74ff268f533518d1b722fb1c33ba36e2eba",
+      "flacBytes": 69748,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -19.970363,
+      "rms08to60DbFS": -28.926455,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_p_rr2.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 2,
+      "file": "bass-60-p-r2.flac",
+      "fallback": "bass-60-p-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_p_rr2.wav",
+      "sourceBlobSha1": "41749273d7238f1fb599041bec3981877fe3eb63",
+      "sourceSha256": "42919857bd53b7ee1b13c89187b5cf3d20f8bda691893683f1530480e402bcd1",
+      "sourceBytes": 560946,
+      "flacSha256": "8e3e6225cb5669a9359794179025c3f9d952eb0b6f77a1e7fa66d5ebc908dc9a",
+      "wavSha256": "0fe3eec4534fa8bfefb47fbf203146e72b19600fc36eef0df4a82d66a7a75f79",
+      "decodedPcmSha256": "e0f56ef6bffbf25b6ea209a31666e57452809015f49da39dc69d51abe0a1a487",
+      "flacBytes": 68771,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -18.839962,
+      "rms08to60DbFS": -28.796527,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_p_rr1.wav",
+      "sourceDynamic": "p",
+      "sourceRoundRobin": 1,
+      "file": "bass-60-p-r1.flac",
+      "fallback": "bass-60-p-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_p_rr1.wav",
+      "sourceBlobSha1": "d513f4910455628962710379624329e55c46ad02",
+      "sourceSha256": "cde9dc240c16a07f3c8b5add5b70625593bc486aefe844675d7bd88622c0e6e6",
+      "sourceBytes": 560946,
+      "flacSha256": "a8f9f90e1f349228646513c1276cc336928da8df8d4d3b792c3a57565008e661",
+      "wavSha256": "3b391a0d66670eeb9dd3f3e9c2bf4c77de968b18137b6cda12d40d0f99cc5a88",
+      "decodedPcmSha256": "4f83be47fc91ee998232b861563308168892117003a1c372107878fc64b0ace9",
+      "flacBytes": 68624,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -19.941352,
+      "rms08to60DbFS": -28.878627,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_f_rr4.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 4,
+      "file": "bass-60-f-r4.flac",
+      "fallback": "bass-60-f-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_f_rr4.wav",
+      "sourceBlobSha1": "e821d3ddeb7ab8c63844f9b3d2b199a04646e119",
+      "sourceSha256": "67bb80019215e6949151f58659e858ebd91dc016d9e250c79143cbf403b0991d",
+      "sourceBytes": 560946,
+      "flacSha256": "b07ca4ae46dce7299a044fc7a4cabc85a9dd435957a714c95ed68f9610e6454c",
+      "wavSha256": "d9b274e7a103fb1366524b56dcaa243a122c9f638116f5e7dbf5f8dd848213ef",
+      "decodedPcmSha256": "357b8e33627649b185e51778a393de99a6958e54fb058f34817ec74af3693035",
+      "flacBytes": 74797,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -8.47355,
+      "rms08to60DbFS": -24.585116,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_f_rr3.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 3,
+      "file": "bass-60-f-r3.flac",
+      "fallback": "bass-60-f-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_f_rr3.wav",
+      "sourceBlobSha1": "e1a9e4eebe74360293887fcce844e911d72be4a5",
+      "sourceSha256": "418bae7b073848ac148b3bdcb5fc8fffc341f3553de29aa2f555a0e404b7c657",
+      "sourceBytes": 560946,
+      "flacSha256": "8e124fd10a03bef9deec8a36c479dabc1657627bec3db7566abe932fd0a6c3ce",
+      "wavSha256": "8e20d5dbe291c48a236f825e676df15f6cc5936bdad31e971c1d223a75aff0b0",
+      "decodedPcmSha256": "0983e6046a438dd0f3dbe835ef4fb5b893f3b7d22d29355cbb3e8e4e80b3dd6d",
+      "flacBytes": 74635,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -8.546277,
+      "rms08to60DbFS": -24.338923,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_f_rr2.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 2,
+      "file": "bass-60-f-r2.flac",
+      "fallback": "bass-60-f-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_f_rr2.wav",
+      "sourceBlobSha1": "a63fd475be27f4b2cee1bce2ce1df1884a78b678",
+      "sourceSha256": "5e15731c705dc3978e6f916632d7142e6285ba2e7c414bdf9bdf6afa2b44f7b3",
+      "sourceBytes": 560946,
+      "flacSha256": "e8aace37dd7276f2aa985e1ed8a56cf4a728e7ba1b10cfd5ec823e7417bcb528",
+      "wavSha256": "b53c9a17fba7e3967b8c292c900f9b77b474ac0ba36af7e2ca3932eda360a42f",
+      "decodedPcmSha256": "36049397357ebbca06c1b37a8fc64be8deb6830c237195c8aa3bb726b340c0a5",
+      "flacBytes": 72846,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -9.967497,
+      "rms08to60DbFS": -25.053984,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_f_rr1.wav",
+      "sourceDynamic": "f",
+      "sourceRoundRobin": 1,
+      "file": "bass-60-f-r1.flac",
+      "fallback": "bass-60-f-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_f_rr1.wav",
+      "sourceBlobSha1": "bedc7d522da23a61d0a3cf545de28a377d8190d3",
+      "sourceSha256": "e60c58d9cf023b7632e951e04f9cac465c310bde97b28337e5de7d5e3bacf7ae",
+      "sourceBytes": 560946,
+      "flacSha256": "4c8f67cfcfb9325ad58877adc5d5479668351abdf56c99ce03923b23461d1af0",
+      "wavSha256": "94637885e51ceca1dacb38ca82af51aff719259c3566154112aa202e2ab232a6",
+      "decodedPcmSha256": "85e1bbe9866872beb1f77c2b1f515ec545e6e4d4bb642585dcf31ac6e7df659f",
+      "flacBytes": 73928,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -9.779151,
+      "rms08to60DbFS": -25.134164,
+      "gainDb": 0,
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_fff_rr4.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 4,
+      "file": "bass-60-fff-r4.flac",
+      "fallback": "bass-60-fff-r4.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_fff_rr4.wav",
+      "sourceBlobSha1": "7fa6a3d3b85a13216b7908c26b74018beb98efb3",
+      "sourceSha256": "f318cc9df49f3696a1636a8ffd3e8afca17aa28765bda3949cdfd1493e5d7cde",
+      "sourceBytes": 560946,
+      "flacSha256": "4cca56a9499bd01ebe4a8df5ec91e2300bc9d056ff9aafcac5f8574efa97d54a",
+      "wavSha256": "47cc22ddf4044f6a5818c23d50c2f0a268f0d6dcd6d0f71109756efaad0f7907",
+      "decodedPcmSha256": "720aba120cde5a48a445fb0a30e319d7543253d20594ea2d5f2a60a7e55613bb",
+      "flacBytes": 82270,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -7.816306,
+      "rms08to60DbFS": -22.817003,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_fff_rr3.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 3,
+      "file": "bass-60-fff-r3.flac",
+      "fallback": "bass-60-fff-r3.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_fff_rr3.wav",
+      "sourceBlobSha1": "c838b1c78a92d015682bb0f3f23d6d3d86b58b86",
+      "sourceSha256": "9e6ed2e382f06aabe6bc25bf708508c9888623205ae225a8cc8cdf0a912ee257",
+      "sourceBytes": 560946,
+      "flacSha256": "02e4543e8cec450185611689142137d5d787cbfbf64fdbfcedea1b2ef5cea9fe",
+      "wavSha256": "d141444885b31c3c7b5ee855589fc2cec7ae2eb436a2ae78dcb26bb948db4f57",
+      "decodedPcmSha256": "27620cff9bc372fe77a335e13a7be384138a4e105ed8fe7dd28a7021d3c96af3",
+      "flacBytes": 82015,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -6.207619,
+      "rms08to60DbFS": -23.341683,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_fff_rr2.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 2,
+      "file": "bass-60-fff-r2.flac",
+      "fallback": "bass-60-fff-r2.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_fff_rr2.wav",
+      "sourceBlobSha1": "aff5babd70c704b143aa6930e37cd1a5c62fab9b",
+      "sourceSha256": "2c47470a1ac4ca6052cebbbb7a0e028d2ac7b7aede0b2dadb0a1179317cc4854",
+      "sourceBytes": 560946,
+      "flacSha256": "d0d8d268ebbf04f6c8025a8fd1f89866a9d82d0184922970a034a818eefcada2",
+      "wavSha256": "fe051ea64a917878ade29454b07ba670fda0350a66491bea0cd9afd03fcd6491",
+      "decodedPcmSha256": "c1876c2329770dcbbfb7aa5b82edb1fbd42f3a7a2755ae03c16e35fa41fdf37c",
+      "flacBytes": 81887,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -7.233311,
+      "rms08to60DbFS": -23.153717,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "sourcePath": "notes/c5_fff_rr1.wav",
+      "sourceDynamic": "fff",
+      "sourceRoundRobin": 1,
+      "file": "bass-60-fff-r1.flac",
+      "fallback": "bass-60-fff-r1.wav",
+      "sourceUrl": "https://raw.githubusercontent.com/sfzinstruments/karoryfer.swagbass/9d10fcae71af1975988ddecd5af1c95d372c7355/notes/c5_fff_rr1.wav",
+      "sourceBlobSha1": "1ea784ebb911c7dc8d54e60597592508ad5abada",
+      "sourceSha256": "959e9e6d1eca4de1ee0b52d31b38bb21d677db7ce31265cbc383336cd56df9ef",
+      "sourceBytes": 560946,
+      "flacSha256": "edfd6d3339cb83dede8ee6eaac7676700485dd27655b1d7dad695e260d192266",
+      "wavSha256": "c16b1507bd349d905b6028366aac7cf47ffecc756bc2e875df89c1b765bf4dab",
+      "decodedPcmSha256": "5d16cfdd4d1814b140bd5c5b1787ebe73a542a5c0686bbc76725fc1fa0731e66",
+      "flacBytes": 78924,
+      "wavBytes": 372174,
+      "durationSeconds": 4.218776,
+      "peakDbFS": -8.327132,
+      "rms08to60DbFS": -23.606686,
+      "gainDb": 0,
+      "amplitudeExponent": 2
+    }
+  ],
+  "summary": {
+    "files": 144,
+    "rootMidis": [
+      27,
+      30,
+      33,
+      36,
+      39,
+      42,
+      45,
+      48,
+      51,
+      54,
+      57,
+      60
+    ],
+    "dynamics": [
+      [
+        0,
+        50
+      ],
+      [
+        51,
+        110
+      ],
+      [
+        111,
+        127
+      ]
+    ],
+    "roundRobins": 4,
+    "totalFlacBytes": 13104067,
+    "totalWavBytes": 69930872,
+    "durationRangeSeconds": [
+      4.218776,
+      5.625034
+    ],
+    "peakMaxDbFS": -0.134904,
+    "medianRmsByLayer": {
+      "p": -32.4319045,
+      "f": -27.358368499999997,
+      "fff": -26.765599
+    },
+    "allDecodedPcmEquivalent": true
+  },
+  "velocityResponse": "Original SFZ amp_velcurve points retained with default endpoint0=0 and127=1; regions without a custom curve use default amplitudeExponent2. Apply this response once to each recorded sample; do not multiply velocity again or normalize recorded dynamics."
+}

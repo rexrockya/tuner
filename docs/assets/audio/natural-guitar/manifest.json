@@ -1,0 +1,3147 @@
+{
+  "version": 1,
+  "label": "FSBS Clean · Fender实录",
+  "license": "CC0-1.0",
+  "source": {
+    "repository": "https://github.com/freepats/electric-guitar-FSBS-clean",
+    "commit": "192cf0d9bf2c4ba6ead8e3524ba3f78818e4fe91",
+    "description": "Direct recordings of a Fender electric guitar, subsequently processed with an amplifier and effects rack. Real source takes retained; two recorded velocity layers in most regions, one in the highest regions. No recorded legato."
+  },
+  "sampleRate": 44100,
+  "bitsPerSample": 16,
+  "channels": "Original channels retained; no synthesized stereo",
+  "recordedLegato": false,
+  "recordedRoundRobin": "Up to four independent original takes, as mapped upstream",
+  "samples": [
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v0-r1.flac",
+      "sha256": "43afc0572fa6e2e047c239beea06a53fe38c67b64592784d1a71e30693873a2a",
+      "bytes": 222818,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v0-r1.wav",
+      "fallbackSha256": "c250d3266879fab6df82cad3f83b459453ce50dbf6640d183bf5f2373c57dcf9",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v0-r2.flac",
+      "sha256": "4b259afd5c574b38f4a8fa1816035518d4d3df02c6f040c044a7d285e034ead3",
+      "bytes": 224036,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v0-r2.wav",
+      "fallbackSha256": "ad172af9873bc3a2cdc37bdc27a2db0b4b85a4da456a8335c9bc5c4edaa7b4d7",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v0-r3.flac",
+      "sha256": "bf61f9c4cbaae1957a6d05892b786a317b9ee896ab503ea225b66250d610d533",
+      "bytes": 224772,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v0-r3.wav",
+      "fallbackSha256": "4877d315c0ba4b287102032d55ecf87ab23cb9138240131194f9cc622ba9975a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v0-r4.flac",
+      "sha256": "703963991cc79f2795375e34b62d6e7b0187c089c8f474669283d3a4226266e8",
+      "bytes": 225794,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v0-r4.wav",
+      "fallbackSha256": "5f7cd88a88f02b86f1cca292933618233fba75270e0a918b98d0ed6415d57ff2",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v93-r1.flac",
+      "sha256": "05006137033813e20b55d5b221bce2a409c43e49dc5ffcd29e0b6b886e9cce42",
+      "bytes": 233778,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v93-r1.wav",
+      "fallbackSha256": "9964a311ce0c448c1896599acda35feb72ac3396b5e75d03ee945f922da48a60",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v93-r2.flac",
+      "sha256": "802cff7c85bb52fc560deb19c8e2d8ef658a06858e1280d3214c0cb9068f00b5",
+      "bytes": 233130,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v93-r2.wav",
+      "fallbackSha256": "e01e68bbc6d4334b5df01a20b8635cebd025569bf48dd738bd51a07432d02f12",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v93-r3.flac",
+      "sha256": "9438273111fc7ead760f81ee3923186488de53648d24d341fc502e33addf3e57",
+      "bytes": 235042,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v93-r3.wav",
+      "fallbackSha256": "7fc890495d46f5d7744400e9c3566c5a4753d88c13578360020c3be08267c985",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 36,
+      "keyRange": [
+        35,
+        38
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-36-v93-r4.flac",
+      "sha256": "bc4b497c2d2a8c2684d4dbe057df1abac8092ca6645a7378f360623b979c98a4",
+      "bytes": 232755,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-36-v93-r4.wav",
+      "fallbackSha256": "103362a9c32480bc7d6e08829016868dbad43c6fd29939d267f3e92ed13fc01c",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v0-r1.flac",
+      "sha256": "9c525ed3239f54b8b8f015d97fd1368677882041b56d6c23cf7446b057d3965d",
+      "bytes": 223813,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v0-r1.wav",
+      "fallbackSha256": "a43e270e5e05176f8d6052af29d32a7230900013128e66159015cada2634a500",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v0-r2.flac",
+      "sha256": "a11e62865d607d101c384226612e5e10a394be9f307628e85be8bf2c7e49e96d",
+      "bytes": 235187,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v0-r2.wav",
+      "fallbackSha256": "9991ecb72f235f7f22b1edf1221cbdb92a1646e723c0db5b74a396c107b8e21e",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v0-r3.flac",
+      "sha256": "e5ad13872feeb69dd905f9f5e201129cad1febe14392bd9dac5b28dc424544f8",
+      "bytes": 226328,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v0-r3.wav",
+      "fallbackSha256": "39a075defffead900c3d15b205fa6a513abfa5b2f1c3a56ec0e8f12227a75236",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v0-r4.flac",
+      "sha256": "b1643a09a53ac488f08c24630976a7b8c2bb691059222d01ecb372349f0e4e81",
+      "bytes": 225782,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v0-r4.wav",
+      "fallbackSha256": "8da769bb35b4f09d48e31a4a6f0bb87219e6ff1b399a5c347a8afb2cbfefcff3",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v93-r1.flac",
+      "sha256": "04b788a8f53dc138cab2ee46332d7d733141be56df8b1073c04b871843af2634",
+      "bytes": 244157,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v93-r1.wav",
+      "fallbackSha256": "330ab34290f3abbb63ca16ac948b55d7f1697ca7da7058225a7cec2b61713585",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v93-r2.flac",
+      "sha256": "4a6bb779e86869e4a86e4b8ed3500f4431ac174e67d69e689f0ffe0d8b1351a6",
+      "bytes": 243976,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v93-r2.wav",
+      "fallbackSha256": "addb69354aaa400edcea72f47d67e02e73dcb2bd64b9bd63acb8b2e21995dda6",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v93-r3.flac",
+      "sha256": "ec7fbf6b7803cb92a061e2abcdbc0d650c306c8931952ca170591b007027757d",
+      "bytes": 243590,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v93-r3.wav",
+      "fallbackSha256": "4f670adb7dc67881413e468e05e5a31596f0e29915c6b18e5a505ef853ba063e",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 40,
+      "keyRange": [
+        39,
+        40
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-40-v93-r4.flac",
+      "sha256": "77807fddf5973c574290bc92307b4ac5598474f3c363f3db3dd945366b05a95f",
+      "bytes": 242930,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-40-v93-r4.wav",
+      "fallbackSha256": "80da09658dbd247b214bdeab00a317dbb67f22b289b9d9b3b6ea2095396677fd",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v0-r1.flac",
+      "sha256": "fc5f1150d4e5c5a152e4b329505109fa8fd2e27e2ed4d9be06a1a8dd7b5e66f6",
+      "bytes": 212895,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v0-r1.wav",
+      "fallbackSha256": "92a070535cb3b1fadab15a53610e956cc00b8cb9aafea92004ade97e464f29c4",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v0-r2.flac",
+      "sha256": "92db5ec62a555bf33b72168be4a0ad08a727fa98ae709c687a5c8676e0b3100e",
+      "bytes": 233460,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v0-r2.wav",
+      "fallbackSha256": "f1048362bcee04b4f2f8e7991187bde34523edf2e1ed1e9babc6b69044f8ca87",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v0-r3.flac",
+      "sha256": "0f5e47bd3265c460c18c74191a53f45586cd05b242f2cf2d57df143db68c6070",
+      "bytes": 232623,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v0-r3.wav",
+      "fallbackSha256": "101bf8425bd7a5ce9e4b8c5ec4333d5211e349da92637f6a3a0ed794c3187e42",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v0-r4.flac",
+      "sha256": "d9feed8525f25ac4d620c72a6b8762aa2f21ae9f1c9eed9df25f6afd9702baa9",
+      "bytes": 228902,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v0-r4.wav",
+      "fallbackSha256": "350fa81b6633d1e19c8a882b9c978f0627288cc20846dd42b952a93ecda64087",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v93-r1.flac",
+      "sha256": "6756d11c80272d37b13a5566f7c850b97911d65e67e8273e9c6064157c38bcc0",
+      "bytes": 249178,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v93-r1.wav",
+      "fallbackSha256": "e01c5caad6161414b874b3d0d5a4cb04c2bacb86fcde5caf039a58029f3c0a6d",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v93-r2.flac",
+      "sha256": "afe8abaebd5d4ee423e57acbffef792ae05f49bd507b174210f359c11c9d71c6",
+      "bytes": 244991,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v93-r2.wav",
+      "fallbackSha256": "2211a093401689a9a1b3d82f366f24fcab58fb0be941de499ba88508d1c226f2",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v93-r3.flac",
+      "sha256": "e9fb256f28df635cb785d5521800d43e7c10e8615a8ccd99754db7c551bf16d0",
+      "bytes": 245378,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v93-r3.wav",
+      "fallbackSha256": "03a732bd4ea1c575015027fa1a6335ab65f6b297442cecd6a02cc640a6064ad5",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 41,
+      "keyRange": [
+        41,
+        42
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-41-v93-r4.flac",
+      "sha256": "fb2b4ef0688ca54e59b02dcf2746faf54b565ae7d21e35ca087d03ad710ff77b",
+      "bytes": 245893,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-41-v93-r4.wav",
+      "fallbackSha256": "9df6f1c4df2f9da5554fec391b151be92ee71a501cce34ae1d562a6e764f4fbc",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v0-r1.flac",
+      "sha256": "d92ac961bce74a337d7ce7cfa662a1186ed0aace2e43f34ded4ca5c97bc67d59",
+      "bytes": 253597,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v0-r1.wav",
+      "fallbackSha256": "8cc1323aeab79c36f3258523b2c280820d7dbad0ac6bf5cc4fe29a125a9ed34c",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v0-r2.flac",
+      "sha256": "d4db90a9910186f6dca416433a06494c686583ba07a3527350f869ad817eaef1",
+      "bytes": 246031,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v0-r2.wav",
+      "fallbackSha256": "88eae403ae79f28aaeed241d3c87cb6cae0a985dc7f10ad3250f411121f09786",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v0-r3.flac",
+      "sha256": "a023c313846144116ceaa596840c2136c5ba3d13445ca0b053362884df5d8cfe",
+      "bytes": 241278,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v0-r3.wav",
+      "fallbackSha256": "ef73ae38db1e7a9cd37d4057a7f48ecb6399e310da79389dc583d668cae792bf",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v0-r4.flac",
+      "sha256": "ecb6ecaa9a90d9a2e09b2db912110dab1f2e38017c972e2b81e22c031ab3b47c",
+      "bytes": 239571,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v0-r4.wav",
+      "fallbackSha256": "198d4d0a2cd7cbe7367d92fe84df7cf35b2a0690a4ce860c0bd205cfb7c46e14",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v93-r1.flac",
+      "sha256": "ef9f84dc0c029963f9a0be132a733fb1db9640ffec168db5500df858f73355ac",
+      "bytes": 260295,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v93-r1.wav",
+      "fallbackSha256": "fa75d6c10822f1f5314b1936ed6f4a2ef541265c03acb28d3c12f0abb9c8877b",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v93-r2.flac",
+      "sha256": "b46857645ad548c11d29316a355b3b1678784cfa46934b69b19c7b4809ecc7d5",
+      "bytes": 272713,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v93-r2.wav",
+      "fallbackSha256": "09bc8fdb6f4427c9986bebddcad4b0740a5dfa7ceb706a4cda9b36f2ce80d7f5",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v93-r3.flac",
+      "sha256": "a5901e8c2124eebcf9db7e970c798ef5a9a13336070d3e6386ae42088d09ad7f",
+      "bytes": 269041,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v93-r3.wav",
+      "fallbackSha256": "8b64c6917a47bb38b4be9169b3c1a12ce19f3cef1e34d3d5c1f5ed9f1ab6566f",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 45,
+      "keyRange": [
+        43,
+        46
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-45-v93-r4.flac",
+      "sha256": "69b8f004d240f9ea96e6e24fc76095826847121f30fb2712e06dbde049bc8044",
+      "bytes": 271573,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-45-v93-r4.wav",
+      "fallbackSha256": "836200b821010e43f37dcdbf080455d3d00e4366ef79003ef9c3d256d8082d02",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v0-r1.flac",
+      "sha256": "a33834e2d0636d6f945c6106e1ffd17bd33ef2f63ce435ec1669dd50fcd65d8f",
+      "bytes": 217104,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v0-r1.wav",
+      "fallbackSha256": "7d3cb8036a1f0dfec0a8b618debe1c1a0cbbb1b15bb8fc70887061e9f4560af2",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v0-r2.flac",
+      "sha256": "7ccdbdc79414bbbf1a3f712d718e5cd6573698d6db000a997c39ef1d44605d84",
+      "bytes": 216719,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v0-r2.wav",
+      "fallbackSha256": "f79a6bfc4edeb55a746fe9ce64c38720bc209d9a98acd32002d16f5ac339a7b0",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v0-r3.flac",
+      "sha256": "4fa376648c257687c60af2a7b06a06e6014aa5cc114d463421ed527fa341bd08",
+      "bytes": 222548,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v0-r3.wav",
+      "fallbackSha256": "3e1f8926a84b2b3ddcde64ccb6ab6d28cc5bea3a81f599bd694d4b0ee1c34f8f",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v0-r4.flac",
+      "sha256": "52ae0c3831429846400098370a12e4903ec456d6f44864dc1f7f8a7af204d0b5",
+      "bytes": 226419,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v0-r4.wav",
+      "fallbackSha256": "12de43dde07cb47aca7894281e01d2dcdaf57a3a5a448bd7b5bcb9445db0d9ba",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v93-r1.flac",
+      "sha256": "628d05b2728ea2729911ce1817a66754d3b8d8b4a55e2ab224b4c8d571e1e824",
+      "bytes": 233638,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v93-r1.wav",
+      "fallbackSha256": "f5ea17d7912c8b886f345b12bedf2c5d2fa3f2da64c14496be8ee6dfd2ebb651",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v93-r2.flac",
+      "sha256": "4dba25abe0714cb8abda197f247909debd78c8da04c40da5e1b38a66d10782de",
+      "bytes": 237283,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v93-r2.wav",
+      "fallbackSha256": "fce23da99c7435e48e586f1df50beabda538b5c1b4c5d1738daaf705d61434af",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v93-r3.flac",
+      "sha256": "e6d3b0ee004cfcb0910782996442b733718614c6bf0bc7f1478f5bd80f0710ed",
+      "bytes": 239273,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v93-r3.wav",
+      "fallbackSha256": "0fc775c565cbbc1ec11f5681e80752c1d8c7b412183b89453a6d2ae86e7122e7",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-48-v93-r4.flac",
+      "sha256": "f726c13eab0605d5fcab8a80bfd81d2e09d8ad6fddbf58cd49cae3bf9f090554",
+      "bytes": 232810,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-48-v93-r4.wav",
+      "fallbackSha256": "f2dc705123c775ed767002f5a85b17474b4deaa35151fbc48ff2ab0284f1cd55",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v0-r1.flac",
+      "sha256": "6ac6a851921f675e9c8be87f2b6abfca5b065add4b6a5b592761f0efde0e2eb6",
+      "bytes": 254843,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v0-r1.wav",
+      "fallbackSha256": "61e3c429863c8f47334ce230749d48bf611a6491607bc2c89b765efc3597dfbe",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v0-r2.flac",
+      "sha256": "de95bfd34f3be5e1057744efcaae42fef342f06ec2ff7ef1b76bdf9d8bfc9886",
+      "bytes": 254631,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v0-r2.wav",
+      "fallbackSha256": "3c9e18043d26e6af935dbd29307aa8a5d4c14ee154879371d2657ed46630d6cb",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v0-r3.flac",
+      "sha256": "99e18532de1cb63a582938c8cf639093cc58433786fd1459f16aa0ecd7579c14",
+      "bytes": 241571,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v0-r3.wav",
+      "fallbackSha256": "92167cbe2aa19e82abf7a4fda8b394323f02c0b97a28044f63fb4ade626d2c0a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v0-r4.flac",
+      "sha256": "5395698952ae83ff105741205ce0a80bc9f0b6d0811a2cdc889b81b08eb52ab0",
+      "bytes": 249456,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v0-r4.wav",
+      "fallbackSha256": "d868af78edf8b5727b3c2f82d2d4f7b111f684028cca44e7b3bbddde83bb23e8",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v93-r1.flac",
+      "sha256": "a08d2ab89a11df3d056052bc6a0a984cfd880c00aa26a84422fdf106685327ba",
+      "bytes": 269240,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v93-r1.wav",
+      "fallbackSha256": "c4f9ca5bd67a487ae01b757467aa1b1555f8ffc7d2e2ec656d6f5f296ec74955",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v93-r2.flac",
+      "sha256": "eaf84e77ea30e9db924aefa6a8e01781d202ae39e6c47f695aa78c0b788028f5",
+      "bytes": 284747,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v93-r2.wav",
+      "fallbackSha256": "d4f56464c3290a8f8573ea8f8905a0256b56187f612fc3ea77febfd4f072c9e1",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v93-r3.flac",
+      "sha256": "fd32e96300988f4e1456674bf640a9e1e6bffc544ad41aee8db7b831658f0b32",
+      "bytes": 283263,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v93-r3.wav",
+      "fallbackSha256": "74b145b663d278dca4724a690ae916054b2bb4a6b97cefeedba2234ff11dfe7c",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 50,
+      "keyRange": [
+        50,
+        51
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-50-v93-r4.flac",
+      "sha256": "31cc96747c3ed05a93fb256478d176565cb59923381d2bd0a38f51ac0eaa520d",
+      "bytes": 299729,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-50-v93-r4.wav",
+      "fallbackSha256": "74a32bb6c8db15610667bc3155f15159f3265e25450f3c315478313c8e809209",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v0-r1.flac",
+      "sha256": "07e75edbbc0b3c7c39940f82ac13a8f0e9028723e2505f6574ec1bee0b13577f",
+      "bytes": 237461,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v0-r1.wav",
+      "fallbackSha256": "eb992defe7bc06e1568b915e42c6930ae51cf76d027c3b4d03efb7b8e6ccdd44",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v0-r2.flac",
+      "sha256": "0fc51f1a820cea56ba24eab0204d5465aa74db9fe018314656c3c2b17c200c81",
+      "bytes": 235640,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v0-r2.wav",
+      "fallbackSha256": "559b61d4d29c81ea2f4240d00d2c4f28a418acf6b31aff13e1edab58023f6eb8",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v0-r3.flac",
+      "sha256": "8a60f0f92378d0100589b633514cb4866592dfdd746593f3f70e8f3871bc9821",
+      "bytes": 229843,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v0-r3.wav",
+      "fallbackSha256": "15b49cd65d4985a1437a04fe70695afb9dae45e4186f90039fc57f154a398202",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v0-r4.flac",
+      "sha256": "07093145b12b9de1adf515e62c0028da0b864ef08a2aab7d20a1d886270a2138",
+      "bytes": 243212,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v0-r4.wav",
+      "fallbackSha256": "1998a3b04df5fbbf081dbcd99703f968d52ae51416ad7d5be52edb1521939dd1",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v93-r1.flac",
+      "sha256": "f4c5dd2bf7950fb541fae528214be7a576308d8285cd067581a1766b1830c5d0",
+      "bytes": 259439,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v93-r1.wav",
+      "fallbackSha256": "c6d2c8b94003ba73395d63c5c910ddce68a59274c4357db8b298a9c220089835",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v93-r2.flac",
+      "sha256": "e6889ff4c59686ec93dae4d4d127162bbd70d661540c8ef4584c79ef9a6c31ab",
+      "bytes": 262182,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v93-r2.wav",
+      "fallbackSha256": "47fc5c80c18847970b1b0f4da45b11d9bd394acf1d160dc5fb794ee7cd8a4b2c",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v93-r3.flac",
+      "sha256": "56651d2b4ddfa14ec5035d614a21f8e23e9149791186dfa47fc2476346191978",
+      "bytes": 259778,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v93-r3.wav",
+      "fallbackSha256": "1b00a40705fee61cf3a43f25193874ea650f3d2884a8af789c3eea643d7983e0",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 52,
+      "keyRange": [
+        52,
+        53
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-52-v93-r4.flac",
+      "sha256": "0614662f0051df21479501abefcda9d9f88c08d617ae28bf7389a26fdcd35793",
+      "bytes": 260102,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-52-v93-r4.wav",
+      "fallbackSha256": "2b87b53c48b0cdd4f4568882121227c30ec13ea3f297e663db7a0a5c8bace25f",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v0-r1.flac",
+      "sha256": "2b38f9a3e8fad1b052f5b1ec5fba46a3ea2cb8de5a8660a170479b76ae60d4eb",
+      "bytes": 267845,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v0-r1.wav",
+      "fallbackSha256": "3abf68652430783643706ce0fb33d18fa9d7d0b5bda2a4c5f826b528a3cffa96",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v0-r2.flac",
+      "sha256": "19c21244071798d20767c1c8ea7422d53e680aebe081f0399dd73cd8477c537f",
+      "bytes": 268688,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v0-r2.wav",
+      "fallbackSha256": "0612724501951a749792e7f0efe3a2ff5563088ca72c57af17527493b82a07ec",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v0-r3.flac",
+      "sha256": "6f1c78895f0f48b5021e0fc9cdd290074d3c8089a292c157f59bf794f84dfe89",
+      "bytes": 278268,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v0-r3.wav",
+      "fallbackSha256": "15ffb9a89b4d1c1707d0bbf3b3d16ac57528d87674dc454eafdcd1332645b3ae",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v0-r4.flac",
+      "sha256": "cec2f493c7de7a621b8cf4c53fa707704da6c0b40a87b8c5f78abc97d1f62660",
+      "bytes": 272551,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v0-r4.wav",
+      "fallbackSha256": "4d0eaa0858b6388e60eae571743ed0bd5500a5264cb59ca233b816ad3678339d",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v93-r1.flac",
+      "sha256": "c4ccb216097155090caad1cf9612f7c547cd848414f008329ffdfe5ac3733e42",
+      "bytes": 298993,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v93-r1.wav",
+      "fallbackSha256": "7c8ff9fe74b2e3b103d82edb234ea2758e06843d50435ff10df42df3b9fe990d",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v93-r2.flac",
+      "sha256": "4c5ac034056264d5d2af9f14477844ea3a36dbb1cfe9748d4fc4782d5401f199",
+      "bytes": 282415,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v93-r2.wav",
+      "fallbackSha256": "b3df8e13234b5cfd72989156406c05a5a5a35c8786279518ba443d5574805f3c",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v93-r3.flac",
+      "sha256": "5e6aaeefa83b1bad5ffdc08c6ecfefc63a0bc4cf1ca03b79f13c6304f896aa4e",
+      "bytes": 292230,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v93-r3.wav",
+      "fallbackSha256": "bd2557a5e81f59b8c3b734b42064c8e94233afb9c7164d9248ff0e96dfffcf7e",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 55,
+      "keyRange": [
+        54,
+        56
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-55-v93-r4.flac",
+      "sha256": "4a014496f2935e08eb65cad0ed04ce1752201bfa926f126173cbd89c48ace5d9",
+      "bytes": 297435,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-55-v93-r4.wav",
+      "fallbackSha256": "aea973a3e838f08e75d92724e083a1e2d400b1e8a4c097b97213d7d17ff3844a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v0-r1.flac",
+      "sha256": "f8c819b85199149d9d534914ee713b8478b74e910eb5ec19ad67f00e21b92907",
+      "bytes": 280004,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v0-r1.wav",
+      "fallbackSha256": "30758e27e4b4f4e736760c1b6de258828a742557729386f23987dd398b803d89",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v0-r2.flac",
+      "sha256": "3988d9b20e699ae419eeff70c8c02ae25ba1ef33e7dc592ac042d44cf51f9313",
+      "bytes": 274467,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v0-r2.wav",
+      "fallbackSha256": "b5231c5885f4602c917156cfb5e32e79b56c398479c88a2bc484acab3b6ce697",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v0-r3.flac",
+      "sha256": "b8fa592cf75c455ae401c6d5bb36768e8edee9bcfd2cdf59a95408d55825e25c",
+      "bytes": 291918,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v0-r3.wav",
+      "fallbackSha256": "748e2d8c692f94023186c2368a83b6ce6d9aab5a2245ca933823b0803c981b5a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v0-r4.flac",
+      "sha256": "016bae61854eba1269086e123a7c720cffe54389bf0a14e09eec557a3e072da8",
+      "bytes": 273180,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v0-r4.wav",
+      "fallbackSha256": "3d840ea03ac99d3581fed83596a174e11c80c1e47082e3e9f9d9467504c39c8a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v93-r1.flac",
+      "sha256": "0924eeaae9cf6b4f95ca7394cb2650804c702899321f2ad611b561acd057ce17",
+      "bytes": 281416,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v93-r1.wav",
+      "fallbackSha256": "ee1f1e1e3e0aa76bb037be72ca1ad85ba66c83a629c5a3ae887ec2232d23f263",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v93-r2.flac",
+      "sha256": "a55d5749f2cd11af6025d936c08295bfd66c6380151d94c07499d035c57bf384",
+      "bytes": 285727,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v93-r2.wav",
+      "fallbackSha256": "6b93d3e168d251544f5e525e91ee246c662d7fa1e594ef3ea984e237cce9c92d",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v93-r3.flac",
+      "sha256": "a2fddf102c98e6d4f4af133b8b1f3396db619e0c461f1d38b1a52d72d7a9f692",
+      "bytes": 288667,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v93-r3.wav",
+      "fallbackSha256": "3b948360c2f78bef483f3982dcd04c1d7e5c6846acd8c25d7b9728242d306cbc",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 59,
+      "keyRange": [
+        57,
+        59
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-59-v93-r4.flac",
+      "sha256": "71cb33a57dadf1a15a234c7603a65fe35b2f00ad0df7e6efa68f143e67ecb337",
+      "bytes": 293833,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-59-v93-r4.wav",
+      "fallbackSha256": "1bd54a74107b39344c263a06ccb6041b546f1e4d4925062e951a5d0138b0ea1a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v0-r1.flac",
+      "sha256": "91abffb580823217ba248c354fd2208b97e181fa50b5b7f530b991eb19d042ff",
+      "bytes": 248397,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v0-r1.wav",
+      "fallbackSha256": "7b8f1020feb8f8759d0d0bd2e5f9d3b0bcff19a7bea1d0ebeb5736b994bbc2df",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v0-r2.flac",
+      "sha256": "dce6fd3fed68f73943f24d7a3e6d02b05ca5737e8276190e9dc56cf82e4c1d0c",
+      "bytes": 246868,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v0-r2.wav",
+      "fallbackSha256": "7e37b26c49c2762e43903492e9a3813136ec11a3d5bf244a6c45a510be7265cb",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v0-r3.flac",
+      "sha256": "1a7dc30cebd578e2230b3a8c33776a59a658ea3aa54dbbe0c49555a047c7e4bf",
+      "bytes": 241547,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v0-r3.wav",
+      "fallbackSha256": "2376d840452485f40c35ebde63b15d8e3ecff559e2626e9583339e29d285eadc",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v0-r4.flac",
+      "sha256": "f30957b2f8938c9c5d859a0060a56f5a514ca5c68305cc8a9e0d0a16fa80518a",
+      "bytes": 243166,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v0-r4.wav",
+      "fallbackSha256": "81533fccb334992fec8211159724c5b1ab1821959adc0f7d983a9679cd9234e8",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v93-r1.flac",
+      "sha256": "98c8ecf648c4d3d8edc4c9fee3a57217fcdcbbbf26299cb9e014af4f384f50c5",
+      "bytes": 251862,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v93-r1.wav",
+      "fallbackSha256": "0ba69c5d1d1970aa52841cb586c3bd743b8b27c3b680dbb6e42a62a761fc47fa",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v93-r2.flac",
+      "sha256": "fccd449bc27ad0f60ada09a6fb236a87a4e9ad29f9ace33697716edeb4835bb1",
+      "bytes": 256125,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v93-r2.wav",
+      "fallbackSha256": "1d76fab105f6596820622fd470356d9628f8180f8142fc054ec230e371636ede",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v93-r3.flac",
+      "sha256": "749d6971db6687697db00622e0c5997b1c801996b50f81c5fffbe107da81cf6e",
+      "bytes": 251279,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v93-r3.wav",
+      "fallbackSha256": "178fa694f90b204f336f6ad9ef8f74d00427c96a1e19009692bf58ef86f06302",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-61-v93-r4.flac",
+      "sha256": "ca0da3f23d4963e4ef4f5ec7394bb515a597752b304f1154171b2716ef017097",
+      "bytes": 250633,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-61-v93-r4.wav",
+      "fallbackSha256": "f649d3b1e0ca5c6c198cef3af35a7d244cb10b36a3e27b9eb0afcd047153d351",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v0-r1.flac",
+      "sha256": "fbb20b23d4a528609717a195b409f6661b2cd19afb7575b31032dd6534a69fc6",
+      "bytes": 261578,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v0-r1.wav",
+      "fallbackSha256": "4b20f6bb4a1dc7ff20f14dd457ccde9733537c793d0545231e983a718e58a166",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v0-r2.flac",
+      "sha256": "99bb54a7ccbdbb527684aa9a38a8137cdfc12fe611f9861b90f3d0d45fa2447e",
+      "bytes": 268064,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v0-r2.wav",
+      "fallbackSha256": "b670a2ddf2cb6f9ea2e6dfc55cba3c93ab9c7a187f8b2eff770c74adaca59022",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v0-r3.flac",
+      "sha256": "1611a34bd71806ae30644633a36d2f12bfae4f768d5de1ff367f845d0b673c49",
+      "bytes": 262220,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v0-r3.wav",
+      "fallbackSha256": "2d07bd5afeaa339b8b203bffd926b26cdc8e806af1203c63173c530edfddaaef",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v0-r4.flac",
+      "sha256": "6c3ca4474dc8d5ed14a67135941efeeb23d489d184ab4e568fb865530ea51be1",
+      "bytes": 272584,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v0-r4.wav",
+      "fallbackSha256": "dc085d49d39260e74f1a5aebef38793d0c145e2686917d718970e9c699e1a8bb",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v93-r1.flac",
+      "sha256": "558881aad38c03d8966b7153535bfa0382f0ede5e5dde9e87c70a66c4e901bf2",
+      "bytes": 271499,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v93-r1.wav",
+      "fallbackSha256": "35c4bbdb46c514890d5b6f971ec9efc7f2c4b16eb8fcd720f3ff9ae728b10f88",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v93-r2.flac",
+      "sha256": "ce3432e45287965ed6b0da56361587faebad0c16eba931f9b0119c2c8caa2fc2",
+      "bytes": 282294,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v93-r2.wav",
+      "fallbackSha256": "2e68d25ffa7d429b4f01f9d819504b7bc89eeb110c758b3910e0034fc5812f40",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v93-r3.flac",
+      "sha256": "68dd1266cde0c7f859ca215bfcc97ea8b301ec1a76c7f9bf8e34386ef1306891",
+      "bytes": 286112,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v93-r3.wav",
+      "fallbackSha256": "9fbae6be19c8a63eabc2bc8fd6c70de46b3e52145aec8a2d95b83f54d4dde5ec",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-64-v93-r4.flac",
+      "sha256": "8acceef103515a23b94d5a14b4f9098c52de3c43d50e4dcedd67173e9299673f",
+      "bytes": 287092,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-64-v93-r4.wav",
+      "fallbackSha256": "3a8f1264ea7752e0a069e2c92cff5ab080aa9bd6a3a26fda8a0a2e827926d938",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 67,
+      "keyRange": [
+        66,
+        69
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-67-v0-r1.flac",
+      "sha256": "122982f6ce4e68ec5f723d8006bdc3acd75a07581b6280cffe3697bc255d75eb",
+      "bytes": 266650,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-67-v0-r1.wav",
+      "fallbackSha256": "d8cd3cda9a7c706c4a8b1bb384862836dff4193e59b6206c9c1e96e8224f1188",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 67,
+      "keyRange": [
+        66,
+        69
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-67-v0-r2.flac",
+      "sha256": "c69b9c3ec09f24a10e01c9505c1fb0366fd0b285a804da444b07672674032202",
+      "bytes": 273916,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-67-v0-r2.wav",
+      "fallbackSha256": "c2e31c7e7b46aad15ebe02899a5d16812473be8ccc1a4ab95e382b1a659e1c6a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 67,
+      "keyRange": [
+        66,
+        69
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-67-v0-r3.flac",
+      "sha256": "73390c18e7c86a3f0a02dd3302550012009eb9e6654ae802d4721d11f72dd92f",
+      "bytes": 263133,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-67-v0-r3.wav",
+      "fallbackSha256": "18ea4ee5b9b842d0e4c55ad80b0ba5ddda23027f9bb04f405b48faec2f2cab10",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 67,
+      "keyRange": [
+        66,
+        69
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-67-v0-r4.flac",
+      "sha256": "d8238d06c7c26fd52823413257e9c9b7b8f42f1a6f46b60cadfc762fc9e0aaf1",
+      "bytes": 268845,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-67-v0-r4.wav",
+      "fallbackSha256": "1bcafee250719462c3b4457c5f72aa694ec7afde1479d7d0a64f70c91f1c19af",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 71,
+      "keyRange": [
+        70,
+        71
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-71-v0-r1.flac",
+      "sha256": "3c57daf4fd21b689a171f9bfdcad3a6aa81478fcae98a36a47a07db4747a09b0",
+      "bytes": 241851,
+      "duration": 7.916208,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-71-v0-r1.wav",
+      "fallbackSha256": "c5432373e190a453d04b04100509c79d571d158bf85ac05bc10076fb27501ab7",
+      "fallbackBytes": 1396498,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 71,
+      "keyRange": [
+        70,
+        71
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-71-v0-r2.flac",
+      "sha256": "f8a1540586060fc42a5e2bdabc78b14366b88bc37019beb9366a68193a240e1f",
+      "bytes": 242199,
+      "duration": 7.920583,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-71-v0-r2.wav",
+      "fallbackSha256": "cb8b087a036465799b52b1b8fc03a6cc6fc440d428449ed8e4ac20c653f1d25d",
+      "fallbackBytes": 1397270,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 71,
+      "keyRange": [
+        70,
+        71
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-71-v0-r3.flac",
+      "sha256": "85449be901d9c16a17aec5966e636f417bd83dc8501c835ba489e12b4ecc6215",
+      "bytes": 246067,
+      "duration": 7.908458,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-71-v0-r3.wav",
+      "fallbackSha256": "721f21d5d11e7e03cdbeff45621f9294149a8614994d762415818bb6cf364660",
+      "fallbackBytes": 1395134,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 71,
+      "keyRange": [
+        70,
+        71
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-71-v0-r4.flac",
+      "sha256": "e4144aacd7ff6950ae8631827a61b493d55311d7c0439cb07228334cd221bce5",
+      "bytes": 212553,
+      "duration": 6.626917,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-71-v0-r4.wav",
+      "fallbackSha256": "38abffc3aa831b70b98418fbe062c684395ea786a1d6d0d61a534891e9d05693",
+      "fallbackBytes": 1169070,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 72,
+      "keyRange": [
+        72,
+        72
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-72-v0-r1.flac",
+      "sha256": "3b22a7db7287bf43fdb629d3e112680d4a52147ca0060c07ba6e0c19bd65299d",
+      "bytes": 236221,
+      "duration": 7.643021,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-72-v0-r1.wav",
+      "fallbackSha256": "3197aac377a8893dba3c7e84a3e72e4f6ca8197e6ca37934b06f3440e67ac0d9",
+      "fallbackBytes": 1348310,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 72,
+      "keyRange": [
+        72,
+        72
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-72-v0-r2.flac",
+      "sha256": "ae7609b6f0e9f5ebe45666453454b65e7b145aa194f71483d26c28c787493f79",
+      "bytes": 239177,
+      "duration": 7.706229,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-72-v0-r2.wav",
+      "fallbackSha256": "59fa632405204721063ad82157f78b4577ac4721ed2dc848930431c562459a23",
+      "fallbackBytes": 1359458,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 72,
+      "keyRange": [
+        72,
+        72
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-72-v0-r3.flac",
+      "sha256": "d02836d8587d9a410e6b2390431e003c407b78a7c8dd2167a3ad06c40aba8cd3",
+      "bytes": 249467,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-72-v0-r3.wav",
+      "fallbackSha256": "662a3358f26b21c902a5d66a1111fd041e2a767d7fa000a157086bd7c2080867",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 72,
+      "keyRange": [
+        72,
+        72
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-72-v0-r4.flac",
+      "sha256": "6b6ba7e43ec8ea7536c731a09b1bc5de051d8b7a0d20b79a685fc727e56458a9",
+      "bytes": 252957,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-72-v0-r4.wav",
+      "fallbackSha256": "ba2b66273833f23c0870c48cb845fa4a468cfd630142391383bd0dbe640ae34a",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 74,
+      "keyRange": [
+        73,
+        75
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-74-v0-r1.flac",
+      "sha256": "a842653aa8659b9232e839478b9cd52d4022574b46244d01676710c63660d609",
+      "bytes": 192774,
+      "duration": 5.741854,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-74-v0-r1.wav",
+      "fallbackSha256": "c7aa35d4ab6f30b51f669debf0c63e3049a5643e214dccfda75b1b691f1f22b7",
+      "fallbackBytes": 1012942,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 74,
+      "keyRange": [
+        73,
+        75
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-74-v0-r2.flac",
+      "sha256": "409871f86e76cd4d21ce95d6993ebc009c967e301aee2ddf868d434087c3935a",
+      "bytes": 206816,
+      "duration": 6.381146,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-74-v0-r2.wav",
+      "fallbackSha256": "0283f386fa29a4863b2662693c3fcb0a2a0c42cfc5ce932c9e18d45a58069d57",
+      "fallbackBytes": 1125714,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 74,
+      "keyRange": [
+        73,
+        75
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-74-v0-r3.flac",
+      "sha256": "620c820ec0e8067af380796d1b6cd4abb70c326e39ac68f63a667b696e90d9a9",
+      "bytes": 214878,
+      "duration": 6.691125,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-74-v0-r3.wav",
+      "fallbackSha256": "9b23bc84c641beb1f9727cfd3ec7f83b4437530eab777b903ab0a8c58b2686b1",
+      "fallbackBytes": 1180390,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 74,
+      "keyRange": [
+        73,
+        75
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-74-v0-r4.flac",
+      "sha256": "d17b1b58078d6e2d5f3c0da748a96413e1fed5104d9ef347f73f850fd73a7cd9",
+      "bytes": 183280,
+      "duration": 5.631417,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-74-v0-r4.wav",
+      "fallbackSha256": "d5a3b6ab3a497845ab42545b08b579d99e528a3b7be44dcb17d44000b706f02f",
+      "fallbackBytes": 993462,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 77,
+      "keyRange": [
+        76,
+        78
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-77-v0-r1.flac",
+      "sha256": "6a0be465dcfa601b5f0c8482ebbd02e202dce950aee746e76eab5eae1eb98c09",
+      "bytes": 170993,
+      "duration": 5.822875,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-77-v0-r1.wav",
+      "fallbackSha256": "3366c46e0a2346c16b28756edfafc1ecd05a83419029856c1b22718fc8e6f1bc",
+      "fallbackBytes": 1027234,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 77,
+      "keyRange": [
+        76,
+        78
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-77-v0-r2.flac",
+      "sha256": "cfd251dd83f96c0a2ae0f9735e9273524065f3f04406a211c568d94540c7b50b",
+      "bytes": 233677,
+      "duration": 7.947563,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-77-v0-r2.wav",
+      "fallbackSha256": "5b6b46ebf5876a6fa15028b0c8286afb881f1f1e8caa3bf39fba1f1c38916b62",
+      "fallbackBytes": 1402030,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 77,
+      "keyRange": [
+        76,
+        78
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-77-v0-r3.flac",
+      "sha256": "06f7d44905d919c4e9478ccca0d375a66fa2cec319afee60abdfbf0d64835bea",
+      "bytes": 206919,
+      "duration": 7.120979,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-77-v0-r3.wav",
+      "fallbackSha256": "029244d0e0f87fdcfb93c5c305097b0f843dd1b321bbbee9e16c7de295117c06",
+      "fallbackBytes": 1256222,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 77,
+      "keyRange": [
+        76,
+        78
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-77-v0-r4.flac",
+      "sha256": "dde302c758f91cdfd3e8e05bc0988e45db3b6b68eec940e9d2abc8878a716db4",
+      "bytes": 226097,
+      "duration": 7.698146,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-77-v0-r4.wav",
+      "fallbackSha256": "d1711dd62f135d51410f33643f4a4faa2db741e3673ec530ad77f77409466347",
+      "fallbackBytes": 1358034,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 80,
+      "keyRange": [
+        79,
+        81
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-80-v0-r1.flac",
+      "sha256": "cfa5b1ca8a30bebc04af7cc46930f00f3147b9cc1ee22e5c223e273a56476c47",
+      "bytes": 249359,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-80-v0-r1.wav",
+      "fallbackSha256": "ba127700ba0f2ce16287b678e56ceb2fd6d39dc13291b113804884d41707a52b",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 80,
+      "keyRange": [
+        79,
+        81
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-80-v0-r2.flac",
+      "sha256": "714dedee7ddedcf7a6fd57a4776db98043bc97bacf801aa80d1d8a5b45a49eba",
+      "bytes": 244587,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-80-v0-r2.wav",
+      "fallbackSha256": "a787c922fef92375aa607832df1963097a17624a6d04d896f81e4641b0363ff0",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 80,
+      "keyRange": [
+        79,
+        81
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-80-v0-r3.flac",
+      "sha256": "d7920f7fe0dfed6b9628596fd7ea4a05c575a2652ea7cb0ef090a64d5c5d8dd4",
+      "bytes": 250825,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-80-v0-r3.wav",
+      "fallbackSha256": "4a0f03c2d91c2695f28e762396b96d75e90026f3c6021cebaad5c68f234663a3",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 80,
+      "keyRange": [
+        79,
+        81
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-80-v0-r4.flac",
+      "sha256": "76068feadd85d44034126730c2ba1ffa52e5207fdf9cc2cd5534ee53d9a36161",
+      "bytes": 252309,
+      "duration": 8,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-80-v0-r4.wav",
+      "fallbackSha256": "c81e65d9b08f4596d1d555d75c86ed7ad4c5dba75f8857c7c14ce533a5906332",
+      "fallbackBytes": 1411278,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 82,
+      "keyRange": [
+        82,
+        83
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-82-v0-r1.flac",
+      "sha256": "99cd49c47271a04dbf975c8b0b9c285f97a17ef51a570da55767804494f1281a",
+      "bytes": 208620,
+      "duration": 7.202021,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-82-v0-r1.wav",
+      "fallbackSha256": "7234394ab0fa46ce9b26c4e76347d81d4f714dda7820b36d31c9bdbc0c71f055",
+      "fallbackBytes": 1270518,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 82,
+      "keyRange": [
+        82,
+        83
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-82-v0-r2.flac",
+      "sha256": "693e565a5269ec308a1b4645f619136f0ea84e042e5ef5371a4c34571983fd24",
+      "bytes": 212331,
+      "duration": 6.632542,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-82-v0-r2.wav",
+      "fallbackSha256": "9cfb333d20fff0750967c4330abe720ac246c84615033fc74dd580dac618b941",
+      "fallbackBytes": 1170062,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 82,
+      "keyRange": [
+        82,
+        83
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-82-v0-r3.flac",
+      "sha256": "ffa8c876af66f11d2b518be27566abbbb81e735b547ed5338d9343aa30747eb2",
+      "bytes": 200106,
+      "duration": 6.001271,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-82-v0-r3.wav",
+      "fallbackSha256": "156435597308c207e04e590efb36f9214c5a2883ede409b37d5ee0f6dc1debe4",
+      "fallbackBytes": 1058706,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 82,
+      "keyRange": [
+        82,
+        83
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-82-v0-r4.flac",
+      "sha256": "223d52d6d4560630ddf136b4f7b0ea8dd5bfdbb82c2d5f8d3b0e157a0cb69d86",
+      "bytes": 220662,
+      "duration": 6.742813,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-82-v0-r4.wav",
+      "fallbackSha256": "3c1d77bee4edc5a26491716edec6b127051309733d858cf788a0a324aade2dbe",
+      "fallbackBytes": 1189514,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 85,
+      "keyRange": [
+        84,
+        86
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-85-v0-r1.flac",
+      "sha256": "d4b9d31718c70807621c2df391f9377ef97bd236f944b47590857c78d428c663",
+      "bytes": 145512,
+      "duration": 5.136063,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-85-v0-r1.wav",
+      "fallbackSha256": "362f9eee1054956a14fe0c7aff610b1cfb99f791d399c9312fa7b9db71ac51c9",
+      "fallbackBytes": 906082,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 85,
+      "keyRange": [
+        84,
+        86
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-85-v0-r2.flac",
+      "sha256": "33b00e4789822be51e8a56a09afe494e2dfb6e510cc5f9741e4b707edc2ecd44",
+      "bytes": 137587,
+      "duration": 4.964063,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-85-v0-r2.wav",
+      "fallbackSha256": "7dd72ad774d4ff6244a3a2c0fda23fedaee5b0e41293b7607d2476b8299303f7",
+      "fallbackBytes": 875742,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 85,
+      "keyRange": [
+        84,
+        86
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-85-v0-r3.flac",
+      "sha256": "c78e404a1592f1005a2c8ca1cd0cfb9efb83f2203541bc3c9228a37d0cf747f7",
+      "bytes": 146016,
+      "duration": 5.250333,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-85-v0-r3.wav",
+      "fallbackSha256": "ea33242ef497abb97f05df2b8cbb936d31aabd425c3de0c9ec7721675a6f3237",
+      "fallbackBytes": 926238,
+      "amplitudeExponent": 2
+    },
+    {
+      "midi": 85,
+      "keyRange": [
+        84,
+        86
+      ],
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "level": 1,
+      "tuneCents": 0,
+      "file": "sustain-85-v0-r4.flac",
+      "sha256": "00933e2fdc0c5e8a8f51c5033a91d2fab4b9a7b5aa172853db11df699e72dd12",
+      "bytes": 149258,
+      "duration": 4.68175,
+      "channels": 2,
+      "sampleRate": 44100,
+      "bitsPerSample": 16,
+      "fallback": "sustain-85-v0-r4.wav",
+      "fallbackSha256": "67938af6617a116a532a51e8846bb62429d84fab268b05bf5bc1ddd8c2931be3",
+      "fallbackBytes": 825942,
+      "amplitudeExponent": 2
+    }
+  ],
+  "fallback": {
+    "format": "PCM16 WAV",
+    "sampleRate": 44100,
+    "reason": "Compatibility fallback for browsers without FLAC decode; same converted PCM"
+  },
+  "velocityResponse": {
+    "source": "SFZ default amp_veltrack=100; no amp_velcurve_N override",
+    "amplitudeExponent": 2,
+    "reference": "https://sfzformat.com/opcodes/amp_veltrack/"
+  }
+}

@@ -227,11 +227,14 @@
     const events = [];
     cycle.rounds.forEach((round, chorus) => {
       const grooveProfile = leadGrooves[cycle.groove] || leadGrooves.follow, player = performerProfiles[cycle.performerProfile] || performerProfiles.balanced, random = H.rng((round.seed >>> 0) ^ 0xa511e9b3);
+      // These profiles already set their audible length in shapeLeadPhrase.
+      // Do not shorten their stored phrase a second time when scheduling it.
+      const gate = ['navigator', 'pocket'].includes(cycle.performerProfile) ? 1 : player.gate;
       for (const onset of round.phrase.notes) {
         const start = warpLeadBeat(onset.beat, cycle.groove, backingFeel), end = warpLeadBeat(onset.beat + onset.duration, cycle.groove, backingFeel);
         const jitter = (random() * 2 - 1) * grooveProfile.jitterMs * player.jitterScale, dynamic = .96 + random() * .08, detune = (random() * 2 - 1) * player.detune;
         const accent = cycle.performerProfile === 'storyteller' ? (onset.bar % 2 ? .9 : 1.08) : cycle.performerProfile === 'pocket' ? (onset.beat % 1 ? 1.12 : .9) : 1;
-        for (const note of expandLeadNote(onset)) events.push({ ...note, beat: chorus * chartBeats + start, duration: Math.max(.02, (end - start) * player.gate), velocity: Math.min(.96, note.velocity * dynamic * player.velocityScale * accent), track: 'lead', chorus, leadStyle: round.style, leadIntensity: round.intensity, leadGroove: cycle.groove, performerProfile: cycle.performerProfile || 'balanced', timingOffset: Math.max(0, grooveProfile.delayMs + player.timingBiasMs + jitter + note.stackIndex * player.stackMs) / 1000, detuneCents: detune + note.stackIndex * .7 });
+        for (const note of expandLeadNote(onset)) events.push({ ...note, beat: chorus * chartBeats + start, duration: Math.max(.02, (end - start) * gate), velocity: Math.min(.96, note.velocity * dynamic * player.velocityScale * accent), track: 'lead', chorus, leadStyle: round.style, leadIntensity: round.intensity, leadGroove: cycle.groove, performerProfile: cycle.performerProfile || 'balanced', timingOffset: Math.max(0, grooveProfile.delayMs + player.timingBiasMs + jitter + note.stackIndex * player.stackMs) / 1000, detuneCents: detune + note.stackIndex * .7 });
       }
     });
     return events.sort((a, b) => a.beat - b.beat || a.stackIndex - b.stackIndex);

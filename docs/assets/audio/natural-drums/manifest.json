@@ -1,0 +1,4119 @@
+{
+  "version": 1,
+  "id": "natural-drums",
+  "source": {
+    "repository": "https://github.com/sfzinstruments/virtuosity_drums",
+    "commit": "9f04cf9a734527edfbb0a4eee1f674e45bbf71bc",
+    "license": "CC0-1.0"
+  },
+  "license": "CC0-1.0",
+  "samples": [
+    {
+      "file": "kick-v1-rr1.flac",
+      "fallback": "kick-v1-rr1.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 0,
+      "level": 0.8223805469646378,
+      "sourceLayer": 1,
+      "sourcePeak": 0.027295827865600586,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v1-rr2.flac",
+      "fallback": "kick-v1-rr2.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 1,
+      "level": 0.8223805469646378,
+      "sourceLayer": 1,
+      "sourcePeak": 0.03270316123962402,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v1-rr3.flac",
+      "fallback": "kick-v1-rr3.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 2,
+      "level": 0.8223805469646378,
+      "sourceLayer": 1,
+      "sourcePeak": 0.02848339080810547,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v1-rr4.flac",
+      "fallback": "kick-v1-rr4.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 3,
+      "level": 0.8223805469646378,
+      "sourceLayer": 1,
+      "sourcePeak": 0.02266514301300049,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v2-rr1.flac",
+      "fallback": "kick-v2-rr1.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 0,
+      "level": 0.8223805469646378,
+      "sourceLayer": 2,
+      "sourcePeak": 0.09705972671508789,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v2-rr2.flac",
+      "fallback": "kick-v2-rr2.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 1,
+      "level": 0.8223805469646378,
+      "sourceLayer": 2,
+      "sourcePeak": 0.09395301342010498,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v2-rr3.flac",
+      "fallback": "kick-v2-rr3.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 2,
+      "level": 0.8223805469646378,
+      "sourceLayer": 2,
+      "sourcePeak": 0.10233068466186523,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v2-rr4.flac",
+      "fallback": "kick-v2-rr4.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 3,
+      "level": 0.8223805469646378,
+      "sourceLayer": 2,
+      "sourcePeak": 0.09171223640441895,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v3-rr1.flac",
+      "fallback": "kick-v3-rr1.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 0,
+      "level": 0.8223805469646378,
+      "sourceLayer": 3,
+      "sourcePeak": 0.38504552841186523,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v3-rr2.flac",
+      "fallback": "kick-v3-rr2.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 1,
+      "level": 0.8223805469646378,
+      "sourceLayer": 3,
+      "sourcePeak": 0.40291857719421387,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v3-rr3.flac",
+      "fallback": "kick-v3-rr3.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 2,
+      "level": 0.8223805469646378,
+      "sourceLayer": 3,
+      "sourcePeak": 0.430682897567749,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v3-rr4.flac",
+      "fallback": "kick-v3-rr4.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 3,
+      "level": 0.8223805469646378,
+      "sourceLayer": 3,
+      "sourcePeak": 0.4025144577026367,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v4-rr1.flac",
+      "fallback": "kick-v4-rr1.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 0,
+      "level": 0.8223805469646378,
+      "sourceLayer": 4,
+      "sourcePeak": 0.8252148628234863,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v4-rr2.flac",
+      "fallback": "kick-v4-rr2.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 1,
+      "level": 0.8223805469646378,
+      "sourceLayer": 4,
+      "sourcePeak": 0.8348462581634521,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v4-rr3.flac",
+      "fallback": "kick-v4-rr3.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 2,
+      "level": 0.8223805469646378,
+      "sourceLayer": 4,
+      "sourcePeak": 0.8608493804931641,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "kick-v4-rr4.flac",
+      "fallback": "kick-v4-rr4.wav",
+      "articulation": "kick",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 3,
+      "level": 0.8223805469646378,
+      "sourceLayer": 4,
+      "sourcePeak": 0.8031545877456665,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v1-rr1.flac",
+      "fallback": "hat-closed-v1-rr1.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 0,
+      "level": 1.313283179482366,
+      "sourceLayer": 1,
+      "sourcePeak": 0.022986650466918945,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v1-rr2.flac",
+      "fallback": "hat-closed-v1-rr2.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 1,
+      "level": 1.313283179482366,
+      "sourceLayer": 1,
+      "sourcePeak": 0.03093862533569336,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v1-rr3.flac",
+      "fallback": "hat-closed-v1-rr3.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 2,
+      "level": 1.313283179482366,
+      "sourceLayer": 1,
+      "sourcePeak": 0.02581191062927246,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v1-rr4.flac",
+      "fallback": "hat-closed-v1-rr4.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 3,
+      "level": 1.313283179482366,
+      "sourceLayer": 1,
+      "sourcePeak": 0.02562534809112549,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v2-rr1.flac",
+      "fallback": "hat-closed-v2-rr1.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 0,
+      "level": 1.313283179482366,
+      "sourceLayer": 2,
+      "sourcePeak": 0.07205736637115479,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v2-rr2.flac",
+      "fallback": "hat-closed-v2-rr2.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 1,
+      "level": 1.313283179482366,
+      "sourceLayer": 2,
+      "sourcePeak": 0.06525135040283203,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v2-rr3.flac",
+      "fallback": "hat-closed-v2-rr3.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 2,
+      "level": 1.313283179482366,
+      "sourceLayer": 2,
+      "sourcePeak": 0.09647619724273682,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v2-rr4.flac",
+      "fallback": "hat-closed-v2-rr4.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 3,
+      "level": 1.313283179482366,
+      "sourceLayer": 2,
+      "sourcePeak": 0.07433903217315674,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v3-rr1.flac",
+      "fallback": "hat-closed-v3-rr1.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 0,
+      "level": 1.313283179482366,
+      "sourceLayer": 3,
+      "sourcePeak": 0.1270507574081421,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v3-rr2.flac",
+      "fallback": "hat-closed-v3-rr2.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 1,
+      "level": 1.313283179482366,
+      "sourceLayer": 3,
+      "sourcePeak": 0.1080251932144165,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v3-rr3.flac",
+      "fallback": "hat-closed-v3-rr3.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 2,
+      "level": 1.313283179482366,
+      "sourceLayer": 3,
+      "sourcePeak": 0.15121304988861084,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v3-rr4.flac",
+      "fallback": "hat-closed-v3-rr4.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 3,
+      "level": 1.313283179482366,
+      "sourceLayer": 3,
+      "sourcePeak": 0.1655411720275879,
+      "sourceVelocityRange": [
+        64,
+        95
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v4-rr1.flac",
+      "fallback": "hat-closed-v4-rr1.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 0,
+      "level": 1.313283179482366,
+      "sourceLayer": 4,
+      "sourcePeak": 0.3623168468475342,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v4-rr2.flac",
+      "fallback": "hat-closed-v4-rr2.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 1,
+      "level": 1.313283179482366,
+      "sourceLayer": 4,
+      "sourcePeak": 0.5238132476806641,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v4-rr3.flac",
+      "fallback": "hat-closed-v4-rr3.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 2,
+      "level": 1.313283179482366,
+      "sourceLayer": 4,
+      "sourcePeak": 0.5274193286895752,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-closed-v4-rr4.flac",
+      "fallback": "hat-closed-v4-rr4.wav",
+      "articulation": "hat-closed",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 3,
+      "level": 1.313283179482366,
+      "sourceLayer": 4,
+      "sourcePeak": 0.5390655994415283,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-half-v1-rr1.flac",
+      "fallback": "hat-half-v1-rr1.wav",
+      "articulation": "hat-half",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 0,
+      "level": 4.66014546217581,
+      "sourceLayer": 1,
+      "sourcePeak": 0.018850326538085938,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-half-v1-rr2.flac",
+      "fallback": "hat-half-v1-rr2.wav",
+      "articulation": "hat-half",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 1,
+      "level": 4.66014546217581,
+      "sourceLayer": 1,
+      "sourcePeak": 0.019223809242248535,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-half-v2-rr1.flac",
+      "fallback": "hat-half-v2-rr1.wav",
+      "articulation": "hat-half",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 0,
+      "level": 4.66014546217581,
+      "sourceLayer": 2,
+      "sourcePeak": 0.05003035068511963,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-half-v2-rr2.flac",
+      "fallback": "hat-half-v2-rr2.wav",
+      "articulation": "hat-half",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 1,
+      "level": 4.66014546217581,
+      "sourceLayer": 2,
+      "sourcePeak": 0.04557371139526367,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-half-v4-rr1.flac",
+      "fallback": "hat-half-v4-rr1.wav",
+      "articulation": "hat-half",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 0,
+      "level": 4.66014546217581,
+      "sourceLayer": 4,
+      "sourcePeak": 0.12433874607086182,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-half-v4-rr2.flac",
+      "fallback": "hat-half-v4-rr2.wav",
+      "articulation": "hat-half",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 1,
+      "level": 4.66014546217581,
+      "sourceLayer": 4,
+      "sourcePeak": 0.15191495418548584,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-open-v1-rr1.flac",
+      "fallback": "hat-open-v1-rr1.wav",
+      "articulation": "hat-open",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 0,
+      "level": 0.7845229760389948,
+      "sourceLayer": 1,
+      "sourcePeak": 0.05879402160644531,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-open-v1-rr2.flac",
+      "fallback": "hat-open-v1-rr2.wav",
+      "articulation": "hat-open",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 1,
+      "level": 0.7845229760389948,
+      "sourceLayer": 1,
+      "sourcePeak": 0.0353848934173584,
+      "sourceVelocityRange": [
+        1,
+        31
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          31,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-open-v2-rr1.flac",
+      "fallback": "hat-open-v2-rr1.wav",
+      "articulation": "hat-open",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 0,
+      "level": 0.7845229760389948,
+      "sourceLayer": 2,
+      "sourcePeak": 0.10801362991333008,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-open-v2-rr2.flac",
+      "fallback": "hat-open-v2-rr2.wav",
+      "articulation": "hat-open",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 1,
+      "level": 0.7845229760389948,
+      "sourceLayer": 2,
+      "sourcePeak": 0.081368088722229,
+      "sourceVelocityRange": [
+        32,
+        63
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          63,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-open-v4-rr1.flac",
+      "fallback": "hat-open-v4-rr1.wav",
+      "articulation": "hat-open",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 0,
+      "level": 0.7845229760389948,
+      "sourceLayer": 4,
+      "sourcePeak": 0.9023901224136353,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-open-v4-rr2.flac",
+      "fallback": "hat-open-v4-rr2.wav",
+      "articulation": "hat-open",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 1,
+      "level": 0.7845229760389948,
+      "sourceLayer": 4,
+      "sourcePeak": 0.6407060623168945,
+      "sourceVelocityRange": [
+        96,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-pedal-v1-rr1.flac",
+      "fallback": "hat-pedal-v1-rr1.wav",
+      "articulation": "hat-pedal",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 0,
+      "level": 7.579051732084836,
+      "sourceLayer": 1,
+      "sourcePeak": 0.019910812377929688,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          1,
+          0.7
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-pedal-v1-rr2.flac",
+      "fallback": "hat-pedal-v1-rr2.wav",
+      "articulation": "hat-pedal",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 1,
+      "level": 7.579051732084836,
+      "sourceLayer": 1,
+      "sourcePeak": 0.023999810218811035,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          1,
+          0.7
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-pedal-v2-rr1.flac",
+      "fallback": "hat-pedal-v2-rr1.wav",
+      "articulation": "hat-pedal",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 0,
+      "level": 7.579051732084836,
+      "sourceLayer": 2,
+      "sourcePeak": 0.05301797389984131,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          1,
+          0.7
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-pedal-v2-rr2.flac",
+      "fallback": "hat-pedal-v2-rr2.wav",
+      "articulation": "hat-pedal",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 1,
+      "level": 7.579051732084836,
+      "sourceLayer": 2,
+      "sourcePeak": 0.04868209362030029,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          1,
+          0.7
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-pedal-v3-rr1.flac",
+      "fallback": "hat-pedal-v3-rr1.wav",
+      "articulation": "hat-pedal",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 0,
+      "level": 7.579051732084836,
+      "sourceLayer": 3,
+      "sourcePeak": 0.08374714851379395,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          1,
+          0.7
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "hat-pedal-v3-rr2.flac",
+      "fallback": "hat-pedal-v3-rr2.wav",
+      "articulation": "hat-pedal",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 1,
+      "level": 7.579051732084836,
+      "sourceLayer": 3,
+      "sourcePeak": 0.09340822696685791,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          1,
+          0.7
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-v1-rr1.flac",
+      "fallback": "ride-v1-rr1.wav",
+      "articulation": "ride",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 0,
+      "level": 2.481565752483185,
+      "sourceLayer": 1,
+      "sourcePeak": 0.03417825698852539,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-v1-rr2.flac",
+      "fallback": "ride-v1-rr2.wav",
+      "articulation": "ride",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 1,
+      "level": 2.481565752483185,
+      "sourceLayer": 1,
+      "sourcePeak": 0.037088990211486816,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-v2-rr1.flac",
+      "fallback": "ride-v2-rr1.wav",
+      "articulation": "ride",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 0,
+      "level": 2.481565752483185,
+      "sourceLayer": 2,
+      "sourcePeak": 0.15031635761260986,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-v2-rr2.flac",
+      "fallback": "ride-v2-rr2.wav",
+      "articulation": "ride",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 1,
+      "level": 2.481565752483185,
+      "sourceLayer": 2,
+      "sourcePeak": 0.12997615337371826,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-v3-rr1.flac",
+      "fallback": "ride-v3-rr1.wav",
+      "articulation": "ride",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 0,
+      "level": 2.481565752483185,
+      "sourceLayer": 3,
+      "sourcePeak": 0.2852818965911865,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-v3-rr2.flac",
+      "fallback": "ride-v3-rr2.wav",
+      "articulation": "ride",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 1,
+      "level": 2.481565752483185,
+      "sourceLayer": 3,
+      "sourcePeak": 0.27350282669067383,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-bell-v1-rr1.flac",
+      "fallback": "ride-bell-v1-rr1.wav",
+      "articulation": "ride-bell",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 0,
+      "level": 3.1375800131084133,
+      "sourceLayer": 1,
+      "sourcePeak": 0.028775811195373535,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-bell-v1-rr2.flac",
+      "fallback": "ride-bell-v1-rr2.wav",
+      "articulation": "ride-bell",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 1,
+      "level": 3.1375800131084133,
+      "sourceLayer": 1,
+      "sourcePeak": 0.029233694076538086,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-bell-v2-rr1.flac",
+      "fallback": "ride-bell-v2-rr1.wav",
+      "articulation": "ride-bell",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 0,
+      "level": 3.1375800131084133,
+      "sourceLayer": 2,
+      "sourcePeak": 0.11608409881591797,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-bell-v2-rr2.flac",
+      "fallback": "ride-bell-v2-rr2.wav",
+      "articulation": "ride-bell",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 1,
+      "level": 3.1375800131084133,
+      "sourceLayer": 2,
+      "sourcePeak": 0.13276946544647217,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-bell-v3-rr1.flac",
+      "fallback": "ride-bell-v3-rr1.wav",
+      "articulation": "ride-bell",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 0,
+      "level": 3.1375800131084133,
+      "sourceLayer": 3,
+      "sourcePeak": 0.20080900192260742,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "ride-bell-v3-rr2.flac",
+      "fallback": "ride-bell-v3-rr2.wav",
+      "articulation": "ride-bell",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 1,
+      "level": 3.1375800131084133,
+      "sourceLayer": 3,
+      "sourcePeak": 0.22563433647155762,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 50,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "crash-v1-rr1.flac",
+      "fallback": "crash-v1-rr1.wav",
+      "articulation": "crash",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 0,
+      "level": 3.8429822934057847,
+      "sourceLayer": 1,
+      "sourcePeak": 0.038938283920288086,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "crash-v1-rr2.flac",
+      "fallback": "crash-v1-rr2.wav",
+      "articulation": "crash",
+      "velocityRange": [
+        0,
+        42
+      ],
+      "variant": 1,
+      "level": 3.8429822934057847,
+      "sourceLayer": 1,
+      "sourcePeak": 0.04000425338745117,
+      "sourceVelocityRange": [
+        1,
+        42
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          42,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "crash-v2-rr1.flac",
+      "fallback": "crash-v2-rr1.wav",
+      "articulation": "crash",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 0,
+      "level": 3.8429822934057847,
+      "sourceLayer": 2,
+      "sourcePeak": 0.07684993743896484,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "crash-v2-rr2.flac",
+      "fallback": "crash-v2-rr2.wav",
+      "articulation": "crash",
+      "velocityRange": [
+        43,
+        84
+      ],
+      "variant": 1,
+      "level": 3.8429822934057847,
+      "sourceLayer": 2,
+      "sourcePeak": 0.06920599937438965,
+      "sourceVelocityRange": [
+        43,
+        85
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          85,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "crash-v3-rr1.flac",
+      "fallback": "crash-v3-rr1.wav",
+      "articulation": "crash",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 0,
+      "level": 3.8429822934057847,
+      "sourceLayer": 3,
+      "sourcePeak": 0.18421781063079834,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "crash-v3-rr2.flac",
+      "fallback": "crash-v3-rr2.wav",
+      "articulation": "crash",
+      "velocityRange": [
+        85,
+        127
+      ],
+      "variant": 1,
+      "level": 3.8429822934057847,
+      "sourceLayer": 3,
+      "sourcePeak": 0.14510691165924072,
+      "sourceVelocityRange": [
+        86,
+        127
+      ],
+      "sourceAmpVeltrack": 100,
+      "sourceVelocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ],
+      "velocityCurve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1,
+          0.4
+        ],
+        [
+          95,
+          1.0
+        ],
+        [
+          127,
+          1.0
+        ]
+      ]
+    },
+    {
+      "file": "snare-v3-rr1.flac",
+      "fallback": "snare-v3-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        0,
+        10
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 3,
+      "sourcePeak": 0.030779719352722168,
+      "sourceVelocityRange": [
+        8,
+        10
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v6-rr1.flac",
+      "fallback": "snare-v6-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        11,
+        20
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 6,
+      "sourcePeak": 0.07274019718170166,
+      "sourceVelocityRange": [
+        18,
+        21
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v9-rr1.flac",
+      "fallback": "snare-v9-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        21,
+        31
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 9,
+      "sourcePeak": 0.10261356830596924,
+      "sourceVelocityRange": [
+        28,
+        31
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v12-rr1.flac",
+      "fallback": "snare-v12-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        32,
+        42
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 12,
+      "sourcePeak": 0.13183903694152832,
+      "sourceVelocityRange": [
+        39,
+        41
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v15-rr1.flac",
+      "fallback": "snare-v15-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        43,
+        52
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 15,
+      "sourcePeak": 0.12318909168243408,
+      "sourceVelocityRange": [
+        49,
+        52
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v18-rr1.flac",
+      "fallback": "snare-v18-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        53,
+        63
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 18,
+      "sourcePeak": 0.1744292974472046,
+      "sourceVelocityRange": [
+        60,
+        63
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v21-rr1.flac",
+      "fallback": "snare-v21-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        64,
+        74
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 21,
+      "sourcePeak": 0.20222854614257812,
+      "sourceVelocityRange": [
+        71,
+        73
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v24-rr1.flac",
+      "fallback": "snare-v24-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        75,
+        84
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 24,
+      "sourcePeak": 0.2603433132171631,
+      "sourceVelocityRange": [
+        81,
+        84
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v27-rr1.flac",
+      "fallback": "snare-v27-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        85,
+        95
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 27,
+      "sourcePeak": 0.3672811985015869,
+      "sourceVelocityRange": [
+        92,
+        95
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v30-rr1.flac",
+      "fallback": "snare-v30-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        96,
+        106
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 30,
+      "sourcePeak": 0.48211193084716797,
+      "sourceVelocityRange": [
+        103,
+        105
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v33-rr1.flac",
+      "fallback": "snare-v33-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        107,
+        116
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 33,
+      "sourcePeak": 0.7883332967758179,
+      "sourceVelocityRange": [
+        113,
+        116
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-v36-rr1.flac",
+      "fallback": "snare-v36-rr1.wav",
+      "articulation": "snare",
+      "velocityRange": [
+        117,
+        127
+      ],
+      "variant": 0,
+      "level": 0.7079459531716061,
+      "sourceLayer": 36,
+      "sourcePeak": 0.9999997615814209,
+      "sourceVelocityRange": [
+        124,
+        127
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-crossstick-v4-rr1.flac",
+      "fallback": "snare-crossstick-v4-rr1.wav",
+      "articulation": "snare-crossstick",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 0,
+      "level": 1.4451909147977753,
+      "sourceLayer": 4,
+      "sourcePeak": 0.03132200241088867,
+      "sourceVelocityRange": [
+        24,
+        31
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-crossstick-v8-rr1.flac",
+      "fallback": "snare-crossstick-v8-rr1.wav",
+      "articulation": "snare-crossstick",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 0,
+      "level": 1.4451909147977753,
+      "sourceLayer": 8,
+      "sourcePeak": 0.10560119152069092,
+      "sourceVelocityRange": [
+        56,
+        63
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-crossstick-v12-rr1.flac",
+      "fallback": "snare-crossstick-v12-rr1.wav",
+      "articulation": "snare-crossstick",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 0,
+      "level": 1.4451909147977753,
+      "sourceLayer": 12,
+      "sourcePeak": 0.28409743309020996,
+      "sourceVelocityRange": [
+        88,
+        95
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-crossstick-v16-rr1.flac",
+      "fallback": "snare-crossstick-v16-rr1.wav",
+      "articulation": "snare-crossstick",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 0,
+      "level": 1.4451909147977753,
+      "sourceLayer": 16,
+      "sourcePeak": 0.48986315727233887,
+      "sourceVelocityRange": [
+        120,
+        127
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-rimshot-v3-rr1.flac",
+      "fallback": "snare-rimshot-v3-rr1.wav",
+      "articulation": "snare-rimshot",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 0,
+      "level": 0.9800768574937022,
+      "sourceLayer": 3,
+      "sourcePeak": 0.12362360954284668,
+      "sourceVelocityRange": [
+        22,
+        32
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-rimshot-v6-rr1.flac",
+      "fallback": "snare-rimshot-v6-rr1.wav",
+      "articulation": "snare-rimshot",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 0,
+      "level": 0.9800768574937022,
+      "sourceLayer": 6,
+      "sourcePeak": 0.38515138626098633,
+      "sourceVelocityRange": [
+        54,
+        63
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-rimshot-v9-rr1.flac",
+      "fallback": "snare-rimshot-v9-rr1.wav",
+      "articulation": "snare-rimshot",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 0,
+      "level": 0.9800768574937022,
+      "sourceLayer": 9,
+      "sourcePeak": 0.3117269277572632,
+      "sourceVelocityRange": [
+        86,
+        95
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "snare-rimshot-v12-rr1.flac",
+      "fallback": "snare-rimshot-v12-rr1.wav",
+      "articulation": "snare-rimshot",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 0,
+      "level": 0.9800768574937022,
+      "sourceLayer": 12,
+      "sourcePeak": 0.722337007522583,
+      "sourceVelocityRange": [
+        118,
+        127
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-high-v2-rr1.flac",
+      "fallback": "tom-high-v2-rr1.wav",
+      "articulation": "tom-high",
+      "velocityRange": [
+        0,
+        20
+      ],
+      "variant": 0,
+      "level": 1.160017093634398,
+      "sourceLayer": 2,
+      "sourcePeak": 0.044097304344177246,
+      "sourceVelocityRange": [
+        8,
+        15
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-high-v5-rr1.flac",
+      "fallback": "tom-high-v5-rr1.wav",
+      "articulation": "tom-high",
+      "velocityRange": [
+        21,
+        42
+      ],
+      "variant": 0,
+      "level": 1.160017093634398,
+      "sourceLayer": 5,
+      "sourcePeak": 0.11183321475982666,
+      "sourceVelocityRange": [
+        32,
+        39
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-high-v8-rr1.flac",
+      "fallback": "tom-high-v8-rr1.wav",
+      "articulation": "tom-high",
+      "velocityRange": [
+        43,
+        63
+      ],
+      "variant": 0,
+      "level": 1.160017093634398,
+      "sourceLayer": 8,
+      "sourcePeak": 0.21530389785766602,
+      "sourceVelocityRange": [
+        56,
+        63
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-high-v11-rr1.flac",
+      "fallback": "tom-high-v11-rr1.wav",
+      "articulation": "tom-high",
+      "velocityRange": [
+        64,
+        84
+      ],
+      "variant": 0,
+      "level": 1.160017093634398,
+      "sourceLayer": 11,
+      "sourcePeak": 0.3917202949523926,
+      "sourceVelocityRange": [
+        80,
+        87
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-high-v14-rr1.flac",
+      "fallback": "tom-high-v14-rr1.wav",
+      "articulation": "tom-high",
+      "velocityRange": [
+        85,
+        106
+      ],
+      "variant": 0,
+      "level": 1.160017093634398,
+      "sourceLayer": 14,
+      "sourcePeak": 0.5095806121826172,
+      "sourceVelocityRange": [
+        104,
+        111
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-high-v16-rr1.flac",
+      "fallback": "tom-high-v16-rr1.wav",
+      "articulation": "tom-high",
+      "velocityRange": [
+        107,
+        127
+      ],
+      "variant": 0,
+      "level": 1.160017093634398,
+      "sourceLayer": 16,
+      "sourcePeak": 0.6102890968322754,
+      "sourceVelocityRange": [
+        120,
+        127
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-low-v2-rr1.flac",
+      "fallback": "tom-low-v2-rr1.wav",
+      "articulation": "tom-low",
+      "velocityRange": [
+        0,
+        20
+      ],
+      "variant": 0,
+      "level": 1.5868707408034703,
+      "sourceLayer": 2,
+      "sourcePeak": 0.015654563903808594,
+      "sourceVelocityRange": [
+        8,
+        15
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-low-v5-rr1.flac",
+      "fallback": "tom-low-v5-rr1.wav",
+      "articulation": "tom-low",
+      "velocityRange": [
+        21,
+        42
+      ],
+      "variant": 0,
+      "level": 1.5868707408034703,
+      "sourceLayer": 5,
+      "sourcePeak": 0.04792666435241699,
+      "sourceVelocityRange": [
+        32,
+        39
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-low-v8-rr1.flac",
+      "fallback": "tom-low-v8-rr1.wav",
+      "articulation": "tom-low",
+      "velocityRange": [
+        43,
+        63
+      ],
+      "variant": 0,
+      "level": 1.5868707408034703,
+      "sourceLayer": 8,
+      "sourcePeak": 0.11701381206512451,
+      "sourceVelocityRange": [
+        56,
+        63
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-low-v11-rr1.flac",
+      "fallback": "tom-low-v11-rr1.wav",
+      "articulation": "tom-low",
+      "velocityRange": [
+        64,
+        84
+      ],
+      "variant": 0,
+      "level": 1.5868707408034703,
+      "sourceLayer": 11,
+      "sourcePeak": 0.27755284309387207,
+      "sourceVelocityRange": [
+        80,
+        87
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-low-v14-rr1.flac",
+      "fallback": "tom-low-v14-rr1.wav",
+      "articulation": "tom-low",
+      "velocityRange": [
+        85,
+        106
+      ],
+      "variant": 0,
+      "level": 1.5868707408034703,
+      "sourceLayer": 14,
+      "sourcePeak": 0.4342532157897949,
+      "sourceVelocityRange": [
+        104,
+        111
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    },
+    {
+      "file": "tom-low-v16-rr1.flac",
+      "fallback": "tom-low-v16-rr1.wav",
+      "articulation": "tom-low",
+      "velocityRange": [
+        107,
+        127
+      ],
+      "variant": 0,
+      "level": 1.5868707408034703,
+      "sourceLayer": 16,
+      "sourcePeak": 0.44612693786621094,
+      "sourceVelocityRange": [
+        120,
+        127
+      ],
+      "sourceAmpVeltrack": 0,
+      "amplitudeExponent": 0
+    }
+  ],
+  "articulationGains": {
+    "kick": 0.8223805469646378,
+    "hat-closed": 1.313283179482366,
+    "hat-half": 4.66014546217581,
+    "hat-open": 0.7845229760389948,
+    "hat-pedal": 7.579051732084836,
+    "ride": 2.481565752483185,
+    "ride-bell": 3.1375800131084133,
+    "crash": 3.8429822934057847,
+    "snare": 0.7079459531716061,
+    "snare-crossstick": 1.4451909147977753,
+    "snare-rimshot": 0.9800768574937022,
+    "tom-high": 1.160017093634398,
+    "tom-low": 1.5868707408034703
+  },
+  "velocityTracking": {
+    "note": "Original master and region SFZ controls are combined per sample. Zero tracking snare/toms use only recorded dynamics; custom points already include the original 50% or 100% velocity tracking.",
+    "implementationReference": "https://github.com/sfztools/sfizz/blob/develop/src/sfizz/RegionStateful.cpp"
+  }
+}

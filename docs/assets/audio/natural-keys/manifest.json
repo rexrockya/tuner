@@ -1,0 +1,1274 @@
+{
+  "version": 1,
+  "id": "natural-keys",
+  "source": {
+    "repository": "https://github.com/sfzinstruments/GregSullivan.E-Pianos",
+    "commit": "8c3e581acda3594b553948ff0222d4f84a698376",
+    "license": "CC-BY-3.0"
+  },
+  "license": "CC-BY-3.0",
+  "samples": [
+    {
+      "file": "a1pp.flac",
+      "fallback": "a1pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 33,
+      "keyRange": [
+        33,
+        35
+      ],
+      "tuneCents": -5.0,
+      "level": 0.6918309709189365,
+      "sourceVolumeDb": -3.2,
+      "sourceLayer": "pp",
+      "sourceRegion": "01",
+      "loopStart": 2.2206802721088437,
+      "loopEnd": 2.4200226757369614,
+      "sourceLoopFrames": [
+        97932,
+        106723
+      ]
+    },
+    {
+      "file": "a1pp.flac",
+      "fallback": "a1pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 33,
+      "keyRange": [
+        36,
+        38
+      ],
+      "tuneCents": -5.0,
+      "level": 0.6683439175686147,
+      "sourceVolumeDb": -3.5,
+      "sourceLayer": "pp",
+      "sourceRegion": "02",
+      "loopStart": 2.2206802721088437,
+      "loopEnd": 2.4200226757369614,
+      "sourceLoopFrames": [
+        97932,
+        106723
+      ]
+    },
+    {
+      "file": "ab2pp.flac",
+      "fallback": "ab2pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 44,
+      "keyRange": [
+        39,
+        47
+      ],
+      "tuneCents": -8.0,
+      "level": 0.6165950018614821,
+      "sourceVolumeDb": -4.2,
+      "sourceLayer": "pp",
+      "sourceRegion": "03",
+      "loopStart": 3.5358503401360544,
+      "loopEnd": 3.785170068027211,
+      "sourceLoopFrames": [
+        155931,
+        166926
+      ]
+    },
+    {
+      "file": "eb3pp.flac",
+      "fallback": "eb3pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 51,
+      "keyRange": [
+        48,
+        53
+      ],
+      "tuneCents": -10.0,
+      "level": 0.5821032177708714,
+      "sourceVolumeDb": -4.7,
+      "sourceLayer": "pp",
+      "sourceRegion": "04",
+      "loopStart": 2.351700680272109,
+      "loopEnd": 2.3899773242630387,
+      "sourceLoopFrames": [
+        103710,
+        105398
+      ]
+    },
+    {
+      "file": "ab3pp.flac",
+      "fallback": "ab3pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 56,
+      "keyRange": [
+        54,
+        59
+      ],
+      "tuneCents": -12.0,
+      "level": 0.5308844442309884,
+      "sourceVolumeDb": -5.5,
+      "sourceLayer": "pp",
+      "sourceRegion": "05",
+      "loopStart": 0.9832199546485261,
+      "loopEnd": 1.0118820861678004,
+      "sourceLoopFrames": [
+        43360,
+        44624
+      ]
+    },
+    {
+      "file": "db4pp.flac",
+      "fallback": "db4pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "tuneCents": -2.0,
+      "level": 0.5495408738576245,
+      "sourceVolumeDb": -5.2,
+      "sourceLayer": "pp",
+      "sourceRegion": "06",
+      "loopStart": 0.88281179138322,
+      "loopEnd": 0.9981859410430839,
+      "sourceLoopFrames": [
+        38932,
+        44020
+      ]
+    },
+    {
+      "file": "g4pp.flac",
+      "fallback": "g4pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 67,
+      "keyRange": [
+        63,
+        68
+      ],
+      "tuneCents": -2.0,
+      "level": 0.5495408738576245,
+      "sourceVolumeDb": -5.2,
+      "sourceLayer": "pp",
+      "sourceRegion": "07",
+      "loopStart": 0.8701587301587301,
+      "loopEnd": 0.9465532879818594,
+      "sourceLoopFrames": [
+        38374,
+        41743
+      ]
+    },
+    {
+      "file": "db5pp.flac",
+      "fallback": "db5pp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 73,
+      "keyRange": [
+        69,
+        74
+      ],
+      "tuneCents": -5.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "pp",
+      "sourceRegion": "08",
+      "loopStart": 0.30854875283446714,
+      "loopEnd": 0.3570975056689342,
+      "sourceLoopFrames": [
+        13607,
+        15748
+      ]
+    },
+    {
+      "file": "g5mp.flac",
+      "fallback": "g5mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 79,
+      "keyRange": [
+        75,
+        80
+      ],
+      "tuneCents": -8.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "pp",
+      "sourceRegion": "09",
+      "loopStart": 0.605827664399093,
+      "loopEnd": 0.6641950113378685,
+      "sourceLoopFrames": [
+        26717,
+        29291
+      ]
+    },
+    {
+      "file": "db6mp.flac",
+      "fallback": "db6mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 85,
+      "keyRange": [
+        81,
+        89
+      ],
+      "tuneCents": 6.0,
+      "level": 0.5248074602497727,
+      "sourceVolumeDb": -5.6,
+      "sourceLayer": "pp",
+      "sourceRegion": "10",
+      "loopStart": 1.146530612244898,
+      "loopEnd": 1.2403401360544217,
+      "sourceLoopFrames": [
+        50562,
+        54699
+      ]
+    },
+    {
+      "file": "ab6mp.flac",
+      "fallback": "ab6mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        0,
+        37
+      ],
+      "variant": 0,
+      "midi": 92,
+      "keyRange": [
+        90,
+        96
+      ],
+      "tuneCents": 2.0,
+      "level": 0.5188000389289611,
+      "sourceVolumeDb": -5.7,
+      "sourceLayer": "pp",
+      "sourceRegion": "11",
+      "loopStart": 0.7797278911564626,
+      "loopEnd": 0.8301814058956916,
+      "sourceLoopFrames": [
+        34386,
+        36611
+      ]
+    },
+    {
+      "file": "a1mp.flac",
+      "fallback": "a1mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 33,
+      "keyRange": [
+        33,
+        35
+      ],
+      "tuneCents": -5.0,
+      "level": 0.6456542290346555,
+      "sourceVolumeDb": -3.8,
+      "sourceLayer": "mp",
+      "sourceRegion": "01",
+      "loopStart": 2.6018140589569163,
+      "loopEnd": 2.801156462585034,
+      "sourceLoopFrames": [
+        114740,
+        123531
+      ]
+    },
+    {
+      "file": "e2mp.flac",
+      "fallback": "e2mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 40,
+      "keyRange": [
+        36,
+        41
+      ],
+      "tuneCents": -4.0,
+      "level": 0.6165950018614821,
+      "sourceVolumeDb": -4.2,
+      "sourceLayer": "mp",
+      "sourceRegion": "02",
+      "loopStart": 2.154172335600907,
+      "loopEnd": 2.2024716553287984,
+      "sourceLoopFrames": [
+        94999,
+        97129
+      ]
+    },
+    {
+      "file": "a2mp.flac",
+      "fallback": "a2mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 45,
+      "keyRange": [
+        42,
+        47
+      ],
+      "tuneCents": -2.0,
+      "level": 0.5821032177708714,
+      "sourceVolumeDb": -4.7,
+      "sourceLayer": "mp",
+      "sourceRegion": "03",
+      "loopStart": 2.307641723356009,
+      "loopEnd": 2.3529478458049886,
+      "sourceLoopFrames": [
+        101767,
+        103765
+      ]
+    },
+    {
+      "file": "eb3mp.flac",
+      "fallback": "eb3mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 51,
+      "keyRange": [
+        48,
+        53
+      ],
+      "tuneCents": -9.0,
+      "level": 0.5559042572704036,
+      "sourceVolumeDb": -5.1,
+      "sourceLayer": "mp",
+      "sourceRegion": "04",
+      "loopStart": 2.1396825396825396,
+      "loopEnd": 2.171655328798186,
+      "sourceLoopFrames": [
+        94360,
+        95770
+      ]
+    },
+    {
+      "file": "ab3mp.flac",
+      "fallback": "ab3mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 56,
+      "keyRange": [
+        54,
+        59
+      ],
+      "tuneCents": -8.0,
+      "level": 0.5432503314924332,
+      "sourceVolumeDb": -5.3,
+      "sourceLayer": "mp",
+      "sourceRegion": "05",
+      "loopStart": 2.6274149659863943,
+      "loopEnd": 2.6513151927437644,
+      "sourceLoopFrames": [
+        115869,
+        116923
+      ]
+    },
+    {
+      "file": "db4mp.flac",
+      "fallback": "db4mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "tuneCents": 4.0,
+      "level": 0.5432503314924332,
+      "sourceVolumeDb": -5.3,
+      "sourceLayer": "mp",
+      "sourceRegion": "06",
+      "loopStart": 2.0309297052154194,
+      "loopEnd": 2.0705668934240364,
+      "sourceLoopFrames": [
+        89564,
+        91312
+      ]
+    },
+    {
+      "file": "gb4mp.flac",
+      "fallback": "gb4mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 66,
+      "keyRange": [
+        63,
+        68
+      ],
+      "tuneCents": 7.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "mp",
+      "sourceRegion": "07",
+      "loopStart": 1.4565532879818595,
+      "loopEnd": 1.478185941043084,
+      "sourceLoopFrames": [
+        64234,
+        65188
+      ]
+    },
+    {
+      "file": "b4mp.flac",
+      "fallback": "b4mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 71,
+      "keyRange": [
+        69,
+        71
+      ],
+      "tuneCents": -5.0,
+      "level": 0.5495408738576245,
+      "sourceVolumeDb": -5.2,
+      "sourceLayer": "mp",
+      "sourceRegion": "08",
+      "loopStart": 0.71140589569161,
+      "loopEnd": 0.7780045351473923,
+      "sourceLoopFrames": [
+        31373,
+        34310
+      ]
+    },
+    {
+      "file": "db5mp.flac",
+      "fallback": "db5mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 73,
+      "keyRange": [
+        72,
+        74
+      ],
+      "tuneCents": 3.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "mp",
+      "sourceRegion": "09",
+      "loopStart": 1.0015419501133787,
+      "loopEnd": 1.0538548752834467,
+      "sourceLoopFrames": [
+        44168,
+        46475
+      ]
+    },
+    {
+      "file": "g5mp.flac",
+      "fallback": "g5mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 79,
+      "keyRange": [
+        75,
+        80
+      ],
+      "tuneCents": -8.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "mp",
+      "sourceRegion": "10",
+      "loopStart": 0.605827664399093,
+      "loopEnd": 0.6641950113378685,
+      "sourceLoopFrames": [
+        26717,
+        29291
+      ]
+    },
+    {
+      "file": "db6mp.flac",
+      "fallback": "db6mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 85,
+      "keyRange": [
+        81,
+        89
+      ],
+      "tuneCents": 6.0,
+      "level": 0.5248074602497727,
+      "sourceVolumeDb": -5.6,
+      "sourceLayer": "mp",
+      "sourceRegion": "11",
+      "loopStart": 1.146530612244898,
+      "loopEnd": 1.2403401360544217,
+      "sourceLoopFrames": [
+        50562,
+        54699
+      ]
+    },
+    {
+      "file": "ab6mp.flac",
+      "fallback": "ab6mp.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        38,
+        65
+      ],
+      "variant": 0,
+      "midi": 92,
+      "keyRange": [
+        90,
+        96
+      ],
+      "tuneCents": 2.0,
+      "level": 0.5188000389289611,
+      "sourceVolumeDb": -5.7,
+      "sourceLayer": "mp",
+      "sourceRegion": "12",
+      "loopStart": 0.7797278911564626,
+      "loopEnd": 0.8301814058956916,
+      "sourceLoopFrames": [
+        34386,
+        36611
+      ]
+    },
+    {
+      "file": "a1f.flac",
+      "fallback": "a1f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 33,
+      "keyRange": [
+        33,
+        35
+      ],
+      "tuneCents": -5.0,
+      "level": 0.5821032177708714,
+      "sourceVolumeDb": -4.7,
+      "sourceLayer": "f",
+      "sourceRegion": "01",
+      "loopStart": 4.389909297052154,
+      "loopEnd": 4.480657596371882,
+      "sourceLoopFrames": [
+        193595,
+        197597
+      ]
+    },
+    {
+      "file": "c2f.flac",
+      "fallback": "c2f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 36,
+      "keyRange": [
+        36,
+        38
+      ],
+      "tuneCents": -7.0,
+      "level": 0.5623413251903491,
+      "sourceVolumeDb": -5.0,
+      "sourceLayer": "f",
+      "sourceRegion": "02",
+      "loopStart": 4.75077097505669,
+      "loopEnd": 4.933424036281179,
+      "sourceLoopFrames": [
+        209509,
+        217564
+      ]
+    },
+    {
+      "file": "f2f.flac",
+      "fallback": "f2f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 41,
+      "keyRange": [
+        39,
+        44
+      ],
+      "tuneCents": -6.0,
+      "level": 0.5821032177708714,
+      "sourceVolumeDb": -4.7,
+      "sourceLayer": "f",
+      "sourceRegion": "03",
+      "loopStart": 4.513968253968254,
+      "loopEnd": 4.685011337868481,
+      "sourceLoopFrames": [
+        199066,
+        206609
+      ]
+    },
+    {
+      "file": "b2f.flac",
+      "fallback": "b2f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 47,
+      "keyRange": [
+        45,
+        50
+      ],
+      "tuneCents": -8.0,
+      "level": 0.5623413251903491,
+      "sourceVolumeDb": -5.0,
+      "sourceLayer": "f",
+      "sourceRegion": "04",
+      "loopStart": 3.653469387755102,
+      "loopEnd": 3.8466213151927438,
+      "sourceLoopFrames": [
+        161118,
+        169636
+      ]
+    },
+    {
+      "file": "e3f.flac",
+      "fallback": "e3f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 52,
+      "keyRange": [
+        51,
+        53
+      ],
+      "tuneCents": -4.0,
+      "level": 0.5821032177708714,
+      "sourceVolumeDb": -4.7,
+      "sourceLayer": "f",
+      "sourceRegion": "05",
+      "loopStart": 2.2558049886621316,
+      "loopEnd": 2.364557823129252,
+      "sourceLoopFrames": [
+        99481,
+        104277
+      ]
+    },
+    {
+      "file": "ab3f.flac",
+      "fallback": "ab3f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 56,
+      "keyRange": [
+        54,
+        59
+      ],
+      "tuneCents": -11.0,
+      "level": 0.5754399373371569,
+      "sourceVolumeDb": -4.8,
+      "sourceLayer": "f",
+      "sourceRegion": "06",
+      "loopStart": 2.4275056689342405,
+      "loopEnd": 2.4801133786848073,
+      "sourceLoopFrames": [
+        107053,
+        109373
+      ]
+    },
+    {
+      "file": "db4f.flac",
+      "fallback": "db4f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 61,
+      "keyRange": [
+        60,
+        65
+      ],
+      "tuneCents": -2.0,
+      "level": 0.5754399373371569,
+      "sourceVolumeDb": -4.8,
+      "sourceLayer": "f",
+      "sourceRegion": "07",
+      "loopStart": 2.067369614512472,
+      "loopEnd": 2.1466666666666665,
+      "sourceLoopFrames": [
+        91171,
+        94668
+      ]
+    },
+    {
+      "file": "ab4f.flac",
+      "fallback": "ab4f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 68,
+      "keyRange": [
+        66,
+        71
+      ],
+      "tuneCents": 0.0,
+      "level": 0.5623413251903491,
+      "sourceVolumeDb": -5.0,
+      "sourceLayer": "f",
+      "sourceRegion": "08",
+      "loopStart": 2.5620861678004534,
+      "loopEnd": 2.7065532879818592,
+      "sourceLoopFrames": [
+        112988,
+        119359
+      ]
+    },
+    {
+      "file": "db5f.flac",
+      "fallback": "db5f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 73,
+      "keyRange": [
+        72,
+        77
+      ],
+      "tuneCents": 3.0,
+      "level": 0.5011872336272722,
+      "sourceVolumeDb": -6.0,
+      "sourceLayer": "f",
+      "sourceRegion": "09",
+      "loopStart": 1.7160090702947846,
+      "loopEnd": 1.7990249433106575,
+      "sourceLoopFrames": [
+        75676,
+        79337
+      ]
+    },
+    {
+      "file": "g5f.flac",
+      "fallback": "g5f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 79,
+      "keyRange": [
+        78,
+        80
+      ],
+      "tuneCents": -7.0,
+      "level": 0.5069907082747043,
+      "sourceVolumeDb": -5.9,
+      "sourceLayer": "f",
+      "sourceRegion": "10",
+      "loopStart": 0.891156462585034,
+      "loopEnd": 0.9457142857142857,
+      "sourceLoopFrames": [
+        39300,
+        41706
+      ]
+    },
+    {
+      "file": "db6f.flac",
+      "fallback": "db6f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 85,
+      "keyRange": [
+        81,
+        89
+      ],
+      "tuneCents": 0.0,
+      "level": 0.5069907082747043,
+      "sourceVolumeDb": -5.9,
+      "sourceLayer": "f",
+      "sourceRegion": "11",
+      "loopStart": 0.9937868480725623,
+      "loopEnd": 1.0875963718820862,
+      "sourceLoopFrames": [
+        43826,
+        47963
+      ]
+    },
+    {
+      "file": "ab6f.flac",
+      "fallback": "ab6f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        66,
+        89
+      ],
+      "variant": 0,
+      "midi": 92,
+      "keyRange": [
+        90,
+        96
+      ],
+      "tuneCents": 0.0,
+      "level": 0.5069907082747043,
+      "sourceVolumeDb": -5.9,
+      "sourceLayer": "f",
+      "sourceRegion": "12",
+      "loopStart": 0.9847619047619047,
+      "loopEnd": 1.0520408163265307,
+      "sourceLoopFrames": [
+        43428,
+        46395
+      ]
+    },
+    {
+      "file": "a1ff.flac",
+      "fallback": "a1ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 33,
+      "keyRange": [
+        33,
+        35
+      ],
+      "tuneCents": -5.0,
+      "level": 0.5432503314924332,
+      "sourceVolumeDb": -5.3,
+      "sourceLayer": "ff",
+      "sourceRegion": "01",
+      "loopStart": 5.418367346938775,
+      "loopEnd": 5.581927437641723,
+      "sourceLoopFrames": [
+        238950,
+        246163
+      ]
+    },
+    {
+      "file": "c2ff.flac",
+      "fallback": "c2ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 36,
+      "keyRange": [
+        36,
+        38
+      ],
+      "tuneCents": -7.0,
+      "level": 0.5432503314924332,
+      "sourceVolumeDb": -5.3,
+      "sourceLayer": "ff",
+      "sourceRegion": "02",
+      "loopStart": 5.027959183673469,
+      "loopEnd": 5.180657596371882,
+      "sourceLoopFrames": [
+        221733,
+        228467
+      ]
+    },
+    {
+      "file": "f2ff.flac",
+      "fallback": "f2ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 41,
+      "keyRange": [
+        39,
+        44
+      ],
+      "tuneCents": -6.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "03",
+      "loopStart": 5.245283446712018,
+      "loopEnd": 5.451292517006802,
+      "sourceLoopFrames": [
+        231317,
+        240402
+      ]
+    },
+    {
+      "file": "b2ff.flac",
+      "fallback": "b2ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 47,
+      "keyRange": [
+        45,
+        50
+      ],
+      "tuneCents": -8.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "04",
+      "loopStart": 3.6473696145124714,
+      "loopEnd": 3.849387755102041,
+      "sourceLoopFrames": [
+        160849,
+        169758
+      ]
+    },
+    {
+      "file": "e3ff.flac",
+      "fallback": "e3ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 52,
+      "keyRange": [
+        51,
+        53
+      ],
+      "tuneCents": -2.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "05",
+      "loopStart": 2.8036961451247167,
+      "loopEnd": 2.9187981859410432,
+      "sourceLoopFrames": [
+        123643,
+        128719
+      ]
+    },
+    {
+      "file": "ab3ff.flac",
+      "fallback": "ab3ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 56,
+      "keyRange": [
+        54,
+        59
+      ],
+      "tuneCents": -8.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "06",
+      "loopStart": 3.0706122448979594,
+      "loopEnd": 3.1952380952380954,
+      "sourceLoopFrames": [
+        135414,
+        140910
+      ]
+    },
+    {
+      "file": "db4ff.flac",
+      "fallback": "db4ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 61,
+      "keyRange": [
+        60,
+        62
+      ],
+      "tuneCents": 2.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "07",
+      "loopStart": 2.7390249433106577,
+      "loopEnd": 2.8656009070294783,
+      "sourceLoopFrames": [
+        120791,
+        126373
+      ]
+    },
+    {
+      "file": "e4ff.flac",
+      "fallback": "e4ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 64,
+      "keyRange": [
+        63,
+        65
+      ],
+      "tuneCents": -3.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "08",
+      "loopStart": 2.5120408163265306,
+      "loopEnd": 2.5514285714285716,
+      "sourceLoopFrames": [
+        110781,
+        112518
+      ]
+    },
+    {
+      "file": "g4ff.flac",
+      "fallback": "g4ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 67,
+      "keyRange": [
+        66,
+        68
+      ],
+      "tuneCents": 3.0,
+      "level": 0.5370317963702527,
+      "sourceVolumeDb": -5.4,
+      "sourceLayer": "ff",
+      "sourceRegion": "09",
+      "loopStart": 1.7051700680272108,
+      "loopEnd": 1.769002267573696,
+      "sourceLoopFrames": [
+        75198,
+        78013
+      ]
+    },
+    {
+      "file": "db5ff.flac",
+      "fallback": "db5ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 73,
+      "keyRange": [
+        69,
+        77
+      ],
+      "tuneCents": -1.0,
+      "level": 0.6683439175686147,
+      "sourceVolumeDb": -3.5,
+      "sourceLayer": "ff",
+      "sourceRegion": "10",
+      "loopStart": 1.4786848072562357,
+      "loopEnd": 1.518390022675737,
+      "sourceLoopFrames": [
+        65210,
+        66961
+      ]
+    },
+    {
+      "file": "g5ff.flac",
+      "fallback": "g5ff.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 79,
+      "keyRange": [
+        78,
+        80
+      ],
+      "tuneCents": -7.0,
+      "level": 0.5688529308438414,
+      "sourceVolumeDb": -4.9,
+      "sourceLayer": "ff",
+      "sourceRegion": "11",
+      "loopStart": 0.7723809523809524,
+      "loopEnd": 0.8168027210884353,
+      "sourceLoopFrames": [
+        34062,
+        36021
+      ]
+    },
+    {
+      "file": "db6f.flac",
+      "fallback": "db6f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 85,
+      "keyRange": [
+        81,
+        89
+      ],
+      "tuneCents": 0.0,
+      "level": 0.5308844442309884,
+      "sourceVolumeDb": -5.5,
+      "sourceLayer": "ff",
+      "sourceRegion": "12",
+      "loopStart": 0.9937868480725623,
+      "loopEnd": 1.0875963718820862,
+      "sourceLoopFrames": [
+        43826,
+        47963
+      ]
+    },
+    {
+      "file": "ab6f.flac",
+      "fallback": "ab6f.wav",
+      "articulation": "wurli",
+      "velocityRange": [
+        90,
+        127
+      ],
+      "variant": 0,
+      "midi": 92,
+      "keyRange": [
+        90,
+        96
+      ],
+      "tuneCents": 0.0,
+      "level": 0.5011872336272722,
+      "sourceVolumeDb": -6.0,
+      "sourceLayer": "ff",
+      "sourceRegion": "13",
+      "loopStart": 0.9847619047619047,
+      "loopEnd": 1.0520408163265307,
+      "sourceLoopFrames": [
+        43428,
+        46395
+      ]
+    }
+  ],
+  "envelope": {
+    "attack": 0.001,
+    "hold": 5,
+    "decay": 25,
+    "sustain": 0,
+    "release": 0.1
+  },
+  "velocityTracking": {
+    "ampVeltrackPercent": 100,
+    "sourceController": 99,
+    "note": "SFZ defaults enable 100% velocity amplitude tracking in addition to recorded velocity layers.",
+    "amplitudeExponent": 2,
+    "documentation": "https://sfzformat.com/opcodes/amp_veltrack/"
+  }
+}

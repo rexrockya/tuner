@@ -1,0 +1,104 @@
+{
+  "banks": [
+    {
+      "bank": "natural-bass",
+      "regions": 144,
+      "recordings": 144,
+      "flacBytes": 13104067,
+      "wavFallbackBytes": 69930872,
+      "license": "CC0-1.0",
+      "source": {
+        "name": "Karoryfer Swagbass",
+        "repo": "https://github.com/sfzinstruments/karoryfer.swagbass",
+        "commit": "9d10fcae71af1975988ddecd5af1c95d372c7355",
+        "license": "CC0-1.0",
+        "recordedInstrument": "Ibanez BTB-400QM, neck pickup DI, old DAddario Chrome flatwound strings; no onboard EQ or effects",
+        "mapping": "swagbass_clean.sfz: original pitch centers, key ranges, velocity boundaries and four-take sequence; original amplitude velocity response"
+      }
+    },
+    {
+      "bank": "natural-drums",
+      "regions": 100,
+      "recordings": 100,
+      "flacBytes": 9675015,
+      "wavFallbackBytes": 43867432,
+      "license": "CC0-1.0",
+      "source": {
+        "repository": "https://github.com/sfzinstruments/virtuosity_drums",
+        "commit": "9f04cf9a734527edfbb0a4eee1f674e45bbf71bc",
+        "license": "CC0-1.0"
+      }
+    },
+    {
+      "bank": "natural-ensemble",
+      "regions": 22,
+      "recordings": 22,
+      "flacBytes": 12861469,
+      "wavFallbackBytes": 31048116,
+      "license": "CC0-1.0",
+      "source": {
+        "repository": "https://github.com/sgossner/VSCO-2-CE",
+        "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+        "mappingCommit": "6dd651d55dde97fd4028699be9d4481f26917891",
+        "description": "Recorded violin section vibrato sustains, two recorded velocity layers with one recording per pitch and layer. Actual ensemble recordings, not layered copies of the solo violin. No recorded legato transitions."
+      }
+    },
+    {
+      "bank": "natural-guitar",
+      "regions": 120,
+      "recordings": 120,
+      "flacBytes": 29370837,
+      "wavFallbackBytes": 163949816,
+      "license": "CC0-1.0",
+      "source": {
+        "repository": "https://github.com/freepats/electric-guitar-FSBS-clean",
+        "commit": "192cf0d9bf2c4ba6ead8e3524ba3f78818e4fe91",
+        "description": "Direct recordings of a Fender electric guitar, subsequently processed with an amplifier and effects rack. Real source takes retained; two recorded velocity layers in most regions, one in the highest regions. No recorded legato."
+      }
+    },
+    {
+      "bank": "natural-keys",
+      "regions": 48,
+      "recordings": 42,
+      "flacBytes": 2391082,
+      "wavFallbackBytes": 8868616,
+      "license": "CC-BY-3.0",
+      "source": {
+        "repository": "https://github.com/sfzinstruments/GregSullivan.E-Pianos",
+        "commit": "8c3e581acda3594b553948ff0222d4f84a698376",
+        "license": "CC-BY-3.0"
+      }
+    },
+    {
+      "bank": "natural-percussion",
+      "regions": 26,
+      "recordings": 26,
+      "flacBytes": 991057,
+      "wavFallbackBytes": 3155168,
+      "license": "CC0-1.0",
+      "source": {
+        "repository": "https://github.com/sgossner/VCSL",
+        "commit": "c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e",
+        "license": "CC0-1.0"
+      }
+    },
+    {
+      "bank": "natural-strings",
+      "regions": 90,
+      "recordings": 90,
+      "flacBytes": 23021078,
+      "wavFallbackBytes": 55774820,
+      "license": "CC0-1.0",
+      "source": {
+        "repository": "https://github.com/sgossner/VSCO-2-CE",
+        "commit": "440300901dfe9275fd84e0b7763af1f8443ae62e",
+        "mappingCommit": "6dd651d55dde97fd4028699be9d4481f26917891",
+        "description": "Solo violin vibrato bow sustains (p/f, no round robin) and spiccato (two velocities, two real round robins). Natural sampled bowing, not recorded legato transitions; not a string section."
+      }
+    }
+  ],
+  "recordingCount": 544,
+  "flacBytes": 91414605,
+  "wavFallbackBytes": 376594840,
+  "delivery": "Only regions selected by the actual event plan are fetched. FLAC preferred, PCM-identical WAV fallback. Total bank size is not the first-play download."
+}

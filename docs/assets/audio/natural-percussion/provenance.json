@@ -1,0 +1,842 @@
+{
+  "version": 1,
+  "source": {
+    "repository": "https://github.com/sgossner/VCSL",
+    "commit": "c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e",
+    "license": "CC0-1.0"
+  },
+  "files": [
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr1.wav",
+      "sourceGitBlobSha1": "8a36588b7cd3ae89c74c0fde1a3f875b04c8e2b5",
+      "sourceSha256": "4f8c887b138696c2dc47003d6b35a2be29da33e548afc4e43e07a4a60723ef65",
+      "sourceBytes": 29920,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.169342,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 10.237408412488715
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.169342
+      },
+      "outputs": {
+        "shaker-v1-rr1.flac": {
+          "sha256": "3c97d65501cac661f62f9590a6a172990812f853b7d6c6cfa9e349585ae89dfe",
+          "bytes": 21686
+        },
+        "shaker-v1-rr1.wav": {
+          "sha256": "0ce031a810b2e2d212b0f1ba7c27369432b9dde33abb840bafbe2b08e0b58ccb",
+          "bytes": 29950
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Down_rr2.wav",
+      "sourceGitBlobSha1": "2ae540c44c8ae6606eff07d57817a7d3daf5b407",
+      "sourceSha256": "c448de8d6f3bfe410d3ea3ef672a9065dbf40b4d042e0f73e9eecce1e64b7116",
+      "sourceBytes": 20440,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.115601,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 10.237408412488715
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.115601
+      },
+      "outputs": {
+        "shaker-v1-rr2.flac": {
+          "sha256": "d3c6488ab4ff8822fc1eb296eaf70fdcb7d82fad6027e41faabeae35a2967357",
+          "bytes": 18016
+        },
+        "shaker-v1-rr2.wav": {
+          "sha256": "c62384eb70bb83256e2196e1c8f4aecf59d73fd126ea4ea3c5924034c594051b",
+          "bytes": 20470
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr1.wav",
+      "sourceGitBlobSha1": "bd5135b8f390e37b9ad65c39aa0b3a15b87c311e",
+      "sourceSha256": "411cc7d4b5c9731be16f4e9c91f3f292ee5c88b669e403609998b366b6393371",
+      "sourceBytes": 21020,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.118889,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 10.237408412488715
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.118889
+      },
+      "outputs": {
+        "shaker-v1-rr3.flac": {
+          "sha256": "5be34cadf3dab8bb2f45107589320506c2ee8a01acf61bc3261fbef3992a1e8b",
+          "bytes": 18610
+        },
+        "shaker-v1-rr3.wav": {
+          "sha256": "66fe46eac54f65cdf775ae45064ad89942a3c52465c3946f14630d18f6d97ff5",
+          "bytes": 21050
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerLowFaster_Up_rr2.wav",
+      "sourceGitBlobSha1": "fd25af874cd4dd934faf670403182aa8a57d3a59",
+      "sourceSha256": "800dde7afd5e2a11093865b1ef63947721efebc3878bf1ca74fcfb57e48bd857",
+      "sourceBytes": 14620,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.082608,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 10.237408412488715
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.082608
+      },
+      "outputs": {
+        "shaker-v1-rr4.flac": {
+          "sha256": "b583c719e66f84aebfb35b264e0f3180a86b6d5d5055b90a11e2a3d0e771ee45",
+          "bytes": 16692
+        },
+        "shaker-v1-rr4.wav": {
+          "sha256": "b9de2bfc4249e4447a0e5bb4fa1e1728897aa062ed40ac54dc64eda2098ef33a",
+          "bytes": 14650
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerHighFaster_Down_rr1.wav",
+      "sourceGitBlobSha1": "d04a94860571471202fbf14cfcb4cc90a15ef873",
+      "sourceSha256": "cf4cb388ffcff5a042149e0645123b089ae85e8342876421e817dce55ce66a5a",
+      "sourceBytes": 31556,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.178617,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 8.541225133541763
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.178617
+      },
+      "outputs": {
+        "shaker-bright-v1-rr1.flac": {
+          "sha256": "44cbc00e84f5db80ae5177c17adf78547dead3060995239d7b09cb48094aa318",
+          "bytes": 21778
+        },
+        "shaker-bright-v1-rr1.wav": {
+          "sha256": "a8d44edc480dfd55e65b24a1cdff62ef8bdfc76cdd8f484780875a81775a3dcb",
+          "bytes": 31586
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerHighFaster_Down_rr2.wav",
+      "sourceGitBlobSha1": "45d0c9daa1e7891595c4134ae72ef9eedc0536eb",
+      "sourceSha256": "fa616e9ea22817bb75dfeb6a914440ea933696d43649d6c472f417617b741bd4",
+      "sourceBytes": 24012,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.13585,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 8.541225133541763
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.13585
+      },
+      "outputs": {
+        "shaker-bright-v1-rr2.flac": {
+          "sha256": "efbdc3fc4496a5ac4ffabc00f6efc10a6de1ecbc1572ad38513a0682f8e1dc8b",
+          "bytes": 19311
+        },
+        "shaker-bright-v1-rr2.wav": {
+          "sha256": "4d0c0e3dd9a34a9385a5c7fa29565be4608768f78f7a27d92ea080c093521c81",
+          "bytes": 24042
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerHighFaster_Up_rr1.wav",
+      "sourceGitBlobSha1": "831b3482793512402dfd6f015d4a3d4abf432e49",
+      "sourceSha256": "45ae715ce4f64280c9d8fa7eacb4e7003127b93c59c08e95125b67b173cf98e0",
+      "sourceBytes": 32196,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.182245,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 8.541225133541763
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.182245
+      },
+      "outputs": {
+        "shaker-bright-v1-rr3.flac": {
+          "sha256": "d35dd3ff8ead442343966567854f732309f592630cf7db0c347d4551cb02f01b",
+          "bytes": 22101
+        },
+        "shaker-bright-v1-rr3.wav": {
+          "sha256": "8392958f57914b6ae8b7633b217b459aedf3f719d447cecedcb0caf9cc889db1",
+          "bytes": 32226
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerHighFaster_Up_rr2.wav",
+      "sourceGitBlobSha1": "9529768151bd8f7b17883ceb339f2d2386d32610",
+      "sourceSha256": "43511c3cf1522a3adf1f5533d443aa147e4a3e5272615e29485cb8efebc63dd2",
+      "sourceBytes": 24672,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.139592,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 8.541225133541763
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.139592
+      },
+      "outputs": {
+        "shaker-bright-v1-rr4.flac": {
+          "sha256": "9b5ffb94c5bfbc518737d6480eba7aef202f54c0af51da46f237c83110591958",
+          "bytes": 18601
+        },
+        "shaker-bright-v1-rr4.wav": {
+          "sha256": "9109ddc69c8e6517096f54fc6064cbc6ee6bcef1586f5d9d745868bda3b48765",
+          "bytes": 24702
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Large/LShaker_Hit_rr1_Mid.wav",
+      "sourceGitBlobSha1": "f0ffc827c86a8a3d2566e0cb9a8b30eccb0aa04f",
+      "sourceSha256": "0d3d62742a6c01ec8b8812faee945eaa2e75bfe02f83df3cc622ba7f00213ddf",
+      "sourceBytes": 230676,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.307098,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.6704233294232105
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.307098
+      },
+      "outputs": {
+        "shaker-large-v1-rr1.flac": {
+          "sha256": "a59c6ef31b5c43024478e386a20df6f2c3d96db597b6f0daf1133896b190c0da",
+          "bytes": 54482
+        },
+        "shaker-large-v1-rr1.wav": {
+          "sha256": "becc641f5e578a701d7ada1c781e1c143e8d07a77cdf38d3d4d381a7d39efee3",
+          "bytes": 230650
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Shaker, Large/LShaker_Hit_rr2_Mid.wav",
+      "sourceGitBlobSha1": "548ac40ac9330528ec1cafea9058b926899a9130",
+      "sourceSha256": "cb8491cc4bf7ac760109d45de445a7a21fd70217575f503e2ce4873bcd4cf1f9",
+      "sourceBytes": 230612,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.306735,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 2.6704233294232105
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.306735
+      },
+      "outputs": {
+        "shaker-large-v1-rr2.flac": {
+          "sha256": "cd31ec2fd12af9eea27389404676548048514b1e1cb6163ae2e68b198681f9cc",
+          "bytes": 53810
+        },
+        "shaker-large-v1-rr2.wav": {
+          "sha256": "9b77a1d14f70d97c284a1461f66e1f0e9f410586ead65d251e18e762d1e41dda",
+          "bytes": 230586
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Shake_rr1_Mid.wav",
+      "sourceGitBlobSha1": "9ded39c0bc5bcfb2580a3fe77f2db043478b4d26",
+      "sourceSha256": "5876b66d1e8009b3ee884ff3bf52fbc420b44f9ddffffe830b4074d3dfc09924",
+      "sourceBytes": 258948,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.46737,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 12.171021753777246
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.46737
+      },
+      "outputs": {
+        "tambourine-v1-rr1.flac": {
+          "sha256": "9876491375f2ee8073beae9fab08fc7d0cd78f51f2f9a227051134cc9197efbd",
+          "bytes": 53161
+        },
+        "tambourine-v1-rr1.wav": {
+          "sha256": "7baaaf42aa4f1d1011e37b1c64c0ffc1c069bc6dc27b3cc609677edf9ef671c4",
+          "bytes": 258922
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Shake_rr2_Mid.wav",
+      "sourceGitBlobSha1": "caa348100a957f734491c89d80fe8ad95192c97b",
+      "sourceSha256": "5ab51f8cd9fba10ae7a7125b96a520c69e049687409532b745fddd5356c6d6f3",
+      "sourceBytes": 237792,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.347438,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 12.171021753777246
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.347438
+      },
+      "outputs": {
+        "tambourine-v1-rr2.flac": {
+          "sha256": "3ddc3e2cff5b3213410ab2498eeef5a059588088b7f999ef0a7c040384465b07",
+          "bytes": 57599
+        },
+        "tambourine-v1-rr2.wav": {
+          "sha256": "95830d09bd70e6eeb880adab78bbda544dbb727f9b88ee97a40ad8d2374885aa",
+          "bytes": 237766
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Hit_v1_rr1_Mid.wav",
+      "sourceGitBlobSha1": "11c538acc0aee9abfd5087d6ff4866753f388b29",
+      "sourceSha256": "6fd5af9ec2d94c3b66fa871aecbc2e2844eea155a668fd0f15f07d59ae67dd40",
+      "sourceBytes": 338496,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.918322,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.6807843952178025
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.918322
+      },
+      "outputs": {
+        "tambourine-hit-v1-rr1.flac": {
+          "sha256": "3f155ab071904a00ec131ac32c9e95f3a3ee4fcdd28c9fd1fd435d7cd3ab5c22",
+          "bytes": 69768
+        },
+        "tambourine-hit-v1-rr1.wav": {
+          "sha256": "ec08c283e2e6628a73029b73e96f41aa085f4f13b9a8c0a79299558d17b32521",
+          "bytes": 338470
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Hit_v2_rr1_Mid.wav",
+      "sourceGitBlobSha1": "aad955871ad59069036194cf73591a6930a91621",
+      "sourceSha256": "885ebf1d70f8e888f576682e4e4112b92b69649162f392c83b3379c91a09cf41",
+      "sourceBytes": 293256,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.661859,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 4.6807843952178025
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.661859
+      },
+      "outputs": {
+        "tambourine-hit-v2-rr1.flac": {
+          "sha256": "dc5c0b9a6ea2ed16ed0deb9f050a57bb0840ea6712bf09d4532666bab5dd96e1",
+          "bytes": 72002
+        },
+        "tambourine-hit-v2-rr1.wav": {
+          "sha256": "63980c9e9d90065e5808ded8aa6a8f00d355ff0bbdf81b2c71dc4d9452804730",
+          "bytes": 293230
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Tambourine 2/Tamb2_Shake_rr3_Mid.wav",
+      "sourceGitBlobSha1": "0a9d5d6c55cd2618b6308f1613a3ac3f1941b5c7",
+      "sourceSha256": "af9eb210ae8a8e8a6af9e65253e04e65c5c55ab8858b09d89d995527f36423c1",
+      "sourceBytes": 186804,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.05839,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 8.534940199668664
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.05839
+      },
+      "outputs": {
+        "tambourine-bright-v1-rr1.flac": {
+          "sha256": "620f8812b59156513b7bf6909ff4d6952943a18b28311b57dfd56e3523f9ac21",
+          "bytes": 44237
+        },
+        "tambourine-bright-v1-rr1.wav": {
+          "sha256": "19a24cff9e8414d7b4768fe3a2cf704bbb5bdbab1c2f3a7581f290649e326b1d",
+          "bytes": 186778
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Tambourine 2/Tamb2_Shake_rr4_Mid.wav",
+      "sourceGitBlobSha1": "650e026aca4806f97988815be47c0cd544871c6e",
+      "sourceSha256": "b4f07441b32e0137a2f7acc8b3a5a174dd47ee214047e9c54463c3f2c4886c4e",
+      "sourceBytes": 184900,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 1.047596,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 8.534940199668664
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 1.047596
+      },
+      "outputs": {
+        "tambourine-bright-v1-rr2.flac": {
+          "sha256": "f9c7a0afc0adc6cf2823a232da1839f8f92b762892a6adbeb924263ead3bfb1b",
+          "bytes": 45735
+        },
+        "tambourine-bright-v1-rr2.wav": {
+          "sha256": "3cedb090e6ae283875a356401317471baf13d343ff822e3f04568cfe8d511ebf",
+          "bytes": 184874
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/Clap_rr1.wav",
+      "sourceGitBlobSha1": "e033dc2c58e13d3edcb7a61bd6f1bc90310562ae",
+      "sourceSha256": "4c9f3fe4a34733b9be6ed9ce5e5aad48b19c1029ae9c6dd1b96294a847539e3f",
+      "sourceBytes": 141974,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.739208,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7429055102382448
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.739229
+      },
+      "outputs": {
+        "clap-v1-rr1.flac": {
+          "sha256": "1a154f3c6df9818fd2516f4ee2d5678c1d1557e72f13ae158cb76e50d092cee8",
+          "bytes": 52705
+        },
+        "clap-v1-rr1.wav": {
+          "sha256": "e1e1403e04b9a8eb66156a5821583a4d5d715d214e1952e9edbc2ec680f5040a",
+          "bytes": 130478
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/Clap_rr2.wav",
+      "sourceGitBlobSha1": "74d14ae56377ebe03606b810a70250809a1c1e19",
+      "sourceSha256": "5ae64e838b76d0658cc541f07c3c7dcfd4b08815a915f32843a8279bf2c33b9a",
+      "sourceBytes": 136950,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.713042,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7429055102382448
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.713061
+      },
+      "outputs": {
+        "clap-v1-rr2.flac": {
+          "sha256": "03fce18b73d4dbe3ac5d5411286137b67d0b4332b955ae2ff56ce66798e77b42",
+          "bytes": 51601
+        },
+        "clap-v1-rr2.wav": {
+          "sha256": "482b21511fc215407cd5944962239446cd41ea8d3f4c439751324a038281e756",
+          "bytes": 125862
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/Clap_rr3.wav",
+      "sourceGitBlobSha1": "045be34ec05a829f38d42cb643c4d1cda70e9cd0",
+      "sourceSha256": "e8c13dc41f31b479f8e3ec49e9dfc49c17d299cce36eedb657fe170f0e6fcb44",
+      "sourceBytes": 132222,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.688417,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7429055102382448
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.688435
+      },
+      "outputs": {
+        "clap-v1-rr3.flac": {
+          "sha256": "188eb9d974388e1f96afb6f4b532cf8b7e3d75fbe611a63c52fe05d557b206cc",
+          "bytes": 50269
+        },
+        "clap-v1-rr3.wav": {
+          "sha256": "a019c09f5e1bbe47f173d6ac46d994755f2d3a1ebc3b3e91396a7612c4d83d5e",
+          "bytes": 121518
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/Clap_rr4.wav",
+      "sourceGitBlobSha1": "438317aa2749f404ac921a3676c5ea5e5bf0b78d",
+      "sourceSha256": "3415613351d0af8de674ebc3e8200784c2ffc691da60698cb81ba03704ad748a",
+      "sourceBytes": 147686,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.768958,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7429055102382448
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.76898
+      },
+      "outputs": {
+        "clap-v1-rr4.flac": {
+          "sha256": "7043fe5a8e332677062b2dc0acf053d1b9612c496b4154dc93e86585daf186ce",
+          "bytes": 54552
+        },
+        "clap-v1-rr4.wav": {
+          "sha256": "e77504b4d557732f12e6ca267e0d64e589764c077ebb7c9996f646650754b930",
+          "bytes": 135726
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/Clap_rr5.wav",
+      "sourceGitBlobSha1": "bf422133f0024a4e41889734f843723efcb4144a",
+      "sourceSha256": "7117311949d6640fb0d016bfe780fe3351924c49f48e876433893f4287f692ba",
+      "sourceBytes": 126446,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.658333,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7429055102382448
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.658345
+      },
+      "outputs": {
+        "clap-v1-rr5.flac": {
+          "sha256": "640d98f4d83e21d45fae723e498f071f997d972070cb364e2b4751c59eb8cc88",
+          "bytes": 49196
+        },
+        "clap-v1-rr5.wav": {
+          "sha256": "2093063a7729f9bcab477fcbb9f6fca8e6cd10d55a199e6157bed8b8422e1f7e",
+          "bytes": 116210
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/Clap_rr6.wav",
+      "sourceGitBlobSha1": "41d7027fa1c4424e6af5e7a2f3981d5397759814",
+      "sourceSha256": "b48d77c53e31f251b4304cf68daec2a85260becd1a93b81010b93adb7cdcfb46",
+      "sourceBytes": 89770,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0,
+        "maxDurationSeconds": 0.467312,
+        "tailFadeSeconds": 0,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7429055102382448
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.467324
+      },
+      "outputs": {
+        "clap-v1-rr6.flac": {
+          "sha256": "c19d0d2dfc8d649dc466400d13af5901c1ff7b938a6b65f899f29b6b6146e99e",
+          "bytes": 43128
+        },
+        "clap-v1-rr6.wav": {
+          "sha256": "bd15f1840cfa947afb08fd2c6a00a1b68d60f3ff960a00836dd409907d4708e9",
+          "bytes": 82514
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/SoloClap_vl1.wav",
+      "sourceGitBlobSha1": "60d03da6e15b999762166efce7a67ecef693cbcb",
+      "sourceSha256": "2a16d804adcb2fa3ed20a12579ca30aa3628a9b876a87476a9259a419cd3fd12",
+      "sourceBytes": 81214,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0.025707482993197278,
+        "maxDurationSeconds": 0.2810495170068027,
+        "tailFadeSeconds": 0.022483961360544216,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7714911524393705
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.281043
+      },
+      "outputs": {
+        "clap-solo-v1-rr1.flac": {
+          "sha256": "8ab03f0b4d976ec3d0592c6363030849d844ba79cf636fce61011675bdce9139",
+          "bytes": 16505
+        },
+        "clap-solo-v1-rr1.wav": {
+          "sha256": "82aa5b96a153cb3741b96c70b967c1541d88cb77f6ea73d2ed311d6898c3e185",
+          "bytes": 49654
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/SoloClap_vl2.wav",
+      "sourceGitBlobSha1": "d378d151a23ac302bf95b2030958f632cc5df4f7",
+      "sourceSha256": "f8afd95a16e8846f1c0c831c15482af65765107cab267fa262a218a10b0297db",
+      "sourceBytes": 95536,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0.04795238095238095,
+        "maxDurationSeconds": 0.312931619047619,
+        "tailFadeSeconds": 0.025034529523809523,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7714911524393705
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.312925
+      },
+      "outputs": {
+        "clap-solo-v2-rr1.flac": {
+          "sha256": "a3c7d3bbcbae37101d412bf8ce12b0867b0a75da6a7378a58d449eedde5e05f4",
+          "bytes": 18680
+        },
+        "clap-solo-v2-rr1.wav": {
+          "sha256": "e6ac476c3834100591e31fbb79776c8490a4aabde47755e44bca16021b61eb4a",
+          "bytes": 55278
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/SoloClap_vl3.wav",
+      "sourceGitBlobSha1": "e6f236e93ee8ea8696d25f0d8fe7252433ee9052",
+      "sourceSha256": "03dc4fa78deabcbfa0972accf45e538b25b69526e69fad6a81b48ca508caeb63",
+      "sourceBytes": 167158,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0.03387074829931973,
+        "maxDurationSeconds": 0.5976942517006804,
+        "tailFadeSeconds": 0.04781554013605443,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7714911524393705
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.597687
+      },
+      "outputs": {
+        "clap-solo-v3-rr1.flac": {
+          "sha256": "18db8a1a0811924b6e1564c497ccb28b6fddf49117a06c9cfeab213e397a2c16",
+          "bytes": 25618
+        },
+        "clap-solo-v3-rr1.wav": {
+          "sha256": "e348dc32977d57095a3406ef519fe8802f098058702c67338122ebecf6ba14e4",
+          "bytes": 105510
+        }
+      }
+    },
+    {
+      "sourcePath": "Idiophones/Struck Idiophones/Claps/SoloClap_vl4.wav",
+      "sourceGitBlobSha1": "2c1ad5ace58be6418c2b410618a9ee98e1db696f",
+      "sourceSha256": "6611570b169578e3f6be2c253c4148420396e4f8ec1ef3fc3c2df158484ce769",
+      "sourceBytes": 119404,
+      "processing": {
+        "sampleRate": 44100,
+        "bits": 16,
+        "channels": "Original channel layout preserved",
+        "startTrimSeconds": 0.040718820861678,
+        "maxDurationSeconds": 0.410369179138322,
+        "tailFadeSeconds": 0.03282953433106576,
+        "normalization": "No audio normalization. One shared articulation-level playback trim is in manifest level.",
+        "sharedArticulationGain": 0.7714911524393705
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 2,
+        "bits": 16,
+        "duration": 0.410363
+      },
+      "outputs": {
+        "clap-solo-v4-rr1.flac": {
+          "sha256": "d9d23212c4503c1c2e408600f4215e6b19a15509d698bc1a2a829312bd6a9226",
+          "bytes": 21214
+        },
+        "clap-solo-v4-rr1.wav": {
+          "sha256": "1b487d3f53de3930868e3e015bb75704f86a03f0d7d239c3fb9bae1dcf0d00ad",
+          "bytes": 72466
+        }
+      }
+    }
+  ]
+}

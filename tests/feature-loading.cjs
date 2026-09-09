@@ -12,6 +12,7 @@ const{setup,tick,raw,ROOT}=require('./qa/harness.cjs');
  h.click('.tab[data-page="lesson"]');h.click('.tab[data-page="lesson"]');
  assert.equal(pending.filter(n=>n.src.includes('practice-arrangement.js')).length,1);evaluate('practice-arrangement.js');await tick();
  evaluate('music-genres.js');await tick();
+ evaluate('practice-samples.js');await tick();
  assert.equal(pending.filter(n=>n.src.includes('practice-audio.js')).length,1);assert.equal(pending.filter(n=>n.src.includes('practice.js')).length,0);
  evaluate('practice-audio.js');await tick();assert.equal(pending.filter(n=>n.src.includes('practice.js')).length,1);
  h.click('.brand');evaluate('practice.js');await tick();evaluate('genre-curriculum.js');await tick();evaluate('genre-lessons.js');await tick();assert.equal(h.q('#lesson-page').style.display,'none');assert.equal(h.q('#practice-loader').hidden,true);assert.ok(w.practiceStudio);assert.equal(h.streams.length,0);

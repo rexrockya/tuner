@@ -1,0 +1,22 @@
+{
+  "allSnapshotsMatchCurrentDocs": true,
+  "checkedReportCount": 8,
+  "sourceSHA256": {
+    "practice-samples.js": "fdf68da5e6aa384492809d10df3a6b8d8cffd75e4bf28b4e1935948627571ef7",
+    "assets/audio/natural-guitar/manifest.json": "35053d8caa2f37fd75374aea0bc1bc293daef01e30b5fef74bc87845af022605",
+    "assets/audio/natural-bass/manifest.json": "65aeadc0b275272c60469d98fc4eaca9b2d4deb9c4dfa62d45733bfec002383b",
+    "assets/audio/natural-drums/manifest.json": "e3be5efb1b234151056dd8a94e1871f936c4d34db07182d6701e86594783fa44",
+    "assets/audio/natural-percussion/manifest.json": "c1145b53af6ea0f1ab4d7dac4fae4d1f3f8bad2af6ca33d70df85b229c41af7a",
+    "assets/audio/natural-strings/manifest.json": "a0abc08a8beeb7b273ce09a5e9742533b143d1ec9975e8b218710d92cd9f11ef",
+    "assets/audio/natural-ensemble/manifest.json": "9de733f61c4704954aebf3919bae4cb13404e89dee35eb1f3f5eed6e7fe1e4bb",
+    "assets/audio/natural-keys/manifest.json": "f10bf94465a6e783eb6e7ab3293d2c8602a0e45d636c349e1de9fd2d9a420bc2",
+    "harmony.js": "228f41fc9d18fb90021f5ca484e7a1a7653f40269bd561751b647abea1fc6d82",
+    "practice-arrangement.js": "34a26a9d06a9f6de02c43540ef31df4df84363f90cac947cacd50a0cf4298a1c",
+    "score-audio.js": "b843217623449f8957e69fa165ae720673215612b8b83562c99b90da2103dd83",
+    "practice-audio.js": "963061b91daac6378e26e63f322af1f98b64abda6eaee7d7b75d3a767b994634",
+    "practice-timbres.js": "3c763916a1da0d248beccefa1a54171a60b290c5f222199433a498fdae9d02b8",
+    "assets/audio/smplr-1.0.0.mjs": "6d050597e0f0a7f13692fdf9aa700b715b2259c7027053cc2574230be7fac780",
+    "assets/audio/blues/manifest.json": "64dc04fd25270a6176af6163b0cecf9dc46d27c1a416fda4a038cce5951d6927"
+  },
+  "mismatch": []
+}

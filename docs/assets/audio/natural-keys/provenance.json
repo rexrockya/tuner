@@ -1,0 +1,1144 @@
+{
+  "version": 1,
+  "source": {
+    "repository": "https://github.com/sfzinstruments/GregSullivan.E-Pianos",
+    "commit": "8c3e581acda3594b553948ff0222d4f84a698376",
+    "license": "CC-BY-3.0"
+  },
+  "files": [
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/a1f.flac",
+      "sourceGitBlobSha1": "d8dec252af35dbb07fbae6090ac0a1fe0d70136a",
+      "sourceSha256": "ac7949b428e1e8974c177e0ea39481ccf3dd1870c8af8710a07e5f52e812bc93",
+      "sourceBytes": 82944,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 4.48093
+      },
+      "outputs": {
+        "a1f.flac": {
+          "sha256": "ac7949b428e1e8974c177e0ea39481ccf3dd1870c8af8710a07e5f52e812bc93",
+          "bytes": 82944
+        },
+        "a1f.wav": {
+          "sha256": "65ddc5454c804650aede7e2dee92cb3d87f17a8ec11421e271f4079d5343c343",
+          "bytes": 395296
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/a1ff.flac",
+      "sourceGitBlobSha1": "0ca5bd6a52d4d71209eda8780eeb50101692aff2",
+      "sourceSha256": "11e45d096134809a1b04cf1eada34567dde36588d17d5b55a22884dceb72e9ad",
+      "sourceBytes": 105352,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 5.582948
+      },
+      "outputs": {
+        "a1ff.flac": {
+          "sha256": "11e45d096134809a1b04cf1eada34567dde36588d17d5b55a22884dceb72e9ad",
+          "bytes": 105352
+        },
+        "a1ff.wav": {
+          "sha256": "32de00371a0b2cf68041cf3828a269f663a2ea651141f7933f1ffe8b96abb421",
+          "bytes": 492494
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/a1mp.flac",
+      "sourceGitBlobSha1": "06ce4093e9bfb8d77671faed38c531605d88b5ff",
+      "sourceSha256": "5d7481de2298fffe938066d3122faadd40c3e347be0591e5f28f1eaebe0a9857",
+      "sourceBytes": 57475,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.801451
+      },
+      "outputs": {
+        "a1mp.flac": {
+          "sha256": "5d7481de2298fffe938066d3122faadd40c3e347be0591e5f28f1eaebe0a9857",
+          "bytes": 57475
+        },
+        "a1mp.wav": {
+          "sha256": "4a5f0052a15cfe5cbe2ec04454a2485a7c2e3ac89f349e26cd7f507727bceae7",
+          "bytes": 247166
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/a1pp.flac",
+      "sourceGitBlobSha1": "6ce4d99f25d5541a030932abc26bc5cf84b98027",
+      "sourceSha256": "deb59460d9a004b7c653385c344d4c0494b876d7e1b6a3a81759669bfd9bddb8",
+      "sourceBytes": 48339,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.420317
+      },
+      "outputs": {
+        "a1pp.flac": {
+          "sha256": "deb59460d9a004b7c653385c344d4c0494b876d7e1b6a3a81759669bfd9bddb8",
+          "bytes": 48339
+        },
+        "a1pp.wav": {
+          "sha256": "580ad122d71863dca74ced5b7c3482a499b56244df4412c6706c7b238e5e66f5",
+          "bytes": 213550
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/a2mp.flac",
+      "sourceGitBlobSha1": "914628dd12a2abd865642c60070743a8fc121b4c",
+      "sourceSha256": "b4112c15abd4f09092db8f3e9879090d9d8ac9e93631a70e560c4c1dfacef376",
+      "sourceBytes": 47711,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.353107
+      },
+      "outputs": {
+        "a2mp.flac": {
+          "sha256": "b4112c15abd4f09092db8f3e9879090d9d8ac9e93631a70e560c4c1dfacef376",
+          "bytes": 47711
+        },
+        "a2mp.wav": {
+          "sha256": "c1774f2d36b4710e5153941adbc1ef88e3a748c7cfb17ddc0a02e4caf042fe5e",
+          "bytes": 207622
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab2pp.flac",
+      "sourceGitBlobSha1": "d8b0c73f329b8f7e6f92a28c03465265fd55d590",
+      "sourceSha256": "2cbc0c21583b69e2cc6eab80d64f5743af7deb47f6861febcf6a4c2a6953f91a",
+      "sourceBytes": 66420,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 3.785488
+      },
+      "outputs": {
+        "ab2pp.flac": {
+          "sha256": "2cbc0c21583b69e2cc6eab80d64f5743af7deb47f6861febcf6a4c2a6953f91a",
+          "bytes": 66420
+        },
+        "ab2pp.wav": {
+          "sha256": "63c5580814432b1e802d29e9230f52fc3de5cbc5f852cf818f55d8237534b855",
+          "bytes": 333958
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab3f.flac",
+      "sourceGitBlobSha1": "6701c08ec6b4923fb772d2b193050e3bab3d2285",
+      "sourceSha256": "0abe94b5e160be20501e99a0816d14d384d5c414e02a29af4c95cf47b9cd0d89",
+      "sourceBytes": 60967,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.483515
+      },
+      "outputs": {
+        "ab3f.flac": {
+          "sha256": "0abe94b5e160be20501e99a0816d14d384d5c414e02a29af4c95cf47b9cd0d89",
+          "bytes": 60967
+        },
+        "ab3f.wav": {
+          "sha256": "dfc7cecb0bae04af867fb68a08058fad874c7a01158e802114744ddcb977ce2e",
+          "bytes": 219124
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab3ff.flac",
+      "sourceGitBlobSha1": "bb136c8bbb9762f8b0a4cf84c9f8fc59eeedfd62",
+      "sourceSha256": "e9b307d970b492ff959fc99b41987213183482071844b9bca815cffbfc5135b2",
+      "sourceBytes": 80959,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 3.195238
+      },
+      "outputs": {
+        "ab3ff.flac": {
+          "sha256": "e9b307d970b492ff959fc99b41987213183482071844b9bca815cffbfc5135b2",
+          "bytes": 80959
+        },
+        "ab3ff.wav": {
+          "sha256": "e2babc77c0002c76624a3747a1e59907663b01948681599fb2ac65426587283d",
+          "bytes": 281898
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab3mp.flac",
+      "sourceGitBlobSha1": "6742c20574ccdc558f6cab23b4212992b3907cad",
+      "sourceSha256": "874fd338ca6c0a0b51ff48dbcd6b1d627c598dcea1a1ae7190e0194fd144cb5f",
+      "sourceBytes": 56479,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.651497
+      },
+      "outputs": {
+        "ab3mp.flac": {
+          "sha256": "874fd338ca6c0a0b51ff48dbcd6b1d627c598dcea1a1ae7190e0194fd144cb5f",
+          "bytes": 56479
+        },
+        "ab3mp.wav": {
+          "sha256": "c3a36f1594208fc655e8374d0d8eadaca94df8a2893ddecdae5e0f57e7a28f84",
+          "bytes": 233940
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab3pp.flac",
+      "sourceGitBlobSha1": "a8c8b981df77fb43af45d67d577fb548ae627053",
+      "sourceSha256": "14ec83ed9ad6a7a929a6bb52403be33adf49706a1af1175c97d1693247c1151e",
+      "sourceBytes": 26084,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.013107
+      },
+      "outputs": {
+        "ab3pp.flac": {
+          "sha256": "14ec83ed9ad6a7a929a6bb52403be33adf49706a1af1175c97d1693247c1151e",
+          "bytes": 26084
+        },
+        "ab3pp.wav": {
+          "sha256": "f8bf77bce7e27e247cc0fc84fc88fad7881a23210c4aee0d754f14e96ec1be70",
+          "bytes": 89434
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab4f.flac",
+      "sourceGitBlobSha1": "924714fb3640c7dea1512782daf7dc37755269b1",
+      "sourceSha256": "eddec48948d58040c634c8755b2c1c07cb47b25b2b3ed639d64a7880f4cde630",
+      "sourceBytes": 67295,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.709002
+      },
+      "outputs": {
+        "ab4f.flac": {
+          "sha256": "eddec48948d58040c634c8755b2c1c07cb47b25b2b3ed639d64a7880f4cde630",
+          "bytes": 67295
+        },
+        "ab4f.wav": {
+          "sha256": "264ab6a4c10a6322ec7fb61acdd1e2b2e8313a082d16e7463eb0f4df4f19308a",
+          "bytes": 239012
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab6f.flac",
+      "sourceGitBlobSha1": "209e02ef350886d5a2caf94698eec5cb653aa3bc",
+      "sourceSha256": "0f34b3acc168a804f03031ea0385251fbcf8ec9e399f0f8b06d00136e7ba2bc0",
+      "sourceBytes": 39063,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.052358
+      },
+      "outputs": {
+        "ab6f.flac": {
+          "sha256": "0f34b3acc168a804f03031ea0385251fbcf8ec9e399f0f8b06d00136e7ba2bc0",
+          "bytes": 39063
+        },
+        "ab6f.wav": {
+          "sha256": "5bfa41594cdad467a436fa0749feebae9ca775038158a430d3b892d8aaafded4",
+          "bytes": 92896
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/ab6mp.flac",
+      "sourceGitBlobSha1": "5a583c2a166d11a47b074c23055dc32458381a41",
+      "sourceSha256": "5927974ef4ed48a62d8cd7a391db7a8f8fe9b0501d7e530cf7ebcc1104a9d7cd",
+      "sourceBytes": 31738,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.830181
+      },
+      "outputs": {
+        "ab6mp.flac": {
+          "sha256": "5927974ef4ed48a62d8cd7a391db7a8f8fe9b0501d7e530cf7ebcc1104a9d7cd",
+          "bytes": 31738
+        },
+        "ab6mp.wav": {
+          "sha256": "fae6d766df728e809f4c93a9e1201c4a106c72a840058519c8479b88491163ac",
+          "bytes": 73300
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/b2f.flac",
+      "sourceGitBlobSha1": "151f1da88abac055223afaa6eb09b8c3e6b38458",
+      "sourceSha256": "f108bef2502572820e5e0875e55af7269acecb935bd45c5dc5fb461fbb712586",
+      "sourceBytes": 76172,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 3.846621
+      },
+      "outputs": {
+        "b2f.flac": {
+          "sha256": "f108bef2502572820e5e0875e55af7269acecb935bd45c5dc5fb461fbb712586",
+          "bytes": 76172
+        },
+        "b2f.wav": {
+          "sha256": "9b5abc27fd0ad4bae44fc3876e561e464013f17d1fdeae9e17a928a472a518b6",
+          "bytes": 339350
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/b2ff.flac",
+      "sourceGitBlobSha1": "6d3af7754896296144edf7fc2a2ad22d547bfe25",
+      "sourceSha256": "32bb08fd190ce98a41de5e5460f77f1a426b6016f7cf6e5257898cc417fd75c6",
+      "sourceBytes": 94318,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 3.849388
+      },
+      "outputs": {
+        "b2ff.flac": {
+          "sha256": "32bb08fd190ce98a41de5e5460f77f1a426b6016f7cf6e5257898cc417fd75c6",
+          "bytes": 94318
+        },
+        "b2ff.wav": {
+          "sha256": "ff78a30bf08b871340884ac936d04f4e82cf10d33f38ea2f17d7e930fb049325",
+          "bytes": 339594
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/b4mp.flac",
+      "sourceGitBlobSha1": "ab8949fcf08589a135e4a1110ae609ec198f7e15",
+      "sourceSha256": "8dbbf5dda1b7379e630be57e87a456ecd485acde30d363108dc8609c79fe6d37",
+      "sourceBytes": 25935,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.778435
+      },
+      "outputs": {
+        "b4mp.flac": {
+          "sha256": "8dbbf5dda1b7379e630be57e87a456ecd485acde30d363108dc8609c79fe6d37",
+          "bytes": 25935
+        },
+        "b4mp.wav": {
+          "sha256": "f528c01fd625deac21f7d0fe8bc8c0d1102207e508154d2b740dd86fde72aa3d",
+          "bytes": 68736
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/c2f.flac",
+      "sourceGitBlobSha1": "637d5a6324526460995d8b6d187e8f15bb33c31a",
+      "sourceSha256": "08718ed4e5056faebe76474b2ab10e438f7cc12b68a7c36d2e7e870bbae7a940",
+      "sourceBytes": 92770,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 4.934422
+      },
+      "outputs": {
+        "c2f.flac": {
+          "sha256": "08718ed4e5056faebe76474b2ab10e438f7cc12b68a7c36d2e7e870bbae7a940",
+          "bytes": 92770
+        },
+        "c2f.wav": {
+          "sha256": "0052e3f6cba36e8540652bc5d2ee4fe5d103a7b47eef8b0e134f76ceb9b86b19",
+          "bytes": 435294
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/c2ff.flac",
+      "sourceGitBlobSha1": "358998855887babe401c34f5064dccb87acb5dba",
+      "sourceSha256": "bca0a6f4bc11a82bf9e006c867df132fd3d7bdd293bb3e9c76dde8c38cc30c91",
+      "sourceBytes": 116608,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 5.185011
+      },
+      "outputs": {
+        "c2ff.flac": {
+          "sha256": "bca0a6f4bc11a82bf9e006c867df132fd3d7bdd293bb3e9c76dde8c38cc30c91",
+          "bytes": 116608
+        },
+        "c2ff.wav": {
+          "sha256": "194abdcb4f71cfc305d97af98f9700c96f0638f236b429d0c554671ea34e80cf",
+          "bytes": 457396
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db4f.flac",
+      "sourceGitBlobSha1": "a3ebc723e35efd578e1f5de4d594eb39f4d46f7a",
+      "sourceSha256": "ee85bf0a9ae66b56e523cca6823f0246fb83d841c4aa84b0ffa0fd8b294f705c",
+      "sourceBytes": 64401,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.200748
+      },
+      "outputs": {
+        "db4f.flac": {
+          "sha256": "ee85bf0a9ae66b56e523cca6823f0246fb83d841c4aa84b0ffa0fd8b294f705c",
+          "bytes": 64401
+        },
+        "db4f.wav": {
+          "sha256": "130e71eedb29eb831730b8d37e1851a32e059b52f3857297a1ad439f251e0f17",
+          "bytes": 194184
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db4ff.flac",
+      "sourceGitBlobSha1": "beb84dd93a06f3621c1cf2009b0063c2dfc18dcd",
+      "sourceSha256": "75506073de49f935d2b79bdd557d2e8320d7061a0fe19241c795db6e967329bb",
+      "sourceBytes": 77533,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.866735
+      },
+      "outputs": {
+        "db4ff.flac": {
+          "sha256": "75506073de49f935d2b79bdd557d2e8320d7061a0fe19241c795db6e967329bb",
+          "bytes": 77533
+        },
+        "db4ff.wav": {
+          "sha256": "e5ec89fcc2ce8027f2246bb5e55017a5d8b89c8f8402000826514b5852fea9d2",
+          "bytes": 252924
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db4mp.flac",
+      "sourceGitBlobSha1": "cddf2230bccc10bfe90cd86dca5ee56b9c1e5f5d",
+      "sourceSha256": "fcf29c1dc18cf813ebb67252bdcfe899001895161c0658c534e533c013fe1765",
+      "sourceBytes": 47182,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.071088
+      },
+      "outputs": {
+        "db4mp.flac": {
+          "sha256": "fcf29c1dc18cf813ebb67252bdcfe899001895161c0658c534e533c013fe1765",
+          "bytes": 47182
+        },
+        "db4mp.wav": {
+          "sha256": "caab15a372739f354be2251d2ff6279a83d89176c5eeb0658bb4e8510ec86d53",
+          "bytes": 182748
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db4pp.flac",
+      "sourceGitBlobSha1": "bd044f9ede946421b0c2d12d56483e3541026fe2",
+      "sourceSha256": "f18d11e9a17da0daadd5aebe50b12b9451c4143c896629363710ac7f051b78fe",
+      "sourceBytes": 35255,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.999909
+      },
+      "outputs": {
+        "db4pp.flac": {
+          "sha256": "f18d11e9a17da0daadd5aebe50b12b9451c4143c896629363710ac7f051b78fe",
+          "bytes": 35255
+        },
+        "db4pp.wav": {
+          "sha256": "5910397dbb7f6df927326c65282058332f23db128ee9ff428c8889e55a3fcdd3",
+          "bytes": 88270
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db5f.flac",
+      "sourceGitBlobSha1": "037cc69bf90a5dda01c377672253e8832269af95",
+      "sourceSha256": "ea800df4e60ec214d53ec3034b72284a70cb6293784bea2f0a62be8892d7c2da",
+      "sourceBytes": 58401,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.799887
+      },
+      "outputs": {
+        "db5f.flac": {
+          "sha256": "ea800df4e60ec214d53ec3034b72284a70cb6293784bea2f0a62be8892d7c2da",
+          "bytes": 58401
+        },
+        "db5f.wav": {
+          "sha256": "06e979857efb08985327c851c450337e6a7655152151ebc8c6fa9abb02dcd6c1",
+          "bytes": 158828
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db5ff.flac",
+      "sourceGitBlobSha1": "8f64b92b321b209a42a99ad834e3112d67f82faf",
+      "sourceSha256": "d11d083565f3633c8a76a379fdeec2e802f0cfc8db6fa0078a21c8f93efe6ed8",
+      "sourceBytes": 48573,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.518617
+      },
+      "outputs": {
+        "db5ff.flac": {
+          "sha256": "d11d083565f3633c8a76a379fdeec2e802f0cfc8db6fa0078a21c8f93efe6ed8",
+          "bytes": 48573
+        },
+        "db5ff.wav": {
+          "sha256": "977ef6a13435ea986b2c224738153b223b28d35e64f0ea13c43b306d5c5528fd",
+          "bytes": 134020
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db5mp.flac",
+      "sourceGitBlobSha1": "517f6ed8efb10e00f2175d4245716a50a7e07896",
+      "sourceSha256": "16aa12a25614b4ca6585634fd08a1cff9916f07d7a365095dda71422a37e05b6",
+      "sourceBytes": 31992,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.054603
+      },
+      "outputs": {
+        "db5mp.flac": {
+          "sha256": "16aa12a25614b4ca6585634fd08a1cff9916f07d7a365095dda71422a37e05b6",
+          "bytes": 31992
+        },
+        "db5mp.wav": {
+          "sha256": "efb3d40a69696a4bfa87bdf8e7537c95d0b25d3e6c2469cdb31b0b4926c779a2",
+          "bytes": 93094
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db5pp.flac",
+      "sourceGitBlobSha1": "d35a599cddc1724aba955430cb5f2d182d1fcf5a",
+      "sourceSha256": "b37310aa149fbfe8f04c5054d0cf501fa09bec51c43614cdf8389bf99aaf629a",
+      "sourceBytes": 15919,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.358005
+      },
+      "outputs": {
+        "db5pp.flac": {
+          "sha256": "b37310aa149fbfe8f04c5054d0cf501fa09bec51c43614cdf8389bf99aaf629a",
+          "bytes": 15919
+        },
+        "db5pp.wav": {
+          "sha256": "8abbead8cf567220875002e8ac9e60feca8e7c3871f0d4865118494e3ca3d8c9",
+          "bytes": 31654
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db6f.flac",
+      "sourceGitBlobSha1": "1d72c2c5a683e3c9b80386cd3ea1cc1684a511c4",
+      "sourceSha256": "ed495b7e8314f498939c6d7904c59eeccd3095ac1b6294744151844457640b7c",
+      "sourceBytes": 34214,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.087778
+      },
+      "outputs": {
+        "db6f.flac": {
+          "sha256": "ed495b7e8314f498939c6d7904c59eeccd3095ac1b6294744151844457640b7c",
+          "bytes": 34214
+        },
+        "db6f.wav": {
+          "sha256": "587a184c4e82965f2cb0670c8f6870d2231a2a760ca549d1cb7137b453161b7b",
+          "bytes": 96020
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/db6mp.flac",
+      "sourceGitBlobSha1": "a3d0998ce6703ea0d2f4030cc7693c993edcfe1c",
+      "sourceSha256": "c8e7bc3ac3be42db65ab07457641a1aff3a0a79e5fd83d8f745a3adf7e24d33a",
+      "sourceBytes": 38353,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.240748
+      },
+      "outputs": {
+        "db6mp.flac": {
+          "sha256": "c8e7bc3ac3be42db65ab07457641a1aff3a0a79e5fd83d8f745a3adf7e24d33a",
+          "bytes": 38353
+        },
+        "db6mp.wav": {
+          "sha256": "f28362f96da0e55b206d3960aee2d16cdc6f2decd0bfc9aaad979656f411a57f",
+          "bytes": 109512
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/e2mp.flac",
+      "sourceGitBlobSha1": "db7255f15c976e2d795c543c35dbc213a597f239",
+      "sourceSha256": "c2c2b4b4a1737ed6641a2c05d8507c9ba9778caa5df3ce7ea52d3a7ef5bcd419",
+      "sourceBytes": 44472,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.202721
+      },
+      "outputs": {
+        "e2mp.flac": {
+          "sha256": "c2c2b4b4a1737ed6641a2c05d8507c9ba9778caa5df3ce7ea52d3a7ef5bcd419",
+          "bytes": 44472
+        },
+        "e2mp.wav": {
+          "sha256": "3b2333b23723ff4c8b5969842065536a849b9638d90203e1e4d840a3ea4e7a73",
+          "bytes": 194358
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/e3f.flac",
+      "sourceGitBlobSha1": "3448e442f93df6b16e723438a1bba842a45df455",
+      "sourceSha256": "ff6cabe344d017ab2f00dfcb62e2017b3f5a6256c6c3694c47ce6bd04be01be0",
+      "sourceBytes": 56270,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.364762
+      },
+      "outputs": {
+        "e3f.flac": {
+          "sha256": "ff6cabe344d017ab2f00dfcb62e2017b3f5a6256c6c3694c47ce6bd04be01be0",
+          "bytes": 56270
+        },
+        "e3f.wav": {
+          "sha256": "ed0698442d89c09e156d7988e8c3b77dea7b1b8a27dfcc799b2f158d5cfdb548",
+          "bytes": 208650
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/e3ff.flac",
+      "sourceGitBlobSha1": "8f5cc4cf53e3bd3566bfc2f3040418c9dac8bc9a",
+      "sourceSha256": "c4f7199b7765718ef20f52338e0fe6bb69ae6b252e95bb281cbad83de853bc18",
+      "sourceBytes": 75586,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.919048
+      },
+      "outputs": {
+        "e3ff.flac": {
+          "sha256": "c4f7199b7765718ef20f52338e0fe6bb69ae6b252e95bb281cbad83de853bc18",
+          "bytes": 75586
+        },
+        "e3ff.wav": {
+          "sha256": "2b6137f4d9814c7714350b2edada9c64d35fe38b6b50c59480c24978fc6af9a2",
+          "bytes": 257538
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/e4ff.flac",
+      "sourceGitBlobSha1": "bc7e6a3655f6cd2eb04baa1fd0d1f9e07af71043",
+      "sourceSha256": "91c1f2a3d019521b21e8f3bb5fa5226f5312707124cb18c06a0630a74ddefbc3",
+      "sourceBytes": 74051,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.551542
+      },
+      "outputs": {
+        "e4ff.flac": {
+          "sha256": "91c1f2a3d019521b21e8f3bb5fa5226f5312707124cb18c06a0630a74ddefbc3",
+          "bytes": 74051
+        },
+        "e4ff.wav": {
+          "sha256": "8a0695f99165dd0d7f1afb0930e0568c8e36e2bd4ab4b6195f870642062e6217",
+          "bytes": 225124
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/eb3mp.flac",
+      "sourceGitBlobSha1": "80e4e4c390a5eb57b80f68c2b083654aa13e7939",
+      "sourceSha256": "c0004e303ebd64d44390bff88c2b220afbea08319c79a68dd82e3072c09544cb",
+      "sourceBytes": 45305,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.172063
+      },
+      "outputs": {
+        "eb3mp.flac": {
+          "sha256": "c0004e303ebd64d44390bff88c2b220afbea08319c79a68dd82e3072c09544cb",
+          "bytes": 45305
+        },
+        "eb3mp.wav": {
+          "sha256": "cce2a6652b41b0b1a3bc020344ba603bc4bb379023ad5c3100d6a2f44536ce27",
+          "bytes": 191654
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/eb3pp.flac",
+      "sourceGitBlobSha1": "9a7d7cb041461c88bb3bb19fb981110965a11c9e",
+      "sourceSha256": "569941d4d9986212c94f48aba0299afc1e331406b1f41fdb352f67164a97e86e",
+      "sourceBytes": 42992,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 2.391066
+      },
+      "outputs": {
+        "eb3pp.flac": {
+          "sha256": "569941d4d9986212c94f48aba0299afc1e331406b1f41fdb352f67164a97e86e",
+          "bytes": 42992
+        },
+        "eb3pp.wav": {
+          "sha256": "717c1b1f76ba835e0c974dcfcf1afda31e67a4a7a7ca90c854313e69508d6b87",
+          "bytes": 210970
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/f2f.flac",
+      "sourceGitBlobSha1": "8fe42fe58ac9eeb4da740b35246cfdb7111dd037",
+      "sourceSha256": "0f0dfdc26e048c1fc9d9a2d28e563e75d3ddfe969ba38f2442add1c3141e56b4",
+      "sourceBytes": 89272,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 4.685488
+      },
+      "outputs": {
+        "f2f.flac": {
+          "sha256": "0f0dfdc26e048c1fc9d9a2d28e563e75d3ddfe969ba38f2442add1c3141e56b4",
+          "bytes": 89272
+        },
+        "f2f.wav": {
+          "sha256": "e5c5074bc9ac6b8b7c6298a5e78d7762ff7fcde4d7c957f3a4d7513c42da111d",
+          "bytes": 413338
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/f2ff.flac",
+      "sourceGitBlobSha1": "0e32ce4e653113122f1fed12888d9c84253c6a62",
+      "sourceSha256": "5e49d083d109ee3b42428548e79fa687c2d85b945fd8c00c0f0f9d45dafb23ee",
+      "sourceBytes": 125681,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 5.451837
+      },
+      "outputs": {
+        "f2ff.flac": {
+          "sha256": "5e49d083d109ee3b42428548e79fa687c2d85b945fd8c00c0f0f9d45dafb23ee",
+          "bytes": 125681
+        },
+        "f2ff.wav": {
+          "sha256": "b7950a01267738bb439d04108d220b2e72ccec03fb4c1219c8c8931838b5a251",
+          "bytes": 480930
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/g4ff.flac",
+      "sourceGitBlobSha1": "02c2874eba38bf83d247ba27329ad72b57e20b62",
+      "sourceSha256": "aa1bf871c5e74116c7038541684bb2f6d5e49b2c04c32b452e295de580258197",
+      "sourceBytes": 54754,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.769546
+      },
+      "outputs": {
+        "g4ff.flac": {
+          "sha256": "aa1bf871c5e74116c7038541684bb2f6d5e49b2c04c32b452e295de580258197",
+          "bytes": 54754
+        },
+        "g4ff.wav": {
+          "sha256": "8d67a5efc3e1a19fdbfa89f2f14952ed21df17786d9445d07a5bc5debdbafe2c",
+          "bytes": 156152
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/g4pp.flac",
+      "sourceGitBlobSha1": "f4a9ac7a7f967f23072411937f27e4647fb1f9a2",
+      "sourceSha256": "7de4fe0e5d63482b5235613ee6dafd9978ea655cfa323a8e981cb67bd418039d",
+      "sourceBytes": 27051,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.947755
+      },
+      "outputs": {
+        "g4pp.flac": {
+          "sha256": "7de4fe0e5d63482b5235613ee6dafd9978ea655cfa323a8e981cb67bd418039d",
+          "bytes": 27051
+        },
+        "g4pp.wav": {
+          "sha256": "36d74833219445a05515a01bc25866ddafe7e06d1d0e65f5d6e2334a723cd6b6",
+          "bytes": 83670
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/g5f.flac",
+      "sourceGitBlobSha1": "cbbf750935dee0ee2a0d7886b15583ae965b25bf",
+      "sourceSha256": "52e029d9cfaa6f0e0251d66d3e887affadc958f474353b282488a87674624c17",
+      "sourceBytes": 35062,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.946327
+      },
+      "outputs": {
+        "g5f.flac": {
+          "sha256": "52e029d9cfaa6f0e0251d66d3e887affadc958f474353b282488a87674624c17",
+          "bytes": 35062
+        },
+        "g5f.wav": {
+          "sha256": "b98cd3fc4e88e617c017525d752d7ffedc7fc6fc4198c350755cfd5c0fa8b49f",
+          "bytes": 83544
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/g5ff.flac",
+      "sourceGitBlobSha1": "2e1597d945fe332f33df16dee437e4a6582bbf18",
+      "sourceSha256": "cea21d551ec22ca1f23cea19c216f90c4a8f1a7da53f5cff23b190c21656845d",
+      "sourceBytes": 30552,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.817415
+      },
+      "outputs": {
+        "g5ff.flac": {
+          "sha256": "cea21d551ec22ca1f23cea19c216f90c4a8f1a7da53f5cff23b190c21656845d",
+          "bytes": 30552
+        },
+        "g5ff.wav": {
+          "sha256": "09178f20fc8a1c299f9c76c09c10e768a6a1e4494d3d737510744df313e9d2c0",
+          "bytes": 72174
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/g5mp.flac",
+      "sourceGitBlobSha1": "23659cb3cd0e4d3fa4930230b6642e2461404fae",
+      "sourceSha256": "07dbf3ce6e0dac38ce3f468cc33483b34b6e1c55379bc96eabdc14e7d26b8e75",
+      "sourceBytes": 23809,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 0.66483
+      },
+      "outputs": {
+        "g5mp.flac": {
+          "sha256": "07dbf3ce6e0dac38ce3f468cc33483b34b6e1c55379bc96eabdc14e7d26b8e75",
+          "bytes": 23809
+        },
+        "g5mp.wav": {
+          "sha256": "36efb0b99f824e8ed9ba4d0468147f88168e18e8889b3db96aa98f15a947bc11",
+          "bytes": 58716
+        }
+      }
+    },
+    {
+      "sourcePath": "Wurlitzer EP200/Samples/gb4mp.flac",
+      "sourceGitBlobSha1": "9c6e37641d5619ac238629289631b6b6bf7fe250",
+      "sourceSha256": "8b9c4492d59e5fc1d6276b780698201b748763ba94b1b7837436c3e0f53f4831",
+      "sourceBytes": 37773,
+      "processing": {
+        "flac": "Unmodified source FLAC, including original RIFF smpl loop metadata.",
+        "wav": "Lossless decode to original 16-bit PCM; playback uses manifest loops.",
+        "normalization": "None. Original per-region SFZ gain is retained as manifest level."
+      },
+      "audio": {
+        "sampleRate": 44100,
+        "channels": 1,
+        "bits": 16,
+        "duration": 1.478526
+      },
+      "outputs": {
+        "gb4mp.flac": {
+          "sha256": "8b9c4492d59e5fc1d6276b780698201b748763ba94b1b7837436c3e0f53f4831",
+          "bytes": 37773
+        },
+        "gb4mp.wav": {
+          "sha256": "55be95f36a397c4fee06c2bfa27adcf12646ac04a24ed016253150ed06b356c6",
+          "bytes": 130484
+        }
+      }
+    }
+  ]
+}

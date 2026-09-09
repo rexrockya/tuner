@@ -1,0 +1,2340 @@
+{
+  "bank": "natural-guitar",
+  "files": 120,
+  "bytes": 29370837,
+  "duration": [
+    4.68175,
+    8
+  ],
+  "channels": [
+    2
+  ],
+  "worstMappedPeakDbFS": 0,
+  "highestMappedAttackRmsDbFS": -4.842429083963323,
+  "groups": {
+    "sustain": {
+      "recordings": 120,
+      "keyRange": [
+        35,
+        86
+      ],
+      "roots": [
+        36,
+        40,
+        41,
+        45,
+        48,
+        50,
+        52,
+        55,
+        59,
+        61,
+        64,
+        67,
+        71,
+        72,
+        74,
+        77,
+        80,
+        82,
+        85
+      ],
+      "velocityRanges": [
+        "0-92",
+        "93-127",
+        "0-127"
+      ],
+      "variants": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "entries": [
+    {
+      "file": "sustain-36-v0-r1.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -5.658671274290496,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -5.658671274290496,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -11.259307018706558
+    },
+    {
+      "file": "sustain-36-v0-r2.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0005301608106181009,
+      "rawAttackRmsDbFS": -4.842429083963323,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0005301608106181009,
+      "mappedAttackRmsDbFS": -4.842429083963323,
+      "upperVelocityPeakDbFS": -5.601165905226681,
+      "upperVelocityAttackRmsDbFS": -10.443064828379384
+    },
+    {
+      "file": "sustain-36-v0-r3.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -5.508898446629389,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -5.508898446629389,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -11.109534191045451
+    },
+    {
+      "file": "sustain-36-v0-r4.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -4.85236511657283,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -4.85236511657283,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -10.453000860988894
+    },
+    {
+      "file": "sustain-36-v93-r1.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0013254627054249822,
+      "rawAttackRmsDbFS": -6.839316548631858,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0013254627054249822,
+      "mappedAttackRmsDbFS": -6.839316548631858,
+      "upperVelocityPeakDbFS": -0.0013254627054249822,
+      "upperVelocityAttackRmsDbFS": -6.839316548631858
+    },
+    {
+      "file": "sustain-36-v93-r2.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -4.928454144751793,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -4.928454144751793,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -4.928454144751793
+    },
+    {
+      "file": "sustain-36-v93-r3.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -7.3015028835438045,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -7.3015028835438045,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -7.3015028835438045
+    },
+    {
+      "file": "sustain-36-v93-r4.flac",
+      "midi": 36,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -5.638681735134074,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -5.638681735134074,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -5.638681735134074
+    },
+    {
+      "file": "sustain-40-v0-r1.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -8.143880707810066,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -8.143880707810066,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -13.74451645222613
+    },
+    {
+      "file": "sustain-40-v0-r2.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -7.1344631424210565,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -7.1344631424210565,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -12.735098886837118
+    },
+    {
+      "file": "sustain-40-v0-r3.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -7.90965030643674,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -7.90965030643674,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -13.510286050852802
+    },
+    {
+      "file": "sustain-40-v0-r4.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -8.483059006048732,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -8.483059006048732,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -14.083694750464794
+    },
+    {
+      "file": "sustain-40-v93-r1.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.002385978519820815,
+      "rawAttackRmsDbFS": -8.968757718996855,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.002385978519820815,
+      "mappedAttackRmsDbFS": -8.968757718996855,
+      "upperVelocityPeakDbFS": -0.002385978519820815,
+      "upperVelocityAttackRmsDbFS": -8.968757718996855
+    },
+    {
+      "file": "sustain-40-v93-r2.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.631245884108953,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.631245884108953,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -9.631245884108953
+    },
+    {
+      "file": "sustain-40-v93-r3.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -10.65109059452908,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -10.65109059452908,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -10.65109059452908
+    },
+    {
+      "file": "sustain-40-v93-r4.flac",
+      "midi": 40,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -11.032387010071405,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -11.032387010071405,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -11.032387010071405
+    },
+    {
+      "file": "sustain-41-v0-r1.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -8.766844107854455,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -8.766844107854455,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -14.367479852270517
+    },
+    {
+      "file": "sustain-41-v0-r2.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0010603539826469113,
+      "rawAttackRmsDbFS": -9.03717008849261,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0010603539826469113,
+      "mappedAttackRmsDbFS": -9.03717008849261,
+      "upperVelocityPeakDbFS": -5.601696098398709,
+      "upperVelocityAttackRmsDbFS": -14.637805832908672
+    },
+    {
+      "file": "sustain-41-v0-r3.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0007952533512092486,
+      "rawAttackRmsDbFS": -8.93475179674726,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0007952533512092486,
+      "mappedAttackRmsDbFS": -8.93475179674726,
+      "upperVelocityPeakDbFS": -5.601430997767272,
+      "upperVelocityAttackRmsDbFS": -14.535387541163324
+    },
+    {
+      "file": "sustain-41-v0-r4.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -9.114478265060395,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -9.114478265060395,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -14.715114009476459
+    },
+    {
+      "file": "sustain-41-v93-r1.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.006894615858565781,
+      "rawAttackRmsDbFS": -8.020190290833796,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.006894615858565781,
+      "mappedAttackRmsDbFS": -8.020190290833796,
+      "upperVelocityPeakDbFS": -0.006894615858565781,
+      "upperVelocityAttackRmsDbFS": -8.020190290833796
+    },
+    {
+      "file": "sustain-41-v93-r2.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.005833549446537113,
+      "rawAttackRmsDbFS": -8.188405899799559,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.005833549446537113,
+      "mappedAttackRmsDbFS": -8.188405899799559,
+      "upperVelocityPeakDbFS": -0.005833549446537113,
+      "upperVelocityAttackRmsDbFS": -8.188405899799559
+    },
+    {
+      "file": "sustain-41-v93-r3.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -8.555774761287868,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -8.555774761287868,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -8.555774761287868
+    },
+    {
+      "file": "sustain-41-v93-r4.flac",
+      "midi": 41,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0010603539826469113,
+      "rawAttackRmsDbFS": -8.55263068515601,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0010603539826469113,
+      "mappedAttackRmsDbFS": -8.55263068515601,
+      "upperVelocityPeakDbFS": -0.0010603539826469113,
+      "upperVelocityAttackRmsDbFS": -8.55263068515601
+    },
+    {
+      "file": "sustain-45-v0-r1.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -5.452759666505088,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -5.452759666505088,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -11.053395410921151
+    },
+    {
+      "file": "sustain-45-v0-r2.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -4.980706813619086,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -4.980706813619086,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -10.58134255803515
+    },
+    {
+      "file": "sustain-45-v0-r3.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0015905795200374015,
+      "rawAttackRmsDbFS": -8.18105594425295,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0015905795200374015,
+      "mappedAttackRmsDbFS": -8.18105594425295,
+      "upperVelocityPeakDbFS": -5.6022263239361,
+      "upperVelocityAttackRmsDbFS": -13.781691688669014
+    },
+    {
+      "file": "sustain-45-v0-r4.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -6.087856025943038,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -6.087856025943038,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -11.6884917703591
+    },
+    {
+      "file": "sustain-45-v93-r1.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.910557154516864,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.910557154516864,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -9.910557154516864
+    },
+    {
+      "file": "sustain-45-v93-r2.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -11.70749125025765,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -11.70749125025765,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -11.70749125025765
+    },
+    {
+      "file": "sustain-45-v93-r3.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.005568303095362484,
+      "rawAttackRmsDbFS": -8.60410423641638,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.005568303095362484,
+      "mappedAttackRmsDbFS": -8.60410423641638,
+      "upperVelocityPeakDbFS": -0.005568303095362484,
+      "upperVelocityAttackRmsDbFS": -8.60410423641638
+    },
+    {
+      "file": "sustain-45-v93-r4.flac",
+      "midi": 45,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.004772612638321156,
+      "rawAttackRmsDbFS": -9.161049544297912,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.004772612638321156,
+      "mappedAttackRmsDbFS": -9.161049544297912,
+      "upperVelocityPeakDbFS": -0.004772612638321156,
+      "upperVelocityAttackRmsDbFS": -9.161049544297912
+    },
+    {
+      "file": "sustain-48-v0-r1.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -5.286868802716041,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -5.286868802716041,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -10.887504547132103
+    },
+    {
+      "file": "sustain-48-v0-r2.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -5.267294082169505,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -5.267294082169505,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -10.867929826585566
+    },
+    {
+      "file": "sustain-48-v0-r3.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -5.781789387845361,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -5.781789387845361,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -11.382425132261424
+    },
+    {
+      "file": "sustain-48-v0-r4.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -5.988944183169307,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -5.988944183169307,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -11.589579927585369
+    },
+    {
+      "file": "sustain-48-v93-r1.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0010603539826469113,
+      "rawAttackRmsDbFS": -8.337738079637894,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0010603539826469113,
+      "mappedAttackRmsDbFS": -8.337738079637894,
+      "upperVelocityPeakDbFS": -0.0010603539826469113,
+      "upperVelocityAttackRmsDbFS": -8.337738079637894
+    },
+    {
+      "file": "sustain-48-v93-r2.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -6.70439116985746,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -6.70439116985746,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -6.70439116985746
+    },
+    {
+      "file": "sustain-48-v93-r3.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -8.536883663485735,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -8.536883663485735,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -8.536883663485735
+    },
+    {
+      "file": "sustain-48-v93-r4.flac",
+      "midi": 48,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0026511277067109208,
+      "rawAttackRmsDbFS": -6.8832630984775385,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0026511277067109208,
+      "mappedAttackRmsDbFS": -6.8832630984775385,
+      "upperVelocityPeakDbFS": -0.0026511277067109208,
+      "upperVelocityAttackRmsDbFS": -6.8832630984775385
+    },
+    {
+      "file": "sustain-50-v0-r1.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0018557044269781526,
+      "rawAttackRmsDbFS": -7.542529635913801,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0018557044269781526,
+      "mappedAttackRmsDbFS": -7.542529635913801,
+      "upperVelocityPeakDbFS": -5.602491448843041,
+      "upperVelocityAttackRmsDbFS": -13.143165380329863
+    },
+    {
+      "file": "sustain-50-v0-r2.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.286755495493425,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.286755495493425,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -14.887391239909487
+    },
+    {
+      "file": "sustain-50-v0-r3.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.687860337285628,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.687860337285628,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -15.288496081701691
+    },
+    {
+      "file": "sustain-50-v0-r4.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0013254627054249822,
+      "rawAttackRmsDbFS": -8.113850656065562,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0013254627054249822,
+      "mappedAttackRmsDbFS": -8.113850656065562,
+      "upperVelocityPeakDbFS": -5.601961207121487,
+      "upperVelocityAttackRmsDbFS": -13.714486400481626
+    },
+    {
+      "file": "sustain-50-v93-r1.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0007952533512092486,
+      "rawAttackRmsDbFS": -9.281180234212883,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0007952533512092486,
+      "mappedAttackRmsDbFS": -9.281180234212883,
+      "upperVelocityPeakDbFS": -0.0007952533512092486,
+      "upperVelocityAttackRmsDbFS": -9.281180234212883
+    },
+    {
+      "file": "sustain-50-v93-r2.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.007690500739139589,
+      "rawAttackRmsDbFS": -9.868494714141514,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.007690500739139589,
+      "mappedAttackRmsDbFS": -9.868494714141514,
+      "upperVelocityPeakDbFS": -0.007690500739139589,
+      "upperVelocityAttackRmsDbFS": -9.868494714141514
+    },
+    {
+      "file": "sustain-50-v93-r3.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.57017912789826,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.57017912789826,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -9.57017912789826
+    },
+    {
+      "file": "sustain-50-v93-r4.flac",
+      "midi": 50,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.012732799208650777,
+      "rawAttackRmsDbFS": -9.99857354989894,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.012732799208650777,
+      "mappedAttackRmsDbFS": -9.99857354989894,
+      "upperVelocityPeakDbFS": -0.012732799208650777,
+      "upperVelocityAttackRmsDbFS": -9.99857354989894
+    },
+    {
+      "file": "sustain-52-v0-r1.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.364014422306482,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.364014422306482,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -14.964650166722546
+    },
+    {
+      "file": "sustain-52-v0-r2.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -9.329325584140216,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -9.329325584140216,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -14.929961328556278
+    },
+    {
+      "file": "sustain-52-v0-r3.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0010603539826469113,
+      "rawAttackRmsDbFS": -9.243715418122463,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0010603539826469113,
+      "mappedAttackRmsDbFS": -9.243715418122463,
+      "upperVelocityPeakDbFS": -5.601696098398709,
+      "upperVelocityAttackRmsDbFS": -14.844351162538526
+    },
+    {
+      "file": "sustain-52-v0-r4.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0005301608106181009,
+      "rawAttackRmsDbFS": -9.856295181647447,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0005301608106181009,
+      "mappedAttackRmsDbFS": -9.856295181647447,
+      "upperVelocityPeakDbFS": -5.601165905226681,
+      "upperVelocityAttackRmsDbFS": -15.45693092606351
+    },
+    {
+      "file": "sustain-52-v93-r1.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.004772612638321156,
+      "rawAttackRmsDbFS": -10.35992224482194,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.004772612638321156,
+      "mappedAttackRmsDbFS": -10.35992224482194,
+      "upperVelocityPeakDbFS": -0.004772612638321156,
+      "upperVelocityAttackRmsDbFS": -10.35992224482194
+    },
+    {
+      "file": "sustain-52-v93-r2.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.004242192825749676,
+      "rawAttackRmsDbFS": -11.085892869707498,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.004242192825749676,
+      "mappedAttackRmsDbFS": -11.085892869707498,
+      "upperVelocityPeakDbFS": -0.004242192825749676,
+      "upperVelocityAttackRmsDbFS": -11.085892869707498
+    },
+    {
+      "file": "sustain-52-v93-r3.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -13.469062094804084,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -13.469062094804084,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -13.469062094804084
+    },
+    {
+      "file": "sustain-52-v93-r4.flac",
+      "midi": 52,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -10.857390454682697,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -10.857390454682697,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -10.857390454682697
+    },
+    {
+      "file": "sustain-55-v0-r1.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0013254627054249822,
+      "rawAttackRmsDbFS": -7.281996433528186,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0013254627054249822,
+      "mappedAttackRmsDbFS": -7.281996433528186,
+      "upperVelocityPeakDbFS": -5.601961207121487,
+      "upperVelocityAttackRmsDbFS": -12.882632177944249
+    },
+    {
+      "file": "sustain-55-v0-r2.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0021208374267412656,
+      "rawAttackRmsDbFS": -9.027461332842993,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0021208374267412656,
+      "mappedAttackRmsDbFS": -9.027461332842993,
+      "upperVelocityPeakDbFS": -5.602756581842804,
+      "upperVelocityAttackRmsDbFS": -14.628097077259056
+    },
+    {
+      "file": "sustain-55-v0-r3.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -9.653287596398034,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -9.653287596398034,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -15.253923340814097
+    },
+    {
+      "file": "sustain-55-v0-r4.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -8.70750499795927,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -8.70750499795927,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -14.308140742375333
+    },
+    {
+      "file": "sustain-55-v93-r1.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.450846985694302,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.450846985694302,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.450846985694302
+    },
+    {
+      "file": "sustain-55-v93-r2.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.298095307619022,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.298095307619022,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.298095307619022
+    },
+    {
+      "file": "sustain-55-v93-r3.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00530306484393138,
+      "rawAttackRmsDbFS": -12.665786097653358,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00530306484393138,
+      "mappedAttackRmsDbFS": -12.665786097653358,
+      "upperVelocityPeakDbFS": -0.00530306484393138,
+      "upperVelocityAttackRmsDbFS": -12.665786097653358
+    },
+    {
+      "file": "sustain-55-v93-r4.flac",
+      "midi": 55,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.014325712311149576,
+      "rawAttackRmsDbFS": -13.108922274071112,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.014325712311149576,
+      "mappedAttackRmsDbFS": -13.108922274071112,
+      "upperVelocityPeakDbFS": -0.014325712311149576,
+      "upperVelocityAttackRmsDbFS": -13.108922274071112
+    },
+    {
+      "file": "sustain-59-v0-r1.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0021208374267412656,
+      "rawAttackRmsDbFS": -8.60934054440075,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0021208374267412656,
+      "mappedAttackRmsDbFS": -8.60934054440075,
+      "upperVelocityPeakDbFS": -5.602756581842804,
+      "upperVelocityAttackRmsDbFS": -14.209976288816812
+    },
+    {
+      "file": "sustain-59-v0-r2.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -11.053027051382287,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -11.053027051382287,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -16.65366279579835
+    },
+    {
+      "file": "sustain-59-v0-r3.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -11.486101158671623,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -11.486101158671623,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -17.086736903087687
+    },
+    {
+      "file": "sustain-59-v0-r4.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -10.551234078281606,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -10.551234078281606,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -16.15186982269767
+    },
+    {
+      "file": "sustain-59-v93-r1.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.01645005096755103,
+      "rawAttackRmsDbFS": -15.109454204094096,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.01645005096755103,
+      "mappedAttackRmsDbFS": -15.109454204094096,
+      "upperVelocityPeakDbFS": -0.01645005096755103,
+      "upperVelocityAttackRmsDbFS": -15.109454204094096
+    },
+    {
+      "file": "sustain-59-v93-r2.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.02256042029310601,
+      "rawAttackRmsDbFS": -15.826848633434171,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.02256042029310601,
+      "mappedAttackRmsDbFS": -15.826848633434171,
+      "upperVelocityPeakDbFS": -0.02256042029310601,
+      "upperVelocityAttackRmsDbFS": -15.826848633434171
+    },
+    {
+      "file": "sustain-59-v93-r3.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -15.686585992383486,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -15.686585992383486,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -15.686585992383486
+    },
+    {
+      "file": "sustain-59-v93-r4.flac",
+      "midi": 59,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.948334077249108,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.948334077249108,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.948334077249108
+    },
+    {
+      "file": "sustain-61-v0-r1.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.026281881206103606,
+      "rawAttackRmsDbFS": -14.491298022135986,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.026281881206103606,
+      "mappedAttackRmsDbFS": -14.491298022135986,
+      "upperVelocityPeakDbFS": -5.626917625622166,
+      "upperVelocityAttackRmsDbFS": -20.09193376655205
+    },
+    {
+      "file": "sustain-61-v0-r2.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -8.964476486278357,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -8.964476486278357,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -14.565112230694421
+    },
+    {
+      "file": "sustain-61-v0-r3.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.02787728125431611,
+      "rawAttackRmsDbFS": -14.507961004647616,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.02787728125431611,
+      "mappedAttackRmsDbFS": -14.507961004647616,
+      "upperVelocityPeakDbFS": -5.628513025670379,
+      "upperVelocityAttackRmsDbFS": -20.10859674906368
+    },
+    {
+      "file": "sustain-61-v0-r4.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -11.76739446089531,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -11.76739446089531,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -17.368030205311374
+    },
+    {
+      "file": "sustain-61-v93-r1.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.009547849113171927,
+      "rawAttackRmsDbFS": -17.93904921234804,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.009547849113171927,
+      "mappedAttackRmsDbFS": -17.93904921234804,
+      "upperVelocityPeakDbFS": -0.009547849113171927,
+      "upperVelocityAttackRmsDbFS": -17.93904921234804
+    },
+    {
+      "file": "sustain-61-v93-r2.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -14.61691763902837,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -14.61691763902837,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -14.61691763902837
+    },
+    {
+      "file": "sustain-61-v93-r3.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.01645005096755103,
+      "rawAttackRmsDbFS": -15.561925973169632,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.01645005096755103,
+      "mappedAttackRmsDbFS": -15.561925973169632,
+      "upperVelocityPeakDbFS": -0.01645005096755103,
+      "upperVelocityAttackRmsDbFS": -15.561925973169632
+    },
+    {
+      "file": "sustain-61-v93-r4.flac",
+      "midi": 61,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -11.627439044453629,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -11.627439044453629,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -11.627439044453629
+    },
+    {
+      "file": "sustain-64-v0-r1.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -11.006119299305034,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -11.006119299305034,
+      "upperVelocityPeakDbFS": -5.600900820776443,
+      "upperVelocityAttackRmsDbFS": -16.606755043721098
+    },
+    {
+      "file": "sustain-64-v0-r2.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.005568303095362484,
+      "rawAttackRmsDbFS": -12.562426525176038,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.005568303095362484,
+      "mappedAttackRmsDbFS": -12.562426525176038,
+      "upperVelocityPeakDbFS": -5.606204047511425,
+      "upperVelocityAttackRmsDbFS": -18.1630622695921
+    },
+    {
+      "file": "sustain-64-v0-r3.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -11.431027041008319,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -11.431027041008319,
+      "upperVelocityPeakDbFS": -5.600635744416063,
+      "upperVelocityAttackRmsDbFS": -17.03166278542438
+    },
+    {
+      "file": "sustain-64-v0-r4.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        92
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.04118368994480272,
+      "rawAttackRmsDbFS": -12.777261177366572,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.04118368994480272,
+      "mappedAttackRmsDbFS": -12.777261177366572,
+      "upperVelocityPeakDbFS": -5.641819434360865,
+      "upperVelocityAttackRmsDbFS": -18.377896921782636
+    },
+    {
+      "file": "sustain-64-v93-r1.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.08336642985150701,
+      "rawAttackRmsDbFS": -12.764418704418297,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.08336642985150701,
+      "mappedAttackRmsDbFS": -12.764418704418297,
+      "upperVelocityPeakDbFS": -0.08336642985150701,
+      "upperVelocityAttackRmsDbFS": -12.764418704418297
+    },
+    {
+      "file": "sustain-64-v93-r2.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.022826186058844334,
+      "rawAttackRmsDbFS": -12.039480706729096,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.022826186058844334,
+      "mappedAttackRmsDbFS": -12.039480706729096,
+      "upperVelocityPeakDbFS": -0.022826186058844334,
+      "upperVelocityAttackRmsDbFS": -12.039480706729096
+    },
+    {
+      "file": "sustain-64-v93-r3.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -14.215251700134509,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -14.215251700134509,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -14.215251700134509
+    },
+    {
+      "file": "sustain-64-v93-r4.flac",
+      "midi": 64,
+      "articulation": "sustain",
+      "velocityRange": [
+        93,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.80977406206355,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.80977406206355,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.80977406206355
+    },
+    {
+      "file": "sustain-67-v0-r1.flac",
+      "midi": 67,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.694050786969795,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.694050786969795,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.694050786969795
+    },
+    {
+      "file": "sustain-67-v0-r2.flac",
+      "midi": 67,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.015122278422955705,
+      "rawAttackRmsDbFS": -12.791724036947361,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.015122278422955705,
+      "mappedAttackRmsDbFS": -12.791724036947361,
+      "upperVelocityPeakDbFS": -0.015122278422955705,
+      "upperVelocityAttackRmsDbFS": -12.791724036947361
+    },
+    {
+      "file": "sustain-67-v0-r3.flac",
+      "midi": 67,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -16.23779951255356,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -16.23779951255356,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -16.23779951255356
+    },
+    {
+      "file": "sustain-67-v0-r4.flac",
+      "midi": 67,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -15.045813960725173,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -15.045813960725173,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -15.045813960725173
+    },
+    {
+      "file": "sustain-71-v0-r1.flac",
+      "midi": 71,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 7.916208,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -15.090655085746773,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -15.090655085746773,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -15.090655085746773
+    },
+    {
+      "file": "sustain-71-v0-r2.flac",
+      "midi": 71,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 7.920583,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -13.92192677995839,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -13.92192677995839,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -13.92192677995839
+    },
+    {
+      "file": "sustain-71-v0-r3.flac",
+      "midi": 71,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 7.908458,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.83920841415501,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.83920841415501,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.83920841415501
+    },
+    {
+      "file": "sustain-71-v0-r4.flac",
+      "midi": 71,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 6.626917,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -14.32479622324788,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -14.32479622324788,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -14.32479622324788
+    },
+    {
+      "file": "sustain-72-v0-r1.flac",
+      "midi": 72,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 7.643021,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -14.503145230583979,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -14.503145230583979,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -14.503145230583979
+    },
+    {
+      "file": "sustain-72-v0-r2.flac",
+      "midi": 72,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 7.706229,
+      "rawPeakDbFS": -0.06865930927182509,
+      "rawAttackRmsDbFS": -15.031940693418036,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.06865930927182509,
+      "mappedAttackRmsDbFS": -15.031940693418036,
+      "upperVelocityPeakDbFS": -0.06865930927182509,
+      "upperVelocityAttackRmsDbFS": -15.031940693418036
+    },
+    {
+      "file": "sustain-72-v0-r3.flac",
+      "midi": 72,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.06545378962488899,
+      "rawAttackRmsDbFS": -16.20491395808039,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.06545378962488899,
+      "mappedAttackRmsDbFS": -16.20491395808039,
+      "upperVelocityPeakDbFS": -0.06545378962488899,
+      "upperVelocityAttackRmsDbFS": -16.20491395808039
+    },
+    {
+      "file": "sustain-72-v0-r4.flac",
+      "midi": 72,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.015122278422955705,
+      "rawAttackRmsDbFS": -13.354227667737465,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.015122278422955705,
+      "mappedAttackRmsDbFS": -13.354227667737465,
+      "upperVelocityPeakDbFS": -0.015122278422955705,
+      "upperVelocityAttackRmsDbFS": -13.354227667737465
+    },
+    {
+      "file": "sustain-74-v0-r1.flac",
+      "midi": 74,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 5.741854,
+      "rawPeakDbFS": -0.03506021004626786,
+      "rawAttackRmsDbFS": -13.200714692755424,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.03506021004626786,
+      "mappedAttackRmsDbFS": -13.200714692755424,
+      "upperVelocityPeakDbFS": -0.03506021004626786,
+      "upperVelocityAttackRmsDbFS": -13.200714692755424
+    },
+    {
+      "file": "sustain-74-v0-r2.flac",
+      "midi": 74,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 6.381146,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.308775881571917,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.308775881571917,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.308775881571917
+    },
+    {
+      "file": "sustain-74-v0-r3.flac",
+      "midi": 74,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 6.691125,
+      "rawPeakDbFS": -0.018043645988637117,
+      "rawAttackRmsDbFS": -12.005494146647022,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.018043645988637117,
+      "mappedAttackRmsDbFS": -12.005494146647022,
+      "upperVelocityPeakDbFS": -0.018043645988637117,
+      "upperVelocityAttackRmsDbFS": -12.005494146647022
+    },
+    {
+      "file": "sustain-74-v0-r4.flac",
+      "midi": 74,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 5.631417,
+      "rawPeakDbFS": -0.0026511277067109208,
+      "rawAttackRmsDbFS": -14.006591558786834,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0026511277067109208,
+      "mappedAttackRmsDbFS": -14.006591558786834,
+      "upperVelocityPeakDbFS": -0.0026511277067109208,
+      "upperVelocityAttackRmsDbFS": -14.006591558786834
+    },
+    {
+      "file": "sustain-77-v0-r1.flac",
+      "midi": 77,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 5.822875,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -12.646871600199898,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -12.646871600199898,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -12.646871600199898
+    },
+    {
+      "file": "sustain-77-v0-r2.flac",
+      "midi": 77,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 7.947563,
+      "rawPeakDbFS": -0.06518671637902075,
+      "rawAttackRmsDbFS": -12.46352574620185,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.06518671637902075,
+      "mappedAttackRmsDbFS": -12.46352574620185,
+      "upperVelocityPeakDbFS": -0.06518671637902075,
+      "upperVelocityAttackRmsDbFS": -12.46352574620185
+    },
+    {
+      "file": "sustain-77-v0-r3.flac",
+      "midi": 77,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 7.120979,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -13.149818898030329,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -13.149818898030329,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -13.149818898030329
+    },
+    {
+      "file": "sustain-77-v0-r4.flac",
+      "midi": 77,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 7.698146,
+      "rawPeakDbFS": -0.04891075763553286,
+      "rawAttackRmsDbFS": -12.726190937628418,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.04891075763553286,
+      "mappedAttackRmsDbFS": -12.726190937628418,
+      "upperVelocityPeakDbFS": -0.04891075763553286,
+      "upperVelocityAttackRmsDbFS": -12.726190937628418
+    },
+    {
+      "file": "sustain-80-v0-r1.flac",
+      "midi": 80,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": 0,
+      "rawAttackRmsDbFS": -12.744756634857715,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": 0,
+      "mappedAttackRmsDbFS": -12.744756634857715,
+      "upperVelocityPeakDbFS": 0,
+      "upperVelocityAttackRmsDbFS": -12.744756634857715
+    },
+    {
+      "file": "sustain-80-v0-r2.flac",
+      "midi": 80,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.07721314970025939,
+      "rawAttackRmsDbFS": -9.383467553868607,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.07721314970025939,
+      "mappedAttackRmsDbFS": -9.383467553868607,
+      "upperVelocityPeakDbFS": -0.07721314970025939,
+      "upperVelocityAttackRmsDbFS": -9.383467553868607
+    },
+    {
+      "file": "sustain-80-v0-r3.flac",
+      "midi": 80,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.0510435727814402,
+      "rawAttackRmsDbFS": -13.586174464475086,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0510435727814402,
+      "mappedAttackRmsDbFS": -13.586174464475086,
+      "upperVelocityPeakDbFS": -0.0510435727814402,
+      "upperVelocityAttackRmsDbFS": -13.586174464475086
+    },
+    {
+      "file": "sustain-80-v0-r4.flac",
+      "midi": 80,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 8,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.395968357124438,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.395968357124438,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.395968357124438
+    },
+    {
+      "file": "sustain-82-v0-r1.flac",
+      "midi": 82,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 7.202021,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -13.304463015118175,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -13.304463015118175,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -13.304463015118175
+    },
+    {
+      "file": "sustain-82-v0-r2.flac",
+      "midi": 82,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 6.632542,
+      "rawPeakDbFS": -0.003711805402260898,
+      "rawAttackRmsDbFS": -12.084872612411406,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.003711805402260898,
+      "mappedAttackRmsDbFS": -12.084872612411406,
+      "upperVelocityPeakDbFS": -0.003711805402260898,
+      "upperVelocityAttackRmsDbFS": -12.084872612411406
+    },
+    {
+      "file": "sustain-82-v0-r3.flac",
+      "midi": 82,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 6.001271,
+      "rawPeakDbFS": -0.00026507636037961915,
+      "rawAttackRmsDbFS": -12.353037414357441,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.00026507636037961915,
+      "mappedAttackRmsDbFS": -12.353037414357441,
+      "upperVelocityPeakDbFS": -0.00026507636037961915,
+      "upperVelocityAttackRmsDbFS": -12.353037414357441
+    },
+    {
+      "file": "sustain-82-v0-r4.flac",
+      "midi": 82,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 6.742813,
+      "rawPeakDbFS": -0.012998264440049217,
+      "rawAttackRmsDbFS": -11.06675298908052,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.012998264440049217,
+      "mappedAttackRmsDbFS": -11.06675298908052,
+      "upperVelocityPeakDbFS": -0.012998264440049217,
+      "upperVelocityAttackRmsDbFS": -11.06675298908052
+    },
+    {
+      "file": "sustain-85-v0-r1.flac",
+      "midi": 85,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "channels": 2,
+      "duration": 5.136063,
+      "rawPeakDbFS": -0.03053693270447573,
+      "rawAttackRmsDbFS": -12.279279563588481,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.03053693270447573,
+      "mappedAttackRmsDbFS": -12.279279563588481,
+      "upperVelocityPeakDbFS": -0.03053693270447573,
+      "upperVelocityAttackRmsDbFS": -12.279279563588481
+    },
+    {
+      "file": "sustain-85-v0-r2.flac",
+      "midi": 85,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "channels": 2,
+      "duration": 4.964063,
+      "rawPeakDbFS": -0.04944391232606426,
+      "rawAttackRmsDbFS": -12.541218039582196,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.04944391232606426,
+      "mappedAttackRmsDbFS": -12.541218039582196,
+      "upperVelocityPeakDbFS": -0.04944391232606426,
+      "upperVelocityAttackRmsDbFS": -12.541218039582196
+    },
+    {
+      "file": "sustain-85-v0-r3.flac",
+      "midi": 85,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "channels": 2,
+      "duration": 5.250333,
+      "rawPeakDbFS": -0.0196375334393094,
+      "rawAttackRmsDbFS": -12.030671339591636,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.0196375334393094,
+      "mappedAttackRmsDbFS": -12.030671339591636,
+      "upperVelocityPeakDbFS": -0.0196375334393094,
+      "upperVelocityAttackRmsDbFS": -12.030671339591636
+    },
+    {
+      "file": "sustain-85-v0-r4.flac",
+      "midi": 85,
+      "articulation": "sustain",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "channels": 2,
+      "duration": 4.68175,
+      "rawPeakDbFS": -0.04944391232606426,
+      "rawAttackRmsDbFS": -12.797053865372732,
+      "upstreamLevel": 1,
+      "mappedPeakDbFS": -0.04944391232606426,
+      "mappedAttackRmsDbFS": -12.797053865372732,
+      "upperVelocityPeakDbFS": -0.04944391232606426,
+      "upperVelocityAttackRmsDbFS": -12.797053865372732
+    }
+  ],
+  "worstUpperVelocityPeakDbFS": 0,
+  "highestUpperVelocityAttackRmsDbFS": -4.928454144751793,
+  "velocityResponse": "The upstream SFZ maps do not override amp_veltrack or amp_velcurve_N. Each region retains SFZ default amp_veltrack=100, represented here by amplitudeExponent: 2: gain = (MIDI velocity / 127)^2, applied once after the original per-region level. No extra layer-normalized velocity curve or per-sample normalization is applied. Reference: https://sfzformat.com/opcodes/amp_veltrack/"
+}

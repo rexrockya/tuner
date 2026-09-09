@@ -1,0 +1,22 @@
+{
+  "bank": "natural-drums",
+  "regions": 100,
+  "files": 100,
+  "flacBytes": 9675015,
+  "wavBytes": 43867432,
+  "articulations": {
+    "crash": 6,
+    "hat-closed": 16,
+    "hat-half": 6,
+    "hat-open": 6,
+    "hat-pedal": 6,
+    "kick": 16,
+    "ride": 6,
+    "ride-bell": 6,
+    "snare": 12,
+    "snare-crossstick": 4,
+    "snare-rimshot": 4,
+    "tom-high": 6,
+    "tom-low": 6
+  }
+}

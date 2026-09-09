@@ -1,0 +1,3565 @@
+{
+  "version": 1,
+  "source": {
+    "name": "Karoryfer Swagbass",
+    "repo": "https://github.com/sfzinstruments/karoryfer.swagbass",
+    "commit": "9d10fcae71af1975988ddecd5af1c95d372c7355",
+    "license": "CC0-1.0",
+    "recordedInstrument": "Ibanez BTB-400QM, neck pickup DI, old DAddario Chrome flatwound strings; no onboard EQ or effects",
+    "mapping": "swagbass_clean.sfz: original pitch centers, key ranges, velocity boundaries and four-take sequence; original amplitude velocity response"
+  },
+  "samples": [
+    {
+      "file": "bass-27-p-r4.flac",
+      "fallback": "bass-27-p-r4.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-p-r3.flac",
+      "fallback": "bass-27-p-r3.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-p-r2.flac",
+      "fallback": "bass-27-p-r2.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-p-r1.flac",
+      "fallback": "bass-27-p-r1.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-f-r4.flac",
+      "fallback": "bass-27-f-r4.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-f-r3.flac",
+      "fallback": "bass-27-f-r3.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-f-r2.flac",
+      "fallback": "bass-27-f-r2.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-f-r1.flac",
+      "fallback": "bass-27-f-r1.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-27-fff-r4.flac",
+      "fallback": "bass-27-fff-r4.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-27-fff-r3.flac",
+      "fallback": "bass-27-fff-r3.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-27-fff-r2.flac",
+      "fallback": "bass-27-fff-r2.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-27-fff-r1.flac",
+      "fallback": "bass-27-fff-r1.wav",
+      "midi": 27,
+      "keyRange": [
+        26,
+        28
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-30-p-r4.flac",
+      "fallback": "bass-30-p-r4.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-p-r3.flac",
+      "fallback": "bass-30-p-r3.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-p-r2.flac",
+      "fallback": "bass-30-p-r2.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-p-r1.flac",
+      "fallback": "bass-30-p-r1.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-f-r4.flac",
+      "fallback": "bass-30-f-r4.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-f-r3.flac",
+      "fallback": "bass-30-f-r3.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-f-r2.flac",
+      "fallback": "bass-30-f-r2.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-f-r1.flac",
+      "fallback": "bass-30-f-r1.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-30-fff-r4.flac",
+      "fallback": "bass-30-fff-r4.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-30-fff-r3.flac",
+      "fallback": "bass-30-fff-r3.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-30-fff-r2.flac",
+      "fallback": "bass-30-fff-r2.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-30-fff-r1.flac",
+      "fallback": "bass-30-fff-r1.wav",
+      "midi": 30,
+      "keyRange": [
+        29,
+        31
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-33-p-r4.flac",
+      "fallback": "bass-33-p-r4.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-p-r3.flac",
+      "fallback": "bass-33-p-r3.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-p-r2.flac",
+      "fallback": "bass-33-p-r2.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-p-r1.flac",
+      "fallback": "bass-33-p-r1.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-f-r4.flac",
+      "fallback": "bass-33-f-r4.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-f-r3.flac",
+      "fallback": "bass-33-f-r3.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-f-r2.flac",
+      "fallback": "bass-33-f-r2.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-f-r1.flac",
+      "fallback": "bass-33-f-r1.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-33-fff-r4.flac",
+      "fallback": "bass-33-fff-r4.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-33-fff-r3.flac",
+      "fallback": "bass-33-fff-r3.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-33-fff-r2.flac",
+      "fallback": "bass-33-fff-r2.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-33-fff-r1.flac",
+      "fallback": "bass-33-fff-r1.wav",
+      "midi": 33,
+      "keyRange": [
+        32,
+        34
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-36-p-r4.flac",
+      "fallback": "bass-36-p-r4.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-p-r3.flac",
+      "fallback": "bass-36-p-r3.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-p-r2.flac",
+      "fallback": "bass-36-p-r2.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-p-r1.flac",
+      "fallback": "bass-36-p-r1.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-f-r4.flac",
+      "fallback": "bass-36-f-r4.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-f-r3.flac",
+      "fallback": "bass-36-f-r3.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-f-r2.flac",
+      "fallback": "bass-36-f-r2.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-f-r1.flac",
+      "fallback": "bass-36-f-r1.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-36-fff-r4.flac",
+      "fallback": "bass-36-fff-r4.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-36-fff-r3.flac",
+      "fallback": "bass-36-fff-r3.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-36-fff-r2.flac",
+      "fallback": "bass-36-fff-r2.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-36-fff-r1.flac",
+      "fallback": "bass-36-fff-r1.wav",
+      "midi": 36,
+      "keyRange": [
+        35,
+        37
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-39-p-r4.flac",
+      "fallback": "bass-39-p-r4.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-p-r3.flac",
+      "fallback": "bass-39-p-r3.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-p-r2.flac",
+      "fallback": "bass-39-p-r2.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-p-r1.flac",
+      "fallback": "bass-39-p-r1.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-f-r4.flac",
+      "fallback": "bass-39-f-r4.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-f-r3.flac",
+      "fallback": "bass-39-f-r3.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-f-r2.flac",
+      "fallback": "bass-39-f-r2.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-f-r1.flac",
+      "fallback": "bass-39-f-r1.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-39-fff-r4.flac",
+      "fallback": "bass-39-fff-r4.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-39-fff-r3.flac",
+      "fallback": "bass-39-fff-r3.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-39-fff-r2.flac",
+      "fallback": "bass-39-fff-r2.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-39-fff-r1.flac",
+      "fallback": "bass-39-fff-r1.wav",
+      "midi": 39,
+      "keyRange": [
+        38,
+        40
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-42-p-r4.flac",
+      "fallback": "bass-42-p-r4.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-p-r3.flac",
+      "fallback": "bass-42-p-r3.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-p-r2.flac",
+      "fallback": "bass-42-p-r2.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-p-r1.flac",
+      "fallback": "bass-42-p-r1.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-f-r4.flac",
+      "fallback": "bass-42-f-r4.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-f-r3.flac",
+      "fallback": "bass-42-f-r3.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-f-r2.flac",
+      "fallback": "bass-42-f-r2.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-f-r1.flac",
+      "fallback": "bass-42-f-r1.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-42-fff-r4.flac",
+      "fallback": "bass-42-fff-r4.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-42-fff-r3.flac",
+      "fallback": "bass-42-fff-r3.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-42-fff-r2.flac",
+      "fallback": "bass-42-fff-r2.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-42-fff-r1.flac",
+      "fallback": "bass-42-fff-r1.wav",
+      "midi": 42,
+      "keyRange": [
+        41,
+        43
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-45-p-r4.flac",
+      "fallback": "bass-45-p-r4.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-p-r3.flac",
+      "fallback": "bass-45-p-r3.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-p-r2.flac",
+      "fallback": "bass-45-p-r2.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-p-r1.flac",
+      "fallback": "bass-45-p-r1.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-f-r4.flac",
+      "fallback": "bass-45-f-r4.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-f-r3.flac",
+      "fallback": "bass-45-f-r3.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-f-r2.flac",
+      "fallback": "bass-45-f-r2.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-f-r1.flac",
+      "fallback": "bass-45-f-r1.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-45-fff-r4.flac",
+      "fallback": "bass-45-fff-r4.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-45-fff-r3.flac",
+      "fallback": "bass-45-fff-r3.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-45-fff-r2.flac",
+      "fallback": "bass-45-fff-r2.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-45-fff-r1.flac",
+      "fallback": "bass-45-fff-r1.wav",
+      "midi": 45,
+      "keyRange": [
+        44,
+        46
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-48-p-r4.flac",
+      "fallback": "bass-48-p-r4.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-p-r3.flac",
+      "fallback": "bass-48-p-r3.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-p-r2.flac",
+      "fallback": "bass-48-p-r2.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-p-r1.flac",
+      "fallback": "bass-48-p-r1.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-f-r4.flac",
+      "fallback": "bass-48-f-r4.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-f-r3.flac",
+      "fallback": "bass-48-f-r3.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-f-r2.flac",
+      "fallback": "bass-48-f-r2.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-f-r1.flac",
+      "fallback": "bass-48-f-r1.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-48-fff-r4.flac",
+      "fallback": "bass-48-fff-r4.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-48-fff-r3.flac",
+      "fallback": "bass-48-fff-r3.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-48-fff-r2.flac",
+      "fallback": "bass-48-fff-r2.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-48-fff-r1.flac",
+      "fallback": "bass-48-fff-r1.wav",
+      "midi": 48,
+      "keyRange": [
+        47,
+        49
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-51-p-r4.flac",
+      "fallback": "bass-51-p-r4.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-p-r3.flac",
+      "fallback": "bass-51-p-r3.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-p-r2.flac",
+      "fallback": "bass-51-p-r2.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-p-r1.flac",
+      "fallback": "bass-51-p-r1.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-f-r4.flac",
+      "fallback": "bass-51-f-r4.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-f-r3.flac",
+      "fallback": "bass-51-f-r3.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-f-r2.flac",
+      "fallback": "bass-51-f-r2.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-f-r1.flac",
+      "fallback": "bass-51-f-r1.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-51-fff-r4.flac",
+      "fallback": "bass-51-fff-r4.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-51-fff-r3.flac",
+      "fallback": "bass-51-fff-r3.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-51-fff-r2.flac",
+      "fallback": "bass-51-fff-r2.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-51-fff-r1.flac",
+      "fallback": "bass-51-fff-r1.wav",
+      "midi": 51,
+      "keyRange": [
+        50,
+        52
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-54-p-r4.flac",
+      "fallback": "bass-54-p-r4.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-p-r3.flac",
+      "fallback": "bass-54-p-r3.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-p-r2.flac",
+      "fallback": "bass-54-p-r2.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-p-r1.flac",
+      "fallback": "bass-54-p-r1.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-f-r4.flac",
+      "fallback": "bass-54-f-r4.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-f-r3.flac",
+      "fallback": "bass-54-f-r3.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-f-r2.flac",
+      "fallback": "bass-54-f-r2.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-f-r1.flac",
+      "fallback": "bass-54-f-r1.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-54-fff-r4.flac",
+      "fallback": "bass-54-fff-r4.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-54-fff-r3.flac",
+      "fallback": "bass-54-fff-r3.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-54-fff-r2.flac",
+      "fallback": "bass-54-fff-r2.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-54-fff-r1.flac",
+      "fallback": "bass-54-fff-r1.wav",
+      "midi": 54,
+      "keyRange": [
+        53,
+        55
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-57-p-r4.flac",
+      "fallback": "bass-57-p-r4.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-p-r3.flac",
+      "fallback": "bass-57-p-r3.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-p-r2.flac",
+      "fallback": "bass-57-p-r2.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-p-r1.flac",
+      "fallback": "bass-57-p-r1.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-f-r4.flac",
+      "fallback": "bass-57-f-r4.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-f-r3.flac",
+      "fallback": "bass-57-f-r3.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-f-r2.flac",
+      "fallback": "bass-57-f-r2.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-f-r1.flac",
+      "fallback": "bass-57-f-r1.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-57-fff-r4.flac",
+      "fallback": "bass-57-fff-r4.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-57-fff-r3.flac",
+      "fallback": "bass-57-fff-r3.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-57-fff-r2.flac",
+      "fallback": "bass-57-fff-r2.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-57-fff-r1.flac",
+      "fallback": "bass-57-fff-r1.wav",
+      "midi": 57,
+      "keyRange": [
+        56,
+        58
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-60-p-r4.flac",
+      "fallback": "bass-60-p-r4.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-p-r3.flac",
+      "fallback": "bass-60-p-r3.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-p-r2.flac",
+      "fallback": "bass-60-p-r2.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-p-r1.flac",
+      "fallback": "bass-60-p-r1.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        0,
+        50
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-f-r4.flac",
+      "fallback": "bass-60-f-r4.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-f-r3.flac",
+      "fallback": "bass-60-f-r3.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-f-r2.flac",
+      "fallback": "bass-60-f-r2.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-f-r1.flac",
+      "fallback": "bass-60-f-r1.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        51,
+        110
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "velocityCurve": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          127,
+          1
+        ]
+      ]
+    },
+    {
+      "file": "bass-60-fff-r4.flac",
+      "fallback": "bass-60-fff-r4.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 0,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-60-fff-r3.flac",
+      "fallback": "bass-60-fff-r3.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 1,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-60-fff-r2.flac",
+      "fallback": "bass-60-fff-r2.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 2,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    },
+    {
+      "file": "bass-60-fff-r1.flac",
+      "fallback": "bass-60-fff-r1.wav",
+      "midi": 60,
+      "keyRange": [
+        59,
+        61
+      ],
+      "velocityRange": [
+        111,
+        127
+      ],
+      "variant": 3,
+      "articulation": "sustain",
+      "amplitudeExponent": 2
+    }
+  ]
+}

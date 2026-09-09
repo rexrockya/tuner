@@ -1,0 +1,31 @@
+{
+  "method": "Same authored four-bar performance and original release tail. Constant gain only, derived from the same LAST EBU r128 metadata used in comparison-final.json; no EQ, compressor, limiter or dynamic loudness processing. Stereo 44.1 kHz PCM24. Original float WAVs are retained. Input paths are relative to workdir; matched WAVs are adjacent to this README.",
+  "case": "mix-warm",
+  "eventHash": "85eda9a8f3d38f62811254adc6059eadedb1e977abad24dc9ecfe26ab990db95",
+  "ffmpegVersion": "ffmpeg version 7.0.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+  "targetLUFS": -24.0,
+  "files": [
+    {
+      "version": "before",
+      "original": "baseline/mix-warm.wav",
+      "originalSHA256": "208a73f88cb2059c8e068f5f80d186ae0295fdc006ffed48547216eedcbc3367",
+      "originalLUFS": -24.71,
+      "gainDb": 0.71,
+      "matchedLUFS": -24.0,
+      "matchedTruePeakDbTP": -6.4,
+      "wav": "01-before-matched-24LUFS.wav",
+      "sha256": "dbcf54a45dae12bd238109ad6cf858736322e45b36c62e3f01ae9bc8fa028fc1"
+    },
+    {
+      "version": "natural",
+      "original": "release3-mix-warm/mix-warm.wav",
+      "originalSHA256": "3a578bcd02502bb264f67198958ea82cbcd9595ca61bebbfcf415f009440f7bd",
+      "originalLUFS": -26.772,
+      "gainDb": 2.772,
+      "matchedLUFS": -24.0,
+      "matchedTruePeakDbTP": -8.1,
+      "wav": "02-natural-matched-24LUFS.wav",
+      "sha256": "c9315f887c81b96f72a31cc998100924c1ffe6399cd52b4d71219dea1edaf2bd"
+    }
+  ]
+}

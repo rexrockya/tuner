@@ -1,0 +1,17 @@
+{
+  "bank": "natural-percussion",
+  "regions": 26,
+  "files": 26,
+  "flacBytes": 991057,
+  "wavBytes": 3155168,
+  "articulations": {
+    "clap": 6,
+    "clap-solo": 4,
+    "shaker": 4,
+    "shaker-bright": 4,
+    "shaker-large": 2,
+    "tambourine": 2,
+    "tambourine-bright": 2,
+    "tambourine-hit": 2
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "id": "natural-percussion",
+  "source": {
+    "repository": "https://github.com/sgossner/VCSL",
+    "commit": "c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e",
+    "license": "CC0-1.0"
+  },
+  "license": "CC0-1.0",
+  "samples": [
+    {
+      "file": "shaker-v1-rr1.flac",
+      "fallback": "shaker-v1-rr1.wav",
+      "articulation": "shaker",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "level": 10.237408412488715,
+      "sourceStroke": "down",
+      "sourceRoundRobin": 1,
+      "sourcePeak": 0.034515380859375
+    },
+    {
+      "file": "shaker-v1-rr2.flac",
+      "fallback": "shaker-v1-rr2.wav",
+      "articulation": "shaker",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "level": 10.237408412488715,
+      "sourceStroke": "down",
+      "sourceRoundRobin": 2,
+      "sourcePeak": 0.053192138671875
+    },
+    {
+      "file": "shaker-v1-rr3.flac",
+      "fallback": "shaker-v1-rr3.wav",
+      "articulation": "shaker",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "level": 10.237408412488715,
+      "sourceStroke": "up",
+      "sourceRoundRobin": 1,
+      "sourcePeak": 0.065216064453125
+    },
+    {
+      "file": "shaker-v1-rr4.flac",
+      "fallback": "shaker-v1-rr4.wav",
+      "articulation": "shaker",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "level": 10.237408412488715,
+      "sourceStroke": "up",
+      "sourceRoundRobin": 2,
+      "sourcePeak": 0.06915283203125
+    },
+    {
+      "file": "shaker-bright-v1-rr1.flac",
+      "fallback": "shaker-bright-v1-rr1.wav",
+      "articulation": "shaker-bright",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "level": 8.541225133541763,
+      "sourceStroke": "down",
+      "sourceRoundRobin": 1,
+      "sourcePeak": 0.034515380859375
+    },
+    {
+      "file": "shaker-bright-v1-rr2.flac",
+      "fallback": "shaker-bright-v1-rr2.wav",
+      "articulation": "shaker-bright",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "level": 8.541225133541763,
+      "sourceStroke": "down",
+      "sourceRoundRobin": 2,
+      "sourcePeak": 0.02899169921875
+    },
+    {
+      "file": "shaker-bright-v1-rr3.flac",
+      "fallback": "shaker-bright-v1-rr3.wav",
+      "articulation": "shaker-bright",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "level": 8.541225133541763,
+      "sourceStroke": "up",
+      "sourceRoundRobin": 1,
+      "sourcePeak": 0.0828857421875
+    },
+    {
+      "file": "shaker-bright-v1-rr4.flac",
+      "fallback": "shaker-bright-v1-rr4.wav",
+      "articulation": "shaker-bright",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "level": 8.541225133541763,
+      "sourceStroke": "up",
+      "sourceRoundRobin": 2,
+      "sourcePeak": 0.0703125
+    },
+    {
+      "file": "shaker-large-v1-rr1.flac",
+      "fallback": "shaker-large-v1-rr1.wav",
+      "articulation": "shaker-large",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "level": 2.6704233294232105,
+      "sourcePeak": 0.219268798828125
+    },
+    {
+      "file": "shaker-large-v1-rr2.flac",
+      "fallback": "shaker-large-v1-rr2.wav",
+      "articulation": "shaker-large",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "level": 2.6704233294232105,
+      "sourcePeak": 0.265106201171875
+    },
+    {
+      "file": "tambourine-v1-rr1.flac",
+      "fallback": "tambourine-v1-rr1.wav",
+      "articulation": "tambourine",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "level": 12.171021753777246,
+      "sourcePeak": 0.05816650390625
+    },
+    {
+      "file": "tambourine-v1-rr2.flac",
+      "fallback": "tambourine-v1-rr2.wav",
+      "articulation": "tambourine",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "level": 12.171021753777246,
+      "sourcePeak": 0.05328369140625
+    },
+    {
+      "file": "tambourine-hit-v1-rr1.flac",
+      "fallback": "tambourine-hit-v1-rr1.wav",
+      "articulation": "tambourine-hit",
+      "velocityRange": [
+        0,
+        63
+      ],
+      "variant": 0,
+      "level": 4.6807843952178025,
+      "sourceLayer": 1,
+      "sourcePeak": 0.037506103515625
+    },
+    {
+      "file": "tambourine-hit-v2-rr1.flac",
+      "fallback": "tambourine-hit-v2-rr1.wav",
+      "articulation": "tambourine-hit",
+      "velocityRange": [
+        64,
+        127
+      ],
+      "variant": 0,
+      "level": 4.6807843952178025,
+      "sourceLayer": 2,
+      "sourcePeak": 0.1512451171875
+    },
+    {
+      "file": "tambourine-bright-v1-rr1.flac",
+      "fallback": "tambourine-bright-v1-rr1.wav",
+      "articulation": "tambourine-bright",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "level": 8.534940199668664,
+      "sourcePeak": 0.08294677734375
+    },
+    {
+      "file": "tambourine-bright-v1-rr2.flac",
+      "fallback": "tambourine-bright-v1-rr2.wav",
+      "articulation": "tambourine-bright",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "level": 8.534940199668664,
+      "sourcePeak": 0.057525634765625
+    },
+    {
+      "file": "clap-v1-rr1.flac",
+      "fallback": "clap-v1-rr1.wav",
+      "articulation": "clap",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 0,
+      "level": 0.7429055102382448,
+      "sourcePeak": 0.95184326171875
+    },
+    {
+      "file": "clap-v1-rr2.flac",
+      "fallback": "clap-v1-rr2.wav",
+      "articulation": "clap",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 1,
+      "level": 0.7429055102382448,
+      "sourcePeak": 0.952423095703125
+    },
+    {
+      "file": "clap-v1-rr3.flac",
+      "fallback": "clap-v1-rr3.wav",
+      "articulation": "clap",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 2,
+      "level": 0.7429055102382448,
+      "sourcePeak": 0.95281982421875
+    },
+    {
+      "file": "clap-v1-rr4.flac",
+      "fallback": "clap-v1-rr4.wav",
+      "articulation": "clap",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 3,
+      "level": 0.7429055102382448,
+      "sourcePeak": 0.9521484375
+    },
+    {
+      "file": "clap-v1-rr5.flac",
+      "fallback": "clap-v1-rr5.wav",
+      "articulation": "clap",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 4,
+      "level": 0.7429055102382448,
+      "sourcePeak": 0.951995849609375
+    },
+    {
+      "file": "clap-v1-rr6.flac",
+      "fallback": "clap-v1-rr6.wav",
+      "articulation": "clap",
+      "velocityRange": [
+        0,
+        127
+      ],
+      "variant": 5,
+      "level": 0.7429055102382448,
+      "sourcePeak": 0.95294189453125
+    },
+    {
+      "file": "clap-solo-v1-rr1.flac",
+      "fallback": "clap-solo-v1-rr1.wav",
+      "articulation": "clap-solo",
+      "velocityRange": [
+        0,
+        31
+      ],
+      "variant": 0,
+      "level": 0.7714911524393705,
+      "sourceLayer": 1,
+      "sourcePeak": 0.18218994140625
+    },
+    {
+      "file": "clap-solo-v2-rr1.flac",
+      "fallback": "clap-solo-v2-rr1.wav",
+      "articulation": "clap-solo",
+      "velocityRange": [
+        32,
+        63
+      ],
+      "variant": 0,
+      "level": 0.7714911524393705,
+      "sourceLayer": 2,
+      "sourcePeak": 0.361572265625
+    },
+    {
+      "file": "clap-solo-v3-rr1.flac",
+      "fallback": "clap-solo-v3-rr1.wav",
+      "articulation": "clap-solo",
+      "velocityRange": [
+        64,
+        95
+      ],
+      "variant": 0,
+      "level": 0.7714911524393705,
+      "sourceLayer": 3,
+      "sourcePeak": 0.599090576171875
+    },
+    {
+      "file": "clap-solo-v4-rr1.flac",
+      "fallback": "clap-solo-v4-rr1.wav",
+      "articulation": "clap-solo",
+      "velocityRange": [
+        96,
+        127
+      ],
+      "variant": 0,
+      "level": 0.7714911524393705,
+      "sourceLayer": 4,
+      "sourcePeak": 0.917633056640625
+    }
+  ],
+  "articulationGains": {
+    "shaker": 10.237408412488715,
+    "shaker-bright": 8.541225133541763,
+    "shaker-large": 2.6704233294232105,
+    "tambourine": 12.171021753777246,
+    "tambourine-hit": 4.6807843952178025,
+    "tambourine-bright": 8.534940199668664,
+    "clap": 0.7429055102382448,
+    "clap-solo": 0.7714911524393705
+  }
+}

@@ -1,6 +1,26 @@
 # 弦音项目交接
 
-## 当前开发：2026-09-09 演奏取向与伴奏双轨强化
+## 当前版本：2026-09-09 真实录音音质升级
+
+用户明确选择音质优先，接受首次使用音色多加载。此节覆盖此前“继续用有限旧采样做patch”的音源描述，保留流派、作曲、收藏和连续播放功能。
+
+- 生产studio在practice-audio之前明确加载`practice-samples.js`，有该模块时走真实录音路径；初始工具页与模块初始化均不取采样。单独加载旧audio模块的历史调用仍走原低容量兼容路径。新生产路径必须用`practice-recordings.cjs`/`practice-natural-banks.cjs`验证，不能只以旧mock通过证明新路径。
+- 7银行/544真实录音：FSBS吉他120、Swagbass低音144、Virtuosity鼓100、VCSL辅助打击26、Wurli42文件48区域、VSCO独奏小提琴90、真实Violin Section22。FLAC共91414605B，WAV同PCM回退376594840B；全量库体积不等于首次下载，只取当前events实际映射的file。每bank保留固定源commit、原许可证/SFZ/README、来源与处理哈希。
+- FSBS是Fender直录后经amp与效果处理的录音，多数音区2力度×4实录take；不能再称Shinyguitar琴颈或宣称录制legato。Solo Violin为长弓/跳弓，strings轨单独使用真实ensemble。Wurli是Greg Sullivan本人EP203W的1999录音（原SFZ名EP200，kinwie映射，CC BY3.0），其原FLAC不改；其他新库CC0。公开署名入口`assets/audio/recordings-credits.html`已接到混音器。
+- `practiceSamples`按原keyRange/velocityRange/variant选择；有序event算稳定take index，prepare/play必须相同。文件缓存只存buffer，get再合并region，不能把Wurli共用文件的不同root/gain/tune覆盖成第一条。并发每次prepare最多4文件，manifest/file并发去重，失败只重试缺失项，FLAC失败尝试对应WAV。
+- 原SFZ动态保留：默认曲线amplitudeExponent2；鼓部分0与显式velocityCurve、Swagbass层内curve，Wurli继承manifest.velocityTracking.amplitudeExponent。归一化曲线线性插值。旧编配velocity含mix衰减，因此natural路径keys/strings×3、percussion×2恢复演奏力度（上限1），先选录音再按同力度求幅度；混音另用track factor。不要把轻录音逐个归一化抹平真实动态。
+- 新净音吉他无默认waveshaper和逐音压缩；可选Drive先应用输入演奏增益再驱动。取消机械65cent上滑/摇摆揉弦，新muted不再乘.62截短。自然perc用对应录音、完整one-shot尾声，移除旧假hat的跨声音choke；铃鼓反拍使用真实tambourine-hit。原声鼓的open/closed hat choke仍保留。
+- `pocket`/`navigator`在shape中已处理gate，排程不再重复乘一次；实际一拍原.84门长变.52/.74而不是.27/.55，既有更短音仍保留。新增实值回归与非duration指纹。
+- 真实源公共output为.49，旧独立兼容路径为.84，给极密集七轨/复音瞬态留约4.68dB额外空间。大钢琴原音源/包络/处理不变，但生产整套输出统一降低；不要再写钢琴最终PCM逐字节不变。声部校正数值以代码和最终PCM报告为准。
+- `queueUpdate`先验证完整音色快照和全部所需自然录音已缓存，再取消旧pending；未齐直接拒绝，保留旧声音与原有效候选。资源准备、失败、取消、小节线切换沿用原共享时钟。`retain`仅在新计划commit后按192MiB软阈值清理不再需要的自然buffer，活动源保有自身buffer引用；当前计划若本身更大允许超过软阈值。
+- 新keys选项wurli/wurli-soft/wurli-bright是流派默认键盘；旧jazz/gospel/soft仍保留并明确标合成风琴，旧收藏IDs不改。Lead/鼓/Bass/节奏/弦乐旧ID在新生产路径使用新录音和少量音色处理；Synth/Electro有意保留独立电子音源。
+- 缓存`20260909-recordings-1`更新index中的asset-loader，以及编配/音频/UI和新采样模块。继续仅main/docs发布原GitHub Pages，不构建website、不开其他公开入口；不要提交node_modules或TEMP原下载缓存。
+
+- 最终验收：完整 `npm test` 通过，20实际PCM均无削波；180 BPM七轨极密压力最强−1.6dBTP。最终证据为`notes/recordings-pcm-2026-09-09.json`及source/listening文件，对应TEMP `release3-*`，不要再引用调音中間的`final-*`。普通七轨约14.19MiB下载/129.84MiB解码；首屏116208B gzip6。
+- 停止状态 `setTimbre` 也改为准备后提交，仅最新成功请求生效；过时结果和不同track请求不能覆盖已成功音色，连续失败仍可播放原音色。真实集成15组已覆盖此竞态。
+- 共享混音补偿当前为 drums1.1 / percussion.5 / bass2.6 / keys1 / rhythm.62 / strings4 / lead1.2，原始演奏力度和SFZ曲线另处理。不要只看响度提高就声称音质更好，主观试听材料使用同响度固定增益对照。
+
+## 上一版：2026-09-09 演奏取向与伴奏双轨强化
 
 - 创作与伴奏新增六种`performerProfile`：`balanced`均衡会话、`storyteller`问答叙事、`navigator`和声导航、`pocket`切分口袋、`colorist`色彩和声、`atmospheric`延音空间。它们是站内原创的确定性写作／演奏参数组合，不使用真人姓名，也不能写成复刻具体演奏家或其录音。
 - `shapeLeadPhrase`在非balanced取向下调整Lead的落点、门长、力度、发音与角色，`leadCycleEvents`继续施加可复现的轻微时值、复音错开和detune；balanced与缺失／未知ID保持旧默认语义。取向随4轮`leadCycle`记录，同seed同设置必须重现。

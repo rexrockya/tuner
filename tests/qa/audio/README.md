@@ -34,3 +34,23 @@ node "$env:TEMP/tuner-offline-audio-20260908/render-practice.mjs" --label after 
 最终23例全部无超过 ±1 的采样，最坏为 stress-warm 采样峰值 -1.1508 dBFS；四个180 BPM满音量压力例峰值均低于 -.5 dBFS。固定7音小提琴的 active RMS 从旧版 -40.3707 提高到 -27.3650 dBFS（+13.0057 dB）；新warm吉他 -25.8032，因此两者差距为1.5618 dB。钢琴只受公共输出余量变化，不改其音源。
 
 这些数据保留真实测量范围：23个固定场景通过，不等价于全部可能编配或手机硬件测量。
+
+
+## 2026-09-09 实录采样对比
+
+使用 `render-natural-comparison.mjs`，依赖与原工具相同，另需 FFmpeg。基线固定为 f8be94b 的四小节七声部事件，旧版与新版使用同一 eventHash；各轨单独渲染、正常混音、长音尾声，以及 180 BPM / 七轨全音量 / 192 个 Lead 复音音符的压力用例分开测量。`--recordings` 明确启用生产新采样模块；不传该选项得到旧兼容路径。
+
+```powershell
+$renderRoot = Join-Path $env:TEMP 'tuner-recording-check'
+$audioRuntime = Join-Path $env:TEMP 'tuner-offline-audio-20260908'
+# 依赖 node-web-audio-api@2.1.0 放在 audioRuntime；每个 case 用独立进程，避免原生离线自动化缓存累计。
+node tests/qa/audio/render-natural-comparison.mjs --workdir $audioRuntime --label baseline --ref f8be94b --cases mix-warm --out "$renderRoot/baseline"
+node tests/qa/audio/render-natural-comparison.mjs --workdir $audioRuntime --label final-mix --ref working --recordings --cases mix-warm --out "$renderRoot/final-mix"
+python tests/qa/audio/compare-natural-results.py --workdir $renderRoot --root .
+```
+
+其余 case 名称见渲染器 `all` 列表；使用独立 `final-<case>` 目录可将全部结果合并。最终运行记录保存在 `notes/recordings-pcm-2026-09-09.json`，源码核对在 `notes/recordings-source-verification-2026-09-09.json`。本次 `pressure-violin` 是额外压力测试，其余 19 案有同事件的旧版比较。
+
+与上一节早期工具只测峰值/RMS不同，`compare-natural-results.py` 另外实际调用 FFmpeg 的 EBU R128 过滤器，采用最后一帧 `lavfi.r128.I` 记录 LUFS，最后 summary 记录过采样真峰。两版试听仅各施加一个固定增益匹配至 −24 LUFS，不改变 EQ 或动态。报告邻近的 Float32 原始 WAV 优先于历史绝对路径，方便搬移与复现。基准场景里过低的配器事件力度、原录音幅度与混音补偿分别记录；不得将通过指标写成实体手机实听。
+
+发布之后执行 `python tests/qa/audio/verify-recordings-release.py --ref <feature-commit>`：确认同提交的 Pages 构建完成，再读取生产模块、上述实际渲染所请求的所有实录文件、七库 manifest/许可及每库一个 WAV 回退，逐一与已提交的 Git blob 做 SHA-256 比较。此范围不是全库所有音高的在线解码测试。
