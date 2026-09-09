@@ -1,0 +1,1715 @@
+{
+  "checkedAt": "2026-09-09T12:29:11.397364+00:00",
+  "commit": "25e53719b4c9b6e53e5e89e7d137915364146337",
+  "baseUrl": "https://rexrockya.github.io/tuner/",
+  "pages": {
+    "status": "built",
+    "commit": "25e53719b4c9b6e53e5e89e7d137915364146337",
+    "error": {
+      "message": null
+    },
+    "updated_at": "2026-09-09T12:27:55Z"
+  },
+  "scope": "Production modules; all natural audio files actually requested by the 20 PCM cases; all seven bank manifests/licenses; one WAV fallback per bank. Not all recordings in the full banks.",
+  "results": [
+    {
+      "file": "asset-loader.js",
+      "expectedSHA256": "6563d8bbed067b721a70c51e1ff007595ae5f344d7e52c60e0d36400f2a4e4a2",
+      "status": 200,
+      "bytes": 2723,
+      "sha256": "6563d8bbed067b721a70c51e1ff007595ae5f344d7e52c60e0d36400f2a4e4a2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/CREDITS.md",
+      "expectedSHA256": "555c8c965cfdff78bc83bf12172c9c6d8ab114ec5f2c72ccaa666c179b0edda5",
+      "status": 200,
+      "bytes": 1916,
+      "sha256": "555c8c965cfdff78bc83bf12172c9c6d8ab114ec5f2c72ccaa666c179b0edda5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/LICENSE-CC0.txt",
+      "expectedSHA256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-27-p-r4.wav",
+      "expectedSHA256": "e51abd97cf364905d6aadce40a2c6f82d597039817c5df8e875d7d451ab57fd0",
+      "status": 200,
+      "bytes": 496206,
+      "sha256": "e51abd97cf364905d6aadce40a2c6f82d597039817c5df8e875d7d451ab57fd0",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-30-f-r2.flac",
+      "expectedSHA256": "f5ae3f36c034d1bb64eed71ed0a49fb7bf7f3729c5bbcbe42cc942dfb935fe37",
+      "status": 200,
+      "bytes": 88761,
+      "sha256": "f5ae3f36c034d1bb64eed71ed0a49fb7bf7f3729c5bbcbe42cc942dfb935fe37",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-30-fff-r2.flac",
+      "expectedSHA256": "e8d43365d7a5024997b44cfca8d659a97059b7f51c0fcadad5efefd4bc0ab9a2",
+      "status": 200,
+      "bytes": 91838,
+      "sha256": "e8d43365d7a5024997b44cfca8d659a97059b7f51c0fcadad5efefd4bc0ab9a2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-33-f-r4.flac",
+      "expectedSHA256": "3a4586169573cf73d31c14d6621e7d815c2deb2e90029ff4c47c429ca4322249",
+      "status": 200,
+      "bytes": 92830,
+      "sha256": "3a4586169573cf73d31c14d6621e7d815c2deb2e90029ff4c47c429ca4322249",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-33-fff-r4.flac",
+      "expectedSHA256": "05812c4dcdcd86c6358e957d26ab514abb567734f9a5d724df5bd0ba40473032",
+      "status": 200,
+      "bytes": 93841,
+      "sha256": "05812c4dcdcd86c6358e957d26ab514abb567734f9a5d724df5bd0ba40473032",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-36-f-r2.flac",
+      "expectedSHA256": "29b89de89aa81ea6b5eb853aa95e1a7ca7d3e45a79d32921050b754188599d7c",
+      "status": 200,
+      "bytes": 92858,
+      "sha256": "29b89de89aa81ea6b5eb853aa95e1a7ca7d3e45a79d32921050b754188599d7c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-36-f-r3.flac",
+      "expectedSHA256": "bb8c6cfd1b0a1498de673b7e846db8c5f415e9e36e84a198a0ce7662978a4aa7",
+      "status": 200,
+      "bytes": 92666,
+      "sha256": "bb8c6cfd1b0a1498de673b7e846db8c5f415e9e36e84a198a0ce7662978a4aa7",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-36-f-r4.flac",
+      "expectedSHA256": "caef8f60ababa5766ed972f06326ce380897302afe09afd24f054bc6f9eadc3c",
+      "status": 200,
+      "bytes": 93097,
+      "sha256": "caef8f60ababa5766ed972f06326ce380897302afe09afd24f054bc6f9eadc3c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-36-fff-r2.flac",
+      "expectedSHA256": "09620416e4b314190f7b2f8770acfed51899ea68089e3f6068d4b8a84ed25d40",
+      "status": 200,
+      "bytes": 93636,
+      "sha256": "09620416e4b314190f7b2f8770acfed51899ea68089e3f6068d4b8a84ed25d40",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-36-fff-r3.flac",
+      "expectedSHA256": "00874e3a6ba6c5b77f39345cdf00ea12556cbbd8c294d44c97e4265b8bc7a7eb",
+      "status": 200,
+      "bytes": 94138,
+      "sha256": "00874e3a6ba6c5b77f39345cdf00ea12556cbbd8c294d44c97e4265b8bc7a7eb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-36-fff-r4.flac",
+      "expectedSHA256": "090a30ea0ae72c0b5165e5c044983f562a3c709a430ebe30c0eb7c1b94430f52",
+      "status": 200,
+      "bytes": 92655,
+      "sha256": "090a30ea0ae72c0b5165e5c044983f562a3c709a430ebe30c0eb7c1b94430f52",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-f-r1.flac",
+      "expectedSHA256": "cf5dae00c82f5e4ed472e134bbbcb23da79269020fb274ce2cb34c4549542af8",
+      "status": 200,
+      "bytes": 94582,
+      "sha256": "cf5dae00c82f5e4ed472e134bbbcb23da79269020fb274ce2cb34c4549542af8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-f-r2.flac",
+      "expectedSHA256": "990997c40a3e7f911cb38d462cc8157e434d97d0757d55f82c1598c457a8cdb1",
+      "status": 200,
+      "bytes": 94272,
+      "sha256": "990997c40a3e7f911cb38d462cc8157e434d97d0757d55f82c1598c457a8cdb1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-f-r3.flac",
+      "expectedSHA256": "ccd0884317f9f95ed4bc8669f110af6302a2f61417730a6729b77bd2593425b8",
+      "status": 200,
+      "bytes": 95191,
+      "sha256": "ccd0884317f9f95ed4bc8669f110af6302a2f61417730a6729b77bd2593425b8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-f-r4.flac",
+      "expectedSHA256": "bbd961d975883aa18e5cd18f6ac22fde5dd33a71a3c4262b05068098519f053c",
+      "status": 200,
+      "bytes": 94589,
+      "sha256": "bbd961d975883aa18e5cd18f6ac22fde5dd33a71a3c4262b05068098519f053c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-fff-r1.flac",
+      "expectedSHA256": "02612a063f7ef81ae769e371d777c16c3b08fb0415bfdfcdb59515c235f60879",
+      "status": 200,
+      "bytes": 96929,
+      "sha256": "02612a063f7ef81ae769e371d777c16c3b08fb0415bfdfcdb59515c235f60879",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-fff-r2.flac",
+      "expectedSHA256": "5ece3a5052bf71fcce3b924b0be6f1547725c7d8a7ced15a540c0c4e2d16067d",
+      "status": 200,
+      "bytes": 95158,
+      "sha256": "5ece3a5052bf71fcce3b924b0be6f1547725c7d8a7ced15a540c0c4e2d16067d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-fff-r3.flac",
+      "expectedSHA256": "5d6753cf2d8d3a3f70ff77fd6c1850b6b45f471ff969c9814b65d013c39557f8",
+      "status": 200,
+      "bytes": 97068,
+      "sha256": "5d6753cf2d8d3a3f70ff77fd6c1850b6b45f471ff969c9814b65d013c39557f8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-39-fff-r4.flac",
+      "expectedSHA256": "c5dcc00bf84d8e5442d9cb36ab1fbf4155b37ef1e2357dae523170da56bdffc0",
+      "status": 200,
+      "bytes": 96226,
+      "sha256": "c5dcc00bf84d8e5442d9cb36ab1fbf4155b37ef1e2357dae523170da56bdffc0",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-42-f-r3.flac",
+      "expectedSHA256": "99934a0bd2db2e02c4518ff1e8e33605dff10eaeb7d392f0b82565a01c4d275d",
+      "status": 200,
+      "bytes": 94364,
+      "sha256": "99934a0bd2db2e02c4518ff1e8e33605dff10eaeb7d392f0b82565a01c4d275d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-42-f-r4.flac",
+      "expectedSHA256": "e73d7d4631c0af6d8f9c96f14896a64c5359404d45bd4dff5a291f99391281aa",
+      "status": 200,
+      "bytes": 94625,
+      "sha256": "e73d7d4631c0af6d8f9c96f14896a64c5359404d45bd4dff5a291f99391281aa",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-42-fff-r3.flac",
+      "expectedSHA256": "81807567eccfa42b7698ca060cbf0eabccc868ab56a6ba3a1ddc97055a3ab970",
+      "status": 200,
+      "bytes": 96615,
+      "sha256": "81807567eccfa42b7698ca060cbf0eabccc868ab56a6ba3a1ddc97055a3ab970",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-42-fff-r4.flac",
+      "expectedSHA256": "972b57c872073a03a3948f16f01d9f1ce726330627430ffab2f7cb8fb206e0e3",
+      "status": 200,
+      "bytes": 95421,
+      "sha256": "972b57c872073a03a3948f16f01d9f1ce726330627430ffab2f7cb8fb206e0e3",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-45-f-r1.flac",
+      "expectedSHA256": "66669d5f4b93301d9e2addcbb289dd93bcc2b73f510f77a4fcbcc769188809bb",
+      "status": 200,
+      "bytes": 92800,
+      "sha256": "66669d5f4b93301d9e2addcbb289dd93bcc2b73f510f77a4fcbcc769188809bb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-45-f-r2.flac",
+      "expectedSHA256": "88b366b7c5f7b91874cbc13593add606b0c3f7e4df1e036a2ff9275230e4c638",
+      "status": 200,
+      "bytes": 92751,
+      "sha256": "88b366b7c5f7b91874cbc13593add606b0c3f7e4df1e036a2ff9275230e4c638",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-45-fff-r1.flac",
+      "expectedSHA256": "7f1fdc521fafb69a0fd1465614104be8dfcfff8f95f19e847356c55cf90ec9cd",
+      "status": 200,
+      "bytes": 95622,
+      "sha256": "7f1fdc521fafb69a0fd1465614104be8dfcfff8f95f19e847356c55cf90ec9cd",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/bass-45-fff-r2.flac",
+      "expectedSHA256": "9e7a21dbdae4f4ad02b6f6acdaa2b5c427ece3cc05e4c11fc14ac3915f060c1d",
+      "status": 200,
+      "bytes": 95351,
+      "sha256": "9e7a21dbdae4f4ad02b6f6acdaa2b5c427ece3cc05e4c11fc14ac3915f060c1d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-bass/manifest.json",
+      "expectedSHA256": "9c357dfbad6c46369e2214fadfc921551d90354c28d0b4174980dd151a6c70fc",
+      "status": 200,
+      "bytes": 57356,
+      "sha256": "9c357dfbad6c46369e2214fadfc921551d90354c28d0b4174980dd151a6c70fc",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/CREDITS.md",
+      "expectedSHA256": "379c6c8a3112d7428b2538e344c43da55e8f8245462f0cf4e2a9b8dab9a34257",
+      "status": 200,
+      "bytes": 2118,
+      "sha256": "379c6c8a3112d7428b2538e344c43da55e8f8245462f0cf4e2a9b8dab9a34257",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/LICENSE",
+      "expectedSHA256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v1-rr1.flac",
+      "expectedSHA256": "6649f852495467dd5f4af4b769435d865993874b96a041b9bfedb864e75fc825",
+      "status": 200,
+      "bytes": 27310,
+      "sha256": "6649f852495467dd5f4af4b769435d865993874b96a041b9bfedb864e75fc825",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v1-rr2.flac",
+      "expectedSHA256": "09c0f3226b29e3c870312c03d110b9dcf0713340befa6c40587cc34f96872ca4",
+      "status": 200,
+      "bytes": 23458,
+      "sha256": "09c0f3226b29e3c870312c03d110b9dcf0713340befa6c40587cc34f96872ca4",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v1-rr3.flac",
+      "expectedSHA256": "22f8f15b6ce540f6f415a65ca679fe6a19c02be5098d020be3130672b9db233c",
+      "status": 200,
+      "bytes": 25155,
+      "sha256": "22f8f15b6ce540f6f415a65ca679fe6a19c02be5098d020be3130672b9db233c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v1-rr4.flac",
+      "expectedSHA256": "2b085193d7c455c1e1d935523d2dbe8060cb2358de28da3fa28c2f803f363a78",
+      "status": 200,
+      "bytes": 24997,
+      "sha256": "2b085193d7c455c1e1d935523d2dbe8060cb2358de28da3fa28c2f803f363a78",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v2-rr1.flac",
+      "expectedSHA256": "33c707b0d607d54e1f69a4f1e07bb6eeba54845a2568557eab65a50206a87ef8",
+      "status": 200,
+      "bytes": 30210,
+      "sha256": "33c707b0d607d54e1f69a4f1e07bb6eeba54845a2568557eab65a50206a87ef8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v2-rr2.flac",
+      "expectedSHA256": "b74a4333488fb4171ffdcc7b5636e97c86bfa8f67d5a89ea6c0667e6b9c09f74",
+      "status": 200,
+      "bytes": 28893,
+      "sha256": "b74a4333488fb4171ffdcc7b5636e97c86bfa8f67d5a89ea6c0667e6b9c09f74",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v2-rr3.flac",
+      "expectedSHA256": "95897ed6812f4a3682faf790daba3bdbedcafead2379c101de19cd4bc4839542",
+      "status": 200,
+      "bytes": 32804,
+      "sha256": "95897ed6812f4a3682faf790daba3bdbedcafead2379c101de19cd4bc4839542",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v2-rr4.flac",
+      "expectedSHA256": "11d23f30b6a1dc2e579649b5568381930b2e21770300c4bc2376646207fbddcc",
+      "status": 200,
+      "bytes": 31453,
+      "sha256": "11d23f30b6a1dc2e579649b5568381930b2e21770300c4bc2376646207fbddcc",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v4-rr1.flac",
+      "expectedSHA256": "2251e11da4096f39505fc76302d3512b7df2fd3229ff2173a192a760172781b6",
+      "status": 200,
+      "bytes": 50637,
+      "sha256": "2251e11da4096f39505fc76302d3512b7df2fd3229ff2173a192a760172781b6",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v4-rr2.flac",
+      "expectedSHA256": "a10c0d4954ff7e21b0d17c2dddc892a26cbf2a8a4b6fcc7c5f1f2faf23c664e2",
+      "status": 200,
+      "bytes": 49259,
+      "sha256": "a10c0d4954ff7e21b0d17c2dddc892a26cbf2a8a4b6fcc7c5f1f2faf23c664e2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v4-rr3.flac",
+      "expectedSHA256": "711c3246abdfea16c9c33b904e51c99f1b3bb8e9fff8be94d1a1a90d93fad2b2",
+      "status": 200,
+      "bytes": 48191,
+      "sha256": "711c3246abdfea16c9c33b904e51c99f1b3bb8e9fff8be94d1a1a90d93fad2b2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-closed-v4-rr4.flac",
+      "expectedSHA256": "3a623bf5fca8563e971d0bd953012074e73a249d8398468296364bfc113fbe29",
+      "status": 200,
+      "bytes": 49584,
+      "sha256": "3a623bf5fca8563e971d0bd953012074e73a249d8398468296364bfc113fbe29",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-open-v2-rr2.flac",
+      "expectedSHA256": "468b2fbae5609262c0aa25eaee1b5c1221f2c516ad0ad945b70e86ef56b23f2f",
+      "status": 200,
+      "bytes": 179291,
+      "sha256": "468b2fbae5609262c0aa25eaee1b5c1221f2c516ad0ad945b70e86ef56b23f2f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/hat-open-v4-rr2.flac",
+      "expectedSHA256": "3fd72c13a3dad3fcc428152211efc1198940e77e5fea07b7c1198d64a6061b8f",
+      "status": 200,
+      "bytes": 284092,
+      "sha256": "3fd72c13a3dad3fcc428152211efc1198940e77e5fea07b7c1198d64a6061b8f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v1-rr1.wav",
+      "expectedSHA256": "78503918cf1026c1df93c0f9521521de125c00eed20b62ee37ccdd5245553cd6",
+      "status": 200,
+      "bytes": 158838,
+      "sha256": "78503918cf1026c1df93c0f9521521de125c00eed20b62ee37ccdd5245553cd6",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v2-rr3.flac",
+      "expectedSHA256": "504eeade9e28167c68bbbe6e49d515c37f55a78503980d19810b867bee98bde6",
+      "status": 200,
+      "bytes": 29091,
+      "sha256": "504eeade9e28167c68bbbe6e49d515c37f55a78503980d19810b867bee98bde6",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v3-rr1.flac",
+      "expectedSHA256": "6ffe92993824ca8bb143c58dccb598c88a80c16f45ebf89be16f0dd20e55d2ae",
+      "status": 200,
+      "bytes": 30239,
+      "sha256": "6ffe92993824ca8bb143c58dccb598c88a80c16f45ebf89be16f0dd20e55d2ae",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v3-rr3.flac",
+      "expectedSHA256": "20ab4ad828f19214bf49936c25a583a3effb5fc40095a13e21f5661bc39f9ed5",
+      "status": 200,
+      "bytes": 30476,
+      "sha256": "20ab4ad828f19214bf49936c25a583a3effb5fc40095a13e21f5661bc39f9ed5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v3-rr4.flac",
+      "expectedSHA256": "2085b217a55b01a85f96d0abf71afa1f87e0f94ddd3ea81134a15d6d347b208b",
+      "status": 200,
+      "bytes": 30341,
+      "sha256": "2085b217a55b01a85f96d0abf71afa1f87e0f94ddd3ea81134a15d6d347b208b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v4-rr1.flac",
+      "expectedSHA256": "70e1d55c22240ba716147870ea264c601fd71e3651d9167f25510d64033d9c2d",
+      "status": 200,
+      "bytes": 31770,
+      "sha256": "70e1d55c22240ba716147870ea264c601fd71e3651d9167f25510d64033d9c2d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v4-rr3.flac",
+      "expectedSHA256": "938bbe29c291503531c177496b3ec37915b7f2eb0e1b39b1c765bca06b6fa793",
+      "status": 200,
+      "bytes": 31894,
+      "sha256": "938bbe29c291503531c177496b3ec37915b7f2eb0e1b39b1c765bca06b6fa793",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/kick-v4-rr4.flac",
+      "expectedSHA256": "f8071cf976056bc8d7b0076de129b34c86da49c9fecc143d370626da2056f7c0",
+      "status": 200,
+      "bytes": 31689,
+      "sha256": "f8071cf976056bc8d7b0076de129b34c86da49c9fecc143d370626da2056f7c0",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/manifest.json",
+      "expectedSHA256": "ea83d959313d3f7483244d582132680eaa7c71a0cbf6765c43216528e380d5b1",
+      "status": 200,
+      "bytes": 70349,
+      "sha256": "ea83d959313d3f7483244d582132680eaa7c71a0cbf6765c43216528e380d5b1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/snare-v12-rr1.flac",
+      "expectedSHA256": "6d727bab7f136adec1d980776fdb74709bc1ba45e7456cc101408ca0898afd2b",
+      "status": 200,
+      "bytes": 55026,
+      "sha256": "6d727bab7f136adec1d980776fdb74709bc1ba45e7456cc101408ca0898afd2b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/snare-v18-rr1.flac",
+      "expectedSHA256": "0c50c26238fc66e14edf0c6c5d787dd2fc1fc313ea215f577779870e5b40ed58",
+      "status": 200,
+      "bytes": 60944,
+      "sha256": "0c50c26238fc66e14edf0c6c5d787dd2fc1fc313ea215f577779870e5b40ed58",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/snare-v24-rr1.flac",
+      "expectedSHA256": "b0f69db14f70e4c1b1dd401fd51984ab65f81c327cfa3bf426762f055748e94a",
+      "status": 200,
+      "bytes": 63068,
+      "sha256": "b0f69db14f70e4c1b1dd401fd51984ab65f81c327cfa3bf426762f055748e94a",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/snare-v27-rr1.flac",
+      "expectedSHA256": "945aac806500cd96045fa29ec6001a124cc2af47bc4fdbd94e82c2d5ec1d1685",
+      "status": 200,
+      "bytes": 62294,
+      "sha256": "945aac806500cd96045fa29ec6001a124cc2af47bc4fdbd94e82c2d5ec1d1685",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-drums/snare-v36-rr1.flac",
+      "expectedSHA256": "93061269a1f5c44b2003b871efe636f3d715f10729227fd371edc73589f5d4e9",
+      "status": 200,
+      "bytes": 76084,
+      "sha256": "93061269a1f5c44b2003b871efe636f3d715f10729227fd371edc73589f5d4e9",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/LICENSE.txt",
+      "expectedSHA256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "status": 200,
+      "bytes": 6555,
+      "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/README.md",
+      "expectedSHA256": "6faad3f23e4190ff5e6f2cc93319cad148b04f9306947d8b3d73fd0268c01f59",
+      "status": 200,
+      "bytes": 1668,
+      "sha256": "6faad3f23e4190ff5e6f2cc93319cad148b04f9306947d8b3d73fd0268c01f59",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/manifest.json",
+      "expectedSHA256": "9de733f61c4704954aebf3919bae4cb13404e89dee35eb1f3f5eed6e7fe1e4bb",
+      "status": 200,
+      "bytes": 16069,
+      "sha256": "9de733f61c4704954aebf3919bae4cb13404e89dee35eb1f3f5eed6e7fe1e4bb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-57-v0-r1.wav",
+      "expectedSHA256": "453646936fd62b3c2abed0363ca747777f9da14bbe1e6229258dd5a7d9aef908",
+      "status": 200,
+      "bytes": 1411278,
+      "sha256": "453646936fd62b3c2abed0363ca747777f9da14bbe1e6229258dd5a7d9aef908",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-57-v63-r1.flac",
+      "expectedSHA256": "35c885ffea98fa3196213c35cb5cd49309c68583eebcdc1c0229a37a5ec66a0d",
+      "status": 200,
+      "bytes": 539138,
+      "sha256": "35c885ffea98fa3196213c35cb5cd49309c68583eebcdc1c0229a37a5ec66a0d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-59-v63-r1.flac",
+      "expectedSHA256": "0d89842dccd28220283ff5d9f0300022ede37d8ee62b7ce4b1a459f8c790231c",
+      "status": 200,
+      "bytes": 547132,
+      "sha256": "0d89842dccd28220283ff5d9f0300022ede37d8ee62b7ce4b1a459f8c790231c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-62-v63-r1.flac",
+      "expectedSHA256": "beb342d2414585a7ed56b78f67eded7a9415cfb7226b88bb3644039229358c59",
+      "status": 200,
+      "bytes": 530514,
+      "sha256": "beb342d2414585a7ed56b78f67eded7a9415cfb7226b88bb3644039229358c59",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-66-v63-r1.flac",
+      "expectedSHA256": "95296a20e5f5089576af7fc08a027a126e8139f503d45beaf0bd01a8a754d221",
+      "status": 200,
+      "bytes": 601282,
+      "sha256": "95296a20e5f5089576af7fc08a027a126e8139f503d45beaf0bd01a8a754d221",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-69-v63-r1.flac",
+      "expectedSHA256": "3ba6546587d8cd0cbfa92db6bcfcfec2f9d06ee5ef077ff138af76756145ef9b",
+      "status": 200,
+      "bytes": 619184,
+      "sha256": "3ba6546587d8cd0cbfa92db6bcfcfec2f9d06ee5ef077ff138af76756145ef9b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-ensemble/sustain-76-v63-r1.flac",
+      "expectedSHA256": "ab524da44929cac83def67d2f67ee04fe2d08aa978254b9e62468221a52b326f",
+      "status": 200,
+      "bytes": 713450,
+      "sha256": "ab524da44929cac83def67d2f67ee04fe2d08aa978254b9e62468221a52b326f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/LICENSE.txt",
+      "expectedSHA256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/README.md",
+      "expectedSHA256": "1fbb045ffa9de1fdf5874d63480c644f50edcc166168953d4db2370b8dda931a",
+      "status": 200,
+      "bytes": 1686,
+      "sha256": "1fbb045ffa9de1fdf5874d63480c644f50edcc166168953d4db2370b8dda931a",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/manifest.json",
+      "expectedSHA256": "66b3056b6e3bfca09bd2ee2ca4397c87386cfaaa022889f06afc494742836960",
+      "status": 200,
+      "bytes": 81724,
+      "sha256": "66b3056b6e3bfca09bd2ee2ca4397c87386cfaaa022889f06afc494742836960",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-36-v0-r1.wav",
+      "expectedSHA256": "c250d3266879fab6df82cad3f83b459453ce50dbf6640d183bf5f2373c57dcf9",
+      "status": 200,
+      "bytes": 1411278,
+      "sha256": "c250d3266879fab6df82cad3f83b459453ce50dbf6640d183bf5f2373c57dcf9",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v0-r1.flac",
+      "expectedSHA256": "d92ac961bce74a337d7ce7cfa662a1186ed0aace2e43f34ded4ca5c97bc67d59",
+      "status": 200,
+      "bytes": 253597,
+      "sha256": "d92ac961bce74a337d7ce7cfa662a1186ed0aace2e43f34ded4ca5c97bc67d59",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v0-r2.flac",
+      "expectedSHA256": "d4db90a9910186f6dca416433a06494c686583ba07a3527350f869ad817eaef1",
+      "status": 200,
+      "bytes": 246031,
+      "sha256": "d4db90a9910186f6dca416433a06494c686583ba07a3527350f869ad817eaef1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v0-r3.flac",
+      "expectedSHA256": "a023c313846144116ceaa596840c2136c5ba3d13445ca0b053362884df5d8cfe",
+      "status": 200,
+      "bytes": 241278,
+      "sha256": "a023c313846144116ceaa596840c2136c5ba3d13445ca0b053362884df5d8cfe",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v0-r4.flac",
+      "expectedSHA256": "ecb6ecaa9a90d9a2e09b2db912110dab1f2e38017c972e2b81e22c031ab3b47c",
+      "status": 200,
+      "bytes": 239571,
+      "sha256": "ecb6ecaa9a90d9a2e09b2db912110dab1f2e38017c972e2b81e22c031ab3b47c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v93-r1.flac",
+      "expectedSHA256": "ef9f84dc0c029963f9a0be132a733fb1db9640ffec168db5500df858f73355ac",
+      "status": 200,
+      "bytes": 260295,
+      "sha256": "ef9f84dc0c029963f9a0be132a733fb1db9640ffec168db5500df858f73355ac",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v93-r2.flac",
+      "expectedSHA256": "b46857645ad548c11d29316a355b3b1678784cfa46934b69b19c7b4809ecc7d5",
+      "status": 200,
+      "bytes": 272713,
+      "sha256": "b46857645ad548c11d29316a355b3b1678784cfa46934b69b19c7b4809ecc7d5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v93-r3.flac",
+      "expectedSHA256": "a5901e8c2124eebcf9db7e970c798ef5a9a13336070d3e6386ae42088d09ad7f",
+      "status": 200,
+      "bytes": 269041,
+      "sha256": "a5901e8c2124eebcf9db7e970c798ef5a9a13336070d3e6386ae42088d09ad7f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-45-v93-r4.flac",
+      "expectedSHA256": "69b8f004d240f9ea96e6e24fc76095826847121f30fb2712e06dbde049bc8044",
+      "status": 200,
+      "bytes": 271573,
+      "sha256": "69b8f004d240f9ea96e6e24fc76095826847121f30fb2712e06dbde049bc8044",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v0-r1.flac",
+      "expectedSHA256": "a33834e2d0636d6f945c6106e1ffd17bd33ef2f63ce435ec1669dd50fcd65d8f",
+      "status": 200,
+      "bytes": 217104,
+      "sha256": "a33834e2d0636d6f945c6106e1ffd17bd33ef2f63ce435ec1669dd50fcd65d8f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v0-r2.flac",
+      "expectedSHA256": "7ccdbdc79414bbbf1a3f712d718e5cd6573698d6db000a997c39ef1d44605d84",
+      "status": 200,
+      "bytes": 216719,
+      "sha256": "7ccdbdc79414bbbf1a3f712d718e5cd6573698d6db000a997c39ef1d44605d84",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v0-r3.flac",
+      "expectedSHA256": "4fa376648c257687c60af2a7b06a06e6014aa5cc114d463421ed527fa341bd08",
+      "status": 200,
+      "bytes": 222548,
+      "sha256": "4fa376648c257687c60af2a7b06a06e6014aa5cc114d463421ed527fa341bd08",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v0-r4.flac",
+      "expectedSHA256": "52ae0c3831429846400098370a12e4903ec456d6f44864dc1f7f8a7af204d0b5",
+      "status": 200,
+      "bytes": 226419,
+      "sha256": "52ae0c3831429846400098370a12e4903ec456d6f44864dc1f7f8a7af204d0b5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v93-r1.flac",
+      "expectedSHA256": "628d05b2728ea2729911ce1817a66754d3b8d8b4a55e2ab224b4c8d571e1e824",
+      "status": 200,
+      "bytes": 233638,
+      "sha256": "628d05b2728ea2729911ce1817a66754d3b8d8b4a55e2ab224b4c8d571e1e824",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v93-r2.flac",
+      "expectedSHA256": "4dba25abe0714cb8abda197f247909debd78c8da04c40da5e1b38a66d10782de",
+      "status": 200,
+      "bytes": 237283,
+      "sha256": "4dba25abe0714cb8abda197f247909debd78c8da04c40da5e1b38a66d10782de",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v93-r3.flac",
+      "expectedSHA256": "e6d3b0ee004cfcb0910782996442b733718614c6bf0bc7f1478f5bd80f0710ed",
+      "status": 200,
+      "bytes": 239273,
+      "sha256": "e6d3b0ee004cfcb0910782996442b733718614c6bf0bc7f1478f5bd80f0710ed",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-48-v93-r4.flac",
+      "expectedSHA256": "f726c13eab0605d5fcab8a80bfd81d2e09d8ad6fddbf58cd49cae3bf9f090554",
+      "status": 200,
+      "bytes": 232810,
+      "sha256": "f726c13eab0605d5fcab8a80bfd81d2e09d8ad6fddbf58cd49cae3bf9f090554",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v0-r1.flac",
+      "expectedSHA256": "6ac6a851921f675e9c8be87f2b6abfca5b065add4b6a5b592761f0efde0e2eb6",
+      "status": 200,
+      "bytes": 254843,
+      "sha256": "6ac6a851921f675e9c8be87f2b6abfca5b065add4b6a5b592761f0efde0e2eb6",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v0-r2.flac",
+      "expectedSHA256": "de95bfd34f3be5e1057744efcaae42fef342f06ec2ff7ef1b76bdf9d8bfc9886",
+      "status": 200,
+      "bytes": 254631,
+      "sha256": "de95bfd34f3be5e1057744efcaae42fef342f06ec2ff7ef1b76bdf9d8bfc9886",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v0-r3.flac",
+      "expectedSHA256": "99e18532de1cb63a582938c8cf639093cc58433786fd1459f16aa0ecd7579c14",
+      "status": 200,
+      "bytes": 241571,
+      "sha256": "99e18532de1cb63a582938c8cf639093cc58433786fd1459f16aa0ecd7579c14",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v0-r4.flac",
+      "expectedSHA256": "5395698952ae83ff105741205ce0a80bc9f0b6d0811a2cdc889b81b08eb52ab0",
+      "status": 200,
+      "bytes": 249456,
+      "sha256": "5395698952ae83ff105741205ce0a80bc9f0b6d0811a2cdc889b81b08eb52ab0",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v93-r1.flac",
+      "expectedSHA256": "a08d2ab89a11df3d056052bc6a0a984cfd880c00aa26a84422fdf106685327ba",
+      "status": 200,
+      "bytes": 269240,
+      "sha256": "a08d2ab89a11df3d056052bc6a0a984cfd880c00aa26a84422fdf106685327ba",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v93-r2.flac",
+      "expectedSHA256": "eaf84e77ea30e9db924aefa6a8e01781d202ae39e6c47f695aa78c0b788028f5",
+      "status": 200,
+      "bytes": 284747,
+      "sha256": "eaf84e77ea30e9db924aefa6a8e01781d202ae39e6c47f695aa78c0b788028f5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v93-r3.flac",
+      "expectedSHA256": "fd32e96300988f4e1456674bf640a9e1e6bffc544ad41aee8db7b831658f0b32",
+      "status": 200,
+      "bytes": 283263,
+      "sha256": "fd32e96300988f4e1456674bf640a9e1e6bffc544ad41aee8db7b831658f0b32",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-50-v93-r4.flac",
+      "expectedSHA256": "31cc96747c3ed05a93fb256478d176565cb59923381d2bd0a38f51ac0eaa520d",
+      "status": 200,
+      "bytes": 299729,
+      "sha256": "31cc96747c3ed05a93fb256478d176565cb59923381d2bd0a38f51ac0eaa520d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v0-r1.flac",
+      "expectedSHA256": "07e75edbbc0b3c7c39940f82ac13a8f0e9028723e2505f6574ec1bee0b13577f",
+      "status": 200,
+      "bytes": 237461,
+      "sha256": "07e75edbbc0b3c7c39940f82ac13a8f0e9028723e2505f6574ec1bee0b13577f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v0-r2.flac",
+      "expectedSHA256": "0fc51f1a820cea56ba24eab0204d5465aa74db9fe018314656c3c2b17c200c81",
+      "status": 200,
+      "bytes": 235640,
+      "sha256": "0fc51f1a820cea56ba24eab0204d5465aa74db9fe018314656c3c2b17c200c81",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v0-r3.flac",
+      "expectedSHA256": "8a60f0f92378d0100589b633514cb4866592dfdd746593f3f70e8f3871bc9821",
+      "status": 200,
+      "bytes": 229843,
+      "sha256": "8a60f0f92378d0100589b633514cb4866592dfdd746593f3f70e8f3871bc9821",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v0-r4.flac",
+      "expectedSHA256": "07093145b12b9de1adf515e62c0028da0b864ef08a2aab7d20a1d886270a2138",
+      "status": 200,
+      "bytes": 243212,
+      "sha256": "07093145b12b9de1adf515e62c0028da0b864ef08a2aab7d20a1d886270a2138",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v93-r1.flac",
+      "expectedSHA256": "f4c5dd2bf7950fb541fae528214be7a576308d8285cd067581a1766b1830c5d0",
+      "status": 200,
+      "bytes": 259439,
+      "sha256": "f4c5dd2bf7950fb541fae528214be7a576308d8285cd067581a1766b1830c5d0",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v93-r2.flac",
+      "expectedSHA256": "e6889ff4c59686ec93dae4d4d127162bbd70d661540c8ef4584c79ef9a6c31ab",
+      "status": 200,
+      "bytes": 262182,
+      "sha256": "e6889ff4c59686ec93dae4d4d127162bbd70d661540c8ef4584c79ef9a6c31ab",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v93-r3.flac",
+      "expectedSHA256": "56651d2b4ddfa14ec5035d614a21f8e23e9149791186dfa47fc2476346191978",
+      "status": 200,
+      "bytes": 259778,
+      "sha256": "56651d2b4ddfa14ec5035d614a21f8e23e9149791186dfa47fc2476346191978",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-52-v93-r4.flac",
+      "expectedSHA256": "0614662f0051df21479501abefcda9d9f88c08d617ae28bf7389a26fdcd35793",
+      "status": 200,
+      "bytes": 260102,
+      "sha256": "0614662f0051df21479501abefcda9d9f88c08d617ae28bf7389a26fdcd35793",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v0-r1.flac",
+      "expectedSHA256": "2b38f9a3e8fad1b052f5b1ec5fba46a3ea2cb8de5a8660a170479b76ae60d4eb",
+      "status": 200,
+      "bytes": 267845,
+      "sha256": "2b38f9a3e8fad1b052f5b1ec5fba46a3ea2cb8de5a8660a170479b76ae60d4eb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v0-r2.flac",
+      "expectedSHA256": "19c21244071798d20767c1c8ea7422d53e680aebe081f0399dd73cd8477c537f",
+      "status": 200,
+      "bytes": 268688,
+      "sha256": "19c21244071798d20767c1c8ea7422d53e680aebe081f0399dd73cd8477c537f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v0-r3.flac",
+      "expectedSHA256": "6f1c78895f0f48b5021e0fc9cdd290074d3c8089a292c157f59bf794f84dfe89",
+      "status": 200,
+      "bytes": 278268,
+      "sha256": "6f1c78895f0f48b5021e0fc9cdd290074d3c8089a292c157f59bf794f84dfe89",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v0-r4.flac",
+      "expectedSHA256": "cec2f493c7de7a621b8cf4c53fa707704da6c0b40a87b8c5f78abc97d1f62660",
+      "status": 200,
+      "bytes": 272551,
+      "sha256": "cec2f493c7de7a621b8cf4c53fa707704da6c0b40a87b8c5f78abc97d1f62660",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v93-r1.flac",
+      "expectedSHA256": "c4ccb216097155090caad1cf9612f7c547cd848414f008329ffdfe5ac3733e42",
+      "status": 200,
+      "bytes": 298993,
+      "sha256": "c4ccb216097155090caad1cf9612f7c547cd848414f008329ffdfe5ac3733e42",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v93-r2.flac",
+      "expectedSHA256": "4c5ac034056264d5d2af9f14477844ea3a36dbb1cfe9748d4fc4782d5401f199",
+      "status": 200,
+      "bytes": 282415,
+      "sha256": "4c5ac034056264d5d2af9f14477844ea3a36dbb1cfe9748d4fc4782d5401f199",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v93-r3.flac",
+      "expectedSHA256": "5e6aaeefa83b1bad5ffdc08c6ecfefc63a0bc4cf1ca03b79f13c6304f896aa4e",
+      "status": 200,
+      "bytes": 292230,
+      "sha256": "5e6aaeefa83b1bad5ffdc08c6ecfefc63a0bc4cf1ca03b79f13c6304f896aa4e",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-55-v93-r4.flac",
+      "expectedSHA256": "4a014496f2935e08eb65cad0ed04ce1752201bfa926f126173cbd89c48ace5d9",
+      "status": 200,
+      "bytes": 297435,
+      "sha256": "4a014496f2935e08eb65cad0ed04ce1752201bfa926f126173cbd89c48ace5d9",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v0-r1.flac",
+      "expectedSHA256": "f8c819b85199149d9d534914ee713b8478b74e910eb5ec19ad67f00e21b92907",
+      "status": 200,
+      "bytes": 280004,
+      "sha256": "f8c819b85199149d9d534914ee713b8478b74e910eb5ec19ad67f00e21b92907",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v0-r2.flac",
+      "expectedSHA256": "3988d9b20e699ae419eeff70c8c02ae25ba1ef33e7dc592ac042d44cf51f9313",
+      "status": 200,
+      "bytes": 274467,
+      "sha256": "3988d9b20e699ae419eeff70c8c02ae25ba1ef33e7dc592ac042d44cf51f9313",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v0-r3.flac",
+      "expectedSHA256": "b8fa592cf75c455ae401c6d5bb36768e8edee9bcfd2cdf59a95408d55825e25c",
+      "status": 200,
+      "bytes": 291918,
+      "sha256": "b8fa592cf75c455ae401c6d5bb36768e8edee9bcfd2cdf59a95408d55825e25c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v0-r4.flac",
+      "expectedSHA256": "016bae61854eba1269086e123a7c720cffe54389bf0a14e09eec557a3e072da8",
+      "status": 200,
+      "bytes": 273180,
+      "sha256": "016bae61854eba1269086e123a7c720cffe54389bf0a14e09eec557a3e072da8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v93-r1.flac",
+      "expectedSHA256": "0924eeaae9cf6b4f95ca7394cb2650804c702899321f2ad611b561acd057ce17",
+      "status": 200,
+      "bytes": 281416,
+      "sha256": "0924eeaae9cf6b4f95ca7394cb2650804c702899321f2ad611b561acd057ce17",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v93-r2.flac",
+      "expectedSHA256": "a55d5749f2cd11af6025d936c08295bfd66c6380151d94c07499d035c57bf384",
+      "status": 200,
+      "bytes": 285727,
+      "sha256": "a55d5749f2cd11af6025d936c08295bfd66c6380151d94c07499d035c57bf384",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v93-r3.flac",
+      "expectedSHA256": "a2fddf102c98e6d4f4af133b8b1f3396db619e0c461f1d38b1a52d72d7a9f692",
+      "status": 200,
+      "bytes": 288667,
+      "sha256": "a2fddf102c98e6d4f4af133b8b1f3396db619e0c461f1d38b1a52d72d7a9f692",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-59-v93-r4.flac",
+      "expectedSHA256": "71cb33a57dadf1a15a234c7603a65fe35b2f00ad0df7e6efa68f143e67ecb337",
+      "status": 200,
+      "bytes": 293833,
+      "sha256": "71cb33a57dadf1a15a234c7603a65fe35b2f00ad0df7e6efa68f143e67ecb337",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v0-r1.flac",
+      "expectedSHA256": "91abffb580823217ba248c354fd2208b97e181fa50b5b7f530b991eb19d042ff",
+      "status": 200,
+      "bytes": 248397,
+      "sha256": "91abffb580823217ba248c354fd2208b97e181fa50b5b7f530b991eb19d042ff",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v0-r2.flac",
+      "expectedSHA256": "dce6fd3fed68f73943f24d7a3e6d02b05ca5737e8276190e9dc56cf82e4c1d0c",
+      "status": 200,
+      "bytes": 246868,
+      "sha256": "dce6fd3fed68f73943f24d7a3e6d02b05ca5737e8276190e9dc56cf82e4c1d0c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v0-r3.flac",
+      "expectedSHA256": "1a7dc30cebd578e2230b3a8c33776a59a658ea3aa54dbbe0c49555a047c7e4bf",
+      "status": 200,
+      "bytes": 241547,
+      "sha256": "1a7dc30cebd578e2230b3a8c33776a59a658ea3aa54dbbe0c49555a047c7e4bf",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v0-r4.flac",
+      "expectedSHA256": "f30957b2f8938c9c5d859a0060a56f5a514ca5c68305cc8a9e0d0a16fa80518a",
+      "status": 200,
+      "bytes": 243166,
+      "sha256": "f30957b2f8938c9c5d859a0060a56f5a514ca5c68305cc8a9e0d0a16fa80518a",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v93-r1.flac",
+      "expectedSHA256": "98c8ecf648c4d3d8edc4c9fee3a57217fcdcbbbf26299cb9e014af4f384f50c5",
+      "status": 200,
+      "bytes": 251862,
+      "sha256": "98c8ecf648c4d3d8edc4c9fee3a57217fcdcbbbf26299cb9e014af4f384f50c5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v93-r2.flac",
+      "expectedSHA256": "fccd449bc27ad0f60ada09a6fb236a87a4e9ad29f9ace33697716edeb4835bb1",
+      "status": 200,
+      "bytes": 256125,
+      "sha256": "fccd449bc27ad0f60ada09a6fb236a87a4e9ad29f9ace33697716edeb4835bb1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v93-r3.flac",
+      "expectedSHA256": "749d6971db6687697db00622e0c5997b1c801996b50f81c5fffbe107da81cf6e",
+      "status": 200,
+      "bytes": 251279,
+      "sha256": "749d6971db6687697db00622e0c5997b1c801996b50f81c5fffbe107da81cf6e",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-61-v93-r4.flac",
+      "expectedSHA256": "ca0da3f23d4963e4ef4f5ec7394bb515a597752b304f1154171b2716ef017097",
+      "status": 200,
+      "bytes": 250633,
+      "sha256": "ca0da3f23d4963e4ef4f5ec7394bb515a597752b304f1154171b2716ef017097",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-64-v0-r1.flac",
+      "expectedSHA256": "fbb20b23d4a528609717a195b409f6661b2cd19afb7575b31032dd6534a69fc6",
+      "status": 200,
+      "bytes": 261578,
+      "sha256": "fbb20b23d4a528609717a195b409f6661b2cd19afb7575b31032dd6534a69fc6",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-64-v0-r4.flac",
+      "expectedSHA256": "6c3ca4474dc8d5ed14a67135941efeeb23d489d184ab4e568fb865530ea51be1",
+      "status": 200,
+      "bytes": 272584,
+      "sha256": "6c3ca4474dc8d5ed14a67135941efeeb23d489d184ab4e568fb865530ea51be1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-64-v93-r1.flac",
+      "expectedSHA256": "558881aad38c03d8966b7153535bfa0382f0ede5e5dde9e87c70a66c4e901bf2",
+      "status": 200,
+      "bytes": 271499,
+      "sha256": "558881aad38c03d8966b7153535bfa0382f0ede5e5dde9e87c70a66c4e901bf2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-64-v93-r2.flac",
+      "expectedSHA256": "ce3432e45287965ed6b0da56361587faebad0c16eba931f9b0119c2c8caa2fc2",
+      "status": 200,
+      "bytes": 282294,
+      "sha256": "ce3432e45287965ed6b0da56361587faebad0c16eba931f9b0119c2c8caa2fc2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-64-v93-r3.flac",
+      "expectedSHA256": "68dd1266cde0c7f859ca215bfcc97ea8b301ec1a76c7f9bf8e34386ef1306891",
+      "status": 200,
+      "bytes": 286112,
+      "sha256": "68dd1266cde0c7f859ca215bfcc97ea8b301ec1a76c7f9bf8e34386ef1306891",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-64-v93-r4.flac",
+      "expectedSHA256": "8acceef103515a23b94d5a14b4f9098c52de3c43d50e4dcedd67173e9299673f",
+      "status": 200,
+      "bytes": 287092,
+      "sha256": "8acceef103515a23b94d5a14b4f9098c52de3c43d50e4dcedd67173e9299673f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-67-v0-r1.flac",
+      "expectedSHA256": "122982f6ce4e68ec5f723d8006bdc3acd75a07581b6280cffe3697bc255d75eb",
+      "status": 200,
+      "bytes": 266650,
+      "sha256": "122982f6ce4e68ec5f723d8006bdc3acd75a07581b6280cffe3697bc255d75eb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-67-v0-r2.flac",
+      "expectedSHA256": "c69b9c3ec09f24a10e01c9505c1fb0366fd0b285a804da444b07672674032202",
+      "status": 200,
+      "bytes": 273916,
+      "sha256": "c69b9c3ec09f24a10e01c9505c1fb0366fd0b285a804da444b07672674032202",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-67-v0-r3.flac",
+      "expectedSHA256": "73390c18e7c86a3f0a02dd3302550012009eb9e6654ae802d4721d11f72dd92f",
+      "status": 200,
+      "bytes": 263133,
+      "sha256": "73390c18e7c86a3f0a02dd3302550012009eb9e6654ae802d4721d11f72dd92f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-67-v0-r4.flac",
+      "expectedSHA256": "d8238d06c7c26fd52823413257e9c9b7b8f42f1a6f46b60cadfc762fc9e0aaf1",
+      "status": 200,
+      "bytes": 268845,
+      "sha256": "d8238d06c7c26fd52823413257e9c9b7b8f42f1a6f46b60cadfc762fc9e0aaf1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-71-v0-r1.flac",
+      "expectedSHA256": "3c57daf4fd21b689a171f9bfdcad3a6aa81478fcae98a36a47a07db4747a09b0",
+      "status": 200,
+      "bytes": 241851,
+      "sha256": "3c57daf4fd21b689a171f9bfdcad3a6aa81478fcae98a36a47a07db4747a09b0",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-71-v0-r2.flac",
+      "expectedSHA256": "f8a1540586060fc42a5e2bdabc78b14366b88bc37019beb9366a68193a240e1f",
+      "status": 200,
+      "bytes": 242199,
+      "sha256": "f8a1540586060fc42a5e2bdabc78b14366b88bc37019beb9366a68193a240e1f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-71-v0-r3.flac",
+      "expectedSHA256": "85449be901d9c16a17aec5966e636f417bd83dc8501c835ba489e12b4ecc6215",
+      "status": 200,
+      "bytes": 246067,
+      "sha256": "85449be901d9c16a17aec5966e636f417bd83dc8501c835ba489e12b4ecc6215",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-71-v0-r4.flac",
+      "expectedSHA256": "e4144aacd7ff6950ae8631827a61b493d55311d7c0439cb07228334cd221bce5",
+      "status": 200,
+      "bytes": 212553,
+      "sha256": "e4144aacd7ff6950ae8631827a61b493d55311d7c0439cb07228334cd221bce5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-72-v0-r2.flac",
+      "expectedSHA256": "ae7609b6f0e9f5ebe45666453454b65e7b145aa194f71483d26c28c787493f79",
+      "status": 200,
+      "bytes": 239177,
+      "sha256": "ae7609b6f0e9f5ebe45666453454b65e7b145aa194f71483d26c28c787493f79",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-72-v0-r4.flac",
+      "expectedSHA256": "6b6ba7e43ec8ea7536c731a09b1bc5de051d8b7a0d20b79a685fc727e56458a9",
+      "status": 200,
+      "bytes": 252957,
+      "sha256": "6b6ba7e43ec8ea7536c731a09b1bc5de051d8b7a0d20b79a685fc727e56458a9",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-74-v0-r1.flac",
+      "expectedSHA256": "a842653aa8659b9232e839478b9cd52d4022574b46244d01676710c63660d609",
+      "status": 200,
+      "bytes": 192774,
+      "sha256": "a842653aa8659b9232e839478b9cd52d4022574b46244d01676710c63660d609",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-74-v0-r2.flac",
+      "expectedSHA256": "409871f86e76cd4d21ce95d6993ebc009c967e301aee2ddf868d434087c3935a",
+      "status": 200,
+      "bytes": 206816,
+      "sha256": "409871f86e76cd4d21ce95d6993ebc009c967e301aee2ddf868d434087c3935a",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-74-v0-r3.flac",
+      "expectedSHA256": "620c820ec0e8067af380796d1b6cd4abb70c326e39ac68f63a667b696e90d9a9",
+      "status": 200,
+      "bytes": 214878,
+      "sha256": "620c820ec0e8067af380796d1b6cd4abb70c326e39ac68f63a667b696e90d9a9",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-74-v0-r4.flac",
+      "expectedSHA256": "d17b1b58078d6e2d5f3c0da748a96413e1fed5104d9ef347f73f850fd73a7cd9",
+      "status": 200,
+      "bytes": 183280,
+      "sha256": "d17b1b58078d6e2d5f3c0da748a96413e1fed5104d9ef347f73f850fd73a7cd9",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-guitar/sustain-77-v0-r2.flac",
+      "expectedSHA256": "cfd251dd83f96c0a2ae0f9735e9273524065f3f04406a211c568d94540c7b50b",
+      "status": 200,
+      "bytes": 233677,
+      "sha256": "cfd251dd83f96c0a2ae0f9735e9273524065f3f04406a211c568d94540c7b50b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/CREDITS.md",
+      "expectedSHA256": "289928761d563b518601455d80daee97836762aeb198340d3c3bf5f59a450f61",
+      "status": 200,
+      "bytes": 1475,
+      "sha256": "289928761d563b518601455d80daee97836762aeb198340d3c3bf5f59a450f61",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/LICENSE",
+      "expectedSHA256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+      "status": 200,
+      "bytes": 19467,
+      "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/a1pp.wav",
+      "expectedSHA256": "580ad122d71863dca74ced5b7c3482a499b56244df4412c6706c7b238e5e66f5",
+      "status": 200,
+      "bytes": 213550,
+      "sha256": "580ad122d71863dca74ced5b7c3482a499b56244df4412c6706c7b238e5e66f5",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/ab3f.flac",
+      "expectedSHA256": "0abe94b5e160be20501e99a0816d14d384d5c414e02a29af4c95cf47b9cd0d89",
+      "status": 200,
+      "bytes": 60967,
+      "sha256": "0abe94b5e160be20501e99a0816d14d384d5c414e02a29af4c95cf47b9cd0d89",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/ab3ff.flac",
+      "expectedSHA256": "e9b307d970b492ff959fc99b41987213183482071844b9bca815cffbfc5135b2",
+      "status": 200,
+      "bytes": 80959,
+      "sha256": "e9b307d970b492ff959fc99b41987213183482071844b9bca815cffbfc5135b2",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/ab3mp.flac",
+      "expectedSHA256": "874fd338ca6c0a0b51ff48dbcd6b1d627c598dcea1a1ae7190e0194fd144cb5f",
+      "status": 200,
+      "bytes": 56479,
+      "sha256": "874fd338ca6c0a0b51ff48dbcd6b1d627c598dcea1a1ae7190e0194fd144cb5f",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/ab4f.flac",
+      "expectedSHA256": "eddec48948d58040c634c8755b2c1c07cb47b25b2b3ed639d64a7880f4cde630",
+      "status": 200,
+      "bytes": 67295,
+      "sha256": "eddec48948d58040c634c8755b2c1c07cb47b25b2b3ed639d64a7880f4cde630",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/b4mp.flac",
+      "expectedSHA256": "8dbbf5dda1b7379e630be57e87a456ecd485acde30d363108dc8609c79fe6d37",
+      "status": 200,
+      "bytes": 25935,
+      "sha256": "8dbbf5dda1b7379e630be57e87a456ecd485acde30d363108dc8609c79fe6d37",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/db4f.flac",
+      "expectedSHA256": "ee85bf0a9ae66b56e523cca6823f0246fb83d841c4aa84b0ffa0fd8b294f705c",
+      "status": 200,
+      "bytes": 64401,
+      "sha256": "ee85bf0a9ae66b56e523cca6823f0246fb83d841c4aa84b0ffa0fd8b294f705c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/db4ff.flac",
+      "expectedSHA256": "75506073de49f935d2b79bdd557d2e8320d7061a0fe19241c795db6e967329bb",
+      "status": 200,
+      "bytes": 77533,
+      "sha256": "75506073de49f935d2b79bdd557d2e8320d7061a0fe19241c795db6e967329bb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/db4mp.flac",
+      "expectedSHA256": "fcf29c1dc18cf813ebb67252bdcfe899001895161c0658c534e533c013fe1765",
+      "status": 200,
+      "bytes": 47182,
+      "sha256": "fcf29c1dc18cf813ebb67252bdcfe899001895161c0658c534e533c013fe1765",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/db5f.flac",
+      "expectedSHA256": "ea800df4e60ec214d53ec3034b72284a70cb6293784bea2f0a62be8892d7c2da",
+      "status": 200,
+      "bytes": 58401,
+      "sha256": "ea800df4e60ec214d53ec3034b72284a70cb6293784bea2f0a62be8892d7c2da",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/db5ff.flac",
+      "expectedSHA256": "d11d083565f3633c8a76a379fdeec2e802f0cfc8db6fa0078a21c8f93efe6ed8",
+      "status": 200,
+      "bytes": 48573,
+      "sha256": "d11d083565f3633c8a76a379fdeec2e802f0cfc8db6fa0078a21c8f93efe6ed8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/db5mp.flac",
+      "expectedSHA256": "16aa12a25614b4ca6585634fd08a1cff9916f07d7a365095dda71422a37e05b6",
+      "status": 200,
+      "bytes": 31992,
+      "sha256": "16aa12a25614b4ca6585634fd08a1cff9916f07d7a365095dda71422a37e05b6",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/e4ff.flac",
+      "expectedSHA256": "91c1f2a3d019521b21e8f3bb5fa5226f5312707124cb18c06a0630a74ddefbc3",
+      "status": 200,
+      "bytes": 74051,
+      "sha256": "91c1f2a3d019521b21e8f3bb5fa5226f5312707124cb18c06a0630a74ddefbc3",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/g4ff.flac",
+      "expectedSHA256": "aa1bf871c5e74116c7038541684bb2f6d5e49b2c04c32b452e295de580258197",
+      "status": 200,
+      "bytes": 54754,
+      "sha256": "aa1bf871c5e74116c7038541684bb2f6d5e49b2c04c32b452e295de580258197",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/gb4mp.flac",
+      "expectedSHA256": "8b9c4492d59e5fc1d6276b780698201b748763ba94b1b7837436c3e0f53f4831",
+      "status": 200,
+      "bytes": 37773,
+      "sha256": "8b9c4492d59e5fc1d6276b780698201b748763ba94b1b7837436c3e0f53f4831",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-keys/manifest.json",
+      "expectedSHA256": "042d5fc17af39be6750c267b3340434029a3775e5bbecab204999253ce43523b",
+      "status": 200,
+      "bytes": 26311,
+      "sha256": "042d5fc17af39be6750c267b3340434029a3775e5bbecab204999253ce43523b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/CREDITS.md",
+      "expectedSHA256": "1ce382cad77f0bf0cbbe3aeed8e3f43b95cc5c5a0fbbc75ee704a825a330b46e",
+      "status": 200,
+      "bytes": 1608,
+      "sha256": "1ce382cad77f0bf0cbbe3aeed8e3f43b95cc5c5a0fbbc75ee704a825a330b46e",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/LICENSE",
+      "expectedSHA256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "status": 200,
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/clap-v1-rr1.flac",
+      "expectedSHA256": "1a154f3c6df9818fd2516f4ee2d5678c1d1557e72f13ae158cb76e50d092cee8",
+      "status": 200,
+      "bytes": 52705,
+      "sha256": "1a154f3c6df9818fd2516f4ee2d5678c1d1557e72f13ae158cb76e50d092cee8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/clap-v1-rr2.flac",
+      "expectedSHA256": "03fce18b73d4dbe3ac5d5411286137b67d0b4332b955ae2ff56ce66798e77b42",
+      "status": 200,
+      "bytes": 51601,
+      "sha256": "03fce18b73d4dbe3ac5d5411286137b67d0b4332b955ae2ff56ce66798e77b42",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/clap-v1-rr3.flac",
+      "expectedSHA256": "188eb9d974388e1f96afb6f4b532cf8b7e3d75fbe611a63c52fe05d557b206cc",
+      "status": 200,
+      "bytes": 50269,
+      "sha256": "188eb9d974388e1f96afb6f4b532cf8b7e3d75fbe611a63c52fe05d557b206cc",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/clap-v1-rr4.flac",
+      "expectedSHA256": "7043fe5a8e332677062b2dc0acf053d1b9612c496b4154dc93e86585daf186ce",
+      "status": 200,
+      "bytes": 54552,
+      "sha256": "7043fe5a8e332677062b2dc0acf053d1b9612c496b4154dc93e86585daf186ce",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/clap-v1-rr5.flac",
+      "expectedSHA256": "640d98f4d83e21d45fae723e498f071f997d972070cb364e2b4751c59eb8cc88",
+      "status": 200,
+      "bytes": 49196,
+      "sha256": "640d98f4d83e21d45fae723e498f071f997d972070cb364e2b4751c59eb8cc88",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/clap-v1-rr6.flac",
+      "expectedSHA256": "c19d0d2dfc8d649dc466400d13af5901c1ff7b938a6b65f899f29b6b6146e99e",
+      "status": 200,
+      "bytes": 43128,
+      "sha256": "c19d0d2dfc8d649dc466400d13af5901c1ff7b938a6b65f899f29b6b6146e99e",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/manifest.json",
+      "expectedSHA256": "cf5b03094707635bfc471984bc185dccaf13540843022f034180ba67162d3ebb",
+      "status": 200,
+      "bytes": 8435,
+      "sha256": "cf5b03094707635bfc471984bc185dccaf13540843022f034180ba67162d3ebb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/shaker-v1-rr1.flac",
+      "expectedSHA256": "3c97d65501cac661f62f9590a6a172990812f853b7d6c6cfa9e349585ae89dfe",
+      "status": 200,
+      "bytes": 21686,
+      "sha256": "3c97d65501cac661f62f9590a6a172990812f853b7d6c6cfa9e349585ae89dfe",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/shaker-v1-rr1.wav",
+      "expectedSHA256": "0ce031a810b2e2d212b0f1ba7c27369432b9dde33abb840bafbe2b08e0b58ccb",
+      "status": 200,
+      "bytes": 29950,
+      "sha256": "0ce031a810b2e2d212b0f1ba7c27369432b9dde33abb840bafbe2b08e0b58ccb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/shaker-v1-rr2.flac",
+      "expectedSHA256": "d3c6488ab4ff8822fc1eb296eaf70fdcb7d82fad6027e41faabeae35a2967357",
+      "status": 200,
+      "bytes": 18016,
+      "sha256": "d3c6488ab4ff8822fc1eb296eaf70fdcb7d82fad6027e41faabeae35a2967357",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/shaker-v1-rr3.flac",
+      "expectedSHA256": "5be34cadf3dab8bb2f45107589320506c2ee8a01acf61bc3261fbef3992a1e8b",
+      "status": 200,
+      "bytes": 18610,
+      "sha256": "5be34cadf3dab8bb2f45107589320506c2ee8a01acf61bc3261fbef3992a1e8b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/shaker-v1-rr4.flac",
+      "expectedSHA256": "b583c719e66f84aebfb35b264e0f3180a86b6d5d5055b90a11e2a3d0e771ee45",
+      "status": 200,
+      "bytes": 16692,
+      "sha256": "b583c719e66f84aebfb35b264e0f3180a86b6d5d5055b90a11e2a3d0e771ee45",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-percussion/tambourine-hit-v2-rr1.flac",
+      "expectedSHA256": "dc5c0b9a6ea2ed16ed0deb9f050a57bb0840ea6712bf09d4532666bab5dd96e1",
+      "status": 200,
+      "bytes": 72002,
+      "sha256": "dc5c0b9a6ea2ed16ed0deb9f050a57bb0840ea6712bf09d4532666bab5dd96e1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/LICENSE.txt",
+      "expectedSHA256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "status": 200,
+      "bytes": 6555,
+      "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/README.md",
+      "expectedSHA256": "a244c8d0686569c4085358dfc1fce06e84c1f8c0b28eab423e0645b4092c9d88",
+      "status": 200,
+      "bytes": 1643,
+      "sha256": "a244c8d0686569c4085358dfc1fce06e84c1f8c0b28eab423e0645b4092c9d88",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/manifest.json",
+      "expectedSHA256": "a0abc08a8beeb7b273ce09a5e9742533b143d1ec9975e8b218710d92cd9f11ef",
+      "status": 200,
+      "bytes": 62491,
+      "sha256": "a0abc08a8beeb7b273ce09a5e9742533b143d1ec9975e8b218710d92cd9f11ef",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-60-v63-r1.flac",
+      "expectedSHA256": "be754367212d7b0a0acc38f787a1f44ddc2cf910c5d62a85773d6d1a35a178fb",
+      "status": 200,
+      "bytes": 50128,
+      "sha256": "be754367212d7b0a0acc38f787a1f44ddc2cf910c5d62a85773d6d1a35a178fb",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-60-v63-r2.flac",
+      "expectedSHA256": "96ad7df7f5ef3385c224bcfbceab25846fc5179ee6cbfe08ebf842ab5d9043e4",
+      "status": 200,
+      "bytes": 50336,
+      "sha256": "96ad7df7f5ef3385c224bcfbceab25846fc5179ee6cbfe08ebf842ab5d9043e4",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-64-v63-r1.flac",
+      "expectedSHA256": "46a463a478e2e5cd792a5fb2b15037067583bce054d34f402d331cc80727d65e",
+      "status": 200,
+      "bytes": 57619,
+      "sha256": "46a463a478e2e5cd792a5fb2b15037067583bce054d34f402d331cc80727d65e",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-64-v63-r2.flac",
+      "expectedSHA256": "91201d4f32a4d35fba20f3f2da575ff9971e416e4720791438ace7f33913e3b3",
+      "status": 200,
+      "bytes": 50229,
+      "sha256": "91201d4f32a4d35fba20f3f2da575ff9971e416e4720791438ace7f33913e3b3",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-67-v63-r1.flac",
+      "expectedSHA256": "1a114418dd0455584bbe6791fd235349aafc5981e9e3f85368dc5569df592663",
+      "status": 200,
+      "bytes": 51850,
+      "sha256": "1a114418dd0455584bbe6791fd235349aafc5981e9e3f85368dc5569df592663",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-67-v63-r2.flac",
+      "expectedSHA256": "2102f0aa11d24667c612b4b2d83b8af51b3cfa5ed03925c1e6cf3d07a76116b1",
+      "status": 200,
+      "bytes": 48522,
+      "sha256": "2102f0aa11d24667c612b4b2d83b8af51b3cfa5ed03925c1e6cf3d07a76116b1",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-69-v63-r1.flac",
+      "expectedSHA256": "7ae892f60b1b8b089e795e349781582d6dfebd0fed76b93f44edd8c97e853699",
+      "status": 200,
+      "bytes": 56499,
+      "sha256": "7ae892f60b1b8b089e795e349781582d6dfebd0fed76b93f44edd8c97e853699",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-69-v63-r2.flac",
+      "expectedSHA256": "41933c5025942c22ac29f620cb4886c9640bdc046b84d48e875be66a389edc87",
+      "status": 200,
+      "bytes": 65033,
+      "sha256": "41933c5025942c22ac29f620cb4886c9640bdc046b84d48e875be66a389edc87",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-72-v63-r1.flac",
+      "expectedSHA256": "5259f834efada356573f9368c818ca14662349d57b7e4e301deb02d92fbde16d",
+      "status": 200,
+      "bytes": 52641,
+      "sha256": "5259f834efada356573f9368c818ca14662349d57b7e4e301deb02d92fbde16d",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-72-v63-r2.flac",
+      "expectedSHA256": "3131d7ec6ffa9af7e597bf2a32d83ad32b484a9cd90bbfece86db3775ec09974",
+      "status": 200,
+      "bytes": 51793,
+      "sha256": "3131d7ec6ffa9af7e597bf2a32d83ad32b484a9cd90bbfece86db3775ec09974",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/short-76-v63-r2.flac",
+      "expectedSHA256": "a4c87191f5da02f3bd55342337be343f51d21163af141e8b4db3f6be0c7e350c",
+      "status": 200,
+      "bytes": 65957,
+      "sha256": "a4c87191f5da02f3bd55342337be343f51d21163af141e8b4db3f6be0c7e350c",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/sustain-57-v0-r1.wav",
+      "expectedSHA256": "507035f77b2d0a9c28f96b1c86b650cc3a1d4cdcfbcd91d2b23bfe167330a73b",
+      "status": 200,
+      "bytes": 1411278,
+      "sha256": "507035f77b2d0a9c28f96b1c86b650cc3a1d4cdcfbcd91d2b23bfe167330a73b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/sustain-57-v63-r1.flac",
+      "expectedSHA256": "ae891ecf7db58fe008192cb30c90d26c115c233c9f509a72d96d3156797035ca",
+      "status": 200,
+      "bytes": 666923,
+      "sha256": "ae891ecf7db58fe008192cb30c90d26c115c233c9f509a72d96d3156797035ca",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/sustain-67-v63-r1.flac",
+      "expectedSHA256": "c9c1ef7f5d52a57f3f144e7d37ca036ca9f91362e11cd3917a3cb1f3d5362700",
+      "status": 200,
+      "bytes": 743715,
+      "sha256": "c9c1ef7f5d52a57f3f144e7d37ca036ca9f91362e11cd3917a3cb1f3d5362700",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/sustain-69-v63-r1.flac",
+      "expectedSHA256": "a43f67bfb70f324be7023c6fff86f4611d67f474e440760134d96cd5545aca1b",
+      "status": 200,
+      "bytes": 768622,
+      "sha256": "a43f67bfb70f324be7023c6fff86f4611d67f474e440760134d96cd5545aca1b",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/natural-strings/sustain-76-v63-r1.flac",
+      "expectedSHA256": "17a5567020bb63522dc80c7fafc6115b7a9f16ac0f0c4bb62b1662f6927197d8",
+      "status": 200,
+      "bytes": 843297,
+      "sha256": "17a5567020bb63522dc80c7fafc6115b7a9f16ac0f0c4bb62b1662f6927197d8",
+      "exact": true
+    },
+    {
+      "file": "assets/audio/recordings-credits.html",
+      "expectedSHA256": "79c9b3aa9afbc5d3bd0d3448ef4dce9e1b5a198fd033dfeffebfe2d8a7d84aef",
+      "status": 200,
+      "bytes": 4492,
+      "sha256": "79c9b3aa9afbc5d3bd0d3448ef4dce9e1b5a198fd033dfeffebfe2d8a7d84aef",
+      "exact": true
+    },
+    {
+      "file": "index.html",
+      "expectedSHA256": "4963be2ffdbd7760670198e765414fdc215176c12c40936d13c7f6f8cfa1b621",
+      "status": 200,
+      "bytes": 94151,
+      "sha256": "4963be2ffdbd7760670198e765414fdc215176c12c40936d13c7f6f8cfa1b621",
+      "exact": true
+    },
+    {
+      "file": "music-genres.js",
+      "expectedSHA256": "ffa939fcad63e5b88be4c01fd9d731db92ce999fa49ea068f62ed308a1f20f12",
+      "status": 200,
+      "bytes": 20811,
+      "sha256": "ffa939fcad63e5b88be4c01fd9d731db92ce999fa49ea068f62ed308a1f20f12",
+      "exact": true
+    },
+    {
+      "file": "practice-arrangement.js",
+      "expectedSHA256": "58dd5ad798d0e5620272b63b88d06005e744cb889be0392b49edd587e654444c",
+      "status": 200,
+      "bytes": 40246,
+      "sha256": "58dd5ad798d0e5620272b63b88d06005e744cb889be0392b49edd587e654444c",
+      "exact": true
+    },
+    {
+      "file": "practice-audio.js",
+      "expectedSHA256": "0a6c42d067577cef8c0e9da92453c6db27abb33302386ac3f8d35fa759abb5df",
+      "status": 200,
+      "bytes": 40456,
+      "sha256": "0a6c42d067577cef8c0e9da92453c6db27abb33302386ac3f8d35fa759abb5df",
+      "exact": true
+    },
+    {
+      "file": "practice-samples.js",
+      "expectedSHA256": "493db6beddae70c3a9a1cb7ca0123225d66a3fe54735038cc970988864e1c68b",
+      "status": 200,
+      "bytes": 8346,
+      "sha256": "493db6beddae70c3a9a1cb7ca0123225d66a3fe54735038cc970988864e1c68b",
+      "exact": true
+    },
+    {
+      "file": "practice-timbres.js",
+      "expectedSHA256": "ec3b1365d5c9d9aec5b932c4c895431ed16f455526916293acaa75df7b93cc10",
+      "status": 200,
+      "bytes": 5559,
+      "sha256": "ec3b1365d5c9d9aec5b932c4c895431ed16f455526916293acaa75df7b93cc10",
+      "exact": true
+    },
+    {
+      "file": "practice.js",
+      "expectedSHA256": "ce7038266d3a9ff25e14b598e7845152fd1366df37705cd0ca01554c6c2785ae",
+      "status": 200,
+      "bytes": 61113,
+      "sha256": "ce7038266d3a9ff25e14b598e7845152fd1366df37705cd0ca01554c6c2785ae",
+      "exact": true
+    }
+  ],
+  "fileCount": 212,
+  "totalBytes": 37803119,
+  "allExact": true
+}

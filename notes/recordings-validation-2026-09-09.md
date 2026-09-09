@@ -36,3 +36,8 @@
 
 最终仅使用此处冻结结果，前期 `final-*` 调音中间结果不作为发布证据。线上发布核验另记录于`recordings-online-verification-2026-09-09.json`。
 
+## 线上发布
+
+功能提交 `25e53719b4c9b6e53e5e89e7d137915364146337` 已推送main，GitHub Pages main/docs在2026-09-09 12:27:55 UTC完成构建，error.message为空。公开入口仍为 https://rexrockya.github.io/tuner/ ，缓存版本 `20260909-recordings-1`。
+
+12:29:11 UTC完成212个资源的实际HTTPS GET：生产模块、20个PCM场景实际选用的全部实录文件、7库manifest/许可及每库1个WAV回退，共37803119B；全部200且SHA256逐一匹配该提交的Git blob。完整记录见`recordings-online-verification-2026-09-09.json`。这不是全库所有544条录音的线上解码或手机试听验收。

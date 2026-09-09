@@ -2,6 +2,8 @@
 
 ## 当前版本：2026-09-09 真实录音音质升级
 
+功能提交 `25e5371` 已发布main/docs，212个生产资源内容全部与提交一致；见 `notes/recordings-online-verification-2026-09-09.json`。公开缓存版本 `20260909-recordings-1`。
+
 用户明确选择音质优先，接受首次使用音色多加载。此节覆盖此前“继续用有限旧采样做patch”的音源描述，保留流派、作曲、收藏和连续播放功能。
 
 - 生产studio在practice-audio之前明确加载`practice-samples.js`，有该模块时走真实录音路径；初始工具页与模块初始化均不取采样。单独加载旧audio模块的历史调用仍走原低容量兼容路径。新生产路径必须用`practice-recordings.cjs`/`practice-natural-banks.cjs`验证，不能只以旧mock通过证明新路径。
