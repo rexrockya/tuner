@@ -809,6 +809,16 @@ function render() {
   $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}${lick.sourceType === "guitarset" ? " · 真人木吉他 / 演奏 TAB" : ""}`;
   $("lesson-track").textContent = lick.key || lick.group;
   $("lesson-harmony").textContent = lick.chord;
+  let fretboardLink = $("lick-fretboard-link");
+  if (!fretboardLink) {
+    fretboardLink = document.createElement("a");
+    fretboardLink.id = "lick-fretboard-link";
+    fretboardLink.href = "fretboard.html";
+    fretboardLink.textContent = "打开 CAGED 指板导航 · 逐音连接高低弦 ↗";
+    fretboardLink.style.cssText = "display:block;margin:12px 0;color:#bdf45d;font-size:14px;line-height:1.6";
+    $("lesson-harmony").insertAdjacentElement("afterend", fretboardLink);
+  }
+  fretboardLink.hidden = lick.id !== "Xbv40aTf";
   $("lick-staff").innerHTML = `<img loading="lazy" decoding="async" src="${lick.score}" alt="${escapeHtml(lick.name)} ${lick.sourceType === "guitarset" ? "演奏 TAB" : "五线谱与 TAB"}" draggable="false">`;
   const scoreImage = $("lick-staff").querySelector("img");
   scoreImage.addEventListener("load", fitScoreHeight, { once: true });

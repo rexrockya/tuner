@@ -62,6 +62,12 @@ npm install
 npm run dev
 ```
 
+## CAGED 指板导航
+
+[打开指板导航](https://rexrockya.github.io/tuner/fretboard.html)：用 lesson1297 的 28 个原谱位置，把低弦根音、CAGED 和弦地标与高弦旋律连接起来。支持逐音 / 半小节导航、同音名八度桥、骨架与张力分层、慢速合成示音和本段循环；原乐句页也有入口。
+
+验证：`npm run test:fretboard`（亦纳入 `npm test`）。无需构建或新依赖，仍由 `docs/` 发布。
+
 ## 隐私
 
 麦克风音频仅在设备本地实时分析，不录音、不上传。
