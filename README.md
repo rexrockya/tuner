@@ -64,9 +64,13 @@ npm run dev
 
 ## CAGED 指板导航
 
-[打开指板导航](https://rexrockya.github.io/tuner/fretboard.html)：用 lesson1297 的 28 个原谱位置，把低弦根音、CAGED 和弦地标与高弦旋律连接起来。支持逐音 / 半小节导航、同音名八度桥、骨架与张力分层、慢速合成示音和本段循环；原乐句页也有入口。
+[打开指板导航](https://rexrockya.github.io/tuner/fretboard.html)：资料库 2,545 条乐句都能通过原始 ID 进入自己的和弦地图，展示根音、和弦音与适用的 CAGED 地标；支持从高弦音回找同一实音 / 低八度的位置。
 
-验证：`npm run test:fretboard`（亦纳入 `npm test`）。无需构建或新依赖，仍由 `docs/` 发布。
+逐音路线目前覆盖 **21 条 / 623 个原始音符事件**：人工核对的 BopLand lesson1297 和全部 20 条 GuitarSet 演奏标注节选。保留弦、品、起音、延音、重叠音和接入延音。其余 2,524 条 BopLand 只有图片谱，明确显示“和弦地图，尚未核对原谱逐音路线”；地图按钮不声称精确的换和弦拍点，不生成替代旋律。
+
+原谱和原始示范是主要学习入口。GuitarSet 光标按原标注时间跟随，标注仍可能有误差；BopLand 原示范没有已验证的逐音对齐。可选合成音高核对只用于辨音，不替代原示范的语气。lesson1297 保留原来的逐音解析。
+
+验证：`npm run test:fretboard`（亦纳入 `npm test`）。数据重建：`npm run build:fretboard`。无新运行依赖，仍只由 `docs/` 发布。来源、精确覆盖和限制见 [数据说明](docs/assets/licks/fretboard/README.md)。
 
 ## 隐私
 

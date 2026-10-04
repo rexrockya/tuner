@@ -1,0 +1,41 @@
+{
+  "reviewed": "2026-10-04",
+  "purpose": "Determine which original phrase-library lessons can have trustworthy note-by-note fretboard navigation without generating substitute phrases.",
+  "bopland": {
+    "status": "No authoritative machine-readable guitar-note source discovered in the inspected official pages and assets.",
+    "officialPages": [
+      "https://bopland.org/home",
+      "https://bopland.org/articles/101-about-the-project",
+      "https://bopland.org/lick#Xbv40aTf/guitar-licks/"
+    ],
+    "observations": [
+      "Official project description states that notation is produced using LilyPond, but the inspected public lick page references PNG scores and MP3 playback only.",
+      "The official FAQ says no entire-database or combined-PDF download is offered. This is not proof that private source files do not exist.",
+      "The local official guitar index records IDs, progression groupings, meters and keys, but has no note events, note durations or string/fret positions.",
+      "The original Xbv40aTf PNG was manually inspected on the review date; all 28 original TAB positions and notated durations match the preserved lesson1297 source seed.",
+      "Treble-clef OMR from third parties is not authoritative guitar fingering/rhythm data and is not used. No transposed or regenerated phrases are used."
+    ],
+    "knownIdSourceChecks": [
+      {"url":"https://bopland.org/data/Xbv40aTf.png","status":200,"sha256":"36595f395d0141d4a861470cb5f528f1ef6afd0eb9656e6b682f6f5e2b4c1ad8"},
+      {"url":"https://bopland.org/data/Xbv40aTf.ly","status":404},
+      {"url":"https://bopland.org/data/Xbv40aTf.xml","status":404},
+      {"url":"https://bopland.org/data/Xbv40aTf.mid","status":404},
+      {"url":"https://bopland.org/data/Xbv40aTf.midi","status":404},
+      {"url":"https://bopland.org/data/Xbv40aTf.json","status":404}
+    ],
+    "coverage": {"catalog":2525,"supported":1,"unsupported":2524},
+    "nextRequirement": "For each additional ID, obtain authoritative note/rhythm/string-fret source data or manually verify every note against its original guitar score; separately verify any audio synchronization."
+  },
+  "guitarset": {
+    "source":"https://zenodo.org/records/3371780",
+    "version":"1.1.0",
+    "coverage":{"catalog":20,"supported":20,"unsupported":0},
+    "method":"Map existing source annotation JSON losslessly to sounding MIDI and the original source string/fret positions. Convert performance seconds to beats with originalBpm / 60 only for navigation; preserve original annotation fields.",
+    "limits":[
+      "Dataset annotations are not independently hand-verified transcriptions.",
+      "Original fractional source MIDI, unrounded source time and source duration are retained; display frets and MIDI are the existing source-derived rounded semitones.",
+      "Existing chord metadata is one instructed-annotation sample at beat 2 of each bar. It does not establish exact in-bar chord-change timing.",
+      "Original cropped live MP3 and performance TAB SVG are reused unchanged. Their hashes are checked against the existing provenance manifest."
+    ]
+  }
+}

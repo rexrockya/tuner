@@ -1,3 +1,12 @@
+## 2026-10-04 原谱资料库指板导航
+
+- 原资料库每条入口使用 `fretboard.html?lesson=<exact ID>`，返回链接也保留该 ID；页面支持搜索、只看逐音资料、上下课及浏览器后退/前进。
+- 2,545 条都有各自和弦地图。`fretboard-core.js` 完整解析原索引的 128 个和弦标记，不把未知和弦默认为 C；CAGED 形只在每音确为和弦音时显示，不替换原指法。地图时间单位是 schematic-layout-units，不声称精确换和弦拍点。
+- 21 条精确逐音数据 / 623 个音符事件：1297 原 TAB + 20 个 GuitarSet 原演奏标注。其余 2,524 条 BopLand 图片谱未逐音转录；不要把和弦地图覆盖混称为逐音覆盖。
+- 原 MP3/SVG/PNG不改动；原示范为主，可选合成核对为辅。GuitarSet保留非量化起音、延音、重叠和裁剪接入；和声仅按原有每小节采样标签解释。BopLand音频逐音对齐未验证，不作伪同步。
+- 数据构建 `npm run build:fretboard`；全量来源、哈希、核对范围在 `docs/assets/licks/fretboard/manifest.json` / README。`npm run test:fretboard` 包含数据、音乐模型、DOM导航及播放取消验证，另跑完整 `npm test`。
+- 仅发布原 GitHub Pages main/docs，不运行根 build 覆盖 docs，不部署 Sites/Worker。排除 node_modules。实际测试/发布状态见本次 notes 验收记录。
+
 # 弦音项目交接
 
 ## 当前版本：2026-09-09 真实录音音质升级

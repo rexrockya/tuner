@@ -818,7 +818,9 @@ function render() {
     fretboardLink.style.cssText = "display:block;margin:12px 0;color:#bdf45d;font-size:14px;line-height:1.6";
     $("lesson-harmony").insertAdjacentElement("afterend", fretboardLink);
   }
-  fretboardLink.hidden = lick.id !== "Xbv40aTf";
+  fretboardLink.href = `fretboard.html?lesson=${encodeURIComponent(lick.id)}`;
+  fretboardLink.hidden = false;
+  fretboardLink.textContent = "打开本课指板导航 · 原谱逐音 / 和弦地图 ↗";
   $("lick-staff").innerHTML = `<img loading="lazy" decoding="async" src="${lick.score}" alt="${escapeHtml(lick.name)} ${lick.sourceType === "guitarset" ? "演奏 TAB" : "五线谱与 TAB"}" draggable="false">`;
   const scoreImage = $("lick-staff").querySelector("img");
   scoreImage.addEventListener("load", fitScoreHeight, { once: true });

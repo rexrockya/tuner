@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "catalogTotal": 2545,
+  "supportedTotal": 21,
+  "preciseNavigationTotal": 21,
+  "unsupportedTotal": 2524,
+  "harmonicProgressionTotal": 2545,
+  "harmonicChordTokenTotal": 12170,
+  "harmonyOnlyTotal": 2524,
+  "sources": [
+    {
+      "source": "bopland",
+      "total": 2525,
+      "supported": 1,
+      "unsupported": 2524
+    },
+    {
+      "source": "guitarset",
+      "total": 20,
+      "supported": 20,
+      "unsupported": 0
+    }
+  ],
+  "noteTotal": 623,
+  "sourceInputs": [
+    {
+      "file": "docs/assets/licks/guitar-index.js",
+      "sha256": "9b8072477a7d2511d471762b723b83e3eac2a0ed8a228b85a7aa7604839f426f"
+    },
+    {
+      "file": "docs/assets/licks/guitarset-index.js",
+      "sha256": "4b1e9146312969d466c01ac723ca953a1acc7819126547ce035ed57043eba66a"
+    },
+    {
+      "file": "docs/assets/licks/guitarset/manifest.json",
+      "sha256": "affb12b01967e513f4e9ec8e27bfb1c892b2a3d81f652b95b335d4356f0d49cd"
+    },
+    {
+      "file": "docs/assets/licks/fretboard/source/lesson1297.json",
+      "sha256": "1dfe44bfc08b5fb706e914d51c09165b5a3d7a132f5b28fb50b08705e23701c0"
+    }
+  ],
+  "catalogSha256": "da02916d7ae25378c6ad455d5428ba889a422df7a4d563dfde44525252aceb3f",
+  "research": "source/research.json",
+  "files": [
+    {
+      "id": "Xbv40aTf",
+      "noteCount": 28,
+      "method": "manual-source-TAB-and-rhythm-review",
+      "dataSha256": "f2c16d6d99df25102d0a0f19a1afd0a805e383a048cb58b32ffb0a8ea31d5c6c"
+    },
+    {
+      "id": "gs00bn5",
+      "noteCount": 24,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "5e45966c63fae3db1907e14286c70de1e46b18f7edabfd2168ae2e8d8e4d0c75"
+    },
+    {
+      "id": "gs00bn9",
+      "noteCount": 19,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "a5310e38bde2d42129036440a76d595507afc3aa07133ec944428b0c00a16f01"
+    },
+    {
+      "id": "gs00funk5",
+      "noteCount": 22,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "43f6352c7095c01fbb32ef8d828cfc62b53717e20beb649d3c13bc809ff95461"
+    },
+    {
+      "id": "gs00funk9",
+      "noteCount": 23,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "aae0cdeb646d2b9f8eb85e534d68fa7b352e83cdc5a89fafb029c0190932a9d1"
+    },
+    {
+      "id": "gs00jazz5",
+      "noteCount": 16,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "d5a0d0752028963c87cdcc3c1d182989229c0333a719d67e3790ddf3f3fc38c2"
+    },
+    {
+      "id": "gs00jazz9",
+      "noteCount": 10,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "46fa6670c8810a66aeee0fee040133f3ab307fc1cf63235b3e10c8be6f2f5a8e"
+    },
+    {
+      "id": "gs00rock5",
+      "noteCount": 44,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "4565ba59c2646aea4b981e91557d7f5f8fdb8f9a879348a55d37dd17ff855da7"
+    },
+    {
+      "id": "gs00rock9",
+      "noteCount": 26,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "316f6bdc85a77d7cc57cef6d778cda78c1dc55d4eab52c3eeb9768b030af5566"
+    },
+    {
+      "id": "gs00ss5",
+      "noteCount": 21,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "6f312ca18ddc4540dfedb1bdb29bd53e27965d99c67fa2b340357f305abaa438"
+    },
+    {
+      "id": "gs00ss9",
+      "noteCount": 24,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "dc1049fea18e3a6224c038864f021e2f331de06f42e3c0fa815c15dc422563f9"
+    },
+    {
+      "id": "gs01bn5",
+      "noteCount": 21,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "2dec9243195127b2dee2337ee5b5011664c127218b592e5e1a8a6d327ad8d4c2"
+    },
+    {
+      "id": "gs01bn9",
+      "noteCount": 21,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "fea2722296fa6b0a46c24bacf543536c5e40a8287cb5c3e467317d6e215584cb"
+    },
+    {
+      "id": "gs01funk5",
+      "noteCount": 44,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "dd67b3f825e030fa35977e35796358ee9a61ba846d7392b41f3f8c113eed4db2"
+    },
+    {
+      "id": "gs01funk9",
+      "noteCount": 38,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "4da50c493796bddbe1117fec5ac847a2b39e2af97e811e8697e6247acb7c3e41"
+    },
+    {
+      "id": "gs01jazz5",
+      "noteCount": 23,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "d9ca29c622b9311cdde2665884746063213a68989db3dfc3e0c50a2c94581e35"
+    },
+    {
+      "id": "gs01jazz9",
+      "noteCount": 28,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "09af5197affcffe944eeee153f3bfcfde266c1af644f7585089f306968b53781"
+    },
+    {
+      "id": "gs01rock5",
+      "noteCount": 46,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "c84b1b14326fd5ed958aba4641051fb97e30b13deeba26ead71c51c492260b97"
+    },
+    {
+      "id": "gs01rock9",
+      "noteCount": 52,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "503c9cc7ab00bd233cedeb7bb0c0a3855d0b682730d3964e39b4271272d2110f"
+    },
+    {
+      "id": "gs01ss5",
+      "noteCount": 45,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "9860874b27ac17bee3006c1be28c24976b3a373013efba2730a46d41e9a4d8ac"
+    },
+    {
+      "id": "gs01ss9",
+      "noteCount": 48,
+      "method": "lossless-source-annotation-mapping",
+      "dataSha256": "9eae291e29166c11a9260936251c67a4af38f47cb1b08ded7fbfdb7d80e7c59b"
+    }
+  ],
+  "policy": "No newly composed, generated, transposed or OMR-derived notes are substituted for unavailable original guitar phrases."
+}
