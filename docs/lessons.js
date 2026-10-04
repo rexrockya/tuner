@@ -805,6 +805,24 @@ function render() {
   const lick = LICKS[current];
   renderLibrary();
 
+  // A deep link can arrive before the lazy source indexes. Never expose the
+  // fallback lesson's player or coach link while its exact target is unresolved.
+  const requestedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1];
+  const pendingTarget = requestedId && !LICKS.some(item => item.id === requestedId);
+  $("lesson-page").setAttribute("aria-busy", String(Boolean(pendingTarget)));
+  for (const id of ["play-lick", "favorite-lick", "master-lick"]) $(id).disabled = Boolean(pendingTarget);
+  if (pendingTarget) {
+    stopLick(true);
+    audio.removeAttribute("src");
+    $("lesson-title").textContent = libraryState.loaded && supplementalLoaded ? "未找到这条乐句" : "正在载入目标乐句…";
+    $("lesson-meta").textContent = requestedId;
+    $("lesson-harmony").textContent = "原始资料就绪后显示";
+    $("lick-staff").textContent = "正在按原始 ID 读取谱面，不使用其他乐句替代。";
+    const link = $("lick-fretboard-link");
+    if (link) link.hidden = true;
+    return;
+  }
+
   $("lesson-title").textContent = lick.name;
   $("lesson-meta").textContent = `${lick.group} · ${lick.bars} 小节 · ${lick.meter || "4/4"}${lick.sourceType === "guitarset" ? " · 真人木吉他 / 演奏 TAB" : ""}`;
   $("lesson-track").textContent = lick.key || lick.group;

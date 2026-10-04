@@ -26,7 +26,7 @@ All 20 local GuitarSet MP3s decode with ffmpeg/ffprobe: mono 44.1kHz, expected e
 - `npm run test:score`: passed
 - `npm run test:sound`: passed, including 46/46 loudness-standard checks
 - Existing practice tests before and after `practice-natural-banks.cjs`: passed
-- Initial-page resource budget: 116,503 / 120,000 gzip bytes, 20 resources. The larger fretboard catalog is loaded only by the separate coach page, not the initial tuner page
+- Initial-page resource budget: 116,854 / 120,000 gzip bytes, 20 resources. The larger fretboard catalog is loaded only by the separate coach page, not the initial tuner page
 - `git diff --check` and changed-JavaScript syntax checks: passed
 
 `npm test` is not recorded as an unqualified pass. It stops on an existing cross-platform source-document hash assertion in `practice-natural-banks.cjs`: three unchanged tracked drum SFZ reference text files are LF in Git while the recorded source hashes use CRLF. Their bytes exactly match the baseline commit; converting only those three files to CRLF reproduces the expected hashes. Running that unchanged test against a temporary fixture restoring those three source-document line endings passes all its checks. No production sample, mapping, provenance, or existing test was altered to mask the baseline failure. Remaining suites were run separately and passed.
@@ -38,3 +38,9 @@ Pre-publication real-browser visual QA was blocked: cloud browser cannot reach t
 ## Maintenance
 
 Run `npm run build:fretboard` to rebuild and `node scripts/build-fretboard-catalog.mjs --check` to verify reproducibility. Dataset provenance, unsupported-source research and the manually verified source seed are under `docs/assets/licks/fretboard/`. Publish only the existing GitHub Pages `main/docs` site. Do not run the optional Worker build over `docs`.
+
+## Published-browser follow-up
+
+The initial release tree (GitHub commit `74fdb7bc43af91fa3b8f2c407ec96d3c22a23a1d`) passed Pages build/deploy, and all 32 changed public assets matched local bytes. Cloud Chrome rendered the new source-first interface and usable scrolling fretboard, played a GuitarSet MP3 through its exact 7.441859-second endpoint, followed its annotated final bar, and rendered an image-only BopLand map with the correct Dm7/G7/Cmaj7 sequence and no fabricated route. Physical-phone rendering and subjective listening remain unverified.
+
+Live round-trip testing revealed a pre-existing lazy-source-index race in the original lesson library: while the requested ID was unresolved, its fallback lesson briefly exposed the wrong coach link. The follow-up now shows a loading state and disables the fallback player/progress buttons until the requested source ID resolves. `tests/lesson-fretboard-routing.cjs` verifies both index load orders for BopLand and GuitarSet, including exact score/coach targets; affected lesson, supplemental, audio-stop and genre-control suites pass. Final publication verification is reported separately after this follow-up deploy.
