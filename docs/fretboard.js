@@ -1,6 +1,7 @@
 (function () {
   'use strict';
   let M = null, catalog = null, lesson = null, loadGeneration = 0;
+  let sourceModel = null, sourceView = null, sourceFidelity = '', backingContext = null, backingState = null, backingUnavailableReason = '', mapTranspose = 0, resettingSource = false;
   const $ = id => document.getElementById(id), original = $('original-audio');
   const state = {index:0, segment:0, rest:false, inspected:null, wide:false, shape:0, skeleton:true, equivalents:true, path:true, bpm:72, loop:false, playing:false};
   let context, timer, generation=0;
@@ -140,6 +141,115 @@
     for(const v of voices){try{v.osc.stop();}catch(_){}v.osc.disconnect();v.gain.disconnect();}voices.clear();updatePlayButton();
   }
   function stopAll() {stop();original.pause();}
+  function stopEverything() {stopAll();window.floatingBacking?.stop();}
+  function resetBackingKey() {
+    resettingSource=true;
+    try {
+      window.floatingBacking?.stop();
+      window.floatingBacking?.resetKey();
+      // Keep source playback truthful even if an optional player is unavailable.
+      if(mapTranspose)applyBackingTranspose(0);
+    } finally {resettingSource=false;}
+  }
+  function updateModelVisibility() {
+    if(!M)return;
+    $('full-summary').textContent=`查看完整 ${M.bars} 小节${M.harmonyOnly?'和弦地图':'原谱路线'}`;
+    for(const selector of ['.phrase-panel','.whole-line','.practice-panel'])document.querySelector(selector).hidden=M.harmonyOnly;
+    $('show-path').closest('label').hidden=M.harmonyOnly;
+    $('fidelity-note').classList.toggle('transposed',Boolean(mapTranspose));
+    $('fidelity-note').textContent=mapTranspose
+      ? `伴奏已移调 ${mapTranspose>0?'+':''}${mapTranspose} 个半音；指板显示同调的和弦地图。原谱图片和原始示范仍是原调，未改写或生成原谱旋律。恢复原调后可回到原有导航。`
+      : sourceFidelity;
+  }
+  function transposeChordName(name, semitones) {
+    const C=window.FretboardCore, ch=C.parseChord(name),names=window.tunerHarmony?.names||C.NAMES;
+    if(!ch.known)return name;
+    const suffix=ch.name.replace(/^[A-G](?:bb|##|b|#|x)?/,'').replace(/\/[A-G](?:bb|##|b|#|x)?$/,'');
+    return names[C.mod(ch.rootPc+semitones)]+suffix+(ch.bassPc===null?'':'/'+names[C.mod(ch.bassPc+semitones)]);
+  }
+  function applyBackingTranspose(value) {
+    const transpose=Number.isFinite(value)?value:0;
+    if(!sourceModel||transpose===mapTranspose)return false;
+    if(resettingSource)stop();else stopAll();
+    if(!mapTranspose)sourceView={index:state.index,segment:state.segment,rest:state.rest,inspected:state.inspected,shape:state.shape,wide:state.wide};
+    if(!transpose) {
+      M=sourceModel;
+      if(sourceView)Object.assign(state,sourceView);
+      sourceView=null;
+    } else {
+      // A new-key harmony map must never relabel the fixed original notes or TAB.
+      const data={...sourceModel.source,notes:[],events:[],segments:[],notation:'standard',
+        chords:sourceModel.chordEvents.map(c=>({...c,name:transposeChordName(c.chord,transpose)}))};
+      M=window.FretboardCore.adaptLesson(data);M.harmonyOnly=true;
+      state.segment=Math.min(state.segment,M.SEGMENTS.length-1);state.index=0;state.rest=false;state.inspected=null;state.shape=0;
+    }
+    mapTranspose=transpose;updateModelVisibility();render();return true;
+  }
+  function makeBackingContext(item) {
+    const H=window.tunerHarmony;
+    backingUnavailableReason='';
+    if(!H||!sourceModel||!sourceModel.chordEvents.length)return null;
+    if(sourceModel.meterInfo.numerator!==4||sourceModel.meterInfo.denominator!==4) {
+      backingUnavailableReason=`悬浮伴奏目前支持 4/4；这条原谱为 ${item.meter}，仍可听原始示范和手动探索指板。`;
+      return null;
+    }
+    // Use the catalog's bar membership for schematic maps and verified chord
+    // events for source-backed lessons. Normalize BopLand's bare maj to maj7.
+    const events=sourceModel.chordEvents;
+    try {
+      const keyMatch=String(item.key||'').match(/^([A-G](?:#|b)?)(?:\s+(Major|Minor))?/i);
+      if(!keyMatch)return null;
+      const key=keyMatch[1][0].toUpperCase()+keyMatch[1].slice(1)+(keyMatch[2]?.toLowerCase()==='minor'?'m':'');
+      const chords=events.map(c=>({...H.chord(c.chord,key),bar:c.bar?c.bar-1:Math.floor(c.start/sourceModel.beatsPerBar),beat:c.start,beats:c.duration}));
+      const bars=Array.from({length:sourceModel.bars},(_,bar)=>chords.filter(c=>c.bar===bar));
+      if(!chords.length||bars.some(bar=>!bar.length))return null;
+      const text='| '+bars.map(bar=>bar.map(c=>c.name).join(' ')).join(' | ')+' |';
+      const sourceTiming=events.every(c=>c.precision==='source-score');
+      const timingNote=sourceTiming
+        ? '生成伴奏沿用已核对的谱面和弦时值；BPM 可自定，不与原始录音同步。跟随只切换和弦，不追踪原谱逐音。'
+        : item.sourceType==='guitarset'
+          ? '生成伴奏采用每小节采样和声；换和弦时间不代表原始演奏。跟随只切换和弦，不追踪原谱逐音。'
+          : '生成练习伴奏：小节内多和弦均分拍数；原谱图片未核对换和弦拍点，不与原始示范同步。跟随只切换和弦，不追踪原谱逐音。';
+      const tag=String(item.group||item.title||'').toLowerCase();
+      const genre=/funk/.test(tag)?'funk-soul':/blues/.test(tag)&&!/bossa/.test(tag)?'blues':'jazz';
+      return {id:item.id,title:item.title,text,key,bpm:item.originalBpm||96,genre,timingNote,
+        progression:{key,bars,chords,beats:sourceModel.duration}};
+    } catch(_) {return null;}
+  }
+  function renderBackingStatus() {
+    $('open-backing').disabled=!backingContext||!window.floatingBacking;
+    $('follow-backing').disabled=!backingContext||!window.floatingBacking;
+    $('open-backing').textContent='♫ 打开悬浮伴奏';
+    $('backing-timing-note').textContent=backingContext?.timingNote||'';
+    if(!backingContext) {$('backing-status').textContent=backingUnavailableReason||(lesson?'这条乐句的和声暂不支持生成伴奏；仍可使用原始示范和手动指板。':'选择乐句后可打开独立伴奏，边听边探索指板。');return;}
+    if(!window.floatingBacking) {$('backing-status').textContent='悬浮伴奏暂未载入，请刷新后重试；原始示范和指板仍可使用。';return;}
+    const b=backingState;
+    if(b?.contextId&&b.contextId!==backingContext.id) {
+      $('follow-backing').disabled=true;$('open-backing').textContent='♫ 恢复本页悬浮伴奏';
+      $('backing-status').textContent='悬浮窗正在使用自定和声，指板保留本页原调和声，暂不跟随。点击恢复本页伴奏可重新联动。';
+      return;
+    }
+    if(b?.loading){$('backing-status').textContent='正在准备伴奏音色…';return;}
+    const key=b?.key||backingContext.key;
+    $('backing-status').textContent=b?.playing
+      ? `伴奏播放中 · ${key} · ${b.bpm} BPM${b.chord?' · '+b.chord.name:''}。${$('follow-backing').checked?'指板跟随和弦；可随时取消跟随。':'可自由切换形状、探索音位，伴奏会继续。'}`
+      : `当前伴奏调性 ${key} · 打开悬浮窗可调 BPM、调性与风格。${mapTranspose?'原谱与示范仍保留原调。':''}`;
+  }
+  function followBackingChord() {
+    if(!M||!$('follow-backing').checked||!backingState?.playing||!backingState.chord||backingState.contextId!==backingContext?.id)return;
+    const active=M.segmentAt(backingState.chord.beat);
+    if(active&&active.index!==state.segment)selectSegment(active.index,true);
+  }
+  $('open-backing').addEventListener('click',()=>{if(backingContext)window.floatingBacking?.open(backingContext);});
+  $('follow-backing').addEventListener('change',()=>{followBackingChord();renderBackingStatus();});
+  window.addEventListener('tuner:backing-change',event=>{
+    const next=event.detail;
+    if(!next||!backingContext)return;
+    const takingOwnership=(next.playing||next.loading)&&!(backingState?.playing||backingState?.loading);
+    backingState=next;if(takingOwnership)stopAll();
+    if(next.contextId!==backingContext.id){applyBackingTranspose(0);renderBackingStatus();return;}
+    applyBackingTranspose(next.transpose);followBackingChord();renderBackingStatus();
+  });
   function tone(n, offset=0, duration=n.duration) {
     const osc=context.createOscillator(),gain=context.createGain(),now=context.currentTime+offset;
     duration=60/state.bpm*duration;
@@ -149,7 +259,7 @@
     osc.onended=()=>{voices.delete(voice);osc.disconnect();gain.disconnect();};osc.start(now);osc.stop(now+Math.max(.025,duration));
   }
   async function play() {
-    if(!M)return;if(state.playing){stop();return;}original.pause();
+    if(!M)return;if(state.playing){stop();return;}resetBackingKey();if(!M.NOTES.length)return;original.pause();
     const token=++generation;state.playing=true;updatePlayButton();$('audio-status').textContent='仅作音高 / 标注时值核对，音色与语气不代表原演奏；请以上方原始示范为准。';
     try {
       const AudioContext=window.AudioContext||window.webkitAudioContext;
@@ -192,7 +302,8 @@
   $('play').addEventListener('click',play);
   $('tempo').addEventListener('input',e=>{if(state.playing)stop();state.bpm=+e.target.value;$('tempo-value').textContent=state.bpm+' BPM';});
   $('loop').addEventListener('change',e=>{state.loop=e.target.checked;if(state.playing)stop();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();});window.addEventListener('pagehide',stopAll);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopEverything();});window.addEventListener('pagehide',stopEverything);
+  for(const link of document.querySelectorAll('.original-link,.brand'))link.addEventListener('click',stopEverything);
   function filteredLessons() {
     if(!catalog)return [];
     const query=$('lesson-search').value.trim().toLowerCase();
@@ -209,11 +320,14 @@
   }
   async function readJson(path) {const response=await fetch(path);if(!response.ok)throw Error('HTTP '+response.status);return response.json();}
   async function loadLesson(id, push=false) {
-    stopAll();M=null;const token=++loadGeneration;
+    stopAll();M=null;sourceModel=null;sourceView=null;mapTranspose=0;backingContext=null;backingState=null;backingUnavailableReason='';
+    window.floatingBacking?.setContext(null);$('open-backing').disabled=true;$('follow-backing').disabled=true;
+    $('backing-status').textContent='正在读取当前乐句的伴奏和声…';$('backing-timing-note').textContent='';
+    const token=++loadGeneration;
     $('coach').hidden=true;$('unavailable').hidden=true;$('load-status').textContent='正在读取原始乐句…';
     original.removeAttribute('src');original.load();$('original-status').textContent='';
     const item=catalog.lessons.find(x=>x.id===id);
-    if(!item){lesson=null;$('lesson-eyebrow').textContent='SOURCE PHRASES / 未知 ID';$('lesson-meta').textContent='';$('lesson-harmony').textContent='';$('lesson-select').selectedIndex=-1;document.querySelector('.source-panel').hidden=true;for(const link of document.querySelectorAll('.original-link')){link.href='./';link.textContent='返回弦音 Tuner';}$('lesson-title').textContent='未找到这条乐句';$('score-image').removeAttribute('src');$('score-link').removeAttribute('href');$('source-caption').textContent='请选择资料库中的有效乐句';$('load-status').textContent='这个 ID 不在资料库中，请从上方选择。';return;}
+    if(!item){lesson=null;renderBackingStatus();$('lesson-eyebrow').textContent='SOURCE PHRASES / 未知 ID';$('lesson-meta').textContent='';$('lesson-harmony').textContent='';$('lesson-select').selectedIndex=-1;document.querySelector('.source-panel').hidden=true;for(const link of document.querySelectorAll('.original-link')){link.href='./';link.textContent='返回弦音 Tuner';}$('lesson-title').textContent='未找到这条乐句';$('score-image').removeAttribute('src');$('score-link').removeAttribute('href');$('source-caption').textContent='请选择资料库中的有效乐句';$('load-status').textContent='这个 ID 不在资料库中，请从上方选择。';return;}
     lesson=item;document.querySelector('.source-panel').hidden=false;for(const link of document.querySelectorAll('.original-link'))link.textContent='返回这条乐句 ↗';
     if(!$('only-supported').checked||!item.supported)$('only-supported').checked=false;
     renderPicker();
@@ -231,18 +345,15 @@
       if(item.supported)data=await readJson(item.data);
       else data=window.FretboardCore.catalogLesson(item);
       if(token!==loadGeneration)return;
-      M=window.FretboardCore.adaptLesson(data);M.harmonyOnly=!item.supported;
+      M=window.FretboardCore.adaptLesson(data);M.harmonyOnly=!item.supported;sourceModel=M;
       state.index=0;state.segment=0;state.rest=false;state.inspected=null;state.shape=0;state.wide=false;state.playing=false;
       state.bpm=Math.min(140,Math.max(40,data.originalBpm||72));$('tempo').value=state.bpm;$('tempo-value').textContent=state.bpm+' BPM';
-      $('fidelity-note').textContent=item.supported?(item.sourceType==='guitarset'?'按原始演奏标注保留弦、品、起音和延音；片段接入的延音会标明。和声是每小节采样标签，不能据此断定小节内部换和弦的精确时刻。':'此例逐音核对原 PNG / TAB，保留原弦、品与谱面时值。原始示范的节奏处理与语气仍以录音为准。'):'和弦地图，尚未核对原谱逐音路线。和弦顺序来自资料库索引；每个按钮仅是和声地标，不表示精确换和弦拍点。不会用生成乐句代替原谱。';
-      $('full-summary').textContent=`查看完整 ${M.bars} 小节${M.harmonyOnly?'和弦地图':'原谱路线'}`;
-      document.querySelector('.phrase-panel').hidden=M.harmonyOnly;
-      document.querySelector('.whole-line').hidden=M.harmonyOnly;
-      document.querySelector('.practice-panel').hidden=M.harmonyOnly;
-      $('show-path').closest('label').hidden=M.harmonyOnly;
+      sourceFidelity=item.supported?(item.sourceType==='guitarset'?'按原始演奏标注保留弦、品、起音和延音；片段接入的延音会标明。和声是每小节采样标签，不能据此断定小节内部换和弦的精确时刻。':'此例逐音核对原 PNG / TAB，保留原弦、品与谱面时值。原始示范的节奏处理与语气仍以录音为准。'):'和弦地图，尚未核对原谱逐音路线。和弦顺序来自资料库索引；每个按钮仅是和声地标，不表示精确换和弦拍点。不会用生成乐句代替原谱。';
+      updateModelVisibility();backingContext=makeBackingContext(item);
+      window.floatingBacking?.setContext(backingContext);renderBackingStatus();
       $('load-status').textContent='';$('coach').hidden=false;
       render();requestAnimationFrame(revealSelected);
-    }catch(error){if(token!==loadGeneration)return;M=null;$('load-status').textContent='';$('unavailable').hidden=false;$('unavailable-reason').textContent='导航数据暂时无法读取。原谱和原始示范仍可使用；选择其他课或刷新可重试。';}
+    }catch(error){if(token!==loadGeneration)return;M=null;sourceModel=null;backingContext=null;window.floatingBacking?.setContext(null);renderBackingStatus();$('load-status').textContent='';$('unavailable').hidden=false;$('unavailable-reason').textContent='导航数据暂时无法读取。原谱和原始示范仍可使用；选择其他课或刷新可重试。';}
   }
   async function boot() {
     try{catalog=await readJson('assets/licks/fretboard/catalog.json?v=20261004-1');renderPicker();await loadLesson(new URL(location.href).searchParams.get('lesson')||'Xbv40aTf');}
@@ -253,7 +364,7 @@
   for(const [id,step]of [['previous-lesson',-1],['next-lesson',1]])$(id).addEventListener('click',()=>{const items=filteredLessons(),i=items.findIndex(x=>x.id===lesson?.id);if(items[i+step])loadLesson(items[i+step].id,true);});
   $('show-available').addEventListener('click',()=>{$('only-supported').checked=true;$('lesson-search').value='';renderPicker();const first=filteredLessons()[0];if(first)loadLesson(first.id,true);});
   window.addEventListener('popstate',()=>{if(catalog)loadLesson(new URL(location.href).searchParams.get('lesson')||'Xbv40aTf');});
-  original.addEventListener('play',()=>{stop();$('original-status').textContent=lesson?.sourceType==='guitarset'?'原始演奏 · 光标跟随原标注（标注可能包含误差）':'原始示范 · 逐音对齐未验证，指板保留手动导航';});
+  original.addEventListener('play',()=>{stop();resetBackingKey();$('original-status').textContent=lesson?.sourceType==='guitarset'?'原始演奏 · 光标跟随原标注（标注可能包含误差）':'原始示范 · 逐音对齐未验证，指板保留手动导航';});
   original.addEventListener('timeupdate',()=>{
     if(!M||lesson?.sourceType!=='guitarset'||original.paused)return;
     const at=original.currentTime,notes=M.NOTES.filter(n=>Number.isFinite(n.timeSeconds)&&n.timeSeconds<=at&&n.timeSeconds+n.durationSeconds>at);

@@ -32,6 +32,7 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
     async setLoopBar(bar) { this.loopBar = bar; this.update(); }
   }
   A.Transport = ControlledTransport;
+  const backingOpens = []; w.floatingBacking = { open: context => backingOpens.push(plain(context)), setContext() {}, stop() {} };
   w.eval(fs.readFileSync(process.argv[2] || 'docs/practice.js', 'utf8'));
   const S = w.practiceStudio, t = S.transport, change = (id, value) => { q(id).value = value; q(id).dispatchEvent(new w.Event('change')); };
   const voice = id => { const select = d.querySelector('[data-practice-timbre="lead"]'); select.value = id; select.dispatchEvent(new w.Event('change')); };
@@ -102,8 +103,13 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   q('practice-play').click(); assert.equal(t.playing, false, 'pause button works while changes prepare');
   cancelled.resolve(); await flush(); assert.equal(queued.length, queueCount, 'late resolution after pause cannot queue or start sound'); assert.equal(t.playing, false);
   await start(2); voice('violin'); const navigation = preparations.at(-1), countBeforeNavigation = queued.length;
-  S.setMode('backing'); navigation.resolve(); await flush(); assert.equal(t.playing, false); assert.equal(queued.length, countBeforeNavigation, 'leaving mode invalidates pending live change');
-  assert.equal(q('practice-intensity-wrap').hidden, true);
+  const beforeBackingSong = t.song, beforeBackingPhrase = plain(S.getPhrase()), beforeBackingPauses = t.pauseCalls;
+  S.setMode('backing');
+  assert.equal(backingOpens.length, 1); assert.equal(backingOpens[0].text, q('practice-progression').value);
+  assert.equal(S.getMode(), 'create'); assert.equal(q('practice-pane').hidden, false); assert.equal(q('practice-intensity-wrap').hidden, false);
+  assert.equal(t.playing, true); assert.equal(t.pauseCalls, beforeBackingPauses); assert.equal(t.song, beforeBackingSong); assert.deepEqual(plain(S.getPhrase()), beforeBackingPhrase, 'opening floating accompaniment does not replace the current creation');
+  S.setMode('library'); navigation.resolve(); await flush(); assert.equal(t.playing, false); assert.equal(queued.length, countBeforeNavigation, 'actual navigation invalidates pending live change');
+  assert.equal(q('practice-pane').hidden, true);
   S.setMode('create'); change('practice-feel', 'shuffle');
   const reference = plain(S.getPhrase()), n = reference.notes[0];
   const twoNotes = { ...reference, notes: [{ ...n, beat: 0, bar: 0, duration: .4, notationDuration: .5 }, { ...n, beat: .5, bar: 0, duration: .4, notationDuration: .5 }] };
@@ -143,7 +149,7 @@ const { createRequire } = require('node:module'), { JSDOM } = createRequire(path
   const restoredFavorite = { version: 2, harmonyVersion: 2, text: '2m7,57,1maj7', key: 'C', feel: 'funk', bpm: 123,
     seed: initial.seed, phrase: initial, style: 'mixed', intensity: 'standard', bassStyle: 'walking', drumStyle: 'ride', keyStyle: 'soul', rhythmStyle: 'chop', timbres: storedVoices };
   w.siteStorage.setItem('tuner-original-licks-v1', JSON.stringify([restoredFavorite]));
-  S.setMode('backing'); S.setMode('create'); q('practice-progression').value = '6,4,1,5'; S.generate(917);
+  S.setMode('library'); S.setMode('create'); q('practice-progression').value = '6,4,1,5'; S.generate(917);
   await start(1.5); const beforeSavedSong = t.song, beforeSavedPhrase = plain(S.getPhrase()), beforeSavedBpm = t.bpm, beforeSavedRequests = preparations.length;
   change('practice-saved', '0');
   assert.equal(preparations.length, beforeSavedRequests + 1, 'loading a live favorite prepares one complete candidate, not one per changed instrument');

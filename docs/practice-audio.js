@@ -341,9 +341,10 @@
       voice.tailSeconds=0;voice.cleanup();
     }
   }
-  function silence() {
+  function silence(owners = null) {
     if (!context) return;
     for (const voice of [...voices]) {
+      if (owners && !owners.has(voice.owner)) continue;
       const {source,gain}=voice;voice.tailSeconds=0;
       gain.gain.cancelScheduledValues(context.currentTime); gain.gain.setTargetAtTime(.0001, context.currentTime, .006);
       for(const output of voice.silencers){output.gain.cancelScheduledValues(context.currentTime);output.gain.setTargetAtTime(.0001,context.currentTime,.006);}
@@ -353,7 +354,7 @@
   }
   function volume(track, value) { getContext(); buses[track].gain.setTargetAtTime(Math.max(0, Math.min(1, value)) ** 2, context.currentTime, .015); }
   class Transport {
-    constructor(update = () => {}) { this.update = update; this.bpm = 96; this.position = 0; this.playing = false; this.loading = false; this.loop = true; this.loopBar = null; this.song = { events: [], beats: 0, chartBeats: 0 }; this.generation = 0; this.pendingUpdate = null; }
+    constructor(update = () => {}) { this.update = update; this.bpm = 96; this.position = 0; this.playing = false; this.loading = false; this.loop = true; this.loopBar = null; this.song = { events: [], beats: 0, chartBeats: 0 }; this.generation = 0; this.pendingUpdate = null; this.voiceScopes = new Set(); }
     bounds() { return this.loopBar === null ? (!this.loop && this.stopBounds || [0, this.song.beats]) : [this.loopBar * 4, this.loopBar * 4 + 4]; }
     load(song) { this.pause(); this.song = song; this.position = 0; this.loopBar = null; this.stopBounds = [0, song.chartBeats || song.beats]; this.update(); }
     current() {
@@ -372,7 +373,7 @@
         const [start, end] = this.bounds();
         if (this.position >= end || this.position < start) this.position = start;
         this.startBeat = this.position; this.started = context.currentTime + .025; this.cycle = 0;
-        this.activeTimbres = timbreSnapshot(); recordingBank?.retain(this.activeTimbres, this.song.events); this.voiceScope = {}; this.lastScheduledAt = 0;
+        this.activeTimbres = timbreSnapshot(); recordingBank?.retain(this.activeTimbres, this.song.events); this.voiceScope = {}; this.voiceScopes.add(this.voiceScope); this.lastScheduledAt = 0;
         this.next = this.song.events.findIndex(e => e.beat >= this.position - 1e-8);
         if (this.next < 0) this.next = this.song.events.length;
         this.playing = true;
@@ -410,6 +411,7 @@
       };
       if (pending.next < 0) pending.next = song.events.length;
       this.pendingUpdate = pending;
+      this.voiceScopes.add(pending.voiceScope);
       this.tick();
       return { at, beat: position, bar: pending.bar };
     }
@@ -474,7 +476,7 @@
       if (!this.loop && this.current() >= end) { this.pause(); this.position = end; }
       this.update();
     }
-    pause() { this.cancelUpdate('stopped'); this.generation++; this.loading = false; this.position = this.current(); this.playing = false; window.clearInterval(this.timer); this.timer = null; silence(); this.update(); }
+    pause() { this.cancelUpdate('stopped'); this.generation++; this.loading = false; this.position = this.current(); this.playing = false; window.clearInterval(this.timer); this.timer = null; silence(this.voiceScopes); this.voiceScopes.clear(); this.update(); }
     seek(value) { const playing = this.playing; this.pause(); const [start, end] = this.bounds(); this.position = Math.max(start, Math.min(end, Number(value) || 0)); this.update(); return playing ? this.play() : Promise.resolve(); }
     tempo(value) { const playing = this.playing; this.pause(); this.bpm = Math.max(40, Math.min(180, Number(value) || 96)); this.update(); return playing ? this.play() : Promise.resolve(); }
     setLoop(enabled) {

@@ -7,7 +7,7 @@
   const library = document.createElement('div'); library.id = 'lesson-library-pane';
   library.append(...page.childNodes); page.append(library);
   const nav = document.createElement('div'); nav.className = 'lesson-modes'; nav.setAttribute('role', 'group'); nav.setAttribute('aria-label', '教学内容');
-  nav.innerHTML = '<button type="button" data-lesson-mode="library" class="active" aria-pressed="true">乐句</button><button type="button" data-lesson-mode="create" aria-pressed="false">创作</button><button type="button" data-lesson-mode="backing" aria-pressed="false">伴奏</button>';
+  nav.innerHTML = '<button type="button" data-lesson-mode="library" class="active" aria-pressed="true">乐句</button><button type="button" data-lesson-mode="create" aria-pressed="false">创作</button><button type="button" data-open-backing aria-haspopup="dialog" aria-expanded="false">伴奏</button>';
   page.prepend(nav);
   if (G) nav.insertAdjacentHTML('afterbegin','<button type="button" data-lesson-mode="courses" aria-pressed="false">课程</button>');
   if (G) nav.querySelector('[data-lesson-mode="library"]').textContent='乐句资料库';
@@ -81,7 +81,8 @@
   };
   let mode = 'library', parsed = null, phrase = null, leadCycle = null, displayedRound = 0, currentSeed = 1, selectedBar = 0, chartValid = false, notationRevision = 0, notationView = null, notationRendered = null;
   let genre = G?.normalize(window.siteStorage.getItem('tuner-genre-v1')) || (G ? 'blues' : null);
-  const isPractice = value => value === 'create' || value === 'backing';
+  const isPractice = value => value === 'create';
+  let courseBackingContext = null;
   const voiceRequests=new Map(),busyVoices=new Set(),defaultTimbres=Object.fromEntries(Object.keys(A.timbres).map(track=>[track,A.getTimbre(track)]));
   let activeSettings = null, liveDraft = null, liveRevision = 0, liveStage = '', liveMessage = '', cancelingLive = false;
   const ensembleDefaults = { performerProfile:'balanced',percussionStyle:'none',stringsStyle:'none' };
@@ -121,7 +122,16 @@
   function error(message = '') { $('practice-error').textContent = message; $('practice-error').hidden = !message; }
   function safe(promise) { Promise.resolve(promise).catch(e => error(e.message || '播放失败，请重试')); }
   function nextSeed() { const bytes = new Uint32Array(1); if (window.crypto?.getRandomValues) window.crypto.getRandomValues(bytes); else bytes[0] = Date.now() ^ Math.floor(Math.random() * 1e9); return bytes[0]; }
-  function stopOtherPlayers() { window.lessonPlayer?.stop(); window.scorePlayer?.pause(); window.metronome?.stop(); }
+  function stopOtherPlayers() { window.floatingBacking?.stop(); window.lessonPlayer?.stop(); window.scorePlayer?.pause(); window.metronome?.stop(); }
+  async function playTransport() {
+    // The floating player shares the sample engine, but the creation controls
+    // own their instrument choices. Restore those before preparing this play.
+    A.commitTimbres?.(timbreSelection());
+    const playback = transport.play(), generation = transport.generation;
+    await playback;
+    if (!transport.playing || generation !== transport.generation) return;
+    for (const slider of pane.querySelectorAll('[data-practice-volume]')) A.volume(slider.dataset.practiceVolume, Number(slider.value) / 100);
+  }
   function playAt(beat, bar) {
     error(); stopOtherPlayers();
     try { safe(A.getContext().resume()); } catch (e) { error(e.message); return; }
@@ -130,20 +140,45 @@
     if (transport.loopBar !== null) transport.loopBar = bar + displayedRound * (parsed?.bars.length || 1);
     selectedBar = bar;
     safe(transport.seek(beat));
-    safe(transport.play().then(() => { for (const slider of pane.querySelectorAll('[data-practice-volume]')) A.volume(slider.dataset.practiceVolume, Number(slider.value) / 100); }));
+    safe(playTransport());
+  }
+  function getBackingContext() {
+    if (mode === 'library') return window.lessonPlayer?.getBackingContext?.() || null;
+    if (mode === 'create') return {
+      id: 'create:' + (genre || 'custom'), title: $('practice-title').textContent,
+      text: $('practice-progression').value, key: $('practice-key').value,
+      bpm: Number($('practice-bpm').value) || 96, genre: genre || 'blues',
+      timingNote: '按当前创作和声生成 4/4 伴奏，同小节和弦均分四拍。'
+    };
+    const profile = G?.profiles[genre];
+    return courseBackingContext || (profile ? {
+      id: 'genre:' + genre, title: profile.label + ' · 伴奏练习', text: profile.backing,
+      key: profile.key, bpm: profile.bpm, genre, timingNote: '4/4 原创练习伴奏；可在播放器内修改和声。'
+    } : null);
+  }
+  function syncBackingContext() {
+    if (page.style.display !== 'none') window.floatingBacking?.setContext(getBackingContext());
+  }
+  function openBacking(text) {
+    const context = getBackingContext();
+    if (context) window.floatingBacking?.open(text ? { ...context, text } : context);
   }
   function setMode(next, text) {
-    if (!['library','courses','create','backing'].includes(next) || next==='courses'&&!G) return;
-    if(mode===next&&!text){if(isPractice(mode))void showNotation();return;}
+    // Compatibility callers still use this name; accompaniment is now a
+    // floating action and must not replace the current lesson or creation view.
+    if (next === 'backing') { openBacking(text); return; }
+    if (!['library','courses','create'].includes(next) || next==='courses'&&!G) return;
+    if(mode===next&&!text){if(isPractice(mode)){renderSaved();void showNotation();}return;}
     cancelLive(true);
+    window.floatingBacking?.setContext(null);
     if (isPractice(mode)) drafts[mode] = { ...readSettings(), seed: currentSeed, phrase: chartValid ? phrase : null, leadCycle: chartValid ? leadCycle : null };
     transport.pause(); hideNotation(); window.lessonPlayer?.stop(); mode = next;
     page.dataset.lessonMode = mode;
-    nav.querySelectorAll('button').forEach(button => { const active = button.dataset.lessonMode === mode; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
+    nav.querySelectorAll('[data-lesson-mode]').forEach(button => { const active = button.dataset.lessonMode === mode; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active)); });
     library.hidden = mode !== 'library'; pane.hidden = !isPractice(mode);
     if ($('genre-courses')) $('genre-courses').hidden=mode!=='courses';
     window.dispatchEvent(new CustomEvent('tuner:practice-mode',{detail:{mode,genre}}));
-    if (!isPractice(mode)) return;
+    if (!isPractice(mode)) { syncBackingContext(); return; }
     const draft = drafts[mode];
     $('practice-progression').value = text || draft.text; $('practice-key').value = draft.key;
     $('practice-performer-profile').value = A.performerProfiles[draft.performerProfile] ? draft.performerProfile : 'balanced';
@@ -178,6 +213,7 @@
     id=G?.normalize(id);if(!id)return;
     if(id===genre&&!options.reset)return;
     const previousMode=mode;
+    window.floatingBacking?.setContext(null); courseBackingContext=null;
     if(isPractice(mode))setMode('courses');else{transport.pause();window.lessonPlayer?.stop();}
     genreDrafts.set(genre,{...drafts});
     genre=id;Object.assign(drafts,options.reset?defaults(id):genreDrafts.get(id)||defaults(id));
@@ -187,6 +223,7 @@
     updateGenrePresets();
     window.dispatchEvent(new CustomEvent('tuner:genre-change',{detail:{genre:id}}));
     if(isPractice(previousMode))setMode(previousMode);
+    else syncBackingContext();
   }
   function updateGenrePresets() {
     if(!G)return;
@@ -195,6 +232,15 @@
   }
   function openLesson(lesson,next='create') {
     if(!G||!G.normalize(lesson.genre))return;
+    if (next === 'backing') {
+      const profile = G.profiles[lesson.genre];
+      courseBackingContext = { id:'course:'+lesson.id, title:lesson.title || lesson.name || profile.label,
+        text:lesson.progression, key:lesson.key || profile.key, bpm:lesson.bpm || profile.bpm, genre:lesson.genre,
+        timingNote:'本课 4/4 原创练习伴奏，同小节和弦均分四拍。' };
+      window.floatingBacking?.open(courseBackingContext);
+      return;
+    }
+    if (next !== 'create') return;
     if(isPractice(mode))setMode('courses');
     setGenre(lesson.genre);
     const profile=G.profiles[genre];
@@ -338,6 +384,7 @@
     $('practice-origin').textContent = phrase ? '以动机、问答、切分和留白写成的原创 Lead；演奏取向会改变选音、时值、力度与自动编配，但不复刻具体真人。四轮变化、双音与和声 Voicing 都写入实际播放。' : '鼓、Bass、键盘、节奏吉他、辅助打击与弦乐可各选演奏风格。Auto 会结合流派与演奏取向，手动选择始终优先；关闭某声部请选择 None。';
     $('practice-tip').textContent = phrase ? '六线谱按标准调弦 E A D G B E 显示，也可切换实音高五线谱；变化播放时谱面会跟随当前轮。播放中换音色或写法会在资源就绪后的下一小节生效；采样、微时值、力度、声像与空间处理共同减少机械感，最终听感仍以实际设备试听为准。' : '先跟 Bass 找落点，再听辅助打击如何补充律动、弦乐如何留出空间。点选小节开始，单节按钮可反复练这一处。';
     $('practice-save').textContent = '收藏乐句'; renderPosition();
+    syncBackingContext();
   }
   function renderTab() {
     const strings = ['e', 'B', 'G', 'D', 'A', 'E'];
@@ -444,8 +491,16 @@
     try { const items = JSON.parse(window.siteStorage.getItem(storageKey) || '[]'); return Array.isArray(items) ? items.filter(x => (x.version === 1 || x.version === 2 && validPhrase(x.phrase) || x.version === 3 && validPhrase(x.phrase) && validLeadCycle(x.leadCycle)) && typeof x.text === 'string' && x.text.length <= 512 && H.names.includes(x.key) && A.feels[x.feel] && Number.isInteger(x.seed) && x.seed >= 0 && Number.isFinite(x.bpm)).slice(0, 50) : []; } catch { return []; }
   }
   function renderSaved() { $('practice-saved').innerHTML = '<option value="">选择乐句</option>' + saved().map((item, i) => `<option value="${i}">${escape(item.key + ' · ' + item.text)} · ${i + 1}</option>`).join(''); }
-  function dirty() { cancelLive();error();$('practice-progression').removeAttribute('aria-invalid');chartValid=false;if(!transport.playing)transport.pause();renderPosition(); }
-  nav.addEventListener('click', event => { const button = event.target.closest('[data-lesson-mode]'); if (button) setMode(button.dataset.lessonMode); });
+  function dirty() { window.floatingBacking?.setContext(null);cancelLive();error();$('practice-progression').removeAttribute('aria-invalid');chartValid=false;if(!transport.playing)transport.pause();renderPosition(); }
+  nav.addEventListener('click', event => {
+    if (event.target.closest('[data-open-backing]')) { openBacking(); return; }
+    const button = event.target.closest('[data-lesson-mode]'); if (button) setMode(button.dataset.lessonMode);
+  });
+  window.addEventListener('tuner:backing-change', event => {
+    const state=event.detail || {}, button=nav.querySelector('[data-open-backing]');
+    button.classList.toggle('on', Boolean(state.visible));
+    button.setAttribute('aria-expanded', String(Boolean(state.visible && !state.minimized)));
+  });
   $('practice-input-guide').addEventListener('click', event => { const button = event.target.closest('[data-harmony-example]'); if (!button) return; $('practice-progression').value = button.dataset.harmonyExample; $('practice-preset').value = 'custom'; dirty(); $('practice-progression').focus(); });
   $('practice-form').addEventListener('submit', event => { event.preventDefault(); generate(); });
   $('practice-progression').addEventListener('input', () => { $('practice-preset').value = 'custom'; dirty(); });
@@ -467,7 +522,7 @@
   $('practice-notation').addEventListener('change',()=>void showNotation());$('practice-notation-retry').onclick=()=>{notationRendered=null;void showNotation();};
   pane.querySelectorAll('[data-practice-timbre]').forEach(select=>select.addEventListener('change',()=>void changeVoice(select.dataset.practiceTimbre,select.value)));
   $('practice-preset').addEventListener('change', () => { const text = presets[$('practice-preset').value]; if (text) { $('practice-progression').value = text; generate(); } else $('practice-progression').focus(); });
-  $('practice-play').addEventListener('click', () => { error(); if (transport.playing || transport.loading) transport.pause(); else { stopOtherPlayers(); safe(transport.play().then(() => { for (const slider of pane.querySelectorAll('[data-practice-volume]')) A.volume(slider.dataset.practiceVolume, Number(slider.value) / 100); })); } });
+  $('practice-play').addEventListener('click', () => { error(); if (transport.playing || transport.loading) transport.pause(); else { stopOtherPlayers(); safe(playTransport()); } });
   $('practice-rewind').addEventListener('click', () => { selectedBar = 0; displayRound(0); transport.loopBar = null; transport.stopBounds = [0, transport.song.chartBeats || transport.song.beats]; safe(transport.seek(0)); });
   $('practice-bpm').addEventListener('change', event => { if(transport.playing)refreshArrangement();else{safe(transport.tempo(event.target.value));if(activeSettings)activeSettings.bpm=transport.bpm;} });
   $('practice-live-retry').addEventListener('click',()=>{if(liveDraft&&transport.playing){error();void queueCandidate(liveDraft);}});
@@ -518,12 +573,12 @@
   });
   $('harmony-create')?.addEventListener('click', () => setMode('create', $('lick-harmony').value));
   document.addEventListener('keydown', event => {
-    if (!isPractice(mode) || page.style.display === 'none' || event.code !== 'Space' || /INPUT|TEXTAREA|SELECT|BUTTON/.test(event.target.tagName) || event.target.isContentEditable) return;
+    if (event.defaultPrevented || event.target.closest?.('[data-floating-backing], #floating-backing') || !isPractice(mode) || page.style.display === 'none' || event.code !== 'Space' || /INPUT|TEXTAREA|SELECT|BUTTON/.test(event.target.tagName) || event.target.isContentEditable) return;
     event.preventDefault(); $('practice-play').click();
   });
   document.querySelectorAll('.tab').forEach(button => button.addEventListener('click', () => { if (button.dataset.page !== 'lesson') transport.pause(); }));
   window.addEventListener('pagehide', () => transport.pause());
   window.addEventListener('tuner:lesson-play', () => transport.pause());
   if(G)updateGenrePresets();
-  window.practiceStudio = { setMode,setGenre,openLesson,getGenre:()=>genre,getMode:()=>mode,activate:()=>{if(isPractice(mode))void showNotation();}, stop:()=>{transport.pause();hideNotation();},transport, generate, midiFile, getPhrase: () => phrase, getLeadCycle:()=>leadCycle, getProgression: () => parsed };
+  window.practiceStudio = { setMode,setGenre,openLesson,getBackingContext,getGenre:()=>genre,getMode:()=>mode,activate:()=>{if(isPractice(mode))void showNotation();syncBackingContext();}, stop:()=>{transport.pause();hideNotation();},transport, generate, midiFile, getPhrase: () => phrase, getLeadCycle:()=>leadCycle, getProgression: () => parsed };
 })();

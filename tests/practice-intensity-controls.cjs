@@ -7,6 +7,7 @@ const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
  const errors = []; w.addEventListener('error',e => errors.push(e.message));
  w.requestAnimationFrame = () => 1; w.cancelAnimationFrame = () => {}; w.HTMLMediaElement.prototype.pause = () => {}; w.HTMLElement.prototype.scrollTo = () => {};
  Object.defineProperty(w.navigator,'connection',{value:{saveData:true}});
+ const backingOpens=[];w.floatingBacking={open:context=>backingOpens.push(plain(context)),setContext(){},stop(){}};
  for (const file of ['storage.js','harmony.js','lessons.js','practice-arrangement.js','practice-audio.js','practice.js']) w.eval(fs.readFileSync(file==='harmony.js'&&process.argv[2]?process.argv[2]:file==='practice.js'&&process.argv[3]?process.argv[3]:'docs/'+file,'utf8'));
  const S = w.practiceStudio, H = w.tunerHarmony, A = w.practiceAudio, storageKey = 'tuner-original-licks-v1';
  const change = (id,value) => { q(id).value=value; q(id).dispatchEvent(new w.Event('change')); };
@@ -25,7 +26,8 @@ const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
  assert.doesNotMatch(q('practice-intensity-help').textContent,/\u96be\u5ea6|\u6280\u6cd5/,'density descriptions do not advertise a difficulty or technique control');
  const defaultAuto=plain(S.getPhrase()); assert.equal(defaultAuto.intensity,'auto');
  q('practice-save').click();let autoItems=JSON.parse(w.siteStorage.getItem(storageKey));assert.equal(autoItems[0].intensity,'auto');assert.deepEqual(autoItems[0].phrase,defaultAuto);
- S.setMode('backing');assert.equal(q('practice-intensity-wrap').hidden,true);S.setMode('create');assert.equal(q('practice-intensity').value,'auto');assert.deepEqual(plain(S.getPhrase()),defaultAuto,'auto draft restores its exact generated phrase');
+ S.setMode('backing');assert.equal(backingOpens.length,1);assert.equal(backingOpens[0].text,'2m7,57,1maj7');assert.equal(S.getMode(),'create');assert.equal(q('practice-intensity-wrap').hidden,false);assert.equal(q('practice-intensity').value,'auto');assert.deepEqual(plain(S.getPhrase()),defaultAuto,'floating accompaniment leaves automatic density and the exact phrase visible');
+ S.setMode('library');S.setMode('create');assert.equal(q('practice-intensity').value,'auto');assert.deepEqual(plain(S.getPhrase()),defaultAuto,'auto draft restores its exact generated phrase');
  change('practice-intensity','challenge');q('practice-save').click();autoItems=JSON.parse(w.siteStorage.getItem(storageKey));assert.equal(autoItems.length,2);assert.equal(autoItems[1].intensity,'auto');
  change('practice-saved','1');await tick();assert.equal(q('practice-intensity').value,'auto');assert.deepEqual(plain(S.getPhrase()),defaultAuto,'saved auto restores its exact recorded snapshot');
  w.siteStorage.removeItem(storageKey);
@@ -49,7 +51,7 @@ const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
  q('practice-save').click();const easy=plain(S.getPhrase());let items=JSON.parse(w.siteStorage.getItem(storageKey));assert.equal(items[0].intensity,'easy');assert.deepEqual(items[0].phrase,easy);
  change('practice-intensity','challenge');const challenge=plain(S.getPhrase());assert.notDeepEqual(challenge.notes,easy.notes);assert.equal(challenge.seed,easy.seed);q('practice-save').click();
  items=JSON.parse(w.siteStorage.getItem(storageKey));assert.equal(items.length,2,'distinct intensities with same seed remain distinct favorites');assert.equal(items[0].intensity,'challenge');
- S.setMode('backing');assert.equal(q('practice-intensity-wrap').hidden,true);S.setMode('create');assert.equal(q('practice-intensity-wrap').hidden,false);assert.equal(q('practice-intensity').value,'challenge');assert.deepEqual(plain(S.getPhrase()),challenge,'mode switch restores exact draft');assert.equal(S.transport.bpm,118);
+ S.setMode('library');assert.equal(q('practice-pane').hidden,true);S.setMode('create');assert.equal(q('practice-intensity-wrap').hidden,false);assert.equal(q('practice-intensity').value,'challenge');assert.deepEqual(plain(S.getPhrase()),challenge,'mode switch restores exact draft');assert.equal(S.transport.bpm,118);
  // A deterministic dense single-string phrase exercises small-screen TAB geometry.
  const dense={...challenge,notes:Array.from({length:8},(_,i)=>({...challenge.notes[0],beat:i*.25,duration:.2,notationDuration:.25,midi:62,string:2,fret:7,bar:0}))};
  S.generate(912,{phrase:dense});const paper=q('practice-tab').querySelector('.tab-paper'),viewport=paper.closest('.tab-scroll');
@@ -82,7 +84,7 @@ const { JSDOM } = createRequire(path.resolve('package.json'))('jsdom');
  for(const version of [1,2])for(const intensity of [undefined,'future-value']){
   const storedPhrase=version===1?H.generateLegacy(oldParsed,913,'blues'):original;
   const favorite={version,text:version===1?oldText:'2m7,57,1maj7',key:'C',feel:'shuffle',seed:version===1?913:912,bpm:96,...(version===2?{harmonyVersion:2,phrase:storedPhrase}:{}),...(intensity===undefined?{}:{intensity})};
-  w.siteStorage.setItem(storageKey,JSON.stringify([favorite]));S.setMode('backing');S.setMode('create');change('practice-saved','0');await tick();
+  w.siteStorage.setItem(storageKey,JSON.stringify([favorite]));S.setMode('library');S.setMode('create');change('practice-saved','0');await tick();
   assert.equal(q('practice-intensity').value,'standard','missing or unknown saved intensity falls back to standard');assert.deepEqual(plain(S.getPhrase()),plain(storedPhrase),'old favorite snapshot and legacy generation stay exact');
   if(version===1)assert.equal(crypto.createHash('sha256').update(JSON.stringify(plain(S.getPhrase()))).digest('hex'),'f15cc446349967e473ab980aeee3d74bf68d028ddcf85c2ac82b7d11afeda206');
  }

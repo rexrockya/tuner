@@ -31,17 +31,25 @@ w.fetch = async url => {
   const file = path.resolve('docs', url.split('?')[0]); assert.ok(file.startsWith(path.resolve('docs/assets/audio/blues')), 'all new playback assets must be self-hosted');
   return { ok: fs.existsSync(file), json: async () => JSON.parse(fs.readFileSync(file, 'utf8')), arrayBuffer: async () => { const b = fs.readFileSync(file); return b.buffer.slice(b.byteOffset, b.byteOffset + b.byteLength); } };
 };
+const backingOpens = []; w.floatingBacking = { open: context => backingOpens.push(plain(context)), setContext() {}, stop() {} };
 for (const file of ['storage.js', 'harmony.js', 'lessons.js', 'practice-arrangement.js','practice-audio.js', 'practice.js']) w.eval(fs.readFileSync('docs/' + file, 'utf8'));
 const studio = w.practiceStudio, flush = () => new Promise(resolve => setImmediate(resolve));
 function advance(seconds) { const end = now + seconds; while (now < end) { now = Math.min(end, now + .017); for (const timer of timers.values()) timer(); } }
 function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Event('change')); }
 (async () => {
   assert.equal(d.querySelectorAll('.lesson-modes button').length, 3);
+  assert.deepEqual([...d.querySelectorAll('[data-lesson-mode]')].map(button => button.dataset.lessonMode), ['library', 'create']);
+  assert.ok(d.querySelector('[data-open-backing]'), 'accompaniment is an action alongside the lesson modes');
   studio.setMode('create'); studio.generate(913);
   assert.equal($('lesson-library-pane').hidden, true); assert.equal($('practice-pane').hidden, false);
   assert.equal(studio.getPhrase().bars, 3); assert.ok(d.querySelectorAll('.tab-fret').length > 8);
   const phrase = plain(studio.getPhrase());
-  studio.setMode('backing'); studio.setMode('create'); assert.deepEqual(plain(studio.getPhrase()), phrase, 'mode changes retain the draft');
+  const beforeBackingSong = studio.transport.song;
+  studio.setMode('backing');
+  assert.equal(backingOpens.length, 1); assert.equal(backingOpens[0].text, $('practice-progression').value); assert.equal(backingOpens[0].key, $('practice-key').value);
+  assert.equal(studio.getMode(), 'create'); assert.equal($('practice-pane').hidden, false); assert.equal($('lesson-library-pane').hidden, true);
+  assert.equal(studio.transport.song, beforeBackingSong); assert.deepEqual(plain(studio.getPhrase()), phrase, 'opening accompaniment retains the visible creation and its exact phrase');
+  studio.setMode('library'); studio.setMode('create'); assert.deepEqual(plain(studio.getPhrase()), phrase, 'mode changes retain the draft');
   $('practice-save').click(); assert.equal(JSON.parse(w.localStorage.getItem('tuner-original-licks-v1')).length, 1);
   studio.generate(914); change('practice-saved', '0'); assert.deepEqual(plain(studio.getPhrase()), phrase, 'saved notes reproduce exactly');
   const midi = Buffer.from(studio.midiFile()); assert.equal(midi.toString('ascii', 0, 4), 'MThd');
@@ -63,10 +71,11 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   w.siteStorage.setItem('tuner-original-licks-v1', JSON.stringify([{version:1,text:'ii7 | V7 | Imaj7',key:'C',feel:'shuffle',seed:913,bpm:96}]));
   change('practice-saved','0'); assert.equal(require('node:crypto').createHash('sha256').update(JSON.stringify(plain(studio.getPhrase()))).digest('hex'),'f15cc446349967e473ab980aeee3d74bf68d028ddcf85c2ac82b7d11afeda206','old v1 favorite reproduces the original notes exactly');
   w.siteStorage.setItem('tuner-original-licks-v1', originalSaved); change('practice-saved','0'); assert.deepEqual(plain(studio.getPhrase()),phrase);
-  studio.setMode('backing'); change('practice-preset', 'minor');
+  $('practice-key').value = 'A'; $('practice-progression').value = '1m7,1m7,1m7,1m7,4m7,4m7,1m7,1m7,b67,57,1m7,57'; studio.generate(913);
   assert.equal($('practice-error').hidden, true); assert.equal(studio.getProgression().bars.length, 12);
   assert.equal(studio.getProgression().bars[8][0].name, 'F7');
-  change('practice-preset', 'blues');
+  $('practice-progression').value = '17,17,17,17,47,47,17,17,57,47,17,57'; studio.generate(913);
+  for (const track of ['lead', 'bass', 'drums', 'keys', 'rhythm']) assert.ok(studio.transport.song.events.some(event => event.track === track), 'creation chart includes ' + track);
   change('practice-key-style', 'pad'); // The first-lookahead sound assertion needs a downbeat organ, not a random offbeat style.
   d.querySelector('[data-practice-bar="8"]').click(); await flush(); await flush();
   assert.equal(studio.transport.playing, true, 'clicking a bar starts playback');
@@ -92,13 +101,14 @@ function change(id, value) { $(id).value = value; $(id).dispatchEvent(new w.Even
   assert.ok(secondKeys.some(e => Math.abs(e.beat % 1 - 2 / 3) < 1e-7));
   // A tab switch during asynchronous loading must cancel the scheduled start.
   const pending = studio.transport.play(); studio.setMode('library'); await pending; assert.equal(studio.transport.playing, false);
-  studio.setMode('backing');
+  studio.setMode('create');
   studio.transport.load(w.practiceAudio.arrangement(w.tunerHarmony.parse('I7 | IV7', 'A'), 'shuffle', 1, 4));
+  assert.ok(studio.transport.song.events.length > 0); assert.ok(studio.transport.song.events.every(event => event.track !== 'lead'), 'direct accompaniment arrangement excludes the lead phrase');
   await studio.transport.seek(10); await studio.transport.setLoop(false); await studio.transport.play(); advance(8);
   assert.equal(studio.transport.playing, false); assert.equal(studio.transport.position, 16, 'turning loop off ends this chorus, not all four arrangements');
   const ids = [...d.querySelectorAll('[id]')].map(node => node.id); assert.equal(new Set(ids).size, ids.length);
   assert.deepEqual(problems, []);
   for (const button of d.querySelectorAll('#practice-pane button')) assert.ok(button.textContent.trim() || button.getAttribute('aria-label'));
-  console.log('PASS practice: generated TAB, draft retention, local favorites, MIDI, minor blues, 36 audio assets, click/play, tempo, looping, mute routing, cancellation and unique accessible controls');
+  console.log('PASS practice: generated TAB, floating accompaniment context, draft retention, local favorites, MIDI, minor blues, 36 audio assets, click/play, tempo, looping, mute routing, cancellation and unique accessible controls');
   studio.stop(); dom.window.close();
 })().catch(error => { console.error(error); dom.window.close(); process.exitCode = 1; });

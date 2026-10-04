@@ -1,3 +1,11 @@
+## 2026-10-04 悬浮生成伴奏
+
+- 新增 `floating-backing.js/css`，共享原有真实采样与编配引擎；主站通过轻量 loader 按需加载，指板直接加载。
+- `practiceStudio.setMode('backing')` 兼容调用改为打开悬浮窗，保留当前乐句/课程/创作视图。旧 hash 入口不失效；移除 lessons 的原 MP3 时钟振荡器伴奏。
+- `Transport` 停止按自己全部历史 voice scopes 清理，避免未播放的另一实例静音正在播放的伴奏。开始、退出、导航、异步失败/快速更改均有回归覆盖。
+- 指板转调只生成和弦地图，不改原谱/MP3；原调恢复 source 模型。跟随只追踪生成和弦，不伪称逐音原示范同步。仅允许 4/4。
+- 新聚合 `npm run test:backing`；完整验收见 `notes/floating-backing-validation-2026-10-04.md`。仅发布 main/docs 到原 GitHub Pages，不运行 Worker/Sites 构建。
+
 ## 2026-10-04 原谱资料库指板导航
 
 - 原资料库每条入口使用 `fretboard.html?lesson=<exact ID>`，返回链接也保留该 ID；页面支持搜索、只看逐音资料、上下课及浏览器后退/前进。

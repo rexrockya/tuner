@@ -109,11 +109,7 @@ let current = 0;
 let looping = true;
 let loopA = 0;
 let loopB = 1;
-let backingEnabled = false;
-let backingContext = null;
-let backingFrame = null;
-const backingVoices = new Set();
-let lastBackingBeat = -1;
+let lastBackingContextSignature = "";
 let scoreZoom = 1;
 let waveformDuration = 1;
 let waveformLoadToken = 0;
@@ -141,75 +137,44 @@ function chordProgression(lick = LICKS[current]) {
   return lick.chord.split("→").map(item => item.trim());
 }
 
-function chordShape(name) {
-  try { const chord = window.tunerHarmony.chord(name.trim().split(/\s+/)[0]); return { root: 36 + chord.root, intervals: chord.intervals }; }
-  catch { return { root: 45, intervals: [0, 4, 7, 10] }; }
-}
-
-function midiFrequency(midi) {
-  return 440 * 2 ** ((midi - 69) / 12);
-}
-
-function playBackingTone(frequency, duration, volume, type = "triangle") {
-  if (!backingContext) return;
-  const now = backingContext.currentTime;
-  const oscillator = backingContext.createOscillator();
-  const gain = backingContext.createGain();
-  oscillator.type = type;
-  oscillator.frequency.value = frequency;
-  gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(volume, now + 0.012);
-  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-  oscillator.connect(gain).connect(backingContext.destination);
-  const voice = { oscillator, gain }; backingVoices.add(voice);
-  oscillator.onended = () => { backingVoices.delete(voice); oscillator.disconnect(); gain.disconnect(); };
-  oscillator.start(now);
-  oscillator.stop(now + duration + 0.02);
-}
-
-async function ensureBackingContext() {
-  backingContext ??= new AudioContext();
-  if (backingContext.state === "suspended") await backingContext.resume();
-}
-
-function triggerBackingBeat(beat) {
-  const progression = chordProgression();
-  const bar = Math.floor(beat / 4) % progression.length;
-  const beatInBar = ((beat % 4) + 4) % 4;
-  const shape = chordShape(progression[bar]);
-  const beatSeconds = 60 / practiceBpm;
-  playBackingTone(midiFrequency(shape.root - 12), beatSeconds * 0.72, 0.055, "triangle");
-  playBackingTone(beatInBar % 2 ? 1320 : 1760, 0.035, 0.012, "square");
-  if (beatInBar === 0 || beatInBar === 2) {
-    shape.intervals.forEach(interval => playBackingTone(midiFrequency(shape.root + 12 + interval), beatSeconds * 1.45, 0.012, "sine"));
-  }
-}
-
-function stopBackingClock() {
-  if (backingFrame) cancelAnimationFrame(backingFrame);
-  backingFrame = null;
-  lastBackingBeat = -1;
-  if (backingContext) for (const { oscillator, gain } of backingVoices) {
-    gain.gain.cancelScheduledValues(backingContext.currentTime);
-    gain.gain.setTargetAtTime(.0001, backingContext.currentTime, .006);
-    try { oscillator.stop(backingContext.currentTime + .03); } catch {}
-  }
-}
-
-async function startBackingClock() {
-  if (!backingEnabled) return;
-  await ensureBackingContext();
-  stopBackingClock();
-  const tick = () => {
-    if (audio.paused || !backingEnabled) return stopBackingClock();
-    const beat = Math.floor(audio.currentTime * sourceBpm() / 60 + 0.06);
-    if (beat !== lastBackingBeat) {
-      lastBackingBeat = beat;
-      triggerBackingBeat(beat);
-    }
-    backingFrame = requestAnimationFrame(tick);
+// Generated accompaniment is an independent transport. Keep full bar strings:
+// a two-chord bar must not silently become a full bar of its first chord.
+function getBackingContext() {
+  const lick = LICKS[current];
+  const requestedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1];
+  if (!lick || requestedId && requestedId !== lick.id) return null;
+  const bars = chordProgression(lick);
+  let text = bars.join(" | ");
+  // BopLand uses bare maj for major seventh; GuitarSet uses standard symbols.
+  if (lick.sourceType !== "guitarset") text = text.replace(/\b([A-Ga-g][#b♯♭]?)maj\b/g, "$1maj7");
+  const knownSeed = SOURCE.some(item => item[0] === lick.id);
+  const namedKey = /^[A-Ga-g][#b♯♭]?(?:\s|m|$)/.test(lick.key || "");
+  const keyLabel = namedKey ? lick.key : knownSeed ? lick.kind === "minor" ? "A minor" : "A" : bars[0];
+  const tonic = window.tunerHarmony.tonic(keyLabel);
+  const key = window.tunerHarmony.names[tonic.root] + (tonic.minor ? "m" : "");
+  const keyNote = !namedKey && !knownSeed ? `原资料未标明调性，参考调按首和弦推定为 ${key}。` : "";
+  const meter = lick.meter || "4/4";
+  const meterError = meter !== "4/4" ? `本课原谱为 ${meter}，生成伴奏目前仅支持 4/4。请使用原曲 MP3 练习，避免改变原谱拍号。` : "";
+  return {
+    id: `lick:${lick.id}`, title: lick.name, text, key, bpm: practiceBpm,
+    genre: lick.kind === "blues" ? "blues" : "jazz",
+    ...(meterError ? { error:meterError } : {}),
+    timingNote: `${keyNote}${meterError || "生成伴奏按 4/4 编配，同小节和弦均分四拍。独立播放，不与原曲 MP3 对齐，也不改变原曲音高。"}`
   };
-  tick();
+}
+
+function syncBackingContext() {
+  if ($("lesson-page").style.display === "none" || window.practiceStudio && window.practiceStudio.getMode() !== "library") return;
+  const context = getBackingContext(), signature = JSON.stringify(context);
+  if (signature !== lastBackingContextSignature || window.floatingBacking?.getState().contextId !== context?.id) {
+    window.floatingBacking?.setContext(context);
+    lastBackingContextSignature = signature;
+  }
+}
+
+function clearBackingContext() {
+  lastBackingContextSignature = "";
+  window.floatingBacking?.setContext(null);
 }
 
 function normalizedProgression(value) {
@@ -295,7 +260,7 @@ function ingestBoplandLibrary(database) {
   const previousId = LICKS[current]?.id;
   LICKS = [...expanded, ...supplementalLicks.values()];
   current = Math.max(0, LICKS.findIndex(lick => lick.id === selectedId));
-  if (LICKS[current]?.id !== previousId) updatePracticeBpm(sourceBpm());
+  if (LICKS[current]?.id !== previousId) { stopLick(true); clearBackingContext(); updatePracticeBpm(sourceBpm()); }
   libraryState.loaded = true;
   populateLibraryFilters();
   render();
@@ -312,7 +277,7 @@ function registerSupplemental(items) {
   LICKS = [...LICKS.filter(lick => lick.sourceType !== "guitarset"), ...supplementalLicks.values()];
   const selectedIndex = LICKS.findIndex(lick => lick.id === selectedId);
   if (selectedIndex >= 0) current = selectedIndex;
-  if (LICKS[current]?.id !== previousId) { stopLick(true); updatePracticeBpm(sourceBpm()); }
+  if (LICKS[current]?.id !== previousId) { stopLick(true); clearBackingContext(); updatePracticeBpm(sourceBpm()); }
   supplementalLoaded = true;
   populateLibraryFilters();
   render();
@@ -758,6 +723,8 @@ function updatePracticeBpm(next, syncMetronome = true) {
   audio.webkitPreservesPitch = true;
   $("lesson-bpm").textContent = `${practiceBpm} BPM`;
   $("lesson-original-speed").classList.toggle("on", practiceBpm === sourceBpm());
+  $("lesson-original-speed").textContent = `原速 ${sourceBpm()}`;
+  $("lesson-original-speed").setAttribute("aria-label", `恢复原速 ${sourceBpm()} BPM`);
   if (syncMetronome) window.metronome?.setBpm(practiceBpm);
 }
 
@@ -810,9 +777,10 @@ function render() {
   const requestedId = location.hash.match(/^#lick\/([A-Za-z0-9]+)$/)?.[1];
   const pendingTarget = requestedId && !LICKS.some(item => item.id === requestedId);
   $("lesson-page").setAttribute("aria-busy", String(Boolean(pendingTarget)));
-  for (const id of ["play-lick", "favorite-lick", "master-lick"]) $(id).disabled = Boolean(pendingTarget);
+  for (const id of ["play-lick", "toggle-backing", "favorite-lick", "master-lick"]) $(id).disabled = Boolean(pendingTarget);
   if (pendingTarget) {
     stopLick(true);
+    clearBackingContext();
     audio.removeAttribute("src");
     $("lesson-title").textContent = libraryState.loaded && supplementalLoaded ? "未找到这条乐句" : "正在载入目标乐句…";
     $("lesson-meta").textContent = requestedId;
@@ -878,11 +846,13 @@ function render() {
   updateScoreZoom();
   drawWaveform();
   $("lick-staff").scrollTo({ left: 0, top: 0 });
+  syncBackingContext();
 }
 
 function selectLick(index) {
   const next = Math.max(0, Math.min(LICKS.length - 1, Number(index)));
-  if (next === current && audio.src) return;
+  if (!Number.isInteger(next) || next === current && audio.src) return;
+  clearBackingContext();
   stopLick(true);
   current = next;
   updatePracticeBpm(sourceBpm());
@@ -902,8 +872,8 @@ audio.addEventListener("timeupdate", () => {
   if (looping && !audio.paused && audio.currentTime >= loopB) audio.currentTime = loopA;
   drawWaveform();
 });
-audio.addEventListener("play", () => { $("play-lick").textContent = "■"; startBackingClock(); });
-audio.addEventListener("pause", () => { $("play-lick").textContent = "▶"; stopBackingClock(); });
+audio.addEventListener("play", () => { window.floatingBacking?.stop(); $("play-lick").textContent = "■"; $("play-lick").setAttribute("aria-label", "停止原曲 MP3"); });
+audio.addEventListener("pause", () => { $("play-lick").textContent = "▶"; $("play-lick").setAttribute("aria-label", "播放原曲 MP3"); });
 audio.addEventListener("ended", async () => {
   if (!looping) {
     $("play-lick").textContent = "▶";
@@ -921,6 +891,8 @@ audio.addEventListener("error", () => {
 });
 
 async function togglePlayback() {
+  if (!getBackingContext()) return;
+  window.floatingBacking?.stop();
   window.dispatchEvent(new CustomEvent("tuner:lesson-play"));
   if (!audio.paused) {
     audio.pause();
@@ -948,22 +920,22 @@ $("reset-loop-points").addEventListener("click", () => {
 $("lesson-bpm-minus").addEventListener("click", () => updatePracticeBpm(practiceBpm - 5));
 $("lesson-bpm-plus").addEventListener("click", () => updatePracticeBpm(practiceBpm + 5));
 $("lesson-original-speed").addEventListener("click", () => updatePracticeBpm(sourceBpm()));
-$("toggle-backing").addEventListener("click", async () => {
-  backingEnabled = !backingEnabled;
-  $("toggle-backing").classList.toggle("on", backingEnabled);
-  $("toggle-backing").setAttribute("aria-pressed", String(backingEnabled));
-  $("toggle-backing").textContent = "伴奏";
-  if (backingEnabled) {
-    await ensureBackingContext();
-    if (!audio.paused) startBackingClock();
-  } else stopBackingClock();
+$("toggle-backing").addEventListener("click", () => {
+  const context = getBackingContext();
+  if (context) window.floatingBacking?.open(context);
+});
+window.addEventListener("tuner:backing-change", event => {
+  const state = event.detail || {}, context = getBackingContext();
+  const active = Boolean(context && state.contextId === context.id && state.visible);
+  $("toggle-backing").classList.toggle("on", active);
+  $("toggle-backing").setAttribute("aria-expanded", String(active && !state.minimized));
 });
 $("toggle-demo").addEventListener("click", () => {
   audio.muted = !audio.muted;
   const enabled = !audio.muted;
   $("toggle-demo").classList.toggle("on", enabled);
   $("toggle-demo").setAttribute("aria-pressed", String(enabled));
-  $("toggle-demo").textContent = "示范";
+  $("toggle-demo").textContent = "原曲声音";
 });
 $("lesson-metro").addEventListener("click", () => {
   if (!window.metronome) return;
@@ -1087,7 +1059,12 @@ document.addEventListener("fullscreenchange", () => requestAnimationFrame(fitSco
 window.addEventListener("resize", fitScoreHeight);
 window.addEventListener("hashchange", () => {
   const index = indexFromHash();
-  if (index >= 0) { window.practiceStudio?.setMode("library"); selectLick(index); }
+  if (!/^#lick\//.test(location.hash)) return;
+  clearBackingContext(); stopLick(true);
+  window.practiceStudio?.setMode("library");
+  if (index >= 0) selectLick(index);
+  render();
+  loadBoplandLibrary(); loadSupplementalLibrary();
 });
 window.addEventListener("tuner:metro-change", event => {
   if (event.detail?.bpm) updatePracticeBpm(event.detail.bpm, false);
@@ -1176,7 +1153,7 @@ function bindLoopMarker(id, point) {
 }
 
 document.addEventListener("keydown", event => {
-  if (event.code !== "Space" || event.repeat) return;
+  if (event.defaultPrevented || event.target.closest?.("[data-floating-backing], #floating-backing") || event.code !== "Space" || event.repeat) return;
   const target = event.target;
   if (target?.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(target?.tagName || "")) return;
   if (getComputedStyle($("lesson-page")).display === "none" || $("lesson-page").dataset.lessonMode && $("lesson-page").dataset.lessonMode !== "library") return;
@@ -1198,7 +1175,8 @@ function activate() {
   if (!mediaActive) { mediaActive = true; audio.preload = "metadata"; loadWaveform(audio.src); }
   loadBoplandLibrary();
   loadSupplementalLibrary();
+  syncBackingContext();
 }
-window.lessonPlayer = { activate, registerSupplemental, stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
+window.lessonPlayer = { activate, registerSupplemental, getBackingContext, stop: () => { stopLick(true); }, select: selectLick, setBpm: updatePracticeBpm, setLoopPoint, getLoopPoints: () => [loopA, loopB] };
 render();
 })();

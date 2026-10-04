@@ -72,6 +72,18 @@ npm run dev
 
 验证：`npm run test:fretboard`（亦纳入 `npm test`）。数据重建：`npm run build:fretboard`。无新运行依赖，仍只由 `docs/` 发布。来源、精确覆盖和限制见 [数据说明](docs/assets/licks/fretboard/README.md)。
 
+## 悬浮生成伴奏
+
+指板、乐句资料库、课程与创作页的伴奏入口都使用同一个悬浮播放器，不再切换到独立伴奏视图。旧 `#backing` / `#lessons/backing` 入口仍可打开播放器。
+
+- 直接采用当前页面的完整和声；支持 BPM、六类曲风、转调，以及原有分轨风格、真实采样音色与音量
+- 播放中可最小化到底部；速度、调与配器准备就绪后在安全小节线切换
+- 指板可选择跟随当前伴奏和弦；转调后显示同调和弦地图，原谱图片和原始 MP3 保留原调，不伪造移调逐音路线
+- 图像乐谱的生成伴奏按索引小节内等分拍数，不声称与原示范精确同步；当前引擎仅支持 4/4，其他拍号会说明限制
+- 切换乐句、开始原示范、关闭播放器或离开页面会停止生成伴奏；最小化不停止
+
+例如 [LcAoWGYi 指板](https://rexrockya.github.io/tuner/fretboard.html?lesson=LcAoWGYi) 可直接循环 Dm7 → G7 → Cmaj7。验证：`npm run test:backing`（纳入 `npm test`）。
+
 ## 隐私
 
 麦克风音频仅在设备本地实时分析，不录音、不上传。

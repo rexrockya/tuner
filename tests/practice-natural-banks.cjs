@@ -76,7 +76,14 @@ function fixture() {
    assert.match(fs.readFileSync(path.join(folder,'LICENSE'),'utf8'),name==='natural-keys'?/Attribution 3.0/:/CC0 1.0/);
    assert.equal(new Set(p.files.map(s=>s.sourceSha256)).size,p.files.length,'Every bundled take is a distinct source recording');
    for(const record of p.files)for(const [file,output] of Object.entries(record.outputs)){const data=fs.readFileSync(path.join(folder,file));assert.equal(hash(data),output.sha256);assert.equal(data.length,output.bytes);}
-   for(const doc of p.sourceDocuments||[])assert.equal(hash(fs.readFileSync(path.join(folder,doc.file))),doc.sha256);
+   for(const doc of p.sourceDocuments||[]){
+    const bytes=fs.readFileSync(path.join(folder,doc.file));
+    // Git normalizes these upstream SFZ text documents to LF. Preserve the
+    // source's original-byte SHA while accepting only that newline conversion;
+    // audio output hashes above must still match their exact bytes.
+    const originalCRLF=Buffer.from(bytes.toString('utf8').replace(/\r?\n/g,'\r\n'));
+    assert.ok(hash(bytes)===doc.sha256||hash(originalCRLF)===doc.sha256,'Source document differs beyond line endings: '+doc.file);
+   }
    for(const articulation of new Set(m.samples.map(s=>s.articulation)))for(let velocity=0;velocity<=127;velocity++)assert.ok(m.samples.some(s=>s.articulation===articulation&&s.velocityRange[0]<=velocity&&s.velocityRange[1]>=velocity));
   }
   assert.equal(manifests.drums.samples.length,100);assert.equal(manifests.percussion.samples.length,26);assert.equal(manifests.keys.samples.length,48);assert.equal(new Set(manifests.keys.samples.map(s=>s.file)).size,42);

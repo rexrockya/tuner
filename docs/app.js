@@ -824,7 +824,7 @@ const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
       window.soundMeter?.onPage(page);
       if(page!=="tuner")stop?.();
       tunerPanel?.onPage(page);
-      if(page!=="lesson"){window.lessonPlayer?.stop();window.practiceStudio?.stop();}else{
+      if(page!=="lesson"){window.floatingBacking?.setContext(null);window.lessonPlayer?.stop();window.practiceStudio?.stop();}else{
         window.lessonPlayer?.activate?.();window.practiceStudio?.activate?.();
         if(!window.practiceStudio&&window.siteAssets){
           const pending=document.querySelector("#practice-loader");pending.hidden=false;pending.querySelector("button").hidden=true;
@@ -843,7 +843,7 @@ const NOTES=["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"];
       }
       if(!fromHash){const hash={tools:"#tools",sound:"#sound",tuner:"#tuner",lesson:"#lessons",sheet:"#scores",metro:"#metro",jam:"#jam"}[page];history.replaceState(null,"",location.pathname+location.search+hash)}
     }
-    function routeHash(){const hash=location.hash;const page=hash.startsWith("#lick/")||hash==="#lessons"?"lesson":hash==="#scores"||hash.startsWith("#score/")?"sheet":hash==="#jam"?"jam":hash==="#metro"?"metro":hash==="#sound"?"sound":hash==="#tuner"?"tuner":"tools";navigatePage(page,true)}
+    function routeHash(){const hash=location.hash,backingRoute=/^#(?:backing|lessons\/backing)\/?$/.test(hash);const page=backingRoute||hash.startsWith("#lick/")||hash==="#lessons"?"lesson":hash==="#scores"||hash.startsWith("#score/")?"sheet":hash==="#jam"?"jam":hash==="#metro"?"metro":hash==="#sound"?"sound":hash==="#tuner"?"tuner":"tools";navigatePage(page,true);if(backingRoute){history.replaceState(null,"",location.pathname+location.search+"#lessons");window.floatingBacking?.open(window.practiceStudio?.getBackingContext?.()||window.lessonPlayer?.getBackingContext?.());}}
     document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>navigatePage(tab.dataset.page)));
     document.querySelector("#tools-back-button").onclick=()=>navigatePage("tools");
     document.querySelector(".brand").onclick=event=>{event.preventDefault();navigatePage("tools")};
