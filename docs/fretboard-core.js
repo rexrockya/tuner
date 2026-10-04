@@ -61,14 +61,14 @@
         if (stopped.length && Math.max(...stopped)-Math.min(...stopped)>4) continue;
         const complete = ch.intervals.every(interval => sounding.some(n => mod(n.midi-ch.rootPc) === interval));
         const notation = frets.map(f => f === null ? 'x' : String(f)).join('–');
-        result.push({name:`${family}${/^minor/.test(ch.shapeFamily) ? ' 小调' : ''} 形 · ${ch.name}${complete ? '' : ' 骨架'}`, family, frets, notes:sounding, complete,
+        result.push({name:`${family}${/^minor/.test(ch.shapeFamily) ? ' 小调' : ''} 形 · ${ch.name}${complete ? '' : ' 骨架'}`, family, frets, notes:sounding, complete, minFret:Math.min(...sounding.map(n=>n.fret)), maxFret:Math.max(...sounding.map(n=>n.fret)),
           note:`${ch.name} 的 ${family} 形${complete ? '和弦' : '部分和弦音'}地标：${notation}（从 6 弦到 1 弦）。${complete ? '' : '未包含全部扩展音。'}只作位置参考，不要求整把按住，也不替换原谱指法。`,
           distance:Math.abs(sounding.reduce((sum,n)=>sum+n.fret,0)/sounding.length-focus)});
       }
     }
     return result.sort((a,b)=>a.distance-b.distance || a.family.localeCompare(b.family));
   }
-  function rootPositions(ch, maxFret=12) {
+  function rootPositions(ch, maxFret=24) {
     if (!ch || !ch.known || ch.rootPc === null) return [];
     const roots = [];
     for (const string of [6,5]) for (let fret=0;fret<=maxFret;fret++) if (mod(midi(string,fret))===ch.rootPc) roots.push({string,fret,midi:midi(string,fret),name:pitch(midi(string,fret))});
@@ -145,7 +145,7 @@
     if(ch.bassPc!==null&&mod(pc)===ch.bassPc) return {degree:DEGREES[interval],kind:'bass',description:`${ch.name} 明确指定的斜线低音 ${ch.bassName}；不属于上方和弦的基本音组。`};
     return {degree:DEGREES[interval],kind:'color',description:`${ch.name} 的 ${DEGREES[interval]} · 骨架外的音，需结合旋律走向判断；不据此指定音阶或趋近功能。`};
   }
-  function equivalents(value,maxFret=12) {
+  function equivalents(value,maxFret=24) {
     const n=typeof value==='object'&&value?value.midi:value;
     if(!Number.isInteger(n)||!Number.isInteger(maxFret)||maxFret<0) return [];
     const result=[];
@@ -177,7 +177,7 @@
       NOTES.push({...n,index:NOTES.length,sourceIndex:n.index??sourceIndex,name:n.name||pitch(n.midi),end:n.start+n.duration});
     }
     for(const e of source.events||[]) if(e&&(e.type==='rest'||e.rest===true)&&finite(e.start)&&finite(e.duration)&&e.duration>0) rests.push({...e,type:'rest'});
-    const maxSourceFret=Math.max(0,...NOTES.map(n=>n.fret)),maxFret=Math.max(12,Math.ceil(maxSourceFret/12)*12);
+    const maxSourceFret=Math.max(0,...NOTES.map(n=>n.fret)),maxFret=Math.max(24,Math.ceil(maxSourceFret/12)*12);
     const chordEvents=(source.chords||[]).map((c,index)=>{
       if(!c||!finite(c.start)||!finite(c.duration)||c.duration<=0) throw new TypeError(`Invalid source chord timing at ${index}.`);
       return {...c,sourceIndex:index,end:c.start+c.duration};

@@ -3,7 +3,7 @@
   let M = null, catalog = null, lesson = null, loadGeneration = 0;
   let sourceModel = null, sourceView = null, sourceFidelity = '', backingContext = null, backingState = null, backingUnavailableReason = '', mapTranspose = 0, resettingSource = false;
   const $ = id => document.getElementById(id), original = $('original-audio');
-  const state = {index:0, segment:0, rest:false, inspected:null, wide:false, shape:0, skeleton:true, equivalents:true, path:true, bpm:72, loop:false, playing:false};
+  const state = {index:0, segment:0, rest:false, inspected:null, wide:false, range:'focus', shape:0, skeleton:true, equivalents:true, path:true, bpm:72, loop:false, playing:false};
   let context, timer, generation=0;
   const voices = new Set();
   const html = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -17,12 +17,12 @@
     if (!keepPlaying) stopAll();
     const before = state.segment;
     state.index = Math.max(0, Math.min(M.NOTES.length-1, index)); state.segment=current().segment; state.inspected=null;state.rest=false;
-    if (state.segment !== before) state.shape=0;
-    render(); revealSelected();
+    if (state.segment !== before) state.shape=defaultShapeIndex();
+    ensureNoteRange(current()); render(); revealSelected();
   }
   function inspect(string, fret) {
     stopAll(); state.inspected={string,fret,midi:M.midi(string,fret),name:M.pitch(M.midi(string,fret))};
-    if (fret < focusRange()[0] || fret > focusRange()[1]) state.wide=true;
+    ensureNoteRange(state.inspected);
     render(); revealSelected();
   }
   function choosePosition(string, fret) {
@@ -38,13 +38,39 @@
   function focusRange() {
     const notes=segment().notes.length?segment().notes:segment().activeNotes||[];
     const frets=notes.map(n=>n.fret).filter(Number.isFinite);
-    const lo=frets.length?Math.min(...frets):3,hi=frets.length?Math.max(...frets):10;
+    if(!frets.length)return [0,15];
+    const lo=Math.min(...frets),hi=Math.max(...frets);
     const first=Math.max(0,Math.min(lo-1,hi-7)); return [first,Math.max(first+7,hi+1)];
+  }
+  function boardRange() {
+    if(state.wide)return [0,Math.max(24,M.maxFret||24)];
+    if(state.range==='low')return [0,15];
+    if(state.range==='high')return [12,24];
+    return focusRange();
+  }
+  function defaultShapeIndex() {
+    const [first,last]=boardRange();
+    const index=chord().shapes.findIndex(shape=>shape.minFret>=first&&shape.maxFret<=last);
+    return index<0?0:index;
+  }
+  function ensureNoteRange(n) {
+    if(!n)return;
+    const [first,last]=boardRange();
+    if(n.fret>=first&&n.fret<=last)return;
+    state.wide=n.fret>24;
+    state.range=n.fret>=12?'high':'low';
+    if(state.shape>=0)state.shape=defaultShapeIndex();
+  }
+  function revealShape(shape) {
+    if(!shape)return;
+    const target=shape.notes.find(n=>n.fret===shape.minFret)||shape.notes[0];
+    const cell=$('fretboard').querySelector(`[data-string="${target.string}"][data-fret="${target.fret}"]`);
+    if(cell){const r=cell.getBoundingClientRect(),v=$('fretboard-scroll').getBoundingClientRect();$('fretboard-scroll').scrollLeft+=r.left-v.left-70;}
   }
   const beats = n => Number.isFinite(n)?Number(n.toFixed(3)).toString():"—";
   function selectSegment(index, keepPlaying=false) {
     if (!keepPlaying) stopAll();
-    state.segment=Math.max(0,Math.min(M.SEGMENTS.length-1,index));state.inspected=null;state.rest=false;state.shape=0;
+    state.segment=Math.max(0,Math.min(M.SEGMENTS.length-1,index));state.inspected=null;state.rest=false;state.shape=defaultShapeIndex();
     if(segment().notes.length)state.index=segment().notes[0].index;
     render();revealSelected();
   }
@@ -53,7 +79,7 @@
     $('harmony-strip').innerHTML=bars.map(bar=>`<div class="measure"><span class="measure-label">第 ${bar} 小节</span><div class="measure-pair">${M.SEGMENTS.filter(s=>s.bar===bar).map(s=>`<button type="button" class="chord-segment ${s.index===state.segment?'active':''}" data-segment="${s.index}" aria-pressed="${s.index===state.segment}"><strong>${html(s.chord||'和声未知')}</strong><small>${M.harmonyOnly?'和声地标 · 非拍点':lesson?.sourceType==='guitarset'?'每小节和声采样':`第 ${beats(s.beat)} 拍 · ${beats(s.duration)} 拍长`}</small></button>`).join('')}</div></div>`).join('');
   }
   function renderBoard() {
-    const s=segment(),c=chord(),n=selected(),focus=focusRange(),first=state.wide?0:focus[0],last=state.wide?Math.max(12,M.maxFret||12,n?.fret||0):focus[1];
+    const s=segment(),c=chord(),n=selected(),[first,last]=boardRange();
     const count=last-first+1,w=state.wide?Math.max(1140,(last+1)*70):Math.max(820,count*70),dx=(w-80)/count,x=f=>60+(f-first+.5)*dx,y=string=>48+(string-1)*48;
     const shape=c.shapes[Math.max(0,Math.min(state.shape,c.shapes.length-1))];
     const shapeLocations = state.shape<0 || !shape ? [] : shape.frets.flatMap((f,i)=>f===null?[]:[{string:6-i,fret:f}]);
@@ -62,7 +88,7 @@
     let out=`<svg style="width:${w}px;min-width:${w}px;max-width:none" viewBox="0 0 ${w} 338" xmlns="http://www.w3.org/2000/svg" aria-label="${c.name} 指板，${first} 到 ${last} 品"><title>${c.name} 指板。数字标记实弹顺序；虚线环为同音名位置。</title><defs><marker id="path-arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5" fill="#edeedd"/></marker></defs>`;
     for(let f=first;f<=last;f++){
       out+=`<line x1="${x(f)+dx/2}" y1="29" x2="${x(f)+dx/2}" y2="306" stroke="#34432d" stroke-width="${f===0?4:1}"/><text x="${x(f)}" y="20" text-anchor="middle" class="fret-label">${f===0?'0 空弦':f}</text>`;
-      if([3,5,7,9,12,15,17,19,21,24].includes(f))out+=`<circle cx="${x(f)}" cy="323" r="3" fill="#536347"/>${f===12?`<circle cx="${x(f)+11}" cy="323" r="3" fill="#536347"/>`:''}`;
+      if([3,5,7,9,12,15,17,19,21,24].includes(f))out+=`<circle cx="${x(f)}" cy="323" r="3" fill="#536347"/>${f===12||f===24?`<circle cx="${x(f)+11}" cy="323" r="3" fill="#536347"/>`:''}`;
     }
     for(let string=1;string<=6;string++) out+=`<text x="13" y="${y(string)+4}" class="string-label">${string} · ${['','e','B','G','D','A','E'][string]}</text><line x1="60" y1="${y(string)}" x2="${w-20}" y2="${y(string)}" stroke="#67745c" stroke-width="${.6+string*.21}"/>`;
     if(state.shape>=0)out+=`<polyline class="shape-trace" points="${shapeLocations.filter(v=>v.fret>=first&&v.fret<=last).map(v=>`${x(v.fret)},${y(v.string)}`).join(' ')}"/>`;
@@ -82,7 +108,7 @@
       const role=exact.length?M.role(c,m,exact[0]):r;
       const fill=lowRoot?'#bdf45d':exact.length?'#f2f0e6':inShape?'#344a25':role.kind==='skeleton'?'#23331d':'#171c16';
       const stroke=role.kind==='approach'?'#ff9a88':role.kind==='color'?'#ffcc73':'#88ae61';
-      out+=`<g class="fret-note" tabindex="0" role="button" aria-label="${html(M.pitch(m))}，${pos({string,fret})}，${html(role.degree)}${exact.length?'，实弹第 '+exact.map(a=>a.index+1).join('、')+' 音':''}" data-string="${string}" data-fret="${fret}"><rect class="hitbox" x="${x(fret)-dx/2+2}" y="${y(string)-23}" width="${dx-4}" height="46" fill="transparent" rx="5"/>`;
+      out+=`<g class="fret-note" data-shape="${inShape}" data-active="${Boolean(active)}" data-role="${r.kind}" tabindex="0" role="button" aria-label="${html(M.pitch(m))}，${pos({string,fret})}，${html(role.degree)}${exact.length?'，实弹第 '+exact.map(a=>a.index+1).join('、')+' 音':''}" data-string="${string}" data-fret="${fret}"><rect class="hitbox" x="${x(fret)-dx/2+2}" y="${y(string)-23}" width="${dx-4}" height="46" fill="transparent" rx="5"/>`;
       if(show){
         if(same)out+=`<circle data-equivalent="true" cx="${x(fret)}" cy="${y(string)}" r="25" fill="none" stroke="#c9b4ff" stroke-width="1.4" stroke-dasharray="3 3"/>`;
         if(active)out+=`<circle cx="${x(fret)}" cy="${y(string)}" r="27.5" fill="none" stroke="#f2f0e6" stroke-width="2"/>`;
@@ -98,9 +124,15 @@
     $('fretboard').innerHTML=out+'</svg>';
     $('board-title').textContent=c.name;
     $('position-label').textContent=M.harmonyOnly?`第 ${s.bar} 小节 · 和声地标`:lesson?.sourceType==='guitarset'?`第 ${s.bar} 小节 · 和声采样区域`:`第 ${s.bar} 小节 · 第 ${beats(s.beat)} 拍 · ${beats(s.duration)} 拍长`;
-    $('shape-select').innerHTML=c.shapes.map((v,i)=>`<option value="${i}" ${state.shape===i?'selected':''}>${v.name}</option>`).join('')+`<option value="-1" ${state.shape<0?'selected':''}>不显示形状</option>`;
+    $('shape-select').innerHTML=c.shapes.map((v,i)=>`<option value="${i}" ${state.shape===i?'selected':''}>${html(v.name)} · ${v.minFret}–${v.maxFret} 品</option>`).join('')+`<option value="-1" ${state.shape<0?'selected':''}>不显示形状</option>`;
     $('shape-note').textContent=(state.shape<0?'CAGED 形状已隐藏。':shape?shape.note:'该和弦没有已验证 CAGED 按形，先看音程与根音。')+' 形状是定位地标，不是必须整把按住的指法，也不限制乐句边界。';
-    $('range-toggle').textContent=state.wide?`聚焦 ${focus[0]}–${focus[1]} 品`:`全指板 0–${Math.max(12,M.maxFret||12)} 品`;
+    $('range-toggle').textContent=`全指板 0–${Math.max(24,M.maxFret||24)} 品`;
+    for(const button of document.querySelectorAll('[data-fret-range]')) {
+      button.setAttribute('aria-pressed',String(!state.wide&&state.range===button.dataset.fretRange));
+      if(button.dataset.fretRange==='focus')button.hidden=M.harmonyOnly;
+    }
+    $('range-status').textContent=`当前 ${first}–${last} 品 · 左右滑动查看`;
+    $('fretboard-scroll').setAttribute('aria-label',`${c.name} 指板，${first} 到 ${last} 品，可左右滚动`);
     $('range-toggle').setAttribute('aria-pressed',String(state.wide));
   }
   function renderNote() {
@@ -117,7 +149,7 @@
     $('return-to-note').hidden=!state.inspected||M.harmonyOnly;
     $('root-anchors').innerHTML=c.anchors.map(([string,fret])=>`<button type="button" data-location="${string},${fret}">${M.pitch(M.midi(string,fret))} · ${string}/${fret}</button>`).join('');
     $('root-bridge-copy').textContent=c.bridge;
-    let targets=M.equivalents(n.midi,Math.max(12,M.maxFret||12,n.fret+2)).filter(a=>a.string>=3&&!(a.string===n.string&&a.fret===n.fret));
+    let targets=M.equivalents(n.midi,Math.max(24,M.maxFret||24)).filter(a=>a.string>=3&&!(a.string===n.string&&a.fret===n.fret));
     targets.sort((a,b)=> (Math.abs(a.fret-n.fret)-Math.abs(b.fret-n.fret)) || a.string-b.string);
     // Put the useful three-string / two-fret reverse octave bridge first.
     if(n.string<=2)targets.sort((a,b)=>Number(b.string===n.string+3&&b.fret===n.fret+2)-Number(a.string===n.string+3&&a.fret===n.fret+2));
@@ -171,7 +203,7 @@
     const transpose=Number.isFinite(value)?value:0;
     if(!sourceModel||transpose===mapTranspose)return false;
     if(resettingSource)stop();else stopAll();
-    if(!mapTranspose)sourceView={index:state.index,segment:state.segment,rest:state.rest,inspected:state.inspected,shape:state.shape,wide:state.wide};
+    if(!mapTranspose)sourceView={index:state.index,segment:state.segment,rest:state.rest,inspected:state.inspected,shape:state.shape,wide:state.wide,range:state.range};
     if(!transpose) {
       M=sourceModel;
       if(sourceView)Object.assign(state,sourceView);
@@ -181,7 +213,8 @@
       const data={...sourceModel.source,notes:[],events:[],segments:[],notation:'standard',
         chords:sourceModel.chordEvents.map(c=>({...c,name:transposeChordName(c.chord,transpose)}))};
       M=window.FretboardCore.adaptLesson(data);M.harmonyOnly=true;
-      state.segment=Math.min(state.segment,M.SEGMENTS.length-1);state.index=0;state.rest=false;state.inspected=null;state.shape=0;
+      if(state.range==='focus')state.range='low';
+      state.segment=Math.min(state.segment,M.SEGMENTS.length-1);state.index=0;state.rest=false;state.inspected=null;state.shape=defaultShapeIndex();
     }
     mapTranspose=transpose;updateModelVisibility();render();return true;
   }
@@ -279,9 +312,9 @@
           const si=M.SEGMENTS.findIndex(s=>at>=s.start&&at<s.start+s.duration);
           const sounding=M.NOTES.filter(n=>n.start<=at&&n.start+n.duration>at);
           const n=sounding[sounding.length-1];
-          if(si>=0&&si!==state.segment){state.segment=si;state.shape=0;}
+          if(si>=0&&si!==state.segment){state.segment=si;state.shape=defaultShapeIndex();}
           const changed=state.rest!==!n||(n&&state.index!==n.index)||state.lastRenderedSegment!==state.segment;
-          state.rest=!n;if(n)state.index=n.index;if(changed){render();revealSelected();state.lastRenderedSegment=state.segment;}
+          state.rest=!n;if(n)state.index=n.index;if(changed){ensureNoteRange(n);render();revealSelected();state.lastRenderedSegment=state.segment;}
           timer=setTimeout(tick,45);
         }tick();
       }run();
@@ -293,8 +326,23 @@
   $('fretboard').addEventListener('click',e=>{const b=e.target.closest('[data-string]');if(b)choosePosition(+b.dataset.string,+b.dataset.fret);});
   $('fretboard').addEventListener('keydown',e=>{const b=e.target.closest('[data-string]');if(b&&['Enter',' '].includes(e.key)){e.preventDefault();choosePosition(+b.dataset.string,+b.dataset.fret);}});
   $('return-to-note').addEventListener('click',()=>selectNote(state.index));
-  $('shape-select').addEventListener('change',e=>{state.shape=+e.target.value;renderBoard();});
-  $('range-toggle').addEventListener('click',()=>{state.wide=!state.wide;if(!state.wide&&state.inspected&&(state.inspected.fret<focusRange()[0]||state.inspected.fret>focusRange()[1]))state.inspected=null;render();revealSelected();});
+  $('shape-select').addEventListener('change',e=>{
+    state.shape=+e.target.value;
+    const shape=chord().shapes[state.shape];
+    if(shape) {
+      state.wide=shape.maxFret>24;
+      state.range=shape.minFret>=12?'high':'low';
+    }
+    renderBoard();revealShape(shape);
+  });
+  $('range-toggle').addEventListener('click',()=>{state.wide=true;renderBoard();$('fretboard-scroll').scrollLeft=0;});
+  for(const button of document.querySelectorAll('[data-fret-range]'))button.addEventListener('click',()=>{
+    state.wide=false;state.range=button.dataset.fretRange;
+    if(state.range==='focus')state.inspected=null;
+    if(state.shape>=0)state.shape=defaultShapeIndex();
+    render();$('fretboard-scroll').scrollLeft=0;
+    if(state.range==='focus')revealSelected();
+  });
   for(const [id,key]of [['show-skeleton','skeleton'],['show-equivalents','equivalents'],['show-path','path']])$(id).addEventListener('change',e=>{state[key]=e.target.checked;renderBoard();});
   $('previous-note').addEventListener('click',()=>selectNote(state.index-1));$('next-note').addEventListener('click',()=>selectNote(state.index+1));
   $('previous-segment').addEventListener('click',()=>selectSegment(state.segment-1));
@@ -346,7 +394,7 @@
       else data=window.FretboardCore.catalogLesson(item);
       if(token!==loadGeneration)return;
       M=window.FretboardCore.adaptLesson(data);M.harmonyOnly=!item.supported;sourceModel=M;
-      state.index=0;state.segment=0;state.rest=false;state.inspected=null;state.shape=0;state.wide=false;state.playing=false;
+      state.index=0;state.segment=0;state.rest=false;state.inspected=null;state.wide=false;state.range=M.harmonyOnly?'low':'focus';state.shape=defaultShapeIndex();state.playing=false;
       state.bpm=Math.min(140,Math.max(40,data.originalBpm||72));$('tempo').value=state.bpm;$('tempo-value').textContent=state.bpm+' BPM';
       sourceFidelity=item.supported?(item.sourceType==='guitarset'?'按原始演奏标注保留弦、品、起音和延音；片段接入的延音会标明。和声是每小节采样标签，不能据此断定小节内部换和弦的精确时刻。':'此例逐音核对原 PNG / TAB，保留原弦、品与谱面时值。原始示范的节奏处理与语气仍以录音为准。'):'和弦地图，尚未核对原谱逐音路线。和弦顺序来自资料库索引；每个按钮仅是和声地标，不表示精确换和弦拍点。不会用生成乐句代替原谱。';
       updateModelVisibility();backingContext=makeBackingContext(item);
@@ -370,9 +418,9 @@
     const at=original.currentTime,notes=M.NOTES.filter(n=>Number.isFinite(n.timeSeconds)&&n.timeSeconds<=at&&n.timeSeconds+n.durationSeconds>at);
     state.rest=!notes.length;
     const atSegment=M.segmentAt(at*(M.source.originalBpm||lesson.originalBpm)/60);
-    if(atSegment&&state.segment!==atSegment.index){state.segment=atSegment.index;state.shape=0;state.inspected=null;}
+    if(atSegment&&state.segment!==atSegment.index){state.segment=atSegment.index;state.shape=defaultShapeIndex();state.inspected=null;}
     if(notes.length){const n=notes[notes.length-1];state.index=n.index;state.inspected=null;}
-    render();revealSelected();
+    ensureNoteRange(notes[notes.length-1]);render();revealSelected();
   });
   original.addEventListener('error',()=>{$('original-status').textContent='原始示范未能载入；请稍后重试，或返回原乐句页。不会自动换成合成音。';});
   $('score-image').addEventListener('error',()=>{$('score-image').alt='原谱图片暂时无法加载，点击尝试打开原文件';});
